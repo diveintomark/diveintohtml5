@@ -17,13 +17,16 @@ canvas{border:1px dotted}
 <h2 id=divingin>Diving In</h2>
 <p class=f><img src=i/H.png alt=H width=104 height=102>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas&gt; element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
 
-<br>
+<p>So what is a canvas?</p>
+
 <canvas width=300 height=225></canvas>
-<p class='bottom legend'><span class=arrow>&#x219c;</span> This is a canvas.
+<p class=legend><span class=arrow>&#x219c;</span> This is a canvas.
 
 <p>The markup looks like this:
 
 <pre class=nd><code class=pp>&lt;canvas width="300" height="225"&gt;</code></pre>
+
+<p>(I also used CSS to add a dotted border around the canvas. The <code>&lt;canvas&gt;</code> element has no border by default.)
 
 <p>You can have several <code>&lt;canvas&gt;</code> elements on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
 
