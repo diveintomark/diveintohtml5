@@ -1,1 +1,11 @@
 Dive Into HTML 5 TODO list    -*- mode: org; -*-
+* TODO Let's Call It A Draw(ing Surface)
+** simple shapes; complex paths
+** transformations; compositing; shadows
+** drawing images; pixel manipulation
+** drawing text
+** getting data back out of a <canvas>
+** security model; same-origin restrictions
+** reusable widget libraries (Thunderhead)
+** ExCanvas: compatibility shim for IE
+** API reference

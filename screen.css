@@ -65,17 +65,24 @@ Acknowledgements & Inspirations
 /* typography */
 
 @font-face {
-  font-family: "Goudy Bookletter 1911";
-  src: local("Goudy Bookletter 1911"), url("f/goudy-bookletter-min.ttf") format("truetype");
+  font-family: 'Goudy Bookletter 1911';
+  src: local('Goudy Bookletter 1911'), url('f/goudy-bookletter-min.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Verby Blocks';
+  src: local('Verby Blocks'), url('f/verbyblocks-min.ttf') format('truetype');
 }
 
 body, .w a {
-  font: large/1.556 'Goudy Bookletter 1911', 'Linux Libertine', Cambria, 'Times New Roman', serif;
+  font: large/1.556 'Goudy Bookletter 1911', 'Linux Libertine', Cambria, 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
   word-spacing: 0.1em;
+  letter-spacing: 0.01em;
 }
 pre, kbd, samp, code, var, .b, pre span {
   font: medium/1.75 Consolas, 'Andale Mono', Monaco, 'Liberation Mono', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
   word-spacing: 0;
+  letter-spacing: 0;
 }
 .u {
   font: large/1.556 'Arial Unicode MS', FreeSerif, OpenSymbol, 'DejaVu Sans', sans-serif;
@@ -85,11 +92,6 @@ pre .u, pre .u span, .a {
 }
 .baa {
   font: oblique 105% Constantia, Baskerville, Palatino, 'Palatino Linotype', 'URW Palladio L', serif;
-}
-abbr {
-  font-variant: small-caps;
-  text-transform: lowercase;
-  letter-spacing: 0.1em;
 }
 .note {
   margin: 3.112em 4.94em;
@@ -106,11 +108,13 @@ abbr {
   line-height: 1.75;
 }
 .f:first-letter {
+/*
   float: left;
   color: lightsteelblue;
   padding: 0.11em 4px 0 0;
   font: normal 4em/0.68 serif;
   text-shadow: steelblue 1px 1px 1px;
+*/
 }
 p, ul, ol {
   font-size: large;
@@ -131,7 +135,7 @@ body {
   text-align: center;
 }
 .c {
-  margin: 2.154em 0;
+  margin: 1.75em 0;
 }
 .a {
   font-size: xx-large;
@@ -163,6 +167,9 @@ form div, #level {
   float: right;
   margin: 0 0 1.75em 1.75em;
 }
+cite, dfn {
+  font-style: normal;
+}
 
 /* links */
 
@@ -183,12 +190,42 @@ a:visited {
   color: inherit;
 }
 
+/* figures and legends */
+
+.legend {
+  font: xx-large/1 "Verby Blocks","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
+  margin-left: 0.5em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.arrow {
+  font: xx-large/1 'Arial Unicode MS',FreeSerif,OpenSymbol,'DejaVu Sans',sans-serif;
+}
+
+.left {
+  float: left;
+}
+
+.top {
+  margin-bottom:0;
+}
+
+.bottom {
+  display:block;
+  margin-top:0;
+  margin-left:2em;
+}
+
 /* code blocks */
 
 pre {
   white-space: pre-wrap;
-  padding-left: 2.154em;
-  border-left: 1px solid #ddd;
+  padding-left: 3.112em;
+/*  border-left: 1px solid #ddd; */
+}
+pre.np {
+  padding: 0;
 }
 .w {
   float: left;
@@ -205,14 +242,11 @@ pre a, .w a {
 .w a {
   text-decoration: underline;
 }
-dfn {
-  font-style: normal;
-}
 mark {
   font-weight: bold;
   display: inline-block;
-  width: 100%;
   background: #ff8;
+  outline: 1px dotted #888;
 }
 pre span, .p {
   color: #667;
@@ -232,23 +266,25 @@ pre a, td code a, .w a, pre a:hover {
 
 /* headers and pullquotes */
 
-h1, h2, h3, aside {
-  font-family: "Goudy Bookletter 1911", "Book Antiqua", Palatino, Georgia, serif;
+h1, h2, h3 {
+  font-family: 'Goudy Bookletter 1911', 'Linux Libertine', Cambria, 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
   font-weight: bold;
   letter-spacing: 1px;
 }
 h1, h1 code {
-  font-size: xx-large;
-  line-height: 1.3125;
+  font-size: 266.7%;
+  line-height: 0;
+  padding-bottom: 1em;
+  text-align: center;
 }
 h2, h2 code {
-  font-size: x-large;
-  line-height: 1.167;
+  font-size: xx-large;
+  line-height: 1.3125;
   margin: 1.167em 0;
 }
 h3, h3 code {
-  font-size: large;
-  line-height: 1.556;
+  font-size: x-large;
+  line-height: 1.167;
   margin: 1.556em 0;
 }
 h1 {
@@ -258,21 +294,21 @@ h1 {
   counter-reset: h2;
 }
 h1:before {
-  content: "Chapter " counter(h1) ". ";
+  content: 'Chapter ' counter(h1) '. ';
 }
 h2:before {
   counter-increment: h2;
-  content: counter(h1) "." counter(h2) ". ";
+  content: counter(h1) '.' counter(h2) '. ';
 }
 h2 {
   counter-reset: h3;
 }
 #toc + h2:before {
-  content: "";
+  content: '';
 }
 h3:before {
   counter-increment: h3;
-  content: counter(h1) "." counter(h2) "." counter(h3) ". ";
+  content: counter(h1) '.' counter(h2) '.' counter(h3) '. ';
 }
 aside {
   display: block;
@@ -331,4 +367,3 @@ aside a {
 .atn { color: #606; }
 .atv { color: #080; }
 .dec { color: #606; }
-

@@ -6,6 +6,7 @@
 <link rel=stylesheet href=screen.css>
 <style>
 body{counter-reset:h1 4}
+canvas{border:1px dotted}
 </style>
 <meta name=viewport content='initial-scale=1.0'>
 </head>
@@ -14,10 +15,78 @@ body{counter-reset:h1 4}
 <h1>Let&#8217;s Call It A Draw(ing Surface)</h1>
 <p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=449 height=433 alt='man drawing in front of a mirror'>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving in</h2>
-<p class=f>
+<h2 id=divingin>Diving In</h2>
+<p class=f><abbr>HTML</abbr> 5 defines a 2-dimensional drawing surface, called a canvas. A canvas is a rectangle in your page where you can use JavaScript to draw anything you want.
+
+<blockquote>
+<canvas width=300 height=225></canvas>
+<p class='bottom legend'><span class=arrow>&#x219c;</span> This is a canvas.
+</blockquote>
+
+<p>The markup looks like this:
+
+<pre class=nd><code class=pp>&lt;canvas width="300" height="225"&gt;</code></pre>
+
+<p>You can have several <code>&lt;canvas&gt;</code> elements on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
+
+<p>Let&#8217;s expand that markup to include an <code>id</code> attribute:
+
+<pre class=nd><code class=pp>&lt;canvas id="a" width="300" height="225"&gt;</code></pre>
+
+<p>Now you can easily find that <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
+
+<pre class=nd><code class=pp>var a_canvas = document.getElementById("a");</code></pre>
+
+<h2 id=shapes>Simple Shapes</h2>
+
+<p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
+
+<canvas id=b width=300 height=225></canvas>
+<p class=legend><span class=arrow>&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
+
+<p>The <code>onclick</code> handler called this function:
+
+<pre class=nd><code class=pp>function draw_b() {
+  var b_canvas = document.getElementById("b");
+  var b_context = b_canvas.getContext("2d");
+  b_context.fillRect(25,25,100,100);
+}</code></pre>
+
+<p>The first line of the function is nothing special; it just finds the <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
+
+<p class="legend left">And then there&#8217;s this <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<pre class="nd np"><code class=pp>function draw_b() {
+  var b_canvas = document.getElementById("b");
+<mark>  var b_context = b_canvas.getContext("2d");</mark>
+  b_context.fillRect(25,25,100,100);
+}</code></pre>
+
+<h2 id=images>Images</h2>
+
+<h2 id=text>Text</h2>
+
+<h2 id=paths>Paths</h2>
+
+<h2 id=transforms>Transforms</h2>
+
+<h2 id=shadows>Shadows</h2>
+
+<h2 id=data>Canvas <span class=u>&#8227;</span> Save As&hellip;</h2>
+
+<h2 id=ie>What About IE?</h2>
+
+<h2 id=api>API Reference</h2>
 
 <p class=c>&copy; 2009 O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+<script>
+function draw_b() {
+  var b_canvas = document.getElementById("b");
+  if (b_canvas.getContext) {
+    var b_context = b_canvas.getContext("2d");
+    b_context.fillRect(25,25,100,100);
+  }
+}
+</script>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>
 <script src=j/dih5.js></script>
