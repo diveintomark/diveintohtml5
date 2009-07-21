@@ -10,18 +10,16 @@ canvas{border:1px dotted}
 </style>
 <meta name=viewport content='initial-scale=1.0'>
 </head>
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input name=q size=25>&nbsp;<input type=submit name=sa value=Search></div></form>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <!--<a href=table-of-contents.html#canvas>-->Dive Into HTML 5<!--</a>--> <span class=u>&#8227;</span>
 <h1>Let&#8217;s Call It A Draw(ing Surface)</h1>
-<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=449 height=433 alt='man drawing in front of a mirror'>
 <p id=toc>&nbsp;
+<p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
-<p class=f><abbr>HTML</abbr> 5 defines a 2-dimensional drawing surface, called a canvas. A canvas is a rectangle in your page where you can use JavaScript to draw anything you want.
+<p class=f><img src=i/H.png alt=H width=104 height=102>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas&gt; element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
 
-<blockquote>
+<br>
 <canvas width=300 height=225></canvas>
 <p class='bottom legend'><span class=arrow>&#x219c;</span> This is a canvas.
-</blockquote>
 
 <p>The markup looks like this:
 
@@ -37,7 +35,11 @@ canvas{border:1px dotted}
 
 <pre class=nd><code class=pp>var a_canvas = document.getElementById("a");</code></pre>
 
+<p class=a>&#x2042;
+
 <h2 id=shapes>Simple Shapes</h2>
+
+<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=449 height=433 alt='man drawing in front of a mirror'>
 
 <p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
 
@@ -61,6 +63,8 @@ canvas{border:1px dotted}
   b_context.fillRect(25,25,100,100);
 }</code></pre>
 
+<p>Every canvas has a <dfn>context</dfn>, which is where all the fun stuff happens. Once you&#8217;ve found a <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>'2d'</code> to the <code>getContext()</code> method.
+
 <h2 id=images>Images</h2>
 
 <h2 id=text>Text</h2>
@@ -78,6 +82,7 @@ canvas{border:1px dotted}
 <h2 id=api>API Reference</h2>
 
 <p class=c>&copy; 2009 O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input name=q size=25>&nbsp;<input type=submit name=sa value=Search></div></form>
 <script>
 function draw_b() {
   var b_canvas = document.getElementById("b");

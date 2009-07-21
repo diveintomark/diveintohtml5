@@ -39,6 +39,7 @@ Classname Legend
 .v = "navigation" = prev/next navigation links (not breadcrumbs)
 .u = "Unicode"    = text contains Unicode characters (requires special font declaration to accomodate *cough* a certain browser)
 
+.dc = "drop cap"      = image simulating first-letter initial
 .nm = "no mobile"     = hide this section on mobile devices
 .nd = "no decoration" = hide the widgets on this code block
 .pp = "pretty print"  = apply syntax highlighting to this code block
@@ -72,6 +73,10 @@ Acknowledgements & Inspirations
 @font-face {
   font-family: 'Verby Blocks';
   src: local('Verby Blocks'), url('f/verbyblocks-min.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Essays1743';
+  src: local('Essays1743'), url('f/essays1743-min.ttf') format('truetype');
 }
 
 body, .w a {
@@ -107,14 +112,10 @@ pre .u, pre .u span, .a {
 .c, w, .w a, .d {
   line-height: 1.75;
 }
-.f:first-letter {
-/*
+.f img {
   float: left;
-  color: lightsteelblue;
-  padding: 0.11em 4px 0 0;
-  font: normal 4em/0.68 serif;
-  text-shadow: steelblue 1px 1px 1px;
-*/
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 p, ul, ol {
   font-size: large;
@@ -130,26 +131,25 @@ html {
 body {
   margin: 1.75em 28px;
 }
-.c, .a, .xxxl {
+.c, .a, .xxxl, #toc {
   clear: both;
   text-align: center;
 }
 .c {
   margin: 1.75em 0;
 }
+#toc ol, #toc li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
 .a {
   font-size: xx-large;
   line-height: .875;
-  color: #82b445;
+  clear: both;
 }
-form div, #level {
-  float: right;
-}
-.todo {
-  color: #ddd;
-}
-#level span {
-  color: #82b445;
+form div {
+  text-align: center;
 }
 .pf,.fr {
   border: 1px solid;
@@ -170,6 +170,14 @@ form div, #level {
 cite, dfn {
   font-style: normal;
 }
+dfn {
+}
+strong {
+  font-weight: normal;
+  border-top: 3px double;
+  border-bottom: 3px double;
+  text-transform: uppercase;
+}
 
 /* links */
 
@@ -181,10 +189,10 @@ a:hover {
   border-bottom: 1px solid;
 }
 a:link, .w a {
-  color: steelblue;
+  color: #000;
 }
 a:visited {
-  color: #b44582;
+  color: #666;
 }
 .c a {
   color: inherit;
@@ -222,7 +230,6 @@ a:visited {
 pre {
   white-space: pre-wrap;
   padding-left: 3.112em;
-/*  border-left: 1px solid #ddd; */
 }
 pre.np {
   padding: 0;
@@ -267,48 +274,28 @@ pre a, td code a, .w a, pre a:hover {
 /* headers and pullquotes */
 
 h1, h2, h3 {
-  font-family: 'Goudy Bookletter 1911', 'Linux Libertine', Cambria, 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-family: 'Essays1743', 'Goudy Bookletter 1911', 'Linux Libertine', Cambria, 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;*/
 }
-h1, h1 code {
+h1 {
   font-size: 266.7%;
-  line-height: 0;
-  padding-bottom: 1em;
+  line-height: 1;
   text-align: center;
+  width: 100%;
+  margin: 1.49em 0;
 }
-h2, h2 code {
-  font-size: xx-large;
+h2 {
+  font-size: 210%;
   line-height: 1.3125;
   margin: 1.167em 0;
+  text-align: center;
 }
-h3, h3 code {
+h3 {
   font-size: x-large;
   line-height: 1.167;
   margin: 1.556em 0;
 }
-h1 {
-  border-bottom: 4px double;
-  width: 100%;
-  margin: 1.49em 0;
-  counter-reset: h2;
-}
 h1:before {
   content: 'Chapter ' counter(h1) '. ';
-}
-h2:before {
-  counter-increment: h2;
-  content: counter(h1) '.' counter(h2) '. ';
-}
-h2 {
-  counter-reset: h3;
-}
-#toc + h2:before {
-  content: '';
-}
-h3:before {
-  counter-increment: h3;
-  content: counter(h1) '.' counter(h2) '.' counter(h3) '. ';
 }
 aside {
   display: block;
@@ -324,14 +311,6 @@ aside {
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
-}
-aside.ots {
-  font-style: normal;
-  font-size: medium;
-  line-height: 1.75;
-}
-aside a {
-  color: #fff !important;
 }
 
 /* previous/next navigation links */
