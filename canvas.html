@@ -61,7 +61,7 @@ body{counter-reset:h1 4}
 
 <p>The first line of the function is nothing special; it just finds the <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
 
-<p class="legend left">And then there&#8217;s this <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left">And then there's this <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <pre class="nd np"><code class=pp>function draw_b() {
   var b_canvas = document.getElementById("b");
 <mark>  var b_context = b_canvas.getContext("2d");</mark>
@@ -88,7 +88,7 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 </ul>
 
 <p>Getting back to that code sample in the previous example&hellip;
-<p class="legend left">This draws the rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left">Draw a rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <pre class="nd np"><code class=pp>var b_canvas = document.getElementById("b");
 var b_context = b_canvas.getContext("2d");
 <mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
@@ -245,6 +245,13 @@ context.fillText("y", 58, 165);</code></pre>
 context.fillText("y", 58, 165);</code></pre>
 <p class=legend><span class=arrow>&#x21dc;</span> Draw the text</p>
 
+<div class=pf>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
+A: Yes. The default font is <code>10px sans-serif</code>. Sizes in <code>em</code> or percentages are measured against the default font.
+</blockquote>
+</div>
+
 <p>For the text in the upper-left corner, I want the top of the text to be at <code>y=5</code>. But I&#8217;m lazy&nbsp;&mdash;&nbsp;I don&#8217;t want to measure the height of the text and calculate the baseline. Instead, I can set the <code>textBaseline</code> to <code>top</code> and pass in the upper-left coordinate of the text&#8217;s bounding box.
 
 <pre><code class=pp>context.textBaseline = "top";
@@ -264,18 +271,11 @@ context.fillText("( 500 , 375 )", <mark>492, 370</mark>);</code></pre>
 
 <pre class=ib><code class=pp>context.fillRect(0, 0, 3, 3);
 context.fillRect(497, 372, 3, 3);</code></pre>
-<p class=legend><span class=arrow>&#x219c;</span> Draw two &#8220;dots&#8221;</p>
+<p class=legend><span class=arrow>&#x219c;</span> Draw two "dots"</p>
 
 <canvas id=c5 width=500 height=375 style="display:block"></canvas>
 
 <p>And that&#8217;s all she wrote!
-
-<div class=pf>
-<blockquote class=note>
-<p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
-A: Yes. The default font is <code>10px sans-serif</code>. Sizes in <code>em</code> or percentages are measured against the default font.
-</blockquote>
-</div>
 
 <p class=a>&#x2042;
 
