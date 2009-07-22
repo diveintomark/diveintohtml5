@@ -91,7 +91,9 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
   var b_context = b_canvas.getContext("2d");
 <mark>  b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
 
-<p>Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&#8217;s look at the canvas coordinate system.
+<p class=clear>Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&#8217;s look at the canvas coordinate system.
+
+<p class=a>&#x2042;
 
 <h2 id=coordinates>Canvas Coordinates</h2>
 
@@ -99,6 +101,8 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 
 <p class='legend top' style="width:500px;text-align:center">canvas coordinates diagram<span class=arrow>&#x21b7;</span><br></p>
 <canvas id=c width=500 height=375></canvas>
+
+<p class=a>&#x2042;
 
 <h2 id=paths>Paths</h2>
 
@@ -135,6 +139,8 @@ var c_context = c_canvas.getContext("2d");</code></pre>
 <pre class=nd><code class=pp>var c_width = c_canvas.width;
 var c_height = c_canvas.height;</code></pre>
 
+<p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_media_files_johnny_automatic_7563.png alt="gerbil sitting on a chair with a quill and ink jar" width=167 height=347>
+
 <p>Now we can start drawing lines. The best way to visualize this is to imagine you&#8217;re drawing a picture in ink. You don&#8217;t want to just dive in and start drawing with ink, because you might make a mistake. So you first draw with a pencil, and then when you&#8217;re happy with your lines and curves, you trace over it in ink.
 
 <p>Each canvas has a <dfn>path</dfn>. Defining the path is like drawing with a pencil. You can draw whatever you like, but it won&#8217;t be part of the finished product until you pick up the quill and trace over your path in ink.
@@ -170,27 +176,35 @@ var c_height = c_canvas.height;</code></pre>
 <pre class=nd><code class=pp>c_context.strokeStyle = "#eee";
 <mark>c_context.stroke();</mark></code></pre>
 
-<p><code>stroke()</code> is one of the &#8220;ink&#8221; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and it actually draws it on the canvas. (The <code>strokeStyle</code> controls the color of the lines.)
-
-<p>This is the result:</p>
+<p><code>stroke()</code> is one of the &#8220;ink&#8221; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and it actually draws it on the canvas. The <code>strokeStyle</code> controls the color of the lines, and this is the result:</p>
 
 <canvas id=c2 width=500 height=375></canvas>
 
 <p>&hellip;FIXME
 
+<p class=a>&#x2042;
+
 <h2 id=text>Text</h2>
+
+<p class=a>&#x2042;
 
 <h2 id=images>Images</h2>
 
+<p class=a>&#x2042;
+
 <h2 id=transforms>Transforms</h2>
+
+<p class=a>&#x2042;
 
 <h2 id=shadows>Shadows</h2>
 
+<p class=a>&#x2042;
+
 <h2 id=data>Canvas <span class=u>&#8227;</span> Save As&hellip;</h2>
 
-<h2 id=ie>What About IE?</h2>
+<p class=a>&#x2042;
 
-<h2 id=api>API Reference</h2>
+<h2 id=ie>What About IE?</h2>
 
 <p class=a>&#x2042;
 
