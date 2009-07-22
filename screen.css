@@ -63,25 +63,31 @@ Acknowledgements & Inspirations
 
 /* typography */
 
+/*
 @font-face {
   font-family: 'Goudy Bookletter 1911';
   src: url('f/goudy-bookletter-min.eot');
   src: local('Goudy Bookletter 1911'), url('f/goudy-bookletter-min.ttf');
 }
-
-@font-face {
-  font-family: 'Verby Blocks';
-  src: url('f/verbyblocks-min.eot');
-  src: local('Verby Blocks'), url('f/verbyblocks-min.ttf');
-}
+*/
 @font-face {
   font-family: 'Essays1743';
   src: url('f/essays1743-min.eot');
   src: local('Essays1743'), url('f/essays1743-min.ttf');
 }
+@font-face {
+  font-family: 'Linux Libertine';
+  src: url('f/lin-libertine-min.eot');
+  src: local('Linux Libertine'), url('f/lin-libertine-min.ttf');
+}
+@font-face {
+  font-family: 'Verby Blocks';
+  src: url('f/verbyblocks-min.eot');
+  src: local('Verby Blocks'), url('f/verbyblocks-min.ttf');
+}
 
 body, .w a {
-  font: large/1.556 'Goudy Bookletter 1911', 'Linux Libertine', 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
+  font: large/1.556 'Linux Libertine', monospace;/*'Goudy Bookletter 1911', Gentium, 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;*/
   word-spacing: 0.1em;
   letter-spacing: 0.01em;
 }
@@ -260,7 +266,7 @@ pre a, td code a, .w a, pre a:hover {
 /* headers and pullquotes */
 
 h1, h2, h3 {
-  font-family: 'Essays1743', 'Linux Libertine', 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;*/
+  font-family: 'Essays1743', 'Linux Libertine', 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
 }
 h1 {
   font-size: 266.7%;
