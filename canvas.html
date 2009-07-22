@@ -9,6 +9,7 @@ body{counter-reset:h1 4}
 </style>
 <meta name=viewport content='initial-scale=1.0'>
 </head>
+<div id=body>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <!--<a href=table-of-contents.html#canvas>-->Dive Into HTML 5<!--</a>--> <span class=u>&#8227;</span>
 <h1>Let&#8217;s Call It A Draw(ing Surface)</h1>
 <p id=toc>&nbsp;
@@ -44,8 +45,6 @@ body{counter-reset:h1 4}
 
 <h2 id=shapes>Simple Shapes</h2>
 
-<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=449 height=433 alt='man drawing in front of a mirror'>
-
 <p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
 
 <canvas id=b width=300 height=225 style="border:1px dotted"></canvas>
@@ -61,21 +60,21 @@ body{counter-reset:h1 4}
 
 <p>The 1<sup>st</sup> line of the function is nothing special; it just finds the <code>&lt;canvas></code> element in the <abbr>DOM</abbr>.
 
-<p class="legend left">And then there's this <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left" style="margin-top:2.2em">And then there&#8217;s this <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <pre><code class=pp>function draw_b() {
   var b_canvas = document.getElementById("b");
 <mark>  var b_context = b_canvas.getContext("2d");</mark>
   b_context.fillRect(50, 25, 150, 100);
 }</code></pre>
 
+<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=449 height=433 alt='man drawing in front of a mirror'>
+
 <p>Every canvas has a drawing <dfn>context</dfn>, which is where all the fun stuff happens. Once you&#8217;ve found a <code>&lt;canvas></code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>'2d'</code> to the <code>getContext()</code> method.
 
-<div class=pf style="margin:3.112em">
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Is there a 3-D canvas?<br>
 A: Not yet. Individual vendors have experimented with their own three-dimensional canvas APIs, but none of them have been standardized. The HTML 5 specification notes, &#8220;A future version of this specification will probably define a 3d context.&#8221;
 </blockquote>
-</div>
 
 <p>You have a <code>&lt;canvas></code> element, and you have its drawing context. The drawing context is where all the drawing methods and properties are defined. There&#8217;s a whole group of methods devoted to drawing rectangles:
 
@@ -88,7 +87,7 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 </ul>
 
 <p>Getting back to that code sample in the previous example&hellip;
-<p class="legend left">Draw a rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left" style="margin-top:2.2em">Draw a rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <pre><code class=pp>var b_canvas = document.getElementById("b");
 var b_context = b_canvas.getContext("2d");
 <mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
@@ -101,7 +100,7 @@ var b_context = b_canvas.getContext("2d");
 
 <p>The canvas is a two-dimensional grid. The coordinate (0, 0) is at the upper-left corner of the canvas. Along the X-axis, values increase towards the right edge of the canvas. Along the Y-axis, values increase towards the bottom edge of the canvas.
 
-<p class='legend top' style="width:500px;text-align:center">Canvas coordinates diagram<span class=arrow>&#x21b7;</span><br></p>
+<p class='legend top' style="width:500px;text-align:center">Canvas coordinates diagram <span class=arrow>&#x21b7;</span><br></p>
 <canvas id=c width=500 height=375></canvas>
 
 <p>That coordinate diagram was drawn with a <code>&lt;canvas></code> element. It comprises
@@ -155,17 +154,17 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <pre class=ib><code class=pp>for (var x = 0; x < 500; x += 10) {
   context.moveTo(x, 0);
-  context.lineTo(x, 375);
+  <mark>context.lineTo(x, 375);</mark>
 }</code></pre>
-<p class=legend><span class=arrow>&#x21dc;</span> Draw vertical lines</p>
+<p class=legend style="margin-top:2.9em"><span class=arrow>&#x21dc;</span> Draw vertical lines</p>
 
 <p style="clear:both">
 
 <pre class=ib><code class=pp>for (var y = 0; y < 375; y += 10) {
   context.moveTo(0, y);
-  context.lineTo(500, y);
+  <mark>context.lineTo(500, y);</mark>
 }</code></pre>
-<p class=legend><span class=arrow>&#x21dc;</span> Draw horizontal lines</p>
+<p class=legend style="margin-top:2.9em"><span class=arrow>&#x21dc;</span> Draw horizontal lines</p>
 
 <p style="clear:both">Those were all &#8220;pencil&#8221; methods. Nothing has actually been drawn on the canvas yet. We need an &#8220;ink&#8221; method to make it permanent.
 
@@ -178,7 +177,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient&nbsp;&mdash;&nbsp;yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink&nbsp;&mdash;&nbsp;black instead of off-white&nbsp;&mdash;&nbsp;so we need to start a new path.
 
-<p class='legend top' style="margin-left:2em">A new path<span class=arrow>&#x21b7;</span><br></p>
+<p class='legend top' style="margin-left:2em">A new path <span class=arrow>&#x21b7;</span><br></p>
 <pre><code class=pp><mark>context.beginPath();</mark>
 context.moveTo(0, 40);
 context.lineTo(240, 40);
@@ -197,7 +196,7 @@ context.lineTo(60, 375);
 context.moveTo(65, 370);
 context.lineTo(60, 375);
 context.lineTo(55, 370);</code></pre>
-<p class=legend><span class=arrow>&#x219c;</span> Not a new path</p>
+<p class=legend style="margin-top:4em"><span class=arrow>&#x219c;</span> Not a new path</p>
 
 <p>I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&#8217;t get reset when you start a new path.) That&#8217;s OK, because we&#8217;ve just run a series of &#8220;pencil&#8221; methods. But before we draw it for real, in &#8220;ink,&#8221; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we could hardly see them!
 
@@ -271,7 +270,7 @@ context.fillText("( 500 , 375 )", <mark>492, 370</mark>);</code></pre>
 
 <pre class=ib><code class=pp>context.fillRect(0, 0, 3, 3);
 context.fillRect(497, 372, 3, 3);</code></pre>
-<p class=legend><span class=arrow>&#x219c;</span> Draw two "dots"</p>
+<p class=legend><span class=arrow>&#x219c;</span> Draw two &#8220;dots&#8221;</p>
 
 <canvas id=c5 width=500 height=375 style="display:block"></canvas>
 
@@ -303,7 +302,7 @@ var context = d_canvas.getContext("2d");</code></pre>
 
 <p>Let&#8217;s make a linear gradient. Gradients can be any size, but I&#8217;ll make this gradient be 300 pixels wide, like the canvas.
 
-<p class='legend top' style="margin-left:2.5em">Create a gradient object<span class=arrow>&#x21b7;</span><br></p>
+<p class='legend top' style="margin-left:2.5em">Create a gradient object <span class=arrow>&#x21b7;</span><br></p>
 <pre><code class=pp>var my_gradient = <mark>context.createLinearGradient(0, 0, 300, 0);</mark></code></pre>
 
 <p>Because the <code>y</code> values (the 2<sup>nd</sup> and 4<sup>th</sup> parameters) are both 0, this gradient will shade evenly from left to right.
@@ -327,7 +326,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>Suppose you want a gradient that shades from top to bottom. When you create the gradient object, keep the <code>x</code> values (1<sup>st</sup> and 3<sup>rd</sup> parameters) constant, and make the <code>y</code> values (2<sup>nd</sup> and 4<sup>th</sup> parameters) range from 0 to the height of the canvas.
 
-<p class='legend top' style="margin-left:4em">x values are 0, y values vary <span class=arrow>&#x21b7;</span><br></p>
+<p class='legend top' style="margin-left:6.5em">x values are 0, y values vary <span class=arrow>&#x21b7;</span><br></p>
 <pre><code class=pp>var my_gradient = context.createLinearGradient(<mark>0, 0, 0, 225</mark>);
 my_gradient.addColorStop(0, "black");
 my_gradient.addColorStop(1, "white");
@@ -340,7 +339,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>You can also create gradients along a diagonal.
 
-<p class='legend top' style="margin-left:6em">both x and y values vary <span class=arrow>&#x21b7;</span><br></p>
+<p class='legend top' style="margin-left:8.5em">both x and y values vary <span class=arrow>&#x21b7;</span><br></p>
 <pre><code class=pp>var my_gradient = context.createLinearGradient(<mark>0, 0, 300, 225</mark>);
 my_gradient.addColorStop(0, "black");
 my_gradient.addColorStop(1, "white");
@@ -380,7 +379,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
 
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input name=q size=25>&nbsp;<input type=submit name=sa value=Search></div></form>
-
+</div>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>
 <script src=j/dih5.js></script>
