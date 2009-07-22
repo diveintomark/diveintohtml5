@@ -24,7 +24,7 @@ canvas{border:1px dotted}
 
 <p>The markup looks like this:
 
-<pre class=nd><code class=pp>&lt;canvas width="300" height="225"&gt;</code></pre>
+<pre><code class=pp>&lt;canvas width="300" height="225"&gt;</code></pre>
 
 <p>(I also used CSS to add a dotted border around the canvas. The <code>&lt;canvas&gt;</code> element has no border by default.)
 
@@ -32,11 +32,11 @@ canvas{border:1px dotted}
 
 <p>Let&#8217;s expand that markup to include an <code>id</code> attribute:
 
-<pre class=nd><code class=pp>&lt;canvas id="a" width="300" height="225"&gt;</code></pre>
+<pre><code class=pp>&lt;canvas id="a" width="300" height="225"&gt;</code></pre>
 
 <p>Now you can easily find that <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
 
-<pre class=nd><code class=pp>var a_canvas = document.getElementById("a");</code></pre>
+<pre><code class=pp>var a_canvas = document.getElementById("a");</code></pre>
 
 <p class=a>&#x2042;
 
@@ -51,7 +51,7 @@ canvas{border:1px dotted}
 
 <p>The <code>onclick</code> handler called this function:
 
-<pre class=nd><code class=pp>function draw_b() {
+<pre><code class=pp>function draw_b() {
   var b_canvas = document.getElementById("b");
   var b_context = b_canvas.getContext("2d");
   b_context.fillRect(25,25,100,100);
@@ -87,9 +87,9 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 
 <p>Getting back to that code sample in the previous example&hellip;
 <p class="legend left">This draws the rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
-<pre class="nd np"><code class=pp>  var b_canvas = document.getElementById("b");
-  var b_context = b_canvas.getContext("2d");
-<mark>  b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
+<pre class="nd np"><code class=pp>var b_canvas = document.getElementById("b");
+var b_context = b_canvas.getContext("2d");
+<mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
 
 <p class=clear>Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&#8217;s look at the canvas coordinate system.
 
@@ -99,7 +99,7 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 
 <p>The canvas is a two-dimensional grid. The coordinate (0, 0) is at the upper-left corner of the canvas. Along the X-axis, values increase towards the right edge of the canvas. Along the Y-axis, values increase towards the bottom edge of the canvas.
 
-<p class='legend top' style="width:500px;text-align:center">canvas coordinates diagram<span class=arrow>&#x21b7;</span><br></p>
+<p class='legend top' style="width:500px;text-align:center">Canvas coordinates diagram<span class=arrow>&#x21b7;</span><br></p>
 <canvas id=c width=500 height=375></canvas>
 
 <p class=a>&#x2042;
@@ -120,23 +120,23 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 <li>another black vertical line
 <li>two small black diagonal lines that form another arrow
 <li>a dot&nbsp;&mdash;&nbsp;actually a very small rectangle&nbsp;&mdash;&nbsp;in the upper-left corner
-<li>the text &#8220;(0, 0)&#8221;
 <li>another dot in the lower-right corner
-<li>the text &#8220;(500, 375)&#8221;
+<li>the text &#8220;(0, 0)&#8221; near the upper-left corner
+<li>the text &#8220;(500, 375)&#8221; near the lower-right corner
 </ul>
 
 <p>First, we need to define the <code>&lt;canvas&gt;</code> element itself. The <code>&lt;canvas&gt;</code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
 
-<pre class=nd><code class=pp>&lt;canvas id="c" width="500" height="375"></code></pre>
+<pre><code class=pp>&lt;canvas id="c" width="500" height="375"></code></pre>
 
 <p>Then we need a script to find the <code>&lt;canvas&gt;</code> element in the DOM and get its drawing context.
 
-<pre class=nd><code class=pp>var c_canvas = document.getElementById("c");
+<pre><code class=pp>var c_canvas = document.getElementById("c");
 var c_context = c_canvas.getContext("2d");</code></pre>
 
 <p>Let&#8217;s also get the canvas dimensions.
 
-<pre class=nd><code class=pp>var c_width = c_canvas.width;
+<pre><code class=pp>var c_width = c_canvas.width;
 var c_height = c_canvas.height;</code></pre>
 
 <p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_media_files_johnny_automatic_7563.png alt="gerbil sitting on a chair with a quill and ink jar" width=167 height=347>
@@ -157,7 +157,7 @@ var c_height = c_canvas.height;</code></pre>
 
 <p>Let&#8217;s draw the off-white grid.
 
-<pre class='nd ib'><code class=pp>for (var i = 0; i < c_width; i+=10) {
+<pre class=ib><code class=pp>for (var i = 0; i < c_width; i+=10) {
   c_context.moveTo(i, 0);
   c_context.lineTo(i, c_height);
 }</code></pre>
@@ -165,7 +165,7 @@ var c_height = c_canvas.height;</code></pre>
 
 <p style="clear:both">
 
-<pre class='nd ib'><code class=pp>for (var j = 0; j < c_height; j+=10) {
+<pre class=ib><code class=pp>for (var j = 0; j < c_height; j+=10) {
   c_context.moveTo(0, j);
   c_context.lineTo(c_width, j);
 }</code></pre>
@@ -173,14 +173,44 @@ var c_height = c_canvas.height;</code></pre>
 
 <p style="clear:both">Those were all &#8220;pencil&#8221; methods. Nothing has actually been drawn on the canvas yet. We need an &#8220;ink&#8221; method to make it permanent.
 
-<pre class=nd><code class=pp>c_context.strokeStyle = "#eee";
+<pre><code class=pp>c_context.strokeStyle = "#eee";
 <mark>c_context.stroke();</mark></code></pre>
 
 <p><code>stroke()</code> is one of the &#8220;ink&#8221; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and it actually draws it on the canvas. The <code>strokeStyle</code> controls the color of the lines, and this is the result:</p>
 
 <canvas id=c2 width=500 height=375></canvas>
 
-<p>&hellip;FIXME
+<p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient&nbsp;&mdash;&nbsp;yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink&nbsp;&mdash;&nbsp;black instead of off-white&nbsp;&mdash;&nbsp;so we need to start a new path.
+
+<p class='legend top' style="margin-left:2.5em">A new path<span class=arrow>&#x21b7;</span><br></p>
+<pre><code class=pp><mark>c_context.beginPath();</mark>
+c_context.moveTo(0, 40);
+c_context.lineTo(240, 40);
+c_context.moveTo(260, 40);
+c_context.lineTo(500, 40);
+c_context.moveTo(495, 35);
+c_context.lineTo(500, 40);
+c_context.lineTo(495, 45);</code></pre>
+
+<p>The vertical arrow looks much the same. Since the vertical arrow is the same color as the horizontal arrow, we do <strong>not</strong> need to start another new path. The two arrows will be part of the same path.
+
+<pre class=ib><code class=pp>c_context.moveTo(60, 0);
+c_context.lineTo(60, 153);
+c_context.moveTo(60, 173);
+c_context.lineTo(60, 375);
+c_context.moveTo(65, 370);
+c_context.lineTo(60, 375);
+c_context.lineTo(55, 370);</code></pre>
+<p class=legend><span class=arrow>&#x219c;</span> Not a new path</p>
+
+<p>I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&#8217;t get reset when you start a new path.) That&#8217;s OK, because we&#8217;ve just run a series of &#8220;pencil&#8221; methods. But before we draw it for real, in &#8220;ink,&#8221; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we could hardly see them!
+
+<pre><code class=pp>c_context.strokeStyle = "#000";
+c_context.stroke();</code></pre>
+
+<p>And this is the result:</p>
+
+<canvas id=c3 width=500 height=375></canvas>
 
 <p class=a>&#x2042;
 
@@ -238,14 +268,11 @@ function draw_grid(c_canvas) {
   c_context.strokeStyle = "#eee";
   c_context.stroke();
 }
-function draw_c() {
-  var c_canvas = document.getElementById("c");
+function draw_arrows(c_canvas) {
   var c_context = c_canvas.getContext("2d");
-  draw_grid(c_canvas);
 
   /* x-axis */
   c_context.beginPath();
-  c_context.strokeStyle = "#000";
   c_context.moveTo(0, 40);
   c_context.lineTo(240, 40);
   c_context.moveTo(260, 40);
@@ -262,15 +289,22 @@ function draw_c() {
   c_context.lineTo(60, 375);
   c_context.lineTo(55, 370);
 
+  /* draw it! */
+  c_context.strokeStyle = "#000";
+  c_context.stroke();
+}
+function draw_c() {
+  var c_canvas = document.getElementById("c");
+  var c_context = c_canvas.getContext("2d");
+  draw_grid(c_canvas);
+  draw_arrows(c_canvas);
+
   /* dots */
   c_context.fillRect(0, 0, 3, 3);
   c_context.fillRect(497, 372, 3, 3);
 
-  /* draw it! */
-  c_context.stroke();
-    
   /* labels */
-  c_context.font = "12px Heletica, Arial, sans-serif";
+  c_context.font = "12px sans-serif";
   c_context.strokeText("x", 248, 43);
   c_context.strokeText("y", 58, 165);
   c_context.fillText("( 0 , 0 )", 8, 13);
@@ -280,8 +314,14 @@ function draw_c2() {
   var c2_canvas = document.getElementById("c2");
   draw_grid(c2_canvas);
 }
+function draw_c3() {
+  var c3_canvas = document.getElementById("c3");
+  draw_grid(c3_canvas);
+  draw_arrows(c3_canvas);
+}
 $(document).ready(function() {
     draw_c();
     draw_c2();
+    draw_c3();
 });
 </script>

@@ -40,8 +40,6 @@ Classname Legend
 .u = "Unicode"    = text contains Unicode characters (requires special font declaration to accomodate *cough* a certain browser)
 
 .dc = "drop cap"      = image simulating first-letter initial
-.nm = "no mobile"     = hide this section on mobile devices
-.nd = "no decoration" = hide the widgets on this code block
 .pp = "pretty print"  = apply syntax highlighting to this code block
 .pf = "padded frame"  = black border with internal padding
 .fr = "framed"        = black border, no padding
@@ -224,8 +222,7 @@ a:visited {
 /* code blocks */
 
 pre {
-  white-space: pre-wrap;
-  padding-left: 3.112em;
+  padding-left: 3.5em;
 }
 pre.np {
   padding: 0;
@@ -243,7 +240,6 @@ pre a, .w a {
   text-decoration: underline;
 }
 mark {
-  font-weight: bold;
   background: #ff8;
   outline: 1px dotted #888;
 }
