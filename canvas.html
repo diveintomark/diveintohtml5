@@ -6,7 +6,6 @@
 <link rel=stylesheet href=screen.css>
 <style>
 body{counter-reset:h1 4}
-canvas{border:1px dotted}
 </style>
 <meta name=viewport content='initial-scale=1.0'>
 </head>
@@ -19,7 +18,7 @@ canvas{border:1px dotted}
 
 <p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas&gt;</code> element has no content and no border by default.</p>
 
-<canvas width=300 height=225 class=clear style="border:0"></canvas>
+<canvas width=300 height=225 class=clear></canvas>
 <p class=legend><span class=arrow>&#x219c;</span> Invisible canvas
 
 <p>The markup looks like this:
@@ -28,7 +27,7 @@ canvas{border:1px dotted}
 
 <p>Let&#8217;s add a dotted border so we can see what we&#8217;re dealing with.</p>
 
-<canvas width=300 height=225 class=clear></canvas>
+<canvas width=300 height=225 style="border:1px dotted" class=clear></canvas>
 <p class=legend><span class=arrow>&#x219c;</span> Canvas with border
 
 <p>You can have several <code>&lt;canvas&gt;</code> elements on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
@@ -49,7 +48,7 @@ canvas{border:1px dotted}
 
 <p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
 
-<canvas id=b width=300 height=225></canvas>
+<canvas id=b width=300 height=225 style="border:1px dotted"></canvas>
 <p class=legend><span class=arrow>&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
 
 <p>The <code>onclick</code> handler called this function:
@@ -105,27 +104,20 @@ var b_context = b_canvas.getContext("2d");
 <p class='legend top' style="width:500px;text-align:center">Canvas coordinates diagram<span class=arrow>&#x21b7;</span><br></p>
 <canvas id=c width=500 height=375></canvas>
 
-<p class=a>&#x2042;
-
-<h2 id=paths>Paths</h2>
-
 <p>That coordinate diagram was drawn with a <code>&lt;canvas&gt;</code> element. It comprises
 
 <ul>
 <li>a set of off-white vertical lines
 <li>a set of off-white horizontal lines
-<li>a black horizontal line
-<li>the letter &#8220;x&#8221;
-<li>another black horizontal line
+<li>two black horizontal lines
 <li>two small black diagonal lines that form an arrow
-<li>a black vertical line
-<li>the letter &#8220;y&#8221;
-<li>another black vertical line
+<li>two black vertical lines
 <li>two small black diagonal lines that form another arrow
-<li>a dot&nbsp;&mdash;&nbsp;actually a very small rectangle&nbsp;&mdash;&nbsp;in the upper-left corner
-<li>another dot in the lower-right corner
+<li>the letter &#8220;x&#8221;
+<li>the letter &#8220;y&#8221;
 <li>the text &#8220;(0, 0)&#8221; near the upper-left corner
 <li>the text &#8220;(500, 375)&#8221; near the lower-right corner
+<li>a dot in the upper-left corner, and another in the lower-right corner
 </ul>
 
 <p>First, we need to define the <code>&lt;canvas&gt;</code> element itself. The <code>&lt;canvas&gt;</code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
@@ -135,22 +127,23 @@ var b_context = b_canvas.getContext("2d");
 <p>Then we need a script to find the <code>&lt;canvas&gt;</code> element in the DOM and get its drawing context.
 
 <pre><code class=pp>var c_canvas = document.getElementById("c");
-var c_context = c_canvas.getContext("2d");</code></pre>
+var context = c_canvas.getContext("2d");</code></pre>
 
-<p>Let&#8217;s also get the canvas dimensions.
+<p>Now we can start drawing lines.
 
-<pre><code class=pp>var c_width = c_canvas.width;
-var c_height = c_canvas.height;</code></pre>
+<p class=a>&#x2042;
+
+<h2 id=paths>Paths</h2>
 
 <p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_media_files_johnny_automatic_7563.png alt="gerbil sitting on a chair with a quill and ink jar" width=167 height=347>
 
-<p>Now we can start drawing lines. Imagine you&#8217;re drawing a picture in ink. You don&#8217;t want to just dive in and start drawing with ink, because you might make a mistake. First, you sketch lines and curves with a pencil. Once you&#8217;re happy with it, you trace over the whole thing in ink.
+<p>Imagine you&#8217;re drawing a picture in ink. You don&#8217;t want to just dive in and start drawing with ink, because you might make a mistake. First, you sketch lines and curves with a pencil. Once you&#8217;re happy with it, you trace over the whole thing in ink.
 
 <p>Each canvas has a <dfn>path</dfn>. Defining the path is like drawing with a pencil. You can draw whatever you like, but it won&#8217;t be part of the finished product until you pick up the quill and trace over your path in ink.
 
 <p>To draw straight lines in pencil:
 
-<ol>
+<ol style="list-style-position:inside">
 <li><code>moveTo(x, y)</code> moves the pencil to the starting point.
 <li><code>lineTo(x, y)</code> draws a line to an ending point.
 <li>Go to step 1.
@@ -160,24 +153,24 @@ var c_height = c_canvas.height;</code></pre>
 
 <p>Let&#8217;s draw the off-white grid.
 
-<pre class=ib><code class=pp>for (var i = 0; i < c_width; i+=10) {
-  c_context.moveTo(i, 0);
-  c_context.lineTo(i, c_height);
+<pre class=ib><code class=pp>for (var x = 0; x < 500; x += 10) {
+  context.moveTo(x, 0);
+  context.lineTo(x, 375);
 }</code></pre>
-<p class=legend><span class=arrow>&#x21dc;</span> This draws vertical lines</p>
+<p class=legend><span class=arrow>&#x21dc;</span> Draw vertical lines</p>
 
 <p style="clear:both">
 
-<pre class=ib><code class=pp>for (var j = 0; j < c_height; j+=10) {
-  c_context.moveTo(0, j);
-  c_context.lineTo(c_width, j);
+<pre class=ib><code class=pp>for (var y = 0; y < 375; y += 10) {
+  context.moveTo(0, y);
+  context.lineTo(500, y);
 }</code></pre>
-<p class=legend><span class=arrow>&#x21dc;</span> This draws horizontal lines</p>
+<p class=legend><span class=arrow>&#x21dc;</span> Draw horizontal lines</p>
 
 <p style="clear:both">Those were all &#8220;pencil&#8221; methods. Nothing has actually been drawn on the canvas yet. We need an &#8220;ink&#8221; method to make it permanent.
 
-<pre><code class=pp>c_context.strokeStyle = "#eee";
-<mark>c_context.stroke();</mark></code></pre>
+<pre><code class=pp>context.strokeStyle = "#eee";
+<mark>context.stroke();</mark></code></pre>
 
 <p><code>stroke()</code> is one of the &#8220;ink&#8221; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and it actually draws it on the canvas. The <code>strokeStyle</code> controls the color of the lines, and this is the result:</p>
 
@@ -186,30 +179,30 @@ var c_height = c_canvas.height;</code></pre>
 <p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient&nbsp;&mdash;&nbsp;yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink&nbsp;&mdash;&nbsp;black instead of off-white&nbsp;&mdash;&nbsp;so we need to start a new path.
 
 <p class='legend top' style="margin-left:2.5em">A new path<span class=arrow>&#x21b7;</span><br></p>
-<pre><code class=pp><mark>c_context.beginPath();</mark>
-c_context.moveTo(0, 40);
-c_context.lineTo(240, 40);
-c_context.moveTo(260, 40);
-c_context.lineTo(500, 40);
-c_context.moveTo(495, 35);
-c_context.lineTo(500, 40);
-c_context.lineTo(495, 45);</code></pre>
+<pre><code class=pp><mark>context.beginPath();</mark>
+context.moveTo(0, 40);
+context.lineTo(240, 40);
+context.moveTo(260, 40);
+context.lineTo(500, 40);
+context.moveTo(495, 35);
+context.lineTo(500, 40);
+context.lineTo(495, 45);</code></pre>
 
 <p>The vertical arrow looks much the same. Since the vertical arrow is the same color as the horizontal arrow, we do <strong>not</strong> need to start another new path. The two arrows will be part of the same path.
 
-<pre class=ib><code class=pp>c_context.moveTo(60, 0);
-c_context.lineTo(60, 153);
-c_context.moveTo(60, 173);
-c_context.lineTo(60, 375);
-c_context.moveTo(65, 370);
-c_context.lineTo(60, 375);
-c_context.lineTo(55, 370);</code></pre>
+<pre class=ib><code class=pp>context.moveTo(60, 0);
+context.lineTo(60, 153);
+context.moveTo(60, 173);
+context.lineTo(60, 375);
+context.moveTo(65, 370);
+context.lineTo(60, 375);
+context.lineTo(55, 370);</code></pre>
 <p class=legend><span class=arrow>&#x219c;</span> Not a new path</p>
 
 <p>I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&#8217;t get reset when you start a new path.) That&#8217;s OK, because we&#8217;ve just run a series of &#8220;pencil&#8221; methods. But before we draw it for real, in &#8220;ink,&#8221; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we could hardly see them!
 
-<pre><code class=pp>c_context.strokeStyle = "#000";
-c_context.stroke();</code></pre>
+<pre><code class=pp>context.strokeStyle = "#000";
+context.stroke();</code></pre>
 
 <p>And this is the result:</p>
 
@@ -218,6 +211,75 @@ c_context.stroke();</code></pre>
 <p class=a>&#x2042;
 
 <h2 id=text>Text</h2>
+
+<p>You can draw <a href=#paths>lines on a canvas</a>. You can also draw text on a canvas. Unlike text on the surrounding web page, there is no box model. That means none of the familiar CSS layout techniques are available: no floats, no margins, no padding, no word wrapping. (Maybe you think that&#8217;s a good thing!) You can set a few font attributes, then you pick a point on the canvas and draw your text there.
+
+<p>The following font attributes are available on the <a href=#shapes>drawing context</a>:
+
+<ul>
+<li><code>font</code> can be anything you would put in a <abbr>CSS</abbr> <code>font</code> rule. That includes font style, font variant, font weight, font size, line height, and font family.
+<li><code>textAlign</code> controls text alignment. It is similar (but not identical) to a <abbr>CSS</abbr> <code>text-align</code> rule. Possible values include <code>start</code>, <code>end</code>, <code>left</code>, <code>right</code>, and <code>center</code>.
+<li><code>textBaseline</code> controls where the text is drawn relative to the starting point. Possible values are <code>top</code>, <code>hanging</code>, <code>middle</code>, <code>alphabetic</code>, <code>ideographic</code>, or <code>bottom</code>.
+</ul>
+
+<p><code>textBaseline</code> is tricky, because text is tricky. Well, English text is not tricky, but you can draw any Unicode character you like on a canvas, and Unicode is tricky. The HTML 5 specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>explains the different text baselines</a>:
+
+<blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>
+<p>The top of the em square is roughly at the top of the glyphs in a font, the hanging baseline is where some glyphs like <span class=u>आ</span> are anchored, the middle is half-way between the top of the em square and the bottom of the em square, the alphabetic baseline is where characters like <span class=u>Á</span>, <span class=u>ÿ</span>, <span class=u>f</span>, and <span class=u>Ω</span> are anchored, the ideographic baseline is where glyphs like <span class=u>私</span> and <span class=u>達</span> are anchored, and the bottom of the em square is roughly at the bottom of the glyphs in a font. The top and bottom of the bounding box can be far from these baselines, due to glyphs extending far outside the em square.</p>
+<p><img src=i/baselines.png alt="diagram of different values of the textBaseline property" width=680 height=227>
+</blockquote>
+
+<p>For simple alphabets like English, you can safely stick with <code>top</code>, <code>middle</code>, or <code>bottom</code> for the <code>textBaseline</code> property.
+
+<p>Let&#8217;s draw some text! The default font is <code>10px sans-serif</code>, which is a touch too small for my taste. Let&#8217;s increase that to <code>12px</code> and make it bold. We do that by setting the <code>font</code> property on the drawing context.
+
+<pre class=ib><code class=pp><mark>context.font = "bold 12px sans-serif";</mark>
+context.fillText("x", 248, 43);
+context.fillText("y", 58, 165);</code></pre>
+<p class=legend><span class=arrow>&#x219c;</span> Change the font style</p>
+
+<p>The <code>fillText()</code> method draws the actual text.</p>
+
+<pre class=ib><code class=pp>context.font = "bold 12px sans-serif";
+<mark>context.fillText("x", 248, 43);</mark>
+context.fillText("y", 58, 165);</code></pre>
+<p class=legend><span class=arrow>&#x21dc;</span> Draw the text</p>
+
+<p>For the text in the upper-left corner, I want the top of the text to be at <code>y=5</code>. But I&#8217;m lazy&nbsp;&mdash;&nbsp;I don&#8217;t want to measure the height of the text and calculate the baseline. Instead, I can set the <code>textBaseline</code> to <code>top</code> and pass in the upper-left coordinate of the text&#8217;s bounding box.
+
+<pre><code class=pp>context.textBaseline = "top";
+context.fillText("( 0 , 0 )", <mark>8, 5</mark>);</code></pre>
+
+<p>For the text in the lower-right corner, I want to be lazy again. I don&#8217;t want to measure the width or height of the text, but the bottom-right corner of the text should be at coordinates <code>(492,370)</code>. I can set <code>textAlign</code> to <code>right</code> and <code>textBaseline</code> to <code>bottom</code>, then call <code>fillText()</code> with the bottom-right coordinates of the text&#8217;s bounding box.
+
+<pre><code class=pp>context.textAlign = "right";
+context.textBaseline = "bottom";
+context.fillText("( 500 , 375 )", <mark>492, 370</mark>);</code></pre>
+
+<p>And this is the result:</p>
+
+<canvas id=c4 width=500 height=375></canvas>
+
+<p>Oops! We forgot the dots in the corners. I&#8217;m going to cheat a little and <a href=#shapes>draw them as rectangles</a>. We&#8217;ll see how to draw circles a little later.
+
+<pre class=ib><code class=pp>context.fillRect(0, 0, 3, 3);
+context.fillRect(497, 372, 3, 3);</code></pre>
+<p class=legend><span class=arrow>&#x219c;</span> Draw two &#8220;dots&#8221;</p>
+
+<canvas id=c5 width=500 height=375 style="display:block"></canvas>
+
+<p>And that&#8217;s all she wrote!
+
+<div class=pf>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
+A: Yes. The default font is <code>10px sans-serif</code>. Sizes in <code>em</code> or percentages are measured against the default font.
+</blockquote>
+</div>
+
+<p class=a>&#x2042;
+
+<h2 id=patterns>Patterns &amp; Gradients</h2>
 
 <p class=a>&#x2042;
 
@@ -254,77 +316,92 @@ function draw_b() {
   var b_context = b_canvas.getContext("2d");
   b_context.fillRect(50, 25, 150, 100);
 }
-function draw_grid(c_canvas) {
-  var c_context = c_canvas.getContext("2d");
-  var c_width = c_canvas.width;
-  var c_height = c_canvas.height;
-
-  /* background grid */
-  for (var i = 0; i < c_width; i+=10) {
-    c_context.moveTo(i, 0);
-    c_context.lineTo(i, c_height);
+function draw_grid(ctx) {
+  /* vertical lines */
+  for (var x = 0; x < 500; x += 10) {
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, 375);
   }
-  for (var j = 0; j < c_height; j+=10) {
-    c_context.moveTo(0, j);
-    c_context.lineTo(c_width, j);
-  }
-  c_context.strokeStyle = "#eee";
-  c_context.stroke();
-}
-function draw_arrows(c_canvas) {
-  var c_context = c_canvas.getContext("2d");
 
-  /* x-axis */
-  c_context.beginPath();
-  c_context.moveTo(0, 40);
-  c_context.lineTo(240, 40);
-  c_context.moveTo(260, 40);
-  c_context.lineTo(500, 40);
-  c_context.moveTo(495, 35);
-  c_context.lineTo(500, 40);
-  c_context.lineTo(495, 45);
-  /* y-axis */
-  c_context.moveTo(60, 0);
-  c_context.lineTo(60, 153);
-  c_context.moveTo(60, 173);
-  c_context.lineTo(60, 375);
-  c_context.moveTo(65, 370);
-  c_context.lineTo(60, 375);
-  c_context.lineTo(55, 370);
+  /* horizontal lines */
+  for (var y = 0; y < 375; y += 10) {
+    ctx.moveTo(0, y);
+    ctx.lineTo(500, y);
+  }
 
   /* draw it! */
-  c_context.strokeStyle = "#000";
-  c_context.stroke();
+  ctx.strokeStyle = "#eee";
+  ctx.stroke();
 }
-function draw_c() {
-  var c_canvas = document.getElementById("c");
-  var c_context = c_canvas.getContext("2d");
-  draw_grid(c_canvas);
-  draw_arrows(c_canvas);
+function draw_arrows(ctx) {
+  /* x-axis */
+  ctx.beginPath();
+  ctx.moveTo(0, 40);
+  ctx.lineTo(240, 40);
+  ctx.moveTo(260, 40);
+  ctx.lineTo(500, 40);
+  ctx.moveTo(495, 35);
+  ctx.lineTo(500, 40);
+  ctx.lineTo(495, 45);
 
-  /* dots */
-  c_context.fillRect(0, 0, 3, 3);
-  c_context.fillRect(497, 372, 3, 3);
+  /* y-axis */
+  ctx.moveTo(60, 0);
+  ctx.lineTo(60, 153);
+  ctx.moveTo(60, 173);
+  ctx.lineTo(60, 375);
+  ctx.moveTo(65, 370);
+  ctx.lineTo(60, 375);
+  ctx.lineTo(55, 370);
 
-  /* labels */
-  c_context.font = "12px sans-serif";
-  c_context.strokeText("x", 248, 43);
-  c_context.strokeText("y", 58, 165);
-  c_context.fillText("( 0 , 0 )", 8, 13);
-  c_context.fillText("( 500 , 375 )", 425, 372);
+  /* draw it! */
+  ctx.strokeStyle = "#000";
+  ctx.stroke();
 }
-function draw_c2() {
-  var c2_canvas = document.getElementById("c2");
-  draw_grid(c2_canvas);
+function draw_labels(ctx) {
+  ctx.font = "bold 12px sans-serif";
+  ctx.fillText("x", 248, 43);
+  ctx.fillText("y", 58, 165);
+
+  ctx.textBaseline = "top";
+  ctx.fillText("( 0 , 0 )", 8, 5);
+
+  ctx.textAlign = "right";
+  ctx.textBaseline = "bottom";
+  ctx.fillText("( 500 , 375 )", 492, 370);
 }
-function draw_c3() {
-  var c3_canvas = document.getElementById("c3");
-  draw_grid(c3_canvas);
-  draw_arrows(c3_canvas);
+function draw_dots(ctx) {
+  ctx.fillRect(0, 0, 3, 3);
+  ctx.fillRect(497, 372, 3, 3);
 }
 $(document).ready(function() {
-    draw_c();
-    draw_c2();
-    draw_c3();
+  var c = $("#c").get(0);
+  var c2 = $("#c2").get(0);
+  var c3 = $("#c3").get(0);
+  var c4 = $("#c4").get(0);
+  var c5 = $("#c5").get(0);
+
+  var ctx = c.getContext("2d");
+  draw_grid(ctx);
+  draw_arrows(ctx);
+  draw_labels(ctx);
+  draw_dots(ctx);
+
+  ctx = c2.getContext("2d");
+  draw_grid(ctx);
+
+  ctx = c3.getContext("2d");
+  draw_grid(ctx);
+  draw_arrows(ctx);
+
+  ctx = c4.getContext("2d");
+  draw_grid(ctx);
+  draw_arrows(ctx);
+  draw_labels(ctx);
+
+  var ctx = c5.getContext("2d");
+  draw_grid(ctx);
+  draw_arrows(ctx);
+  draw_labels(ctx);
+  draw_dots(ctx);
 });
 </script>

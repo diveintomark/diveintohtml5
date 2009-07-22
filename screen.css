@@ -169,8 +169,6 @@ cite, dfn {
 }
 b, strong {
   font-weight: normal;
-  border-top: 3px double;
-  border-bottom: 3px double;
   text-transform: uppercase;
 }
 
