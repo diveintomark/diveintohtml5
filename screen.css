@@ -28,11 +28,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 Classname Legend
 
-.w = "widgets"    = wrapper block for hide/open/download links dynamically inserted into code listings
-.b = "block"      = internal block dynamically inserted into code listings
-.d = "download"   = download link for code listings
-.p = "prompt"     = command-line or interactive shell prompt within code listings
-.q = "quote"      = quote at beginning of each chapter
 .f = "fancy"      = first paragraph of each chapter (gets a fancy drop-cap)
 .c = "centered"   = centered footer text (also clears floats)
 .a = "asterism"   = section break
@@ -113,8 +108,10 @@ pre .u, pre .u span, .a {
   line-height: 0.8;
   margin: 0 0.22em 0 -1.22em;
 }
-.c, w, .w a, .d {
+.c {
+  font-size: medium;
   line-height: 1.75;
+  margin: 1.75em 0;
 }
 .f img {
   float: left;
@@ -142,9 +139,6 @@ body {
   clear: both;
   text-align: center;
 }
-.c {
-  margin: 1.75em 0;
-}
 #toc ol, #toc li {
   list-style: none;
   margin-left: 0;
@@ -170,6 +164,10 @@ cite, dfn {
 b, strong {
   font-weight: normal;
   text-transform: uppercase;
+}
+sup {
+  font-variant: small-caps;
+  vertical-align: text-top;
 }
 
 /* links */
@@ -222,27 +220,12 @@ a:visited {
 pre {
   padding-left: 3.5em;
 }
-pre.np {
+pre.ib {
   padding: 0;
-}
-.w {
-  float: left;
-}
-.c, .w, .w a, .d {
-  font-size: medium;
-}
-pre a, .w a {
-  padding: 0.4375em 0;
-}
-.w a {
-  text-decoration: underline;
 }
 mark {
   background: #ff8;
   outline: 1px dotted #888;
-}
-pre span, .p {
-  color: #667;
 }
 
 /* overrides */
@@ -253,11 +236,8 @@ li ol, .q {
 code, var, samp {
   line-height:inherit !important;
 }
-pre a, td code a, .w a, pre a:hover {
-  border: 0;
-}
 
-/* headers and pullquotes */
+/* headers */
 
 h1, h2, h3 {
   font-family: 'Essays1743', 'Linux Libertine', 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
@@ -282,21 +262,6 @@ h3 {
 }
 h1:before {
   content: 'Chapter №' counter(h1) '. ';
-}
-aside {
-  display: block;
-  float: right;
-  font-style: oblique;
-  font-size: xx-large;
-  width: 25%;
-  margin: 1.75em 0 .75em 1.75em;
-  background: steelblue;
-  color: white;
-  padding: 1.75em;
-  border: 1px solid;
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
 }
 
 /* previous/next navigation links */
