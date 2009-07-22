@@ -87,7 +87,7 @@ Acknowledgements & Inspirations
 }
 
 body, .w a {
-  font: large/1.556 'Linux Libertine', monospace;/*'Goudy Bookletter 1911', Gentium, 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;*/
+  font: large/1.556 'Linux Libertine', Gentium, 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
   word-spacing: 0.1em;
   letter-spacing: 0.01em;
 }
