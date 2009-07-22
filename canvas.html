@@ -20,7 +20,7 @@ canvas{border:1px dotted}
 <p>So what is a canvas?</p>
 
 <canvas width=300 height=225></canvas>
-<p class=legend><span class=arrow>&#x219c;</span> This is a canvas.
+<p class=legend><span class=arrow>&#x219c;</span> A canvas
 
 <p>The markup looks like this:
 
@@ -63,16 +63,82 @@ canvas{border:1px dotted}
 <pre class="nd np"><code class=pp>function draw_b() {
   var b_canvas = document.getElementById("b");
 <mark>  var b_context = b_canvas.getContext("2d");</mark>
-  b_context.fillRect(25,25,100,100);
+  b_context.fillRect(50, 25, 150, 100);
 }</code></pre>
 
-<p>Every canvas has a <dfn>context</dfn>, which is where all the fun stuff happens. Once you&#8217;ve found a <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>'2d'</code> to the <code>getContext()</code> method.
+<p>Every canvas has a drawing <dfn>context</dfn>, which is where all the fun stuff happens. Once you&#8217;ve found a <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>'2d'</code> to the <code>getContext()</code> method.
 
-<h2 id=images>Images</h2>
+<div class=pf style="margin:3.112em">
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Is there a 3-D canvas?<br>
+A: Not yet. Individual vendors have experimented with their own three-dimensional canvas APIs, but none of them have been standardized. The HTML 5 specification notes, &#8220;A future version of this specification will probably define a 3d context.&#8221;
+</blockquote>
+</div>
+
+<p>You have a <code>&lt;canvas&gt;</code> element, and you have its drawing context. The drawing context is where all the drawing methods and properties are defined. There&#8217;s a whole group of methods devoted to drawing rectangles:
+
+<ul>
+<li>The <code>fillStyle</code> property can be a <abbr>CSS</abbr> color, a pattern, or a gradient. (More on patterns and gradients shortly.) The default <code>fillStyle</code> is solid black, but you can set it to whatever you like. Each canvas remembers its own properties as long as the page is open.
+<li><code>fillRect(x, y, width, height)</code> draws a rectangle filled with the current fill style.
+<li>The <code>strokeStyle</code> property is like <code>fillStyle</code>&nbsp;&mdash;&nbsp;it can be a CSS color, pattern, or gradient.
+<li><code>strokeRect(x, y, width, height)</code> draws an rectangle with the current stroke style. <code>strokeRect</code> doesn&#8217;t fill in the middle; it just draws the edges.
+<li><code>clearRect(x, y, width, height)</code> clears the pixels in the specified rectangle.
+</ul>
+
+<p>Getting back to that code sample in the previous example&hellip;
+<p class="legend left">This draws the rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<pre class="nd np"><code class=pp>  var b_canvas = document.getElementById("b");
+  var b_context = b_canvas.getContext("2d");
+<mark>  b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
+
+<p>Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&#8217;s look at the canvas coordinate system.
+
+<h2 id=coordinates>Canvas Coordinates</h2>
+
+<p>The canvas is a two-dimensional grid. The coordinate (0, 0) is at the upper-left corner of the canvas. Along the X-axis, values increase towards the right edge of the canvas. Along the Y-axis, values increase towards the bottom edge of the canvas.
+
+<p class='legend top' style="width:500px;text-align:center">canvas coordinates diagram<span class=arrow>&#x21b7;</span><br></p>
+<canvas id=c width=500 height=375></canvas>
+
+<h2 id=paths>Paths</h2>
+
+<p>That coordinate diagram was drawn with a <code>&lt;canvas&gt;</code> element. It comprises
+
+<ul>
+<li>a set of off-white vertical lines
+<li>a set of off-white horizontal lines
+<li>a black horizontal line
+<li>the letter &#8220;x&#8221;
+<li>another black horizontal line
+<li>two small black diagonal lines that form an arrow
+<li>a black vertical line
+<li>the letter &#8220;y&#8221;
+<li>another black vertical line
+<li>two small black diagonal lines that form another arrow
+<li>a dot&nbsp;&mdash;&nbsp;actually a very small rectangle&nbsp;&mdash;&nbsp;in the upper-left corner
+<li>the text &#8220;(0, 0)&#8221;
+<li>another dot in the lower-right corner
+<li>the text &#8220;(500, 375)&#8221;
+</ul>
+
+<p>First, you need to define the <code>&lt;canvas&gt;</code> element itself. The <code>&lt;canvas&gt;</code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
+
+<pre class=nd><code class=pp>&lt;canvas id="c" width="500" height="375"></code></pre>
+
+<p>Then you need a script to find the <code>&lt;canvas&gt;</code> element in the DOM and get its drawing context.
+
+<pre class=nd><code class=pp>var c_canvas = document.getElementById("c");
+var c_context = c_canvas.getContext("2d");</code></pre>
+
+<p>Now you can start drawing. Let&#8217;s draw the off-white grid first.
+
+<p>To draw on a canvas, you need to define a path. A <dfn>path</dfn> is a list of subpaths. A subpath is a list of points connected by lines. Lines can be straight or curved.
+
+<p>&hellip;FIXME
 
 <h2 id=text>Text</h2>
 
-<h2 id=paths>Paths</h2>
+<h2 id=images>Images</h2>
 
 <h2 id=transforms>Transforms</h2>
 
@@ -90,15 +156,70 @@ canvas{border:1px dotted}
 
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input name=q size=25>&nbsp;<input type=submit name=sa value=Search></div></form>
 
-<script>
-function draw_b() {
-  var b_canvas = document.getElementById("b");
-  if (b_canvas.getContext) {
-    var b_context = b_canvas.getContext("2d");
-    b_context.fillRect(25,25,100,100);
-  }
-}
-</script>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>
 <script src=j/dih5.js></script>
+<script>
+function draw_b() {
+  var b_canvas = document.getElementById("b");
+  var b_context = b_canvas.getContext("2d");
+  b_context.fillRect(50, 25, 150, 100);
+}
+function draw_c() {
+  var c_canvas = document.getElementById("c");
+  var c_context = c_canvas.getContext("2d");
+
+  /* background grid */
+  var c_width = c_canvas.width;
+  var c_height = c_canvas.height;
+  c_context.strokeStyle = "#eee";
+  c_context.beginPath();
+  for (var i = 0; i < c_width; i+=10) {
+    c_context.moveTo(i, 0);
+    c_context.lineTo(i, c_height);
+  }
+  for (var j = 0; j < c_height; j+=10) {
+    c_context.moveTo(0, j);
+    c_context.lineTo(c_width, j);
+  }
+
+  /* draw it! */
+  c_context.stroke();
+
+  /* x-axis */
+  c_context.strokeStyle = "#000";
+  c_context.beginPath();
+  c_context.moveTo(0, 40);
+  c_context.lineTo(240, 40);
+  c_context.moveTo(260, 40);
+  c_context.lineTo(500, 40);
+  c_context.moveTo(495, 35);
+  c_context.lineTo(500, 40);
+  c_context.lineTo(495, 45);
+  /* y-axis */
+  c_context.moveTo(60, 0);
+  c_context.lineTo(60, 153);
+  c_context.moveTo(60, 173);
+  c_context.lineTo(60, 375);
+  c_context.moveTo(65, 370);
+  c_context.lineTo(60, 375);
+  c_context.lineTo(55, 370);
+
+  /* dots */
+  c_context.fillRect(0, 0, 3, 3);
+  c_context.fillRect(497, 372, 3, 3);
+
+  /* draw it! */
+  c_context.stroke();
+    
+  /* labels */
+  c_context.font = "12px Heletica, Arial, sans-serif";
+  c_context.strokeText("x", 248, 43);
+  c_context.strokeText("y", 58, 165);
+  c_context.fillText("( 0 , 0 )", 8, 13);
+  c_context.fillText("( 500 , 375 )", 425, 372);
+}
+$(document).ready(function() {
+    draw_c();
+});
+</script>

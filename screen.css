@@ -107,10 +107,9 @@ pre .u, pre .u span, .a {
 .note span {
   display: block;
   float: left;
-  font-size: xx-large;
-  line-height: 0.875;
+  font-size: 266.7%;
+  line-height: 0.8;
   margin: 0 0.22em 0 -1.22em;
-  color: steelblue;
 }
 .c, w, .w a, .d {
   line-height: 1.75;
@@ -209,19 +208,16 @@ a:visited {
   display: inline-block;
   vertical-align: top;
 }
-
 .arrow {
   font: xx-large/1 'Arial Unicode MS',FreeSerif,OpenSymbol,'DejaVu Sans',sans-serif;
 }
-
 .left {
   float: left;
 }
-
 .top {
   margin-bottom:0;
+  display: block;
 }
-
 .bottom {
   display:block;
   margin-top:0;
@@ -298,7 +294,7 @@ h3 {
   margin: 1.556em 0;
 }
 h1:before {
-  content: 'Chapter ' counter(h1) '. ';
+  content: 'Chapter №' counter(h1) '. ';
 }
 aside {
   display: block;
