@@ -15,18 +15,21 @@ canvas{border:1px dotted}
 <p id=toc>&nbsp;
 <p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
-<p class=f><img src=i/H.png alt=H width=104 height=102>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas&gt; element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
+<p class=f><img src=i/aoc-h.png alt=H width=213 height=210>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas&gt; element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
 
-<p>So what is a canvas?</p>
+<p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas&gt;</code> element has no content and no border by default.</p>
 
-<canvas width=300 height=225></canvas>
-<p class=legend><span class=arrow>&#x219c;</span> A canvas
+<canvas width=300 height=225 class=clear style="border:0"></canvas>
+<p class=legend><span class=arrow>&#x219c;</span> Invisible canvas
 
 <p>The markup looks like this:
 
 <pre><code class=pp>&lt;canvas width="300" height="225"&gt;</code></pre>
 
-<p>(I also used CSS to add a dotted border around the canvas. The <code>&lt;canvas&gt;</code> element has no border by default.)
+<p>Let&#8217;s add a dotted border so we can see what we&#8217;re dealing with.</p>
+
+<canvas width=300 height=225 class=clear></canvas>
+<p class=legend><span class=arrow>&#x219c;</span> Canvas with border
 
 <p>You can have several <code>&lt;canvas&gt;</code> elements on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
 
