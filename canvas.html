@@ -121,18 +121,60 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 <li>the text &#8220;(500, 375)&#8221;
 </ul>
 
-<p>First, you need to define the <code>&lt;canvas&gt;</code> element itself. The <code>&lt;canvas&gt;</code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
+<p>First, we need to define the <code>&lt;canvas&gt;</code> element itself. The <code>&lt;canvas&gt;</code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
 
 <pre class=nd><code class=pp>&lt;canvas id="c" width="500" height="375"></code></pre>
 
-<p>Then you need a script to find the <code>&lt;canvas&gt;</code> element in the DOM and get its drawing context.
+<p>Then we need a script to find the <code>&lt;canvas&gt;</code> element in the DOM and get its drawing context.
 
 <pre class=nd><code class=pp>var c_canvas = document.getElementById("c");
 var c_context = c_canvas.getContext("2d");</code></pre>
 
-<p>Now you can start drawing. Let&#8217;s draw the off-white grid first.
+<p>Let&#8217;s also get the canvas dimensions.
 
-<p>To draw on a canvas, you need to define a path. A <dfn>path</dfn> is a list of subpaths. A subpath is a list of points connected by lines. Lines can be straight or curved.
+<pre class=nd><code class=pp>var c_width = c_canvas.width;
+var c_height = c_canvas.height;</code></pre>
+
+<p>Now we can start drawing lines. The best way to visualize this is to imagine you&#8217;re drawing a picture in ink. You don&#8217;t want to just dive in and start drawing with ink, because you might make a mistake. So you first draw with a pencil, and then when you&#8217;re happy with your lines and curves, you trace over it in ink.
+
+<p>Each canvas has a <dfn>path</dfn>. Defining the path is like drawing with a pencil. You can draw whatever you like, but it won&#8217;t be part of the finished product until you pick up the quill and trace over your path in ink.
+
+<p>To draw in pencil:
+
+<ol>
+<li><code>moveTo(x, y)</code> moves the pencil to the starting point.
+<li><code>lineTo(x, y)</code> draws a line to an ending point.
+<li>Go to step 1.
+</ol>
+
+<p>The more you call <code>moveTo()</code> and <code>lineTo()</code>, the biggest the path gets. These are &#8220;pencil&#8221; methods&nbsp;&mdash;&nbsp;you can call them as often as you like, but you won&#8217;t see anything on the canvas until you call one of the &#8220;ink&#8221; methods.
+
+<p>Let&#8217;s draw the off-white grid.
+
+<pre class='nd ib'><code class=pp>for (var i = 0; i < c_width; i+=10) {
+  c_context.moveTo(i, 0);
+  c_context.lineTo(i, c_height);
+}</code></pre>
+<p class=legend><span class=arrow>&#x21dc;</span> This draws vertical lines</p>
+
+<p style="clear:both">
+
+<pre class='nd ib'><code class=pp>for (var j = 0; j < c_height; j+=10) {
+  c_context.moveTo(0, j);
+  c_context.lineTo(c_width, j);
+}</code></pre>
+<p class=legend><span class=arrow>&#x21dc;</span> This draws horizontal lines</p>
+
+<p style="clear:both">Those were all &#8220;pencil&#8221; methods. Nothing has actually been drawn on the canvas yet. We need an &#8220;ink&#8221; method to make it permanent.
+
+<pre class=nd><code class=pp>c_context.strokeStyle = "#eee";
+<mark>c_context.stroke();</mark></code></pre>
+
+<p><code>stroke()</code> is one of the &#8220;ink&#8221; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and it actually draws it on the canvas. (The <code>strokeStyle</code> controls the color of the lines.)
+
+<p>This is the result:</p>
+
+<canvas id=c2 width=500 height=375></canvas>
 
 <p>&hellip;FIXME
 
@@ -165,15 +207,12 @@ function draw_b() {
   var b_context = b_canvas.getContext("2d");
   b_context.fillRect(50, 25, 150, 100);
 }
-function draw_c() {
-  var c_canvas = document.getElementById("c");
+function draw_grid(c_canvas) {
   var c_context = c_canvas.getContext("2d");
-
-  /* background grid */
   var c_width = c_canvas.width;
   var c_height = c_canvas.height;
-  c_context.strokeStyle = "#eee";
-  c_context.beginPath();
+
+  /* background grid */
   for (var i = 0; i < c_width; i+=10) {
     c_context.moveTo(i, 0);
     c_context.lineTo(i, c_height);
@@ -182,13 +221,17 @@ function draw_c() {
     c_context.moveTo(0, j);
     c_context.lineTo(c_width, j);
   }
-
-  /* draw it! */
+  c_context.strokeStyle = "#eee";
   c_context.stroke();
+}
+function draw_c() {
+  var c_canvas = document.getElementById("c");
+  var c_context = c_canvas.getContext("2d");
+  draw_grid(c_canvas);
 
   /* x-axis */
-  c_context.strokeStyle = "#000";
   c_context.beginPath();
+  c_context.strokeStyle = "#000";
   c_context.moveTo(0, 40);
   c_context.lineTo(240, 40);
   c_context.moveTo(260, 40);
@@ -219,7 +262,12 @@ function draw_c() {
   c_context.fillText("( 0 , 0 )", 8, 13);
   c_context.fillText("( 500 , 375 )", 425, 372);
 }
+function draw_c2() {
+  var c2_canvas = document.getElementById("c2");
+  draw_grid(c2_canvas);
+}
 $(document).ready(function() {
     draw_c();
+    draw_c2();
 });
 </script>

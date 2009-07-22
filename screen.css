@@ -205,8 +205,10 @@ a:visited {
 .legend {
   font: xx-large/1 "Verby Blocks","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
   margin-left: 0.5em;
-  display: inline-block;
   vertical-align: top;
+}
+.legend, .ib, mark {
+  display: inline-block;
 }
 .arrow {
   font: xx-large/1 'Arial Unicode MS',FreeSerif,OpenSymbol,'DejaVu Sans',sans-serif;
@@ -250,7 +252,6 @@ pre a, .w a {
 }
 mark {
   font-weight: bold;
-  display: inline-block;
   background: #ff8;
   outline: 1px dotted #888;
 }
