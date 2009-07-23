@@ -39,14 +39,12 @@ done
 # minimize JS and CSS
 echo "minimizing JS"
 revision=`hg log|grep changeset|cut -d":" -f3|head -1`
-java -jar util/yuicompressor-2.4.2.jar build/j/prettify.js > build/j/prettify.min.js && \
-    java -jar util/yuicompressor-2.4.2.jar build/j/dih5.js > build/j/dih5.min.js || die "Failed to minimize JS"
+java -jar util/yuicompressor-2.4.2.jar build/j/dih5.js > build/j/dih5.min.js || die "Failed to minimize JS"
 
 # combine jQuery and our script
 echo "combining JS"
-cat build/j/jquery.min.js build/j/prettify.min.js build/j/dih5.min.js > build/j/$revision.js && \
+cat build/j/jquery.min.js build/j/dih5.min.js > build/j/$revision.js && \
     sed -i -e "s|<script src=j/jquery.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/prettify.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
 
 echo "minimizing CSS"
@@ -77,7 +75,7 @@ chmod 755 build/examples build/j build/i build/f && \
 echo -n "publishing"
 rsync -essh -a build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
     echo -n "." && \
-    rsync -essh -a build/j/$revision.js build/j/html5.js build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
+    rsync -essh -a build/j/$revision.js build/j/html5.js build/j/ie.js build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
     echo -n "." && \
     rsync -essh -a build/f/*.ttf build/f/*.eot build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/ && \
     echo -n "." && \

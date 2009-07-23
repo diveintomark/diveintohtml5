@@ -46,49 +46,48 @@ Classname Legend
 Acknowledgements & Inspirations
 
 "The Elements of Typographic Style Applied to the Web" ... http://webtypography.net/toc/
-"Setting Type on the Web to a Baseline Grid" ............. http://www.alistapart.com/articles/settingtypeontheweb
-"Compose to a Vertical Rhythm" ........................... http://24ways.org/2006/compose-to-a-vertical-rhythm
 "Use the Best Available Ampersand" ....................... http://simplebits.com/notebook/2008/08/14/ampersands.html
 "Unicode Support in HTML, Fonts, and Web Browsers" ....... http://alanwood.net/unicode/
 "Punctuation" ............................................ http://en.wikipedia.org/wiki/Punctuation
-"Google Code Prettify" ................................... http://code.google.com/p/google-code-prettify/
+"Essays 1743" ............................................ http://www.thibault.org/fonts/essays/
+"Linux Libertine" ........................................ http://linuxlibertine.sourceforge.net/
+"CSS Styled Restaurant Menu" ............................. http://www.web-graphics.com/mtarchive/ItalianMenu.html
 */
 
 /* typography */
 
 @font-face {
-  font-family: 'Essays1743';
-  src: url('f/essays1743-min.eot');
-  src: local('Essays1743'), url('f/essays1743-min.ttf');
+  font-family: "Essays 1743";
+  src: url("f/essays1743-min.eot");
+  src: local("Essays 1743"), url("f/essays1743-min.ttf");
 }
 @font-face {
-  font-family: 'Essays1743 Italic';
-  src: url('f/essays1743i-min.eot');
-  src: local('Essays1743 Italic'), url('f/essays1743i-min.ttf');
+  font-family: "Essays 1743 Italic";
+  src: url("f/essays1743i-min.eot");
+  src: local("Essays 1743 Italic"), url("f/essays1743i-min.ttf");
 }
 @font-face {
-  font-family: 'Linux Libertine';
-  src: url('f/lin-libertine-min.eot');
-  src: local('Linux Libertine'), url('f/lin-libertine-min.ttf');
+  font-family: "Linux Libertine";
+  src: url("f/lin-libertine-min.eot");
+  src: local("Linux Libertine"), url("f/lin-libertine-min.ttf");
 }
 
 #body {
-  font: large/1.556 'Linux Libertine', Gentium, 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
+  font: large/1.556 "Linux Libertine", Gentium, "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
   word-spacing: 0.1em;
-  letter-spacing: 0.01em;
   max-width: 800px;
   margin: 0 auto;
 }
 pre, kbd, samp, code, var {
-  font: medium/1.75 Consolas, 'Andale Mono', Monaco, 'Liberation Mono', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
+  font: medium/1.75 Consolas, "Andale Mono", Monaco, "Liberation Mono", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", monospace;
   word-spacing: 0;
   letter-spacing: 0;
 }
 .u {
-  font: 100%/1 'Arial Unicode MS', FreeSerif, OpenSymbol, 'DejaVu Sans', sans-serif;
+  font: 100%/1 "Arial Unicode MS", FreeSerif, OpenSymbol, "DejaVu Sans", sans-serif;
 }
 .baa {
-  font: oblique 105% Constantia, Baskerville, Palatino, 'Palatino Linotype', 'URW Palladio L', serif;
+  font: oblique 105% Constantia, Baskerville, Palatino, "Palatino Linotype", "URW Palladio L", serif;
 }
 .note {
   margin: 3.112em 4.94em;
@@ -183,19 +182,18 @@ a:visited {
 
 /* figures and legends */
 
+.arrow {
+  font: xx-large/1 "Arial Unicode MS",FreeSerif,OpenSymbol,"DejaVu Sans",sans-serif;
+}
 .legend {
-  font: italic x-large/1 "Essays1743 Italic","Essays1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
+  font: italic x-large/1.75 "Essays 1743 Italic","Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
   margin-left: 0.5em;
   vertical-align: top;
 }
-.legend, .ib, mark {
-  display: inline-block;
-}
-.arrow {
-  font: xx-large/1 'Arial Unicode MS',FreeSerif,OpenSymbol,'DejaVu Sans',sans-serif;
-}
 .left {
   float: left;
+}
+.right {
 }
 .top {
   margin-bottom: 0.3em;
@@ -216,8 +214,9 @@ pre.ib {
   padding: 0;
 }
 mark {
+  display: inline-block;
   background: #ff8;
-  outline: 1px dotted #888;
+  border: 1px dotted #888;
 }
 
 /* overrides */
@@ -232,7 +231,7 @@ code, var, samp {
 /* headers */
 
 h1, h2, h3 {
-  font-family: 'Essays1743', 'Linux Libertine', 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
+  font-family: "Essays 1743", "Linux Libertine", "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
   text-transform: uppercase;
 }
 h1 {
@@ -254,7 +253,7 @@ h3 {
   margin: 1.556em 0;
 }
 h1:before {
-  content: '№' counter(h1) '. ';
+  content: "№" counter(h1) ". ";
 }
 
 /* previous/next navigation links */

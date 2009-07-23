@@ -62,7 +62,6 @@ function getParamValues(url, parameters) {
 }
 
 /*
-
 The rest of this script is
 Copyright (c) 2009, Mark Pilgrim, All rights reserved.
 
@@ -90,7 +89,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 $(document).ready(function() {
 	hideTOC();
-	prettyPrint();
 
 	/* match <dfn> terms with incoming search keywords and jump to the containing section */
 	var searchTerms = getSearchTerms();
