@@ -56,30 +56,21 @@ Acknowledgements & Inspirations
 
 /* typography */
 
-/*
-@font-face {
-  font-family: 'Goudy Bookletter 1911';
-  src: url('f/goudy-bookletter-min.eot');
-  src: local('Goudy Bookletter 1911'), url('f/goudy-bookletter-min.ttf');
-}
-*/
 @font-face {
   font-family: 'Essays1743';
   src: url('f/essays1743-min.eot');
   src: local('Essays1743'), url('f/essays1743-min.ttf');
 }
 @font-face {
+  font-family: 'Essays1743 Italic';
+  src: url('f/essays1743i-min.eot');
+  src: local('Essays1743 Italic'), url('f/essays1743i-min.ttf');
+}
+@font-face {
   font-family: 'Linux Libertine';
   src: url('f/lin-libertine-min.eot');
   src: local('Linux Libertine'), url('f/lin-libertine-min.ttf');
 }
-/*
-@font-face {
-  font-family: 'Verby Blocks';
-  src: url('f/verbyblocks-min.eot');
-  src: local('Verby Blocks'), url('f/verbyblocks-min.ttf');
-}
-*/
 
 #body {
   font: large/1.556 'Linux Libertine', Gentium, 'Book Antiqua', Cambria, Palatino, Georgia, 'Times New Roman', serif;
@@ -193,7 +184,7 @@ a:visited {
 /* figures and legends */
 
 .legend {
-  font: italic x-large/1 "Essays1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
+  font: italic x-large/1 "Essays1743 Italic","Essays1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
   margin-left: 0.5em;
   vertical-align: top;
 }
