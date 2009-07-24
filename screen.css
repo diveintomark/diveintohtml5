@@ -72,11 +72,21 @@ Acknowledgements & Inspirations
   src: local("Linux Libertine"), url("f/lin-libertine-min.ttf");
 }
 
-#body {
+html, body {
+  background: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+body {
   font: large/1.556 "Linux Libertine", Gentium, "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
+  background:#fff url(i/openclipart.org_media_files_johnny_automatic_4794.png) no-repeat bottom left;
   word-spacing: 0.1em;
+}
+#body {
   max-width: 800px;
   margin: 0 auto;
+  padding-bottom: 2em;
 }
 pre, kbd, samp, code, var {
   font: medium/1.75 Consolas, "Andale Mono", Monaco, "Liberation Mono", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", monospace;
@@ -116,13 +126,6 @@ p, ul, ol {
 
 /* basics */
 
-html {
-  background: #fff;
-  color: #000;
-}
-body {
-  margin: 1.75em 28px;
-}
 .clear {
   clear: both;
 }
@@ -221,7 +224,7 @@ mark {
 
 /* overrides */
 
-li ol, .q {
+li ol, .q, .v span {
   margin: 0;
 }
 code, var, samp {
@@ -272,7 +275,6 @@ h1:before {
 .v span {
   font-size: 1000%;
   line-height: 1;
-  margin: 0;
   text-shadow: gainsboro 3px 3px 3px;
 }
 
