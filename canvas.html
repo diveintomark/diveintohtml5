@@ -17,7 +17,7 @@ body{counter-reset:h1 4}
 <h2 id=divingin>Diving In</h2>
 <p class=f><img src=i/aoc-h.png alt=H width=106 height=105>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
 
-<p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas></code> element has no content and no border by default.</p>
+<p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas></code> element has no content and no border of its own.</p>
 
 <canvas width=300 height=225 class=clear style="float:left"></canvas>
 <p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x219c;</span> Invisible canvas
@@ -254,7 +254,7 @@ A: Yes. The default font is <code>10px sans-serif</code>. Sizes in <code>em</cod
 <pre><code>context.textBaseline = "top";
 context.fillText("( 0 , 0 )", <mark>8, 5</mark>);</code></pre>
 
-<p>For the text in the lower-right corner, I want to be lazy again. I don&#8217;t want to measure the width or height of the text, but the bottom-right corner of the text should be at coordinates <code>(492,370)</code>. I can set <code>textAlign</code> to <code>right</code> and <code>textBaseline</code> to <code>bottom</code>, then call <code>fillText()</code> with the bottom-right coordinates of the text&#8217;s bounding box.
+<p>For the text in the lower-right corner, I want to be lazy again. I want the bottom-right corner of the text to be at coordinates <code>(492,370)</code>&nbsp;&mdash;&nbsp;just a few pixels away from the bottom-right corner of the canvas&nbsp;&mdash;&nbsp;but I don&#8217;t want to measure the width or height of the text. I can set <code>textAlign</code> to <code>right</code> and <code>textBaseline</code> to <code>bottom</code>, then call <code>fillText()</code> with the bottom-right coordinates of the text&#8217;s bounding box.
 
 <pre><code>context.textAlign = "right";
 context.textBaseline = "bottom";
