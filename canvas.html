@@ -67,7 +67,7 @@ body{counter-reset:h1 4}
   b_context.fillRect(50, 25, 150, 100);
 }</code></pre>
 
-<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=449 height=433 alt="man drawing in front of a mirror">
+<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=312 height=300 alt="man drawing in front of a mirror">
 
 <p>Every canvas has a drawing <dfn>context</dfn>, which is where all the fun stuff happens. Once you&#8217;ve found a <code>&lt;canvas></code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>"2d"</code> to the <code>getContext()</code> method.
 
@@ -348,13 +348,74 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <canvas id=d4 width=300 height=225></canvas>
 
-<!--
-<canvas id=d5 width=300 height=225></canvas>
--->
-
 <p class=a>&#x2042;
 
 <h2 id=images>Images</h2>
+
+<p>Here is a cat:
+
+<p style="float:left"><img id=cat src=i/openclipart.org_media_files_johnny_automatic_1360.png alt="sleeping cat" width=177 height=113>
+<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x21dc;</span> An &lt;img> element</p>
+
+<p class=clear>Here is the same cat, drawn on a canvas:
+
+<div style="float:right">
+<p class="legend left" style="margin-top:2em">A &lt;canvas> element <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<canvas id=e width=177 height=113></canvas>
+</div>
+
+<p class=clear>The canvas drawing context defines several methods for drawing an image on a canvas.
+
+<ul>
+<li><code>drawImage(image, dx, dy)</code> takes an image and draws it on the canvas. The given coordinates <code>(dx, dy)</code> will be the upper-left corner of the image. Coordinates <code>(0, 0)</code> would draw the image at the upper-left corner of the canvas.
+<li><code>drawImage(image, dx, dy, dw, dh)</code> takes an image, scales it to a width of <code>dw</code> and a height of <code>dh</code>, and draws it on the canvas at coordinates <code>(dx, dy)</code>.
+<li><code>drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)</code> takes an image, clips it to the rectangle <code>(sx, sy, sw, sh)</code>, scales it to dimensions <code>(dw, dh)</code>, and draws it on the canvas at coordinates <code>(dx, dy)</code>.
+</ul>
+
+<p>The HTML 5 specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>explains the <code>drawImage()</code> parameters</a>:
+
+<blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>
+<p>The source rectangle is the rectangle [within the source image] whose corners are the four points <code>(sx, sy)</code>, <code>(sx+sw, sy)</code>, <code>(sx+sw, sy+sh)</code>, <code>(sx, sy+sh)</code>.
+<p>The destination rectangle is the rectangle [within the canvas] whose corners are the four points <code>(dx, dy)</code>, <code>(dx+dw, dy)</code>, <code>(dx+dw, dy+dh)</code>, <code>(dx, dy+dh)</code>.
+<p><img src=i/drawImage.png alt="diagram of drawImage parameters" width=327 height=330>
+</blockquote>
+
+<p>To draw an image on a canvas, you need an image. The image can be an existing <code>&lt;img></code> element, or you can create an <code>Image()</code> object with JavaScript. Either way, you need to ensure that the image is fully loaded before you can draw it on the canvas.
+
+<p>If you&#8217;re using an existing <code>&lt;img></code> element, you can safely draw it on the canvas during the <code>window.onload</code> event.
+<p class="legend top" style="margin-left:6.5em"><span class=arrow>&#x21b6;</span> using an &lt;img> element<br></p>
+<pre><code>&lt;img <mark>id="cat"</mark> src="images/cat.png" alt="sleeping cat" width="177" height="113">
+&lt;canvas id="e" width="177" height="113">
+&lt;script>
+<mark>window.onload</mark> = function() {
+  var canvas = document.getElementById("e");
+  var context = canvas.getContext("2d");
+  var cat = document.getElementById("cat");
+  <mark>context.drawImage(cat, 0, 0);</mark>
+};
+&lt;/script></code></pre>
+
+<p>If you&#8217;re creating the image object entirely in JavaScript, you can safely draw the image on the canvas during the <code>Image.onload</code> event.
+
+<p class="legend top" style="margin-left:3.5em">using an Image() object <span class=arrow>&#x21b7;</span><br></p>
+<pre><code>&lt;canvas id="e" width="177" height="113">
+&lt;script>
+  var canvas = document.getElementById("e");
+  var context = canvas.getContext("2d");
+  var cat = <mark>new Image()</mark>;
+  cat.src = "images/cat.png";
+  <mark>cat.onload</mark> = function() {
+    context.drawImage(cat, 0, 0);
+  };
+&lt;/script></code></pre>
+
+<p>All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? FIXME
+
+<p></p>
+
+<canvas id=e2 width=300 height=225></canvas>
+
+<canvas id=e3 width=177 height=113></canvas>
 
 <p class=a>&#x2042;
 
@@ -509,5 +570,21 @@ $(document).ready(function() {
   my_gradient.addColorStop(1, "white");
   context.fillStyle = my_gradient;
   context.fillRect(0, 0, 300, 225);
+
+  var cat_canvas = document.getElementById("e");
+  var cat_context = cat_canvas.getContext("2d");
+  var cat_canvas2 = document.getElementById("e2");
+  var cat_context2 = cat_canvas2.getContext("2d");
+  cat_context2.rotate(0.3);
+  var cat_canvas3 = document.getElementById("e3");
+  var cat_context3 = cat_canvas3.getContext("2d");
+  cat_context3.rotate(-Math.PI);
+  var cat_image = new Image();
+  cat_image.src = "i/openclipart.org_media_files_johnny_automatic_1360.png";
+  cat_image.onload = function() {
+    cat_context.drawImage(cat_image, 0, 0);
+    cat_context2.drawImage(cat_image, 50, 50);
+    cat_context3.drawImage(cat_image, -177, -113);
+  };
 });
 </script>
