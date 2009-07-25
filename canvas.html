@@ -598,9 +598,8 @@ $(document).ready(function() {
   var cat_canvas3 = document.getElementById("e3");
   var cat_context3 = cat_canvas3.getContext("2d");
   cat_context3.rotate(-Math.PI);
-  var cat_image = new Image();
-  cat_image.src = "i/openclipart.org_media_files_johnny_automatic_1360.png";
-  cat_image.onload = function() {
+  var cat_image = document.getElementById("cat");
+  window.onload = function() {
     cat_context.drawImage(cat_image, 0, 0);
     for (var x = 0, y = 0; x < 500, y < 375; x += 50, y += 37) {
       cat_context2.drawImage(cat_image, x, y, 88, 56);
