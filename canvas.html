@@ -409,17 +409,17 @@ context.fillRect(0, 0, 300, 225);</code></pre>
   };
 &lt;/script></code></pre>
 
-<p>All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? FIXME
-
-<p></p>
-
-<canvas id=e2 width=300 height=225></canvas>
-
-<canvas id=e3 width=177 height=113></canvas>
+<p>All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? I&#8217;ll answer that with another question: why did you want to <a href=#text>draw text on a canvas</a>? Because it was part of <a href=#coordinates>a larger work</a> that included other lines and shapes. But besides than the obvious answer&nbsp;&mdash;&nbsp;that you want to draw a bunch of other stuff on the same canvas as the image&nbsp;&mdash;&nbsp;you can also use canvas properties to transform the image before drawing it.
 
 <p class=a>&#x2042;
 
 <h2 id=transforms>Transforms</h2>
+
+<p>Here is the same cat as before, but upside-down:</p>
+
+<canvas id=e2 width=177 height=113></canvas>
+
+<p>
 
 <p class=a>&#x2042;
 
@@ -575,16 +575,12 @@ $(document).ready(function() {
   var cat_context = cat_canvas.getContext("2d");
   var cat_canvas2 = document.getElementById("e2");
   var cat_context2 = cat_canvas2.getContext("2d");
-  cat_context2.rotate(0.3);
-  var cat_canvas3 = document.getElementById("e3");
-  var cat_context3 = cat_canvas3.getContext("2d");
-  cat_context3.rotate(-Math.PI);
+  cat_context2.rotate(-Math.PI);
   var cat_image = new Image();
   cat_image.src = "i/openclipart.org_media_files_johnny_automatic_1360.png";
   cat_image.onload = function() {
     cat_context.drawImage(cat_image, 0, 0);
-    cat_context2.drawImage(cat_image, 50, 50);
-    cat_context3.drawImage(cat_image, -177, -113);
+    cat_context2.drawImage(cat_image, -177, -113);
   };
 });
 </script>
