@@ -701,9 +701,8 @@ function draw() {
 }
 
 $(document).ready(function() {
-  if (!(!/*@cc_on!@*/0) && !document.styleSheets['ex_canvas_']) {
-    /* ExplorerCanvas hasn't finished initializing, defer drawing until onload */
-    document.attachEvent('onload', draw);
+  if (!(!/*@cc_on!@*/0)) {
+    window.attachEvent('onload', draw);
   } else {
     draw();
   }
