@@ -621,7 +621,7 @@ try {
 } catch(err) {}
 }
 
-$(document).ready(function() {
+function draw() {
   var c = document.getElementById("c");
   var ctx = c.getContext("2d");
   draw_grid(ctx);
@@ -698,5 +698,14 @@ $(document).ready(function() {
     }
     cat_context3.drawImage(cat_image, -177, -113);
   };
+}
+
+$(document).ready(function() {
+  if (!(!/*@cc_on!@*/0) && !document.styleSheets['ex_canvas_']) {
+    /* ExplorerCanvas hasn't finished initializing, defer drawing until onload */
+    document.attachEvent('onload', draw);
+  } else {
+    draw();
+  }
 });
 </script>
