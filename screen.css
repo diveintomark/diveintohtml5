@@ -34,11 +34,12 @@ Classname Legend
 .v = "navigation" = prev/next navigation links (not breadcrumbs)
 .u = "Unicode"    = text contains Unicode characters (requires special font declaration to accomodate *cough* a certain browser)
 
-.dc = "drop cap"      = image simulating first-letter initial
-.pp = "pretty print"  = apply syntax highlighting to this code block
-.pf = "padded frame"  = black border with internal padding
-.fr = "framed"        = black border, no padding
-.ss = "screenshot"    = image, floated right, with margin
+.dc = "drop cap"       = image simulating first-letter initial
+.pp = "pretty print"   = apply syntax highlighting to this code block
+.pf = "padded frame"   = black border with internal padding
+.fr = "framed"         = black border, no padding
+.ss = "screenshot"     = image, floated right, with margin
+.bc = "browser compat" = browser compatibility table (td cells all contain checks, Xs, and asterisks)
 
 .note = "note/caution/important"   = indented block for tips/gotchas/language comparisons
 .baa  = "best available ampersand" = wrapper block for ampersands
@@ -92,7 +93,7 @@ pre, kbd, samp, code, var {
   word-spacing: 0;
   letter-spacing: 0;
 }
-.u {
+.u, table.bc tbody td {
   font: 100%/1 "Arial Unicode MS", FreeSerif, OpenSymbol, "DejaVu Sans", sans-serif;
 }
 .baa {
@@ -232,7 +233,7 @@ code, var, samp {
 
 /* headers */
 
-h1, h2, h3 {
+h1, h2, h3, caption, thead th {
   font-family: "Essays 1743", "Linux Libertine", "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
   text-transform: uppercase;
 }

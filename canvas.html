@@ -6,6 +6,10 @@
 <link rel=stylesheet href=screen.css>
 <style>
 body{counter-reset:h1 4}
+table{width:100%;border-collapse:collapse}
+tbody th,thead th.l,tfoot td{text-align:left}
+thead th,td{text-align:center}
+tfoot{font-size:small}
 </style>
 <meta name=viewport content="initial-scale=1.0">
 </head>
@@ -16,6 +20,19 @@ body{counter-reset:h1 4}
 <p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
 <p class=f><img src=i/aoc-h.png alt=H width=106 height=105>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
+
+<table class=bc>
+<caption>Basic &lt;canvas> support</caption>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<sup>*</sup><th title="Internet Explorer 7">IE7<sup>*</sup><th title="Firefox 3.5">FF3.5<th title="Firefox 3.0">FF3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+</tbody>
+<tfoot>
+<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+</tfoot>
+</table>
 
 <p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas></code> element has no content and no border of its own.</p>
 
@@ -44,6 +61,18 @@ body{counter-reset:h1 4}
 <p class=a>&#x2042;
 
 <h2 id=shapes>Simple Shapes</h2>
+
+<table class=bc>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<sup>*</sup><th title="Internet Explorer 7">IE7<sup>*</sup><th title="Firefox 3.5">FF3.5<th title="Firefox 3.0">FF3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+</tbody>
+<tfoot>
+<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+</tfoot>
+</table>
 
 <p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
 
@@ -134,6 +163,18 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <h2 id=paths>Paths</h2>
 
+<table class=bc>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<sup>*</sup><th title="Internet Explorer 7">IE7<sup>*</sup><th title="Firefox 3.5">FF3.5<th title="Firefox 3.0">FF3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+</tbody>
+<tfoot>
+<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+</tfoot>
+</table>
+
 <p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_media_files_johnny_automatic_7563.png alt="gerbil sitting on a chair with a quill and ink jar" width=167 height=347>
 
 <p>Imagine you&#8217;re drawing a picture in ink. You don&#8217;t want to just dive in and start drawing with ink, because you might make a mistake. So you sketch lines and curves with a pencil, and once you&#8217;re happy with it, you trace over your sketch in ink.
@@ -209,6 +250,18 @@ context.stroke();</code></pre>
 
 <h2 id=text>Text</h2>
 
+<table class=bc>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<sup>*</sup><th title="Internet Explorer 7">IE7<sup>*</sup><th title="Firefox 3.5">FF3.5<th title="Firefox 3.0">FF3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2713;<td>&#x2717;
+</tbody>
+<tfoot>
+<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+</tfoot>
+</table>
+
 <p>You can draw <a href=#paths>lines on a canvas</a>. You can also draw text on a canvas. Unlike text on the surrounding web page, there is no box model. That means none of the familiar CSS layout techniques are available: no floats, no margins, no padding, no word wrapping. (Maybe you think that&#8217;s a good thing!) You can set a few font attributes, then you pick a point on the canvas and draw your text there.
 
 <p>The following font attributes are available on the <a href=#shapes>drawing context</a>:
@@ -277,6 +330,19 @@ context.fillRect(497, 372, 3, 3);</code></pre>
 <p class=a>&#x2042;
 
 <h2 id=gradients>Gradients &amp; Patterns</h2>
+
+<table class=bc>
+<thead>
+<tr><th class=l>Feature</th><th title="Internet Explorer 8">IE8<sup>*</sup><th title="Internet Explorer 7">IE7<sup>*</sup><th title="Firefox 3.5">FF3.5<th title="Firefox 3.0">FF3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><th>linear gradients</th><td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+<tr><th>radial gradients</th><td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+</tbody>
+<tfoot>
+<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+</tfoot>
+</table>
 
 <p>Earlier in this chapter, you learned how to draw <a href=#shapes>a rectangle filled with a solid color</a>, then <a href=#paths>a line stroked with a solid color</a>. But shapes and lines aren&#8217;t limited to solid colors. You can do all kinds of magic with gradients and patterns.</p>
 
@@ -351,6 +417,18 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p class=a>&#x2042;
 
 <h2 id=images>Images</h2>
+
+<table class=bc>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<sup>*</sup><th title="Internet Explorer 7">IE7<sup>*</sup><th title="Firefox 3.5">FF3.5<th title="Firefox 3.0">FF3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+</tbody>
+<tfoot>
+<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+</tfoot>
+</table>
 
 <p>Here is a cat:
 
@@ -463,12 +541,15 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <script src=j/dih5.js></script>
 <script>
 function draw_b() {
+try {
   var b_canvas = document.getElementById("b");
   var b_context = b_canvas.getContext("2d");
   b_context.fillRect(50, 25, 150, 100);
+} catch(err) {}
 }
 
 function draw_grid(ctx) {
+try {
   /* vertical lines */
   for (var x = 0; x < 500; x += 10) {
     ctx.moveTo(x, 0);
@@ -484,9 +565,11 @@ function draw_grid(ctx) {
   /* draw it! */
   ctx.strokeStyle = "#eee";
   ctx.stroke();
+} catch(err) {}
 }
 
 function draw_arrows(ctx) {
+try {
   /* x-axis */
   ctx.beginPath();
   ctx.moveTo(0, 40);
@@ -509,24 +592,33 @@ function draw_arrows(ctx) {
   /* draw it! */
   ctx.strokeStyle = "#000";
   ctx.stroke();
+} catch(err) {}
 }
 
 function draw_labels(ctx) {
+try {
   ctx.font = "bold 12px sans-serif";
   ctx.fillText("x", 248, 43);
   ctx.fillText("y", 58, 165);
+} catch(err) {}
 
+try {
   ctx.textBaseline = "top";
   ctx.fillText("( 0 , 0 )", 8, 5);
+} catch(err) {}
 
+try {
   ctx.textAlign = "right";
   ctx.textBaseline = "bottom";
   ctx.fillText("( 500 , 375 )", 492, 370);
+} catch(err) {}
 }
 
 function draw_dots(ctx) {
+try {
   ctx.fillRect(0, 0, 3, 3);
   ctx.fillRect(497, 372, 3, 3);
+} catch(err) {}
 }
 
 $(document).ready(function() {
