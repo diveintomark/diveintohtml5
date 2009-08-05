@@ -37,7 +37,7 @@ tfoot{font-size:small}
 <p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas></code> element has no content and no border of its own.</p>
 
 <canvas width=300 height=225 class=clear style="float:left"></canvas>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x219c;</span> Invisible canvas
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Invisible canvas
 
 <p class=clear>The markup looks like this:
 
@@ -46,7 +46,7 @@ tfoot{font-size:small}
 <p>Let&#8217;s add a dotted border so we can see what we&#8217;re dealing with.</p>
 
 <canvas width=300 height=225 class=clear style="border:1px dotted;float:left"></canvas>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x219c;</span> Canvas with border
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Canvas with border
 
 <p class=clear>You can have several <code>&lt;canvas></code> elements on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
 
@@ -77,7 +77,7 @@ tfoot{font-size:small}
 <p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
 
 <canvas id=b width=300 height=225 style="border:1px dotted;float:left"></canvas>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
 
 <p class=clear>The <code>onclick</code> handler called this function:
 
@@ -116,7 +116,7 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 </ul>
 
 <p>Getting back to that code sample in the previous example&hellip;
-<p class="legend left" style="margin-top:2em">Draw a rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left" style="margin-top:2em">Draw a rectangle <span class=arrow>&#x21dd;&nbsp;</span></p>
 <pre><code>var b_canvas = document.getElementById("b");
 var b_context = b_canvas.getContext("2d");
 <mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
@@ -197,13 +197,13 @@ var context = c_canvas.getContext("2d");</code></pre>
   context.moveTo(x, 0);
   <mark>context.lineTo(x, 375);</mark>
 }</code></pre>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x21dc;</span> Draw vertical lines</p>
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> Draw vertical lines</p>
 
 <pre style="clear:left;float:left"><code>for (var y = 0; y < 375; y += 10) {
   context.moveTo(0, y);
   <mark>context.lineTo(500, y);</mark>
 }</code></pre>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x21dc;</span> Draw horizontal lines</p>
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> Draw horizontal lines</p>
 
 <p class=clear>Those were all &#8220;pencil&#8221; methods. Nothing has actually been drawn on the canvas yet. We need an &#8220;ink&#8221; method to make it permanent.
 
@@ -235,7 +235,7 @@ context.lineTo(60, 375);
 context.moveTo(65, 370);
 context.lineTo(60, 375);
 context.lineTo(55, 370);</code></pre>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x219c;</span> Not a new path</p>
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Not a new path</p>
 
 <p class=clear>I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&#8217;t get reset when you start a new path.) That&#8217;s OK, because we&#8217;ve just run a series of &#8220;pencil&#8221; methods. But before we draw it for real, in &#8220;ink,&#8221; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we could hardly see them!
 
@@ -286,14 +286,14 @@ context.stroke();</code></pre>
 <pre style="float:left"><code><mark>context.font = "bold 12px sans-serif";</mark>
 context.fillText("x", 248, 43);
 context.fillText("y", 58, 165);</code></pre>
-<p class="legend right">&nbsp;<span class=arrow>&#x219c;</span> Change the font style</p>
+<p class="legend right"><span class=arrow>&nbsp;&#x219c;</span> Change the font style</p>
 
 <p class=clear>The <code>fillText()</code> method draws the actual text.</p>
 
 <pre style="float:left"><code>context.font = "bold 12px sans-serif";
 <mark>context.fillText("x", 248, 43);</mark>
 context.fillText("y", 58, 165);</code></pre>
-<p class="legend right" style="margin-top:2.6em">&nbsp;<span class=arrow>&#x21dc;</span> Draw the text</p>
+<p class="legend right" style="margin-top:2.6em"><span class=arrow>&nbsp;&#x21dc;</span> Draw the text</p>
 
 <div class="pf clear">
 <blockquote class=note>
@@ -321,7 +321,7 @@ context.fillText("( 500 , 375 )", <mark>492, 370</mark>);</code></pre>
 
 <pre style="float:left"><code>context.fillRect(0, 0, 3, 3);
 context.fillRect(497, 372, 3, 3);</code></pre>
-<p class="legend right">&nbsp;<span class=arrow>&#x21dc;</span> Draw two &#8220;dots&#8221;</p>
+<p class="legend right"><span class=arrow>&nbsp;&#x21dc;</span> Draw two &#8220;dots&#8221;</p>
 
 <p>And that&#8217;s all she wrote!</p>
 
@@ -433,12 +433,12 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p>Here is a cat:
 
 <p style="float:left"><img src=i/openclipart.org_media_files_johnny_automatic_1360.png alt="sleeping cat" width=177 height=113 id=cat>
-<p class="legend right" style="margin-top:4em">&nbsp;<span class=arrow>&#x21dc;</span> An &lt;img> element</p>
+<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> An &lt;img> element</p>
 
 <p class=clear>Here is the same cat, drawn on a canvas:
 
 <div style="float:right">
-<p class="legend left" style="margin-top:2em">A &lt;canvas> element <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left" style="margin-top:2em">A &lt;canvas> element <span class=arrow>&#x21dd;&nbsp;</span></p>
 <canvas id=e width=177 height=113></canvas>
 </div>
 
@@ -501,7 +501,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
   }
 };
 </code></pre>
-<p class="legend right" style="margin-top:6em">&nbsp;<span class=arrow>&#x21dc;</span>Scale the image</p>
+<p class="legend right" style="margin-top:6em"><span class=arrow>&nbsp;&#x21dc;</span>Scale the image</p>
 
 <p class=clear>All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? What does the extra complexity of image-on-a-canvas buy you over an <code>&lt;img></code> element and some <abbr>CSS</abbr> rules? Even the &#8220;multicat&#8221; effect could be replicated with 10 overlapping <code>&lt;img></code> elements.
 
