@@ -89,7 +89,7 @@ tfoot{font-size:small}
 
 <p>The 1<sup>st</sup> line of the function is nothing special; it just finds the <code>&lt;canvas></code> element in the <abbr>DOM</abbr>.
 
-<p class="legend left" style="margin-top:2em">And then there&#8217;s this <span class=arrow>&#x21dd;</span> </p>
+<p class="legend left" style="margin-top:2em">And then there&#8217;s this <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <pre><code>function draw_b() {
   var b_canvas = document.getElementById("b");
 <mark>  var b_context = b_canvas.getContext("2d");</mark>
@@ -110,13 +110,13 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 <ul>
 <li>The <code>fillStyle</code> property can be a <abbr>CSS</abbr> color, a pattern, or a gradient. (More on patterns and gradients shortly.) The default <code>fillStyle</code> is solid black, but you can set it to whatever you like. Each canvas remembers its own properties as long as the page is open.
 <li><code>fillRect(x, y, width, height)</code> draws a rectangle filled with the current fill style.
-<li>The <code>strokeStyle</code> property is like <code>fillStyle</code>&nbsp;&mdash;&nbsp;it can be a CSS color, pattern, or gradient.
+<li>The <code>strokeStyle</code> property is like <code>fillStyle</code> &mdash; it can be a CSS color, pattern, or gradient.
 <li><code>strokeRect(x, y, width, height)</code> draws an rectangle with the current stroke style. <code>strokeRect</code> doesn&#8217;t fill in the middle; it just draws the edges.
 <li><code>clearRect(x, y, width, height)</code> clears the pixels in the specified rectangle.
 </ul>
 
 <p>Getting back to that code sample in the previous example&hellip;
-<p class="legend left" style="margin-top:2em">Draw a rectangle <span class=arrow>&#x21dd;</span></p>
+<p class="legend left" style="margin-top:2em">Draw a rectangle <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <pre><code>var b_canvas = document.getElementById("b");
 var b_context = b_canvas.getContext("2d");
 <mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
@@ -189,7 +189,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 <li>Go to step 1.
 </ol>
 
-<p>The more you call <code>moveTo()</code> and <code>lineTo()</code>, the biggest the path gets. These are &#8220;pencil&#8221; methods&nbsp;&mdash;&nbsp;you can call them as often as you like, but you won&#8217;t see anything on the canvas until you call one of the &#8220;ink&#8221; methods.
+<p>The more you call <code>moveTo()</code> and <code>lineTo()</code>, the biggest the path gets. These are &#8220;pencil&#8221; methods &mdash; you can call them as often as you like, but you won&#8217;t see anything on the canvas until you call one of the &#8220;ink&#8221; methods.
 
 <p>Let&#8217;s draw the off-white grid.
 
@@ -214,7 +214,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <canvas id=c2 width=500 height=375></canvas>
 
-<p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient&nbsp;&mdash;&nbsp;yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink&nbsp;&mdash;&nbsp;black instead of off-white&nbsp;&mdash;&nbsp;so we need to start a new path.
+<p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient &mdash; yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink &mdash; black instead of off-white &mdash; so we need to start a new path.
 
 <p class="legend top" style="margin-left:2em">A new path <span class=arrow>&#x21b7;</span><br></p>
 <pre><code><mark>context.beginPath();</mark>
@@ -302,12 +302,12 @@ A: Yes. The default font is <code>10px sans-serif</code>. Sizes in <code>em</cod
 </blockquote>
 </div>
 
-<p>For the text in the upper-left corner, I want the top of the text to be at <code>y=5</code>. But I&#8217;m lazy&nbsp;&mdash;&nbsp;I don&#8217;t want to measure the height of the text and calculate the baseline. Instead, I can set the <code>textBaseline</code> to <code>top</code> and pass in the upper-left coordinate of the text&#8217;s bounding box.
+<p>For the text in the upper-left corner, I want the top of the text to be at <code>y=5</code>. But I&#8217;m lazy &mdash; I don&#8217;t want to measure the height of the text and calculate the baseline. Instead, I can set the <code>textBaseline</code> to <code>top</code> and pass in the upper-left coordinate of the text&#8217;s bounding box.
 
 <pre><code>context.textBaseline = "top";
 context.fillText("( 0 , 0 )", <mark>8, 5</mark>);</code></pre>
 
-<p>For the text in the lower-right corner, I want to be lazy again. I want the bottom-right corner of the text to be at coordinates <code>(492,370)</code>&nbsp;&mdash;&nbsp;just a few pixels away from the bottom-right corner of the canvas&nbsp;&mdash;&nbsp;but I don&#8217;t want to measure the width or height of the text. I can set <code>textAlign</code> to <code>right</code> and <code>textBaseline</code> to <code>bottom</code>, then call <code>fillText()</code> with the bottom-right coordinates of the text&#8217;s bounding box.
+<p>For the text in the lower-right corner, I want to be lazy again. I want the bottom-right corner of the text to be at coordinates <code>(492,370)</code> &mdash; just a few pixels away from the bottom-right corner of the canvas &mdash; but I don&#8217;t want to measure the width or height of the text. I can set <code>textAlign</code> to <code>right</code> and <code>textBaseline</code> to <code>bottom</code>, then call <code>fillText()</code> with the bottom-right coordinates of the text&#8217;s bounding box.
 
 <pre><code>context.textAlign = "right";
 context.textBaseline = "bottom";
@@ -438,7 +438,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p class=clear>Here is the same cat, drawn on a canvas:
 
 <div style="float:right">
-<p class="legend left" style="margin-top:2em">A &lt;canvas> element <span class=arrow>&#x21dd;</span></p>
+<p class="legend left" style="margin-top:2em">A &lt;canvas> element <span class=arrow>&#x21dd;</span>&nbsp;</p>
 <canvas id=e width=177 height=113></canvas>
 </div>
 
@@ -621,7 +621,72 @@ try {
 } catch(err) {}
 }
 
-function draw() {
+function draw_gradients(ctx) {
+try {
+  var d = document.getElementById("d");
+  var context = d.getContext("2d");
+  var my_gradient = context.createLinearGradient(0, 0, 300, 0);
+  my_gradient.addColorStop(0, "black");
+  my_gradient.addColorStop(1, "white");
+  context.fillStyle = my_gradient;
+  context.fillRect(0, 0, 300, 225);
+} catch(err) {}
+
+try {
+  var d2 = document.getElementById("d2");
+  var context = d2.getContext("2d");
+  var my_gradient = context.createLinearGradient(0, 0, 300, 0);
+  my_gradient.addColorStop(0, "black");
+  my_gradient.addColorStop(1, "white");
+  context.fillStyle = my_gradient;
+  context.fillRect(0, 0, 300, 225);
+} catch(err) {}
+
+try {
+  var d3 = document.getElementById("d3");
+  var context = d3.getContext("2d");
+  var my_gradient = context.createLinearGradient(0, 0, 0, 225);
+  my_gradient.addColorStop(0, "black");
+  my_gradient.addColorStop(1, "white");
+  context.fillStyle = my_gradient;
+  context.fillRect(0, 0, 300, 225);
+} catch(err) {}
+
+try {
+  var d4 = document.getElementById("d4");
+  var context = d4.getContext("2d");
+  var my_gradient = context.createLinearGradient(0, 0, 300, 225);
+  my_gradient.addColorStop(0, "black");
+  my_gradient.addColorStop(1, "white");
+  context.fillStyle = my_gradient;
+  context.fillRect(0, 0, 300, 225);
+} catch(err) {}
+}
+
+function draw_images(imagesReady) {
+  var cat_canvas = document.getElementById("e");
+  var cat_context = cat_canvas.getContext("2d");
+  var cat_canvas2 = document.getElementById("multicat");
+  var cat_context2 = cat_canvas2.getContext("2d");
+  var cat_canvas3 = document.getElementById("e3");
+  var cat_context3 = cat_canvas3.getContext("2d");
+  cat_context3.rotate(-Math.PI);
+  var cat_image = document.getElementById("cat");
+  var _draw = function() {
+    cat_context.drawImage(cat_image, 0, 0);
+    for (var x = 0, y = 0; x < 500, y < 375; x += 50, y += 37) {
+      cat_context2.drawImage(cat_image, x, y, 88, 56);
+    }
+    cat_context3.drawImage(cat_image, -177, -113);
+  };
+  if (!!imagesReady) {
+    _draw();
+  } else {
+    window.onload = _draw;
+  }
+}
+
+function draw(imagesReady) {
   var c = document.getElementById("c");
   var ctx = c.getContext("2d");
   draw_grid(ctx);
@@ -651,60 +716,15 @@ function draw() {
   draw_labels(ctx);
   draw_dots(ctx);
 
-  var d = document.getElementById("d");
-  var context = d.getContext("2d");
-  var my_gradient = context.createLinearGradient(0, 0, 300, 0);
-  my_gradient.addColorStop(0, "black");
-  my_gradient.addColorStop(1, "white");
-  context.fillStyle = my_gradient;
-  context.fillRect(0, 0, 300, 225);
-
-  var d2 = document.getElementById("d2");
-  var context = d2.getContext("2d");
-  var my_gradient = context.createLinearGradient(0, 0, 300, 0);
-  my_gradient.addColorStop(0, "black");
-  my_gradient.addColorStop(1, "white");
-  context.fillStyle = my_gradient;
-  context.fillRect(0, 0, 300, 225);
-
-  var d3 = document.getElementById("d3");
-  var context = d3.getContext("2d");
-  var my_gradient = context.createLinearGradient(0, 0, 0, 225);
-  my_gradient.addColorStop(0, "black");
-  my_gradient.addColorStop(1, "white");
-  context.fillStyle = my_gradient;
-  context.fillRect(0, 0, 300, 225);
-
-  var d4 = document.getElementById("d4");
-  var context = d4.getContext("2d");
-  var my_gradient = context.createLinearGradient(0, 0, 300, 225);
-  my_gradient.addColorStop(0, "black");
-  my_gradient.addColorStop(1, "white");
-  context.fillStyle = my_gradient;
-  context.fillRect(0, 0, 300, 225);
-
-  var cat_canvas = document.getElementById("e");
-  var cat_context = cat_canvas.getContext("2d");
-  var cat_canvas2 = document.getElementById("multicat");
-  var cat_context2 = cat_canvas2.getContext("2d");
-  var cat_canvas3 = document.getElementById("e3");
-  var cat_context3 = cat_canvas3.getContext("2d");
-  cat_context3.rotate(-Math.PI);
-  var cat_image = document.getElementById("cat");
-  window.onload = function() {
-    cat_context.drawImage(cat_image, 0, 0);
-    for (var x = 0, y = 0; x < 500, y < 375; x += 50, y += 37) {
-      cat_context2.drawImage(cat_image, x, y, 88, 56);
-    }
-    cat_context3.drawImage(cat_image, -177, -113);
-  };
+  draw_gradients();
+  draw_images(imagesReady);
 }
 
 $(document).ready(function() {
   if (!(!/*@cc_on!@*/0)) {
     window.attachEvent('onload', draw);
   } else {
-    draw();
+    draw(false);
   }
 });
 </script>
