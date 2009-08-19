@@ -299,7 +299,7 @@ context.fillText("y", 58, 165);</code></pre>
 context.fillText("y", 58, 165);</code></pre>
 <p class="legend right" style="margin-top:2.6em"><span class=arrow>&nbsp;&#x21dc;</span> Draw the text</p>
 
-<div class="pf clear">
+<div class="pf clear" id=relative-font-size>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
 A: Yes. Like every other <abbr>HTML</abbr> element on your page, the <code>&lt;canvas></code> element itself has a computed font size based on your page&#8217;s CSS rules. If you set the <code>context.font</code> property to a relative font size like <code>1.5em</code> or <code>150%</code>, your browser multiplies this by the computed font size of the <code>&lt;canvas></code> element itself.
