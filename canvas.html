@@ -285,7 +285,7 @@ context.stroke();</code></pre>
 
 <p>For simple alphabets like English, you can safely stick with <code>top</code>, <code>middle</code>, or <code>bottom</code> for the <code>textBaseline</code> property.
 
-<p>Let&#8217;s draw some text! The default font is <code>10px sans-serif</code>, which is a touch too small for my taste. Let&#8217;s increase that to <code>12px</code> and make it bold. We do that by setting the <code>font</code> property on the drawing context.
+<p>Let&#8217;s draw some text! Text drawn inside the canvas inherits the font size and style of the <code>&lt;canvas></code> element itself, but you can override this by setting the <code>font</code> property on the drawing context.
 
 <pre style="float:left"><code><mark>context.font = "bold 12px sans-serif";</mark>
 context.fillText("x", 248, 43);
@@ -302,7 +302,7 @@ context.fillText("y", 58, 165);</code></pre>
 <div class="pf clear">
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
-A: Yes. The default font is <code>10px sans-serif</code>. Sizes in <code>em</code> or percentages are measured against the default font.
+A: Yes. Like every other <abbr>HTML</abbr> element on your page, the <code>&lt;canvas></code> element itself has a computed font size based on your page&#8217;s CSS rules. If you set the <code>context.font</code> property to a relative font size like <code>1.5em</code> or <code>150%</code>, your browser multiplies this by the computed font size of the <code>&lt;canvas></code> element itself.
 </blockquote>
 </div>
 
