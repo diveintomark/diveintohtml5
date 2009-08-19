@@ -193,17 +193,17 @@ var context = c_canvas.getContext("2d");</code></pre>
 <li>Go to step 1.
 </ol>
 
-<p>The more you call <code>moveTo()</code> and <code>lineTo()</code>, the biggest the path gets. These are &#8220;pencil&#8221; methods &mdash; you can call them as often as you like, but you won&#8217;t see anything on the canvas until you call one of the &#8220;ink&#8221; methods.
+<p>The more you call <code>moveTo()</code> and <code>lineTo()</code>, the bigger the path gets. These are &#8220;pencil&#8221; methods &mdash; you can call them as often as you like, but you won&#8217;t see anything on the canvas until you call one of the &#8220;ink&#8221; methods.
 
 <p>Let&#8217;s draw the off-white grid.
 
-<pre style="float:left"><code>for (var x = 0; x < 500; x += 10) {
+<pre style="float:left"><code>for (var x = 0; x &lt; 500; x += 10) {
   context.moveTo(x, 0);
   <mark>context.lineTo(x, 375);</mark>
 }</code></pre>
 <p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> Draw vertical lines</p>
 
-<pre style="clear:left;float:left"><code>for (var y = 0; y < 375; y += 10) {
+<pre style="clear:left;float:left"><code>for (var y = 0; y &lt; 375; y += 10) {
   context.moveTo(0, y);
   <mark>context.lineTo(500, y);</mark>
 }</code></pre>
@@ -344,7 +344,7 @@ context.fillRect(497, 372, 3, 3);</code></pre>
 <tr><th>radial gradients</th><td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
 </tbody>
 <tfoot>
-<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+<tr><td colspan=9>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
 </tfoot>
 </table>
 
@@ -499,7 +499,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <pre style="float:left"><code>cat.onload = function() {
   for (var x = 0, y = 0;
-       x < 500, y < 375;
+       x &lt; 500, y &lt; 375;
        x += 50, y += 37) {
     context.drawImage(cat, x, y, <mark>88, 56</mark>);
   }
