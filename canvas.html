@@ -112,12 +112,21 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 <p>You have a <code>&lt;canvas></code> element, and you have its drawing context. The drawing context is where all the drawing methods and properties are defined. There&#8217;s a whole group of methods devoted to drawing rectangles:
 
 <ul>
-<li>The <code>fillStyle</code> property can be a <abbr>CSS</abbr> color, a pattern, or a gradient. (More on patterns and gradients shortly.) The default <code>fillStyle</code> is solid black, but you can set it to whatever you like. Each canvas remembers its own properties as long as the page is open.
+<li>The <code>fillStyle</code> property can be a <abbr>CSS</abbr> color, a pattern, or a gradient. (More on patterns and gradients shortly.) The default <code>fillStyle</code> is solid black, but you can set it to whatever you like. Each drawing context remembers its own properties as long as the page is open, unless you do something to reset it.
 <li><code>fillRect(x, y, width, height)</code> draws a rectangle filled with the current fill style.
 <li>The <code>strokeStyle</code> property is like <code>fillStyle</code> &mdash; it can be a CSS color, pattern, or gradient.
 <li><code>strokeRect(x, y, width, height)</code> draws an rectangle with the current stroke style. <code>strokeRect</code> doesn&#8217;t fill in the middle; it just draws the edges.
 <li><code>clearRect(x, y, width, height)</code> clears the pixels in the specified rectangle.
 </ul>
+
+<div class="pf clear" id=reset>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Can I &#8220;reset&#8221; a canvas?<br>
+A: Yes. Setting the width or height of a <code>&lt;canvas></code> element will erase its contents and reset all the properties of its drawing context to their default values. You don&#8217;t even need to <em>change</em> the width; you can simply set it to its current value, like this:
+<pre><code>var b_canvas = document.getElementById("b");
+<mark>b_canvas.width = b_canvas.width;</mark></code></pre>
+</blockquote>
+</div>
 
 <p>Getting back to that code sample in the previous example&hellip;
 <p class="legend left" style="margin-top:2em">Draw a rectangle <span class=arrow>&#x21dd;&nbsp;</span></p>
@@ -197,13 +206,13 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <p>Let&#8217;s draw the off-white grid.
 
-<pre style="float:left"><code>for (var x = 0; x &lt; 500; x += 10) {
+<pre style="float:left"><code>for (var x = 0.5; x &lt; 500; x += 10) {
   context.moveTo(x, 0);
   <mark>context.lineTo(x, 375);</mark>
 }</code></pre>
 <p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> Draw vertical lines</p>
 
-<pre style="clear:left;float:left"><code>for (var y = 0; y &lt; 375; y += 10) {
+<pre style="clear:left;float:left"><code>for (var y = 0.5; y &lt; 375; y += 10) {
   context.moveTo(0, y);
   <mark>context.lineTo(500, y);</mark>
 }</code></pre>
@@ -217,6 +226,12 @@ var context = c_canvas.getContext("2d");</code></pre>
 <p><code>stroke()</code> is one of the &#8220;ink&#8221; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and it actually draws it on the canvas. The <code>strokeStyle</code> controls the color of the lines, and this is the result:</p>
 
 <canvas id=c2 width=500 height=375></canvas>
+
+<div class="pf clear" id=reset>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
+A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
+</div>
 
 <p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient &mdash; yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink &mdash; black instead of off-white &mdash; so we need to start a new path.
 
@@ -467,7 +482,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p>If you&#8217;re using an existing <code>&lt;img></code> element, you can safely draw it on the canvas during the <code>window.onload</code> event.
 <p class="legend top" style="margin-left:6.5em"><span class=arrow>&#x21b6;</span> using an &lt;img> element<br></p>
 <pre><code>&lt;img <mark>id="cat"</mark> src="images/cat.png" alt="sleeping cat" width="177" height="113">
-&lt;canvas id="e" width="177" height="113">
+&lt;canvas id="e" width="177" height="113">&lt;/canvas>
 &lt;script>
 <mark>window.onload</mark> = function() {
   var canvas = document.getElementById("e");
@@ -552,16 +567,23 @@ try {
 } catch(err) {}
 }
 
+function reset_b() {
+try {
+  var b_canvas = document.getElementById("b");
+  b_canvas.width = b_canvas.width;
+} catch(err) {}
+}
+
 function draw_grid(ctx) {
 try {
   /* vertical lines */
-  for (var x = 0; x < 500; x += 10) {
+  for (var x = 0.5; x < 500; x += 10) {
     ctx.moveTo(x, 0);
     ctx.lineTo(x, 375);
   }
 
   /* horizontal lines */
-  for (var y = 0; y < 375; y += 10) {
+  for (var y = 0.5; y < 375; y += 10) {
     ctx.moveTo(0, y);
     ctx.lineTo(500, y);
   }
