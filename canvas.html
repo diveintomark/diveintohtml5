@@ -227,7 +227,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <canvas id=c2 width=500 height=375></canvas>
 
-<div class="pf clear" id=reset>
+<div class="pf clear" id=pixel-madness>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
 A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
