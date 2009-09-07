@@ -24,9 +24,11 @@ body{counter-reset:h1 12}
 
 <p>When your browser renders a web page, it constructs a Document Object Model (<abbr>DOM</abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element&nbsp;&mdash;&nbsp;every <code>&lt;p></code>, every <code>&lt;div></code>, every <code>&lt;span></code>&nbsp;&mdash;&nbsp;is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren&#8217;t tied to specific elements.)
 
-<p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML</abbr> 5 features, certain objects will have unique properties which you can detect with a few lines of JavaScript.
+<p class=ss><img src=i/openclipart.org_johnny_automatic_peeking_out_the_window.png width=257 height=436 alt="girl peeking out the window">
 
-<p>There are three basic techniques for detecting whether a browser supports an <abbr>HTML</abbr> 5 feature. From simplest to most complex:
+<p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML</abbr> 5 features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
+
+<p>There are three basic techniques for detecting whether a browser supports a particular feature. From simplest to most complex:
 
 <ol>
 <li>
@@ -42,6 +44,34 @@ body{counter-reset:h1 12}
 
 <p class=a>&#x2042;
 
+<h2 id=modernizr>Modernizr, the HTML 5 Detection Library</h2>
+
+<p><a href=http://modernizr.com/>Modernizer</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML 5 features. To use it, include the following <code>&lt;script></code> element within the <code>&lt;head></code> element at the top of your page.
+
+<pre style="float:left"><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>Dive Into HTML 5&lt;/title>
+  <mark>&lt;script src="modernizr-1.0.min.js"></script></mark>
+&lt;/head>
+&lt;body>
+  ...
+&lt;/body>
+&lt;/html>
+</code></pre>
+<p class="legend right" style="margin-top:7.25em"><span class=arrow>&nbsp;&#x219c;</span> It goes to your &lt;head>
+
+<p class=clear>Modernizr will run automatically; there is no <code>modernizr_init()</code> function to call. Modernizr creates an global object called <code>Modernizr</code>, which contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href=canvas.html#text>canvas text <abbr>API</abbr></a>, the <code>Modernizr.canvastext</code> property will be <code>true</code>. If your browser does not support the canvas text <abbr>API</abbr>, the <code>Modernizr.canvastext</code> property will be <code>false</code>.
+
+<pre><code>if (Modernizr.canvastext) {
+  // let's draw some text!
+} else {
+  // no text API available :(
+}</code></pre>
+
+<p class=a>&#x2042;
+
 <h2 id=elements>New Semantic Elements</h2>
 
 <p>FIXME
@@ -50,13 +80,14 @@ body{counter-reset:h1 12}
 
 <h2 id=canvas>Canvas</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_canoe_traveling.png width=159 height=140 alt="two men in a canoe">
 <p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
 
 <pre><code>function supports_canvas() {
   return !!document.createElement('canvas').getContext;
 }
 </code></pre>
+
+<p class=ss><img src=i/openclipart.org_johnny_automatic_canoe_traveling.png width=159 height=140 alt="two men in a canoe">
 
 <p>This function starts by creating a dummy <code>&lt;canvas></code> element. But the element is never attached to your page, so no one will ever see it. It&#8217;s just floating in memory, going nowhere and doing nothing, like a canoe on a lazy river.
 
@@ -71,6 +102,15 @@ body{counter-reset:h1 12}
 <pre><code>return <mark>!!</mark>document.createElement('canvas').getContext;</code></pre>
 
 <p>This function will detect support for the basic canvas <abbr>API</abbr>. That includes <a href=canvas.html#shapes>shapes</a>, <a href=canvas.html#paths>paths</a>, <a href=canvas.html#gradients>gradients <i class=baa>&amp;</i> patterns</a>. It will not detect the third-party <a href=canvas.html#ie><code>explorercanvas</code> library</a> that implements the canvas <abbr>API</abbr> in Microsoft Internet Explorer.
+
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the basic canvas <abbr>API</abbr>.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for canvas support
+<pre><code>if (<mark>Modernizr.canvas</mark>) {
+  // let's draw some shapes!
+} else {
+  // no canvas support available :(
+}</code></pre>
 
 <p>There is a separate test for the canvas text <abbr>API</abbr>, which I will demonstrate next.
 
@@ -194,12 +234,6 @@ body{counter-reset:h1 12}
 <p class=a>&#x2042;
 
 <h2 id=input-pattern>&lt;input pattern></h2>
-
-<p>FIXME
-
-<p class=a>&#x2042;
-
-<h2 id=modernizr>Modernizr, the HTML 5 Detection Library</h2>
 
 <p>FIXME
 
