@@ -14,7 +14,7 @@ tfoot{font-size:small}
 <meta name=viewport content="initial-scale=1.0">
 </head>
 <div id=body>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <!--<a href=table-of-contents.html#canvas>-->Dive Into HTML 5<!--</a>--> <span class=u>&#8227;</span>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <!--<a href=table-of-contents.html#canvas>-->Dive Into <abbr>HTML</abbr> 5<!--</a>--> <span class=u>&#8227;</span>
 <h1>Let&#8217;s Call It A Draw(ing Surface)</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2042;
@@ -103,7 +103,7 @@ tfoot{font-size:small}
 
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Is there a 3-D canvas?<br>
-A: Not yet. Individual vendors have experimented with their own three-dimensional canvas APIs, but none of them have been standardized. The HTML 5 specification notes, &#8220;A future version of this specification will probably define a 3d context.&#8221;
+A: Not yet. Individual vendors have experimented with their own three-dimensional canvas <abbr>API</abbr>s, but none of them have been standardized. The <abbr>HTML</abbr> 5 specification notes, &#8220;A future version of this specification will probably define a 3d context.&#8221;
 </blockquote>
 
 <p>You have a <code>&lt;canvas></code> element, and you have its drawing context. The drawing context is where all the drawing methods and properties are defined. There&#8217;s a whole group of methods devoted to drawing rectangles:
@@ -288,7 +288,7 @@ context.stroke();</code></pre>
 <li><code>textBaseline</code> controls where the text is drawn relative to the starting point. Possible values are <code>top</code>, <code>hanging</code>, <code>middle</code>, <code>alphabetic</code>, <code>ideographic</code>, or <code>bottom</code>.
 </ul>
 
-<p><code>textBaseline</code> is tricky, because text is tricky. Well, English text is not tricky, but you can draw any Unicode character you like on a canvas, and Unicode is tricky. The HTML 5 specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>explains the different text baselines</a>:
+<p><code>textBaseline</code> is tricky, because text is tricky. Well, English text is not tricky, but you can draw any Unicode character you like on a canvas, and Unicode is tricky. The <abbr>HTML</abbr> 5 specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>explains the different text baselines</a>:
 
 <blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>
 <p>The top of the em square is roughly at the top of the glyphs in a font, the hanging baseline is where some glyphs like <span class=u>आ</span> are anchored, the middle is half-way between the top of the em square and the bottom of the em square, the alphabetic baseline is where characters like <span class=u>Á</span>, <span class=u>ÿ</span>, <span class=u>f</span>, and <span class=u>Ω</span> are anchored, the ideographic baseline is where glyphs like <span class=u>私</span> and <span class=u>達</span> are anchored, and the bottom of the em square is roughly at the bottom of the glyphs in a font. The top and bottom of the bounding box can be far from these baselines, due to glyphs extending far outside the em square.</p>
@@ -466,7 +466,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <li><code>drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)</code> takes an image, clips it to the rectangle <code>(sx, sy, sw, sh)</code>, scales it to dimensions <code>(dw, dh)</code>, and draws it on the canvas at coordinates <code>(dx, dy)</code>.
 </ul>
 
-<p>The HTML 5 specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>explains the <code>drawImage()</code> parameters</a>:
+<p>The <abbr>HTML</abbr> 5 specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>explains the <code>drawImage()</code> parameters</a>:
 
 <blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>
 <p>The source rectangle is the rectangle [within the source image] whose corners are the four points <code>(sx, sy)</code>, <code>(sx+sw, sy)</code>, <code>(sx+sw, sy+sh)</code>, <code>(sx, sy+sh)</code>.
