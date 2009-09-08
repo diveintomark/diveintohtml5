@@ -45,8 +45,9 @@ java -jar util/yuicompressor-2.4.2.jar build/j/dih5.js > build/j/dih5.min.js || 
 
 # combine jQuery and our script
 echo "combining JS"
-cat build/j/jquery.min.js build/j/dih5.min.js > build/j/$revision.js && \
+cat build/j/jquery.min.js build/j/modernizr.min.js build/j/dih5.min.js > build/j/$revision.js && \
     sed -i -e "s|<script src=j/jquery.js></script>||g" build/*.html && \
+    sed -i -e "s|<script src=j/modernizr.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
 
 echo "minimizing CSS"
