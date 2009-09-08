@@ -258,21 +258,28 @@ body{counter-reset:h1 2}
   return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t currently detect individual video formats, so you&#8217;ll need to use the functions listed here.
+<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect individual video formats, so you&#8217;ll need to use the functions listed here.
 
 <p class=a>&#x2042;
 
-<h2 id=local-storage>Local Storage</h2>
+<h2 id=storage>Local Storage</h2>
 
-<p>FIXME-introduction
+<p class=ss style="width:119px"><img src=i/openclipart.org_johnny_automatic_half_stack_of_horizontal_sections.png alt="filing cabinet with drawers of different sizes" width=119 height=300><br><span id=live-storage></span>
 
-<p>FIXME-detection technique #1
+<p><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML</abbr> 5 storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&#8217;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML</abbr> 5 storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
+
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: How secure is my <abbr>HTML</abbr> 5 storage database? Can anyone read it?<br>
+A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML</abbr> 5 storage database. Within your browser, any web site can read and modify its own information, but sites can&#8217;t access information stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#origin-0>same-origin restriction</a>.
+</blockquote>
+
+<p>Checking for <abbr>HTML</abbr> 5 storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML</abbr> 5 storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 storage, the <code>localStorage</code> property will be undefined.
 
 <pre><code>function supports_local_storage() {
   return !!(typeof window.localStorage != 'undefined');
 }</code></pre>
 
-<p>FIXME
+<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML</abbr> 5 storage, so you&#8217;ll need to use the function listed here.
 
 <p class=a>&#x2042;
 
@@ -282,11 +289,11 @@ body{counter-reset:h1 2}
 
 <p>FIXME-detection technique #1
 
-<pre><code>function supports_local_storage() {
+<pre><code>function supports_offline() {
   return !!(typeof window.applicationCache != 'undefined');
 }</code></pre>
 
-<p>FIXME-no Modernizr support yet
+<p>FIXME
 
 <p class=a>&#x2042;
 
@@ -448,5 +455,6 @@ $(document).ready(function() {
   } else {
     $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
   }
+  $("#live-storage").html(supports(!!(typeof window.localStorage != 'undefined'), "HTML 5 storage"));
 });
 </script>
