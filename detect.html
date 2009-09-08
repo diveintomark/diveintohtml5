@@ -28,7 +28,7 @@ body{counter-reset:h1 2}
 
 <p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML</abbr> 5 features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
 
-<p>There are three basic techniques for detecting whether a browser supports a particular feature. From simplest to most complex:
+<p>There are four basic techniques for detecting whether a browser supports a particular feature. From simplest to most complex:
 
 <ol>
 <li>
@@ -38,8 +38,11 @@ body{counter-reset:h1 2}
 <p>Create an element, then check if a certain property exists on that element.
 <p>Example: <a href=#canvas>testing for canvas support</a>
 <li>
+<p>Create an element, check if a certain method exists on that element, then call the method and check the value it returns.
+<p>Example: <a href=#video-codecs>testing which types of video are supported</a>
+<li>
 <p>Create an element, set a property to a certain value, then check if the property retained its value.
-<p>Example: <a href=#input-types>testing for <code>&lt;input></code> types</a>
+<p>Example: <a href=#input-types>testing which <code>&lt;input></code> types are supported</a>
 </ol>
 
 <p class=a>&#x2042;
@@ -199,11 +202,37 @@ body{counter-reset:h1 2}
 
 <h2 id=video-codecs>Video Codecs</h2>
 
+<p>FIXME-introduction
+
+<p>FIXME-detection technique #3
+
+<pre><code>function supports_h264_baseline_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+}</code></pre>
+
+<p>FIXME
+
+<pre><code>function supports_ogg_theora_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType('video/ogg; codecs="theora, vorbis"');
+}</code></pre>
+
 <p>FIXME
 
 <p class=a>&#x2042;
 
 <h2 id=local-storage>Local Storage</h2>
+
+<p>FIXME-introduction
+
+<p>FIXME-detection technique #1
+
+<pre><code>function supports_local_storage() {
+  return !!(typeof window.localStorage != 'undefined');
+}</code></pre>
 
 <p>FIXME
 
@@ -211,64 +240,125 @@ body{counter-reset:h1 2}
 
 <h2 id=offline>Offline Support</h2>
 
-<p>FIXME
+<p>FIXME-introduction
+
+<p>FIXME-detection technique #1
+
+<pre><code>function supports_local_storage() {
+  return !!(typeof window.applicationCache != 'undefined');
+}</code></pre>
+
+<p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
 
 <h2 id=geolocation>Geolocation</h2>
 
-<p>FIXME
+<p>FIXME-intro
+
+<p>FIXME-detection technique #1
 
 <p>If your browser supports the geolocation <abbr>API</abbr>, the global <code>navigator</code> object will have a property called <code>geolocation</code>.
 
-<blockquote>
 <pre><code>function supports_geolocation() {
   return !!navigator.geolocation;
 }</code></pre>
-</blockquote>
+
+<p>FIXME-explanation
+
+<p>FIXME-Modernizr alternative
 
 <p class=a>&#x2042;
 
 <h2 id=input-types>Input Types</h2>
 
-<blockquote>
-<pre><code>function supports_input_type_search() {
-  var dummy_input = document.createElement('input');
-  dummy_input.setAttribute('type', 'search');
-  return !!(dummy_input.type !== 'text');
-}
-</code></pre>
-</blockquote>
+<p>FIXME-intro
+
+<p>FIXME-detection technique #4
+
+<pre><code>function supported_input_types() {
+  var input_type = {};
+  var all_input_types = 
+    ['search', 'tel', 'url', 'email', 'datetime',
+     'date', 'month', 'week', 'time', 'datetime-local',
+     'number', 'range', 'color'];
+  for (var index = all_input_types.length - 1; index >= 0; index--) {
+    var itype = all_input_types[index];
+    i.setAttribute("type", itype);
+    input_type[itype] = !!(i.type !== "text");
+  }
+  return input_type;
+}</code></pre>
+
+<p>FIXME-Modernizr alternative
 
 <p class=a>&#x2042;
 
 <h2 id=input-placeholder>&lt;input placeholder></h2>
 
-<p>FIXME
+<p>FIXME-intro
+
+<p>FIXME-detection technique #2
+
+<pre><code>function supports_input_placeholder() {
+  var i = document.createElement('input');
+  return !!('placeholder' in i);
+}</code></pre>
+
+<p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
 
 <h2 id=input-autofocus>&lt;input autofocus></h2>
 
-<p>FIXME
+<p>FIXME-intro
+
+<p>FIXME-detection technique #2
+
+<pre><code>function supports_input_autofocus() {
+  var i = document.createElement('input');
+  return !!('autofocus' in i);
+}</code></pre>
+
+<p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
 
 <h2 id=input-required>&lt;input required></h2>
 
-<p>FIXME
+<p>FIXME-intro
+
+<p>FIXME-detection technique #2
+
+<pre><code>function supports_input_required() {
+  var i = document.createElement('input');
+  return !!('required' in i);
+}</code></pre>
+
+<p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
 
+<!--
 <h2 id=input-autocomplete>&lt;input autocomplete></h2>
 
 <p>FIXME
 
 <p class=a>&#x2042;
+-->
 
 <h2 id=input-pattern>&lt;input pattern></h2>
 
-<p>FIXME
+<p>FIXME-intro
+
+<p>FIXME-detection technique #2
+
+<pre><code>function supports_input_pattern() {
+  var i = document.createElement('input');
+  return !!('pattern' in i);
+}</code></pre>
+
+<p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
 
