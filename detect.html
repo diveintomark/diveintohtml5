@@ -67,7 +67,7 @@ body{counter-reset:h1 2}
 <pre><code>if (Modernizr.canvas) {
   // let's draw some shapes!
 } else {
-  // no canvas API available :(
+  // no native canvas support available :(
 }</code></pre>
 
 <p class=a>&#x2042;
@@ -84,7 +84,7 @@ body{counter-reset:h1 2}
 
 <p><abbr>HTML</abbr> 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML</abbr> 5 defines a set of functions (&#8220;the canvas <abbr>API</abbr>&#8221;) for drawing shapes, defining paths, creating gradients, and applying transformations.
 
-<p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
+<p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have a <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
 
 <pre><code>function supports_canvas() {
   return !!document.createElement('canvas').getContext;
@@ -113,7 +113,7 @@ body{counter-reset:h1 2}
 <pre><code>if (<mark>Modernizr.canvas</mark>) {
   // let's draw some shapes!
 } else {
-  // no canvas support available :(
+  // no native canvas support available :(
 }</code></pre>
 
 <p>There is a separate test for the canvas text <abbr>API</abbr>, which I will demonstrate next.
@@ -122,7 +122,9 @@ body{counter-reset:h1 2}
 
 <h2 id=canvas-text>Canvas Text</h2>
 
-<p>Even if your browser supports the <a href=#canvas>canvas <abbr>API</abbr></a>, it might not support the canvas text <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was finalized.
+<p class=ss><img src=i/openclipart.org_johnny_automatic_baseball_at_bat.png width=414 height=254 alt="baseball player at bat">
+
+<p>Even if your browser supports the <a href=#canvas>canvas <abbr>API</abbr></a>, it might not support the canvas text <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was complete.
 
 <p>Checking for the canvas text <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
 
@@ -160,24 +162,41 @@ body{counter-reset:h1 2}
 <pre><code>if (<mark>Modernizr.canvastext</mark>) {
   // let's draw some text!
 } else {
-  // no canvas text support available :(
+  // no native canvas text support available :(
 }</code></pre>
 
 <p class=a>&#x2042;
 
-<h2 id=video>Audio &amp; Video</h2>
+<h2 id=video>Video</h2>
 
-<p>FIXME
+<p><abbr>HTML</abbr> 5 defines a new element called <code>&lt;video></code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
+
+<p style="float:left;margin:0 1.75em 1.75em 0"><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334>
+
+<p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML</abbr> 5 video will choose one based on what types of video they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about the different types of videos.)
+
+<p>Browsers that don&#8217;t support <abbr>HTML</abbr> 5 video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> which uses <abbr>HTML</abbr> 5 video where available, but falls back to Apple QuickTime&reg; or Adobe Flash&reg; in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers. I&#8217;ll explain more about this solution in the video chapter, whenever I get around to writing it.
+
+<p>If you want to do more with video than plop it on your page and play it, you&#8217;ll need to use JavaScript. Checking for video support uses <a href=#techniques>detection technique #2</a>. If your browser supports <abbr>HTML</abbr> 5 video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video></code> element will only have the set of properties common to all elements.
+
+<pre><code>function supports_video() {
+  return !!document.createElement('video').canPlayType;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for <abbr>HTML</abbr> 5 video.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML</abbr> 5 video support
+<pre><code>if (<mark>Modernizr.video</mark>) {
+  // let's play some video!
+} else {
+  // no native video support available :(
+}</code></pre>
+
+<p>There is a separate test for detecting which types of video your browser can play, which I will demonstrate next.
 
 <p class=a>&#x2042;
 
 <h2 id=video-codecs>Video Codecs</h2>
-
-<p>FIXME
-
-<p class=a>&#x2042;
-
-<h2 id=audio-codecs>Audio Codecs</h2>
 
 <p>FIXME
 
