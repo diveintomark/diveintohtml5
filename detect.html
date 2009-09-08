@@ -32,14 +32,14 @@ body{counter-reset:h1 2}
 
 <ol>
 <li>
-<p>Check if a property exists on a global object (such as <code>window</code> or <code>navigator</code>).
+<p>Check if a certain property exists on a global object (such as <code>window</code> or <code>navigator</code>).
 <p>Example: <a href=#geolocation>testing for geolocation support</a>
 <li>
 <p>Create an element, then check if a certain property exists on that element.
 <p>Example: <a href=#canvas>testing for canvas support</a>
 <li>
 <p>Create an element, check if a certain method exists on that element, then call the method and check the value it returns.
-<p>Example: <a href=#video-codecs>testing which types of video are supported</a>
+<p>Example: <a href=#video-formats>testing which video formats are supported</a>
 <li>
 <p>Create an element, set a property to a certain value, then check if the property retained its value.
 <p>Example: <a href=#input-types>testing which <code>&lt;input></code> types are supported</a>
@@ -176,7 +176,7 @@ body{counter-reset:h1 2}
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334>
 
-<p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML</abbr> 5 video will choose one based on what types of video they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about the different types of videos.)
+<p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML</abbr> 5 video will choose one based on what video formats they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about different video formats.)
 
 <p>Browsers that don&#8217;t support <abbr>HTML</abbr> 5 video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> which uses <abbr>HTML</abbr> 5 video where available, but falls back to Apple QuickTime&reg; or Adobe Flash&reg; in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers. I&#8217;ll explain more about this solution in the video chapter, whenever I get around to writing it.
 
@@ -196,15 +196,21 @@ body{counter-reset:h1 2}
   // maybe check for QuickTime&reg; or Flash&reg; instead
 }</code></pre>
 
-<p>There is a separate test for detecting which types of video your browser can play, which I will demonstrate next.
+<p>There is a separate test for detecting which video formats your browser can play, which I will demonstrate next.
 
 <p class=a>&#x2042;
 
-<h2 id=video-codecs>Video Codecs</h2>
+<h2 id=video-formats>Video Formats</h2>
 
-<p>FIXME-introduction
+<p>Video formats are like written languages. An English newspaper conveys the same information as a Spanish newspaper, but if you can only read English, only one of them is going to be useful to you! To play a video, your browser needs to understand the &#8220;language&#8221; in which the video was written.
 
-<p>FIXME-detection technique #3
+<p style="float:left;margin:0 1.75em 1.75em 0"><img src=i/openclipart.org_johnny_automatic_man_reading_newspaper.png alt="man reading newspaper" width=250 height=261>
+
+<p>The &#8220;language&#8221; of a video is called a &#8220;codec&#8221;&nbsp;&mdash;&nbsp;the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML</abbr> 5 video is that browsers can&#8217;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Adobe Flash&reg;, if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
+
+<p>Checking for video format support uses <a href=#techniques>detection technique #3</a>. If your browser supports <abbr>HTML</abbr> 5 video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
+
+<p>This function checks for the patent-encumbered format supported by Macs and iPhones.
 
 <pre><code>function supports_h264_baseline_video() {
   if (!supports_video()) { return false; }
@@ -212,15 +218,45 @@ body{counter-reset:h1 2}
   return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
 }</code></pre>
 
-<p>FIXME
+<p>The function starts by <a href=#video>checking for <abbr>HTML</abbr> 5 video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 video, it certainly won&#8217;t support any video formats!
+
+<pre><code>function supports_h264_baseline_video() {
+  if (<mark>!supports_video()</mark>) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+}</code></pre>
+
+<p>Then the function creates a dummy video element (but doesn&#8217;t attach it to the page, so it won&#8217;t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
+
+<pre><code>function supports_h264_baseline_video() {
+  if (!supports_video()) { return false; }
+  var <mark>v</mark> = document.createElement("video");
+  return <mark>v.canPlayType</mark>('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+}</code></pre>
+
+<p>A &#8220;video format&#8221; is really a combination of several different things. In technical terms, you&#8217;re asking the browser whether it can play H.264 Baseline video and AAC LC audio in an MPEG-4 container. (I&#8217;ll explain what all that means when I write the video chapter. Until then, you can read <a href=http://diveintomark.org/tag/give>A gentle introduction to video encoding</a>.)
+
+<pre><code>function supports_h264_baseline_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType('<mark>video/mp4; codecs="avc1.42E01E, mp4a.40.2"</mark>');
+}</code></pre>
+
+<p>The <code>canPlayType()</code> function doesn&#8217;t return <code>true</code> or <code>false</code>. In recognition of how complex video formats are, the function returns a string:
+
+<ul>
+<li><code>"probably"</code> if the browser is fairly confident it can play this format
+<li><code>"maybe"</code> if the browser thinks it might be able to play this format
+<li><code>""</code> (an empty string) if the browser is certain it can&#8217;t play this format
+</ul>
+
+<p>This second function checks for the open video format supported by Mozilla Firefox and other open source browsers. The process is exactly the same; the only difference is the string you pass in to the <code>canPlayType()</code> function. In technical terms, you&#8217;re asking the browser whether it can play Theora video and Vorbis audio in an Ogg container.
 
 <pre><code>function supports_ogg_theora_video() {
   if (!supports_video()) { return false; }
   var v = document.createElement("video");
-  return v.canPlayType('video/ogg; codecs="theora, vorbis"');
+  return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
 }</code></pre>
-
-<p>FIXME
 
 <p class=a>&#x2042;
 
