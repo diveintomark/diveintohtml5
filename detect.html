@@ -150,6 +150,15 @@ body{counter-reset:h1 12}
   var context = dummy_canvas.getContext('2d');
   return (<mark>typeof context.fillText == 'function'</mark>);</code></pre>
 
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for canvas text support
+<pre><code>if (<mark>Modernizr.canvastext</mark>) {
+  // let's draw some text!
+} else {
+  // no canvas text support available :(
+}</code></pre>
+
 <p class=a>&#x2042;
 
 <h2 id=video>Audio &amp; Video</h2>
