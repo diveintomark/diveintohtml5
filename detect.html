@@ -9,7 +9,7 @@ body{counter-reset:h1 2}
 </style>
 <meta name=viewport content="initial-scale=1.0">
 </head>
-<div id=body>
+<div id=zz>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <!--<a href=table-of-contents.html#canvas>-->Dive Into <abbr>HTML</abbr> 5<!--</a>--> <span class=u>&#8227;</span>
 <h1>Detecting <abbr>HTML</abbr> 5 Features</h1>
 <p id=toc>&nbsp;
@@ -303,6 +303,8 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <h2 id=geolocation>Geolocation</h2>
 
+<p id=live-geolocation></p>
+
 <p>FIXME-intro
 
 <p>FIXME-detection technique #1
@@ -417,6 +419,8 @@ A: Anyone who has physical access to your computer can probably look at (or even
 </div>
 <script src=j/jquery.js></script>
 <script src=j/modernizr.js></script>
+<script src=j/gears_init.js></script>
+<script src=j/geo.js></script>
 <script src=j/dih5.js></script>
 <script>
 function supports(bool, suffix) {
@@ -461,5 +465,6 @@ $(document).ready(function() {
   }
   $("#live-storage").html(supports(!!(typeof window.localStorage != 'undefined'), "HTML 5 storage"));
   $("#live-offline").html(supports(!!(typeof window.applicationCache != 'undefined'), "offline web applications"));
+  $("#live-geolocation").html(supports(geo_position_js.init(), "geolocation"));
 });
 </script>
