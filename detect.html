@@ -82,6 +82,8 @@ body{counter-reset:h1 2}
 
 <h2 id=canvas>Canvas</h2>
 
+<p class=ss><img src=i/openclipart.org_johnny_automatic_fishing_boat.png width=300 height=203 alt="man fishing in a canoe">
+
 <p><abbr>HTML</abbr> 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML</abbr> 5 defines a set of functions (&#8220;the canvas <abbr>API</abbr>&#8221;) for drawing shapes, defining paths, creating gradients, and applying transformations.
 
 <p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have a <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
@@ -90,8 +92,6 @@ body{counter-reset:h1 2}
   return !!document.createElement('canvas').getContext;
 }
 </code></pre>
-
-<p class=ss><img src=i/openclipart.org_johnny_automatic_canoe_traveling.png width=159 height=140 alt="two men in a canoe">
 
 <p>This function starts by creating a dummy <code>&lt;canvas></code> element. But the element is never attached to your page, so no one will ever see it. It&#8217;s just floating in memory, going nowhere and doing nothing, like a canoe on a lazy river.
 
@@ -171,7 +171,7 @@ body{counter-reset:h1 2}
 
 <p><abbr>HTML</abbr> 5 defines a new element called <code>&lt;video></code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
 
-<p style="float:left;margin:0 1.75em 1.75em 0"><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334>
+<p class=ss><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334>
 
 <p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML</abbr> 5 video will choose one based on what types of video they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about the different types of videos.)
 
@@ -190,6 +190,7 @@ body{counter-reset:h1 2}
   // let's play some video!
 } else {
   // no native video support available :(
+  // maybe check for QuickTime&reg; or Flash&reg; instead
 }</code></pre>
 
 <p>There is a separate test for detecting which types of video your browser can play, which I will demonstrate next.
