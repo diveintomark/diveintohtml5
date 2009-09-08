@@ -24,7 +24,7 @@ body{counter-reset:h1 2}
 
 <p>When your browser renders a web page, it constructs a Document Object Model (<abbr>DOM</abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element&nbsp;&mdash;&nbsp;every <code>&lt;p></code>, every <code>&lt;div></code>, every <code>&lt;span></code>&nbsp;&mdash;&nbsp;is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren&#8217;t tied to specific elements.)
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_peeking_out_the_window.png width=257 height=436 alt="girl peeking out the window">
+<p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_peeking_out_the_window.png width=257 height=436 alt="girl peeking out the window">
 
 <p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML</abbr> 5 features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
 
@@ -85,7 +85,7 @@ body{counter-reset:h1 2}
 
 <h2 id=canvas>Canvas</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_fishing_boat.png width=300 height=203 alt="man fishing in a canoe">
+<p class=ss style="width:300px"><img src=i/openclipart.org_johnny_automatic_fishing_boat.png width=300 height=203 alt="man fishing in a canoe"><br><span id=live-canvas></span>
 
 <p><abbr>HTML</abbr> 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML</abbr> 5 defines a set of functions (&#8220;the canvas <abbr>API</abbr>&#8221;) for drawing shapes, defining paths, creating gradients, and applying transformations.
 
@@ -125,7 +125,7 @@ body{counter-reset:h1 2}
 
 <h2 id=canvas-text>Canvas Text</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_baseball_at_bat.png width=414 height=254 alt="baseball player at bat">
+<p class=ss style="width:414px"><img src=i/openclipart.org_johnny_automatic_baseball_at_bat.png width=414 height=254 alt="baseball player at bat"><br><span id=live-canvas-text></span>
 
 <p>Even if your browser supports the <a href=#canvas>canvas <abbr>API</abbr></a>, it might not support the canvas text <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was complete.
 
@@ -174,7 +174,7 @@ body{counter-reset:h1 2}
 
 <p><abbr>HTML</abbr> 5 defines a new element called <code>&lt;video></code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334>
+<p class=ss style="width:224px"><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334><br><span id=live-video></span>
 
 <p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML</abbr> 5 video will choose one based on what video formats they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about different video formats.)
 
@@ -204,7 +204,7 @@ body{counter-reset:h1 2}
 
 <p>Video formats are like written languages. An English newspaper conveys the same information as a Spanish newspaper, but if you can only read English, only one of them is going to be useful to you! To play a video, your browser needs to understand the &#8220;language&#8221; in which the video was written.
 
-<p style="float:left;margin:0 1.75em 1.75em 0"><img src=i/openclipart.org_johnny_automatic_man_reading_newspaper.png alt="man reading newspaper" width=250 height=261>
+<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src=i/openclipart.org_johnny_automatic_man_reading_newspaper.png alt="man reading newspaper" width=250 height=261><br><span id=live-video-formats></span>
 
 <p>The &#8220;language&#8221; of a video is called a &#8220;codec&#8221;&nbsp;&mdash;&nbsp;the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML</abbr> 5 video is that browsers can&#8217;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Adobe Flash&reg;, if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
 
@@ -257,6 +257,8 @@ body{counter-reset:h1 2}
   var v = document.createElement("video");
   return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
 }</code></pre>
+
+<p><a href=#modernizr>Modernizr</a> can&#8217;t currently detect individual video formats, so you&#8217;ll need to use the functions listed here.
 
 <p class=a>&#x2042;
 
@@ -404,3 +406,47 @@ body{counter-reset:h1 2}
 </div>
 <script src=j/jquery.js></script>
 <script src=j/dih5.js></script>
+<script src=j/modernizr-1.0.min.js></script>
+<script>
+function supports(bool, suffix) {
+  var s = "Your browser ";
+  if (bool) {
+    s += "supports " + suffix + ".";
+  } else {
+    s += "does not support " + suffix + ". :(";
+  }
+  return s;
+}
+function I_CAN_HAS(result) {
+  if (result == "probably") {
+    return "can play";
+  }
+  if (result == "maybe") {
+    return "isn't sure if it can play";
+  }
+  return "can't play";
+}
+$(document).ready(function() {
+  $("#live-canvas").html(supports(Modernizr.canvas, "the canvas API"));
+  $("#live-canvas-text").html(supports(Modernizr.canvas, "the canvas text API"));
+  $("#live-video").html(supports(Modernizr.video, "HTML 5 video"));
+  if (Modernizr.video) {
+    var v = document.createElement("video");
+    var ogg = v.canPlayType('video/ogg; codecs="theora, vorbis"');
+    var mp4 = v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+    var vf = "Your browser ";
+    if ((ogg == "probably") && (mp4 == "probably")) {
+      vf += "can play both Ogg Theora and H.264";
+    } else if (((ogg == "") || (ogg == "no")) && (mp4 == "probably")) {
+      vf += "can play H.264 video, but not Ogg Theora";
+    } else if (((mp4 == "") || (mp4 == "no")) && (ogg == "probably")) {
+      vf += "can play Ogg Theora video, but not H.264";
+    } else {
+      vf += I_CAN_HAS(ogg) + " Ogg Theora video. Your browser " + I_CAN_HAS(mp4) + " H.264";
+    }
+    $("#live-video-formats").html(vf + " video.");
+  } else {
+    $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
+  }
+});
+</script>

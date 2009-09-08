@@ -109,6 +109,12 @@ pre, kbd, samp, code, var {
   line-height: 0.8;
   margin: 0 0.22em 0 -1.22em;
 }
+.ss span {
+  display: block;
+  text-align: center;
+  border-top: 3px double;
+  border-bottom: 3px double;
+}
 .c {
   font-size: medium;
   line-height: 1.75;
@@ -142,7 +148,7 @@ p, ul, ol {
   font-size: xx-large;
   line-height: .875;
 }
-.pf,.fr {
+.pf, .fr {
   border: 1px solid;
 }
 .pf {
@@ -151,6 +157,7 @@ p, ul, ol {
 .ss {
   float: right;
   margin: 0 0 1.75em 1.75em;
+  font-size: medium;
 }
 cite, dfn {
   font-style: normal;
