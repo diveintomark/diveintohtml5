@@ -302,7 +302,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <h2 id=geolocation>Geolocation</h2>
 
-<p id=live-geolocation></p>
+<p class=ss style="width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
 <p>FIXME-intro
 
@@ -318,9 +318,13 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>FIXME-Modernizr alternative
 
+<p>FIXME-http://code.google.com/p/geo-location-javascript/ alternative
+
 <p class=a>&#x2042;
 
 <h2 id=input-types>Input Types</h2>
+
+<p class=ss style="width:261px"><img src=i/openclipart.org_johnny_automatic_typewriter.png alt="manual typewriter" width=261 height=228><br><span id=live-input-types></span>
 
 <p>FIXME-intro
 
@@ -374,6 +378,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=a>&#x2042;
 
+<!--
 <h2 id=input-required>&lt;input required></h2>
 
 <p>FIXME-intro
@@ -388,6 +393,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
+-->
 
 <!--
 <h2 id=input-autocomplete>&lt;input autocomplete></h2>
@@ -397,6 +403,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p class=a>&#x2042;
 -->
 
+<!--
 <h2 id=input-pattern>&lt;input pattern></h2>
 
 <p>FIXME-intro
@@ -411,6 +418,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
+-->
 
 <p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
 
@@ -421,6 +429,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <script src=j/gears_init.js></script>
 <script src=j/geo.js></script>
 <script src=j/dih5.js></script>
+<script src=http://maps.google.com/maps/api/js?sensor=false></script>
 <script>
 function supports(bool, suffix) {
   var s = "Your browser ";
@@ -439,6 +448,38 @@ function I_CAN_HAS(result) {
     return "isn't sure if it can play";
   }
   return "can't play";
+}
+function lookup_location() {
+  geo_position_js.getCurrentPosition(show_map, show_map_error);
+}
+function show_map(p) {
+  var myOptions = {
+    zoom: 4,
+    mapTypeControl: true,
+    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+    navigationControl: true,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP      
+  };
+  var map = new google.maps.Map(document.getElementById("geo-wrapper"), myOptions);
+  var pos = new google.maps.LatLng(p.coords.latitude,p.coords.longitude);
+  map.set_center(pos);
+  map.set_zoom(14);
+  var infowindow = new google.maps.InfoWindow({
+    content: "Your calculated location:<br>latitude " + p.coords.latitude + "<br>longitude " + p.coords.longitude
+  });
+  var marker = new google.maps.Marker({
+    position: pos,
+    map: map,
+    title:"You are here (more or less)"
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+  $("#geo-wrapper").css({'width':'320px','height':'350px'});
+}
+function show_map_error() {
+  $("#live-geolocation").html('Unable to determine your location.');
 }
 $(document).ready(function() {
   $("#live-canvas").html(supports(Modernizr.canvas, "the canvas API"));
@@ -464,6 +505,21 @@ $(document).ready(function() {
   }
   $("#live-storage").html(supports(!!(typeof window.localStorage != 'undefined'), "HTML 5 storage"));
   $("#live-offline").html(supports(!!(typeof window.applicationCache != 'undefined'), "offline web applications"));
-  $("#live-geolocation").html(supports(geo_position_js.init(), "geolocation"));
+  if (geo_position_js.init()) {
+    $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
+  } else {
+    $("#live-geolocation").html(supports(false, "geolocation"));
+  }
+  var supported_input_types = '';
+  for (var itype in Modernizr.inputtypes) {
+    if (Modernizr.inputtypes[itype]) {
+      supported_input_types += '<code>' + itype + '</code>, ';
+    }
+  }
+  if (!!supported_input_types) {
+    $("#live-input-types").html('Your browser supports the following HTML 5 input types: ' + supported_input_types.replace(/, $/, ''));
+  } else {
+    $("#live-input-types").html('Your browser does not support any HTML 5 input types.');
+  }
 });
 </script>

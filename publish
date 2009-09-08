@@ -76,6 +76,7 @@ sed -i -e "s|=http:|=|g" build/*.html && \
 chmod 755 build/examples build/j build/i build/f build/fonts-original && \
     chmod 644 build/*.html build/*.txt build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz || die "Failed to reset file permissions"
 
+#die "Intentionally aborting without publishing"
 # ship it!
 echo -n "publishing"
 rsync -essh -a build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
