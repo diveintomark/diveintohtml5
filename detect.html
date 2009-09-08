@@ -5,7 +5,7 @@
 <!--[if IE]><script src=j/ie.js></script><![endif]-->
 <link rel=stylesheet href=screen.css>
 <style>
-body{counter-reset:h1 12}
+body{counter-reset:h1 2}
 </style>
 <meta name=viewport content="initial-scale=1.0">
 </head>
@@ -62,23 +62,27 @@ body{counter-reset:h1 12}
 </code></pre>
 <p class="legend right" style="margin-top:7.25em"><span class=arrow>&nbsp;&#x219c;</span> It goes to your &lt;head>
 
-<p class=clear>Modernizr will run automatically; there is no <code>modernizr_init()</code> function to call. Modernizr creates an global object called <code>Modernizr</code>, which contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href=canvas.html#text>canvas text <abbr>API</abbr></a>, the <code>Modernizr.canvastext</code> property will be <code>true</code>. If your browser does not support the canvas text <abbr>API</abbr>, the <code>Modernizr.canvastext</code> property will be <code>false</code>.
+<p class=clear>Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates an global object called <code>Modernizr</code>, which contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href=canvas.html>canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
 
-<pre><code>if (Modernizr.canvastext) {
-  // let's draw some text!
+<pre><code>if (Modernizr.canvas) {
+  // let's draw some shapes!
 } else {
-  // no text API available :(
+  // no canvas API available :(
 }</code></pre>
 
 <p class=a>&#x2042;
 
+<!--
 <h2 id=elements>New Semantic Elements</h2>
 
 <p>FIXME
 
 <p class=a>&#x2042;
+-->
 
 <h2 id=canvas>Canvas</h2>
+
+<p><abbr>HTML</abbr> 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML</abbr> 5 defines a set of functions (&#8220;the canvas <abbr>API</abbr>&#8221;) for drawing shapes, defining paths, creating gradients, and applying transformations.
 
 <p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
 
@@ -101,9 +105,9 @@ body{counter-reset:h1 12}
 
 <pre><code>return <mark>!!</mark>document.createElement('canvas').getContext;</code></pre>
 
-<p>This function will detect support for the basic canvas <abbr>API</abbr>. That includes <a href=canvas.html#shapes>shapes</a>, <a href=canvas.html#paths>paths</a>, <a href=canvas.html#gradients>gradients <i class=baa>&amp;</i> patterns</a>. It will not detect the third-party <a href=canvas.html#ie><code>explorercanvas</code> library</a> that implements the canvas <abbr>API</abbr> in Microsoft Internet Explorer.
+<p>This function will detect support for most of the canvas <abbr>API</abbr>, including <a href=canvas.html#shapes>shapes</a>, <a href=canvas.html#paths>paths</a>, <a href=canvas.html#gradients>gradients <i class=baa>&amp;</i> patterns</a>. It will not detect the third-party <a href=canvas.html#ie><code>explorercanvas</code> library</a> that implements the canvas <abbr>API</abbr> in Microsoft Internet Explorer.
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the basic canvas <abbr>API</abbr>.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the canvas <abbr>API</abbr>.
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for canvas support
 <pre><code>if (<mark>Modernizr.canvas</mark>) {
@@ -118,9 +122,9 @@ body{counter-reset:h1 12}
 
 <h2 id=canvas-text>Canvas Text</h2>
 
-<p>Checking for the canvas text <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
+<p>Even if your browser supports the <a href=#canvas>canvas <abbr>API</abbr></a>, it might not support the canvas text <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was finalized.
 
-<p>Even if your browser supports the <a href=#canvas>basic canvas <abbr>API</abbr></a>, it might not support the canvas text <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with basic canvas support before the text <abbr>API</abbr> was finalized.
+<p>Checking for the canvas text <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
 
 <pre><code>function supports_canvas_text() {
   if (!supports_canvas()) { return false; }
@@ -129,7 +133,7 @@ body{counter-reset:h1 12}
   return (typeof context.fillText == 'function');
 }</code></pre>
 
-<p>The function starts by <a href=#canvas>checking for basic canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn&#8217;t support the basic canvas <abbr>API</abbr>, it certainly won&#8217;t support the canvas text <abbr>API</abbr>!
+<p>The function starts by <a href=#canvas>checking for canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, it certainly won&#8217;t support the canvas text <abbr>API</abbr>!
 
 <pre><code>if (<mark>!supports_canvas()</mark>) { return false; }
   var dummy_canvas = document.createElement('canvas');
