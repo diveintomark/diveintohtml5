@@ -2,6 +2,7 @@
 <head>
 <meta charset=utf-8>
 <title>Detecting HTML5 Features - Dive Into HTML5</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=screen.css>
 <style>
 body{counter-reset:h1 2}
@@ -48,21 +49,21 @@ body{counter-reset:h1 2}
 
 <h2 id=modernizr>Modernizr, the HTML5 Detection Library</h2>
 
-<p><a href=http://modernizr.com/>Modernizr</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML5 features. To use it, include the following <code>&lt;script></code> element at the bottom of your page.
+<p><a href=http://modernizr.com/>Modernizr</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML5 features. To use it, include the following <code>&lt;script></code> element at the top of your page.
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
 &lt;html>
 &lt;head>
   &lt;meta charset="utf-8">
   &lt;title>Dive Into HTML5&lt;/title>
+  <mark>&lt;script src="modernizr.min.js">&lt;/script></mark>
 &lt;/head>
 &lt;body>
   ...
-  <mark>&lt;script src="modernizr.min.js">&lt;/script></mark>
 &lt;/body>
 &lt;/html>
 </code></pre>
-<p class="legend right" style="margin-top:10.8em"><span class=arrow>&nbsp;&#x219c;</span> Don't let it go to your &lt;head>
+<p class="legend right" style="margin-top:6.7em"><span class=arrow>&nbsp;&#x219c;</span> It goes to your &lt;head>
 
 <p class=clear>Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates an global object called <code>Modernizr</code>, which contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href=canvas.html>canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
 
@@ -71,13 +72,6 @@ body{counter-reset:h1 2}
 } else {
   // no native canvas support available :(
 }</code></pre>
-
-<blockquote class=note>
-<p><span>&#x261E;</span>Q: Why did you put Modernizr at the bottom of the page?<br>
-A: You should always loads your scripts as late as possible, <a href=http://developer.yahoo.com/performance/rules.html#js_bottom>so your main content loads first</a>. Modernizr has some <a href=http://www.modernizr.com/docs/>additional capabilities</a> beyond what I&#8217;ll talk about in this book. (It adds a set of <code>class</code> attributes to your page based on the capabilities it detects, so you can define feature-specific <abbr>CSS</code> rules in your stylesheets.) If you are using those extra features, you&#8217;ll need to put the <code>&lt;script></code> element at the top of your page. If you&#8217;re just using Modernizr&#8217;s JavaScript-based detection, you can safely put the <code>&lt;script></code> element at the bottom of your page, just before the <code>&lt;/body></code> tag.
-</blockquote>
-
- (
 
 <p class=a>&#x2042;
 
