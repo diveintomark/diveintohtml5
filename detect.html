@@ -9,13 +9,13 @@ body{counter-reset:h1 2}
 <meta name=viewport content="initial-scale=1.0">
 </head>
 <div id=zz>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <!--<a href=table-of-contents.html#canvas>-->Dive Into <abbr>HTML5</abbr><!--</a>--> <span class=u>&#8227;</span>
-<h1>Detecting <abbr>HTML5</abbr> Features</h1>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#detect>Dive Into <abbr>HTML</abbr> 5</a> <span class=u>&#8227;</span>
+<h1>Detecting <abbr>HTML</abbr> 5 Features</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-y.png alt=Y width=106 height=105>ou may well ask: &#8220;How can I start using <abbr>HTML5</abbr> if older browsers don&#8217;t support it?&#8221; But the question itself is misleading. <abbr>HTML5</abbr> is not one big thing; it is a collection of individual features. So you can&#8217;t detect &#8220;<abbr>HTML5</abbr> support,&#8221; because that doesn&#8217;t make any sense. But you <em>can</em> detect support for individual features, like canvas, video, or geolocation.
+<p class=f><img src=i/aoc-y.png alt=Y width=106 height=105>ou may well ask: &#8220;How can I start using <abbr>HTML</abbr> 5 if older browsers don&#8217;t support it?&#8221; But the question itself is misleading. <abbr>HTML</abbr> 5 is not one big thing; it is a collection of individual features. So you can&#8217;t detect &#8220;<abbr>HTML</abbr> 5 support,&#8221; because that doesn&#8217;t make any sense. But you <em>can</em> detect support for individual features, like canvas, video, or geolocation.
 
 <p class=a>&#x2042;
 
@@ -25,7 +25,7 @@ body{counter-reset:h1 2}
 
 <p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_peeking_out_the_window.png width=257 height=436 alt="girl peeking out the window">
 
-<p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML5</abbr> features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
+<p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML</abbr> 5 features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
 
 <p>There are four basic techniques for detecting whether a browser supports a particular feature. From simplest to most complex:
 
@@ -82,7 +82,7 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
 <p class=a>&#x2042;
 
 <!--
-<h2 id=elements>New Semantic Elements</h2>
+<h2 FIXME id=elements>New Semantic Elements</h2>
 
 <p>FIXME
 
@@ -93,7 +93,7 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
 
 <p class=ss style="width:300px"><img src=i/openclipart.org_johnny_automatic_fishing_boat.png width=300 height=203 alt="man fishing in a canoe"><br><span id=live-canvas></span>
 
-<p><abbr>HTML5</abbr> defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML5</abbr> defines a set of functions (&#8220;the canvas <abbr>API</abbr>&#8221;) for drawing shapes, defining paths, creating gradients, and applying transformations.
+<p><abbr>HTML</abbr> 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &#8220;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&#8221; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML</abbr> 5 defines a set of functions (&#8220;the canvas <abbr>API</abbr>&#8221;) for drawing shapes, defining paths, creating gradients, and applying transformations.
 
 <p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have a <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
 
@@ -178,23 +178,23 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
 
 <h2 id=video>Video</h2>
 
-<p><abbr>HTML5</abbr> defines a new element called <code>&lt;video></code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
+<p><abbr>HTML</abbr> 5 defines a new element called <code>&lt;video></code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
 
 <p class=ss style="width:224px"><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334><br><span id=live-video></span>
 
-<p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML5</abbr> video will choose one based on what video formats they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about different video formats.)
+<p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML</abbr> 5 video will choose one based on what video formats they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about different video formats.)
 
-<p>Browsers that don&#8217;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> which uses <abbr>HTML5</abbr> video where available, but falls back to Apple QuickTime&reg; or Adobe Flash&reg; in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers. I&#8217;ll explain more about this solution in the video chapter, whenever I get around to writing it.
+<p>Browsers that don&#8217;t support <abbr>HTML</abbr> 5 video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> which uses <abbr>HTML</abbr> 5 video where available, but falls back to Apple QuickTime&reg; or Adobe Flash&reg; in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers. I&#8217;ll explain more about this solution in the video chapter, whenever I get around to writing it.
 
-<p>If you want to do more with video than plop it on your page and play it, you&#8217;ll need to use JavaScript. Checking for video support uses <a href=#techniques>detection technique #2</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. If your browser doesn&#8217;t support <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video></code> element will only have the set of properties common to all elements.
+<p>If you want to do more with video than plop it on your page and play it, you&#8217;ll need to use JavaScript. Checking for video support uses <a href=#techniques>detection technique #2</a>. If your browser supports <abbr>HTML</abbr> 5 video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video></code> element will only have the set of properties common to all elements.
 
 <pre><code>function supports_video() {
   return !!document.createElement('video').canPlayType;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for <abbr>HTML5</abbr> video.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for <abbr>HTML</abbr> 5 video.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> video support
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML</abbr> 5 video support
 <pre><code>if (<mark>Modernizr.video</mark>) {
   // let's play some video!
 } else {
@@ -212,9 +212,9 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src=i/openclipart.org_johnny_automatic_man_reading_newspaper.png alt="man reading newspaper" width=250 height=261><br><span id=live-video-formats></span>
 
-<p>The &#8220;language&#8221; of a video is called a &#8220;codec&#8221;&nbsp;&mdash;&nbsp;the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&#8217;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Adobe Flash&reg;, if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
+<p>The &#8220;language&#8221; of a video is called a &#8220;codec&#8221;&nbsp;&mdash;&nbsp;the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML</abbr> 5 video is that browsers can&#8217;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Adobe Flash&reg;, if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
 
-<p>Checking for video format support uses <a href=#techniques>detection technique #3</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
+<p>Checking for video format support uses <a href=#techniques>detection technique #3</a>. If your browser supports <abbr>HTML</abbr> 5 video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
 
 <p>This function checks for the patent-encumbered format supported by Macs and iPhones.
 
@@ -224,7 +224,7 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
   return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
 }</code></pre>
 
-<p>The function starts by <a href=#video>checking for <abbr>HTML5</abbr> video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn&#8217;t support <abbr>HTML5</abbr> video, it certainly won&#8217;t support any video formats!
+<p>The function starts by <a href=#video>checking for <abbr>HTML</abbr> 5 video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 video, it certainly won&#8217;t support any video formats!
 
 <pre><code>function supports_h264_baseline_video() {
   if (<mark>!supports_video()</mark>) { return false; }
@@ -272,24 +272,24 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
 
 <p class=ss style="width:135px"><img src=i/openclipart.org_johnny_automatic_half_stack_of_horizontal_sections.png alt="filing cabinet with drawers of different sizes" width=135 height=341><br><span id=live-storage></span>
 
-<p><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML5</abbr> storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&#8217;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML5</abbr> storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
+<p><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML</abbr> 5 storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&#8217;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML</abbr> 5 storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
 
 <blockquote class=note>
-<p><span>&#x261E;</span>Q: Is local storage really part of <abbr>HTML5</abbr>? Why is it in a separate specification?<br>
-A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The slightly longer answer is that local storage used to be part of the main <abbr>HTML5</abbr> specification, but it was split out into a separate specification because some people in the <abbr>HTML5</abbr> Working Group complained that <abbr>HTML5</abbr> was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories&hellip; well, welcome to the wacky world of standards.
+<p><span>&#x261E;</span>Q: Is local storage really part of <abbr>HTML</abbr> 5? Why is it in a separate specification?<br>
+A: The short answer is yes, local storage is part of <abbr>HTML</abbr> 5. The slightly longer answer is that local storage used to be part of the main <abbr>HTML</abbr> 5 specification, but it was split out into a separate specification because some people in the <abbr>HTML</abbr> 5 Working Group complained that <abbr>HTML</abbr> 5 was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories&hellip; well, welcome to the wacky world of standards.
 </blockquote>
 
-<p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined.
+<p>Checking for <abbr>HTML</abbr> 5 storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML</abbr> 5 storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 storage, the <code>localStorage</code> property will be undefined.
 
 <pre><code>function supports_local_storage() {
-  return !!(typeof window.localStorage != 'undefined');
+  return (typeof window.localStorage != 'undefined');
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML5</abbr> storage, so you&#8217;ll need to use the function listed here.
+<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML</abbr> 5 storage, so you&#8217;ll need to use the function listed here.
 
 <blockquote class=note>
-<p><span>&#x261E;</span>Q: How secure is my <abbr>HTML5</abbr> storage database? Can anyone read it?<br>
-A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML5</abbr> storage database. Within your browser, any web site can read and modify its own values, but sites can&#8217;t access values stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#origin-0>same-origin restriction</a>.
+<p><span>&#x261E;</span>Q: How secure is my <abbr>HTML</abbr> 5 storage database? Can anyone read it?<br>
+A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML</abbr> 5 storage database. Within your browser, any web site can read and modify its own values, but sites can&#8217;t access values stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#origin-0>same-origin restriction</a>.
 </blockquote>
 
 <p class=a>&#x2042;
@@ -298,14 +298,14 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_cabin_along_stream.png alt="cabin in the woods" width=257 height=242><br><span id=live-offline></span>
 
-<p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page as your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href=http://mail.google.com/>Gmail</a> or <a href=http://docs.google.com/>Google Docs</a>? Thanks to <abbr>HTML5</abbr>, anyone (not just Google!) can build a web application that works offline.
+<p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page as your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href=http://mail.google.com/>Gmail</a> or <a href=http://docs.google.com/>Google Docs</a>? Thanks to <abbr>HTML</abbr> 5, anyone (not just Google!) can build a web application that works offline.
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything&nbsp;&mdash;&nbsp;<abbr>HTML</abbr>, JavaScript, images, even <a href=#video>videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&#8217;re not connected to the Internet. Your browser will notice that you&#8217;re offline and use the files it already downloaded. Once you get back online, any changes you made can be uploaded to the remote web server.
 
 <p>Checking for offline support uses <a href=#techniques>detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support offline web applications, the <code>applicationCache</code> property will be undefined.
 
 <pre><code>function supports_offline() {
-  return !!(typeof window.applicationCache != 'undefined');
+  return (typeof window.applicationCache != 'undefined');
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for offline web applications, so you&#8217;ll need to use the function listed here.
@@ -319,8 +319,8 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are&nbsp;&mdash;&nbsp;your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
 
 <blockquote class=note>
-<p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
-A: Geolocation support is being added to browsers right now, at the same time they&#8217;re adding support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href=http://www.w3.org/2008/geolocation/>Geolocation Working Group</a>, which is separate from the <abbr>HTML</abbr> Working Group. But I&#8217;m going to talk about geolocation in this book anyway, because it&#8217;s part of the evolution of the web that&#8217;s happening now.
+<p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML</abbr> 5? Why are you talking about it?<br>
+A: Geolocation support is being added to browsers right now, at the same time they&#8217;re adding support for new <abbr>HTML</abbr> 5 features. Strictly speaking, geolocation is being standardized by the <a href=http://www.w3.org/2008/geolocation/>Geolocation Working Group</a>, which is separate from the <abbr>HTML</abbr> Working Group. But I&#8217;m going to talk about geolocation in this book anyway, because it&#8217;s part of the evolution of the web that&#8217;s happening now.
 </blockquote>
 
 <p>The <a href=http://www.w3.org/TR/geolocation-API/>geolocation <abbr>API</abbr></a> lets you share your location with trusted web sites. The latitude and longitude are available to JavaScript on the page, which in turn can send it back to the remote web server and do fancy location-aware things like finding local businesses or showing your location on a map.
@@ -422,7 +422,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p class=a>&#x2042;
 
 <!--
-<h2 id=workers>Web Workers</h2>
+<h2 FIXME id=workers>Web Workers</h2>
 
 <p>FIXME
 
@@ -435,7 +435,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>You know all about web forms, right? Make a <code>&lt;form></code>, a few <code>&lt;input type="text"></code> elements, maybe an <code>&lt;input type="password"></code>, and finish it off with an <code>&lt;input type="submit"></code> button.
 
-<p>You don&#8217;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms.
+<p>You don&#8217;t know the half of it. <abbr>HTML</abbr> 5 defines over a dozen new input types that you can use in your forms.
 
 <ol>
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#text-state-and-search-state><code>&lt;input type="search"></code></a> for search boxes
@@ -453,7 +453,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#local-date-and-time-state><code>&lt;input type="datetime-local"></code></a> for local dates and times
 </ol>
 
-<p>Checking for <abbr>HTML5</abbr> input types uses <a href=#techniques>detection technique #4</a>. Here&#8217;s how it works: first, create a dummy <code>&lt;input></code> element in memory. The default input type for all <code>&lt;input></code> elements is <code>"text"</code>. This will prove to be vitally important.
+<p>Checking for <abbr>HTML</abbr> 5 input types uses <a href=#techniques>detection technique #4</a>. Here&#8217;s how it works: first, create a dummy <code>&lt;input></code> element in memory. The default input type for all <code>&lt;input></code> elements is <code>"text"</code>. This will prove to be vitally important.
 
 <pre><code>function supports_input_type_color() {
   var i = <mark>document.createElement("input")</mark>;
@@ -477,7 +477,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
   <mark>return !!(i.type !== "text")</mark>;
 }</code></pre>
 
-<p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML5</abbr>. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, which contains 13 keys (the <abbr>HTML5</abbr> <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
+<p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML</abbr> 5. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, which contains 13 keys (the <abbr>HTML</abbr> 5 <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for native date picker
 <pre><code>if (<mark>!Modernizr.inputtypes.date</mark>) {
@@ -488,7 +488,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p class=a>&#x2042;
 
 <!--
-<h2 id=input-placeholder>&lt;input placeholder></h2>
+<h2 FIXME id=input-placeholder>&lt;input placeholder></h2>
 
 <p>FIXME-intro
 
@@ -505,7 +505,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 -->
 
 <!--
-<h2 id=input-autofocus>&lt;input autofocus></h2>
+<h2 FIXME id=input-autofocus>&lt;input autofocus></h2>
 
 <p>FIXME-intro
 
@@ -522,7 +522,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 -->
 
 <!--
-<h2 id=input-required>&lt;input required></h2>
+<h2 FIXME id=input-required>&lt;input required></h2>
 
 <p>FIXME-intro
 
@@ -539,7 +539,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 -->
 
 <!--
-<h2 id=input-autocomplete>&lt;input autocomplete></h2>
+<h2 FIXME id=input-autocomplete>&lt;input autocomplete></h2>
 
 <p>FIXME
 
@@ -547,7 +547,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 -->
 
 <!--
-<h2 id=input-pattern>&lt;input pattern></h2>
+<h2 FIXME id=input-pattern>&lt;input pattern></h2>
 
 <p>FIXME-intro
 
@@ -646,8 +646,8 @@ $(document).ready(function() {
   } else {
     $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
   }
-  $("#live-storage").html(supports(!!(typeof window.localStorage != 'undefined'), "HTML5 storage"));
-  $("#live-offline").html(supports(!!(typeof window.applicationCache != 'undefined'), "offline web applications"));
+  $("#live-storage").html(supports(typeof window.localStorage != 'undefined', "HTML5 storage"));
+  $("#live-offline").html(supports(typeof window.applicationCache != 'undefined', "offline web applications"));
   if (geo_position_js.init()) {
     $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
   } else {

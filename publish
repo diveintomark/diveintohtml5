@@ -8,6 +8,9 @@ die () {
 
 echo "started build"
 
+# build table of contents
+python3 util/buildtoc.py
+
 # make build directory and copy original files there for preflighting
 rm -rf build
 mkdir build
