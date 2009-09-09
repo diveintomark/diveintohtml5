@@ -275,8 +275,8 @@ A: You should always loads your scripts as late as possible, <a href=http://deve
 <p><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML</abbr> 5 storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&#8217;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML</abbr> 5 storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
 
 <blockquote class=note>
-<p><span>&#x261E;</span>Q: How secure is my <abbr>HTML</abbr> 5 storage database? Can anyone read it?<br>
-A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML</abbr> 5 storage database. Within your browser, any web site can read and modify its own values, but sites can&#8217;t access values stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#origin-0>same-origin restriction</a>.
+<p><span>&#x261E;</span>Q: Is local storage really part of <abbr>HTML</abbr> 5? Why is it in a separate specification?<br>
+A: The short answer is yes, local storage is part of <abbr>HTML</abbr> 5. The slightly longer answer is that local storage used to be part of the main <abbr>HTML</abbr> 5 specification, but it was split out into a separate specification because some people in the <abbr>HTML</abbr> 5 Working Group complained that <abbr>HTML</abbr> 5 was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories&hellip; well, welcome to the wacky world of standards.
 </blockquote>
 
 <p>Checking for <abbr>HTML</abbr> 5 storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML</abbr> 5 storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 storage, the <code>localStorage</code> property will be undefined.
@@ -286,6 +286,11 @@ A: Anyone who has physical access to your computer can probably look at (or even
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML</abbr> 5 storage, so you&#8217;ll need to use the function listed here.
+
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: How secure is my <abbr>HTML</abbr> 5 storage database? Can anyone read it?<br>
+A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML</abbr> 5 storage database. Within your browser, any web site can read and modify its own values, but sites can&#8217;t access values stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#origin-0>same-origin restriction</a>.
+</blockquote>
 
 <p class=a>&#x2042;
 
