@@ -336,7 +336,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href=http://tools.google.com/gears/>Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides a number of features for older browsers that do not support all the fancy new stuff we&#8217;ve discussed in this chapter. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&#8217;s not the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
 
-<p>There are also device-specific geolocation <abbr>API</abbr>s on several mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href=http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html>Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr></a>.
+<p>There are also device-specific geolocation <abbr>API</abbr>s on several mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr></a>.
 
 <p><a href=http://code.google.com/p/geo-location-javascript/><code>geo.js</code></a> is an open source (<abbr>MIT</abbr>-licensed) library that smooths over the differences between the standard <code>navigator.geolocation</code> <abbr>API</abbr>, the Gears <abbr>API</abbr>, and the various device-specific <abbr>API</abbr>s. To use it, you&#8217;ll need to add two <code>&lt;script></code> elements at the bottom of your page. The first is <a href=http://code.google.com/apis/gears/gears_init.js><code>gears_init.js</code></a>, which initializes Gears if it&#8217;s installed. The second is <a href=http://geo-location-javascript.googlecode.com/svn/trunk/js/geo.js><code>geo.js</code></a>.
 
@@ -560,7 +560,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <script src=j/gears_init.js></script>
 <script src=j/geo.js></script>
 <script src=j/dih5.js></script>
-<script src=http://maps.google.com/maps/api/js?sensor=false></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
 function supports(bool, suffix) {
   var s = "Your browser ";
