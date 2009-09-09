@@ -355,7 +355,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 </code></pre>
 <p class="legend right" style="margin-top:11.2em"><span class=arrow>&nbsp;&#x21dc;</span> Two scripts are better than one
 
-<p>Now you&#8217;re ready to use whichever geolocation <abbr>API</abbr> is installed.
+<p class=clear>Now you&#8217;re ready to use whichever geolocation <abbr>API</abbr> is installed.
 
 <pre><code>if (geo_position_js.init()) {
   geo_position_js.getCurrentPosition(geo_success, geo_error);
@@ -387,6 +387,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>The success callback function takes a single argument, which contains the position information.
 
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> Success callback
 <pre><code>function geo_success(p) {
   alert("Found you at latitude " + p.coords.latitude +
         ", longitude " + p.coords.longitude);
@@ -401,17 +402,20 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>The failure callback function takes no arguments.
 
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> Failure callback
 <pre><code>function geo_error() {
   alert("Could not find you!");
 }</code></pre>
 
 <p class=a>&#x2042;
 
+<!--
 <h2 id=workers>Web Workers</h2>
 
 <p>FIXME
 
 <p class=a>&#x2042;
+-->
 
 <h2 id=input-types>Input Types</h2>
 
@@ -471,6 +475,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=a>&#x2042;
 
+<!--
 <h2 id=input-placeholder>&lt;input placeholder></h2>
 
 <p>FIXME-intro
@@ -485,7 +490,9 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
+-->
 
+<!--
 <h2 id=input-autofocus>&lt;input autofocus></h2>
 
 <p>FIXME-intro
@@ -500,6 +507,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
+-->
 
 <!--
 <h2 id=input-required>&lt;input required></h2>
