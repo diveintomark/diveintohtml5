@@ -48,21 +48,21 @@ body{counter-reset:h1 2}
 
 <h2 id=modernizr>Modernizr, the HTML 5 Detection Library</h2>
 
-<p><a href=http://modernizr.com/>Modernizer</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML 5 features. To use it, include the following <code>&lt;script></code> element within the <code>&lt;head></code> element at the top of your page.
+<p><a href=http://modernizr.com/>Modernizer</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML 5 features. To use it, include the following <code>&lt;script></code> element at the bottom of your page. (You could put it at the top, in the <code>&lt;head></code> element, but that will just <a href=http://developer.yahoo.com/performance/rules.html#js_bottom>slow down your page</a> for no benefit.)
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
 &lt;html>
 &lt;head>
   &lt;meta charset="utf-8">
   &lt;title>Dive Into HTML 5&lt;/title>
-  <mark>&lt;script src="modernizr-1.0.min.js"></script></mark>
 &lt;/head>
 &lt;body>
   ...
+  <mark>&lt;script src="modernizr.min.js">&lt;/script></mark>
 &lt;/body>
 &lt;/html>
 </code></pre>
-<p class="legend right" style="margin-top:7.25em"><span class=arrow>&nbsp;&#x219c;</span> It goes to your &lt;head>
+<p class="legend right" style="margin-top:10.8em"><span class=arrow>&nbsp;&#x219c;</span> Don't let it go to your &lt;head>
 
 <p class=clear>Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates an global object called <code>Modernizr</code>, which contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href=canvas.html>canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
 
@@ -286,7 +286,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_cabin_along_stream.png alt="cabin in the woods" width=257 height=242><br><span id=live-offline></span>
 
-<p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a cabin in the woods, and read the web page as your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href=http://mail.google.com/>Gmail</a> or <a href=http://docs.google.com/>Google Docs</a>? Thanks to <abbr>HTML</abbr> 5, anyone (not just Google!) can build a web application that works offline.
+<p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page as your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href=http://mail.google.com/>Gmail</a> or <a href=http://docs.google.com/>Google Docs</a>? Thanks to <abbr>HTML</abbr> 5, anyone (not just Google!) can build a web application that works offline.
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything&nbsp;&mdash;&nbsp;<abbr>HTML</abbr>, JavaScript, images, even <a href=#video>videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&#8217;re not connected to the Internet. Your browser will notice that you&#8217;re offline and use the files it already downloaded. Once you get back online, any changes you made can be uploaded to the remote web server.
 
@@ -304,21 +304,112 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=ss style="width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
-<p>FIXME-intro
+<p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are&nbsp;&mdash;&nbsp;your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
 
-<p>FIXME-detection technique #1
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML</abbr> 5? Why are you talking about it?<br>
+A: Geolocation support is being added to browsers right now, at the same time they&#8217;re adding support for new <abbr>HTML</abbr> 5 features. Strictly speaking, geolocation is being standardized by the <a href=http://www.w3.org/2008/geolocation/>Geolocation Working Group</a>, which is separate from the <abbr>HTML</abbr> Working Group. But I&#8217;m going to talk about geolocation in this book anyway, because it&#8217;s part of the evolution of the web that&#8217;s happening now.
+</blockquote>
 
-<p>If your browser supports the geolocation <abbr>API</abbr>, the global <code>navigator</code> object will have a property called <code>geolocation</code>.
+<p>The <a href=http://www.w3.org/TR/geolocation-API/>geolocation <abbr>API</abbr></a> lets you share your location with trusted web sites. The latitude and longitude are available to JavaScript on the page, which in turn can send it back to the remote web server and do fancy location-aware things like finding local businesses or showing your location on a map.
+
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Geolocation sounds scary. Can I turn it off?<br>
+A: Privacy is an obvious concern when you&#8217;re talking about sharing your physical location with a remote web server. The <a href=http://www.w3.org/TR/geolocation-API/#security>geolocation <abbr>API</abbr> explicitly states</a>: &#8220;User Agents must not send location information to Web sites without the express permission of the user.&#8221; In other words, sharing your location is always opt-in. If you don&#8217;t want to, you don&#8217;t have to.
+</blockquote>
+
+<p>Checking for geolocation support uses <a href=#techniques>detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&#8217;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will be undefined.
 
 <pre><code>function supports_geolocation() {
   return !!navigator.geolocation;
 }</code></pre>
 
-<p>FIXME-explanation
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support the geolocation <abbr>API</abbr>.
 
-<p>FIXME-Modernizr alternative
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for geolocation support
+<pre><code>if (<mark>Modernizr.geolocation</mark>) {
+  // let's find out where you are!
+} else {
+  // no native geolocation support available :(
+  // maybe check for third party solutions instead
+}</code></pre>
 
-<p>FIXME-http://code.google.com/p/geo-location-javascript/ alternative
+<p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href=http://tools.google.com/gears/>Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides a number of features for older browsers that do not support all the fancy new stuff we&#8217;ve discussed in this chapter. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&#8217;s not the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
+
+<p>There are also device-specific geolocation <abbr>API</abbr>s on several mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href=http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html>Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr></a>.
+
+<p><a href=http://code.google.com/p/geo-location-javascript/><code>geo.js</code></a> is an open source (<abbr>MIT</abbr>-licensed) library that smooths over the differences between the standard <code>navigator.geolocation</code> <abbr>API</abbr>, the Gears <abbr>API</abbr>, and the various device-specific <abbr>API</abbr>s. To use it, you&#8217;ll need to add two <code>&lt;script></code> elements at the bottom of your page. The first is <a href=http://code.google.com/apis/gears/gears_init.js><code>gears_init.js</code></a>, which initializes Gears if it&#8217;s installed. The second is <a href=http://geo-location-javascript.googlecode.com/svn/trunk/js/geo.js><code>geo.js</code></a>.
+
+<pre style="float:left"><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>Dive Into HTML 5&lt;/title>
+&lt;/head>
+&lt;body>
+  ...
+  <mark>&lt;script src="gears_init.js">&lt;/script>
+&lt;script src="geo.js">&lt;/script></mark>
+&lt;/body>
+&lt;/html>
+</code></pre>
+<p class="legend right" style="margin-top:11.2em"><span class=arrow>&nbsp;&#x21dc;</span> Two scripts are better than one
+
+<p>Now you&#8217;re ready to use whichever geolocation <abbr>API</abbr> is installed.
+
+<pre><code>if (geo_position_js.init()) {
+  geo_position_js.getCurrentPosition(geo_success, geo_error);
+}
+</code></pre>
+
+<p>Let&#8217;s take that one step at a time. First, you need to explicitly call an <code>init()</code> function. The <code>init()</code> function returns <code>true</code> if a supported geolocation <abbr>API</abbr> is available.
+
+<pre><code>if (<mark>geo_position_js.init()</mark>) {
+  geo_position_js.getCurrentPosition(geo_success, geo_error);
+}
+</code></pre>
+
+<p>Calling the <code>init()</code> function does not actually find your location. It just verifies that finding your location is possible. To actually find your location, you need to call the <code>getCurrentPosition()</code> function.
+
+<pre><code>if (geo_position_js.init()) {
+  <mark>geo_position_js.getCurrentPosition</mark>(geo_success, geo_error);
+}
+</code></pre>
+
+<p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If geolocation is being provided by Gears, this will pop up a dialog asking if your trust the web site to use Gears. If your browser natively supports the geolocation <abbr>API</abbr>, the dialog will look different. For example, Firefox 3.5 natively supports the geolocation <abbr>API</abbr>. If you try to find your location in Firefox 3.5, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
+
+<p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location&nbsp;&mdash;&nbsp;that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic&nbsp;&mdash;&nbsp;it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
+
+<pre><code>if (geo_position_js.init()) {
+  geo_position_js.getCurrentPosition(<mark>geo_success</mark>, geo_error);
+}
+</code></pre>
+
+<p>The success callback function takes a single argument, which contains the position information.
+
+<pre><code>function geo_success(p) {
+  alert("Found you at latitude " + p.coords.latitude +
+        ", longitude " + p.coords.longitude);
+}</code></pre>
+
+<p>If the <code>getCurrentPosition()</code> function could not find your location&nbsp;&mdash;&nbsp;either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason&nbsp;&mdash;&nbsp;it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geo_error</code>.
+
+<pre><code>if (geo_position_js.init()) {
+  geo_position_js.getCurrentPosition(geo_success, <mark>geo_error</mark>);
+}
+</code></pre>
+
+<p>The failure callback function takes no arguments.
+
+<pre><code>function geo_error() {
+  alert("Could not find you!");
+}</code></pre>
+
+<p class=a>&#x2042;
+
+<h2 id=workers>Web Workers</h2>
+
+<p>FIXME
 
 <p class=a>&#x2042;
 
