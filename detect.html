@@ -417,25 +417,57 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=ss style="width:261px"><img src=i/openclipart.org_johnny_automatic_typewriter.png alt="manual typewriter" width=261 height=228><br><span id=live-input-types></span>
 
-<p>FIXME-intro
+<p>You know all about web forms, right? Make a <code>&lt;form></code>, a few <code>&lt;input type="text"></code> elements, maybe an <code>&lt;input type="password"></code>, and finish it off with an <code>&lt;input type="submit"></code> button.
 
-<p>FIXME-detection technique #4
+<p>You don&#8217;t know the half of it. <abbr>HTML</abbr> 5 defines over a dozen new input types that you can use in your forms.
 
-<pre><code>function supported_input_types() {
-  var input_type = {};
-  var all_input_types = 
-    ['search', 'tel', 'url', 'email', 'datetime',
-     'date', 'month', 'week', 'time', 'datetime-local',
-     'number', 'range', 'color'];
-  for (var index = all_input_types.length - 1; index >= 0; index--) {
-    var itype = all_input_types[index];
-    i.setAttribute("type", itype);
-    input_type[itype] = !!(i.type !== "text");
-  }
-  return input_type;
+<ol>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#text-state-and-search-state><code>&lt;input type="search"></code></a> for search boxes
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#number-state><code>&lt;input type="number"></code></a> for spinboxes
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#range-state><code>&lt;input type="range"></code></a> for sliders
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#color-state><code>&lt;input type="color"></code></a> for color pickers
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#telephone-state><code>&lt;input type="tel"></code></a> for telephone numbers
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#url-state><code>&lt;input type="url"></code></a> for web addresses
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#e-mail-state><code>&lt;input type="email"></code></a> for email addresses
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#date-state><code>&lt;input type="date"></code></a> for calendar date pickers
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#month-state><code>&lt;input type="month"></code></a> for months
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#week-state><code>&lt;input type="week"></code></a> for weeks
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#time-state><code>&lt;input type="time"></code></a> for timestamps
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#date-and-time-state><code>&lt;input type="datetime"></code></a> for precise, absolute date+time stamps
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#local-date-and-time-state><code>&lt;input type="datetime-local"></code></a> for local dates and times
+</ol>
+
+<p>Checking for <abbr>HTML</abbr> 5 input types uses <a href=#techniques>detection technique #4</a>. Here&#8217;s how it works: first, create a dummy <code>&lt;input></code> element in memory. The default input type for all <code>&lt;input></code> elements is <code>"text"</code>. This will prove to be vitally important.
+
+<pre><code>function supports_input_type_color() {
+  var i = <mark>document.createElement("input")</mark>;
+  i.setAttribute("type", "color");
+  return !!(i.type !== "text");
 }</code></pre>
 
-<p>FIXME-Modernizr alternative
+<p>Next, set the <code>type</code> attribute on the dummy <code>&lt;input></code> element to the input type you want to detect.
+
+<pre><code>function supports_input_type_color() {
+  var i = document.createElement("input");
+  <mark>i.setAttribute("type", "color")</mark>;
+  return !!(i.type !== "text");
+}</code></pre>
+
+<p>If your browser supports that particular input type, the <code>type</code> property will retain the value you set. If your browser doesn&#8217;t support that particular input type, it will ignore the value you set and the <code>type</code> property will still be <code>"text"</code>.
+
+<pre><code>function supports_input_type_color() {
+  var i = document.createElement("input");
+  i.setAttribute("type", "color");
+  <mark>return !!(i.type !== "text")</mark>;
+}</code></pre>
+
+<p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML</abbr> 5. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, which contains 13 keys (the <abbr>HTML</abbr> 5 <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for native date picker
+<pre><code>if (<mark>!Modernizr.inputtypes.date</mark>) {
+  // no native support for &lt;input type="date"> :(
+  // maybe build one yourself with <a href=http://docs.dojocampus.org/dojox/widget/Calendar>Dojo</a> or <a href=http://jqueryui.com/demos/datepicker/>jQueryUI</a>
+}</code></pre>
 
 <p class=a>&#x2042;
 
