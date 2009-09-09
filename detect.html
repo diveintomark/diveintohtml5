@@ -48,7 +48,7 @@ body{counter-reset:h1 2}
 
 <h2 id=modernizr>Modernizr, the HTML 5 Detection Library</h2>
 
-<p><a href=http://modernizr.com/>Modernizr</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML 5 features. To use it, include the following <code>&lt;script></code> element at the bottom of your page. (You could put it at the top, in the <code>&lt;head></code> element, but that will just <a href=http://developer.yahoo.com/performance/rules.html#js_bottom>slow down your page</a> for no benefit.)
+<p><a href=http://modernizr.com/>Modernizr</a> is an open source (<abbr>MIT</abbr>-licensed) JavaScript library that detects support for several HTML 5 features. To use it, include the following <code>&lt;script></code> element at the bottom of your page.
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
 &lt;html>
@@ -71,6 +71,13 @@ body{counter-reset:h1 2}
 } else {
   // no native canvas support available :(
 }</code></pre>
+
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Why did you put Modernizr at the bottom of the page?<br>
+A: You should always loads your scripts as late as possible, <a href=http://developer.yahoo.com/performance/rules.html#js_bottom>so your main content loads first</a>. Modernizr has some <a href=http://www.modernizr.com/docs/>additional capabilities</a> beyond what I&#8217;ll talk about in this book. (It adds a set of <code>class</code> attributes to your page based on the capabilities it detects, so you can define feature-specific <abbr>CSS</code> rules in your stylesheets.) If you are using those extra features, you&#8217;ll need to put the <code>&lt;script></code> element at the top of your page. If you&#8217;re just using Modernizr&#8217;s JavaScript-based detection, you can safely put the <code>&lt;script></code> element at the bottom of your page, just before the <code>&lt;/body></code> tag.
+</blockquote>
+
+ (
 
 <p class=a>&#x2042;
 
