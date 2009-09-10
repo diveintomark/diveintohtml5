@@ -407,15 +407,15 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>Checking for <abbr>HTML</abbr> 5 input types uses <a href=#techniques>detection technique #4</a>. Here&#8217;s how it works: first, create a dummy <code>&lt;input></code> element in memory. The default input type for all <code>&lt;input></code> elements is <code>"text"</code>. This will prove to be vitally important.
 
-<pre><code>  var i = <mark>document.createElement("input")</mark>;</code></pre>
+<pre><code>  var i = document.createElement("input");</code></pre>
 
 <p>Next, set the <code>type</code> attribute on the dummy <code>&lt;input></code> element to the input type you want to detect.
 
-<pre><code>  <mark>i.setAttribute("type", "color")</mark>;</code></pre>
+<pre><code>  i.setAttribute("type", "color");</code></pre>
 
 <p>If your browser supports that particular input type, the <code>type</code> property will retain the value you set. If your browser doesn&#8217;t support that particular input type, it will ignore the value you set and the <code>type</code> property will still be <code>"text"</code>.
 
-<pre><code>  <mark>return !!(i.type !== "text")</mark>;</code></pre>
+<pre><code>  return !!(i.type !== "text");</code></pre>
 
 <p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML</abbr> 5. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, which contains 13 keys (the <abbr>HTML</abbr> 5 <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
 
