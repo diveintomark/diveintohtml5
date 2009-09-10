@@ -439,7 +439,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=a>&#x2042;
 
-<h2 id=input-placeholder>&lt;input placeholder></h2>
+<h2 id=input-placeholder>Placeholder Text</h2>
 
 <form style="float:right;margin:1.75em"><input placeholder="Your browser supports placeholder text" size=38></form>
 
@@ -475,22 +475,26 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=a>&#x2042;
 
-<!--
-<h2 FIXME id=input-autofocus>&lt;input autofocus></h2>
+<h2 FIXME id=input-autofocus>Form Autofocus</h2>
 
-<p>FIXME-intro
+<p class=ss style="width:188px"><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262><br><span id="live-input-autofocus"></span>
 
-<p>FIXME-detection technique #2
+<p>Many web sites use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&#8217;s autofocus script may &#8220;helpfully&#8221; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
+
+<p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&#8217;t want a web page to &#8220;steal&#8221; the focus.
+
+<p>To solve this problem, <abbr>HTML5</abbr> introduces an <code>autofocus</code> attribute on all web form controls. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&#8217;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+
+<p>Checking for autofocus support uses <a href=#techniques>detection technique #2</a>. If your browser supports autofocusing web form controls, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;input></code> element will have an <code>autofocus</code> property (even if you don&#8217;t include the <code>autofocus</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&#8217;t support autofocusing web form controls, the <abbr>DOM</abbr> object it creates for a <code>&lt;input></code> element will not have an <code>autofocus</code> property.
 
 <pre><code>function supports_input_autofocus() {
   var i = document.createElement('input');
   return !!('autofocus' in i);
 }</code></pre>
 
-<p>FIXME-no Modernizr support yet
+<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web form autofocus, so you&#8217;ll need to use the function listed here.
 
 <p class=a>&#x2042;
--->
 
 <!--
 <h2 FIXME id=input-required>&lt;input required></h2>
@@ -667,5 +671,6 @@ $(document).ready(function() {
   } else {
     $("#live-input-types").html('Your browser does not support any HTML5 input types.');
   }
+  $("#live-input-autofocus").html(supports(!!("autofocus" in document.createElement("input")), "form autofocus"));
 });
 </script>
