@@ -260,6 +260,22 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=a>&#x2042;
 
+<h2 id=workers>Web Workers</h2>
+
+<p><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a> provide a standard way for browsers to run JavaScript in the background. With web workers, You can spawn multiple &#8220;threads&#8221; that all run at the same time, more or less. (Think of how your computer can run multiple applications at the same time, and you&#8217;re most of the way there.) These &#8220;background threads&#8221; can do complex mathematical calculations, make network requests, or access <a href=#local-storage>local storage</a> while the main web page responds to the user scrolling, clicking, or typing.
+
+<p>Like <a href=#local-storage><abbr>HTML5</abbr> storage</a>, web workers are a part of <abbr>HTML5</abbr> but have been spun off from the main <abbr>HTML5</abbr> specification.
+
+<p>Checking for web workers uses <a href=#techniques>detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
+
+<pre><code>function supports_web_workers() {
+  return !!(typeof Worker != 'undefined');
+}</code></pre>
+
+<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web workers, so you&#8217;ll need to use the function listed here.
+
+<p class=a>&#x2042;
+
 <h2 id=offline>Offline Web Applications</h2>
 
 <p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_cabin_along_stream.png alt="cabin in the woods" width=257 height=242><br><span id=live-offline></span>
@@ -372,12 +388,6 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <pre><code>function geo_error() {
   alert("Could not find you!");
 }</code></pre>
-
-<p class=a>&#x2042;
-
-<h2 FIXME id=workers>Web Workers</h2>
-
-<p>FIXME
 
 <p class=a>&#x2042;
 
