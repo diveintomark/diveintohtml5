@@ -75,14 +75,6 @@ body{counter-reset:h1 2}
 
 <p class=a>&#x2042;
 
-<!--
-<h2 FIXME id=elements>New Semantic Elements</h2>
-
-<p>FIXME
-
-<p class=a>&#x2042;
--->
-
 <h2 id=canvas>Canvas</h2>
 
 <p class=ss style="width:300px"><img src=i/openclipart.org_johnny_automatic_fishing_boat.png width=300 height=203 alt="man fishing in a canoe"><br><span id=live-canvas></span>
@@ -140,24 +132,16 @@ body{counter-reset:h1 2}
 
 <p>The function starts by <a href=#canvas>checking for canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, it certainly won&#8217;t support the canvas text <abbr>API</abbr>!
 
-<pre><code>if (<mark>!supports_canvas()</mark>) { return false; }
-  var dummy_canvas = document.createElement('canvas');
-  var context = dummy_canvas.getContext('2d');
-  return (typeof context.fillText == 'function');</code></pre>
+<pre><code>if (<mark>!supports_canvas()</mark>) { return false; }</code></pre>
 
 <p>Next, you create a dummy <code>&lt;canvas></code> element and get its drawing context. This is guaranteed to work, because the <code>supports_canvas()</code> function already checked that the <code>getContext()</code> method exists on all canvas objects.
 
-<pre><code>if (!supports_canvas()) { return false; }
-  var dummy_canvas = document.createElement('canvas');
-  var context = <mark>dummy_canvas.getContext('2d')</mark>;
-  return (typeof context.fillText == 'function');</code></pre>
+<pre><code>  var dummy_canvas = document.createElement('canvas');
+  var context = <mark>dummy_canvas.getContext('2d')</mark>;</code></pre>
 
 <p>Finally, you check whether the drawing context has a <code>fillText()</code> function. If it does, the canvas text <abbr>API</abbr> is available. Hooray!
 
-<pre><code>if (!supports_canvas()) { return false; }
-  var dummy_canvas = document.createElement('canvas');
-  var context = dummy_canvas.getContext('2d');
-  return (<mark>typeof context.fillText == 'function'</mark>);</code></pre>
+<pre><code>  return (<mark>typeof context.fillText == 'function'</mark>);</code></pre>
 
 <p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
 
@@ -220,27 +204,15 @@ body{counter-reset:h1 2}
 
 <p>The function starts by <a href=#video>checking for <abbr>HTML</abbr> 5 video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn&#8217;t support <abbr>HTML</abbr> 5 video, it certainly won&#8217;t support any video formats!
 
-<pre><code>function supports_h264_baseline_video() {
-  if (<mark>!supports_video()</mark>) { return false; }
-  var v = document.createElement("video");
-  return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
-}</code></pre>
+<pre><code>  if (<mark>!supports_video()</mark>) { return false; }</code></pre>
 
 <p>Then the function creates a dummy video element (but doesn&#8217;t attach it to the page, so it won&#8217;t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
 
-<pre><code>function supports_h264_baseline_video() {
-  if (!supports_video()) { return false; }
-  var <mark>v</mark> = document.createElement("video");
-  return <mark>v.canPlayType</mark>('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
-}</code></pre>
+<pre><code>  var <mark>v</mark> = document.createElement("video");</code></pre>
 
 <p>A &#8220;video format&#8221; is really a combination of several different things. In technical terms, you&#8217;re asking the browser whether it can play H.264 Baseline video and AAC LC audio in an MPEG-4 container. (I&#8217;ll explain what all that means when I write the video chapter. Until then, you can read <a href=http://diveintomark.org/tag/give>A gentle introduction to video encoding</a>.)
 
-<pre><code>function supports_h264_baseline_video() {
-  if (!supports_video()) { return false; }
-  var v = document.createElement("video");
-  return v.canPlayType('<mark>video/mp4; codecs="avc1.42E01E, mp4a.40.2"</mark>');
-}</code></pre>
+<pre><code>  return v.canPlayType('<mark>video/mp4; codecs="avc1.42E01E, mp4a.40.2"</mark>');</code></pre>
 
 <p>The <code>canPlayType()</code> function doesn&#8217;t return <code>true</code> or <code>false</code>. In recognition of how complex video formats are, the function returns a string:
 
@@ -370,26 +342,17 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>Let&#8217;s take that one step at a time. First, you need to explicitly call an <code>init()</code> function. The <code>init()</code> function returns <code>true</code> if a supported geolocation <abbr>API</abbr> is available.
 
-<pre><code>if (<mark>geo_position_js.init()</mark>) {
-  geo_position_js.getCurrentPosition(geo_success, geo_error);
-}
-</code></pre>
+<pre><code>if (<mark>geo_position_js.init()</mark>) {</code></pre>
 
 <p>Calling the <code>init()</code> function does not actually find your location. It just verifies that finding your location is possible. To actually find your location, you need to call the <code>getCurrentPosition()</code> function.
 
-<pre><code>if (geo_position_js.init()) {
-  <mark>geo_position_js.getCurrentPosition</mark>(geo_success, geo_error);
-}
-</code></pre>
+<pre><code>  <mark>geo_position_js.getCurrentPosition</mark>(geo_success, geo_error);</code></pre>
 
 <p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If geolocation is being provided by Gears, this will pop up a dialog asking if your trust the web site to use Gears. If your browser natively supports the geolocation <abbr>API</abbr>, the dialog will look different. For example, Firefox 3.5 natively supports the geolocation <abbr>API</abbr>. If you try to find your location in Firefox 3.5, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
 
 <p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location&nbsp;&mdash;&nbsp;that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic&nbsp;&mdash;&nbsp;it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
 
-<pre><code>if (geo_position_js.init()) {
-  geo_position_js.getCurrentPosition(<mark>geo_success</mark>, geo_error);
-}
-</code></pre>
+<pre><code>  geo_position_js.getCurrentPosition(<mark>geo_success</mark>, geo_error);</code></pre>
 
 <p>The success callback function takes a single argument, which contains the position information.
 
@@ -401,10 +364,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>If the <code>getCurrentPosition()</code> function could not find your location&nbsp;&mdash;&nbsp;either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason&nbsp;&mdash;&nbsp;it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geo_error</code>.
 
-<pre><code>if (geo_position_js.init()) {
-  geo_position_js.getCurrentPosition(geo_success, <mark>geo_error</mark>);
-}
-</code></pre>
+<pre><code>  geo_position_js.getCurrentPosition(geo_success, <mark>geo_error</mark>);</code></pre>
 
 <p>The failure callback function takes no arguments.
 
@@ -415,13 +375,11 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=a>&#x2042;
 
-<!--
 <h2 FIXME id=workers>Web Workers</h2>
 
 <p>FIXME
 
 <p class=a>&#x2042;
--->
 
 <h2 id=input-types>Input Types</h2>
 
@@ -449,27 +407,15 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>Checking for <abbr>HTML</abbr> 5 input types uses <a href=#techniques>detection technique #4</a>. Here&#8217;s how it works: first, create a dummy <code>&lt;input></code> element in memory. The default input type for all <code>&lt;input></code> elements is <code>"text"</code>. This will prove to be vitally important.
 
-<pre><code>function supports_input_type_color() {
-  var i = <mark>document.createElement("input")</mark>;
-  i.setAttribute("type", "color");
-  return !!(i.type !== "text");
-}</code></pre>
+<pre><code>  var i = <mark>document.createElement("input")</mark>;</code></pre>
 
 <p>Next, set the <code>type</code> attribute on the dummy <code>&lt;input></code> element to the input type you want to detect.
 
-<pre><code>function supports_input_type_color() {
-  var i = document.createElement("input");
-  <mark>i.setAttribute("type", "color")</mark>;
-  return !!(i.type !== "text");
-}</code></pre>
+<pre><code>  <mark>i.setAttribute("type", "color")</mark>;</code></pre>
 
 <p>If your browser supports that particular input type, the <code>type</code> property will retain the value you set. If your browser doesn&#8217;t support that particular input type, it will ignore the value you set and the <code>type</code> property will still be <code>"text"</code>.
 
-<pre><code>function supports_input_type_color() {
-  var i = document.createElement("input");
-  i.setAttribute("type", "color");
-  <mark>return !!(i.type !== "text")</mark>;
-}</code></pre>
+<pre><code>  <mark>return !!(i.type !== "text")</mark>;</code></pre>
 
 <p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML</abbr> 5. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, which contains 13 keys (the <abbr>HTML</abbr> 5 <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
 
@@ -481,24 +427,40 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=a>&#x2042;
 
-<!--
-<h2 FIXME id=input-placeholder>&lt;input placeholder></h2>
+<h2 id=input-placeholder>&lt;input placeholder></h2>
 
-<p>FIXME-intro
+<p>Besides <a href=#input-types>new input types</a>, <abbr>HTML5</abbr> includes several small tweaks to existing forms. One improvement is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears.
 
-<p>FIXME-detection technique #2
+<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox 3.5 now includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
+
+<blockquote>
+<p><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
+</blockquote>
+
+<p>When you click on (or tab to) the location bar, the placeholder text disappears:
+
+<blockquote>
+<p><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
+</blockquote>
+
+<p>Here&#8217;s how you can include placeholder text in your own web forms:
+
+<pre><code>&lt;form>
+&lt;input name="q" <mark>placeholder="Search Bookmarks and History"</mark>>
+&lt;input type="submit" value="Search">
+&lt;/form></code></pre>
+
+<p>Checking for placeholder support uses <a href=#techniques>detection technique #2</a>. If your browser supports placeholder text in input fields, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;input></code> element will have a <code>placeholder</code> property (even if you don&#8217;t include a <code>placeholder</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&#8217;t support placeholder text, the <abbr>DOM</abbr> object it creates for a <code>&lt;input></code> element will not have a <code>placeholder</code> property.
 
 <pre><code>function supports_input_placeholder() {
   var i = document.createElement('input');
   return !!('placeholder' in i);
 }</code></pre>
 
-<p>FIXME-no Modernizr support yet
+<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for placeholder text, so you&#8217;ll need to use the function listed here.
 
 <p class=a>&#x2042;
--->
 
-<!--
 <h2 FIXME id=input-autofocus>&lt;input autofocus></h2>
 
 <p>FIXME-intro
@@ -513,7 +475,6 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p>FIXME-no Modernizr support yet
 
 <p class=a>&#x2042;
--->
 
 <!--
 <h2 FIXME id=input-required>&lt;input required></h2>
