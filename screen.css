@@ -139,6 +139,7 @@ p, ul, ol {
   clear: both;
   text-align: center;
 }
+
 #toc ol, #toc li {
   list-style: none;
   margin-left: 0;
@@ -181,10 +182,10 @@ a:hover {
   border-bottom: 1px solid;
 }
 a:link, .w a {
-  color: #000;
+  color: FireBrick;
 }
 a:visited {
-  color: #666;
+  color: RosyBrown;
 }
 .c a {
   color: inherit;
