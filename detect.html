@@ -628,7 +628,7 @@ function show_map_error() {
 }
 $(document).ready(function() {
   $("#live-canvas").html(supports(Modernizr.canvas, "the canvas API"));
-  $("#live-canvas-text").html(supports(Modernizr.canvas, "the canvas text API"));
+  $("#live-canvas-text").html(supports(Modernizr.canvastext, "the canvas text API"));
   $("#live-video").html(supports(Modernizr.video, "HTML5 video"));
   if (Modernizr.video) {
     var v = document.createElement("video");
