@@ -46,14 +46,16 @@ done
 echo "minimizing JS"
 revision=`hg log|grep changeset|cut -d":" -f3|head -1`
 java -jar util/yuicompressor-2.4.2.jar build/j/dih5.js > build/j/dih5.min.js || die "Failed to minimize JS"
+java -jar util/yuicompressor-2.4.2.jar build/j/canvastext-fx3.js > build/j/canvastext-fx3.min.js || die "Failed to minimize JS"
 
 # combine jQuery, Modernizr, other 3rd party scripts, and our own scripts
 echo "combining JS"
-cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/gears_init.min.js build/j/geo.min.js build/j/dih5.min.js > build/j/$revision.js && \
+cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/gears_init.min.js build/j/geo.min.js build/j/canvastext-fx3.min.js build/j/dih5.min.js > build/j/$revision.js && \
     sed -i -e "s|<script src=j/jquery.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/modernizr.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/gears_init.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/geo.js></script>||g" build/*.html && \
+    sed -i -e "s|<script src=j/canvastext-fx3.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
 
 echo "minimizing CSS"
@@ -80,7 +82,7 @@ sed -i -e "s|=http:|=|g" build/*.html && \
 chmod 755 build/examples build/j build/i build/f build/fonts-original && \
     chmod 644 build/*.html build/*.txt build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz || die "Failed to reset file permissions"
 
-#die "Intentionally aborting without publishing"
+die "Intentionally aborting without publishing"
 # ship it!
 echo -n "publishing"
 rsync -essh -a build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
