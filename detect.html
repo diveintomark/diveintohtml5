@@ -266,7 +266,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p>Checking for web workers uses <a href=#techniques>detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
 
 <pre><code>function supports_web_workers() {
-  return !!(typeof window.Worker != 'undefined');
+  return typeof window.Worker != 'undefined';
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web workers, so you&#8217;ll need to use the function listed here.
@@ -422,7 +422,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>If your browser supports that particular input type, the <code>type</code> property will retain the value you set. If your browser doesn&#8217;t support that particular input type, it will ignore the value you set and the <code>type</code> property will still be <code>"text"</code>.
 
-<pre><code>  return !!(i.type !== "text");</code></pre>
+<pre><code>  return i.type !== "text";</code></pre>
 
 <p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML5</abbr>. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, which contains 13 keys (the <abbr>HTML5</abbr> <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
 
@@ -463,7 +463,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <pre><code>function supports_input_placeholder() {
   var i = document.createElement('input');
-  return !!('placeholder' in i);
+  return 'placeholder' in i;
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for placeholder text, so you&#8217;ll need to use the function listed here.
@@ -484,7 +484,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <pre><code>function supports_input_autofocus() {
   var i = document.createElement('input');
-  return !!('autofocus' in i);
+  return 'autofocus' in i;
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web form autofocus, so you&#8217;ll need to use the function listed here.
@@ -500,7 +500,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <pre><code>function supports_input_required() {
   var i = document.createElement('input');
-  return !!('required' in i);
+  return 'required' in i;
 }</code></pre>
 
 <p>FIXME-no Modernizr support yet
@@ -525,7 +525,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <pre><code>function supports_input_pattern() {
   var i = document.createElement('input');
-  return !!('pattern' in i);
+  return 'pattern' in i;
 }</code></pre>
 
 <p>FIXME-no Modernizr support yet
