@@ -545,7 +545,49 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <h2 id=ie>What About IE?</h2>
 
+<p>Microsoft Internet Explorer (up to and including version 8, the current version at time of writing) does not support the canvas <abbr>API</abbr>. However, Internet Explorer does support a Microsoft-proprietary technology called <abbr>VML</abbr>, which can do many of the same things as the <code>&lt;canvas></code> element. And thus, <code>excanvas.js</code> was born.
+
+<p><a href=http://code.google.com/p/explorercanvas/>Explorercanvas</a> (<code>excanvas.js</code>) is an open source, Apache-licensed JavaScript library that implements the canvas <abbr>API</abbr> in Internet Explorer. To use it, include the following <code>&lt;script></code> element at the top of your page.
+
+<pre><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>Dive Into HTML5&lt;/title>
+  <mark>&lt;!--[if IE]>
+    &lt;script type="text/javascript" src="excanvas.js">&lt;/script>
+&lt;![endif]--></mark>
+&lt;/head>
+&lt;body>
+  ...
+&lt;/body>
+&lt;/html>
+</code></pre>
+
+<p>The <code>&lt;!--[if IE]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is any version of Internet Explorer, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer will download the <code>excanvas.js</code> script and execute it, but other browsers will ignore the script altogether (not download it, not execute it, not anything). This makes your page load faster in browsers that implement the canvas <abbr>API</abbr> natively.
+
+<p>Once you include the <code>excanvas.js</code> in the <code>&lt;head></code> of your page, you don&#8217;t need to do anything else to accomodate Internet Explorer. Just include <code>&lt;canvas></code> elements in your markup, or create them dynamically with JavaScript. Follow the instructions in this chapter to get the drawing context of a <code>&lt;canvas></code> element, and you can draw shapes, text, and patterns.
+
+<p>Well&hellip; not quite. There are a few limitations:
+
+<ol>
+<li><a href=#gradients>Patterns</a> must be repeating in both directions.
+<li><a href=#gradients>Gradients</a> can only be linear. <a href=https://developer.mozilla.org/En/Canvas_tutorial/Applying_styles_and_colors#A_createRadialGradient_example>Radial gradients</a> are not supported.
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#clipping-region>Clipping regions</a> are not supported.
+<li>Non-uniform <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-scale>scaling</a> does not correctly scale strokes.
+<li>It&#8217;s slow. This should not come as a raging shock to anyone, since Internet Explorer's JavaScript parser is slower than other browsers to begin with. Once you start drawing complex shapes via a JavaScript library that translates commands to a completely different technology, things are going to be a bit slow. You won&#8217;t notice the performance degradation in simple examples like drawing a few lines and transforming an image, but you&#8217;ll see it right away once you start doing canvas-based animation and other crazy stuff.
+</ol>
+
 <p class=a>&#x2042;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<ul>
+<li><a href=https://developer.mozilla.org/en/Canvas_tutorial>Canvas tutorial</a> on Mozilla Developer Center
+<li><a href=http://dev.opera.com/articles/view/html-5-canvas-the-basics/><abbr>HTML5</abbr> <code>canvas</code>&nbsp;&mdash;&nbsp;the basics</a>
+<li><a href=http://www.canvasdemos.com/>CanvasDemos.com</a>: Demos, tools, and tutorials for the <abbr>HTML</abbr> <code>canvas</code> element
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>The <code>canvas</code> element</a> in <abbr>HTML5</abbr>
+</ul>
 
 <p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
 
