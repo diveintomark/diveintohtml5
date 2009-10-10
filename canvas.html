@@ -343,7 +343,7 @@ context.fillRect(497, 372, 3, 3);</code></pre>
 
 <p class=a>&#x2042;
 
-<h2 id=gradients>Gradients &amp; Patterns</h2>
+<h2 id=gradients>Gradients</h2>
 
 <table class=bc>
 <thead>
@@ -509,7 +509,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <pre style="float:left"><code>cat.onload = function() {
   for (var x = 0, y = 0;
-       x &lt; 500, y &lt; 375;
+       x &lt; 500 &amp;&amp; y &lt; 375;
        x += 50, y += 37) {
     context.drawImage(cat, x, y, <mark>88, 56</mark>);
   }
@@ -535,11 +535,43 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p class=a>&#x2042;
 
+<h2 id=patterns>Patterns</h2>
+
+<p>FIXME</p>
+
+<p><img id=pastel-img src=i/pastel.png width=64 height=64 alt="swirly color pattern"></p>
+
+<p>FIXME</p>
+
+<canvas id=p1 width=256 height=128></canvas>
+
+<p>FIXME</p>
+
+<canvas id=p2 width=800 height=75></canvas>
+
+<p>FIXME
+
+<p class=a>&#x2042;
+
 <h2 id=shadows>Shadows</h2>
+
+<canvas id=shadow3 width=800 height=75></canvas>
 
 <p class=a>&#x2042;
 
 <h2 id=data>Canvas <span class=u>&#8227;</span> Save As&hellip;</h2>
+
+<p class=a>&#x2042;
+
+<h2 id=security>Security</h2>
+
+<p>FIXME
+
+<ul>
+<li>You <a href=#images>draw an image on the canvas</a> that was loaded from a different origin as the page that owns the <code>&lt;canvas></code> element.
+<li>You <a href=#patterns>draw on the canvas with a pattern</a> that was loaded from a different origin.
+<li>You can create images and patterns from other canvases, which means that these restrictions need to apply recursively. For example: you draw a foreign image on canvas A. Then you create a pattern out of canvas A and use that pattern to draw on canvas B. Both canvases will end up &#8220;origin-dirty&#8221; &nbsp;&mdash;&nbsp; canvas A, because you drew a foreign image on it, and canvas B, because you drew canvas A on it.
+</ul>
 
 <p class=a>&#x2042;
 
@@ -685,7 +717,7 @@ try {
 } catch(err) {}
 }
 
-function draw_gradients(ctx) {
+function draw_gradients() {
 try {
   var d = document.getElementById("d");
   var context = d.getContext("2d");
@@ -734,14 +766,39 @@ function draw_images(imagesReady) {
   var cat_context2 = cat_canvas2.getContext("2d");
   var cat_canvas3 = document.getElementById("e3");
   var cat_context3 = cat_canvas3.getContext("2d");
+  var pastel_image = document.getElementById("pastel-img");
+  var p1_canvas = document.getElementById("p1");
+  var p1_context = p1_canvas.getContext("2d");
+  var p2_canvas = document.getElementById("p2");
+  var p2_context = p2_canvas.getContext("2d");
+  var shadow3_canvas = document.getElementById("shadow3");
+  var shadow3_context = shadow3_canvas.getContext("2d");
   cat_context3.rotate(-Math.PI);
   var cat_image = document.getElementById("cat");
   var _draw = function() {
     cat_context.drawImage(cat_image, 0, 0);
-    for (var x = 0, y = 0; x < 500, y < 375; x += 50, y += 37) {
+    for (var x = 0, y = 0; x < 500 && y < 375; x += 50, y += 37) {
       cat_context2.drawImage(cat_image, x, y, 88, 56);
     }
     cat_context3.drawImage(cat_image, -177, -113);
+
+    var p1_pattern = p1_context.createPattern(pastel_image, "repeat");
+    p1_context.fillStyle = p1_pattern;
+    p1_context.fillRect(0, 0, 256, 128);
+
+    var p2_pattern = p2_context.createPattern(pastel_image, "repeat");
+    p2_context.font = "bold 48px 'Marker Felt', 'Comic Sans MS', fantasy";
+    p2_context.fillStyle = p2_pattern;
+    p2_context.fillText("UNDER CONSTRUCTION", 0, 50);
+
+    var shadow3_pattern = shadow3_context.createPattern(pastel_image, "repeat");
+    shadow3_context.font = "bold 48px 'Marker Felt', 'Comic Sans MS', fantasy";
+    shadow3_context.fillStyle = shadow3_pattern;
+    shadow3_context.shadowColor = "#888";
+    shadow3_context.shadowOffsetX = 3;
+    shadow3_context.shadowOffsetY = 3;
+    shadow3_context.shadowBlur = 4;
+    shadow3_context.fillText("UNDER CONSTRUCTION", 0, 50);
   };
   if (!!imagesReady) {
     _draw();
