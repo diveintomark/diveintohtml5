@@ -19,7 +19,19 @@ tfoot{font-size:small}
 
 <p class=f><img src=i/aoc-a.png alt=A width=105 height=105>nyone who has visited YouTube.com in the past four years knows that you can embed video in a web page. But prior to <abbr>HTML5</abbr>, there was no standards-based way to do this. Virtually all the video you&#8217;ve ever watched &#8220;on the web&#8221; has been funneled through a third-party plugin&nbsp;&mdash;&nbsp;maybe QuickTime, maybe RealPlayer, maybe Flash. (YouTube uses Flash.) These plugins integrate with your browser well enough that you may not even be aware that you&#8217;re using them. That is, until you try to watch a video on a platform that doesn&#8217;t support that plugin.
 
-<p><abbr>HTML5</abbr> defines a standard way to embed video in a web page. Before we can talk about <abbr>HTML5</abbr> video, you first need to understand a little about video itself. (If you know about video already, you can skip ahead to <a href=#what-works>What Works on the Web</a>.)
+<p><abbr>HTML5</abbr> defines a standard way to embed video in a web page, using a <code>&lt;video></code> element. Support for the <code>&lt;video></code> element is still evolving, which is a polite way of saying it doesn&#8217;t work yet. At least, it doesn&#8217;t work everywhere. But don&#8217;t despair! There are alternatives and fallbacks and options galore.
+
+<table class=bc>
+<caption>&lt;video> element support</caption>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Chromium 3">Chr3<th title="Opera 10">Op10
+</thead>
+<tbody>
+<tr><td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2717;
+</tbody>
+</table>
+
+<p>But support for the <code>&lt;video></code> element itself is really only a small part of the story. Before we can talk about <abbr>HTML5</abbr> video, you first need to understand a little about video itself. (If you know about video already, you can skip ahead to <a href=#what-works>What Works on the Web</a>.)
 
 <h2 id=video-containers>Video Containers</h2>
 
@@ -131,12 +143,25 @@ tfoot{font-size:small}
 
 <ul>
 <li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container.
+<li><a href=http://code.google.com/chromium/>Chromium</a> (3.0 and later) supports Theora video and Vorbis audio in an Ogg container.
 <li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, very few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include Theora video, Vorbis audio, or the Ogg container. However, QuickTime <em>does</em> support MPEG-4 ASP or H.264 video (main profile) and AAC audio in an MP4 container.
-<li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. It also supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
 <li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support MPEG-4 ASP or H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
 <li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
 <li>Internet Explorer has no <abbr>HTML5</abbr> video support at all, but virtually all Internet Explorer users will have the Adobe Flash plugin. Later in this chapter, I&#8217;ll show you how you can use <abbr>HTML5</abbr> video but gracefully fall back to Flash.
 </ul>
+
+<p>That might be easier to digest in table form.
+
+<table class=bc>
+<caption>Video codec support</caption>
+<thead>
+<tr><th style="text-align:left">Codecs/container<th>Firefox 3.5<th>Safari<th>iPhone<th>Android<th>Chromium 3
+</thead>
+<tbody>
+<tr><th>Theora+Vorbis+Ogg<td>&#x2713;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2713;
+<tr><th>H.264+AAC+MP4<td>&#x2717;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2717;
+</tbody>
+</table>
 
 <p>And now for the knockout punch:
 
@@ -151,85 +176,175 @@ tfoot{font-size:small}
 <ol>
 <li>Make one version that uses Theora video and Vorbis audio in an Ogg container.
 <li>Make another version that uses H.264 baseline video and AAC &#8220;low complexity&#8221; audio in an MP4 container.
-<li>
+<li>Link to both video files from a single <code>&lt;video></code> element.
+<li>If you detect a lack of <abbr>HTML5</abbr> video support, replace the <code>&lt;video></code> element with a Flash-based video player.
 </ol>
-
-<p>Luckily, the second option (H.264 + AAC + MP4) also works in Flash, so you can re-use the same video file and funnel it through a Flash-based video player as a fallback for visitors without an HTML5-capable browser.
 
 <h2 id=firefogg>Encoding Ogg Video with Firefogg</h2>
 
-<p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
+<p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Chromium.)
 
+<p><dfn>FireFogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&#8217;ll need to install <a href=http://www.getfirefox.com/>Mozilla Firefox</a> 3.5 or later, then visit <a href=http://firefogg.org/>firefogg.org</a>.
+
+<p class="legend top">FireFogg home page <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-01.png alt="Firefogg home page" width=800 height=600>
 
+<p>Click &#8220;Install Firefogg.&#8221; Firefox will prompt whether you really want to allow the site to install an extension. Click &#8220;Allow&#8221; to continue.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Allow FireFogg to install
 <p><img src=i/firefogg-02.png alt="Firefogg: install software" width=800 height=600>
 
-<p><img src=i/firefogg-03.png alt="Firefox Software Installation window" width=547 height=367>
+<p>Firefox will present the standard software installation window. Click &#8220;Install&#8221; to continue.
+<p class="legend top" style="text-align:center">Install FireFogg <span class=arrow>&#x21b7;</span><br></p>
+<p class=c><img src=i/firefogg-03.png alt="Firefox Software Installation window" width=547 height=367>
 
-<p><img src=i/firefogg-04.png alt="Firefox Add-ons window after installation" width=520 height=380>
+<p>Click &#8220;Restart Firefox&#8221; to complete the installation.
+<p class="legend top" style="text-align:center"><span class=arrow>&#x21b6;</span> Restart Firefox
+<p class=c><img src=i/firefogg-04.png alt="Firefox Add-ons window after installation" width=520 height=380>
 
+<p>After restarting Firefox, <code>firefogg.org</code> will confirm that FireFogg was successfully installed.
+<p class="legend top">Installation successful <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-05.png alt="Firefogg home page after installation" width=800 height=600>
 
+<p>Click &#8220;Make Ogg Video&#8221; to start the encoding process.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Let&#8217;s make some video!
 <p><img src=i/firefogg-06.png alt="Firefogg: Make Ogg Video" width=800 height=600>
 
+<p>Click &#8220;Select file&#8221; to select your source video.
+<p class="legend top">Select your video file <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-07.png alt="Firefogg: Select file" width=800 height=600>
+
+<p>FireFogg has six &#8220;tabs&#8221;:
+
+<ol>
+<li>Presets. The default preset is &#8220;web video,&#8221; which is fine for our purposes.
+<li>Encoding range. Encoding video can take a long time. When you&#8217;re first getting started, you may want to encode just part of your video (say, the first 30 seconds) until you find a combination of settings you like.
+<li>Basic quality and resolution control. This is where most of the important options are.
+<li>Metadata. I won&#8217;t cover it here, but you can add metadata to your encoded video like title and author. You&#8217;ve probably added metadata to your music collection with iTunes or some other music manager. This is the same idea.
+<li>Advanced video encoding controls. Don&#8217;t mess with these unless you know what you&#8217;re doing. (Firefogg offers interactive help on most of these options. Click the &#8220;i&#8221; symbol next to each option to learn more about it.)
+<li>Advanced audio encoding controls. Again, don&#8217;t mess with these unless you know what you&#8217;re doing.
+</ol>
 
 <p><img src=i/firefogg-08.png alt="Firefogg main interface" width=800 height=600>
 
+<p id=firefogg-options>The only options I&#8217;m going to cover are in the &#8220;Basic quality and resolution control&#8221; tab. It contains all the important options:
+
+<ul>
+<li>Video Quality. This is measured on a scale of 0 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, so you&#8217;ll need to experiment to determine the best size/quality ratio for your needs.
+<li>Two Pass Encoding. If this is checked, FireFogg will run the video encoder twice. The first time, it just analyzes the video, looking for things like color composition, motion, and scene breaks. The second time, it actually encodes the video using the information it learned during the first pass. As you might expect, this takes about twice as long as single-pass encoding, but it results in better video without increasing file size. I always enable two-pass encoding. Unless you&#8217;re building the next YouTube and encoding videos 24 hours a day, you should probably use two-pass encoding too.
+<li>Audio Quality. This is measured on a scale of -1 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, just like the video quality setting.
+<li>Video Codec. This should always be &#8220;theora.&#8221;
+<li>Audio Codec. This should always be &#8220;vorbis.&#8221;
+<li>Video Width and Video Height. These defaults to the actual width and height of your source video. If you want to resize the video during encoding, you can change the width (or height) here. FireFogg will automatically adjust the other dimension to maintain the original proportions (so your video won&#8217;t end up smooshed or stretched).
+</ul>
+
 <p><img src=i/firefogg-09.png alt="Firefogg basic quality and resolution control" width=800 height=600>
 
+<p>In this example, I&#8217;m going to resize the video to half its original width. Notice how FireFogg automatically adjusts the height to match.
+<p class="legend top">Adjust video width and height <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-10.png alt="Firefogg: set video width and height" width=800 height=600>
 
+<p>As I mentioned, I always enable &#8220;Two Pass Encoding.&#8221; It takes longer, but quality is worth waiting for.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Enable &#8220;Two Pass Encoding&#8221;
 <p><img src=i/firefogg-11.png alt="Firefogg: Two Pass Encoding" width=800 height=600>
 
+<p>Once you&#8217;ve fiddled with all the knobs, click &#8220;Save Ogg&#8221; to start the actual encoding process. FireFogg will prompt you for a filename for the encoded video.
+<p class="legend top">&#8220;Save Ogg&#8221; <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-12.png alt="Firefogg: Save Ogg" width=800 height=600>
 
+<p>FireFogg will show a nice progress bar as it encodes your video. All you need to do is wait (and wait, and wait)!
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Encoding in progress
 <p><img src=i/firefogg-13.png alt="Firefogg: Encoding progress" width=800 height=600>
 
 <h2 id=ffmpeg2theora>Batch Encoding Ogg Video with ffmpeg2theora</h2>
 
-<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
+<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Chromium.)
 
-<p>There are a number of offline encoders for Ogg video. If you&#8217;re looking at batch encoding a lot of video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>. ffmpeg2theora is an open-source, GPL-licensed command-line program for encoding Ogg video. Pre-built binaries are available <a href=http://v2v.cc/~j/ffmpeg2theora/download.html>for Mac OS X, Windows, and modern Linux distributions</a>. It can take essentially any video file as input, including DV video produced by many consumer-level camcorders.
+<p>There are a number of offline encoders for Ogg video. If you&#8217;re looking at batch encoding a lot of video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>.
 
-<p>FIXME
+<p>ffmpeg2theora is an open-source, GPL-licensed application for encoding Ogg video. Pre-built binaries are available <a href=http://v2v.cc/~j/ffmpeg2theora/download.html>for Mac OS X, Windows, and modern Linux distributions</a>. It can take virtually any video file as input, including DV video produced by many consumer-level camcorders.
+
+<p>To use ffmpeg2theora, you need to call it from the command line. (On Mac OS X, open Applications <span class=u>&rarr;</span> Utilities <span class=u>&rarr;</span> Terminal. On Windows, open your Start Menu <span class=u>&rarr;</span> Programs <span class=u>&rarr;</span> Accessories <span class=u>&rarr;</span> Command Prompt.)
+
+<p>ffmpeg2theora can take a large number of command line flags. (Type <code>ffmpeg2theora --help</code> to read about them all.) I&#8217;ll focus on just four of them.
+
+<ul>
+<li><code>--video-quality Q</code>, where &#8220;Q&#8221; is a number from 0&ndash;10.
+<li><code>--audio-quality Q</code>, where &#8220;Q&#8221; is a number from -2&ndash;10.
+<li><code>--two-pass</code>, which enables two-pass encoding.
+<li><code>--max_size=WxH</code>, where &#8220;W&#8221; and &#8220;H&#8221; are the maximum width and height you want for the video. (The &#8220;x&#8221; in between is really just the letter &#8220;x&#8221;.) ffmpeg2theora will resize the video proportionally to fit within these dimensions, so the encoded video might be smaller than <code>W&times;H</code>. For example, encoding a 720&times;480 video with <code>--max_size=320x240</code> will produce a video that is <code>320&times;213</code>.
+</ul>
+
+<p>Thus, here is how you could encode a video with the same settings as we used in the previous section (<a href=#firefogg>encoding with Firefogg</a>).
 
 <pre>
 <samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
-<samp class=p>               </samp><kbd>              --optimize</kbd>
-<samp class=p>               </samp><kbd>              --videobitrate 600</kbd>
+<samp class=p>               </samp><kbd>              --videoquality 5</kbd>
+<samp class=p>               </samp><kbd>              --audioquality 1</kbd>
 <samp class=p>               </samp><kbd>              --max_size=320x240</kbd>
-<samp class=p>               </samp><kbd>              pr6.dv</kbd>
+<samp class=p>               </samp><kbd>              NewOrleans2006.dv</kbd>
 </pre>
+
+<p>The encoded video will be saved in the same directory as the original video, with a <code>.ogv</code> extension added. You can specify a different location and/or filename by passing an <code>--output=/path/to/encoded/video</code> command line flag to ffmpeg2theora.
 
 <h2 id=licensing>Licensing Issues with H.264 Video</h2>
 
-<p>FIXME
+<p>FIXME patents are evil and H.264 is about to get really expensive, blah blah blah
 
 <h2 id=handbrake-gui>Encoding H.264 Video with HandBrake</h2>
 
 <p>(In this section, I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
 
+<p>Licensing issues aside, the easiest way to encode H.264 video is <a href=http://handbrake.fr/>HandBrake</a>. HandBrake is an open source, GPL-licensed application for encoding H.264 video. (It used to do other video formats too, but in the latest version the developers have dropped support for most other formats and are focusing all their efforts on H.264 video.) As of this writing, the latest &#8220;stable&#8221; release of HandBrake (0.9.3) is much too out-of-date to be useful. You should <a href=http://handbrake.fr/snapshot.php>download a recent snapshot</a> instead. Pre-built binaries are available for Windows, Mac OS X, and modern Linux distributions. [If you&#8217;re reading this and HandBrake 0.9.4 has been released, <a href=about.html>drop me a line</a> and I&#8217;ll update these instructions.]
+
+<p>HandBrake comes in two flavors: graphical and command-line. I&#8217;ll walk you through the graphical interface first, then we&#8217;ll see how my recommended settings translate into the command-line version.
+
+<p>After you open the HandBrake application, the first thing to do is select your source video. Click the &#8220;Source&#8221; dropdown button and choose &#8220;Video File&#8221; to select a file. HandBrake can take virtually any video file as input, including DV video produced by many consumer-level camcorders.
+<p class="legend top">Select your source video <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-01.png alt="HandBrake: select source file" width=800 height=600>
 
+<p>HandBrake will complain that you haven&#8217;t set a default directory to save your encoded videos. You can safely ignore this warning, or you can open the options window (under the &#8220;Tools&#8221; menu) and set a default output directory.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Ignore this
 <p><img src=i/handbrake-02.png alt="HandBrake: default directory warning" width=800 height=600>
 
+<p>On the right-hand side is a list of presets. Selecting the &#8220;iPhone &amp; iPod Touch&#8221; preset will set most of the options you need.
+<p class="legend top">Select iPhone preset <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-03.png alt="HandBrake: select iPhone preset" width=800 height=600>
 
+<p>One important option that is off by default is the &#8220;Web optimized&#8221; option. Selecting this option reorders some of the metadata within the encoded video so you can watch the start of the video while the rest is downloading in the background. I highly recommend always checking this option. It does not affect the quality or file size of the encoded video, so there&#8217;s really no reason not to.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Always optimize for web
 <p><img src=i/handbrake-04.png alt="HandBrake: select Web Optimized option" width=800 height=600>
 
+<p>In the &#8220;Picture&#8221; tab, you can set the maximum width and height of the encoded video. You should also select the &#8220;Keep Aspect Ratio&#8221; option to ensure that HandBrake doesn&#8217;t smoosh or stretch your video while resizing it.
+<p class="legend top">Set width and height <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-05.png alt="HandBrake: set width, height, and aspect ratio" width=800 height=600>
 
-<p><img src=i/handbrake-06.png alt="HandBrake: set average bitrate" width=800 height=600>
+<p>In the &#8220;Video&#8221; tab, you can set several important options.
 
+<ul>
+<li>Video Codec. Make sure this is &#8220;H.264 (x264)&#8221;
+<li>2-Pass Encoding. As with <a href=#firefogg-options>Ogg encoding</a>, 2-pass encoding takes about twice as long but greatly improves quality. I always use 2-pass encoding.
+<li>Turbo First Pass. Once you enable 2-pass encoding, you can get a little bit of time back by enabling &#8220;turbo first pass.&#8221; This reduces the amount of work done in the first pass (analyzing the video), while only slightly degrading quality. I usually enable this option, but if quality is of the utmost importance to you, you should leave is disabled.
+<li>Quality. There are several different ways to specify the &#8220;quality&#8221; of your encoded video. You can set a target file size, and HandBrake will do its best to ensure that your encoded video is not larger than that. You can set an average &#8220;bitrate,&#8221; which is the quite literally the number of bits required to store one second worth of encoded video. (It&#8217;s called an &#8220;average&#8221; bitrate because some seconds will require more bits than others.) Or you can specify a constant quality, on a scale of 0 to 100%. Higher numbers will result in better quality but larger files. There is no single right answer for what quality setting you should use.
+</ul>
+
+<p>In this example, I&#8217;ve chosen an average bitrate of 600 kbps, which is quite high for a 320&times;240 encoded video. (Later in this chapter, I&#8217;ll show you a sample video encoded at 200 kbps.) I&#8217;ve also chosen 2-pass encoding with a &#8220;turbo&#8221; first pass.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Video quality options
 <p><img src=i/handbrake-07.png alt="HandBrake: set two-pass encoding option" width=800 height=600>
 
+<p>In the &#8220;Audio&#8221; tab, you probably don&#8217;t need to change anything. If your source video has multiple audio tracks, you might need to select which one you want in the encoded video. If your video is mostly a person talking (as opposed to music or general ambient sounds), you can probably reduce the audio bitrate to 96 kbps or so. Other than that, the defaults you inherited from the &#8220;iPhone&#8221; preset should be fine.
+<p class="legend top">Audio quality options <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-08.png alt="HandBrake: audio codec" width=800 height=600>
 
+<p>Next, click the &#8220;Browse&#8221; button and choose a directory and filename to save your encoded video.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Set destination filename
 <p><img src=i/handbrake-09.png alt="HandBrake: set destination filename" width=800 height=600>
 
+<p>Finally, click &#8220;Start&#8221; to start encoding.
+<p class="legend top">Let&#8217;s make some video! <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-10.png alt="HandBrake: start encoding" width=800 height=600>
 
+<p>HandBrake will display some progress statistics while it encodes your video.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Patience, Grasshopper
 <p><img src=i/handbrake-11.png alt="HandBrake: encoding progress" width=800 height=100>
 
 <h2 id=handbrake-cli>Batch Encoding H.264 Video with HandBrake</h2>
@@ -241,37 +356,37 @@ tfoot{font-size:small}
 <samp class=p>               </samp><kbd>             --width 320</kbd>
 <samp class=p>               </samp><kbd>             --two-pass</kbd>
 <samp class=p>               </samp><kbd>             --turbo</kbd>
-<samp class=p>               </samp><kbd>             --input pr6.dv</kbd>
-<samp class=p>               </samp><kbd>             --output pr6.mp4</kbd>
+<samp class=p>               </samp><kbd>             --input NewOrleans2006.dv</kbd>
+<samp class=p>               </samp><kbd>             --output NewOrleans2006.mp4</kbd>
 </pre>
 
 <h2 id=markup>At Last, The Markup</h2>
 
 <p>FIXME
 
-<pre><code>&lt;video <mark>src="pr6.ogv"</mark>>&lt;/video></code></pre>
+<pre><code>&lt;video <mark>src="NewOrleans2006.ogv"</mark>>&lt;/video></code></pre>
 
 <p>FIXME
 
-<pre><code>&lt;video src="pr6.ogv"
+<pre><code>&lt;video src="NewOrleans2006.ogv"
        <mark>width="320" height="234"</mark>>
 &lt;/video></code></pre>
 
 <p>FIXME
 
 <pre><code>&lt;video width="320" height="234">
-  &lt;<mark>source src="pr6.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>
-  &lt;<mark>source src="pr6.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+  &lt;<mark>source src="NewOrleans2006.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>
+  &lt;<mark>source src="NewOrleans2006.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 &lt;/video></code></pre>
 
 <p>FIXME
 
-<pre><code>  &lt;source src="pr6.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>>
+<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>>
 </code></pre>
 
 <p>FIXME
 
-<pre><code>  &lt;source src="pr6.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>>
+<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>>
 </code></pre>
 
 <p>FIXME
@@ -303,18 +418,6 @@ tfoot{font-size:small}
   <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'>
   <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 </video> 
-
-<!--
-<table class=bc>
-<caption>Basic &lt;video> support</caption>
-<thead>
-<tr><th title=Internet Explorer 8>IE8<th title=Internet Explorer 7>IE7<th title=Firefox 3.5>Fx3.5<th title=Firefox 3.0>Fx3.0<th title=Safari 4>Saf4<th title=Safari 3>Saf3<th title=Google Chrome 3>Chr3<th title=Opera 10>Op10
-</thead>
-<tbody>
-<tr><td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2717;
-</tbody>
-</table>
--->
 
 <h2 id=further-reading>Further Reading</h2>
 
