@@ -32,7 +32,8 @@ Classname Legend
 .c = "centered"   = centered footer text (also clears floats)
 .a = "asterism"   = section break
 .v = "navigation" = prev/next navigation links (not breadcrumbs)
-.u = "Unicode"    = text contains Unicode characters (requires special font declaration to accomodate *cough* a certain browser)
+.u = "Unicode"    = text contains Unicode characters (requires special font declaration to accommodate *cough* a certain browser)
+.p = "prompt"     = command-line or interactive shell prompt within code listings
 
 .dc = "drop cap"       = image simulating first-letter initial
 .pp = "pretty print"   = apply syntax highlighting to this code block
@@ -228,6 +229,9 @@ mark {
   display: inline-block;
   background: #ff8;
   border: 1px dotted #888;
+}
+.p {
+  color: #667;
 }
 
 /* overrides */

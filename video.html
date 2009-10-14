@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Video on the Web - Dive Into HTML5</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
+<link rel=stylesheet href=screen.css>
+<style>
+body{counter-reset:h1 5}
+table{width:100%;border-collapse:collapse}
+tbody th,thead th.l,tfoot td{text-align:left}
+thead th,td{text-align:center}
+tfoot{font-size:small}
+</style>
+<div id=zz>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#video>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1>Video on the Web</h1>
+<p id=toc>&nbsp;
+<p class=a>&#x2042;
+<h2 id=divingin>Diving In</h2>
+
+<p class=f><img src=i/aoc-a.png alt=A width=105 height=105>nyone who has visited YouTube.com in the past four years knows that you can embed video in a web page. But prior to <abbr>HTML5</abbr>, there was no standards-based way to do this. Virtually all the video you&#8217;ve ever watched &#8220;on the web&#8221; has been funneled through a third-party plugin&nbsp;&mdash;&nbsp;maybe QuickTime, maybe RealPlayer, maybe Flash. (YouTube uses Flash.) These plugins integrate with your browser well enough that you may not even be aware that you&#8217;re using them. That is, until you try to watch a video on a platform that doesn&#8217;t support that plugin.
+
+<p><abbr>HTML5</abbr> defines a standard way to embed video in a web page. Before we can talk about <abbr>HTML5</abbr> video, you first need to understand a little about video itself. (If you know about video already, you can skip ahead to <a href=#what-works>What Works on the Web</a>.)
+
+<h2 id=video-containers>Video Containers</h2>
+
+<p>You may think of video files as &#8220;AVI files&#8221; or &#8220;MP4 files.&#8221;  In reality, &#8220;AVI&#8221; and &#8220;MP4&#8243; are just container formats. Just like a ZIP file can contain any sort of file within it, video container formats only define <em>how</em> to store things within them, not <em>what</em> kinds of data are stored. (It&#8217;s a little more complicated than that, because not all video streams are compatible with all container formats, but never mind that for now.)
+
+<p>A video file usually contains multiple <em>tracks</em> &#8212; a video track (without audio), plus one or more audio tracks (without video). Tracks are usually interrelated. An audio track contains markers within it to help synchronize the audio with the video. Individual tracks can have metadata, such as the aspect ratio of a video track, or the language of an audio track. Containers can also have metadata, such as the title of the video itself, cover art for the video, episode numbers (for television shows), and so on. 
+ 
+<p>There are <em>lots</em> of video container formats. Some of the most popular include 
+ 
+<ul> 
+<li><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_14>MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href=http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm>based on Apple&#8217;s older QuickTime container</a> (<code>.mov</code>). <a href=http://www.apple.com/trailers/>Movie trailers on Apple&#8217;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li> 
+<li><a href=http://en.wikipedia.org/wiki/Flash_Video>Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. More recent versions of Flash also support the MPEG 4 container.</li> 
+<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Like Matroska, Ogg is an open standard, open-source-friendly, and unencumbered by any known patents. Like Matroska, it is used primarily by Free Software-loving hippies, but that may begin to change once Mozilla ships their Firefox 3.1 browser. Firefox 3.1 will support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, the Ogg video codec (Theora), and the Ogg audio codec (Vorbis). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively.</li> 
+<li><a href=http://en.wikipedia.org/wiki/AVI>Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support many of the features of more recent container formats. It does not officially support any sort of video metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, various companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href=http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html>MEncoder</a>.</li> 
+</ul> 
+
+<h2 id=video-codecs>Video Codecs</h2>
+
+<p>When you talk about &#8220;watching a video,&#8221; you&#8217;re probably talking about a combination of one video stream and one audio stream. But you don&#8217;t have two different files; you just have &#8220;the video.&#8221;  Maybe it&#8217;s an AVI file, or an MP4 file. These are <a href=#video-containers>just container formats</a>, like a ZIP file that contains multiple kinds of files within it. The container format defines how to store the video and audio streams in a single file. 
+ 
+<p>When you &#8220;watch a video,&#8221; your video player is doing several things at once: 
+ 
+<ol> 
+<li>Interpreting the container format to find out which video and audio tracks are available, and how they are stored within the file so that it can find the data it needs to decode next</li> 
+<li>Decoding the video stream and displaying a series of images on the screen</li> 
+<li>Decoding the audio stream and sending the sound to your speakers</li> 
+</ol> 
+ 
+<p>A <i>video codec</i> is an algorithm by which a video stream is encoded, i.e. it specifies how to do #2 above. Your video player <i>decodes</i> the video stream according to the <i>video codec</i>, then displays a series of images, or &#8220;frames,&#8221; on the screen. Most modern video codecs use all sorts of tricks to minimize the amount of information required to display one frame after the next. For example, instead of storing each individual frame (like a screenshot), they will only store the differences between frames. Most videos don&#8217;t actually change all that much from one frame to the next, so this allows for high compression rates, which results in smaller file sizes.
+ 
+<p>There are <i>lossy</i> and <i>lossless</i> video codecs. Lossless video is much too big to be useful on the web, so I&#8217;ll concentrate on lossy codecs. A <i>lossy video codec</i> means that information is being irretrievably lost during encoding. Like copying an audio cassette tape, you&#8217;re losing information about the source video, and degrading the quality, every time you encode. Instead of the &#8220;hiss&#8221; of an audio cassette, a re-re-re-encoded video may look blocky, especially during scenes with a lot of motion. (Actually, this can happen even if you encode straight from the original source, if you choose a poor video codec or pass it the wrong set of parameters.)  On the bright side, lossy video codecs can offer amazing compression rates, and many offer ways to &#8220;cheat&#8221; and smooth over that blockiness during playback, to make the loss less noticeable to the human eye. 
+ 
+<p>There are <a href=http://samples.mplayerhq.hu/V-codecs/><em>tons</em> of video codecs</a>. The three most relevant codecs are <a href=#mpeg4asp>MPEG-4 ASP</a>, <a href=#h264>H.264</a>, and <a href=#theora>Theora</a>.
+ 
+<h3 id=mpeg4asp>MPEG-4 ASP</h3>
+ 
+<p><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_2>MPEG-4 ASP</a> is also known as &#8220;MPEG-4 Advanced Simple Profile.&#8221;  MPEG-4 ASP was developed by <a href=http://en.wikipedia.org/wiki/Moving_Picture_Experts_Group>the MPEG group</a> and standardized in 2001. You may have heard of <a href=http://en.wikipedia.org/wiki/DivX>DivX</a>, <a href=http://en.wikipedia.org/wiki/Xvid>Xvid</a>, or <a href=http://en.wikipedia.org/wiki/3ivx>3ivx</a>; these are all competing implementations of the MPEG-4 ASP standard. <a href=http://www.xvid.org/>Xvid is open source</a>; DivX and 3ivx are closed source. The company behind DivX has had some mainstream success in branding &#8220;DivX&#8221; as synonymous with &#8220;MPEG-4 ASP.&#8221;  For example, this <a href=http://www.amazon.com/Philips-DVP642-DivX-Certified-Progressive-Scan-Player/dp/B000204SWE>&#8220;DivX-certified&#8221; DVD player</a> can actually play <a href=http://www.jarnot.com/twiki/bin/view/Public/DVP642LisaBsAVIGuide>most MPEG-4 ASP videos</a> in an AVI container, even if they were created with a competing encoder. (To confuse things even further, the company behind DivX has now <a href=http://en.wikipedia.org/wiki/DivX#DivX_Media_Format_.28DMF.29>created their own container format</a>.) 
+<p><b>MPEG-4 ASP is patent-encumbered</b>; licensing is brokered through the <a href=http://www.mpegla.com/>MPEG LA group</a>. MPEG-4 ASP video can be embedded in most popular <a href=#video-containers>container formats</a>, including AVI, MP4, and MKV. 
+ 
+<h3 id=h264>H.264</h3>
+ 
+<p><a href=http://en.wikipedia.org/wiki/H.264>H.264</a> is also known as &#8220;MPEG-4 part 10,&#8221; a.k.a. &#8220;MPEG-4 AVC,&#8221; a.k.a. &#8220;MPEG-4 Advanced Video Coding.&#8221;  H.264 was also developed by <a href=http://en.wikipedia.org/wiki/Moving_Picture_Experts_Group>the MPEG group</a> and standardized in 2003. It aims to provide a single codec for low-bandwidth, low-CPU devices (cell phones); high-bandwidth, high-CPU devices (modern desktop computers); and everything in between. To accomplish this, the H.264 standard is split into &#8220;<a href=http://en.wikipedia.org/wiki/H.264#Profiles>profiles</a>,&#8221; which each define a set of optional features that trade complexity for file size. Higher profiles use more optional features, offer better visual quality at smaller file sizes, take longer to encode, and require more CPU power to decode in real-time. 
+<p>To give you a rough idea of the range of profiles, <a href=http://www.apple.com/iphone/specs.html>Apple&#8217;s iPhone supports Baseline profile</a>, the <a href=http://www.apple.com/appletv/specs.html>AppleTV set-top box supports Baseline and Main profiles</a>, and <a href=http://www.kaourantin.net/2007/08/what-just-happened-to-video-on-web_20.html>Adobe Flash on a desktop PC supports Baseline, Main, and High profiles</a>. YouTube (owned by Google, my employer) now uses H.264 to encode <a href=http://blog.wired.com/business/2008/12/youtube-adds-hd.html>high-definition videos</a>, playable through Adobe Flash; Youtube also provides H.264-encoded video to mobile devices, including Apple&#8217;s iPhone and phones running Google&#8217;s <a href=http://code.google.com/android/>Android mobile operating system</a>. Also, H.264 is one of the video codecs mandated by the Blu-Ray specification; Blu-Ray discs that use it generally use the High profile. 
+<p>Most non-PC devices that play H.264 video (including iPhones and standalone Blu-Ray players) actually do the decoding on a dedicated chip, since their main CPUs are nowhere near powerful enough to decode the video in real-time. Many desktop graphics cards also support decoding H.264 in hardware. There are <a href=http://compression.ru/video/codec_comparison/mpeg-4_avc_h264_2007_en.html>a number of competing H.264 encoders</a>, including the open source <a href=http://www.videolan.org/developers/x264.html>x264 library</a>. <b>The H.264 standard is patent-encumbered</b>; licensing is brokered through the <a href=http://www.mpegla.com/>MPEG LA group</a>. H.264 video can be embedded in most popular <a href=#video-containers>container formats</a>, including MP4 (used primarily by <a href=http://www.apple.com/itunes/whatson/movies.html>Apple&#8217;s iTunes Store</a>) and MKV (used primarily by video pirates). 
+ 
+<h3 id=theora>Theora</h3>
+ 
+<p><a href=http://en.wikipedia.org/wiki/Theora>Theora</a> evolved from the <a href=http://en.wikipedia.org/wiki/Theora#History>VP3 codec</a> and has subsequently been developed by the <a href=http://xiph.org/>Xiph.org Foundation</a>. <b>Theora is a royalty-free codec and is not encumbered by any known patents</b> other than the original VP3 patents, which have been irrevocably licensed royalty-free. Although the standard has been &#8220;frozen&#8221; since 2004, the Theora project (which includes an open source reference encoder and decoder) <a href=http://lists.xiph.org/pipermail/theora-dev/2008-November/003736.html>only released version 1.0 in November 2008</a> and <a href=http://lists.xiph.org/pipermail/theora-dev/2009-September/003985.html>version 1.1 in September 2009</a>. 
+<p>Theora video can be embedded in any container format, although it is most often seen in an Ogg container. All major Linux distributions support Theora out-of-the-box, and Mozilla Firefox 3.5 <a href=https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox>includes native support for Theora video</a> in an Ogg container. And by &#8220;native&#8221;, I mean &#8220;available on all platforms without platform-specific plugins.&#8221;  You can also play Theora video <a href=http://www.xiph.org/dshow/>on Windows</a> or <a href=http://xiph.org/quicktime/>on Mac OS X</a> after installing Xiph.org&#8217;s open source decoder software. 
+
+<h2 id=audio-codecs>Audio Codecs</h2>
+
+<p>Unless you&#8217;re going to stick to films made before <a href=http://www.filmsite.org/jazz.html>1927 or so</a>, you&#8217;re going to want an audio track in your video. Like <a href=#video-codecs>video codecs</a>, <i>audio codecs</i> are algorithms by which an audio stream is encoded. Like video codecs, there are <i>lossy</i> and <i>lossless</i> audio codecs. And like lossless video, lossless audio is really too big to put on the web. So I&#8217;ll concentrate on lossy audio codecs.
+
+<p>Actually, it&#8217;s even narrower than that, because there are different categories of lossy audio codecs. Audio is used in many places where video is not (telephony, for example), and there is an entire category of <a href=http://www.voip-info.org/wiki-Codecs>audio codecs optimized for encoding speech</a>. You wouldn&#8217;t rip a music CD with these codecs, because the result would sound like a 4-year-old singing into a speakerphone. But you <em>would</em> use them in an <a href=http://www.asterisk.org/>Asterisk</a> PBX, because bandwidth is precious, and these codecs can compress human speech into a fraction of the size of general-purpose codecs. However, due to lack of support in both native browsers and third-party plugins, speech-optimized audio codecs never really took off on the web. So I&#8217;ll concentrate on <i>general purpose lossy audio codecs</i>.
+ 
+<p><a href=#video-codecs>As I mentioned in earlier</a>, when you &#8220;watch a video,&#8221; your computer is doing several things at once: 
+ 
+<ol> 
+<li>Interpreting the container format</li> 
+<li>Decoding the video stream</li> 
+<li>Decoding the audio stream and sending the sound to your speakers</li> 
+</ol> 
+ 
+<p>The <i>audio codec</i> specifies how to do #3 &#8212; decoding the audio stream and turning it into digital waveforms that your speakers then turn into sound. As with video codecs, there are all sorts of tricks to minimize the amount of information stored in the audio stream. And since we&#8217;re talking about <i>lossy</i> audio codecs, information is being lost during the recording &rarr; encoding &rarr; decoding &rarr; listening lifecycle. Different audio codecs throw away different things, but they all have the same purpose: to trick your ears into not noticing the parts that are missing. 
+ 
+<p>One concept that audio has that video does not is <i>channels</i>. We&#8217;re sending sound to your speakers, right?  Well, how many speakers do you have?  If you&#8217;re sitting at your computer, you may only have two: one on the left and one on the right. My desktop has three: left, right, and one more on the floor. So-called &#8220;<a href=http://en.wikipedia.org/wiki/Surround_sound>surround sound</a>&#8221; systems can have six or more speakers, strategically placed around the room. Each speaker is fed a particular <i>channel</i> of the original recording. The theory is that you can sit in the middle of the six speakers, literally surrounded by six separate channels of sound, and your brain synthesizes them and feels like you&#8217;re in the middle of the action. Does it work?  A multi-billion-dollar industry seems to think so. 
+ 
+<p>Most general-purpose audio codecs can handle two channels of sound. During recording, the sound is split into left and right channels; during encoding, both channels are stored in the same audio stream; during decoding, both channels are decoded and each is sent to the appropriate speaker. Some audio codecs can handle more than two channels, and they keep track of which channel is which and so your player can send the right sound to the right speaker. 
+ 
+<p>There are <em>lots</em> of audio codecs. Did I say there were lots of video codecs?  Forget that. There are <a href=http://wiki.multimedia.cx/index.php?title=Category:Audio_Codecs>a metric fuck-ton of audio codecs</a>, but on the web, there are really only three you need to know about: <abbr>MP3</abbr>, <abbr>AAC</abbr>, and Vorbis.
+ 
+<h3 id=mp3>MPEG-1 Audio Layer 3</h3>
+ 
+<p><a href=http://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_3>MPEG-1 Audio Layer 3</a> is colloquially known as &#8220;MP3.&#8221;  If you haven&#8217;t heard of MP3s, I don&#8217;t know what to do with you. <a href=http://www.walmart.com/catalog/catalog.gsp?cat=96469>Walmart sells portable music players</a> and calls them &#8220;MP3 players.&#8221;  <em>Walmart.</em>  Anyway&#8230; 
+ 
+<p>MP3s can contain <strong>up to 2 channels</strong> of sound. They can be encoded at different <i>bitrates</i>: 64 kbps, 128 kbps, 192 kbps, and a variety of others from 32 to 320. Higher bitrates mean larger file sizes and better quality audio, although the ratio of audio quality to bitrate is not linear. (128 kbs sounds more than twice as good as 64 kbs, but 256 kbs doesn&#8217;t sound twice as good as 128 kbs.)  Furthermore, the MP3 format allows for <i>variable bitrate encoding</i>, which means that some parts of the encoded stream are compressed more than others. For example, silence between notes can be encoded at a very low bitrate, then the bitrate can spike up a moment later when multiple instruments start playing a complex chord. MP3s can also be encoded with a constant bitrate, which, unsurprisingly, is called <i>constant bitrate encoding</i>. 
+ 
+<p>The MP3 standard doesn&#8217;t define exactly how to encode MP3s (although it does define exactly how to decode them); different encoders use different psychoacoustic models that produce wildly different results, but are all decodable by the same players. The open source <a href=http://lame.sourceforge.net/>LAME project</a> is the best free encoder, and arguably the best encoder period for all but the lowest bitrates. 
+ 
+<p>The MP3 format was standardized in 1991 and <strong>is patent-encumbered</strong>, which explains why Linux <del>sucks</del> can&#8217;t play MP3 files out of the box. Pretty much every portable music player supports standalone MP3 files, and MP3 audio streams can be embedded in any <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>video container</a>. Adobe Flash can play both standalone MP3 files and MP3 audio streams within an MP4 video container. 
+ 
+<h3 id=aac>Advanced Audio Coding</h3>
+ 
+<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a></h3> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Many songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/Licensing/AAC_fees.cfm>licensing rates are available online</a>. 
+ 
+<p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbs.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
+ 
+<p>All current Apple products, including iPods, AppleTV, and QuickTime support certain profiles of AAC in standalone audio files and in audio streams in an MP4 video container. Adobe Flash supports all profiles of AAC in MP4, as do the open source mplayer and VLC video players. For encoding, the FAAC library is the open source option; support for it is a compile-time option in mencoder and ffmpeg.
+ 
+<h3 id=vorbis>Vorbis</h3>
+ 
+<p><a href=http://en.wikipedia.org/wiki/Vorbis>Vorbis</a> is often called &#8220;Ogg Vorbis,&#8221; although this is technically incorrect. (&#8220;Ogg&#8221; is just <a href=#video-containers>a container format</a>, and Vorbis audio streams can be embedded in other containers.)  <strong>Vorbis is not encumbered by any known patents</strong> and is therefore supported out-of-the-box by all major Linux distributions and by portable devices running the open source <a href=http://www.rockbox.org/>Rockbox</a> firmware. Mozilla Firefox 3.5 supports Vorbis audio files in an Ogg container, or Ogg videos with a Vorbis audio track. <a href=http://code.google.com/android/>Android</a> mobile phones can also play standalone Vorbis audio files. Vorbis audio streams are usually embedded in an Ogg container, but they can also be <a href=http://samples.mplayerhq.hu/MPEG-4/vorbis-in-mp4/>embedded in an MP4</a> or <a href=http://en.wikipedia.org/wiki/Matroska>MKV</a> container (or, with some hacking, <a href=http://www.alexander-noe.com/video/amg/>in AVI</a>). Vorbis supports <strong>an arbitrary number of sound channels</strong>.
+ 
+<p>There are open source Vorbis encoders and decoders, including <a href=http://oggconvert.tristanb.net/>OggConvert</a> (encoder), <a href=http://www.ffmpeg.org/>ffmpeg</a> (decoder), <a href=http://www.geocities.jp/aoyoume/aotuv/>aoTuV</a> (encoder), and <a href=http://downloads.xiph.org/releases/vorbis/>libvorbis</a> (decoder). There are also <a href=http://www.xiph.org/quicktime/>QuickTime components for Mac OS X</a> and <a href=http://www.xiph.org/dshow/>DirectShow filters for Windows</a>. 
+
+<h2 id=what-works>What Works on the Web</h2>
+
+<p>If your eyes haven&#8217;t glazed over yet, you&#8217;re doing better than most. As you can tell, video (and audio) is a complicated subject&nbsp;&mdash;&nbsp;and this was the abridged version! I&#8217;m sure you&#8217;re wondering how all of this relates to <abbr>HTML5</abbr>. Here&#8217;s the answer:
+
+<div class=pf>
+<blockquote class=note>
+<p><abbr>HTML5</abbr> includes a <code>&lt;video></code> element for embedding video into a web page. There are no restrictions on the video codec, audio codec, or container format you can use for your video. One <code>&lt;video></code> element can link to multiple video files, and the browser will choose the first video file it can actually play.
+<p><strong>It is up to you to know which browsers support which containers and codecs.</strong>
+</blockquote>
+</div>
+
+<p>As of this writing, this is the landscape of <abbr>HTML5</abbr> video:
+
+<ul>
+<li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container.
+<li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, very few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include Theora video, Vorbis audio, or the Ogg container. However, QuickTime <em>does</em> support MPEG-4 ASP or H.264 video (main profile) and AAC audio in an MP4 container.
+<li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. It also supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
+<li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support MPEG-4 ASP or H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
+<li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
+<li>Internet Explorer has no <abbr>HTML5</abbr> video support at all, but virtually all Internet Explorer users will have the Adobe Flash plugin. Later in this chapter, I&#8217;ll show you how you can use <abbr>HTML5</abbr> video but gracefully fall back to Flash.
+</ul>
+
+<p>And now for the knockout punch:
+
+<div class=pf>
+<blockquote class=note>
+<p>There is no single combination of containers and codecs that works in all <abbr>HTML5</abbr> browsers.
+</blockquote>
+</div>
+
+<p>To make your video watchable across all of these devices and platforms, you&#8217;re going to have to encode your video more than once.
+
+<ol>
+<li>Make one version that uses Theora video and Vorbis audio in an Ogg container.
+<li>Make another version that uses H.264 baseline video and AAC &#8220;low complexity&#8221; audio in an MP4 container.
+<li>
+</ol>
+
+<p>Luckily, the second option (H.264 + AAC + MP4) also works in Flash, so you can re-use the same video file and funnel it through a Flash-based video player as a fallback for visitors without an HTML5-capable browser.
+
+<h2 id=firefogg>Encoding Ogg Video with Firefogg</h2>
+
+<p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
+
+<p><img src=i/firefogg-01.png alt="Firefogg home page" width=800 height=600>
+
+<p><img src=i/firefogg-02.png alt="Firefogg: install software" width=800 height=600>
+
+<p><img src=i/firefogg-03.png alt="Firefox Software Installation window" width=547 height=367>
+
+<p><img src=i/firefogg-04.png alt="Firefox Add-ons window after installation" width=520 height=380>
+
+<p><img src=i/firefogg-05.png alt="Firefogg home page after installation" width=800 height=600>
+
+<p><img src=i/firefogg-06.png alt="Firefogg: Make Ogg Video" width=800 height=600>
+
+<p><img src=i/firefogg-07.png alt="Firefogg: Select file" width=800 height=600>
+
+<p><img src=i/firefogg-08.png alt="Firefogg main interface" width=800 height=600>
+
+<p><img src=i/firefogg-09.png alt="Firefogg basic quality and resolution control" width=800 height=600>
+
+<p><img src=i/firefogg-10.png alt="Firefogg: set video width and height" width=800 height=600>
+
+<p><img src=i/firefogg-11.png alt="Firefogg: Two Pass Encoding" width=800 height=600>
+
+<p><img src=i/firefogg-12.png alt="Firefogg: Save Ogg" width=800 height=600>
+
+<p><img src=i/firefogg-13.png alt="Firefogg: Encoding progress" width=800 height=600>
+
+<h2 id=ffmpeg2theora>Batch Encoding Ogg Video with ffmpeg2theora</h2>
+
+<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
+
+<p>There are a number of offline encoders for Ogg video. If you&#8217;re looking at batch encoding a lot of video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>. ffmpeg2theora is an open-source, GPL-licensed command-line program for encoding Ogg video. Pre-built binaries are available <a href=http://v2v.cc/~j/ffmpeg2theora/download.html>for Mac OS X, Windows, and modern Linux distributions</a>. It can take essentially any video file as input, including DV video produced by many consumer-level camcorders.
+
+<p>FIXME
+
+<pre>
+<samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
+<samp class=p>               </samp><kbd>              --optimize</kbd>
+<samp class=p>               </samp><kbd>              --videobitrate 600</kbd>
+<samp class=p>               </samp><kbd>              --max_size=320x240</kbd>
+<samp class=p>               </samp><kbd>              pr6.dv</kbd>
+</pre>
+
+<h2 id=licensing>Licensing Issues with H.264 Video</h2>
+
+<p>FIXME
+
+<h2 id=handbrake-gui>Encoding H.264 Video with HandBrake</h2>
+
+<p>(In this section, I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
+
+<p><img src=i/handbrake-01.png alt="HandBrake: select source file" width=800 height=600>
+
+<p><img src=i/handbrake-02.png alt="HandBrake: default directory warning" width=800 height=600>
+
+<p><img src=i/handbrake-03.png alt="HandBrake: select iPhone preset" width=800 height=600>
+
+<p><img src=i/handbrake-04.png alt="HandBrake: select Web Optimized option" width=800 height=600>
+
+<p><img src=i/handbrake-05.png alt="HandBrake: set width, height, and aspect ratio" width=800 height=600>
+
+<p><img src=i/handbrake-06.png alt="HandBrake: set average bitrate" width=800 height=600>
+
+<p><img src=i/handbrake-07.png alt="HandBrake: set two-pass encoding option" width=800 height=600>
+
+<p><img src=i/handbrake-08.png alt="HandBrake: audio codec" width=800 height=600>
+
+<p><img src=i/handbrake-09.png alt="HandBrake: set destination filename" width=800 height=600>
+
+<p><img src=i/handbrake-10.png alt="HandBrake: start encoding" width=800 height=600>
+
+<p><img src=i/handbrake-11.png alt="HandBrake: encoding progress" width=800 height=100>
+
+<h2 id=handbrake-cli>Batch Encoding H.264 Video with HandBrake</h2>
+
+<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
+
+<pre>
+<samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone & iPod Touch"</kbd>
+<samp class=p>               </samp><kbd>             --width 320</kbd>
+<samp class=p>               </samp><kbd>             --two-pass</kbd>
+<samp class=p>               </samp><kbd>             --turbo</kbd>
+<samp class=p>               </samp><kbd>             --input pr6.dv</kbd>
+<samp class=p>               </samp><kbd>             --output pr6.mp4</kbd>
+</pre>
+
+<h2 id=markup>At Last, The Markup</h2>
+
+<p>FIXME
+
+<pre><code>&lt;video <mark>src="pr6.ogv"</mark>>&lt;/video></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;video src="pr6.ogv"
+       <mark>width="320" height="234"</mark>>
+&lt;/video></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;video width="320" height="234">
+  &lt;<mark>source src="pr6.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>
+  &lt;<mark>source src="pr6.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+&lt;/video></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;source src="pr6.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>>
+</code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;source src="pr6.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>>
+</code></pre>
+
+<p>FIXME
+
+<h2 id=ie>What About IE?</h2>
+
+<p>As I write this, the current version of Internet Explorer is 8.0. No version of Internet Explorer supports <abbr>HTML5</abbr> video. But all is not lost! Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you have encoded your video for the iPhone, you can also play it in a Flash-based video player.
+
+<p><a href=http://flowplayer.org/>FlowPlayer</a> is an open source, GPL-licensed, Flash-based video player. (<a href=http://flowplayer.org/download/>Commercial licenses are also available</a>.) To use FlowPlayer, you need three files: two <code>.swf</code> files and one JavaScript file. To start with, include the following <code>&lt;script></code> element at the <strong>bottom</strong> of your page.
+
+<pre><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>Dive Into HTML5&lt;/title>
+&lt;/head>
+&lt;body>
+  ...
+  <mark>&lt;script src="flowplayer.min.js">&lt;/script></mark>
+&lt;/body>
+&lt;/html>
+</code></pre>
+
+<p>You will also need the two <code>.swf</code> files, <code>flowplayer-X.swf</code> and <code>flowplayer.controls-X.swf</code> (where &#8220;X&#8221; is the version number of FlowPlayer). You don&#8217;t need to link to these files from your <abbr>HTML</abbr> markup. When you call FlowPlayer from script, one of the parameters you pass to the <code>flowplayer()</code> function is the location of these <code>.swf</code> files.
+
+<p>FIXME</p>
+
+<video id=movie width=320 height=240 controls>
+  <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'>
+  <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+</video> 
+
+<!--
+<table class=bc>
+<caption>Basic &lt;video> support</caption>
+<thead>
+<tr><th title=Internet Explorer 8>IE8<th title=Internet Explorer 7>IE7<th title=Firefox 3.5>Fx3.5<th title=Firefox 3.0>Fx3.0<th title=Safari 4>Saf4<th title=Safari 3>Saf3<th title=Google Chrome 3>Chr3<th title=Opera 10>Op10
+</thead>
+<tbody>
+<tr><td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2717;
+</tbody>
+</table>
+-->
+
+<h2 id=further-reading>Further Reading</h2>
+
+<ul>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video><abbr>HTML5</abbr>: The <code>&lt;video></code> element</a>
+<li><a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> is an alternate method for providing fallback video options for legacy browsers
+<li><a href=http://diveintomark.org/tag/give>A gentle introduction to video encoding</a>
+<li><a href=http://wiki.whatwg.org/wiki/Video_type_parameters>Video type parameters</a>
+</ul>
+
+<p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+</div>
+<script src=j/jquery.js></script>
+<script src=j/dih5.js></script>
+<script src=j/flowplayer-3.1.4.min.js></script>
+<script src=j/html5-video.js></script>
