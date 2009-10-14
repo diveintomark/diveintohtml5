@@ -351,14 +351,33 @@ tfoot{font-size:small}
 
 <p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
 
+<p>HandBrake also comes in a command-line edition. Like <a href=#handbrake-gui>the graphical edition of HandBrake</a>, you should <a href=http://handbrake.fr/snapshot.php>download a recent snapshot</a>.
+
+<p>As with <a href=#ffmpeg2theora>ffmpeg2theora</a>, the command-line edition of HandBrake offers a dizzying array of options. (Type <code>HandBrakeCLI --help</code> to read about them.) I&#8217;ll focus on just seven:
+
+<ol>
+<li><code>--preset "X"</code>, where &#8220;X&#8221; is the name of a HandBrake preset. The preset you want for H.264 web video is called &#8220;iPhone &amp;iPod Touch&#8221;, and it&#8217;s important to put the entire name in quotes.
+<li><code>--width W</code>, where &#8220;W&#8221; is the width of your encoded video. HandBrake will automatically adjust the height to maintain the original video&#8217;s proportions.
+<li><code>--vb Q</code>, where &#8220;Q&#8221; is the average bitrate (measured in kilobits per second).
+<li><code>--two-pass</code>, which enables 2-pass encoding.
+<li><code>--turbo</code>, which enables turbo first pass during 2-pass encoding.
+<li><code>--input F</code>, where &#8220;F&#8221; is the filename of your source video.
+<li><code>--output E</code>, where &#8220;E&#8221; is the destination filename for your encoded video.
+</ol>
+
+<p>Here is an example of calling HandBrake on the command line, with command line flags that match the settings we chose <a href=#handbrake-gui>with the graphical version of HandBrake</a>.
+
 <pre>
-<samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone & iPod Touch"</kbd>
+<samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone &amp; iPod Touch"</kbd>
 <samp class=p>               </samp><kbd>             --width 320</kbd>
+<samp class=p>               </samp><kbd>             --vb 600</kbd>
 <samp class=p>               </samp><kbd>             --two-pass</kbd>
 <samp class=p>               </samp><kbd>             --turbo</kbd>
 <samp class=p>               </samp><kbd>             --input NewOrleans2006.dv</kbd>
 <samp class=p>               </samp><kbd>             --output NewOrleans2006.mp4</kbd>
 </pre>
+
+<p>From top to bottom, this command runs HandBrake with the &#8220;iPhone &amp; iPod Touch&#8221; preset, resizes the video to 320&times;240, sets the average bitrate to 600 kbps, enables two-pass encoding with a turbo first pass, reads the file <code>NewOrleans2006.dv</code>, and encodes it as <code>NewOrleans2006.mp4</code>. Whew!
 
 <h2 id=markup>At Last, The Markup</h2>
 
