@@ -56,7 +56,7 @@ java -jar util/yuicompressor-2.4.2.jar build/j/html5-video.js > build/j/html5-vi
 
 # combine jQuery, Modernizr, other 3rd party scripts, and our own scripts
 echo "combining JS"
-cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/gears_init.min.js build/j/geo.min.js build/j/canvastext-fx3.min.js build/j/flowplayer-3.1.4.min.js build/j/html5-video.min.js build/j/dih5.min.js > build/j/$revision.js && \
+cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/gears_init.min.js build/j/geo.min.js build/j/flowplayer-3.1.4.min.js build/j/html5-video.min.js build/j/dih5.min.js > build/j/$revision.js && \
     sed -i -e "s|<script src=j/jquery.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/modernizr.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/gears_init.js></script>||g" build/*.html && \
