@@ -95,7 +95,7 @@ chmod 755 build/examples build/j build/i build/f build/fonts-original && \
 echo -n "publishing"
 rsync -essh -a build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
     echo -n "." && \
-    rsync -essh -a build/j/$revision.js build/j/html5.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
+    rsync -essh -a build/j/$revision.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
     echo -n "." && \
     rsync -essh -a build/f/*.ttf build/f/*.eot build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/ && \
     echo -n "." && \
