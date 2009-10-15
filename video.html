@@ -33,6 +33,8 @@ tfoot{font-size:small}
 
 <p>But support for the <code>&lt;video></code> element itself is really only a small part of the story. Before we can talk about <abbr>HTML5</abbr> video, you first need to understand a little about video itself. (If you know about video already, you can skip ahead to <a href=#what-works>What Works on the Web</a>.)
 
+<p class=a>&#x2042;
+
 <h2 id=video-containers>Video Containers</h2>
 
 <p>You may think of video files as &#8220;AVI files&#8221; or &#8220;MP4 files.&#8221;  In reality, &#8220;AVI&#8221; and &#8220;MP4&#8243; are just container formats. Just like a ZIP file can contain any sort of file within it, video container formats only define <em>how</em> to store things within them, not <em>what</em> kinds of data are stored. (It&#8217;s a little more complicated than that, because not all video streams are compatible with all container formats, but never mind that for now.)
@@ -47,6 +49,8 @@ tfoot{font-size:small}
 <li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Like Matroska, Ogg is an open standard, open-source-friendly, and unencumbered by any known patents. Like Matroska, it is used primarily by Free Software-loving hippies, but that may begin to change once Mozilla ships their Firefox 3.1 browser. Firefox 3.1 will support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, the Ogg video codec (Theora), and the Ogg audio codec (Vorbis). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively.</li> 
 <li><a href=http://en.wikipedia.org/wiki/AVI>Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support many of the features of more recent container formats. It does not officially support any sort of video metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, various companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href=http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html>MEncoder</a>.</li> 
 </ul> 
+
+<p class=a>&#x2042;
 
 <h2 id=video-codecs>Video Codecs</h2>
 
@@ -81,6 +85,8 @@ tfoot{font-size:small}
  
 <p><a href=http://en.wikipedia.org/wiki/Theora>Theora</a> evolved from the <a href=http://en.wikipedia.org/wiki/Theora#History>VP3 codec</a> and has subsequently been developed by the <a href=http://xiph.org/>Xiph.org Foundation</a>. <b>Theora is a royalty-free codec and is not encumbered by any known patents</b> other than the original VP3 patents, which have been irrevocably licensed royalty-free. Although the standard has been &#8220;frozen&#8221; since 2004, the Theora project (which includes an open source reference encoder and decoder) <a href=http://lists.xiph.org/pipermail/theora-dev/2008-November/003736.html>only released version 1.0 in November 2008</a> and <a href=http://lists.xiph.org/pipermail/theora-dev/2009-September/003985.html>version 1.1 in September 2009</a>. 
 <p>Theora video can be embedded in any container format, although it is most often seen in an Ogg container. All major Linux distributions support Theora out-of-the-box, and Mozilla Firefox 3.5 <a href=https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox>includes native support for Theora video</a> in an Ogg container. And by &#8220;native&#8221;, I mean &#8220;available on all platforms without platform-specific plugins.&#8221;  You can also play Theora video <a href=http://www.xiph.org/dshow/>on Windows</a> or <a href=http://xiph.org/quicktime/>on Mac OS X</a> after installing Xiph.org&#8217;s open source decoder software. 
+
+<p class=a>&#x2042;
 
 <h2 id=audio-codecs>Audio Codecs</h2>
 
@@ -127,6 +133,8 @@ tfoot{font-size:small}
 <p><a href=http://en.wikipedia.org/wiki/Vorbis>Vorbis</a> is often called &#8220;Ogg Vorbis,&#8221; although this is technically incorrect. (&#8220;Ogg&#8221; is just <a href=#video-containers>a container format</a>, and Vorbis audio streams can be embedded in other containers.)  <strong>Vorbis is not encumbered by any known patents</strong> and is therefore supported out-of-the-box by all major Linux distributions and by portable devices running the open source <a href=http://www.rockbox.org/>Rockbox</a> firmware. Mozilla Firefox 3.5 supports Vorbis audio files in an Ogg container, or Ogg videos with a Vorbis audio track. <a href=http://code.google.com/android/>Android</a> mobile phones can also play standalone Vorbis audio files. Vorbis audio streams are usually embedded in an Ogg container, but they can also be <a href=http://samples.mplayerhq.hu/MPEG-4/vorbis-in-mp4/>embedded in an MP4</a> or <a href=http://en.wikipedia.org/wiki/Matroska>MKV</a> container (or, with some hacking, <a href=http://www.alexander-noe.com/video/amg/>in AVI</a>). Vorbis supports <strong>an arbitrary number of sound channels</strong>.
  
 <p>There are open source Vorbis encoders and decoders, including <a href=http://oggconvert.tristanb.net/>OggConvert</a> (encoder), <a href=http://www.ffmpeg.org/>ffmpeg</a> (decoder), <a href=http://www.geocities.jp/aoyoume/aotuv/>aoTuV</a> (encoder), and <a href=http://downloads.xiph.org/releases/vorbis/>libvorbis</a> (decoder). There are also <a href=http://www.xiph.org/quicktime/>QuickTime components for Mac OS X</a> and <a href=http://www.xiph.org/dshow/>DirectShow filters for Windows</a>. 
+
+<p class=a>&#x2042;
 
 <h2 id=what-works>What Works on the Web</h2>
 
@@ -179,6 +187,8 @@ tfoot{font-size:small}
 <li>Link to both video files from a single <code>&lt;video></code> element.
 <li>If you detect a lack of <abbr>HTML5</abbr> video support, replace the <code>&lt;video></code> element with a Flash-based video player.
 </ol>
+
+<p class=a>&#x2042;
 
 <h2 id=firefogg>Encoding Ogg Video with Firefogg</h2>
 
@@ -255,6 +265,8 @@ tfoot{font-size:small}
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Encoding in progress
 <p><img src=i/firefogg-13.png alt="Firefogg: Encoding progress" width=800 height=600>
 
+<p class=a>&#x2042;
+
 <h2 id=ffmpeg2theora>Batch Encoding Ogg Video with ffmpeg2theora</h2>
 
 <p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Chromium.)
@@ -286,9 +298,13 @@ tfoot{font-size:small}
 
 <p>The encoded video will be saved in the same directory as the original video, with a <code>.ogv</code> extension added. You can specify a different location and/or filename by passing an <code>--output=/path/to/encoded/video</code> command line flag to ffmpeg2theora.
 
+<p class=a>&#x2042;
+
 <h2 id=licensing>Licensing Issues with H.264 Video</h2>
 
 <p>FIXME patents are evil and H.264 is about to get really expensive, blah blah blah
+
+<p class=a>&#x2042;
 
 <h2 id=handbrake-gui>Encoding H.264 Video with HandBrake</h2>
 
@@ -347,6 +363,8 @@ tfoot{font-size:small}
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Patience, Grasshopper
 <p><img src=i/handbrake-11.png alt="HandBrake: encoding progress" width=800 height=100>
 
+<p class=a>&#x2042;
+
 <h2 id=handbrake-cli>Batch Encoding H.264 Video with HandBrake</h2>
 
 <p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
@@ -379,6 +397,8 @@ tfoot{font-size:small}
 
 <p>From top to bottom, this command runs HandBrake with the &#8220;iPhone &amp; iPod Touch&#8221; preset, resizes the video to 320&times;240, sets the average bitrate to 600 kbps, enables two-pass encoding with a turbo first pass, reads the file <code>NewOrleans2006.dv</code>, and encodes it as <code>NewOrleans2006.mp4</code>. Whew!
 
+<p class=a>&#x2042;
+
 <h2 id=markup>At Last, The Markup</h2>
 
 <p>I&#8217;m pretty sure this was supposed to be an <abbr>HTML</abbr> book. So where&#8217;s the markup?
@@ -391,6 +411,24 @@ tfoot{font-size:small}
 <p>Technically, that&#8217;s all you need. But just like an <code>&lt;img></code> tag, you should always include <code>width</code> and <code>height</code> attributes in your <code>&lt;video></code> tags. The <code>width</code> and <code>height</code> attributes can be the same as the maximum width and height you specified during the encoding process. Don&#8217;t worry if one dimension of the video is a little smaller than that. Your browser will center the video inside the box defined by the <code>&lt;video></code> tag. It won&#8217;t ever be smooshed or stretched out of proportion.
 
 <pre><code>&lt;video src="NewOrleans2006.ogv" <mark>width="320" height="240"</mark>>&lt;/video></code></pre>
+
+<p>By default, the <code>&lt;video></code> element will not expose any sort of player controls. You can create your own controls with plain old <abbr>HTML</abbr>, <abbr>CSS</abbr>, and JavaScript. The <code>&lt;video></code> element has methods like <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#playing-the-media-resource><code>play()</code> and <code>pause()</code></a> and a read/write property called <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currenttime><code>currentTime</code></a>. There are also read/write <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-volume><code>volume</code></a> and <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-muted><code>muted</code></a> properties. So you really have everything you need to build your own interface.
+
+<p>If you don&#8217;t want to build your own interface, you can tell the browser to display a built-in set of controls. To do this, just include the <code>controls</code> attribute in your <code>&lt;video></code> tag.
+
+<pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>controls</mark>>&lt;/video></code></pre>
+
+<p>There are two other optional attributes I want to mention before we go any further: <code>autobuffer</code> and <code>autoplay</code>. Don&#8217;t shoot the messenger; let me explain why these are useful. The <code>autobuffer</code> attribute tells the browser that you would like it to start downloading the video file as soon as the page loads. This makes sense if the entire point of the page is to view the video. On the other hand, if it&#8217;s just supplementary material that only a few visitors will watch, then maybe you can leave <code>autobuffer</code> off. It&#8217;s off by default.
+
+<p>Here&#8217;s an example of a video that will start downloading (but not playing) as soon as the page loads:
+
+<pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>autobuffer</mark>>&lt;/video></code></pre>
+
+<p>The <code>autoplay</code> attribute does exactly what it sounds like: it tells the browser that you would like it to start downloading the video file as soon as the page loads, <em>and</em> you would like it to start playing the video automatically as soon as possible. Some people love this; some people hate it. But let me explain why it&#8217;s important to have an attribute like this in <abbr>HTML5</abbr>. Some people are going to want their videos to play automatically, even if it annoys their visitors. If <abbr>HTML5</abbr> <em>didn&#8217;t</em> define a standard way to auto-play videos, people would resort to JavaScript hacks to do it anyway. (For example, by calling the video&#8217;s <code>play()</code> method during the window&#8217;s <code>load</code> event.) This would be much harder for visitors to counteract. On the other hand, it&#8217;s a simple matter to add a checkbox to your browser (or write an extension that adds such an option) that basically says &#8220;ignore the <code>autoplay</code> attribute, I don&#8217;t ever want videos to play automatically.&#8221;
+
+<p>Here&#8217;s an example of a video that will start downloading and playing as soon as possible after the page loads:
+
+<pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>autoplay</mark>>&lt;/video></code></pre>
 
 <p>But wait a second&hellip; If you&#8217;ve been following along this whole chapter, you don&#8217;t have just one video file; you have two. One is an <code>.ogv</code> file that you created with <a href=#firefogg>Firefogg</a> or <a href=#ffmpeg2theora>ffmpeg2theora</a>, and the second is an <code>.mp4</code> file that you created with <a href=#handbrake-gui>HandBrake</a>. <abbr>HTML5</abbr> provides a way to link to both of them: the <code>&lt;source></code> element. Each <code>&lt;video></code> element can contain as many <code>&lt;source></code> elements as you need. Your browser will go down the list of video sources, in order, and play the first one it&#8217;s able to play.
 
@@ -418,9 +456,11 @@ tfoot{font-size:small}
 
 <p>If you follow the instructions in this chapter for encoding your videos, you can just copy and paste the <code>type</code> attribute values from this example. Otherwise, you&#8217;ll need to <a href=http://wiki.whatwg.org/wiki/Video_type_parameters>work out the <code>type</code> parameters for yourself</a>.
 
+<p class=a>&#x2042;
+
 <h2 id=ie>What About IE?</h2>
 
-<p>As I write this, the current version of Internet Explorer is 8.0. No version of Internet Explorer supports <abbr>HTML5</abbr> video. But all is not lost! Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you have encoded your video for the iPhone, you can also play it in a Flash-based video player.
+<p>As I write this, the current version of Internet Explorer is 8.0. No version of Internet Explorer supports <abbr>HTML5</abbr> video. But all is not lost! Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you&#8217;ve <a href=#handbrake-gui>encoded your H.264 video</a> for Safari, you can play it in a Flash-based video player if you detect that one of your visitors doesn&#8217;t have an <abbr>HTML5</abbr>-capable browser.
 
 <p><a href=http://flowplayer.org/>FlowPlayer</a> is an open source, GPL-licensed, Flash-based video player. (<a href=http://flowplayer.org/download/>Commercial licenses are also available</a>.) To use FlowPlayer, you need three files: two <code>.swf</code> files and one JavaScript file. To start with, include the following <code>&lt;script></code> element at the <strong>bottom</strong> of your page.
 
@@ -439,12 +479,39 @@ tfoot{font-size:small}
 
 <p>You will also need the two <code>.swf</code> files, <code>flowplayer-X.swf</code> and <code>flowplayer.controls-X.swf</code> (where &#8220;X&#8221; is the version number of FlowPlayer). You don&#8217;t need to link to these files from your <abbr>HTML</abbr> markup. When you call FlowPlayer from script, one of the parameters you pass to the <code>flowplayer()</code> function is the location of these <code>.swf</code> files.
 
-<p>FIXME</p>
+<p>There&#8217;s one more piece to the puzzle. FlowPlayer doesn&#8217;t know anything about the <code>&lt;video></code> element. It won&#8217;t magically transform a <code>&lt;video></code> tag into a Flash object. But I&#8217;ve written a piece of JavaScript that does exactly that. I call it <a href="http://diveintohtml5.org/j/html5-video.js"><code>html5-video.js</code></a>, because I suck at naming things. Nevertheless&hellip;
+
+<pre><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>Dive Into HTML5&lt;/title>
+&lt;/head>
+&lt;body>
+  ...
+  &lt;script src="flowplayer.min.js">&lt;/script>
+  <mark>&lt;script src="html5-video.js">&lt;/script></mark>
+&lt;/body>
+&lt;/html>
+</code></pre>
+
+<p>&hellip;And presto-chango! Your standards-based <abbr>HTML5</abbr> <code>&lt;video></code> element will automatically turn into a FlowPlayer-powered Flash video player in browsers that do not support the <code>&lt;video></code> element natively. The <code>html5-video.js</code> script even respects the <code>controls</code>, <code>autobuffer</code>, and <code>autoplay</code> attributes, and translates them into the appropriate FlowPlayer commands to show the player controls, auto-download, and auto-play the video.
+
+<p>Here is a live example of a video that uses these techniques. The markup is straightforward <abbr>HTML5</abbr>:
+
+<pre><code>&lt;video id="movie" width="320" height="240" controls>
+  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>
+  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+&lt;/video></code></pre>
+
+<p>With the addition of FlowPlayer and <code>html5-video.js</code>, you should be able to watch this video in almost any browser:</p>
 
 <video id=movie width=320 height=240 controls>
   <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'>
   <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 </video> 
+
+<p class=a>&#x2042;
 
 <h2 id=further-reading>Further Reading</h2>
 
