@@ -24,6 +24,11 @@ cp .htaccess build/
 mkdir build/fonts-original
 cp fonts-original/*.tar.gz build/fonts-original/
 
+echo "validating HTML"
+for f in *.html; do
+  python3 util/validate.py "$f" > /dev/null || die "Failed to validate $f"
+done
+
 echo "minimizing HTML"
 
 # minimize HTML (NB: this script is quite fragile and relies on knowledge of how I write HTML)
