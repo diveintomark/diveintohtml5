@@ -103,7 +103,5 @@ try {
       this.translate(-x - offset.x, -y - offset.y);
     };
   }
-}
 } catch(err) {}
-}
 })();
