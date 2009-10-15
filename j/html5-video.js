@@ -41,6 +41,9 @@ function html5_video_replace(video) {
     type = type.split(";", 1)[0];
     if (type == "video/mp4") {
       video_url = source.getAttribute("src");
+      if (video_url.substring(0, 2) == "//") {
+        video_url = "http:" + video_url;
+      }
       break;
     }
   }
