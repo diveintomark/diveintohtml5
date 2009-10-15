@@ -312,18 +312,16 @@ tfoot{font-size:small}
 <li><code>--video-quality Q</code>, where &#8220;Q&#8221; is a number from 0&ndash;10.
 <li><code>--audio-quality Q</code>, where &#8220;Q&#8221; is a number from -2&ndash;10.
 <li><code>--two-pass</code>, which enables two-pass encoding.
-<li><code>--max_size=WxH</code>, where &#8220;W&#8221; and &#8220;H&#8221; are the maximum width and height you want for the video. (The &#8220;x&#8221; in between is really just the letter &#8220;x&#8221;.) ffmpeg2theora will resize the video proportionally to fit within these dimensions, so the encoded video might be smaller than <code>W&times;H</code>. For example, encoding a 720&times;480 video with <code>--max_size=320x240</code> will produce a video that is <code>320&times;213</code>.
+<li><code>--max_size=WxH</code>, where &#8220;W&#8221; and &#8220;H&#8221; are the maximum width and height you want for the video. (The &#8220;x&#8221; in between is really just the letter &#8220;x&#8221;.) ffmpeg2theora will resize the video proportionally to fit within these dimensions, so the encoded video might be smaller than <code>W&times;H</code>. For example, encoding a 720&times;480 video with <code>--max_size 320x240</code> will produce a video that is <code>320&times;213</code>.
 </ul>
 
 <p>Thus, here is how you could encode a video with the same settings as we used in the previous section (<a href=#firefogg>encoding with Firefogg</a>).
 
-<pre>
-<samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
 <samp class=p>               </samp><kbd>              --videoquality 5</kbd>
 <samp class=p>               </samp><kbd>              --audioquality 1</kbd>
-<samp class=p>               </samp><kbd>              --max_size=320x240</kbd>
-<samp class=p>               </samp><kbd>              NewOrleans2006.dv</kbd>
-</pre>
+<samp class=p>               </samp><kbd>              --max_size 320x240</kbd>
+<samp class=p>               </samp><kbd>              NewOrleans2006.dv</kbd></pre>
 
 <p>The encoded video will be saved in the same directory as the original video, with a <code>.ogv</code> extension added. You can specify a different location and/or filename by passing an <code>--output=/path/to/encoded/video</code> command line flag to ffmpeg2theora.
 
@@ -408,8 +406,7 @@ tfoot{font-size:small}
 
 <p>Here is an example of calling HandBrake on the command line, with command line flags that match the settings we chose <a href=#handbrake-gui>with the graphical version of HandBrake</a>.
 
-<pre>
-<samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone &amp; iPod Touch"</kbd>
+<pre><samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone &amp; iPod Touch"</kbd>
 <samp class=p>               </samp><kbd>             --width 320</kbd>
 <samp class=p>               </samp><kbd>             --vb 600</kbd>
 <samp class=p>               </samp><kbd>             --two-pass</kbd>
@@ -520,7 +517,23 @@ tfoot{font-size:small}
 
 <p>&hellip;And presto-chango! Your standards-based <abbr>HTML5</abbr> <code>&lt;video></code> element will automatically turn into a FlowPlayer-powered Flash video player in browsers that do not support the <code>&lt;video></code> element natively. The <code>html5-video.js</code> script even respects the <code>controls</code>, <code>autobuffer</code>, and <code>autoplay</code> attributes, and translates them into the appropriate FlowPlayer commands to show the player controls, auto-download, and auto-play the video.
 
-<p>Here is a live example of a video that uses these techniques. The markup is straightforward <abbr>HTML5</abbr>:
+<p>Here is a live example of a video that uses these techniques. I encoded the source video with these two commands:
+
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
+<samp class=p>               </samp><kbd>              --videobiterate 200</kbd>
+<samp class=p>               </samp><kbd>              --max_size 320x240</kbd>
+<samp class=p>               </samp><kbd>              --output pr6.ogv</kbd>
+<samp class=p>               </samp><kbd>              pr6.dv</kbd>
+
+<samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone &amp; iPod Touch"</kbd>
+<samp class=p>               </samp><kbd>             --vb 200</kbd>
+<samp class=p>               </samp><kbd>             --width 320</kbd>
+<samp class=p>               </samp><kbd>             --two-pass</kbd>
+<samp class=p>               </samp><kbd>             --turbo</kbd>
+<samp class=p>               </samp><kbd>             --input pr6.dv</kbd>
+<samp class=p>               </samp><kbd>             --output pr6.mp4</kbd></pre>
+
+<p>The markup is straightforward <abbr>HTML5</abbr>:
 
 <pre><code>&lt;video id="movie" width="320" height="240" autobuffer controls>
   &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>&lt;/source>
