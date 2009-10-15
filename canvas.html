@@ -225,6 +225,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
 A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
+</blockquote>
 </div>
 
 <p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient &mdash; yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink &mdash; black instead of off-white &mdash; so we need to start a new path.

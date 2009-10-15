@@ -108,11 +108,11 @@ tfoot{font-size:small}
  
 <p>Most general-purpose audio codecs can handle two channels of sound. During recording, the sound is split into left and right channels; during encoding, both channels are stored in the same audio stream; during decoding, both channels are decoded and each is sent to the appropriate speaker. Some audio codecs can handle more than two channels, and they keep track of which channel is which and so your player can send the right sound to the right speaker. 
  
-<p>There are <em>lots</em> of audio codecs. Did I say there were lots of video codecs?  Forget that. There are <a href=http://wiki.multimedia.cx/index.php?title=Category:Audio_Codecs>a metric fuck-ton of audio codecs</a>, but on the web, there are really only three you need to know about: <abbr>MP3</abbr>, <abbr>AAC</abbr>, and Vorbis.
+<p>There are <em>lots</em> of audio codecs. Did I say there were lots of video codecs?  Forget that. There are <a href="http://wiki.multimedia.cx/index.php?title=Category:Audio_Codecs">a metric fuck-ton of audio codecs</a>, but on the web, there are really only three you need to know about: <abbr>MP3</abbr>, <abbr>AAC</abbr>, and Vorbis.
  
 <h3 id=mp3>MPEG-1 Audio Layer 3</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_3>MPEG-1 Audio Layer 3</a> is colloquially known as &#8220;MP3.&#8221;  If you haven&#8217;t heard of MP3s, I don&#8217;t know what to do with you. <a href=http://www.walmart.com/catalog/catalog.gsp?cat=96469>Walmart sells portable music players</a> and calls them &#8220;MP3 players.&#8221;  <em>Walmart.</em>  Anyway&#8230; 
+<p><a href=http://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_3>MPEG-1 Audio Layer 3</a> is colloquially known as &#8220;MP3.&#8221;  If you haven&#8217;t heard of MP3s, I don&#8217;t know what to do with you. <a href="http://www.walmart.com/catalog/catalog.gsp?cat=96469">Walmart sells portable music players</a> and calls them &#8220;MP3 players.&#8221;  <em>Walmart.</em>  Anyway&#8230; 
  
 <p>MP3s can contain <strong>up to 2 channels</strong> of sound. They can be encoded at different <i>bitrates</i>: 64 kbps, 128 kbps, 192 kbps, and a variety of others from 32 to 320. Higher bitrates mean larger file sizes and better quality audio, although the ratio of audio quality to bitrate is not linear. (128 kbs sounds more than twice as good as 64 kbs, but 256 kbs doesn&#8217;t sound twice as good as 128 kbs.)  Furthermore, the MP3 format allows for <i>variable bitrate encoding</i>, which means that some parts of the encoded stream are compressed more than others. For example, silence between notes can be encoded at a very low bitrate, then the bitrate can spike up a moment later when multiple instruments start playing a complex chord. MP3s can also be encoded with a constant bitrate, which, unsurprisingly, is called <i>constant bitrate encoding</i>. 
  
@@ -122,7 +122,7 @@ tfoot{font-size:small}
  
 <h3 id=aac>Advanced Audio Coding</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a></h3> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Many songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/Licensing/AAC_fees.cfm>licensing rates are available online</a>. 
+<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Many songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/Licensing/AAC_fees.cfm>licensing rates are available online</a>. 
  
 <p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbs.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
  
@@ -194,7 +194,7 @@ tfoot{font-size:small}
 
 <p>Before we continue, I need to point out that there is a cost to encoding your videos twice. Well, there&#8217;s the obvious cost, that you have to encode your videos twice, and that takes more computers and more time than just doing it once. But there&#8217;s another very real cost associated with H.264 video: licensing costs.
 
-<p>Remember when I first explained <a href=#h264>H.264 video</a>, and I mentioned offhand that the video codec was patent-encumbered and licensing was brokered by the MPEG LA consortium. That turns out to be kind of important. To understand why it&#8217;s important, I direct you to <a href=http://www.streamingmedia.com/r/printerfriendly.asp?id=11011>The H.264 Licensing Labyrinth</a>:
+<p>Remember when I first explained <a href=#h264>H.264 video</a>, and I mentioned offhand that the video codec was patent-encumbered and licensing was brokered by the MPEG LA consortium. That turns out to be kind of important. To understand why it&#8217;s important, I direct you to <a href="http://www.streamingmedia.com/r/printerfriendly.asp?id=11011">The H.264 Licensing Labyrinth</a>:
 
 <blockquote>
 <p>MPEG LA splits the H.264 license portfolio into two sublicenses: one for manufacturers of encoders or decoders and the other for distributors of content. &hellip;
@@ -455,19 +455,19 @@ tfoot{font-size:small}
 
 <p class="legend top" style="margin-left:2em">Two video files <span class=arrow>&#x21b7;</span><br></p>
 <pre><code>&lt;video width="320" height="240" controls>
-  &lt;<mark>source src="NewOrleans2006.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>
-  &lt;<mark>source src="NewOrleans2006.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+  &lt;<mark>source src="NewOrleans2006.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>&lt;/source>
+  &lt;<mark>source src="NewOrleans2006.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>&lt;/source>
 &lt;/video></code></pre>
 
 <p>Let&#8217;s break that down. The <code>&lt;video></code> element specifies the width and height for the video, but it doesn&#8217;t actually link to a video file. Inside the <code>&lt;video></code> element are two <code>&lt;source></code> elements. Each <code>&lt;source></code> element links to a single video file (with the <code>src</code> attribute), and it also gives information about the video format (in the <code>type</code> attribute).
 
 <p>The <code>type</code> attribute looks complicated&nbsp;&mdash;&nbsp;hell, it <em>is</em> complicated. It&#8217;s a combination of three pieces of information: the <a href=#video-containers>container format</a>, the <a href=#video-codecs>video codec</a>, and the <a href=#audio-codecs>audio codec</a>. For the <code>.ogv</code> video file, the container format is Ogg, represented here as <code>video/ogg</code>. (Technically speaking, that&#8217;s the <abbr>MIME</abbr> type for Ogg video files.) The video codec is Theora, and the audio codec is Vorbis. That&#8217;s simple enough, except the format of the attribute value is a little screwy. The value itself has to include quotation marks, which means you&#8217;ll need to use a different kind of quotation mark to surround the entire value.
 
-<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>></code></pre>
+<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>>&lt;/source></code></pre>
 
 <p>The H.264 video is even more complicated. Remember when I said that both <a href=#h264>H.264 video</a> and <a href=#aac>AAC audio</a> can come in different &#8220;profiles&#8221;? We encoded with the H.264 &#8220;baseline&#8221; profile and the AAC &#8220;low-complexity&#8221; profile, then wrapped it all in an MPEG-4 container. All of that information is included in the <code>type</code> attribute.
 
-<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>></code></pre>
+<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>>&lt;/source></code></pre>
 
 <p>The benefit of going to all this trouble is that the browser will check the <code>type</code> attribute first to see if it can play a particular video file. If it decides it can&#8217;t play a particular video, <em>it won&#8217;t download the file</em>. Not even part of the file. You&#8217;ll save on bandwidth, and your visitors will see the video they came for, faster.
 
@@ -517,15 +517,15 @@ tfoot{font-size:small}
 <p>Here is a live example of a video that uses these techniques. The markup is straightforward <abbr>HTML5</abbr>:
 
 <pre><code>&lt;video id="movie" width="320" height="240" controls>
-  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>
-  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>&lt;/source>
+  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>&lt;/source>
 &lt;/video></code></pre>
 
 <p>With the addition of FlowPlayer and <code>html5-video.js</code>, you should be able to watch this video in almost any browser:</p>
 
 <video id=movie width=320 height=240 controls>
-  <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'>
-  <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+  <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'></source>
+  <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
 </video> 
 
 <p class=a>&#x2042;
