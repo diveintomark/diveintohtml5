@@ -41,6 +41,7 @@ It uses code from two different projects, Bespin and canvas.text.js.
  */
 
 (function() {
+try {
   proto = window.CanvasRenderingContext2D ? window.CanvasRenderingContext2D.prototype : document.createElement('canvas').getContext('2d').__proto__
 
   // Setup measureText
@@ -102,4 +103,7 @@ It uses code from two different projects, Bespin and canvas.text.js.
       this.translate(-x - offset.x, -y - offset.y);
     };
   }
+}
+} catch(err) {}
+}
 })();
