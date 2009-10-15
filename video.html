@@ -381,34 +381,42 @@ tfoot{font-size:small}
 
 <h2 id=markup>At Last, The Markup</h2>
 
-<p>FIXME
+<p>I&#8217;m pretty sure this was supposed to be an <abbr>HTML</abbr> book. So where&#8217;s the markup?
 
+<p><abbr>HTML5</abbr> gives you two ways to include video on your web page. Both of them involve the <code>&lt;video></code> element. If you only have one video file, you can simply link to it in a <code>src</code> attribute. This is remarkably similar to including an image with an <code>&lt;img src="..."></code> tag.
+
+<p class="legend top" style="margin-left:2em">One video file <span class=arrow>&#x21b7;</span><br></p>
 <pre><code>&lt;video <mark>src="NewOrleans2006.ogv"</mark>>&lt;/video></code></pre>
 
-<p>FIXME
+<p>Technically, that&#8217;s all you need. But just like an <code>&lt;img></code> tag, you should always include <code>width</code> and <code>height</code> attributes in your <code>&lt;video></code> tags. The <code>width</code> and <code>height</code> attributes can be the same as the maximum width and height you specified during the encoding process. Don&#8217;t worry if one dimension of the video is a little smaller than that. Your browser will center the video inside the box defined by the <code>&lt;video></code> tag. It won&#8217;t ever be smooshed or stretched out of proportion.
 
-<pre><code>&lt;video src="NewOrleans2006.ogv"
-       <mark>width="320" height="234"</mark>>
-&lt;/video></code></pre>
+<pre><code>&lt;video src="NewOrleans2006.ogv" <mark>width="320" height="240"</mark>>&lt;/video></code></pre>
 
-<p>FIXME
+<p>But wait a second&hellip; If you&#8217;ve been following along this whole chapter, you don&#8217;t have just one video file; you have two. One is an <code>.ogv</code> file that you created with <a href=#firefogg>Firefogg</a> or <a href=#ffmpeg2theora>ffmpeg2theora</a>, and the second is an <code>.mp4</code> file that you created with <a href=#handbrake-gui>HandBrake</a>. <abbr>HTML5</abbr> provides a way to link to both of them: the <code>&lt;source></code> element. Each <code>&lt;video></code> element can contain as many <code>&lt;source></code> elements as you need. Your browser will go down the list of video sources, in order, and play the first one it&#8217;s able to play.
 
-<pre><code>&lt;video width="320" height="234">
+<p>That raises another question: how does the browser know which video it can play? Well, in the worst case scenario, it loads each of the videos and tries to play them. That&#8217;s a big waste of bandwidth, though. You&#8217;ll save a lot of network traffic if you tell the browser up-front about each video. You do this with the <code>type</code> attribute on the <code>&lt;source></code> element.
+
+<p>Here&#8217;s the whole thing:
+
+<p class="legend top" style="margin-left:2em">Two video files <span class=arrow>&#x21b7;</span><br></p>
+<pre><code>&lt;video width="320" height="240">
   &lt;<mark>source src="NewOrleans2006.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>
   &lt;<mark>source src="NewOrleans2006.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 &lt;/video></code></pre>
 
-<p>FIXME
+<p>Let&#8217;s break that down. The <code>&lt;video></code> element specifies the width and height for the video, but it doesn&#8217;t actually link to a video file. Inside the <code>&lt;video></code> element are two <code>&lt;source></code> elements. Each <code>&lt;source></code> element links to a single video file (with the <code>src</code> attribute), and it also gives information about the video format (in the <code>type</code> attribute).
 
-<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>>
-</code></pre>
+<p>The <code>type</code> attribute looks complicated&nbsp;&mdash;&nbsp;hell, it <em>is</em> complicated. It&#8217;s a combination of three pieces of information: the <a href=#video-containers>container format</a>, the <a href=#video-codecs>video codec</a>, and the <a href=#audio-codecs>audio codec</a>. For the <code>.ogv</code> video file, the container format is Ogg, represented here as <code>video/ogg</code>. (Technically speaking, that&#8217;s the <abbr>MIME</abbr> type for Ogg video files.) The video codec is Theora, and the audio codec is Vorbis. That&#8217;s simple enough, except the format of the attribute value is a little screwy. The value itself has to include quotation marks, which means you&#8217;ll need to use a different kind of quotation mark to surround the entire value.
 
-<p>FIXME
+<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>></code></pre>
 
-<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>>
-</code></pre>
+<p>The H.264 video is even more complicated. Remember when I said that both <a href=#h264>H.264 video</a> and <a href=#aac>AAC audio</a> can come in different &#8220;profiles&#8221;? We encoded with the H.264 &#8220;baseline&#8221; profile and the AAC &#8220;low-complexity&#8221; profile, then wrapped it all in an MPEG-4 container. All of that information is included in the <code>type</code> attribute.
 
-<p>FIXME
+<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>></code></pre>
+
+<p>The benefit of going to all this trouble is that the browser will check the <code>type</code> attribute first to see if it can play a particular video file. If it decides it can&#8217;t play a particular video, <em>it won&#8217;t download the file</em>. Not even part of the file. You&#8217;ll save on bandwidth, and your visitors will see the video they came for, faster.
+
+<p>If you follow the instructions in this chapter for encoding your videos, you can just copy and paste the <code>type</code> attribute values from this example. Otherwise, you&#8217;ll need to <a href=http://wiki.whatwg.org/wiki/Video_type_parameters>work out the <code>type</code> parameters for yourself</a>.
 
 <h2 id=ie>What About IE?</h2>
 
