@@ -18,10 +18,6 @@ with open(output_file, 'w', encoding="utf-8") as _out, open(input_file, encoding
         # round-robin image servers
         if "<img src=i/" in line:
             line = line.replace("<img src=i/", "<img src=http://" + next(available_server) + "/dih5/")
-        if "<video src=i/" in line:
-            line = line.replace("<video src=i/", "<video src=http://" + next(available_server) + "/dih5/")
-        if "<source src=i/" in line:
-            line = line.replace("<source src=i/", "<source src=http://" + next(available_server) + "/dih5/")
         if "url(i/" in line:
             line = line.replace("url(i/", "url(http://" + next(available_server) + "/dih5/")
 

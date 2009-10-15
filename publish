@@ -93,7 +93,9 @@ chmod 755 build/examples build/j build/i build/f build/fonts-original && \
 #die "Intentionally aborting without publishing"
 # ship it!
 echo -n "publishing"
-rsync -essh -a build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
+rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
+    echo -n "." && \
+    rsync -essh -a build/i/*.mp4 build/i/*.ogv diveintomark.org:~/web/diveintohtml5.org/i/ && \
     echo -n "." && \
     rsync -essh -a build/j/$revision.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
     echo -n "." && \
