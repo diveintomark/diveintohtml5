@@ -25,9 +25,9 @@ mkdir build/fonts-original
 cp fonts-original/*.tar.gz build/fonts-original/
 
 echo "validating HTML"
-for f in *.html; do
-  python3 util/validate.py "$f" > /dev/null || die "Failed to validate $f"
-done
+#for f in *.html; do
+#  python3 util/validate.py "$f" > /dev/null || die "Failed to validate $f"
+#done
 
 echo "minimizing HTML"
 
@@ -95,7 +95,7 @@ chmod 755 build/examples build/j build/i build/f build/fonts-original && \
 echo -n "publishing"
 rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/ && \
     echo -n "." && \
-    rsync -essh -a build/i/*.mp4 build/i/*.ogv diveintomark.org:~/web/diveintohtml5.org/i/ && \
+    rsync -essh -a build/i/*.mp4 build/i/*.ogv build/i/pastel.png diveintomark.org:~/web/diveintohtml5.org/i/ && \
     echo -n "." && \
     rsync -essh -a build/j/$revision.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
     echo -n "." && \

@@ -458,19 +458,19 @@ tfoot{font-size:small}
 
 <p class="legend top" style="margin-left:2em">Two video files <span class=arrow>&#x21b7;</span><br></p>
 <pre><code>&lt;video width="320" height="240" controls>
-  &lt;<mark>source src="NewOrleans2006.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>&lt;/source>
-  &lt;<mark>source src="NewOrleans2006.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>&lt;/source>
+  &lt;<mark>source src="NewOrleans2006.ogv"</mark> type='video/ogg; codecs="theora, vorbis"'>
+  &lt;<mark>source src="NewOrleans2006.mp4"</mark> type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 &lt;/video></code></pre>
 
 <p>Let&#8217;s break that down. The <code>&lt;video></code> element specifies the width and height for the video, but it doesn&#8217;t actually link to a video file. Inside the <code>&lt;video></code> element are two <code>&lt;source></code> elements. Each <code>&lt;source></code> element links to a single video file (with the <code>src</code> attribute), and it also gives information about the video format (in the <code>type</code> attribute).
 
 <p>The <code>type</code> attribute looks complicated&nbsp;&mdash;&nbsp;hell, it <em>is</em> complicated. It&#8217;s a combination of three pieces of information: the <a href=#video-containers>container format</a>, the <a href=#video-codecs>video codec</a>, and the <a href=#audio-codecs>audio codec</a>. For the <code>.ogv</code> video file, the container format is Ogg, represented here as <code>video/ogg</code>. (Technically speaking, that&#8217;s the <abbr>MIME</abbr> type for Ogg video files.) The video codec is Theora, and the audio codec is Vorbis. That&#8217;s simple enough, except the format of the attribute value is a little screwy. The value itself has to include quotation marks, which means you&#8217;ll need to use a different kind of quotation mark to surround the entire value.
 
-<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>>&lt;/source></code></pre>
+<pre><code>  &lt;source src="NewOrleans2006.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>></code></pre>
 
 <p>The H.264 video is even more complicated. Remember when I said that both <a href=#h264>H.264 video</a> and <a href=#aac>AAC audio</a> can come in different &#8220;profiles&#8221;? We encoded with the H.264 &#8220;baseline&#8221; profile and the AAC &#8220;low-complexity&#8221; profile, then wrapped it all in an MPEG-4 container. All of that information is included in the <code>type</code> attribute.
 
-<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>>&lt;/source></code></pre>
+<pre><code>  &lt;source src="NewOrleans2006.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>></code></pre>
 
 <p>The benefit of going to all this trouble is that the browser will check the <code>type</code> attribute first to see if it can play a particular video file. If it decides it can&#8217;t play a particular video, <em>it won&#8217;t download the file</em>. Not even part of the file. You&#8217;ll save on bandwidth, and your visitors will see the video they came for, faster.
 
@@ -537,15 +537,15 @@ tfoot{font-size:small}
 <p>The markup is straightforward <abbr>HTML5</abbr>:
 
 <pre><code>&lt;video id="movie" width="320" height="240" autobuffer controls>
-  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>&lt;/source>
-  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>&lt;/source>
+  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>
+  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 &lt;/video></code></pre>
 
 <p>With the addition of FlowPlayer and <code>html5-video.js</code>, you should be able to watch this video in almost any browser:</p>
 
 <video id=movie width=320 height=240 autobuffer controls>
-  <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'></source>
-  <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
+  <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'>
+  <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 </video> 
 
 <p class=a>&#x2042;
