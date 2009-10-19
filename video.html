@@ -114,7 +114,7 @@ tfoot{font-size:small}
  
 <p><a href=http://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_3>MPEG-1 Audio Layer 3</a> is colloquially known as &#8220;MP3.&#8221;  If you haven&#8217;t heard of MP3s, I don&#8217;t know what to do with you. <a href="http://www.walmart.com/catalog/catalog.gsp?cat=96469">Walmart sells portable music players</a> and calls them &#8220;MP3 players.&#8221;  <em>Walmart.</em>  Anyway&#8230; 
  
-<p>MP3s can contain <strong>up to 2 channels</strong> of sound. They can be encoded at different <i>bitrates</i>: 64 kbps, 128 kbps, 192 kbps, and a variety of others from 32 to 320. Higher bitrates mean larger file sizes and better quality audio, although the ratio of audio quality to bitrate is not linear. (128 kbs sounds more than twice as good as 64 kbs, but 256 kbs doesn&#8217;t sound twice as good as 128 kbs.)  Furthermore, the MP3 format allows for <i>variable bitrate encoding</i>, which means that some parts of the encoded stream are compressed more than others. For example, silence between notes can be encoded at a very low bitrate, then the bitrate can spike up a moment later when multiple instruments start playing a complex chord. MP3s can also be encoded with a constant bitrate, which, unsurprisingly, is called <i>constant bitrate encoding</i>. 
+<p>MP3s can contain <strong>up to 2 channels</strong> of sound. They can be encoded at different <i>bitrates</i>: 64 kbps, 128 kbps, 192 kbps, and a variety of others from 32 to 320. Higher bitrates mean larger file sizes and better quality audio, although the ratio of audio quality to bitrate is not linear. (128 kbps sounds more than twice as good as 64 kbps, but 256 kbps doesn&#8217;t sound twice as good as 128 kbps.)  Furthermore, the MP3 format allows for <i>variable bitrate encoding</i>, which means that some parts of the encoded stream are compressed more than others. For example, silence between notes can be encoded at a very low bitrate, then the bitrate can spike up a moment later when multiple instruments start playing a complex chord. MP3s can also be encoded with a constant bitrate, which, unsurprisingly, is called <i>constant bitrate encoding</i>. 
  
 <p>The MP3 standard doesn&#8217;t define exactly how to encode MP3s (although it does define exactly how to decode them); different encoders use different psychoacoustic models that produce wildly different results, but are all decodable by the same players. The open source <a href=http://lame.sourceforge.net/>LAME project</a> is the best free encoder, and arguably the best encoder period for all but the lowest bitrates. 
  
@@ -124,7 +124,7 @@ tfoot{font-size:small}
  
 <p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Many songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/Licensing/AAC_fees.cfm>licensing rates are available online</a>. 
  
-<p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbs.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
+<p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbps.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
  
 <p>All current Apple products, including iPods, AppleTV, and QuickTime support certain profiles of AAC in standalone audio files and in audio streams in an MP4 video container. Adobe Flash supports all profiles of AAC in MP4, as do the open source mplayer and VLC video players. For encoding, the FAAC library is the open source option; support for it is a compile-time option in mencoder and ffmpeg.
  
@@ -269,7 +269,6 @@ tfoot{font-size:small}
 
 <ul>
 <li>Video Quality. This is measured on a scale of 0 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, so you&#8217;ll need to experiment to determine the best size/quality ratio for your needs.
-<li>Two Pass Encoding. If this is checked, FireFogg will run the video encoder twice. The first time, it just analyzes the video, looking for things like color composition, motion, and scene breaks. The second time, it actually encodes the video using the information it learned during the first pass. As you might expect, this takes about twice as long as single-pass encoding, but it results in better video without increasing file size. I always enable two-pass encoding. Unless you&#8217;re building the next YouTube and encoding videos 24 hours a day, you should probably use two-pass encoding too.
 <li>Audio Quality. This is measured on a scale of -1 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, just like the video quality setting.
 <li>Video Codec. This should always be &#8220;theora.&#8221;
 <li>Audio Codec. This should always be &#8220;vorbis.&#8221;
@@ -281,10 +280,6 @@ tfoot{font-size:small}
 <p>In this example, I&#8217;m going to resize the video to half its original width. Notice how FireFogg automatically adjusts the height to match.
 <p class="legend top">Adjust video width and height <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-10.png alt="Firefogg: set video width and height" width=800 height=600>
-
-<p>As I mentioned, I always enable &#8220;Two Pass Encoding.&#8221; It takes longer, but quality is worth waiting for.
-<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Enable &#8220;Two Pass Encoding&#8221;
-<p><img src=i/firefogg-11.png alt="Firefogg: Two Pass Encoding" width=800 height=600>
 
 <p>Once you&#8217;ve fiddled with all the knobs, click &#8220;Save Ogg&#8221; to start the actual encoding process. FireFogg will prompt you for a filename for the encoded video.
 <p class="legend top">&#8220;Save Ogg&#8221; <span class=arrow>&#x21b7;</span><br></p>
@@ -359,10 +354,17 @@ tfoot{font-size:small}
 
 <ul>
 <li>Video Codec. Make sure this is &#8220;H.264 (x264)&#8221;
-<li>2-Pass Encoding. As with <a href=#firefogg-options>Ogg encoding</a>, 2-pass encoding takes about twice as long but greatly improves quality. I always use 2-pass encoding.
+<li>2-Pass Encoding. If this is checked, HandBrake will run the video encoder twice. The first time, it just analyzes the video, looking for things like color composition, motion, and scene breaks. The second time, it actually encodes the video using the information it learned during the first pass. As you might expect, this takes about twice as long as single-pass encoding, but it results in better video without increasing file size. I always enable two-pass encoding for H.264 video. Unless you&#8217;re building the next YouTube and encoding videos 24 hours a day, you should probably use two-pass encoding too.
 <li>Turbo First Pass. Once you enable 2-pass encoding, you can get a little bit of time back by enabling &#8220;turbo first pass.&#8221; This reduces the amount of work done in the first pass (analyzing the video), while only slightly degrading quality. I usually enable this option, but if quality is of the utmost importance to you, you should leave it disabled.
 <li>Quality. There are several different ways to specify the &#8220;quality&#8221; of your encoded video. You can set a target file size, and HandBrake will do its best to ensure that your encoded video is not larger than that. You can set an average &#8220;bitrate,&#8221; which is the quite literally the number of bits required to store one second worth of encoded video. (It&#8217;s called an &#8220;average&#8221; bitrate because some seconds will require more bits than others.) Or you can specify a constant quality, on a scale of 0 to 100%. Higher numbers will result in better quality but larger files. There is no single right answer for what quality setting you should use.
 </ul>
+
+<div class=pf>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Can I use two-pass encoding on Ogg video too?<br>
+A: Yes, but due to fundamental differences in how the encoder works, <a href=http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora>you probably don&#8217;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&#8217;re trying to get your encoded video to be a specific file size. (Maybe that is something you&#8217;re interested in, but it&#8217;s not what these examples show, and it&#8217;s probably not worth the extra time for encoding web video.)
+</blockquote>
+</div>
 
 <p>In this example, I&#8217;ve chosen an average bitrate of 600 kbps, which is quite high for a 320&times;240 encoded video. (Later in this chapter, I&#8217;ll show you a sample video encoded at 200 kbps.) I&#8217;ve also chosen 2-pass encoding with a &#8220;turbo&#8221; first pass.
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Video quality options
@@ -519,8 +521,7 @@ tfoot{font-size:small}
 
 <p>Here is a live example of a video that uses these techniques. I encoded the source video with these two commands:
 
-<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
-<samp class=p>               </samp><kbd>              --videobitrate 200</kbd>
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --videobitrate 200</kbd>
 <samp class=p>               </samp><kbd>              --max_size 320x240</kbd>
 <samp class=p>               </samp><kbd>              --output pr6.ogv</kbd>
 <samp class=p>               </samp><kbd>              pr6.dv</kbd>
