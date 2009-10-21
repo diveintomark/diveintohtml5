@@ -114,12 +114,15 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 </ul>
 
 <div class="pf clear" id=reset>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I &#8220;reset&#8221; a canvas?<br>
 A: Yes. Setting the width or height of a <code>&lt;canvas></code> element will erase its contents and reset all the properties of its drawing context to their default values. You don&#8217;t even need to <em>change</em> the width; you can simply set it to its current value, like this:
 <pre><code>var b_canvas = document.getElementById("b");
 <mark>b_canvas.width = b_canvas.width;</mark></code></pre>
 </blockquote>
+</div>
 </div>
 
 <p>Getting back to that code sample in the previous example&hellip;
@@ -222,10 +225,13 @@ var context = c_canvas.getContext("2d");</code></pre>
 <canvas id=c2 width=500 height=375></canvas>
 
 <div class="pf clear" id=pixel-madness>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
 A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
 </blockquote>
+</div>
 </div>
 
 <p>Now let&#8217;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or pattern, or gradient &mdash; yes, we&#8217;ll get to those soon). We want to draw the arrow in a different color ink &mdash; black instead of off-white &mdash; so we need to start a new path.
@@ -311,10 +317,13 @@ context.fillText("y", 58, 165);</code></pre>
 <p class="legend right" style="margin-top:2.6em"><span class=arrow>&nbsp;&#x21dc;</span> Draw the text</p>
 
 <div class="pf clear" id=relative-font-size>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
 A: Yes. Like every other <abbr>HTML</abbr> element on your page, the <code>&lt;canvas></code> element itself has a computed font size based on your page&#8217;s CSS rules. If you set the <code>context.font</code> property to a relative font size like <code>1.5em</code> or <code>150%</code>, your browser multiplies this by the computed font size of the <code>&lt;canvas></code> element itself.
 </blockquote>
+</div>
 </div>
 
 <p>For the text in the upper-left corner, I want the top of the text to be at <code>y=5</code>. But I&#8217;m lazy &mdash; I don&#8217;t want to measure the height of the text and calculate the baseline. Instead, I can set the <code>textBaseline</code> to <code>top</code> and pass in the upper-left coordinate of the text&#8217;s bounding box.

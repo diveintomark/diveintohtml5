@@ -154,7 +154,18 @@ p, ul, ol {
   border: 1px solid;
 }
 .pf {
-  padding: 0 1.75em;
+  margin: 1.75em 0;
+}
+.pf .inner {
+  margin: 0 15px 0 0;
+  padding: 0 154px 1.75em 0;
+  background: white url(i/openclipart.org_johnny_automatic_little_professor.png) bottom right no-repeat;
+}
+.pf h4 {
+  margin: 0;
+  padding: 4px;
+  background: black;
+  color: white;
 }
 .ss {
   float: right;
@@ -199,6 +210,7 @@ a:visited {
 }
 .legend {
   font: italic x-large/1.75 "Essays 1743 Italic","Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
+  text-shadow: 0 0 1px #667;
   margin-left: 0.5em;
   vertical-align: top;
 }
@@ -245,9 +257,10 @@ code, var, samp {
 
 /* headers */
 
-h1, h2, h3, caption, thead th {
+h1, h2, h3, h4, caption, thead th {
   font-family: "Essays 1743", "Linux Libertine", "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
   text-transform: uppercase;
+  text-shadow: 0 0 1px #667;
 }
 h1 {
   font-size: 266.7%;

@@ -138,14 +138,7 @@ tfoot{font-size:small}
 
 <h2 id=what-works>What Works on the Web</h2>
 
-<p>If your eyes haven&#8217;t glazed over yet, you&#8217;re doing better than most. As you can tell, video (and audio) is a complicated subject&nbsp;&mdash;&nbsp;and this was the abridged version! I&#8217;m sure you&#8217;re wondering how all of this relates to <abbr>HTML5</abbr>. Here&#8217;s the answer:
-
-<div class=pf>
-<blockquote class=note>
-<p><abbr>HTML5</abbr> includes a <code>&lt;video></code> element for embedding video into a web page. There are no restrictions on the video codec, audio codec, or container format you can use for your video. One <code>&lt;video></code> element can link to multiple video files, and the browser will choose the first video file it can actually play.
-<p><strong>It is up to you to know which browsers support which containers and codecs.</strong>
-</blockquote>
-</div>
+<p>If your eyes haven&#8217;t glazed over yet, you&#8217;re doing better than most. As you can tell, video (and audio) is a complicated subject&nbsp;&mdash;&nbsp;and this was the abridged version! I&#8217;m sure you&#8217;re wondering how all of this relates to <abbr>HTML5</abbr>. Well, <abbr>HTML5</abbr> includes a <code>&lt;video></code> element for embedding video into a web page. There are no restrictions on the video codec, audio codec, or container format you can use for your video. One <code>&lt;video></code> element can link to multiple video files, and the browser will choose the first video file it can actually play. <strong>It is up to you to know which browsers support which containers and codecs.</strong>
 
 <p>As of this writing, this is the landscape of <abbr>HTML5</abbr> video:
 
@@ -174,12 +167,15 @@ tfoot{font-size:small}
 <p>And now for the knockout punch:
 
 <div class=pf>
-<blockquote class=note>
-<p>There is no single combination of containers and codecs that works in all <abbr>HTML5</abbr> browsers.
+<h4>Professor Markup Says</h4>
+<div class=inner style="min-height:253px">
+<blockquote><p>There is no single combination of containers and codecs that works in all <abbr>HTML5</abbr> browsers.
+<p>To make your video watchable across all of these devices and platforms, you&#8217;re going to have to encode your video more than once.
 </blockquote>
 </div>
+</div>
 
-<p>To make your video watchable across all of these devices and platforms, you&#8217;re going to have to encode your video more than once.
+<p>Here&#8217;s what your video workflow looks like:
 
 <ol>
 <li>Make one version that uses Theora video and Vorbis audio in an Ogg container.
@@ -360,10 +356,13 @@ tfoot{font-size:small}
 </ul>
 
 <div class=pf>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I use two-pass encoding on Ogg video too?<br>
 A: Yes, but due to fundamental differences in how the encoder works, <a href=http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora>you probably don&#8217;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&#8217;re trying to get your encoded video to be a specific file size. (Maybe that is something you&#8217;re interested in, but it&#8217;s not what these examples show, and it&#8217;s probably not worth the extra time for encoding web video.)
 </blockquote>
+</div>
 </div>
 
 <p>In this example, I&#8217;ve chosen an average bitrate of 600 kbps, which is quite high for a 320&times;240 encoded video. (Later in this chapter, I&#8217;ll show you a sample video encoded at 200 kbps.) I&#8217;ve also chosen 2-pass encoding with a &#8220;turbo&#8221; first pass.
