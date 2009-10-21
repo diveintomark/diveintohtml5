@@ -67,6 +67,7 @@ cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canv
     sed -i -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
 
 echo "minimizing CSS"
+sed -i -e "s|url(i/|url(//d.wearehugh.com/dih5/|g" build/screen.css || die "Failed to inline CSS"
 java -jar util/yuicompressor-2.4.2.jar build/screen.css > build/$revision.css && \
     sed -i -e "s|;}|}|g" build/$revision.css || die "Failed to minimize CSS"
 
