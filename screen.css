@@ -157,6 +157,7 @@ p, ul, ol {
   margin: 1.75em 0;
 }
 .pf .inner {
+  min-height: 253px;
   margin: 0 15px 0 0;
   padding: 0 154px 1.75em 0;
   background: white url(i/openclipart.org_johnny_automatic_little_professor.png) bottom right no-repeat;
