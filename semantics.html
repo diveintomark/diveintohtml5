@@ -34,7 +34,7 @@ body{counter-reset:h1 3}
 <p>In his seminal work, <a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a>, Henri Sivonen summarizes the different modes:
 
 <blockquote>
-<dl> 
+<dl>
 <dt>Quirks Mode
 <dd>In the Quirks mode, browsers violate contemporary Web format specifications in order to avoid &#8220;breaking&#8221; pages authored according to practices that were prevalent in the late 1990s.
 <dt>Standards Mode
@@ -109,7 +109,22 @@ body{counter-reset:h1 3}
 
 <p class=c><img src=i/openclipart.org_johnny_automatic_8_from_behind.png alt="8 men from behind" width=554 height=164>
 
-<p>FIXME
+<p>The first child of the root element is usually the <code>&lt;head></code> element. The <code>&lt;head></code> element contains metadata&nbsp;&mdash;&nbsp;information <em>about</em> the page, rather than the body of the page itself. (The body of the page is, unsurprisingly, contained in the <code>&lt;body></code> element.) The <code>&lt;head></code> element itself is rather boring, and it hasn&#8217;t changed in any interesting way in <abbr>HTML5</abbr>. The good stuff is what&#8217;s <em>inside</em> the <code>&lt;head></code> element. And for that, we turn once again to <a href=examples/blog-original.html>our example page</a>:
+
+<pre><code>&lt;head>
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  &lt;title>Lorem ipsum blog&lt;/title>
+  &lt;link rel="stylesheet" type="text/css" href="style-original.css" />
+  &lt;link rel="alternate" type="application/atom+xml"
+                        title="Lorem ipsum feed"
+                        href="/feed/" />
+  &lt;link rel="search" type="application/opensearchdescription+xml"
+                        title="Lorem ipsum search"
+                        href="opensearch.xml"  />
+  &lt;link rel="shortcut icon" href="/favicon.ico" />
+&lt;/head></code></pre>
+
+<p>First up: the <code>&lt;meta></code> element.
 
 <h2 id=encoding>Character Encoding</h2>
 
@@ -189,14 +204,11 @@ body{counter-reset:h1 3}
 
 <p>Let&#8217;s look at the first link relation in <a href=examples/blog-original.html>that weblog template</a>:
 
-<pre><code>&lt;link rel="stylesheet"
-      href="style-original.css"
-      type="text/css" /></code></pre>
+<pre><code>&lt;link rel="stylesheet" href="style-original.css" type="text/css" /></code></pre>
 
 <p>This is the most frequently used link relation in the world (literally). <code>&lt;link rel=stylesheet></code> is for pointing to <abbr>CSS</abbr> rules that are stored in a separate file. One small optimization you can make in <abbr>HTML5</abbr> is to drop the <code>type</code> attribute. There&#8217;s only one stylesheet language for the web, <abbr>CSS</abbr>, so that&#8217;s the default value for the <code>type</code> attribute. This works in all browsers. (I suppose someone could invent a new stylesheet language someday, but if that happens, just add the <code>type</code> attribute back.)
 
-<pre><code>&lt;link rel="stylesheet"
-      href="style-original.css" /></code></pre>
+<pre><code>&lt;link rel="stylesheet" href="style-original.css" /></code></pre>
 
 <h3 id=rel-alternate>rel = alternate</h3>
 
