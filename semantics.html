@@ -5,6 +5,9 @@
 <link rel=stylesheet href=screen.css>
 <style>
 body{counter-reset:h1 3}
+dl.col dt{float:left;clear:left}
+dl.col dd{margin-left:7em}
+dl.col dt,dl.col dd{padding-bottom:1.75em}
 </style>
 <div id=zz>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#semantics>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
@@ -25,11 +28,11 @@ body{counter-reset:h1 3}
           PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
 
-<p>This is called the &#8220;doctype.&#8221; There&#8217;s a long history&nbsp;&mdash;&nbsp;and a black art&nbsp;&mdash;&nbsp;behind the doctype. During the development of Internet Explorer 5 for Mac, Microsoft found themselves with a surprising problem. The upcoming version of their browser had improved its standards support so much, older pages no longer rendered properly. Well, they rendered properly (according to specification), but people expected them to render <em>improperly</em>. The pages themselves had been authored based on the quirks of dominant browsers of the day, mostly Netscape 4 and Internet Explorer 4. IE5/Mac was so advanced, it actually broke the web.
+<p>This is called the &#8220;doctype.&#8221; There&#8217;s a long history &mdash; and a black art &mdash; behind the doctype. During the development of Internet Explorer 5 for Mac, Microsoft found themselves with a surprising problem. The upcoming version of their browser had improved its standards support so much, older pages no longer rendered properly. Well, they rendered properly (according to specification), but people expected them to render <em>improperly</em>. The pages themselves had been authored based on the quirks of dominant browsers of the day, mostly Netscape 4 and Internet Explorer 4. IE5/Mac was so advanced, it actually broke the web.
 
 <p>Microsoft came up with a novel solution. Before rendering a page, IE5/Mac looked at the &#8220;doctype,&#8221; which is typically the first line of the <abbr>HTML</abbr> source (even before the <code>&lt;html></code> element). Older pages (that relied on the rendering quirks of older browsers) generally didn&#8217;t have a doctype at all. IE5/Mac rendered these pages like older browsers did. In order to &#8220;activate&#8221; the new standards support, authors would have to opt-in, by supplying the right doctype before their <code>&lt;html></code> element.
 
-<p>This idea spread like wildfire, and soon all major browsers had two modes: &#8220;quirks mode&#8221; and &#8220;standards mode.&#8221; Of course, this being the web, things quickly got out of hand. When Mozilla tried to ship version 1.1 of their browser, they discovered that there were pages being rendered in &#8220;standards mode&#8221; which were actually relying on one specific quirk. Mozilla had just fixed its rendering engine to eliminate this quirk, and thousands of pages broke all at once. Thus was created&nbsp;&mdash;&nbsp;and I am not making this up&nbsp;&mdash;&nbsp;&#8220;<a href=https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode>almost standards mode</a>.&#8221;
+<p>This idea spread like wildfire, and soon all major browsers had two modes: &#8220;quirks mode&#8221; and &#8220;standards mode.&#8221; Of course, this being the web, things quickly got out of hand. When Mozilla tried to ship version 1.1 of their browser, they discovered that there were pages being rendered in &#8220;standards mode&#8221; which were actually relying on one specific quirk. Mozilla had just fixed its rendering engine to eliminate this quirk, and thousands of pages broke all at once. Thus was created &mdash; and I am not making this up &mdash; &#8220;<a href=https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode>almost standards mode</a>.&#8221;
 
 <p>In his seminal work, <a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a>, Henri Sivonen summarizes the different modes:
 
@@ -44,7 +47,7 @@ body{counter-reset:h1 3}
 </dl>
 </blockquote>
 
-<p>(You should read the rest of Henri&#8217;s article, because I&#8217;m simplifying immensely here. Even in IE5/Mac, there were a few older doctypes that didn&#8217;t count as far as opting into standards support. Over time, the list of quirks grew, and so did the list of doctypes that triggered &#8220;quirks mode.&#8221; The last time I tried to count, there were 15 doctypes that triggered &#8220;standards mode,&#8221; 5 that triggered &#8220;almost standards mode,&#8221; and 73 that triggered &#8220;quirks mode.&#8221; But I probably missed some, and I&#8217;m not even going to talk about the crazy shit that Internet Explorer 8 does to switch between its four&nbsp;&mdash;&nbsp;four!&nbsp;&mdash;&nbsp;different rendering modes. <a href=http://hsivonen.iki.fi/doctype/ie8-mode.png>Here&#8217;s a flowchart</a>. Kill it. Kill it with fire.)
+<p>(You should read the rest of Henri&#8217;s article, because I&#8217;m simplifying immensely here. Even in IE5/Mac, there were a few older doctypes that didn&#8217;t count as far as opting into standards support. Over time, the list of quirks grew, and so did the list of doctypes that triggered &#8220;quirks mode.&#8221; The last time I tried to count, there were 15 doctypes that triggered &#8220;standards mode,&#8221; 5 that triggered &#8220;almost standards mode,&#8221; and 73 that triggered &#8220;quirks mode.&#8221; But I probably missed some, and I&#8217;m not even going to talk about the crazy shit that Internet Explorer 8 does to switch between its four &mdash; four! &mdash; different rendering modes. <a href=http://hsivonen.iki.fi/doctype/ie8-mode.png>Here&#8217;s a flowchart</a>. Kill it. Kill it with fire.)
 
 <p>Now then. Where were we? Ah yes, the doctype:
 
@@ -90,8 +93,7 @@ body{counter-reset:h1 3}
 
 <p>Dropping the <code>xmlns</code> attribute leaves us with this root element:
 
-<pre><code>&lt;html lang="en"
-      xml:lang="en"></code></pre>
+<pre><code>&lt;html lang="en" xml:lang="en"></code></pre>
 
 <p>This brings me to my second point. The two attributes here, <code>lang</code> and <code>xml:lang</code>, are defining the language of this <abbr>HTML</abbr> page. (<code>en</code> stands for &#8220;English.&#8221; Not writing in English? <a href=http://www.rfc-editor.org/rfc/bcp/bcp47.txt>Find your language code here</a>.) Why two attributes for the same thing? Again, this is a vestige of <abbr>XHTML</abbr>. Only the <code>lang</code> attribute has any effect in <abbr>HTML5</abbr>. You can keep the <code>xml:lang</code> attribute if you like, but if you do, you need to ensure that it <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-lang-and-xml:lang-attributes">contains the same value as the <code>lang</code> attribute</a>.
 
@@ -109,7 +111,7 @@ body{counter-reset:h1 3}
 
 <p class=c><img src=i/openclipart.org_johnny_automatic_8_from_behind.png alt="8 men from behind" width=554 height=164>
 
-<p>The first child of the root element is usually the <code>&lt;head></code> element. The <code>&lt;head></code> element contains metadata&nbsp;&mdash;&nbsp;information <em>about</em> the page, rather than the body of the page itself. (The body of the page is, unsurprisingly, contained in the <code>&lt;body></code> element.) The <code>&lt;head></code> element itself is rather boring, and it hasn&#8217;t changed in any interesting way in <abbr>HTML5</abbr>. The good stuff is what&#8217;s <em>inside</em> the <code>&lt;head></code> element. And for that, we turn once again to <a href=examples/blog-original.html>our example page</a>:
+<p>The first child of the root element is usually the <code>&lt;head></code> element. The <code>&lt;head></code> element contains metadata&nbsp;&mdash; information <em>about</em> the page, rather than the body of the page itself. (The body of the page is, unsurprisingly, contained in the <code>&lt;body></code> element.) The <code>&lt;head></code> element itself is rather boring, and it hasn&#8217;t changed in any interesting way in <abbr>HTML5</abbr>. The good stuff is what&#8217;s <em>inside</em> the <code>&lt;head></code> element. And for that, we turn once again to <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;head>
   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -202,7 +204,7 @@ body{counter-reset:h1 3}
 
 <h3 id=rel-stylesheet>rel = stylesheet</h3>
 
-<p>Let&#8217;s look at the first link relation in <a href=examples/blog-original.html>that weblog template</a>:
+<p>Let&#8217;s look at the first link relation in <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;link rel="stylesheet" href="style-original.css" type="text/css" /></code></pre>
 
@@ -212,7 +214,7 @@ body{counter-reset:h1 3}
 
 <h3 id=rel-alternate>rel = alternate</h3>
 
-<p>Continuing with <a href=examples/blog-original.html>that weblog template</a>:
+<p>Continuing with <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;link rel="alternate"
        type="application/atom+xml"
@@ -269,7 +271,30 @@ body{counter-reset:h1 3}
 
 <h2 id=new-elements>New Semantic Elements in HTML5</h2>
 
-<p>FIXME
+<p><abbr>HTML5</abbr> is not just about making existing markup shorter (although it does a fair amount of that). It also defines a number of new semantic elements.
+
+<dl class=col>
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-section-element><code>&lt;section></code></a>
+<dd>The <code>section</code> element represents a generic document or application section. A section, in this context, is a thematic grouping of content, typically with a heading. Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site's home page could be split into sections for an introduction, news items, contact information.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-nav-element><code>&lt;nav></code></a>
+<dd>The <code>nav</code> element represents a section of a page that links to other pages or to parts within the page: a section with navigation links. Not all groups of links on a page need to be in a <code>nav</code> element &mdash; only sections that consist of major navigation blocks are appropriate for the <code>nav</code> element. In particular, it is common for footers to have a short list of links to various pages of a site, such as the terms of service, the home page, and a copyright page. The <code>footer</code> element alone is sufficient for such cases, without a <code>nav</code> element.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-article-element><code>&lt;article></code></a>
+<dd>The <code>article</code> element represents a component of a page that consists of a self-contained composition in a document, page, application, or site and that is intended to be independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a Web log entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-aside-element><code>&lt;aside></code></a>
+<dd>The <code>aside</code> element represents a section of a page that consists of content that is tangentially related to the content around the <code>aside</code> element, and which could be considered separate from that content. Such sections are often represented as sidebars in printed typography. The element can be used for typographical effects like pull quotes or sidebars, for advertising, for groups of <code>nav</code> elements, and for other content that is considered separate from the main content of the page.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-hgroup-element><code>&lt;hgroup></code></a>
+<dd>The <code>hgroup</code> element represents the heading of a section. The element is used to group a set of <code>h1</code>&ndash;<code>h6</code> elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element><code>&lt;header></code></a>
+<dd>The <code>header</code> element represents a group of introductory or navigational aids. A <code>header</code> element is intended to usually contain the section&#8217;s heading (an <code>h1</code>&ndash;<code>h6</code> element or an <code>hgroup</code> element), but this is not required. The <code>header</code> element can also be used to wrap a section&#8217;s table of contents, a search form, or any relevant logos.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element><code>&lt;footer></code></a>
+<dd>The <code>footer</code> element represents a footer for its nearest ancestor sectioning content or sectioning root element. A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like. Footers don&#8217;t necessarily have to appear at the end of a section, though they usually do. When the <code>footer</code> element contains entire sections, they represent appendices, indexes, long colophons, verbose license agreements, and other such content.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element><code>&lt;time></code></a>
+<dd>The <code>time</code> element represents either a time on a 24 hour clock, or a precise date in the proleptic Gregorian calendar, optionally with a time and a time-zone offset.
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-mark-element><code>&lt;mark></code></a>
+<dd>The <code>mark</code> element represents a run of text in one document marked or highlighted for reference purposes.
+</dl>
+
+<p>I know you&#8217;re anxious to start using these new elements, otherwise you wouldn&#8217;t be reading this chapter. But first we need to take a little detour.
 
 <h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
 
@@ -293,7 +318,7 @@ body{counter-reset:h1 3}
 &lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
 &lt;/article></code></pre>
 
-<p>Internet Explorer (up to and including IE 8) will not put a red border around the section.</p>
+<p>Internet Explorer (up to and including IE 8) will not put a red border around the article.</p>
 
 <p>The second problem is the DOM that browsers create when they encounter unknown elements.  Again, the most problematic browser is Internet Explorer.  If IE doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>.  All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
@@ -331,12 +356,12 @@ p (sibling of h1)
 |
 +--text node "."</pre>
 
-<p>There is a wonderous workaround for this problem. If you <a href=http://xopus.com/devblog/2008/style-unknown-elements.html>create a dummy <code>&lt;section></code> element</a> with Javascript before you use it in your page, Internet Explorer will magically recognize the <code>&lt;section></code> element and let you style it with CSS. There is no need to ever insert the dummy element into the <abbr>DOM</abbr>. Simply creating the element once (per page) is enough to teach IE to style the element it doesn&#8217;t recognize.
+<p>There is a wonderous workaround for this problem. If you <a href=http://xopus.com/devblog/2008/style-unknown-elements.html>create a dummy <code>&lt;article></code> element</a> with Javascript before you use it in your page, Internet Explorer will magically recognize the <code>&lt;article></code> element and let you style it with CSS. There is no need to ever insert the dummy element into the <abbr>DOM</abbr>. Simply creating the element once (per page) is enough to teach IE to style the element it doesn&#8217;t recognize.
 
 <pre><code>&lt;html>
 &lt;head>
 &lt;style>
-  section { display: block; border: 1px solid red }
+  article { display: block; border: 1px solid red }
 &lt;/style>
 <mark>&lt;script>document.createElement("article");&lt;/script></mark>
 &lt;/head>
@@ -344,7 +369,7 @@ p (sibling of h1)
 &lt;article>
 &lt;h1>Welcome to Initech&lt;/h1>
 &lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
-&lt;/section>
+&lt;/article>
 &lt;/body>
 &lt;/html></code></pre>
 
