@@ -13,23 +13,64 @@ body{counter-reset:h1 3}
 <p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-y.png alt=Y width=109 height=105>FIXME
+<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>his chapter will take an <abbr>HTML</abbr> page that has absolutely nothing wrong with it, and improve it. Parts of it will become shorter. Parts will become longer. All of it will become more semantic. It&#8217;ll be awesome.
+
+<p style="clear:both"><a href=examples/blog-original.html>Here is the page in question</a>. Learn it. Live it. Love it. Open it in a new tab and don&#8217;t come back until you&#8217;ve hit &#8220;View Source&#8221; at least once.
 
 <h2 id=the-doctype>The Doctype</h2>
 
-<p>FIXME
+<p>From the top:
 
-<pre><code>&lt;!DOCTYPE html PUBLIC
-  "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></code></pre>
+<pre><code>&lt;!DOCTYPE html
+          PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
 
-<p>FIXME
+<p>This is called the &#8220;doctype.&#8221; There&#8217;s a long history&nbsp;&mdash;&nbsp;and a black art&nbsp;&mdash;&nbsp;behind the doctype. During the development of Internet Explorer 5 for Mac, Microsoft found themselves with a surprising problem. The upcoming version of their browser had improved its standards support so much, older pages no longer rendered properly. Well, they rendered properly (according to specification), but people expected them to render <em>improperly</em>. The pages themselves had been authored based on the quirks of dominant browsers of the day, mostly Netscape 4 and Internet Explorer 4. IE5/Mac was so advanced, it actually broke the web.
 
-<!--
-- standards modes, doctype sniffing
--->
+<p>Microsoft came up with a novel solution. Before rendering a page, IE5/Mac looked at the &#8220;doctype,&#8221; which is typically the first line of the <abbr>HTML</abbr> source (even before the <code>&lt;html></code> element). Older pages (that relied on the rendering quirks of older browsers) generally didn&#8217;t have a doctype at all. IE5/Mac rendered these pages like older browsers did. In order to &#8220;activate&#8221; the new standards support, authors would have to opt-in, by supplying the right doctype before their <code>&lt;html></code> element.
+
+<p>This idea spread like wildfire, and soon all major browsers had two modes: &#8220;quirks mode&#8221; and &#8220;standards mode.&#8221; Of course, this being the web, things quickly got out of hand. When Mozilla tried to ship version 1.1 of their browser, they discovered that there were pages being rendered in &#8220;standards mode&#8221; which were actually relying on one specific quirk. Mozilla had just fixed its rendering engine to eliminate this quirk, and thousands of pages broke all at once. Thus was created&nbsp;&mdash;&nbsp;and I am not making this up&nbsp;&mdash;&nbsp;&#8220;<a href=https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode>almost standards mode</a>.&#8221;
+
+<p>In his seminal work, <a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a>, Henri Sivonen summarizes the different modes:
+
+<blockquote>
+<dl> 
+<dt>Quirks Mode
+<dd>In the Quirks mode, browsers violate contemporary Web format specifications in order to avoid &#8220;breaking&#8221; pages authored according to practices that were prevalent in the late 1990s.
+<dt>Standards Mode
+<dd>In the Standards mode, browsers try to give conforming documents the specification-wise correct treatment to the extent implemented in a particular browser. <abbr>HTML5</abbr> calls this mode the &#8220;no quirks mode.&#8221;
+<dt>Almost Standards Mode
+<dd>Firefox, Safari, Chrome, Opera (since 7.5) and IE8 also have a mode known as &#8220;Almost Standards mode,&#8221; which implements the vertical sizing of table cells traditionally and not rigorously according to the CSS2 specification. <abbr>HTML5</abbr> calls this mode the &#8220;limited quirks mode.&#8221;
+</dl>
+</blockquote>
+
+<p>(You should read the rest of Henri&#8217;s article, because I&#8217;m simplifying immensely here. Even in IE5/Mac, there were a few older doctypes that didn&#8217;t count as far as opting into standards support. Over time, the list of quirks grew, and so did the list of doctypes that triggered &#8220;quirks mode.&#8221; The last time I tried to count, there were 15 doctypes that triggered &#8220;standards mode,&#8221; 5 that triggered &#8220;almost standards mode,&#8221; and 73 that triggered &#8220;quirks mode.&#8221; But I probably missed some, and I&#8217;m not even going to talk about the crazy shit that Internet Explorer 8 does to switch between its four&nbsp;&mdash;&nbsp;four!&nbsp;&mdash;&nbsp;different rendering modes. <a href=http://hsivonen.iki.fi/doctype/ie8-mode.png>Here&#8217;s a flowchart</a>. Kill it. Kill it with fire.)
+
+<p>Now then. Where were we? Ah yes, the doctype:
+
+<pre><code>&lt;!DOCTYPE html
+          PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
+
+<p>That happens to be one of the 13 doctypes that trigger &#8220;standards mode&#8221; in all modern browsers. There&#8217;s nothing wrong with it. If you like it, you can keep it. Or you can change it to the <abbr>HTML5</abbr> doctype, which is shorter and sweeter and also triggers &#8220;standards mode&#8221; in all modern browsers.
+
+<p>This is the <abbr>HTML5</abbr> doctype:
 
 <pre><code>&lt;!DOCTYPE html></code></pre>
+
+<p>That&#8217;s it. Just 15 characters. It&#8217;s so easy, you can type it by hand and not screw it up. It&#8217;s even case-insensitive, so if you prefer, you can type it like this:
+
+<pre><code>&lt;!DOCTYPE HTML></code></pre>
+
+<p>Or this:
+
+<pre><code>&lt;!doctype html></code></pre>
+
+<p>Or even this:
+
+<pre><code>&lt;!DoCtYpE hTmL></code></pre>
+
+<p>They all trigger &#8220;standards mode&#8221; in all browsers.
 
 <h2 id=html-element>The Root Element</h2>
 
@@ -200,9 +241,7 @@ body{counter-reset:h1 3}
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-tag>rel=tag</a> &#8220;indicates that the tag that the referenced document represents applies to the current document.&#8221; Marking up &#8220;tags&#8221; (category keywords) with the <code>rel</code> attribute was <a href=http://www.powazek.com/2005/07/000532.html>invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &#8220;Technorati tags.&#8221; (You read that right: a commercial company convinced the entire world to add metadata that made the company&#8217;s job easier. Nice work if you can get it!) The syntax was later <a href=http://microformats.org/wiki/rel-tag>standardized within the microformats community</a>, where it was simply called <code>rel=tag</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel=tag</code> links. Browsers do not do anything special with them, but they&#8217;re really designed for search engines to use as a signal of what the page is about.
 
-<h2 id=header-element>Headers</h2>
-
-<p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
+<h2 id=new-elements>New Semantic Elements in HTML5</h2>
 
 <p>FIXME
 
@@ -220,13 +259,13 @@ body{counter-reset:h1 3}
 <p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements.  Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS.  Unfortunately, Internet Explorer does not allow styling on unknown elements.  For example, if you had this markup:</p>
 
 <pre><code>&lt;style type="text/css">
-  section { border: 1px solid red }
+  article { border: 1px solid red }
 &lt;/style>
 ...
-&lt;section>
+&lt;article>
 &lt;h1>Welcome to Initech&lt;/h1>
-&lt;p>This is our &lt;span>home page&lt;/span>.&lt;/p>
-&lt;/section></code></pre>
+&lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
+&lt;/article></code></pre>
 
 <p>Internet Explorer (up to and including IE 8) will not put a red border around the section.</p>
 
@@ -234,35 +273,35 @@ body{counter-reset:h1 3}
 
 <p>Here is some ASCII art to showcase the difference. This is the DOM that HTML5 dictates:
 
-<pre>section
+<pre>article
 |
-+--h1 (child of section)
++--h1 (child of article)
 |  |
 |  +--text node "Welcome to Initech"
 |
-+--p (child of section, sibling of h1)
++--p (child of article, sibling of h1)
    |
-   +--text node "This is our "
+   +--text node "This is your "
    |
    +--span
    |  |
-   |  +--text node "home page"
+   |  +--text node "first day"
    |
    +--text node "."</pre>
 
 <p>But this is the DOM that Internet Explorer actually creates:
 
-<pre>section (no children)
-h1 (sibling of section)
+<pre>article (no children)
+h1 (sibling of article)
 |
 +--text node "Welcome to Initech"
 p (sibling of h1)
 |
-+--text node "This is our "
++--text node "This is your "
 |
 +--span
 |  |
-|  +--text node "home page"
+|  +--text node "first day"
 |
 +--text node "."</pre>
 
@@ -273,19 +312,21 @@ p (sibling of h1)
 &lt;style>
   section { display: block; border: 1px solid red }
 &lt;/style>
-<mark>&lt;script>document.createElement("section");&lt;/script></mark>
+<mark>&lt;script>document.createElement("article");&lt;/script></mark>
 &lt;/head>
 &lt;body>
-&lt;section>
+&lt;article>
 &lt;h1>Welcome to Initech&lt;/h1>
-&lt;p>This is our &lt;span>home page&lt;/span>.&lt;/p>
+&lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
 &lt;/section>
 &lt;/body>
 &lt;/html></code></pre>
 
 <p>This works in all versions of Internet Explorer, all the way back to IE 6!
 
-<h2 id=section-element>Sections</h2>
+<h2 id=header-element>Headers</h2>
+
+<p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
 
 <p>FIXME
 
