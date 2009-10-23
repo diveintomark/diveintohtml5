@@ -373,7 +373,37 @@ p (sibling of h1)
 &lt;/body>
 &lt;/html></code></pre>
 
-<p>This works in all versions of Internet Explorer, all the way back to IE 6!
+<p>This works in all versions of Internet Explorer, all the way back to IE 6! We can extend this technique to create dummy copies of all the new <abbr>HTML5</abbr> elements at once &mdash; again, they&#8217;re never inserted into the <abbr>DOM</abbr>, so you&#8217;ll never see these dummy elements &mdash; and then just start using them without having to worry too much about non-HTML5-capable browsers.
+
+<p>Remy Sharp has done just that, with his aptly-named <a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a>. It looks like this:
+
+<pre><code>&lt;!--[if IE]>
+&lt;script>
+  var e = "abbr,article,aside,audio,canvas,datalist,details," +
+    "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+    "progress,section,time,video".split(',');
+  var i = e.length;
+  while (i--) {
+    document.createElement(e[i]);
+  }
+&lt;/script>
+&lt;![endif]--></code></pre>
+
+<p>The <code>&lt;!--[if IE]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is any version of Internet Explorer, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
+
+<p>The JavaScript code itself is relatively straightforward. The variable <var>e</var> ends up as an array of strings like <code>"abbr"</code>, <code>"article"</code>, <code>"aside"</code>, and so on. Then we loop through this array and create each of the named elements by calling <code>document.createElement()</code>. But since we ignore the return value, the elements are never inserted into the <abbr>DOM</abbr>. But this is enough to get Internet Explorer to treat these elements the way we want them to be treated, once we actually use them later in the page.
+
+<p>That &#8220;later&#8221; bit is important. This script needs to be in the <code>&lt;head></code> of your page, not at the bottom. That way, Internet Explorer will execute the script <em>before</em> it parses your tags and attributes. If you put this script at the bottom of your page, it will be too late. Internet Explorer will have already misinterpreted your markup and constructed the wrong <abbr>DOM</abbr>, and it won&#8217;t go back and adjust it just because of this script. So this script needs to be at the top of your page, preferably in your <code>&lt;head></code> element.
+
+<p>Remy Sharp has &#8220;minified&#8221; this script and <a href=http://code.google.com/p/html5shiv/>hosted it on Google Project Hosting</a>. (In case you were wondering, the script itself is open source and MIT-licensed, so you can use it in any project.) If you like, you can even &#8220;hotlink&#8221; the script by pointing directly to the hosted version, like this:
+
+<pre><code>&lt;head>
+  &lt;!--[if IE]>
+  &lt;script <mark>src="<a href=http://html5shiv.googlecode.com/svn/trunk/html5.js>http://html5shiv.googlecode.com/svn/trunk/html5.js</a>"</mark>>&lt;/script>
+  &lt;![endif]-->
+&lt;/head></code></pre>
+
+<p>And now we&#8217;re ready to start using the new semantic elements in <abbr>HTML5</abbr>.
 
 <h2 id=header-element>Headers</h2>
 
