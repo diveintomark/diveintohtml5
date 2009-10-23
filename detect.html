@@ -19,7 +19,7 @@ body{counter-reset:h1 2}
 
 <h2 id=techniques>Detection Techniques</h2>
 
-<p>When your browser renders a web page, it constructs a Document Object Model (<abbr><dfn>DOM</dfn></abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element&nbsp;&mdash;&nbsp;every <code>&lt;p></code>, every <code>&lt;div></code>, every <code>&lt;span></code>&nbsp;&mdash;&nbsp;is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren&#8217;t tied to specific elements.)
+<p>When your browser renders a web page, it constructs a Document Object Model (<abbr><dfn>DOM</dfn></abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element &mdash; every <code>&lt;p></code>, every <code>&lt;div></code>, every <code>&lt;span></code> &mdash; is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren&#8217;t tied to specific elements.)
 
 <p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_peeking_out_the_window.png width=257 height=436 alt="girl peeking out the window">
 
@@ -187,7 +187,7 @@ body{counter-reset:h1 2}
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src=i/openclipart.org_johnny_automatic_man_reading_newspaper.png alt="man reading newspaper" width=250 height=261><br><span id=live-video-formats></span>
 
-<p>The &#8220;language&#8221; of a video is called a &#8220;codec&#8221;&nbsp;&mdash;&nbsp;the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&#8217;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Adobe Flash&reg;, if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
+<p>The &#8220;language&#8221; of a video is called a &#8220;codec&#8221; &mdash; the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&#8217;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Adobe Flash&reg;, if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
 
 <p>Checking for video format support uses <a href=#techniques>detection technique #3</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
 
@@ -279,7 +279,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page as your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href=http://mail.google.com/>Gmail</a> or <a href=http://docs.google.com/>Google Docs</a>? Thanks to <abbr>HTML5</abbr>, anyone (not just Google!) can build a web application that works offline.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything&nbsp;&mdash;&nbsp;<abbr>HTML</abbr>, JavaScript, images, even <a href=#video>videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&#8217;re not connected to the Internet. Your browser will notice that you&#8217;re offline and use the files it already downloaded. Once you get back online, any changes you made can be uploaded to the remote web server.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything &mdash; <abbr>HTML</abbr>, JavaScript, images, even <a href=#video>videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&#8217;re not connected to the Internet. Your browser will notice that you&#8217;re offline and use the files it already downloaded. Once you get back online, any changes you made can be uploaded to the remote web server.
 
 <p>Checking for offline support uses <a href=#techniques>detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support offline web applications, the <code>applicationCache</code> property will be undefined.
 
@@ -295,7 +295,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=ss style="width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
-<p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are&nbsp;&mdash;&nbsp;your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
+<p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
 
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
@@ -363,7 +363,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If geolocation is being provided by Gears, this will pop up a dialog asking if your trust the web site to use Gears. If your browser natively supports the geolocation <abbr>API</abbr>, the dialog will look different. For example, Firefox 3.5 natively supports the geolocation <abbr>API</abbr>. If you try to find your location in Firefox 3.5, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
 
-<p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location&nbsp;&mdash;&nbsp;that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic&nbsp;&mdash;&nbsp;it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
+<p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location &mdash; that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic &mdash; it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
 
 <pre><code>  geo_position_js.getCurrentPosition(<mark>geo_success</mark>, geo_error);</code></pre>
 
@@ -375,7 +375,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
         ", longitude " + p.coords.longitude);
 }</code></pre>
 
-<p>If the <code>getCurrentPosition()</code> function could not find your location&nbsp;&mdash;&nbsp;either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason&nbsp;&mdash;&nbsp;it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geo_error</code>.
+<p>If the <code>getCurrentPosition()</code> function could not find your location &mdash; either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason &mdash; it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geo_error</code>.
 
 <pre><code>  geo_position_js.getCurrentPosition(geo_success, <mark>geo_error</mark>);</code></pre>
 
