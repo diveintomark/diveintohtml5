@@ -275,11 +275,13 @@ h2 {
   line-height: 1.3125;
   margin: 1.167em 0;
   text-align: center;
+  clear: both;
 }
 h3 {
   font-size: x-large;
   line-height: 1.167;
   margin: 1.556em 0;
+  text-align: center;
 }
 h1:before {
   content: "№" counter(h1) ". ";

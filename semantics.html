@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>What Does It All Mean? - Dive Into HTML5</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
+<link rel=stylesheet href=screen.css>
+<style>
+body{counter-reset:h1 3}
+</style>
+<div id=zz>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#semantics>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1>What Does It All Mean?</h1>
+<p id=toc>&nbsp;
+<p class=a>&#x2042;
+<h2 id=divingin>Diving In</h2>
+
+<p class=f><img src=i/aoc-y.png alt=Y width=109 height=105>FIXME
+
+<h2 id=the-doctype>The Doctype</h2>
+
+<p>FIXME
+
+<pre><code>&lt;!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></code></pre>
+
+<p>FIXME
+
+<!--
+- standards modes, doctype sniffing
+-->
+
+<pre><code>&lt;!DOCTYPE html></code></pre>
+
+<h2 id=html-element>The Root Element</h2>
+
+<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:280px"><img src=i/openclipart.org_johnny_automatic_tree_on_top_of_hill.png alt="tree on top of hill" width=280 height=394>
+
+<p>FIXME
+
+<pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en"
+      xml:lang="en"></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;html lang="en"
+      xml:lang="en"></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;html lang="en"></code></pre>
+
+<h2 id=head-element>The &lt;head> Element</h2>
+
+<p class=c><img src=i/openclipart.org_johnny_automatic_8_from_behind.png alt="8 men from behind" width=554 height=164>
+
+<p>FIXME
+
+<h2 id=encoding>Character Encoding</h2>
+
+<p>When you think of &#8220;text,&#8221; you probably think of &#8220;characters and symbols I see on my computer screen.&#8221; But computers don&#8217;t deal in characters and symbols; they deal in bits and bytes.  Every piece of text you&#8217;ve ever seen on a computer screen is actually stored in a particular <em>character encoding</em>.  There are many different character encodings, some optimized for particular languages like Russian or Chinese or English, and others that can be used for multiple languages.  Very roughly speaking, the character encoding provides a mapping between the stuff you see on your screen and the stuff your computer actually stores in memory and on disk.</p>
+
+<p>In reality, it&#8217;s more complicated than that.  Many characters are common to multiple encodings, but each encoding may use a different sequence of bytes to actually store those characters in memory or on disk.  So you can think of the character encoding as a kind of decryption key for the text.  Whenever someone gives you a sequence of bytes and claims it&#8217;s &#8220;text,&#8221; you need to know what character encoding they used so you can decode the bytes into characters and display them (or process them, or whatever).</p>
+
+<p>So, how does your browser actually determine the character encoding of the stream of bytes that a web server sends? I&#8217;m glad you asked. If you&#8217;re familiar with <acronym>HTTP</acronym> headers, you may have seen a header like this:</p>
+
+<blockquote><p><code>Content-Type: text/html; charset="utf-8"</code></p></blockquote>
+
+<p>Briefly, this says that the web server thinks it&#8217;s sending you an HTML document, and that it thinks the document uses the <code>UTF-8</code> character encoding.  Unfortunately, in the whole magnificent soup of the world wide web, very few authors actually have control over their HTTP server.  Think <a href="http://www.blogger.com/">Blogger</a>: the content is provided by individuals, but the servers are run by Google.  So HTML 4 provided a way to specify the character encoding in the HTML document itself.  You&#8217;ve probably seen this too:</p>
+
+<blockquote><p><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"></code></p></blockquote>
+
+<p>Briefly, this says that the web author thinks they have authored an HTML document using the <code>UTF-8</code> character encoding.
+
+<p>Both of these techniques still work in <abbr>HTML5</abbr>. The <abbr>HTTP</abbr> header is the preferred method, and it overrides the <code>&lt;meta></code> tag if present. But not everyone can set <abbr>HTTP</abbr> headers, so the <code>&lt;meta></code> tag is still around. IN fact, it got a little easier in <abbr>HTML5</abbr>. Now it looks like this:</p>
+
+<blockquote><p><code>&lt;meta charset="utf-8"></code></p></blockquote>
+
+<p>This works in all browsers. How did this shortened syntax come about? Here is <a href="http://lists.w3.org/Archives/Public/public-html/2007Jul/0550.html">the best explanation I could find</a>:</p>
+
+<blockquote cite="http://lists.w3.org/Archives/Public/public-html/2007Jul/0550.html">
+<p>The rationale for the <code>&lt;meta charset=""></code> attribute combination is that UAs already implement it, because people tend to leave things unquoted, like:</p>
+<p><code>&lt;META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=ISO-8859-1></code></p>
+</blockquote>
+
+<p>(There are even a few <a href="http://simon.html5.org/test/html/parsing/encoding/"><code>&lt;meta charset></code> test cases</a> if you don&#8217;t believe that browsers already do this.)</p>
+
+<div class=pf>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: I never use funny characters. Do I still need to declare my character encoding?<br>
+<p>A: Yes! You should <em>always</em> specify a character encoding on every <abbr>HTML</abbr> page you serve. Not specifying an encoding <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7">can lead to security vulnerabilities</a>.
+</blockquote>
+</div>
+</div>
+
+<p>To sum up: character encoding is complicated, and it has not been made any easier by several decades of poorly written software used by copy-and-paste&ndash;educated authors.  You should <strong>always</strong> specify a character encoding on <strong>every</strong> HTML document, or <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7">bad things will happen</a>.  You can do it with the HTTP <code>Content-Type</code> header, the <code>&lt;meta http-equiv></code> declaration, or the shorter <code>&lt;meta charset></code> declaration, but please do it. The web thanks you.</p>
+
+<h2 id=link>Friends &amp; (Link) Relations</h2>
+
+<p>Regular links (<code>&lt;a href></code>) simply point to another page. Link relations are a way to explain <em>why</em> you&#8217;re pointing to another page. They finish the sentence &#8220;I&#8217;m pointing to this other page because...&#8221;
+
+<ul>
+<li>...it&#8217;s a stylesheet containing CSS rules that your browser should apply to this document
+<li>...it&#8217;s a feed that contains the same content as this page, but in a standard subscribable format
+<li>...it&#8217;s a translation of this page into another language
+<li>...it&#8217;s the same content as this page, but in <abbr>PDF</abbr> format
+<li>...it&#8217;s the next chapter of an online book that this page is also a part of
+</ul>
+
+<p>And so on. <abbr>HTML5</abbr> breaks link relations <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-link-rel>into two categories</a>:
+
+<blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-link-rel>
+<p>Two categories of links can be created using the link element. <b>Links to external resources</b> are links to resources that are to be used to augment the current document, and <b>hyperlink links</b> are links to other documents. ...
+<p>The exact behavior for links to external resources depends on the exact relationship, as defined for the relevant link type.
+</blockquote>
+
+<p>Of the examples I just gave, only the first (<code>rel=stylesheet</code>) is a link to an external resource. The rest are hyperlinks to other documents. You may wish to follow those links, or you may not, but they&#8217;re not required in order to view the current page.
+
+<p>Most often, link relations are seen on <code>&lt;link></code> elements within the <code>&lt;head></code> of a page. Some link relations can also be used on <code>&lt;a></code> elements, but this is uncommon even when allowed. <abbr>HTML5</abbr> also allows some relations on <code>&lt;area></code> elements, but this is even <em>less</em> common. (HTML 4 did not allow a <code>rel</code> attribute on <code>&lt;area></code> elements.) See <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#linkTypes>the full chart of link relations</a> to check where you can use specific <code>rel</code> values.
+
+<div class=pf>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Can I make up my own link relations?<br>
+<p>A: There seems to be an infinite supply of ideas for new link relations. In an attempt to prevent people from <a href=http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/chapter_8_section_2.html>just making shit up</a>, the WHATWG <a href=http://wiki.whatwg.org/wiki/RelExtensions>maintains a registry of proposed <code>rel</code> values</a> and <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#other-link-types>defines the process for getting them accepted</a>.
+</blockquote>
+</div>
+</div>
+
+<h3 id=rel-stylesheet>rel = stylesheet</h3>
+
+<p>Let&#8217;s look at the first link relation in <a href=examples/blog-original.html>that weblog template</a>:
+
+<pre><code>&lt;link rel="stylesheet"
+      href="style-original.css"
+      type="text/css" /></code></pre>
+
+<p>This is the most frequently used link relation in the world (literally). <code>&lt;link rel=stylesheet></code> is for pointing to <abbr>CSS</abbr> rules that are stored in a separate file. One small optimization you can make in <abbr>HTML5</abbr> is to drop the <code>type</code> attribute. There&#8217;s only one stylesheet language for the web, <abbr>CSS</abbr>, so that&#8217;s the default value for the <code>type</code> attribute. This works in all browsers. (I suppose someone could invent a new stylesheet language someday, but if that happens, just add the <code>type</code> attribute back.)
+
+<pre><code>&lt;link rel="stylesheet"
+      href="style-original.css" /></code></pre>
+
+<h3 id=rel-alternate>rel = alternate</h3>
+
+<p>Continuing with <a href=examples/blog-original.html>that weblog template</a>:
+
+<pre><code>&lt;link rel="alternate"
+       type="application/atom+xml"
+       title="Lorem ipsum feed"
+       href="/feed/" /></code></pre>
+
+<p>This link relation is also quite common. <code>&lt;link rel=alternate></code>, combined with either the <abbr>RSS</abbr> or Atom media type in the <code>type</code> attribute, is called &#8220;feed autodiscovery.&#8221; It allows syndicated feed readers (like <a href="http://www.google.com/reader/">Google Reader</a>) to discover that a site has a news feed of the latest articles. Most browsers also support feed autodiscovery by displaying a special icon next to the <abbr>URL</abbr>. (Unlike <code>rel=stylesheet</code>, the <code>type</code> attribute matters here. Don&#8217;t drop it!)
+
+<p>The <code>rel=alternate</code> link relation has always been a strange hybrid of use cases, <a href=http://www.w3.org/TR/html401/types.html#type-links>even in HTML 4</a>. In <abbr>HTML5</abbr>, its definition has been clarified and extended to more accurately describe existing web content. As you just saw, using <code>rel=alternate</code> in conjunction with <code>type=application/atom+xml</code> indicates an Atom feed for the current page. But you can also use <code>rel=alternate</code> in conjunction with other <code>type</code> attributes to indicate the same content in another format, like <abbr>PDF</abbr>.
+
+<p>HTML5 also puts to rest a long-standing confusion about how to link to translations of documents. HTML 4 says to use the <code>lang</code> attribute in conjunction with <code>rel=alternate</code> to specify the language of the linked document, but this is incorrect. The <a href=http://www.w3.org/MarkUp/html4-updates/errata>HTML 4 Errata</a> lists four outright errors in the HTML 4 spec (along with several editorial nits); one of these outright errors is how to specify the language of a document linked with <code>rel=alternate</code> (The correct way, described in the HTML 4 Errata and now in <abbr>HTML5</abbr>, is to use the <code>hreflang</code> attribute.) Unfortunately, these errata were never re-integrated into the HTML 4 spec, because no one in the W3C HTML Working Group was working on HTML anymore.
+
+<h3 id=new-relations>Other Link Relations in HTML5</h3>
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-archives>rel=archives</a> &#8220;indicates that the referenced document describes a collection of records, documents, or other materials of historical interest. A blog&#8217;s index page could link to an index of the blog&#8217;s past posts with rel="archives".&#8221;
+
+<p><code>rel=author</code> is used to link to information about the author of the page. This can be a <code>mailto:</code> address, though it doesn&#8217;t have to be. It could simply link to a contact form or &#8220;about the author&#8221; page.
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-external>rel=external</a> &#8220;indicates that the link is leading to a document that is not part of the site that the current document forms a part of.&#8221; I believe it was first popularized by <a href=http://www.wordpress.org/>WordPress</a>, which uses it on links left by commenters.
+
+<p class=ss style="width:313px"><img src=i/openclipart.org_johnny_automatic_girl_feeding_birds.png width=313 height=384 alt="girl feeding birds">
+
+<p>HTML 4 defined <a href=http://www.w3.org/TR/html401/types.html#type-links><code>rel=start</code>, <code>rel=prev</code>, and <code>rel=next</code></a> to define relations between pages that are part of a series (like chapters of a book, or even posts on a blog). The only one that was ever used correctly was <code>rel=next</code>. People used <code>rel=previous</code> instead of <code>rel=prev</code>; they used <code>rel=begin</code> and <code>rel=first</code> instead of <code>rel=start</code>; they used <code>rel=end</code> instead of <code>rel=last</code>. Oh, and -- all by themselves -- they made up <code>rel=up</code> to point to a &#8220;parent&#8221; page.
+
+<p><abbr>HTML5</abbr> includes <code>rel=first</code>, which was the most variation of the different ways to say &#8220;first page in a series.&#8221; (<code>rel=start</code> is a non-conforming synonym, for backward compatibility.) Also <code>rel=prev</code> and <code>rel=next</code>, just like HTML 4 (but mentioning <code>rel=previous</code> for back-compat). It also adds <code>rel=last</code> (the last in a series, mirroring <code>rel=first</code>) and <code>rel=up</code>.
+
+<p>The best way to think of <code>rel=up</code> is to look at your breadcrumb navigation (or at least imagine it). Your home page is probably the first page in your breadcrumbs, and the current page is at the tail end. <code>rel=up</code> points to the next-to-the-last page in the breadcrumbs.
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#rel-icon>rel=icon</a> is the <a href=http://code.google.com/webstats/2005-12/linkrels.html>second most popular link relation</a>, after <code>rel=stylesheet</code>. It is usually found together with <code>shortcut</code>, like so:
+
+<pre><code>&lt;link rel="shortcut icon" href="/favicon.ico"></code></pre>
+
+<p>All major browsers support this usage to associate a small icon with the page. Usually it&#8217;s displayed in the browser&#8217;s location bar next to the URL, or in the browser tab, or both.
+
+<p>Also new in <abbr>HTML5</abbr>: the <code>sizes</code> attribute can be used in conjunction with the <code>icon</code> relationship to <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#rel-icon>indicate the size of the referenced icon</a>.
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-license>rel=license</a> was <a href=http://microformats.org/wiki/rel-license>invented by the microformats community</a>. It &#8220;indicates that the referenced document provides the copyright license terms under which the current document is provided.&#8221;
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-nofollow>rel=nofollow</a> &#8220;indicates that the link is not endorsed by the original author or publisher of the page, or that the link to the referenced document was included primarily because of a commercial relationship between people affiliated with the two pages.&#8221; It was <a href=http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html>invented by Google</a> and <a href=http://microformats.org/wiki/rel-nofollow>standardized within the microformats community</a>. The thinking was that if &#8220;nofollow&#8221; links did not pass on PageRank, spammers would give up trying to post spam comments on weblogs. That didn&#8217;t happen, but <code>rel=nofollow</code> persists. Many popular blogging systems default to adding <code>rel=nofollow</code> to links added by commenters.
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-noreferrer>rel=noreferrer</a> &#8220;indicates that the no referrer information is to be leaked when following the link.&#8221; No browser currently supports this. [<a href=http://wearehugh.com/public/2009/04/rel-noreferrer.html>rel=noreferrer test case</a>]
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-pingback>rel=pingback</a> specifies the address of a &#8220;pingback&#8221; server. As explained in <a href=http://hixie.ch/specs/pingback/pingback-1.0>the Pingback specification</a>, &#8220;The pingback system is a way for a blog to be automatically notified when other Web sites link to it. ... It enables reverse linking -- a way of going back up a chain of links rather than merely drilling down.&#8221; Blogging systems, notably WordPress, implement the pingback mechanism to notify authors that you have linked to them when creating a new blog post.
+
+<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:271px"><img src=i/openclipart.org_johnny_automatic_dog_on_chair.png width=271 height=309 alt="dog on chair">
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-prefetch>rel=prefetch</a> &#8220;indicates that preemptively fetching and caching the specified resource is likely to be beneficial, as it is highly likely that the user will require this resource.&#8221; Search engines sometimes add <code>&lt;link rel=prefetch href="<i>URL of top search result</i>"></code> to the search results page if they feel that the top result is wildly more popular than any other. For example: using Firefox, <a href=http://www.google.com/search?q=cnn>search Google for CNN</a>; view source; search for the keyword <code>prefetch</code>. Mozilla Firefox is the only current browser that supports <code>rel=prefetch</code>.
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-search>rel=search</a> &#8220;indicates that the referenced document provides an interface specifically for searching the document and its related resources.&#8221; Specifically, if you want <code>rel=search</code> to do anything useful, it should point to an <a href=http://www.opensearch.org/>OpenSearch</a> document that describes how a browser could construct a URL to search the current site for a given keyword. OpenSearch (and <code>rel=search</code> links that point to OpenSearch description documents) is supported in Microsoft Internet Explorer since version 7 and Mozilla Firefox since version 2.
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-sidebar>rel=sidebar</a> &#8220;indicates that the referenced document, if retrieved, is intended to be shown in a secondary browsing context (if possible), instead of in the current browsing context.&#8221; What does that mean? In Opera and Mozilla Firefox, it means &#8220;when I click this link, prompt the user to create a bookmark that, when selected from the Bookmarks menu, opens the linked document in a browser sidebar.&#8221; (Opera actually calls it the &#8220;panel&#8221; instead of the &#8220;sidebar.&#8221;) Internet Explorer, Safari, and Chrome ignore <code>rel=sidebar</code> and just treat it as a regular link. [<a href=http://wearehugh.com/public/2009/04/rel-sidebar.html>rel=sidebar test case</a>]
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-tag>rel=tag</a> &#8220;indicates that the tag that the referenced document represents applies to the current document.&#8221; Marking up &#8220;tags&#8221; (category keywords) with the <code>rel</code> attribute was <a href=http://www.powazek.com/2005/07/000532.html>invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &#8220;Technorati tags.&#8221; (You read that right: a commercial company convinced the entire world to add metadata that made the company&#8217;s job easier. Nice work if you can get it!) The syntax was later <a href=http://microformats.org/wiki/rel-tag>standardized within the microformats community</a>, where it was simply called <code>rel=tag</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel=tag</code> links. Browsers do not do anything special with them, but they&#8217;re really designed for search engines to use as a signal of what the page is about.
+
+<h2 id=header-element>Headers</h2>
+
+<p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
+
+<p>FIXME
+
+<h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
+
+<p>Every browser has a master list of HTML elements that it supports.  For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/seamonkey/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>.  Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:</p>
+
+<ol>
+<li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font.</li>
+<li><b>What should the element&#8217;s DOM look like?</b>  Mozilla&#8217;s <code>nsElementTable.cpp</code> includes information about what kinds of other elements each element can contain.  If you include markup like <code>&lt;p>&lt;p></code>, the second paragraph element implicitly closes the first one, so the elements end up as siblings, not parent-and-child.  But if you write <code>&lt;p>&lt;span></code>, the <code>span</code> does not close the paragraph, because Firefox knows that <code>&lt;p></code> is a block element that can contain the inline element <code>&lt;span></code>.  So the <code>&lt;span></code> ends up as a child of the <code>&lt;p></code> in the DOM.</li>
+</ol>
+
+<p>Different browsers answer these questions in different ways.  (Shocking, I know.)  Of the major browsers, Microsoft Internet Explorer&#8217;s answer to both questions is the most problematic.</p>
+
+<p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements.  Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS.  Unfortunately, Internet Explorer does not allow styling on unknown elements.  For example, if you had this markup:</p>
+
+<pre><code>&lt;style type="text/css">
+  section { border: 1px solid red }
+&lt;/style>
+...
+&lt;section>
+&lt;h1>Welcome to Initech&lt;/h1>
+&lt;p>This is our &lt;span>home page&lt;/span>.&lt;/p>
+&lt;/section></code></pre>
+
+<p>Internet Explorer (up to and including IE 8) will not put a red border around the section.</p>
+
+<p>The second problem is the DOM that browsers create when they encounter unknown elements.  Again, the most problematic browser is Internet Explorer.  If IE doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>.  All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
+
+<p>Here is some ASCII art to showcase the difference. This is the DOM that HTML5 dictates:
+
+<pre>section
+|
++--h1 (child of section)
+|  |
+|  +--text node "Welcome to Initech"
+|
++--p (child of section, sibling of h1)
+   |
+   +--text node "This is our "
+   |
+   +--span
+   |  |
+   |  +--text node "home page"
+   |
+   +--text node "."</pre>
+
+<p>But this is the DOM that Internet Explorer actually creates:
+
+<pre>section (no children)
+h1 (sibling of section)
+|
++--text node "Welcome to Initech"
+p (sibling of h1)
+|
++--text node "This is our "
+|
++--span
+|  |
+|  +--text node "home page"
+|
++--text node "."</pre>
+
+<p>There is a wonderous workaround for this problem. If you <a href="http://xopus.com/devblog/2008/style-unknown-elements.html">create a dummy <code>&lt;section></code> element</a> with Javascript before you use it in your page, Internet Explorer will magically recognize the <code>&lt;section></code> element and let you style it with CSS. There is no need to ever insert the dummy element into the <abbr>DOM</abbr>. Simply creating the element once (per page) is enough to teach IE to style the element it doesn&#8217;t recognize.
+
+<pre><code>&lt;html>
+&lt;head>
+&lt;style>
+  section { display: block; border: 1px solid red }
+&lt;/style>
+<mark>&lt;script>document.createElement("section");&lt;/script></mark>
+&lt;/head>
+&lt;body>
+&lt;section>
+&lt;h1>Welcome to Initech&lt;/h1>
+&lt;p>This is our &lt;span>home page&lt;/span>.&lt;/p>
+&lt;/section>
+&lt;/body>
+&lt;/html></code></pre>
+
+<p>This works in all versions of Internet Explorer, all the way back to IE 6!
+
+<h2 id=section-element>Sections</h2>
+
+<p>FIXME
+
+<h2 id=article-element>Articles</h2>
+
+<p>FIXME
+
+<h2 id=nav-element>Navigation</h2>
+
+<p class=ss><img src=i/openclipart.org_johnny_automatic_a_pink.png alt="a man navigating a sailboat on the water" width=345 height=377>
+
+<p>FIXME
+
+<h2 id=footer-element>Footers</h2>
+
+<p>FIXME
+
+<h2 id=further-reading>Further Reading</h2>
+
+<p>On character encoding:
+
+<ul>
+<li><cite>Joel Spolsky</cite>: <a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a>
+<li><cite>Tim Bray</cite>: <a href="http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode">On the Goodness of Unicode</a>, <a href="http://www.tbray.org/ongoing/When/200x/2003/04/13/Strings">On Character Strings</a>, and <a href="http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF">Characters vs. Bytes</a>
+</ul>
+
+<p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+</div>
+<script src=j/jquery.js></script>
+<script src=j/dih5.js></script>

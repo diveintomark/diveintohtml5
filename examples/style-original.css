@@ -1,0 +1,21 @@
+html{background:white;color:black}
+body{font:normal medium 'Gill Sans','Gill Sans MT','Goudy Bookletter 1911','Linux Libertine O','Liberation Serif',Candara,serif;padding:0;margin:0 auto;width:40em;line-height:1.75;word-spacing:0.1em}
+a{background:transparent;text-decoration:none;border-bottom:1px dotted}
+a:hover{border-bottom:1px solid}
+a:link{color:#1b67c9}
+a:visited{color:darkorchid}
+h1 a,h2 a,h3 a{color:inherit !important}
+h2,h3,p{margin:1.75em 0}
+h1,h2,h3{font-size:medium}
+h1{letter-spacing:1em;text-align:center;margin:0}
+#header{background:black;color:white;margin:0;padding:1.75em 0}
+#header p{text-align:center;font-size:medium;line-height:2.154}
+#header a{color:white}
+#arc th,#arc td{list-style:none;margin:0;padding:0}
+#arc th{text-align:right}
+#footer,.c{text-align:center;clear:both}
+#arc th{padding:0 1.75em 0 0;vertical-align:baseline}
+#arc{border-collapse:collapse}
+.post-date{float:right;font-size:small;margin:2px 0 0 0}
+#nav ul{margin:0;padding:0 1em 0 0;text-align:center}
+#nav li{display:inline;padding-left:1em}
