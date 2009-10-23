@@ -76,20 +76,34 @@ body{counter-reset:h1 3}
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:280px"><img src=i/openclipart.org_johnny_automatic_tree_on_top_of_hill.png alt="tree on top of hill" width=280 height=394>
 
-<p>FIXME
+<p>An <abbr>HTML</abbr> page is a series of nested elements. The entire structure of the page is like a tree. Some elements are &#8220;siblings,&#8221; like two branches that extend from the same tree trunk. Some elements can be &#8220;children&#8221; of other elements, like a smaller branch that extends from a larger branch. (It works the other way too; an element that contains other elements is called the &#8220;parent&#8221; node of its immediate child elements, and the &#8220;ancestor&#8221; of its grandchildren.) Elements that have no children are called &#8220;leaf&#8221; nodes. The outer-most element, which is the ancestor of all other elements on the page, is called the &#8220;root element.&#8221; The root element of an <abbr>HTML</abbr> page is always <code>&lt;html></code>.
 
-<pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+<p>In <a href=examples/blog-original.html>this example page</a>, the root element looks like this:
+
+<table role=presentation><tr><td><pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml"
       lang="en"
-      xml:lang="en"></code></pre>
+      xml:lang="en"></code></pre></td></table>
 
-<p>FIXME
+<p>There&#8217;s nothing wrong with this. If you like it, you can keep it. But parts of it are no longer necessary in <abbr>HTML5</abbr>, so you can save a few bytes by removing them.
+
+<p>The first thing to discuss is the <code>xmlns</code> attribute. This is a vestige of <a href=http://www.w3.org/TR/xhtml1/><abbr>XHTML</abbr> 1.0</a>. It says that elements in this page are in the <abbr>XHTML</abbr> namespace, <code>http://www.w3.org/1999/xhtml</code>. But elements in <abbr>HTML5</abbr> <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#xml>are always in this namespace</a>, so you no longer need to declare it explicitly. Your <abbr>HTML5</abbr> page will work exactly the same in all browsers, whether this attribute is present or not.
+
+<p>Dropping the <code>xmlns</code> attribute leaves us with this root element:
 
 <pre><code>&lt;html lang="en"
       xml:lang="en"></code></pre>
 
-<p>FIXME
+<p>This brings me to my second point. The two attributes here, <code>lang</code> and <code>xml:lang</code>, are defining the language of this <abbr>HTML</abbr> page. (<code>en</code> stands for &#8220;English.&#8221; Not writing in English? <a href=http://www.rfc-editor.org/rfc/bcp/bcp47.txt>Find your language code here</a>.) Why two attributes for the same thing? Again, this is a vestige of <abbr>XHTML</abbr>. Only the <code>lang</code> attribute has any effect in <abbr>HTML5</abbr>. You can keep the <code>xml:lang</code> attribute if you like, but if you do, you need to ensure that it <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-lang-and-xml:lang-attributes">contains the same value as the <code>lang</code> attribute</a>.
+
+<blockquote cite="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-lang-and-xml:lang-attributes">
+<p>To ease migration to and from XHTML, authors may specify an attribute in no namespace with no prefix and with the literal localname "xml:lang" on <code>&lt;html></code> elements in HTML documents, but such attributes must only be specified if a <code>lang</code> attribute in no namespace is also specified, and both attributes must have the same value when compared in an ASCII case-insensitive manner. The attribute in no namespace with no prefix and with the literal localname "xml:lang" has no effect on language processing.</p>
+</blockquote>
+
+<p>Are you ready to drop it? It&#8217;s OK, just let it go. Going, going&hellip; gone! That leaves us with this root element:
 
 <pre><code>&lt;html lang="en"></code></pre>
+
+<p>And that&#8217;s all I have to say about that.
 
 <h2 id=head-element>The &lt;head> Element</h2>
 
