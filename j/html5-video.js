@@ -30,7 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
    This URL is relative to your HTML page, not this script. */
 var FLOWPLAYER_URL = "j/flowplayer-3.1.4.swf";
  
-function html5_video_replace(video) {
+function html5_video_replace(video, index) {
   /* find a video source that Flash can play */
   var video_url = "";
   var sources = video.getElementsByTagName("source");
@@ -42,7 +42,7 @@ function html5_video_replace(video) {
     if (type == "video/mp4") {
       video_url = source.getAttribute("src");
       if (video_url.substring(0, 2) == "//") {
-        video_url = "http:" + video_url;
+        video_url = document.location.protocol + video_url;
       }
       break;
     }
@@ -52,17 +52,17 @@ function html5_video_replace(video) {
     var video_id = video.getAttribute("id");
     var video_width = video.getAttribute("width");
     var video_height = video.getAttribute("height");
-    var video_autoplay = video.getAttribute("autoplay") == "";
-    var video_autobuffer = video.getAttribute("autobuffer") == "";
-    var video_controls = (video.getAttribute("controls") == "") ? {autoHide:"always",hideDelay:1000} : null;
+    var video_autoplay = video.getAttribute("autoplay") != null;
+    var video_autobuffer = video.getAttribute("autobuffer") != null;
+    var video_controls = (video.getAttribute("controls") != null) ? {autoHide:"always",hideDelay:1000} : null;
  
     /* create a dummy div for Flowplayer to use */
-    video.innerHTML = "<div id=" + video_id + "fallback style=" + 
+    video.innerHTML = "<div id=video" + index + "fallback style=" +
                       "width:" + video_width + "px;" + 
                       "height:" + video_height + "px></div>";
- 
+
     /* play the video */
-    flowplayer(video_id + "fallback", {
+    flowplayer("video" + index + "fallback", {
       src: FLOWPLAYER_URL,
       version: [9, 115]
     }, {
@@ -86,7 +86,7 @@ function html5_video_init() {
       if (!!video.getAttribute("id")) {
         video.id = "video" + i;
       }
-      html5_video_replace(video);
+      html5_video_replace(video, i);
     }
   }
 }
