@@ -411,15 +411,26 @@ p (sibling of h1)
 
 <p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
 
-<p>Let&#8217;s go back to <a href=examples/blog-original.html>our example page</a>:
+<p>Let&#8217;s go back to <a href=examples/blog-original.html>our example page</a>. Specifically, let&#8217;s look at just the headers:
 
 <pre><code>&lt;div id="header">
   &lt;h1>Lorem ipsum blog&lt;/h1>
   &lt;p class="tagline">Materiam superabat opus.&lt;/p>
-  &hellip;
+&lt;/div>
+
+&hellip;
+
+&lt;div class="entry">
+  &lt;h2>Lorem ipsum dolor sit amet&lt;/h2>
+&lt;/div>
+
+&hellip;
+
+&lt;div class="entry">
+  &lt;h2>Sed ante mi&lt;/h2>
 &lt;/div></code></pre>
 
-<p>There is nothing wrong with this markup. If you like it, you can keep it. It is valid <abbr>HTML5</abbr>. But <abbr>HTML5</abbr> provides some additional semantic elements that you can use to group related headers.
+<p>There is nothing wrong with this markup. If you like it, you can keep it. It is valid <abbr>HTML5</abbr>. But <abbr>HTML5</abbr> provides some additional semantic elements for headers and sections.
 
 <p>First off, let&#8217;s get rid of that <code>&lt;div id="header"></code>. This is a very common pattern, but it doesn&#8217;t mean anything. The <code>div</code> element has no defined semantics, and the <code>id</code> attribute has no defined semantics. (User agents are not allowed to infer any meaning from the value of the <code>id</code> attribute.) You could change this to <code>&lt;div id="shazbot"></code> and it would have the same semantic value, i.e. nothing.
 
@@ -431,27 +442,71 @@ p (sibling of h1)
   &hellip;
 &lt;/header></code></pre>
 
-<p>FIXME to be continued
+<p>That&#8217;s good. It tells anyone who wants to know that this is a header. But what about that tagline? Another common pattern, which up until now had no standard markup. It&#8217;s a difficult thing to mark up. A tagline is like a subheading, but it&#8217;s &#8220;attached&#8221; to the primary heading. That is, it&#8217;s a subheading that doesn&#8217;t create its own section.
+
+<p>Header elements like <code>&lt;h1></code> and <code>&lt;h2></code> give your page structure. Taken together, they create an outline that you can use to visualize (or navigate) your page. In <abbr>HTML</abbr> 4, <code>&lt;h1></code>&ndash;<code>&lt;h6></code> elements were the <em>only</em> way to create an outline. The outline on that example page looks like this:
+
+<pre>Lorem ipsum blog (h1)
+|
++--Lorem ipsum dolor sit amet (h2)
+|
++--Sed ante mi (h2)</pre>
+
+<p>That&#8217;s fine, but it means that there&#8217;s no way to mark up the tagline &#8220;Materiam superabat opus.&#8221; If we tried to mark it up as an <code>&lt;h2></code>, it would add a phantom node to the document outline:
+
+<pre>Lorem ipsum blog (h1)
+|
++--Materiam superabat opus. (h2)
+|
++--Lorem ipsum dolor sit amet (h2)
+|
++--Sed ante mi (h2)</pre>
+
+<p>But that&#8217;s not the structure of the document. The tagline does not represent a section; it&#8217;s just a subheading.
+
+<p>Perhaps we could mark up the tagline as an <code>&lt;h2></code> and mark up each article title as an <code>&lt;h3></code>? No, that&#8217;s even worse:
+
+<pre>Lorem ipsum blog (h1)
+|
++--Materiam superabat opus. (h2)
+   |
+   +--Lorem ipsum dolor sit amet (h3)
+   |
+   +--Sed ante mi (h3)</pre>
+
+<p>Now we still have a phantom node in our document outline, but it has &#8220;stolen&#8221; the children that rightfully belong to the root node. And herein lies the problem: <abbr>HTML</abbr> 4 does not provide a way to mark up a subheading without adding it to the document outline. No matter how we try to shift things around, &#8220;Materiam superabat opus&#8221; is going to end up in that graph. And that&#8217;s why you end up with semantically meaningless markup like <code>&lt;p class="tagline"></code>.
+
+<p><abbr>HTML5</abbr> provides a solution for this: the <code>&lt;hgroup></code> element. The <code>&lt;hgroup></code> element acts as a wrapper for two or more <em>related</em> heading elements. What does &#8220;related&#8221; mean? It means that, taken together, they only create a single node in the document outline.
+
+<p>Given this markup:
 
 <pre><code>&lt;header>
   <mark>&lt;hgroup></mark>
     &lt;h1>Lorem ipsum blog&lt;/h1>
-    &lt;p class="tagline">Materiam superabat opus.&lt;/h2>
+    <mark>&lt;h2></mark>Materiam superabat opus.<mark>&lt;/h2></mark>
   <mark>&lt;/hgroup></mark>
   &hellip;
-&lt;/header></code></pre>
+&lt;/header>
 
-<p>FIXME
+&hellip;
 
-<pre><code>&lt;header>
-  &lt;hgroup>
-    &lt;h1>Lorem ipsum blog&lt;/h1>
-    <mark>&lt;h2>Materiam superabat opus.&lt;/h2></mark>
-  &lt;/hgroup>
-  &hellip;
-&lt;/header></code></pre>
+&lt;div class="entry">
+  &lt;h2>Lorem ipsum dolor sit amet&lt;/h2>
+&lt;/div>
 
-<p>FIXME
+&hellip;
+
+&lt;div class="entry">
+  &lt;h2>Sed ante mi&lt;/h2>
+&lt;/div></code></pre>
+
+<p>This is the document outline that is created:
+
+<pre>Lorem ipsum blog (h1 of its hgroup)
+|
++--Lorem ipsum dolor sit amet (h2)
+|
++--Sed ante mi (h2)</pre>
 
 <h2 id=article-element>Articles</h2>
 
