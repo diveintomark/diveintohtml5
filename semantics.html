@@ -55,7 +55,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
           PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
 
-<p>That happens to be one of the 15 doctypes that trigger &#8220;standards mode&#8221; in all modern browsers. There&#8217;s nothing wrong with it. If you like it, you can keep it. Or you can change it to the <abbr>HTML5</abbr> doctype, which is shorter and sweeter and also triggers &#8220;standards mode&#8221; in all modern browsers.
+<p>That happens to be one of the 15 doctypes that trigger &#8220;standards mode&#8221; in all modern browsers. There is nothing wrong with it. If you like it, you can keep it. Or you can change it to the <abbr>HTML5</abbr> doctype, which is shorter and sweeter and also triggers &#8220;standards mode&#8221; in all modern browsers.
 
 <p>This is the <abbr>HTML5</abbr> doctype:
 
@@ -87,7 +87,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
       lang="en"
       xml:lang="en"></code></pre></td></table>
 
-<p>There&#8217;s nothing wrong with this. If you like it, you can keep it. But parts of it are no longer necessary in <abbr>HTML5</abbr>, so you can save a few bytes by removing them.
+<p>There is nothing wrong with this markup. If you like it, you can keep it. It is valid <abbr>HTML5</abbr>. But parts of it are no longer necessary in <abbr>HTML5</abbr>, so you can save a few bytes by removing them.
 
 <p>The first thing to discuss is the <code>xmlns</code> attribute. This is a vestige of <a href=http://www.w3.org/TR/xhtml1/><abbr>XHTML</abbr> 1.0</a>. It says that elements in this page are in the <abbr>XHTML</abbr> namespace, <code>http://www.w3.org/1999/xhtml</code>. But elements in <abbr>HTML5</abbr> <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#xml>are always in this namespace</a>, so you no longer need to declare it explicitly. Your <abbr>HTML5</abbr> page will work exactly the same in all browsers, whether this attribute is present or not.
 
@@ -411,7 +411,27 @@ p (sibling of h1)
 
 <p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
 
-<p>FIXME
+<p>Let&#8217;s go back to <a href=examples/blog-original.html>our example page</a>:
+
+<pre><code>&lt;div id="header">
+  &lt;h1>Lorem ipsum blog&lt;/h1>
+  &lt;p class="tagline">Materiam superabat opus.&lt;/p>
+  &hellip;
+&lt;/div></code></pre>
+
+<p>There is nothing wrong with this markup. If you like it, you can keep it. It is valid <abbr>HTML5</abbr>. But <abbr>HTML5</abbr> provides some additional semantic elements that you can use to group related headers.
+
+<p>First off, let&#8217;s get rid of that <code>&lt;div id="header"></code>. This is a very common pattern, but it doesn&#8217;t mean anything. The <code>div</code> element has no defined semantics, and the <code>id</code> attribute has no defined semantics. (User agents are not allowed to infer any meaning from the value of the <code>id</code> attribute.) You could change this to <code>&lt;div id="shazbot"></code> and it would have the same semantic value, i.e. nothing.
+
+<p><abbr>HTML5</abbr> defines a <code>&lt;header></code> element for this purpose. The <abbr>HTML5</abbr> specification has <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element>a number of real-world examples</a> of using the <code>&lt;header></code> element. Here is what it would look like on <a href=examples/blog-original.html>our example page</a>:
+
+<pre><code>&lt;header>
+  &lt;h1>Lorem ipsum blog&lt;/h1>
+  &lt;p class="tagline">Materiam superabat opus.&lt;/p>
+  &hellip;
+&lt;/header></code></pre>
+
+<p>FIXME to be continued
 
 <h2 id=article-element>Articles</h2>
 
@@ -420,6 +440,10 @@ p (sibling of h1)
 <h2 id=nav-element>Navigation</h2>
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_a_pink.png alt="a man navigating a sailboat on the water" width=345 height=377>
+
+<p>FIXME
+
+<h2 id=time-element>Dates and Times</h2>
 
 <p>FIXME
 
