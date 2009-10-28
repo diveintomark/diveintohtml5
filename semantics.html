@@ -310,7 +310,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements.  Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS.  Unfortunately, Internet Explorer does not allow styling on unknown elements.  For example, if you had this markup:</p>
 
 <pre><code>&lt;style type="text/css">
-  article { border: 1px solid red }
+  article { display: block; border: 1px solid red }
 &lt;/style>
 ...
 &lt;article>
