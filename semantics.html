@@ -686,23 +686,106 @@ p (sibling of h1)
 
 <h2 id=footer-element>Footers</h2>
 
-<p>FIXME
+<p>At long last, we have arrived at the end of <a href=examples/blog-original.html>our example page</a>. The last thing I want to talk about is the last thing on the page: the footer. The footer was originally marked up like this:
 
 <pre><code>&lt;div id="footer">
   &lt;p>&amp;#167;&lt;/p>
   &lt;p>&amp;#169; 2001&amp;#8211;9 &lt;a href="#">Mark Pilgrim&lt;/a>&lt;/p>
 &lt;/div></code></pre>
 
-<p>FIXME
+<p>This is valid <abbr>HTML5</abbr>. If you like it, you can keep it. But <abbr>HTML5</abbr> provides a more specific element for this: the <code>&lt;footer></code> element.
 
 <pre><code><mark>&lt;footer></mark>
   &lt;p>&amp;#167;&lt;/p>
   &lt;p>&amp;#169; 2001&amp;#8211;9 &lt;a href="#">Mark Pilgrim&lt;/a>&lt;/p>
 <mark>&lt;/footer></mark></code></pre>
 
-<p>FIXME
+<p>What&#8217;s appropriate to put in a <code>&lt;footer></code> element? Probably whatever you&#8217;re putting in a <code>&lt;div id="footer"></code> now. OK, that&#8217;s a circular answer. But really, that&#8217;s it. The <abbr>HTML5</abbr> specification says, &#8217;A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like.&#8221; That&#8217;s what this example page has: a short copyright statement and a link to an about-the-author page. Looking around at some popular sites, I see lots of footer potential.
+
+<ul>
+<li><a href=http://www.cnn.com/>CNN</a> has a footer that contains a copyright statement, links to translations, and links to terms of service, privacy, &#8220;about us,&#8221; &#8220;contact us,&#8221; and &#8220;help.&#8221; All totally <code>&lt;footer></code> material.
+<li><a href=http://www.google.com/>Google</a> has a famously sparse home page, but at the bottom of it are links to &#8220;Advertising Programs,&#8221; &#8220;Business Solutions,&#8221; &#8220;About Google,&#8221; a copyright statement, and a link to Google&#8217;s privacy policy. All of that could be wrapped in a <code>&lt;footer></code>.
+<li><a href=http://diveintomark.org/>My weblog</a> has a footer with links to my other sites, plus a copyright statement. Definitely appropriate for a <code>&lt;footer></code> element. (Note that the links themselves should <em>not</em> be wrapped in a <code>&lt;nav></code> element, because they are not site navigation links. They are just a collection of links to my other projects on other sites.)
+</ul>
+
+<p>&#8220;<a href=http://ui-patterns.com/pattern/FatFooter>Fat footers</a>&#8221; are all the rage these days. Take a look at the footer on <a href=http://www.w3.org/>w3.org</a>. It contains three columns, labeled &#8220;Navigation,&#8221; &#8220;Contact W3C,&#8221; and &#8220;W3C Updates.&#8221; The markup looks like this, more or less:
+
+<pre><code>&lt;div id="w3c_footer">
+  &lt;div class="w3c_footer-nav">
+    &lt;h3>Navigation&lt;/h3>
+    &lt;ul>
+      &lt;li>&lt;a href="/">Home&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/standards/">Standards&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/participate/">Participate&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/membership">Membership&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/">About W3C&lt;/a>&lt;/li> 
+  &lt;/div>
+  &lt;div class="w3c_footer-nav">
+    &lt;h3>Contact W3C&lt;/h3>
+    &lt;ul>
+      &lt;li>&lt;a href="/Consortium/contact">Contact&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Help/">Help and FAQ&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/sup">Donate&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/siteindex">Site Map&lt;/a>&lt;/li> 
+    &lt;/ul>
+  &lt;/div>
+  &lt;div class="w3c_footer-nav">
+    &lt;h3>W3C Updates&lt;/h3>
+    &lt;ul>
+      &lt;li>&lt;a href="http://twitter.com/W3C">Twitter&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="http://identi.ca/w3c">Identi.ca&lt;/a>&lt;/li>
+    &lt;/ul>
+  &lt;/div>
+  &lt;p class="copyright">Copyright &copy; 2009 W3C&lt;/p>
+&lt;/div></code></pre>
+
+<p>To convert this to semantic <abbr>HTML5</abbr>, I would make the following changes:
+
+<ul>
+<li>Convert the outer <code>&lt;div id="w3c_footer"></code> to a <code>&lt;footer></code> element.
+<li>Convert the first two instances of <code>&lt;div class="w3c_footer-nav"></code> to <code>&lt;nav></code> elements, and the third instance to a <code>&lt;section></code> element.
+<li>Convert the <code>&lt;h3></code> headers to <code>&lt;h1></code>, since they&#8217;ll now each be inside sectioning elements. The <code>&lt;nav></code> element creates a section in the document outline, just like the <a href=#article-element><code>&lt;article></code> element</a>.
+</ul>
+
+<p>The final markup might look something like this:
+
+<pre><code><mark>&lt;footer></mark>
+  <mark>&lt;nav></mark>
+    <mark>&lt;h1></mark>Navigation<mark>&lt;/h1></mark>
+    &lt;ul>
+      &lt;li>&lt;a href="/">Home&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/standards/">Standards&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/participate/">Participate&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/membership">Membership&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/">About W3C&lt;/a>&lt;/li> 
+  <mark>&lt;/nav></mark>
+  <mark>&lt;nav></mark>
+    <mark>&lt;h1></mark>Contact W3C<mark>&lt;/h1></mark>
+    &lt;ul>
+      &lt;li>&lt;a href="/Consortium/contact">Contact&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Help/">Help and FAQ&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/sup">Donate&lt;/a>&lt;/li> 
+      &lt;li>&lt;a href="/Consortium/siteindex">Site Map&lt;/a>&lt;/li> 
+    &lt;/ul>
+  <mark>&lt;/nav></mark>
+  <mark>&lt;section></mark>
+    <mark>&lt;h1></mark>W3C Updates<mark>&lt;/h1></mark>
+    &lt;ul>
+      &lt;li>&lt;a href="http://twitter.com/W3C">Twitter&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="http://identi.ca/w3c">Identi.ca&lt;/a>&lt;/li>
+    &lt;/ul>
+  <mark>&lt;/section></mark>
+  &lt;p class="copyright">Copyright &copy; 2009 W3C&lt;/p>
+<mark>&lt;/footer></mark></code></pre>
 
 <h2 id=further-reading>Further Reading</h2>
+
+<p>Example pages used throughout this chapter:
+
+<ul>
+<li><a href=examples/blog-original.html>Original (<abbr>HTML</abbr> 4)</a>
+<li><a href=examples/blog-html5.html>Modified (<abbr>HTML5</abbr>)</a>
+</ul>
 
 <p>On character encoding:
 
