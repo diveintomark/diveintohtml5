@@ -569,27 +569,74 @@ p (sibling of h1)
 
 <h2 id=time-element>Dates and Times</h2>
 
-<pre><code>&lt;article>
-  <mark>&lt;time datetime="2009-10-22" pubdate>October 22, 2009&lt;/time></mark>
-  &lt;h1>
-    &lt;a href="#"
-       rel="bookmark"
-       title="link to &amp;#8220;Lorem ipsum&amp;#8221;">
-       Lorem ipsum dolor sit amet
-    &lt;/a>
-  &lt;/h1>
-  &hellip;
-&lt;/article></code></pre>
+<p class=ss style="width:246px"><img src=i/openclipart.org_ryanlerch_skiier_sign.png width=246 height=218 alt="skiing sign">
 
-<p>FIXME
+<p>This is exciting, right? I mean, it&#8217;s not &#8220;skiing down Mount Everest naked while reciting the Star Spangled Banner backwards&#8221; exciting, but it&#8217;s pretty exciting as far as semantic markup goes. Let&#8217;s continue with <a href=examples/blog-original.html>our example page</a>. The next line I want to highlight is this one:
+
+<pre><code>&lt;div class="entry">
+  <mark>&lt;p class="post-date">October 22, 2009&lt;/p></mark>
+  &lt;h2>Lorem ipsum dolor sit amet&lt;/h2>
+&lt;/div></code></pre>
+
+<p>Same old story, right? A common pattern &mdash; designating the publication date of an article &mdash; that has no semantic markup to back it up, so authors resort to generic markup with custom <code>class</code> attributes. Again, this is valid <abbr>HTML5</abbr>. You&#8217;re not <em>required</em> to change it. But <abbr>HTML5</abbr> does provide a specific solution for this case: the <code>&lt;time></code> element.
+
+<pre><code>&lt;time datetime="2009-10-22" pubdate>October 22, 2009&lt;/time></code></pre>
+
+<p>There are three parts to a <code>&lt;time></code> element:
+
+<ol>
+<li>A machine-readable timestamp
+<li>Human-readable text content
+<li>An optional <code>pubdate</code> flag
+</ol>
+
+<p>In this example, the <code>datetime</code> attribute only specifies a date, not a time. The format is a four-digit year, two-digit month, and two-digit day, separated by dashes:
 
 <pre><code>&lt;time <mark>datetime="2009-10-22"</mark> pubdate>October 22, 2009&lt;/time></code></pre>
 
-<p>FIXME
+<p>If you want to include a time too, add the letter <code>T</code> after the date, then the time in 24-hour format, then a timezone offset.
+
+<pre><code>&lt;time datetime="<mark>2009-10-22T13:59:47-04:00</mark>" pubdate>
+  October 22, 2009 1:59pm EST
+&lt;/time></code></pre>
+
+<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string>contains a number of examples of valid date/time strings</a>.)
+
+<p>Notice I changed the text content &mdash; the stuff between <code>&lt;time></code> and <code>&lt;/time></code> &mdash; to match the machine-readable timestamp. This is not actually required. The text content can be anything you like, as long as you provide a machine-readable date/timestamp in the <code>datetime</code> attribute. So this is valid <abbr>HTML5</abbr>:
+
+<pre><code>&lt;time datetime="2009-10-22"><mark>last Thursday</mark>&lt;/time></code></pre>
+
+<p>This is also valid <abbr>HTML5</abbr>:
+
+<pre><code>&lt;time datetime="2009-10-22">&lt;/time></code></pre>
+
+<p>The final piece of the puzzle here is the <code>pubdate</code> attribute. It&#8217;s a boolean attribute, so just add it if you need it, like this:
 
 <pre><code>&lt;time datetime="2009-10-22" <mark>pubdate</mark>>October 22, 2009&lt;/time></code></pre>
 
-<p>FIXME
+<p>If you dislike &#8220;naked&#8221; attributes, this is also equivalent:
+
+<pre><code>&lt;time datetime="2009-10-22" <mark>pubdate="pubdate"</mark>>October 22, 2009&lt;/time></code></pre>
+
+<p>What does the <code>pubdate</code> attribute mean? It means one of two things. If the <code>&lt;time></code> element is in an <code>&lt;article></code> element, it means that this timestamp is the publication date of the article. If the <code>&lt;time></code> element is not in an <code>&lt;article></code> element, it means that this timestamp is the publication date of the entire document.
+
+<p>Here&#8217;s the entire article, reformulated to take full advantage of <abbr>HTML5</abbr>:
+
+<pre><code>&lt;article>
+  &lt;time datetime="2009-10-22" pubdate>
+    October 22, 2009
+  &lt;/time>
+  &lt;header>
+    &lt;h1>
+      &lt;a href="#"
+         rel="bookmark"
+         title="link to &#8220;Lorem ipsum&#8221;">
+         Lorem ipsum dolor sit amet
+      &lt;/a>
+    &lt;/h1>
+  &lt;/header>
+  &lt;p>Lorem ipsum dolor sit amet&hellip;&lt;/p>
+&lt;/article></code></pre>
 
 <h2 id=nav-element>Navigation</h2>
 
