@@ -81,7 +81,7 @@ html, body {
   padding: 0;
 }
 body {
-  font: large/1.556 "Linux Libertine", Gentium, "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
+  font: large/1.556 "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   word-spacing: 0.1em;
 }
 #zz {
@@ -259,7 +259,7 @@ code, var, samp {
 /* headers */
 
 h1, h2, h3, h4, caption, thead th {
-  font-family: "Essays 1743", "Linux Libertine", "Book Antiqua", Cambria, Palatino, Georgia, "Times New Roman", serif;
+  font-family: "Essays 1743", "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   text-transform: uppercase;
   text-shadow: 0 0 1px #667;
 }
