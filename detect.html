@@ -160,7 +160,7 @@ body{counter-reset:h1 2}
 
 <p>The <code>&lt;video></code> element is designed to be usable without any detection script at all. You can specify multiple video files, and browsers that support <abbr>HTML5</abbr> video will choose one based on what video formats they support. (See &#8220;A gentle introduction to video encoding&#8221; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about different video formats.)
 
-<p>Browsers that don&#8217;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> which uses <abbr>HTML5</abbr> video where available, but falls back to Apple QuickTime&reg; or Adobe Flash&reg; in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers. I&#8217;ll explain more about this solution in the video chapter, whenever I get around to writing it.
+<p>Browsers that don&#8217;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> which uses <abbr>HTML5</abbr> video where available, but falls back to Apple QuickTime&reg; or Adobe Flash&reg; in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers.
 
 <p>If you want to do more with video than plop it on your page and play it, you&#8217;ll need to use JavaScript. Checking for video support uses <a href=#techniques>detection technique #2</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. If your browser doesn&#8217;t support <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video></code> element will only have the set of properties common to all elements.
 
@@ -177,6 +177,8 @@ body{counter-reset:h1 2}
   // no native video support available :(
   // maybe check for QuickTime&reg; or Flash&reg; instead
 }</code></pre>
+
+<p>In <a href=video.html>the Video chapter</a>, I&#8217;ll explain another solution that uses these detection techniques to convert <code>&lt;video></code> elements to Flash-based video players, for the benefit of browsers that don&#8217;t support <abbr>HTML5</abbr> video.
 
 <p>There is a separate test for detecting which video formats your browser can play, which I will demonstrate next.
 
