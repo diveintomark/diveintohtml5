@@ -298,19 +298,17 @@ tfoot{font-size:small}
 
 <p>To use ffmpeg2theora, you need to call it from the command line. (On Mac OS X, open Applications <span class=u>&rarr;</span> Utilities <span class=u>&rarr;</span> Terminal. On Windows, open your Start Menu <span class=u>&rarr;</span> Programs <span class=u>&rarr;</span> Accessories <span class=u>&rarr;</span> Command Prompt.)
 
-<p>ffmpeg2theora can take a large number of command line flags. (Type <code>ffmpeg2theora --help</code> to read about them all.) I&#8217;ll focus on just four of them.
+<p>ffmpeg2theora can take a large number of command line flags. (Type <code>ffmpeg2theora --help</code> to read about them all.) I&#8217;ll focus on just three of them.
 
 <ul>
 <li><code>--video-quality Q</code>, where &#8220;Q&#8221; is a number from 0&ndash;10.
 <li><code>--audio-quality Q</code>, where &#8220;Q&#8221; is a number from -2&ndash;10.
-<li><code>--two-pass</code>, which enables two-pass encoding.
 <li><code>--max_size=WxH</code>, where &#8220;W&#8221; and &#8220;H&#8221; are the maximum width and height you want for the video. (The &#8220;x&#8221; in between is really just the letter &#8220;x&#8221;.) ffmpeg2theora will resize the video proportionally to fit within these dimensions, so the encoded video might be smaller than <code>W&times;H</code>. For example, encoding a 720&times;480 video with <code>--max_size 320x240</code> will produce a video that is <code>320&times;213</code>.
 </ul>
 
 <p>Thus, here is how you could encode a video with the same settings as we used in the previous section (<a href=#firefogg>encoding with Firefogg</a>).
 
-<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --two-pass</kbd>
-<samp class=p>               </samp><kbd>              --videoquality 5</kbd>
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --videoquality 5</kbd>
 <samp class=p>               </samp><kbd>              --audioquality 1</kbd>
 <samp class=p>               </samp><kbd>              --max_size 320x240</kbd>
 <samp class=p>               </samp><kbd>              NewOrleans2006.dv</kbd></pre>
@@ -361,7 +359,7 @@ tfoot{font-size:small}
 <div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I use two-pass encoding on Ogg video too?<br>
-A: Yes, but due to fundamental differences in how the encoder works, <a href=http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora>you probably don&#8217;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&#8217;re trying to get your encoded video to be a specific file size. (Maybe that is something you&#8217;re interested in, but it&#8217;s not what these examples show, and it&#8217;s probably not worth the extra time for encoding web video.)
+A: Yes, but due to fundamental differences in how the encoder works, <a href=http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora>you probably don&#8217;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&#8217;re trying to get your encoded video to be a specific file size. (Maybe that is something you&#8217;re interested in, but it&#8217;s not what these examples show, and it&#8217;s probably not worth the extra time for encoding web video.) For best Ogg video quality, <a href=http://hacks.mozilla.org/2009/09/theora-1-1-released/>use the video quality settings, and don&#8217;t worry about two-pass encoding</a>.
 </blockquote>
 </div>
 </div>
