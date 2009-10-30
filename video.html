@@ -24,7 +24,7 @@ tfoot{font-size:small}
 <table class=bc>
 <caption>&lt;video> element support</caption>
 <thead>
-<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Chromium 3">Chr3<th title="Opera 10">Op10
+<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chr3<th title="Opera 10">Op10
 </thead>
 <tbody>
 <tr><td>&middot;<td>&middot;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&middot;
@@ -144,7 +144,7 @@ tfoot{font-size:small}
 
 <ul>
 <li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container.
-<li><a href=http://code.google.com/chromium/>Chromium</a> (3.0 and later) supports Theora video and Vorbis audio in an Ogg container.
+<li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. It also supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
 <li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, very few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include Theora video, Vorbis audio, or the Ogg container. However, QuickTime <em>does</em> support H.264 video (main profile) and AAC audio in an MP4 container.
 <li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
 <li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
@@ -156,11 +156,11 @@ tfoot{font-size:small}
 <table class=bc>
 <caption>Video codec support</caption>
 <thead>
-<tr><th style="text-align:left">Codecs/container<th>Firefox 3.5<th>Safari<th>iPhone<th>Android<th>Chromium 3
+<tr><th style="text-align:left">Codecs/container<th>Firefox 3.5<th>Safari<th>iPhone<th>Android<th>Chrome 3
 </thead>
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&#x2713;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th>H.264+AAC+MP4<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&middot;
+<tr><th>H.264+AAC+MP4<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
 </tbody>
 </table>
 
@@ -217,7 +217,7 @@ tfoot{font-size:small}
 
 <h2 id=firefogg>Encoding Ogg Video with Firefogg</h2>
 
-<p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Chromium.)
+<p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
 
 <p><dfn>FireFogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&#8217;ll need to install <a href=http://www.getfirefox.com/>Mozilla Firefox</a> 3.5 or later, then visit <a href=http://firefogg.org/>firefogg.org</a>.
 
@@ -289,7 +289,7 @@ tfoot{font-size:small}
 
 <h2 id=ffmpeg2theora>Batch Encoding Ogg Video with ffmpeg2theora</h2>
 
-<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Chromium.)
+<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
 
 <p>There are a number of offline encoders for Ogg video. If you&#8217;re looking at batch encoding a lot of video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>.
 
