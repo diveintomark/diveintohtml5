@@ -55,14 +55,16 @@ java -jar util/yuicompressor-2.4.2.jar build/j/html5-video.js > build/j/html5-vi
 
 # combine jQuery, Modernizr, other 3rd party scripts, and our own scripts
 echo "combining JS"
-cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/gears_init.min.js build/j/geo.min.js build/j/flowplayer-3.1.4.min.js build/j/html5-video.min.js build/j/dih5.min.js > build/j/$revision.js && \
+cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/dih5.min.js > build/j/$revision.js && \
+cat build/j/legal.js build/j/gears_init.min.js build/j/geo.min.js > build/j/$revision-maps.js && \
+cat build/j/legal.js build/j/flowplayer-3.1.4.min.js build/j/html5-video.min.js > build/j/$revision-video.js && \
     sed -i -e "s|<script src=j/jquery.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/modernizr.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/gears_init.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/geo.js></script>||g" build/*.html && \
+    sed -i -e "s|<script src=j/geo.js>|<script src=j/${revision}-maps.js>|g" build/*.html && \
     sed -i -e "s|<script src=j/canvastext-fx3.js></script>||g" build/*.html && \
     sed -i -e "s|<script src=j/flowplayer-3.1.4.min.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/html5-video.js></script>||g" build/*.html && \
+    sed -i -e "s|<script src=j/html5-video.js>|<script src=j/${revision}-video.js>|g" build/*.html && \
     sed -i -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
 
 echo "minimizing CSS"
@@ -97,7 +99,7 @@ rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" build/i/* build/i/.htaccess d
     echo -n "." && \
     rsync -essh -a build/i/*.mp4 build/i/*.ogv build/i/pastel.png diveintomark.org:~/web/diveintohtml5.org/i/ && \
     echo -n "." && \
-    rsync -essh -a build/j/$revision.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
+    rsync -essh -a build/j/$revision*.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/ && \
     echo -n "." && \
     rsync -essh -a build/f/*.ttf build/f/*.eot build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/ && \
     echo -n "." && \
