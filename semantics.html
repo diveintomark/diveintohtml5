@@ -380,9 +380,9 @@ p (sibling of h1)
 
 <pre><code>&lt;!--[if IE]>
 &lt;script>
-  var e = "abbr,article,aside,audio,canvas,datalist,details," +
+  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
     "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
-    "progress,section,time,video".split(',');
+    "progress,section,time,video").split(',');
   var i = e.length;
   while (i--) {
     document.createElement(e[i]);
