@@ -1,5 +1,6 @@
 """Quick-and-dirty HTML minimizer"""
 
+import os
 import sys
 import re
 import html.entities
