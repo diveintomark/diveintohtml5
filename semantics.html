@@ -259,7 +259,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-noreferrer>rel="noreferrer"</a> &#8220;indicates that the no referrer information is to be leaked when following the link.&#8221; No browser currently supports this. [<a href=http://wearehugh.com/public/2009/04/rel-noreferrer.html>rel="noreferrer" test case</a>]
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-pingback>rel="pingback"</a> specifies the address of a &#8220;pingback&#8221; server. As explained in <a href=http://hixie.ch/specs/pingback/pingback-1.0>the Pingback specification</a>, &#8220;The pingback system is a way for a blog to be automatically notified when other Web sites link to it. ... It enables reverse linking -- a way of going back up a chain of links rather than merely drilling down.&#8221; Blogging systems, notably WordPress, implement the pingback mechanism to notify authors that you have linked to them when creating a new blog post.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-pingback>rel="pingback"</a> specifies the address of a &#8220;pingback&#8221; server. As explained in <a href=http://hixie.ch/specs/pingback/pingback-1.0>the Pingback specification</a>, &#8220;The pingback system is a way for a blog to be automatically notified when other Web sites link to it. ... It enables reverse linking &mdash; a way of going back up a chain of links rather than merely drilling down.&#8221; Blogging systems, notably WordPress, implement the pingback mechanism to notify authors that you have linked to them when creating a new blog post.
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:271px"><img src=i/openclipart.org_johnny_automatic_dog_on_chair.png width=271 height=309 alt="dog on chair">
 
@@ -384,8 +384,7 @@ p (sibling of h1)
   var e = ("abbr,article,aside,audio,canvas,datalist,details," +
     "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
     "progress,section,time,video").split(',');
-  var i = e.length;
-  while (i--) {
+  for (var i = 0; i < e.length; i++) {
     document.createElement(e[i]);
   }
 &lt;/script>
