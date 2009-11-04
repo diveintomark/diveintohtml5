@@ -126,7 +126,7 @@ body{counter-reset:h1 2}
   if (!supports_canvas()) { return false; }
   var dummy_canvas = document.createElement('canvas');
   var context = dummy_canvas.getContext('2d');
-  return (typeof context.fillText == 'function');
+  return typeof context.fillText == 'function';
 }</code></pre>
 
 <p>The function starts by <a href=#canvas>checking for canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn&#8217;t support the canvas <abbr>API</abbr>, it certainly won&#8217;t support the canvas text <abbr>API</abbr>!
@@ -140,7 +140,7 @@ body{counter-reset:h1 2}
 
 <p>Finally, you check whether the drawing context has a <code>fillText()</code> function. If it does, the canvas text <abbr>API</abbr> is available. Hooray!
 
-<pre><code>  return (<mark>typeof context.fillText == 'function'</mark>);</code></pre>
+<pre><code>  return <mark>typeof context.fillText == 'function'</mark>;</code></pre>
 
 <p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
 
@@ -249,7 +249,7 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 <p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined.
 
 <pre><code>function supports_local_storage() {
-  return (typeof window.localStorage != 'undefined');
+  return !!window.localStorage;
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML5</abbr> storage, so you&#8217;ll need to use the function listed here.
@@ -270,7 +270,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p>Checking for web workers uses <a href=#techniques>detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
 
 <pre><code>function supports_web_workers() {
-  return typeof window.Worker != 'undefined';
+  return !!window.Worker;
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web workers, so you&#8217;ll need to use the function listed here.
@@ -288,7 +288,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <p>Checking for offline support uses <a href=#techniques>detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support offline web applications, the <code>applicationCache</code> property will be undefined.
 
 <pre><code>function supports_offline() {
-  return (typeof window.applicationCache != 'undefined');
+  return !!window.applicationCache;
 }</code></pre>
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for offline web applications, so you&#8217;ll need to use the function listed here.
@@ -652,9 +652,9 @@ $(document).ready(function() {
   } else {
     $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
   }
-  $("#live-storage").html(supports(typeof window.localStorage != 'undefined', "HTML5 storage"));
-  $("#live-web-workers").html(supports(typeof window.Worker != 'undefined', "web workers"));
-  $("#live-offline").html(supports(typeof window.applicationCache != 'undefined', "offline web applications"));
+  $("#live-storage").html(supports(!!window.localStorage, "HTML5 storage"));
+  $("#live-web-workers").html(supports(!!window.Worker, "web workers"));
+  $("#live-offline").html(supports(!!window.applicationCache, "offline web applications"));
   if (geo_position_js.init()) {
     $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
   } else {
