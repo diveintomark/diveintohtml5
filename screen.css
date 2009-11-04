@@ -162,6 +162,12 @@ p, ul, ol {
   padding: 0 154px 1.75em 0;
   background: white url(i/openclipart.org_johnny_automatic_little_professor.png) bottom right no-repeat;
 }
+.pf .moneybags {
+  min-height: 245px;
+  margin: 0 15px 0 0;
+  padding: 0 190px 1.75em 0;
+  background: white url(i/openclipart.org_johnny_automatic_bag_of_money.png) bottom right no-repeat;
+}
 .pf h4 {
   margin: 0;
   padding: 4px;
