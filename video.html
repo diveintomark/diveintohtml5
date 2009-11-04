@@ -500,7 +500,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <p>You will also need the two <code>.swf</code> files, <code>flowplayer-X.swf</code> and <code>flowplayer.controls-X.swf</code> (where &#8220;X&#8221; is the version number of FlowPlayer). You don&#8217;t need to link to these files from your <abbr>HTML</abbr> markup. When you call FlowPlayer from script, one of the parameters you pass to the <code>flowplayer()</code> function is the location of these <code>.swf</code> files.
 
-<p>There&#8217;s one more piece to the puzzle. FlowPlayer doesn&#8217;t know anything about the <code>&lt;video></code> element. It won&#8217;t magically transform a <code>&lt;video></code> tag into a Flash object. But I&#8217;ve written a piece of JavaScript that does exactly that. I call it <a href="http://diveintohtml5.org/j/html5-video.js"><code>html5-video.js</code></a>, because I suck at naming things. Nevertheless&hellip;
+<p>There are two more pieces to the puzzle. First, FlowPlayer doesn&#8217;t know anything about the <code>&lt;video></code> element. It won&#8217;t magically transform a <code>&lt;video></code> tag into a Flash object. But I&#8217;ve written a piece of JavaScript that does exactly that. I call it <a href="http://diveintohtml5.org/j/html5-video.js"><code>html5-video.js</code></a>, because I suck at naming things. Nevertheless&hellip;
 
 <pre><code>&lt;!DOCTYPE html>
 &lt;html>
@@ -513,6 +513,21 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
   &lt;script src="flowplayer.min.js">&lt;/script>
   <mark>&lt;script src="html5-video.js">&lt;/script></mark>
 &lt;/body>
+&lt;/html>
+</code></pre>
+
+<p>Second, you need to get Internet Explorer to recognize the <code>&lt;video></code> and <code>&lt;source></code> elements by including the <a href=semantics.html#unknown-elements><abbr>HTML5</abbr> enabling script</a> at the top of your page. This is important! If you skip this step, Internet Explorer will build the wrong <abbr>DOM</abbr> from your <code>&lt;video></code> element. If Internet Explorer builds the wrong <abbr>DOM</abbr>, the <code>html5-video.js</code> script won&#8217;t be able to find your <code>&lt;video></code> element, and the whole house of cards will fall apart. Thus:</p>
+
+<pre><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>Dive Into HTML5&lt;/title>
+  <mark>&lt;!--[if IE]></mark>
+  <mark>&lt;script src="<a href=http://html5shiv.googlecode.com/svn/trunk/html5.js>http://html5shiv.googlecode.com/svn/trunk/html5.js</a>">&lt;/script></mark>
+  <mark>&lt;![endif]--></mark>
+&lt;/head>
+  ...
 &lt;/html>
 </code></pre>
 
