@@ -451,6 +451,21 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>autoplay</mark>>&lt;/video></code></pre>
 
+<p>And here is a <a href="FIXME">Greasemonkey</a> script that you can install in your local copy of Firefox that prevents <abbr>HTML5</abbr> video from playing automatically. It uses the <code>autoplay</code> <abbr>DOM</abbr> attribute defined by <abbr>HTML5</abbr>, which is the JavaScript equivalent of the <code>autoplay</code> attribute in your <abbr>HTML</abbr> markup. [<a href=examples/disable_video_autoplay.user.js>disable_video_autoplay.user.js</a>]
+
+<pre><code>// ==UserScript==
+// @name           Disable video autoplay
+// @namespace      http://diveintomark.org/projects/greasemonkey/
+// @description    Ensures that HTML5 video elements do not autoplay
+// @include        *
+// ==/UserScript==
+
+var arVideos = document.getElementsByTagName('video');
+for (var i = arVideos.length - 1; i >= 0; i--) {
+    var elmVideo = arVideos[i];
+    <mark>elmVideo.autoplay = false;</mark>
+}</code></pre>
+
 <p>But wait a second&hellip; If you&#8217;ve been following along this whole chapter, you don&#8217;t have just one video file; you have two. One is an <code>.ogv</code> file that you created with <a href=#firefogg>Firefogg</a> or <a href=#ffmpeg2theora>ffmpeg2theora</a>, and the second is an <code>.mp4</code> file that you created with <a href=#handbrake-gui>HandBrake</a>. <abbr>HTML5</abbr> provides a way to link to both of them: the <code>&lt;source></code> element. Each <code>&lt;video></code> element can contain as many <code>&lt;source></code> elements as you need. Your browser will go down the list of video sources, in order, and play the first one it&#8217;s able to play.
 
 <p>That raises another question: how does the browser know which video it can play? Well, in the worst case scenario, it loads each of the videos and tries to play them. That&#8217;s a big waste of bandwidth, though. You&#8217;ll save a lot of network traffic if you tell the browser up-front about each video. You do this with the <code>type</code> attribute on the <code>&lt;source></code> element.
