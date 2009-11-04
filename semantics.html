@@ -117,13 +117,13 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <pre><code>&lt;head>
   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  &lt;title>Lorem ipsum blog&lt;/title>
+  &lt;title>My Weblog&lt;/title>
   &lt;link rel="stylesheet" type="text/css" href="style-original.css" />
   &lt;link rel="alternate" type="application/atom+xml"
-                        title="Lorem ipsum feed"
+                        title="My Weblog feed"
                         href="/feed/" />
   &lt;link rel="search" type="application/opensearchdescription+xml"
-                        title="Lorem ipsum search"
+                        title="My Weblog search"
                         href="opensearch.xml"  />
   &lt;link rel="shortcut icon" href="/favicon.ico" />
 &lt;/head></code></pre>
@@ -220,7 +220,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <pre><code>&lt;link rel="alternate"
        type="application/atom+xml"
-       title="Lorem ipsum feed"
+       title="My Weblog feed"
        href="/feed/" /></code></pre>
 
 <p>This link relation is also quite common. <code>&lt;link rel="alternate"></code>, combined with either the <abbr>RSS</abbr> or Atom media type in the <code>type</code> attribute, is called &#8220;feed autodiscovery.&#8221; It allows syndicated feed readers (like <a href="http://www.google.com/reader/">Google Reader</a>) to discover that a site has a news feed of the latest articles. Most browsers also support feed autodiscovery by displaying a special icon next to the <abbr>URL</abbr>. (Unlike <code>rel="stylesheet"</code>, the <code>type</code> attribute matters here. Don&#8217;t drop it!)
@@ -400,7 +400,7 @@ p (sibling of h1)
 
 <pre><code>&lt;head>
   &lt;meta charset="utf-8" />
-  &lt;title>Lorem ipsum blog&lt;/title>
+  &lt;title>My Weblog&lt;/title>
   &lt;!--[if IE]>
   &lt;script <mark>src="<a href=http://html5shiv.googlecode.com/svn/trunk/html5.js>http://html5shiv.googlecode.com/svn/trunk/html5.js</a>"</mark>>&lt;/script>
   &lt;![endif]-->
@@ -415,20 +415,20 @@ p (sibling of h1)
 <p>Let&#8217;s go back to <a href=examples/blog-original.html>our example page</a>. Specifically, let&#8217;s look at just the headers:
 
 <pre><code>&lt;div id="header">
-  &lt;h1>Lorem ipsum blog&lt;/h1>
-  &lt;p class="tagline">Materiam superabat opus.&lt;/p>
+  &lt;h1>My Weblog&lt;/h1>
+  &lt;p class="tagline">A lot of effort went into making this effortless.&lt;/p>
 &lt;/div>
 
 &hellip;
 
 &lt;div class="entry">
-  &lt;h2>Lorem ipsum dolor sit amet&lt;/h2>
+  &lt;h2>Travel day&lt;/h2>
 &lt;/div>
 
 &hellip;
 
 &lt;div class="entry">
-  &lt;h2>Sed ante mi&lt;/h2>
+  &lt;h2>I'm going to Prague!&lt;/h2>
 &lt;/div></code></pre>
 
 <p>There is nothing wrong with this markup. If you like it, you can keep it. It is valid <abbr>HTML5</abbr>. But <abbr>HTML5</abbr> provides some additional semantic elements for headers and sections.
@@ -438,8 +438,8 @@ p (sibling of h1)
 <p><abbr>HTML5</abbr> defines a <code>&lt;header></code> element for this purpose. The <abbr>HTML5</abbr> specification has <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element>a number of real-world examples</a> of using the <code>&lt;header></code> element. Here is what it would look like on <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;header>
-  &lt;h1>Lorem ipsum blog&lt;/h1>
-  &lt;p class="tagline">Materiam superabat opus.&lt;/p>
+  &lt;h1>My Weblog&lt;/h1>
+  &lt;p class="tagline">A lot of effort went into making this effortless.&lt;/p>
   &hellip;
 &lt;/header></code></pre>
 
@@ -447,33 +447,33 @@ p (sibling of h1)
 
 <p>Header elements like <code>&lt;h1></code> and <code>&lt;h2></code> give your page structure. Taken together, they create an outline that you can use to visualize (or navigate) your page. In <abbr>HTML</abbr> 4, <code>&lt;h1></code>&ndash;<code>&lt;h6></code> elements were the <em>only</em> way to create an outline. The outline on that example page looks like this:
 
-<pre>Lorem ipsum blog (h1)
+<pre>My Weblog (h1)
 |
-+--Lorem ipsum dolor sit amet (h2)
++--Travel day (h2)
 |
-+--Sed ante mi (h2)</pre>
++--I'm going to Prague! (h2)</pre>
 
 <p>That&#8217;s fine, but it means that there&#8217;s no way to mark up the tagline &#8220;Materiam superabat opus.&#8221; If we tried to mark it up as an <code>&lt;h2></code>, it would add a phantom node to the document outline:
 
-<pre>Lorem ipsum blog (h1)
+<pre>My Weblog (h1)
 |
-+--Materiam superabat opus. (h2)
++--A lot of effort went into making this effortless. (h2)
 |
-+--Lorem ipsum dolor sit amet (h2)
++--Travel day (h2)
 |
-+--Sed ante mi (h2)</pre>
++--I'm going to Prague! (h2)</pre>
 
 <p>But that&#8217;s not the structure of the document. The tagline does not represent a section; it&#8217;s just a subheading.
 
 <p>Perhaps we could mark up the tagline as an <code>&lt;h2></code> and mark up each article title as an <code>&lt;h3></code>? No, that&#8217;s even worse:
 
-<pre>Lorem ipsum blog (h1)
+<pre>My Weblog (h1)
 |
-+--Materiam superabat opus. (h2)
++--A lot of effort went into making this effortless. (h2)
    |
-   +--Lorem ipsum dolor sit amet (h3)
+   +--Travel day (h3)
    |
-   +--Sed ante mi (h3)</pre>
+   +--I'm going to Prague! (h3)</pre>
 
 <p>Now we still have a phantom node in our document outline, but it has &#8220;stolen&#8221; the children that rightfully belong to the root node. And herein lies the problem: <abbr>HTML</abbr> 4 does not provide a way to mark up a subheading without adding it to the document outline. No matter how we try to shift things around, &#8220;Materiam superabat opus&#8221; is going to end up in that graph. And that&#8217;s why you end up with semantically meaningless markup like <code>&lt;p class="tagline"></code>.
 
@@ -483,8 +483,8 @@ p (sibling of h1)
 
 <pre><code>&lt;header>
   <mark>&lt;hgroup></mark>
-    &lt;h1>Lorem ipsum blog&lt;/h1>
-    <mark>&lt;h2></mark>Materiam superabat opus.<mark>&lt;/h2></mark>
+    &lt;h1>My Weblog&lt;/h1>
+    <mark>&lt;h2></mark>A lot of effort went into making this effortless.<mark>&lt;/h2></mark>
   <mark>&lt;/hgroup></mark>
   &hellip;
 &lt;/header>
@@ -492,22 +492,22 @@ p (sibling of h1)
 &hellip;
 
 &lt;div class="entry">
-  &lt;h2>Lorem ipsum dolor sit amet&lt;/h2>
+  &lt;h2>Travel day&lt;/h2>
 &lt;/div>
 
 &hellip;
 
 &lt;div class="entry">
-  &lt;h2>Sed ante mi&lt;/h2>
+  &lt;h2>I'm going to Prague!&lt;/h2>
 &lt;/div></code></pre>
 
 <p>This is the document outline that is created:
 
-<pre>Lorem ipsum blog (h1 of its hgroup)
+<pre>My Weblog (h1 of its hgroup)
 |
-+--Lorem ipsum dolor sit amet (h2)
++--Travel day (h2)
 |
-+--Sed ante mi (h2)</pre>
++--I'm going to Prague! (h2)</pre>
 
 <p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&#8217;re using the heading elements properly.
 
@@ -520,8 +520,8 @@ p (sibling of h1)
   &lt;h2>
     &lt;a href="#"
        rel="bookmark"
-       title="link to &amp;#8220;Lorem ipsum&amp;#8221;">
-       Lorem ipsum dolor sit amet
+       title="link to this post">
+       Travel day
     &lt;/a>
   &lt;/h2>
   &hellip;
@@ -534,8 +534,8 @@ p (sibling of h1)
   &lt;h2>
     &lt;a href="#"
        rel="bookmark"
-       title="link to &amp;#8220;Lorem ipsum&amp;#8221;">
-       Lorem ipsum dolor sit amet
+       title="link to this post">
+       Travel day
     &lt;/a>
   &lt;/h2>
   &hellip;
@@ -549,8 +549,8 @@ p (sibling of h1)
     <mark>&lt;h1></mark>
       &lt;a href="#"
          rel="bookmark"
-         title="link to &amp;#8220;Lorem ipsum&amp;#8221;">
-         Lorem ipsum dolor sit amet
+         title="link to this post">
+         Travel day
       &lt;/a>
     <mark>&lt;/h1></mark>
   &lt;/header>
@@ -588,7 +588,7 @@ p (sibling of h1)
 
 <pre><code>&lt;div class="entry">
   <mark>&lt;p class="post-date">October 22, 2009&lt;/p></mark>
-  &lt;h2>Lorem ipsum dolor sit amet&lt;/h2>
+  &lt;h2>Travel day&lt;/h2>
 &lt;/div></code></pre>
 
 <p>Same old story, right? A common pattern &mdash; designating the publication date of an article &mdash; that has no semantic markup to back it up, so authors resort to generic markup with custom <code>class</code> attributes. Again, this is valid <abbr>HTML5</abbr>. You&#8217;re not <em>required</em> to change it. But <abbr>HTML5</abbr> does provide a specific solution for this case: the <code>&lt;time></code> element.
@@ -643,8 +643,8 @@ p (sibling of h1)
     &lt;h1>
       &lt;a href="#"
          rel="bookmark"
-         title="link to &#8220;Lorem ipsum&#8221;">
-         Lorem ipsum dolor sit amet
+         title="link to this post">
+         Travel day
       &lt;/a>
     &lt;/h1>
   &lt;/header>
