@@ -241,10 +241,15 @@ body{counter-reset:h1 2}
 
 <p><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML5</abbr> storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&#8217;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML5</abbr> storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
 
+<div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Is local storage really part of <abbr>HTML5</abbr>? Why is it in a separate specification?<br>
 A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The slightly longer answer is that local storage used to be part of the main <abbr>HTML5</abbr> specification, but it was split out into a separate specification because some people in the <abbr>HTML5</abbr> Working Group complained that <abbr>HTML5</abbr> was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories&hellip; well, welcome to the wacky world of standards.
 </blockquote>
+</div>
+</div>
 
 <p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined.
 
@@ -254,10 +259,15 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 
 <p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML5</abbr> storage, so you&#8217;ll need to use the function listed here.
 
+<div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: How secure is my <abbr>HTML5</abbr> storage database? Can anyone read it?<br>
 A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML5</abbr> storage database. Within your browser, any web site can read and modify its own values, but sites can&#8217;t access values stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#origin-0>same-origin restriction</a>.
 </blockquote>
+</div>
+</div>
 
 <p class=a>&#x2042;
 
@@ -301,10 +311,15 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust.
 
+<div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
 A: Geolocation support is being added to browsers right now, at the same time they&#8217;re adding support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href=http://www.w3.org/2008/geolocation/>Geolocation Working Group</a>, which is separate from the <abbr>HTML5</abbr> Working Group. But I&#8217;m going to talk about geolocation in this book anyway, because it&#8217;s part of the evolution of the web that&#8217;s happening now.
 </blockquote>
+</div>
+</div>
 
 <p>Checking for geolocation support uses <a href=#techniques>detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&#8217;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will be undefined.
 
