@@ -299,18 +299,11 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=ss style="width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
-<p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
+<p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust.
 
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
 A: Geolocation support is being added to browsers right now, at the same time they&#8217;re adding support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href=http://www.w3.org/2008/geolocation/>Geolocation Working Group</a>, which is separate from the <abbr>HTML5</abbr> Working Group. But I&#8217;m going to talk about geolocation in this book anyway, because it&#8217;s part of the evolution of the web that&#8217;s happening now.
-</blockquote>
-
-<p>The <a href=http://www.w3.org/TR/geolocation-API/>geolocation <abbr>API</abbr></a> lets you share your location with trusted web sites. The latitude and longitude are available to JavaScript on the page, which in turn can send it back to the remote web server and do fancy location-aware things like finding local businesses or showing your location on a map.
-
-<blockquote class=note>
-<p><span>&#x261E;</span>Q: Geolocation sounds scary. Can I turn it off?<br>
-A: Privacy is an obvious concern when you&#8217;re talking about sharing your physical location with a remote web server. The <a href=http://www.w3.org/TR/geolocation-API/#security>geolocation <abbr>API</abbr> explicitly states</a>: &#8220;User Agents must not send location information to Web sites without the express permission of the user.&#8221; In other words, sharing your location is always opt-in. If you don&#8217;t want to, you don&#8217;t have to.
 </blockquote>
 
 <p>Checking for geolocation support uses <a href=#techniques>detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&#8217;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will be undefined.
@@ -333,62 +326,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>There are also device-specific geolocation <abbr>API</abbr>s on several mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
 
-<p><a href=http://code.google.com/p/geo-location-javascript/><code>geo.js</code></a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that smooths over the differences between the standard <code>navigator.geolocation</code> <abbr>API</abbr>, the Gears <abbr>API</abbr>, and the various device-specific <abbr>API</abbr>s. To use it, you&#8217;ll need to add two <code>&lt;script></code> elements at the bottom of your page. The first is <a href=http://code.google.com/apis/gears/gears_init.js><code>gears_init.js</code></a>, which initializes Gears if it&#8217;s installed. The second is <a href=http://geo-location-javascript.googlecode.com/svn/trunk/js/geo.js><code>geo.js</code></a>.
-
-<pre style="float:left"><code>&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;meta charset="utf-8">
-  &lt;title>Dive Into HTML5&lt;/title>
-&lt;/head>
-&lt;body>
-  ...
-  <mark>&lt;script src="gears_init.js">&lt;/script>
-&lt;script src="geo.js">&lt;/script></mark>
-&lt;/body>
-&lt;/html>
-</code></pre>
-<p class="legend right" style="margin-top:11.2em"><span class=arrow>&nbsp;&#x21dc;</span> Two scripts are better than one
-
-<p class=clear>Now you&#8217;re ready to use whichever geolocation <abbr>API</abbr> is installed.
-
-<pre><code>if (geo_position_js.init()) {
-  geo_position_js.getCurrentPosition(geo_success, geo_error);
-}
-</code></pre>
-
-<p>Let&#8217;s take that one step at a time. First, you need to explicitly call an <code>init()</code> function. The <code>init()</code> function returns <code>true</code> if a supported geolocation <abbr>API</abbr> is available.
-
-<pre><code>if (<mark>geo_position_js.init()</mark>) {</code></pre>
-
-<p>Calling the <code>init()</code> function does not actually find your location. It just verifies that finding your location is possible. To actually find your location, you need to call the <code>getCurrentPosition()</code> function.
-
-<pre><code>  <mark>geo_position_js.getCurrentPosition</mark>(geo_success, geo_error);</code></pre>
-
-<p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If geolocation is being provided by Gears, this will pop up a dialog asking if your trust the web site to use Gears. If your browser natively supports the geolocation <abbr>API</abbr>, the dialog will look different. For example, Firefox 3.5 natively supports the geolocation <abbr>API</abbr>. If you try to find your location in Firefox 3.5, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
-
-<p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location &mdash; that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic &mdash; it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
-
-<pre><code>  geo_position_js.getCurrentPosition(<mark>geo_success</mark>, geo_error);</code></pre>
-
-<p>The success callback function takes a single argument, which contains the position information.
-
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> Success callback
-<pre><code>function geo_success(p) {
-  alert("Found you at latitude " + p.coords.latitude +
-        ", longitude " + p.coords.longitude);
-}</code></pre>
-
-<p>If the <code>getCurrentPosition()</code> function could not find your location &mdash; either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason &mdash; it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geo_error</code>.
-
-<pre><code>  geo_position_js.getCurrentPosition(geo_success, <mark>geo_error</mark>);</code></pre>
-
-<p>The failure callback function takes no arguments.
-
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> Failure callback
-<pre><code>function geo_error() {
-  alert("Could not find you!");
-}</code></pre>
+<p>The <a href=geolocation.html>chapter on geolocation</a> will go into excruciating detail about how to use all of these different <abbr>API</abbr>s.
 
 <p class=a>&#x2042;
 
