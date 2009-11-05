@@ -317,3 +317,22 @@ video {
   display: block;
   margin: 0 auto;
 }
+
+/* browser compatibility tables */
+
+.bc {
+  width:100%;
+  border-collapse:collapse;
+}
+
+.bc tbody th, .bc thead th.l, .bc tfoot td {
+  text-align:left;
+}
+
+.bc thead th, .bc td {
+  text-align:center;
+}
+
+.bc tfoot {
+  font-size:small;
+}
