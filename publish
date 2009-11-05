@@ -24,9 +24,9 @@ mkdir build/fonts-original
 cp fonts-original/*.tar.gz build/fonts-original/
 
 echo "validating HTML"
-#for f in *.html; do
-#  python3 util/validate.py "$f" > /dev/null || die "Failed to validate $f"
-#done
+for f in *.html; do
+  python3 util/validate.py "$f" > /dev/null || die "Failed to validate $f"
+done
 
 echo "minimizing HTML"
 
@@ -58,14 +58,14 @@ echo "combining JS"
 cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/dih5.min.js > build/j/$revision.js && \
 cat build/j/legal.js build/j/gears_init.min.js build/j/geo.min.js > build/j/$revision-maps.js && \
 cat build/j/legal.js build/j/flowplayer-3.1.4.min.js build/j/html5-video.min.js > build/j/$revision-video.js && \
-    sed -i -e "s|<script src=j/jquery.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/modernizr.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/gears_init.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/geo.js>|<script src=j/${revision}-maps.js>|g" build/*.html && \
-    sed -i -e "s|<script src=j/canvastext-fx3.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/flowplayer-3.1.4.min.js></script>||g" build/*.html && \
-    sed -i -e "s|<script src=j/html5-video.js>|<script src=j/${revision}-video.js>|g" build/*.html && \
-    sed -i -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
+sed -i -e "s|<script src=j/jquery.js></script>||g" \
+       -e "s|<script src=j/modernizr.js></script>||g" \
+       -e "s|<script src=j/gears_init.js></script>||g" \
+       -e "s|<script src=j/geo.js>|<script src=j/${revision}-maps.js>|g" \
+       -e "s|<script src=j/canvastext-fx3.js></script>||g" \
+       -e "s|<script src=j/flowplayer-3.1.4.min.js></script>||g" \
+       -e "s|<script src=j/html5-video.js>|<script src=j/${revision}-video.js>|g" \
+       -e "s|<script src=j/dih5.js>|<script src=j/${revision}.js>|g" build/*.html || die "Failed to combine JS"
 
 echo "minimizing CSS"
 sed -i -e "s|url(i/|url(//d.wearehugh.com/dih5/|g" build/screen.css || die "Failed to inline CSS"
