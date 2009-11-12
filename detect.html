@@ -207,7 +207,7 @@ body{counter-reset:h1 2}
 
 <pre><code>  if (<mark>!supports_video()</mark>) { return false; }</code></pre>
 
-<p>Then the function creates a dummy video element (but doesn&#8217;t attach it to the page, so it won&#8217;t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
+<p>Then the function creates a dummy <code>&lt;video></code> element (but doesn&#8217;t attach it to the page, so it won&#8217;t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
 
 <pre><code>  var <mark>v</mark> = document.createElement("video");</code></pre>
 
