@@ -9,10 +9,11 @@ h1:before{content:''}
 h1,h2,h3{padding:0;margin:0;border:0;line-height:128px;text-align:center;clear:both}
 h1{margin-top:128px;font-size:72px;text-transform:uppercase}
 h2{font-size:48px}
-dl{clear:both;width:100%;overflow:auto;background:#fff url(i/dot.png) repeat-x 0 0.8em}
-dt,dd{background:#fff}
-dt{float:left;padding-right:3px}
-dd{margin:0;float:right;padding-left:3px}
+ol{margin:1em 0 0 0;padding:0;list-style:none}
+li{clear:both;width:100%;overflow:auto;background:#fff url(i/dot.png) repeat-x 0 0.8em;margin:0 0 1em 0;padding:0;overflow:hidden}
+.title,.number{background:#fff}
+.title{float:left;padding-right:3px}
+.number{margin:0;float:right;padding-left:3px}
 .f{margin-top:6.224em}
 </style>
 <div id=zz>
@@ -29,60 +30,19 @@ dd{margin:0;float:right;padding-left:3px}
 <h3>Table of Contents</h3>
 
 <!-- toc -->
-<dl>
-<dt>A Quite Biased History of <abbr>HTML5</abbr>
-<dd>1
-</dl>
-
-<dl>
-<dt><a href=detect.html>Detecting <abbr>HTML5</abbr> Features: It&#8217;s Elementary, My Dear Watson</a>
-<dd>2
-</dl>
-
-<dl>
-<dt><a href=semantics.html>What Does It All Mean?</a>
-<dd>3
-</dl>
-
-<dl>
-<dt><a href=canvas.html>Let&#8217;s Call It a Draw(ing Surface)</a>
-<dd>4
-</dl>
-
-<dl>
-<dt><a href=video.html>Video in a Flash (Without That Other Thing)</a>
-<dd>5
-</dl>
-
-<dl>
-<dt>You Are Here (And So Is Everybody Else)
-<dd>6
-</dl>
-
-<dl>
-<dt>SELECT * FROM BROWSER WHERE 5 > 2
-<dd>7
-</dl>
-
-<dl>
-<dt>Thread The Needle, Thread The Script
-<dd>8
-</dl>
-
-<dl>
-<dt>Let&#8217;s Take This Offline
-<dd>9
-</dl>
-
-<dl>
-<dt>Web Forms, Reinvented
-<dd>10
-</dl>
-
-<dl>
-<dt>&#8220;Distributed Extensibility&#8221; And Other Fancy Words
-<dd>11
-</dl>
+<ol>
+<li>A Quite Biased History of <abbr>HTML5</abbr>
+<li><a href=detect.html>Detecting <abbr>HTML5</abbr> Features: It&#8217;s Elementary, My Dear Watson</a>
+<li><a href=semantics.html>What Does It All Mean?</a>
+<li><a href=canvas.html>Let&#8217;s Call It a Draw(ing Surface)</a>
+<li><a href=video.html>Video in a Flash (Without That Other Thing)</a>
+<li>You Are Here (And So Is Everybody Else)
+<li>SELECT * FROM BROWSER WHERE 5 > 2
+<li>Thread The Needle, Thread The Script
+<li>Let&#8217;s Take This Offline
+<li>A Form of Madness
+<li>&#8220;Distributed Extensibility&#8221; And Other Fancy Words
+</ol>
 <!-- /toc -->
 
 <p class=a>&#x2042;
@@ -93,3 +53,11 @@ dd{margin:0;float:right;padding-left:3px}
 
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
 </div>
+<script src=j/jquery.js></script>
+<script>
+$(document).ready(function() {
+  $("li").each(function(i) {
+    $(this).wrapInner('<span class=title></span>').append('<span class=number>'+(i+1)+'</span>');
+  });
+});
+</script>

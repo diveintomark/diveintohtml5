@@ -195,16 +195,17 @@ sup {
 
 a {
   text-decoration: none;
-  border-bottom: 1px dotted;
 }
-a:hover {
-  border-bottom: 1px solid;
-}
-a:link, .w a {
+a:link {
   color: FireBrick;
+  border-bottom: 1px dotted;
 }
 a:visited {
   color: RosyBrown;
+  border-bottom: 1px dotted;
+}
+a:link:hover, a:visited:hover {
+  border-bottom: 1px solid;
 }
 .c a {
   color: inherit;
