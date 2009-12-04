@@ -1,1 +1,1 @@
-<script>var gaJsHost="http://www.";document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js'%3E%3C/script%3E"));</script><script>try{var pageTracker=_gat._getTracker("UA-7434570-4");pageTracker._trackPageview();}catch(err){}</script>
+<script>_gaq=[['_setAccount','UA-7434570-4'],['_trackPageview']];(function(){var g=document.createElement('script');g.src='//www.google-analytics.com/ga.js';g.setAttribute('async','true');document.documentElement.firstChild.appendChild(g);})();</script>
