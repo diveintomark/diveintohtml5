@@ -11,7 +11,7 @@ SELECTOR_EXCEPTIONS = ('.w', '.b', '.str', '.kwd', '.com', '.typ', '.lit', '.pun
 filename = sys.argv[1]
 pqd = pq(filename=filename)
 raw_data = open(filename, 'rb').read()
-if raw_data.count('<pre') or filename == 'index.html':
+if raw_data.count('<pre') or filename.count('index.html'):
     def keep(s):
         for selector in SELECTOR_EXCEPTIONS:
             if s == selector: return True
