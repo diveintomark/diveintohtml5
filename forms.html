@@ -41,6 +41,8 @@ body{counter-reset:h1 10}
 <p><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
 </blockquote>
 
+<p>Ironically, Firefox 3.5 does not support adding placeholder text to your own web forms. C&#8217;est la vie.
+
 <table class=bc>
 <caption>Placeholder support</caption>
 <thead>
@@ -54,11 +56,21 @@ body{counter-reset:h1 10}
 <p>Here&#8217;s how you can include placeholder text in your own web forms:
 
 <pre><code>&lt;form>
-&lt;input name="q" <mark>placeholder="Search Bookmarks and History"</mark>>
-&lt;input type="submit" value="Search">
+  &lt;input name="q" <mark>placeholder="Search Bookmarks and History"</mark>>
+  &lt;input type="submit" value="Search">
 &lt;/form></code></pre>
 
-<p>FIXME
+<p>Browsers that don&#8217;t support the <code>placeholder</code> attribute will simply ignore it. No harm, no foul. <a href=examples/input-placeholder.html>See whether your browser supports placeholder text</a>.
+
+<div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Can I use <abbr>HTML</abbr> markup in the <code>placeholder</code> attribute? I want to insert an image, or maybe change the colors.<br>
+A: No, the <code>placeholder</code> attribute can only contain text.
+</blockquote>
+</div>
+</div>
 
 <p class=a>&#x2042;
 
@@ -122,7 +134,7 @@ body{counter-reset:h1 10}
 
 <p class=a>&#x2042;
 
-<h2 id=type-date-etc>Date Pickers</h2>
+<h2 id=type-date>Date Pickers</h2>
 
 <p>FIXME type=date actually works in Opera, not sure about other variants
 
