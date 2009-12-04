@@ -1,7 +1,6 @@
 #!/usr/bin/python2.6
 
 from pyquery import PyQuery as pq
-import glob
 import sys
 
 # These selectors are kept regardless of whether this script thinks they are used.
