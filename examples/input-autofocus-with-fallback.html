@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>&lt;input autofocus> fallback - Dive Into HTML5</title>
+  <!--[if IE]><script src="../j/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="style-html5.css" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <meta name=viewport content='initial-scale=1.0' />
+</head>
+
+<body>
+
+  <form>
+    <input id="q" autofocus>
+    <input type="submit" value="Go">
+  </form>
+
+  <pre><code>&lt;form name="f">
+  &lt;input id="q" autofocus>
+  &lt;input type="submit" value="Go">
+&lt;/form>
+&hellip;
+&lt;script>
+  window.onload = function() {
+    if (!("autofocus" in document.createElement("input"))) {
+      document.getElementById("q").focus();
+    }
+  }
+&lt;/script></code></pre>
+
+  <p>Note: <code>window.onload</code> fires <em>after</em> all your images have loaded. If your page has a lot of images, the above script could potentially re-focus the "q" field after the user has started interacting with another part of your page. (This is why power users hate autofocus scripts.) If your site already uses a JavaScript library like jQuery, you can mitigate this delay by using <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
+
+  <p><a href=../forms.html#autofocus>&larr; back to Dive Into HTML5</a>
+
+  <script>
+    window.onload = function() {
+      if (!("autofocus" in document.createElement("input"))) {
+        document.getElementById("q").focus();
+      }
+    }
+  </script>
+
+</body>
+
+</html>

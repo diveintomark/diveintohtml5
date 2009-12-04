@@ -82,9 +82,58 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&#8217;t want a web page to &#8220;steal&#8221; the focus.
 
-<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&#8217;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&#8217;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
 
-<p>FIXME
+<table class=bc>
+<caption>Autofocus support</caption>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chrome<th title="Opera 10">Opera
+</thead>
+<tbody>
+<tr><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&#x2713;
+</tbody>
+</table>
+
+<p>Here&#8217;s how you can set a form field to autofocus:
+
+<pre><code>&lt;form>
+  &lt;input name="q" <mark>autofocus</mark>>
+  &lt;input type="submit" value="Search">
+&lt;/form></code></pre>
+
+<p>Browsers that don&#8217;t support the <code>autofocus</code> attribute will simply ignore it. <a href=examples/input-autofocus.html>See whether your browser supports autofocus fields</a>.
+
+<p>What&#8217;s that? You say you want your autofocus fields to work in all browsers, not just these fancy-pants <abbr>HTML5</abbr> browsers? You can keep your current autofocus script. Just make two small changes:
+
+<ol>
+<li>Add the <code>autofocus</code> attribute to your <abbr>HTML</abbr> markup
+<li><a href=detect.html#input-autofocus>Detect whether the browser supports the <code>autofocus</code> attribute</a>, and only run your own autofocus script if the browser doesn&#8217;t support autofocus natively.
+</ol>
+
+<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with fallback
+<pre><code>&lt;form name="f">
+  &lt;input id="q" <mark>autofocus</mark>>
+  &lt;input type="submit" value="Go">
+&lt;/form>
+&hellip;
+&lt;script>
+  window.onload = function() {
+    if (<mark>!("autofocus" in document.createElement("input"))</mark>) {
+      document.getElementById("q").focus();
+    }
+  }
+&lt;/script></code></pre>
+
+<p><a href=examples/input-autofocus-with-fallback.html>See an example of <code>autofocus</code> with fallback</a>.
+
+<div class="pf clear">
+<h4>Professor Markup Says</h4>
+<div class=inner>
+<blockquote class=note>
+<p><code>window.onload</code> fires <em>after</em> all your images have loaded. If your page has a lot of images, the above script could potentially re-focus the "q" field after the user has started interacting with another part of your page. (This is why power users hate autofocus scripts.) If your site already uses a JavaScript library like jQuery, you can mitigate this delay by using <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
+</blockquote>
+</div>
+</div>
 
 <p class=a>&#x2042;
 
