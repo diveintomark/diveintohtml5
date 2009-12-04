@@ -139,9 +139,45 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <h2 id=type-email>Email Addresses</h2>
 
-<p>FIXME this works on iPhone (see screenshot); Opera shows a small in-field email icon
+<p>For over a decade, web forms comprised just a few kinds of fields. The most common kinds were
 
-<p class=c><img src=i/input-type-email.png alt="iPhone rendering input type=email field" width=222 height=333 class=fr>
+<table class=st>
+<tr class=ho><th>Field Type<th><abbr>HTML</abbr> Code<th>Notes
+<tr><th>checkbox</th><td><code>&lt;input type="checkbox"></code><td>can be toggled on or off
+<tr class=zebra><th>radio button</th><td><code>&lt;input type="radio"></code><td>can be grouped with other inputs
+<tr><th>password field</th><td><code>&lt;input type="password"></code><td>echos dots instead of characters as you type
+<tr class=zebra><th>drop-down lists</th><td><code>&lt;select>&lt;option>&hellip;</code><td>
+<tr><th>file picker</th><td><code>&lt;input type="file"></code><td>pops up an &#8220;open file&#8221; dialog
+<tr class=zebra><th>submit button</th><td><code>&lt;input type="submit"></code><td>
+<tr><th>plain text</th><td><code>&lt;input type="text"></code><td>the <code>type</code> attribute can be omitted
+</table>
+
+<p>All of these input types still work in <abbr>HTML5</abbr>. If you&#8217;re &#8220;upgrading to <abbr>HTML5</abbr>&#8221; (perhaps by <a href=semantics.html#the-doctype>changing your DOCTYPE</a>), you don&#8217;t need to make a single change to your web forms. Hooray for backward compatibility!
+
+<p>However, <abbr>HTML5</abbr> defines several new field types, and as for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
+
+<p>The first of these new input types is for <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state>email addresses</a>. It looks like this:
+
+<pre><code>&lt;form>
+  <mark>&lt;input type="email"></mark>
+  &lt;input type="submit" value="Go">
+&lt;/form></code></pre>
+
+<p>I was about to write a sentence that started with &#8220;in browsers that support <code>type="email"</code>&hellip;&#8221; but I stopped myself. Why? Because I&#8217;m not sure what it would mean to say that a browser &#8220;doesn&#8217;t support&#8221; <code>type="email"</code>. All browsers &#8220;support&#8221; <code>type="email"</code>. They may do something special with it (and you&#8217;ll see a few examples of that in a moment), but browsers that don&#8217;t recognize <code>type="email"</code> will treat it as <code>type="text"</code>. That is, a plain text field.
+
+<p>I can not emphasize how important this is. The web has millions of forms that ask you to enter an email address, and all of them use <code>&lt;input type="text"></code>. You see a text box, you type your email address in the text box, and that&#8217;s that. Along comes <abbr>HTML5</abbr>, which defines <code>type="email"</code>. Do browsers freak out? No. Every single browser on Earth treats an unknown <code>type</code> attribute as <code>type="text"</code> &mdash; even IE 6. So you can &#8220;upgrade&#8221; your web forms to use <code>type="email"</code> right now.
+
+<p>Thus, you might ask, who cares? What would it mean for a browser that <em>DID</em> &#8220;support&#8221; <code>type="email"</code>? Well, it can mean any number of things. The <abbr>HTML5</abbr> specification doesn&#8217;t mandate any particular user interface for the new input types. Opera styles the form field with a small email icon. Other <abbr>HTML5</abbr> browsers like Safari and Chrome simply render it as a text box &mdash; exactly like <code>type="text"</code> &mdash; so your users will never know the difference (unless they view-source).
+
+<p>And then there&#8217;s the iPhone.
+
+<p>The iPhone does not have a physical keyboard. All &#8220;input&#8221; is done by tapping on an on-screen keyboard that pops up at appropriate times, like when you focus a form field in a web page. Apple did something very clever in the iPhone&#8217;s web browser. It recognizes several of the new <abbr>HTML5</abbr> input types, and <em>dynamically changes the on-screen keyboard</em> to optimize for that kind of input.
+
+<p>For example, email addresses are text, right? Right. But they&#8217;re guaranteed to contain the <code>@</code> sign and at least one period (<code>.</code>), but they&#8217;re unlikely to contain spaces. So when you use an iPhone and focus an <code>&lt;input type="email"></code> element, you get an on-screen keyboard that contains a smaller-than-usual space bar, plus dedicated keys for the <code>@</code> and <code>.</code> characters.
+
+<p class=c><img src=i/input-type-email.png alt="iPhone rendering input type=email field" title="note the dedicated @ and . keys next to the space bar" width=222 height=333 class=fr><br><a href=examples/input-type-email.html>Test <code>type="email"</code> for yourself</a>.
+
+<p>To sum up: there&#8217;s no downside to converting all your email address form fields to <code>type="email"</code> immediately. Virtually no one will even notice, except iPhone users, who probably won&#8217;t notice either. But the ones who do notice will smile quietly and thank you for making their web experience just a little easier.
 
 <p class=a>&#x2042;
 
