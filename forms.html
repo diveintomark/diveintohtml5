@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>A Form of Madness - Dive Into HTML5</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
+<link rel="shortcut icon" href=favicon.ico>
+<link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
+<link rel=stylesheet href=screen.css>
+<style>
+body{counter-reset:h1 10}
+</style>
+<div id=zz>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#forms>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1>A Form of Madness</h1>
+<p id=toc>&nbsp;
+<p class=a>&#x2042;
+<h2 id=divingin>Diving In</h2>
+
+<p class=f><img src=i/aoc-e.png alt=E width=107 height=105>verybody knows about web forms, right? Make a <code>&lt;form></code>, a few <code>&lt;input type="text"></code> elements, maybe an <code>&lt;input type="password"></code>, finish it off with an <code>&lt;input type="submit"></code> button, and you&#8217;re done.
+
+<p>You don&#8217;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms. And when I say &#8220;use,&#8221; I mean you can use them right now &mdash; without any shims, hacks, or workarounds. Now don&#8217;t get too excited; I don&#8217;t mean to say that all of these exciting new features are actually supported in every browser. Oh goodness no, I don&#8217;t mean that at all. In modern browsers, yes, your forms will kick all kinds of ass. But in legacy browsers, your forms will still work, albeit with less ass kicking. Which is to say, all of these features degrade gracefully in every browser. Even IE 6.
+
+<!--
+<p class=ss style="width:261px"><img src=i/openclipart.org_johnny_automatic_typewriter.png alt="manual typewriter" width=261 height=228><br><span id=live-input-types></span>
+-->
+
+<p class=a>&#x2042;
+
+<h2 id=placeholder>Placeholder Text</h2>
+
+<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears.
+
+<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox 3.5 now includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
+
+<blockquote>
+<p><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
+</blockquote>
+
+<p>When you click on (or tab to) the location bar, the placeholder text disappears:
+
+<blockquote>
+<p><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
+</blockquote>
+
+<table class=bc>
+<caption>Placeholder support</caption>
+<thead>
+<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chrome<th title="Opera 10">Opera
+</thead>
+<tbody>
+<tr><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&middot;
+</tbody>
+</table>
+
+<p>Here&#8217;s how you can include placeholder text in your own web forms:
+
+<pre><code>&lt;form>
+&lt;input name="q" <mark>placeholder="Search Bookmarks and History"</mark>>
+&lt;input type="submit" value="Search">
+&lt;/form></code></pre>
+
+<p>FIXME
+
+<p class=a>&#x2042;
+
+<h2 id=autofocus>Autofocus Fields</h2>
+
+<p class=ss><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262>
+
+<p>Many web sites use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&#8217;s autofocus script may &#8220;helpfully&#8221; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
+
+<p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&#8217;t want a web page to &#8220;steal&#8221; the focus.
+
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&#8217;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+
+<p>FIXME
+
+<p class=a>&#x2042;
+
+<h2 id=type-email>Email Addresses</h2>
+
+<p>FIXME this works on iPhone (see screenshot); Opera shows a small in-field email icon
+
+<p class=c><img src=i/input-type-email.png alt="iPhone rendering input type=email field" width=222 height=333 class=fr>
+
+<p class=a>&#x2042;
+
+<h2 id=type-url>Web Addresses</h2>
+
+<p>FIXME this works on iPhone (see screenshot); Opera shows a small in-field "favorites" icon
+
+<p class=c><img src=i/input-type-url.png alt="iPhone rendering input type=url field" width=222 height=333 class=fr>
+
+<p class=a>&#x2042;
+
+<h2 id=type-tel>Telephone Numbers</h2>
+
+<p>FIXME works on iPhone (see screenshot); seems to have no effect on any desktop browser (including Opera)
+
+<p class=c><img src=i/input-type-tel.png alt="iPhone rendering input type=tel field" width=222 height=333 class=fr>
+
+<p class=a>&#x2042;
+
+<h2 id=type-search>Search Boxes</h2>
+
+<p>FIXME works on iPhone (see screenshot -- only difference AFAICT is the "Search" button in the lower right); seems to have no effect on any desktop browser (including Opera)
+
+<p class=c><img src=i/input-type-search.png alt="iPhone rendering input type=search field" width=222 height=333 class=fr>
+
+<p class=a>&#x2042;
+
+<h2 id=type-number>Numbers</h2>
+
+<p>FIXME works on iPhone (see screenshot); Opera renders as spinbox control
+
+<p class=c><img src=i/input-type-number.png alt="iPhone rendering input type=number field" width=222 height=333 class=fr>
+
+<p class=a>&#x2042;
+
+<h2 id=type-range>Sliders</h2>
+
+<p>FIXME this actually works in Safari, Chrome, and Opera (need screenshots)
+
+<p class=a>&#x2042;
+
+<h2 id=type-date-etc>Date Pickers</h2>
+
+<p>FIXME type=date actually works in Opera, not sure about other variants
+
+<!-- date, month, week, time, datetime, datetime-local -->
+
+<p class=a>&#x2042;
+
+<h2 id=type-color>Color Pickers</h2>
+
+<p>FIXME this doesn't seem to work in any browser
+
+<p class=a>&#x2042;
+
+<h2 id=stuff-that-doesnt-work-yet>The Future</h2>
+
+<p>FIXME short intro about stuff that doesn&#8217;t work yet, like
+
+<ul>
+<li>&lt;input required>
+<li>&lt;input pattern>
+</ul>
+
+<p>...and maybe move some of the input types here too
+
+<p class=a>&#x2042;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<p>Specifications and standards:
+
+<ul>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#states-of-the-type-attribute><code>&lt;input></code> types</a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>the <code>&lt;input placeholder></code> attribute</a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>the <code>&lt;input autofocus></code> attribute</a>
+</ul>
+
+<p>JavaScript libraries:
+
+<ul>
+<li><a href=http://www.modernizr.com/>Modernizr</a>, an <abbr>HTML5</abbr> detection library
+</ul>
+
+<p class=a>&#x2042;
+
+<div class=pf>
+<h4>Did You Know?</h4>
+<div class=moneybags>
+<blockquote><p>In association with O&#8217;Reilly, Google Press will be publishing this book in a variety of formats, including paper, Kindle, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The printed book will be called &#8220;HTML5: Up &amp; Running,&#8221; and we hope to release it by next February. This chapter will be included in the print edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">pre-order &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+</blockquote>
+</div>
+</div>
+
+<p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+</div>
+<script src=j/jquery.js></script>
+<script src=j/modernizr.js></script>
+<script src=j/dih5.js></script>

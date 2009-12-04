@@ -395,26 +395,7 @@ A: Geolocation support is being added to browsers right now, at the same time th
 
 <form style="float:right;margin:1.75em"><input placeholder="Your browser supports placeholder text" size=38></form>
 
-<p>Besides <a href=#input-types>new input types</a>, <abbr>HTML5</abbr> includes several small tweaks to existing forms. One improvement is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears.
-
-<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox 3.5 now includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
-
-<blockquote>
-<p><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
-</blockquote>
-
-<p>When you click on (or tab to) the location bar, the placeholder text disappears:
-
-<blockquote>
-<p><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
-</blockquote>
-
-<p>Here&#8217;s how you can include placeholder text in your own web forms:
-
-<pre><code>&lt;form>
-&lt;input name="q" <mark>placeholder="Search Bookmarks and History"</mark>>
-&lt;input type="submit" value="Search">
-&lt;/form></code></pre>
+<p>Besides <a href=#input-types>new input types</a>, <abbr>HTML5</abbr> includes several small tweaks to existing forms. One improvement is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears. The <a href=forms.html#placeholder>chapter on web forms</a> has screenshots if you&#8217;re having trouble visualizing it.
 
 <p>Checking for placeholder support uses <a href=#techniques>detection technique #2</a>. If your browser supports placeholder text in input fields, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;input></code> element will have a <code>placeholder</code> property (even if you don&#8217;t include a <code>placeholder</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&#8217;t support placeholder text, the <abbr>DOM</abbr> object it creates for a <code>&lt;input></code> element will not have a <code>placeholder</code> property.
 
