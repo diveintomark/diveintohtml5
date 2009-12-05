@@ -6,7 +6,7 @@ import roman
 # get list of chapters
 chapters = []
 for line in open('index.html'):
-    if not line.count('<dt') or not line.count('<a href'): continue
+    if not line.count('<li') or not line.count('<a href'): continue
     chapters.append(line.split('<a href=', 1)[1].split('>', 1)[0])
 sections = {}
 
@@ -21,11 +21,11 @@ short_toc = data.split('<!-- toc -->')[1].split('<!-- /toc -->')[0]
 full_toc = ['<!-- toc -->']
 chapter_id = ''
 for line in short_toc.splitlines():
-    if line.count('<dt') and line.count('<a href'):
+    if line.count('<li') and line.count('<a href'):
         chapter_id = line.split('<a href=', 1)[1].split('.', 1)[0]
-        line = line.replace('<dt>', '<dt id={0}>'.format(chapter_id))
+        line = line.replace('<li>', '<li id={0}>'.format(chapter_id))
     full_toc.append(line)
-    if line.count('</dl') and chapter_id:
+    if chapter_id:
         full_toc.append('<ol>')
         section_number = 0
         for section_id, section_title in sections[chapter_id]:
