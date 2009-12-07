@@ -48,7 +48,7 @@ body{counter-reset:h1 2}
 
 <h2 id=modernizr>Modernizr, an HTML5 Detection Library</h2>
 
-<p><a href=http://www.modernizr.com/>Modernizr</a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that detects support for many <abbr>HTML5</abbr> <i class=baa>&amp;</i> <abbr>CSS3</abbr> features. To use it, include the following <code>&lt;script></code> element at the top of your page.
+<p><a href=http://www.modernizr.com/>Modernizr</a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that detects support for many <abbr>HTML5</abbr> <i class=baa>&amp;</i> <abbr>CSS3</abbr> features. At time of writing, the latest version is 1.1. You should always use the latest version. To use it, include the following <code>&lt;script></code> element at the top of your page.
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
 &lt;html>
@@ -231,7 +231,17 @@ body{counter-reset:h1 2}
   return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect individual video formats, so you&#8217;ll need to use the functions listed here.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> video formats.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> video formats
+<pre><code>if (Modernizr.video) {
+  // let's play some video! but what kind?
+  if (<mark>Modernizr.video.ogg</mark>) {
+    // try Ogg Theora + Vorbis in an Ogg container
+  } else if (<mark>Modernizr.video.h264</mark>){
+    // try H.264 video + AAC audio in an MP4 container
+  }
+}</code></pre>
 
 <p class=a>&#x2042;
 
@@ -257,7 +267,17 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
   return !!window.localStorage;
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for <abbr>HTML5</abbr> storage, so you&#8217;ll need to use the function listed here.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> local storage
+<pre><code>if (<mark>Modernizr.localstorage</mark>) {
+  // window.localStorage is available!
+} else {
+  // no native support for local storage :(
+  // maybe try Gears or another third-party solution
+}</code></pre>
+
+<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>localstorage</code> (all lowercase), but the <abbr>DOM</abbr> property is called <code>window.localStorage</code> (mixed case).
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
@@ -283,7 +303,17 @@ A: Anyone who has physical access to your computer can probably look at (or even
   return !!window.Worker;
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web workers, so you&#8217;ll need to use the function listed here.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for web workers.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for web workers
+<pre><code>if (<mark>Modernizr.webworkers</mark>) {
+  // window.Worker is available!
+} else {
+  // no native support for web workers :(
+  // maybe try Gears or another third-party solution
+}</code></pre>
+
+<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>webworkers</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.Worker</code> (with a capital &#8220;W&#8221; in &#8220;Worker&#8221;).
 
 <p class=a>&#x2042;
 
@@ -301,7 +331,17 @@ A: Anyone who has physical access to your computer can probably look at (or even
   return !!window.applicationCache;
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for offline web applications, so you&#8217;ll need to use the function listed here.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for offline web applications.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for offline support
+<pre><code>if (<mark>Modernizr.applicationcache</mark>) {
+  // window.applicationCache is available!
+} else {
+  // no native support for offline :(
+  // maybe try Gears or another third-party solution
+}</code></pre>
+
+<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>applicationcache</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.applicationCache</code> (mixed case).
 
 <p class=a>&#x2042;
 
@@ -334,7 +374,7 @@ A: Geolocation support is being added to browsers right now, at the same time th
   // let's find out where you are!
 } else {
   // no native geolocation support available :(
-  // maybe check for third party solutions instead
+  // maybe try Gears or another third-party solution
 }</code></pre>
 
 <p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href=http://tools.google.com/gears/>Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides a number of features for older browsers that do not support all the fancy new stuff we&#8217;ve discussed in this chapter. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&#8217;s not the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
@@ -404,7 +444,15 @@ A: Geolocation support is being added to browsers right now, at the same time th
   return 'placeholder' in i;
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for placeholder text, so you&#8217;ll need to use the function listed here.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for placeholder text.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for placeholder text
+<pre><code>if (<mark>Modernizr.input.placeholder</mark>) {
+  // your placeholder text should already be visible!
+} else {
+  // no placeholder support :(
+  // fall back to a scripted solution
+}</code></pre>
 
 <p class=a>&#x2042;
 
@@ -425,7 +473,15 @@ A: Geolocation support is being added to browsers right now, at the same time th
   return 'autofocus' in i;
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> can&#8217;t yet detect support for web form autofocus, so you&#8217;ll need to use the function listed here.
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for autofocused form fields.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for autofocus support
+<pre><code>if (<mark>Modernizr.input.autofocus</mark>) {
+  // autofocus works!
+} else {
+  // no autofocus support :(
+  // fall back to a scripted solution
+}</code></pre>
 
 <p class=a>&#x2042;
 
@@ -441,7 +497,7 @@ A: Geolocation support is being added to browsers right now, at the same time th
   return 'required' in i;
 }</code></pre>
 
-<p>FIXME-no Modernizr support yet
+<p>FIXME-Modernizr 1.1 support
 
 <p class=a>&#x2042;
 -->
@@ -466,7 +522,7 @@ A: Geolocation support is being added to browsers right now, at the same time th
   return 'pattern' in i;
 }</code></pre>
 
-<p>FIXME-no Modernizr support yet
+<p>FIXME-Modernizr 1.1 support
 
 <p class=a>&#x2042;
 -->
