@@ -635,18 +635,17 @@ $(document).ready(function() {
   $("#live-canvas-text").html(supports(Modernizr.canvastext, "the canvas text API"));
   $("#live-video").html(supports(Modernizr.video, "HTML5 video"));
   if (Modernizr.video) {
-    var v = document.createElement("video");
-    var ogg = v.canPlayType('video/ogg; codecs="theora, vorbis"');
-    var mp4 = v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+    var ogg = Modernizr.video.ogg;
+    var h264 = Modernizr.video.h264;
     var vf = "Your browser ";
-    if ((ogg == "probably") && (mp4 == "probably")) {
+    if ((ogg == "probably") && (h264 == "probably")) {
       vf += "can play both Ogg Theora and H.264";
-    } else if (((ogg == "") || (ogg == "no")) && (mp4 == "probably")) {
+    } else if (((ogg == "") || (ogg == "no")) && (h264 == "probably")) {
       vf += "can play H.264 video, but not Ogg Theora";
-    } else if (((mp4 == "") || (mp4 == "no")) && (ogg == "probably")) {
+    } else if (((h264 == "") || (h264 == "no")) && (ogg == "probably")) {
       vf += "can play Ogg Theora video, but not H.264";
     } else {
-      vf += I_CAN_HAS(ogg) + " Ogg Theora video. Your browser " + I_CAN_HAS(mp4) + " H.264";
+      vf += I_CAN_HAS(ogg) + " Ogg Theora video. Your browser " + I_CAN_HAS(h264) + " H.264";
     }
     $("#live-video-formats").html(vf + " video.");
   } else {
