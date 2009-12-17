@@ -197,12 +197,57 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <h2 id=type-number>Numbers</h2>
 
-<p>FIXME works on iPhone (see screenshot); Opera renders as spinbox control
+<p>Next up: numbers. Asking for a number is, in many ways, trickier than asking for an email address or web address. First of all, numbers are more complicated than you might think. Quick: pick a number. -1? No, I meant a number between 1 and 10. 7&frac12;? No no, not a fraction, silly. <span class=u>&pi;</span>? Now you&#8217;re just being irrational.
+
+<p>My point is, you don&#8217;t often ask for &#8220;just a number.&#8221; It&#8217;s more likely that you&#8217;ll ask for a number in a particular range. You may only want certain kinds of numbers within that range &mdash; maybe whole numbers but not fractions or decimals, or something more esoteric like numbers divisible by 10. <abbr>HTML5</abbr> has you covered.
+
+<p class="legend top" style="margin-left:8em"><span class=arrow>&#x21b6;</span> Pick a number, (almost) any number
+<pre><code>&lt;input <mark>type="number"</mark>
+       min="0"
+       max="10"
+       step="2"
+       value="6"></code></pre>
+
+<p>Let&#8217;s take that one attribute at a time. (You can <a href=examples/input-type-number-min-max-step.html>follow along with a live example</a> if you like.)
+
+<ul>
+<li><code>type="number"</code> means that this is a number field.
+<li><code>min="0"</code> specifies the minimum acceptable value for this field.
+<li><code>max="10"</code> is the maximum acceptable value.
+<li><code>step="2"</code>, combined with the <code>min</code> value, defines the acceptable numbers in the range: <code>0</code>, <code>2</code>, <code>4</code>, and so on, up to the <code>max</code> value.
+<li><code>value="6"</code> is the default value. This should look familiar. It&#8217;s the same attribute name you&#8217;ve always used to specify values for form fields. (I mention it here to drive home the point that <abbr>HTML5</abbr> builds on previous versions of <abbr>HTML</abbr>. You don&#8217;t need to relearn how to do stuff you&#8217;re already doing.)
+</ul>
+
+<p>That&#8217;s the markup side of a number field. But <abbr>HTML5</abbr> doesn&#8217;t stop there. For the same low, low price of free, you get these handy JavaScript methods as well:
+
+<ul>
+<li><code>input.stepUp(n)</code> increases the field&#8217;s value by <code>n</code>.
+<li><code>input.stepDown(n)</code> decreases the field&#8217;s value by <code>n</code>.
+<li><code>input.valueAsNumber</code> returns the current value as a floating point number. (The <code>input.value</code> property is always a string.)
+</ul>
+
+<p>Having trouble visualizing it? Well, the exact interface of a number control is up to your browser, and different browser vendors have implemented support in different ways. On the iPhone, where input is difficult to begin with, the browser <a href=#type-email>once</a> <a href=#type-url>again</a> optimizes the virtual keyboard for numeric input.
 
 <p class=c><img src=i/input-type-number.png alt="iPhone rendering input type=number field" width=222 height=333 class=fr>
 
+<p>In the desktop version of Opera, the same <code>type="number"</code> field is rendered as a &#8220;spinbox&#8221; control, with little up and down arrows that you can click to change the value.
+
+<p class=c><img src=i/input-type-number-opera.png alt="Opera rendering input type=number field" width=227 height=203 class=fr>
+
+<p>Opera respects the <code>min</code>, <code>max</code>, and <code>step</code> attributes, so you&#8217;ll always end up with an acceptable numeric value. If you bump up the value to the maximum, the up arrow in the spinbox is greyed out.
+
+<p class=c><img src=i/input-type-number-at-max-opera.png alt="Opera rendering input type=number field at max value" width=142 height=28 class=fr>
+
+<p>As with all the other input types I&#8217;ve discussed in this chapter, browsers that don&#8217;t support <code>type="number"</code> will treat it as <code>type="text"</code>. The default value will show up in the field (since it&#8217;s stored in the <code>value</code> attribute), but the other attributes like <code>min</code> and <code>max</code> will be ignored. You&#8217;re free to implement them yourself, or you could reuse one of the many JavaScript frameworks that have already implemented spinbox controls. Just <a href=detect.html#input-types>check for the native <abbr>HTML5</abbr> support</a> first, like this:
+
+<pre><code>if (!<a href=detect.html#modernizr>Modernizr</a>.inputtypes.number) {
+  // no native support for type=number fields
+  // maybe try Dojo or some other JavaScript framework
+}</code></pre>
+
 <p class=a>&#x2042;
 
+<!--
 <h2 id=type-tel>Telephone Numbers</h2>
 
 <p>FIXME works on iPhone (see screenshot); seems to have no effect on any desktop browser (including Opera)
@@ -210,6 +255,7 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 <p class=c><img src=i/input-type-tel.png alt="iPhone rendering input type=tel field" width=222 height=333 class=fr>
 
 <p class=a>&#x2042;
+-->
 
 <h2 id=type-search>Search Boxes</h2>
 
@@ -315,10 +361,11 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <h2 id=type-color>Color Pickers</h2>
 
-<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&#8217;s hexadecimal representation. No browser supports it yet, which is a shame, because I&#8217;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>.
+<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&#8217;s hexadecimal representation. No browser supports it yet, which is a shame, because I&#8217;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>. Maybe someday.
 
 <p class=a>&#x2042;
 
+<!--
 <h2 id=stuff-that-doesnt-work-yet>More stuff that doesn&#8217;t work</h2>
 
 <p>FIXME short intro about stuff that doesn&#8217;t work yet, like
@@ -327,10 +374,10 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 <li>&lt;input required>
 <li>&lt;input pattern>
 </ul>
-
 <p>...and maybe move some of the input types here too
 
 <p class=a>&#x2042;
+-->
 
 <h2 id=further-reading>Further Reading</h2>
 
