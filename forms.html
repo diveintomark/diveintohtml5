@@ -183,9 +183,15 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <h2 id=type-url>Web Addresses</h2>
 
-<p>FIXME this works on iPhone (see screenshot); Opera shows a small in-field "favorites" icon
+<p>Web addresses &mdash; known to many as <abbr>URLs</abbr>, and to a few <a href="http://www.douglasadams.com/dna/pedants.html">pedants</a> as <abbr>URIs</abbr> &mdash; are another type of specialized text. The syntax of a web address is constrained by the relevant Internet standards. If someone asks you to enter a web address into a form, they&#8217;re expecting something like &#8220;<code>http://www.google.com/</code>&#8221;, not &#8220;125 Farwood Road.&#8221; Forward slashes are common &mdash; even Google&#8217;s home page has three of them. Periods are also common, but spaces are forbidden. And every web address has a domain suffix like &#8220;.com&#8221; or &#8220;.org&#8221;.
 
-<p class=c><img src=i/input-type-url.png alt="iPhone rendering input type=url field" width=222 height=333 class=fr>
+<p>Behold... (drum roll please)... <code>&lt;input type="url"></code>. On the iPhone, it looks like this:
+
+<p class=c><img src=i/input-type-url.png alt="iPhone rendering input type=url field" width=222 height=333 class=fr><br><a href=examples/input-type-url.html>Test <code>type="url"</code> for yourself</a>.
+
+<p>The iPhone altered its virtual keyboard, just like it did for <a href=#type-email>email addresses</a>, but now optimized for web addresses instead. The space bar has been completely replaced with three virtual keys: a period, a forward slash, and a &#8220;.com&#8221; button. (You can long-press the &#8220;.com&#8221; button to choose other common suffixes like &#8220;.org&#8221; or &#8220;.net&#8221;.)
+
+<p>Browsers that don&#8217;t support <abbr>HTML5</abbr> will treat <code>type="url"</code> exactly like <code>type="text"</code>, so there&#8217;s no downside to using it for all your web-address-inputting needs.
 
 <p class=a>&#x2042;
 
