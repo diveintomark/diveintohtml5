@@ -257,28 +257,6 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 <p class=a>&#x2042;
 -->
 
-<h2 id=type-search>Search Boxes</h2>
-
-<p>OK, this one is subtle. Well, the idea is simple enough, but the implementations may require some explanation. Here goes&hellip;
-
-<p>Search. Not just Google Search or Yahoo Search. (Well, those too.) Think of any search box, on any page, on any site. Amazon has a search box. Newegg has a search box. Most blogs have a search box. How are they marked up? <code>&lt;input type="text"></code>, just like every other text box on the web. Let&#8217;s fix that.
-
-<pre style="float:left"><code>&lt;form>
-  &lt;input name="q" <mark>type="search"</mark>>
-  &lt;input type="submit" value="Find">
-&lt;/form></code></pre>
-<p class="legend right" style="margin-top:2.75em"><span class=arrow>&nbsp;&#x21dc;</span> New-age search box
-
-<p class="clear"><a href=examples/input-type-search.html>Test <code>&lt;input type="search"></code> in your own browser</a>. You probably won&#8217;t see any difference from a regular text box. But this is what it looks like on the iPhone:
-
-<p class=c><img src=i/input-type-search.png alt="iPhone rendering input type=search field" width=222 height=333 class=fr>
-
-<p>Can you spot the difference in the iPhone screenshot? It&#8217;s subtle. The on-screen keyboard is just a regular layout &mdash; no optimizations or special keys. On a normal <code>type="text"</code> field, the keyboard would have a blue button labeled &#8220;Go&#8221; in the bottom-right corner. But on a <code>type="search"</code> field, the button changes to read &#8220;Search&#8221; instead. Hey, I told you it was subtle.
-
-<p>As with all the other new input types, browsers that don&#8217;t recognize <code>type="search"></code> will treat it like <code>type="text"</code>, so there is absolutely no reason not to start using <code>type="search"</code> for all your search boxes today.
-
-<p class=a>&#x2042;
-
 <h2 id=type-range>Sliders</h2>
 
 <p>FIXME this actually works in Safari, Chrome, and Opera (need screenshots)
@@ -356,6 +334,28 @@ A: No, the <code>placeholder</code> attribute can only contain text.
     // then dynamically replace that &lt;input> element.
   }
 &lt;/script></code></pre>
+
+<p class=a>&#x2042;
+
+<h2 id=type-search>Search Boxes</h2>
+
+<p>OK, this one is subtle. Well, the idea is simple enough, but the implementations may require some explanation. Here goes&hellip;
+
+<p>Search. Not just Google Search or Yahoo Search. (Well, those too.) Think of any search box, on any page, on any site. Amazon has a search box. Newegg has a search box. Most blogs have a search box. How are they marked up? <code>&lt;input type="text"></code>, just like every other text box on the web. Let&#8217;s fix that.
+
+<pre style="float:left"><code>&lt;form>
+  &lt;input name="q" <mark>type="search"</mark>>
+  &lt;input type="submit" value="Find">
+&lt;/form></code></pre>
+<p class="legend right" style="margin-top:2.75em"><span class=arrow>&nbsp;&#x21dc;</span> New-age search box
+
+<p class="clear"><a href=examples/input-type-search.html>Test <code>&lt;input type="search"></code> in your own browser</a>. You probably won&#8217;t see any difference from a regular text box. But this is what it looks like on the iPhone:
+
+<p class=c><img src=i/input-type-search.png alt="iPhone rendering input type=search field" width=222 height=333 class=fr>
+
+<p>Can you spot the difference in the iPhone screenshot? It&#8217;s subtle. The on-screen keyboard is just a regular layout &mdash; no optimizations or special keys. On a normal <code>type="text"</code> field, the keyboard would have a blue button labeled &#8220;Go&#8221; in the bottom-right corner. But on a <code>type="search"</code> field, the button changes to read &#8220;Search&#8221; instead. Hey, I told you it was subtle.
+
+<p>As with all the other new input types, browsers that don&#8217;t recognize <code>type="search"></code> will treat it like <code>type="text"</code>, so there is absolutely no reason not to start using <code>type="search"</code> for all your search boxes today.
 
 <p class=a>&#x2042;
 
