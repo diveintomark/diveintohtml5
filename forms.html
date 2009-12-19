@@ -195,7 +195,7 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <p class=a>&#x2042;
 
-<h2 id=type-number>Numbers</h2>
+<h2 id=type-number>Numbers as Spinboxes</h2>
 
 <p>Next up: numbers. Asking for a number is, in many ways, trickier than asking for an email address or web address. First of all, numbers are more complicated than you might think. Quick: pick a number. -1? No, I meant a number between 1 and 10. 7&frac12;? No no, not a fraction, silly. <span class=u>&pi;</span>? Now you&#8217;re just being irrational.
 
@@ -218,7 +218,9 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 <li><code>value="6"</code> is the default value. This should look familiar. It&#8217;s the same attribute name you&#8217;ve always used to specify values for form fields. (I mention it here to drive home the point that <abbr>HTML5</abbr> builds on previous versions of <abbr>HTML</abbr>. You don&#8217;t need to relearn how to do stuff you&#8217;re already doing.)
 </ul>
 
-<p>That&#8217;s the markup side of a number field. But <abbr>HTML5</abbr> doesn&#8217;t stop there. For the same low, low price of free, you get these handy JavaScript methods as well:
+<p>That&#8217;s the markup side of a number field. Keep in mind that all of those attributes are optional. If you have a minimum but no maximum, you can specify a <code>min</code> attribute but no <code>max</code> attribute. The default step value is 1, and you can omit the <code>step</code> attribute unless you need a different step value. If there&#8217;s no default value, then the <code>value</code> attribute can be blank or even omitted altogether.
+
+<p>But <abbr>HTML5</abbr> doesn&#8217;t stop there. For the same low, low price of free, you get these handy JavaScript methods as well:
 
 <ul>
 <li><code>input.stepUp(n)</code> increases the field&#8217;s value by <code>n</code>.
@@ -247,6 +249,25 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <p class=a>&#x2042;
 
+<h2 id=type-range>Numbers as Sliders</h2>
+
+<p><a href=#type-number>Spinboxes</a> are not the only way to represent numeric input. You&#8217;ve probably also seen &#8220;slider&#8221; controls that look like this:
+
+<p class=c><img src=i/input-type-range.png alt="Chrome rendering of input type=range field as slider control" width=175 height=25><br><a href=examples/input-type-range.html>Test <code>type="range"</code> for yourself</a>.
+
+<p>You can now have slider controls in your web forms, too. The markup looks eerily similar to <a href=#type-range>spinbox controls</a>:
+
+<p class="legend top" style="margin-left:8em"><span class=arrow>&#x21b6;</span> The spitting image
+<pre><code>&lt;input <mark>type="range"</mark>
+       min="0"
+       max="10"
+       step="2"
+       value="6"></code></pre>
+
+<p>All the available attributes are the same as <code>type="number"</code> &mdash; <code>min</code>, <code>max</code>, <code>step</code>, <code>value</code> &mdash; and they mean the same thing. The only difference is the user interface. Instead of a field for typing, browsers are expected to render <code>type="range"</code> as a slider control. At time of writing, the latest versions of Safari, Chrome, and Opera all do this. (The iPhone optimizes its keyboard for numeric input but displays the field as a simple box.) All other browsers simply treat the field as <code>type="text"</code>, so there&#8217;s no reason you can&#8217;t start using it immediately.
+
+<p class=a>&#x2042;
+
 <!--
 <h2 id=type-tel>Telephone Numbers</h2>
 
@@ -256,12 +277,6 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 
 <p class=a>&#x2042;
 -->
-
-<h2 id=type-range>Sliders</h2>
-
-<p>FIXME this actually works in Safari, Chrome, and Opera (need screenshots)
-
-<p class=a>&#x2042;
 
 <h2 id=type-date>Date Pickers</h2>
 
@@ -377,8 +392,8 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 <p>...and maybe move some of the input types here too
 
 <p class=a>&#x2042;
--->
 
+-->
 <h2 id=further-reading>Further Reading</h2>
 
 <p>Specifications and standards:
