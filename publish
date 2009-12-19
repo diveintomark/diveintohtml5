@@ -42,11 +42,10 @@ echo "adding evil tracking code"
 
 # minimize JS and CSS
 echo "minimizing JS"
-#revision=`hg log|grep changeset|cut -d":" -f3|head -1`
 revision=`hg tip | grep changeset|cut -d":" -f2|cut -d" " -f4`
-java -jar util/yuicompressor-2.4.2.jar build/j/dih5.js > build/j/dih5.min.js || die "Failed to minimize JS"
-java -jar util/yuicompressor-2.4.2.jar build/j/canvastext-fx3.js > build/j/canvastext-fx3.min.js || die "Failed to minimize JS"
-java -jar util/yuicompressor-2.4.2.jar build/j/html5-video.js > build/j/html5-video.min.js || die "Failed to minimize JS"
+java -jar util/compiler.jar -js build/j/dih5.js > build/j/dih5.min.js || die "Failed to minimize JS"
+java -jar util/compiler.jar -js build/j/canvastext-fx3.js > build/j/canvastext-fx3.min.js || die "Failed to minimize JS"
+java -jar util/compiler.jar -js build/j/html5-video.js > build/j/html5-video.min.js || die "Failed to minimize JS"
 
 echo "minimizing CSS"
 sed -i -e "s|url(i/|url(//d.wearehugh.com/dih5/|g" build/screen.css || die "Failed to inline CSS"
