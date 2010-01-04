@@ -19,10 +19,6 @@ body{counter-reset:h1 10}
 
 <p>You don&#8217;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms. And when I say &#8220;use,&#8221; I mean you can use them right now &mdash; without any shims, hacks, or workarounds. Now don&#8217;t get too excited; I don&#8217;t mean to say that all of these exciting new features are actually supported in every browser. Oh goodness no, I don&#8217;t mean that at all. In modern browsers, yes, your forms will kick all kinds of ass. But in legacy browsers, your forms will still work, albeit with less ass kicking. Which is to say, all of these features degrade gracefully in every browser. Even IE 6.
 
-<!--
-<p class=ss style="width:261px"><img src=i/openclipart.org_johnny_automatic_typewriter.png alt="manual typewriter" width=261 height=228><br><span id=live-input-types></span>
--->
-
 <p class=a>&#x2042;
 
 <h2 id=placeholder>Placeholder Text</h2>
@@ -364,11 +360,13 @@ A: No, the <code>placeholder</code> attribute can only contain text.
 &lt;/form></code></pre>
 <p class="legend right" style="margin-top:2.75em"><span class=arrow>&nbsp;&#x21dc;</span> New-age search box
 
-<p class="clear"><a href=examples/input-type-search.html>Test <code>&lt;input type="search"></code> in your own browser</a>. You probably won&#8217;t see any difference from a regular text box. But this is what it looks like on the iPhone:
+<p class="clear"><a href=examples/input-type-search.html>Test <code>&lt;input type="search"></code> in your own browser</a>. In some browsers, you won&#8217;t notice any difference from a regular text box. But if you&#8217;re using Safari on Mac OS X, it will look like this:
 
-<p class=c><img src=i/input-type-search.png alt="iPhone rendering input type=search field" width=222 height=333 class=fr>
+<p class=c><img src=i/input-type-search-safari.png alt="Safari/Mac rendering input type=search field" width=191 height=121>
 
-<p>Can you spot the difference in the iPhone screenshot? It&#8217;s subtle. The on-screen keyboard is just a regular layout &mdash; no optimizations or special keys. On a normal <code>type="text"</code> field, the keyboard would have a blue button labeled &#8220;Go&#8221; in the bottom-right corner. But on a <code>type="search"</code> field, the button changes to read &#8220;Search&#8221; instead. Hey, I told you it was subtle.
+<p>Can you spot the difference? The input box has rounded corners! I know, I know, you can hardly contain your excitement. But wait, there&#8217;s more! When you actually start typing into the <code>type="search"</code> box, Safari inserts a small &#8220;x&#8221; button on the right side of the box. Clicking the &#8220;x&#8221; clears the contents of the field. Both of these small tweaks are done to match the look and feel of native search boxes in iTunes and other Mac OS X client applications.
+
+<p class=c><img src=i/input-type-search-safari-typing.png alt="Typing in a type=search field in Safari" width=191 height=121>
 
 <p>As with all the other new input types, browsers that don&#8217;t recognize <code>type="search"></code> will treat it like <code>type="text"</code>, so there is absolutely no reason not to start using <code>type="search"</code> for all your search boxes today.
 
