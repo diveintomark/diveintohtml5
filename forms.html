@@ -58,6 +58,8 @@ body{counter-reset:h1 10}
 
 <p>Browsers that don&#8217;t support the <code>placeholder</code> attribute will simply ignore it. No harm, no foul. <a href=examples/input-placeholder.html>See whether your browser supports placeholder text</a>.
 
+<!-- <p>If you&#8217;re really determined to bring placeholder text to every one of your users, you can use a wrapper script like <a href=http://github.com/NV/placeholder.js>placeholder.js</a>. It checks for native placeholder support and uses a scripted solution... FIXME example? -->
+
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
 <div class=inner>
@@ -285,19 +287,17 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <table class=bc>
 <caption>Date picker support</caption>
 <thead>
-<tr><th style="text-align:left">Input Type<th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chrome<th title="Opera 10">Opera
+<tr><th style="text-align:left">Input Type<th title="Opera 10">Opera<th>Everybody else
 </thead>
 <tbody>
-<tr><th><code>type="date"</code><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th><code>type="month"</code><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th><code>type="week"</code><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th><code>type="time"</code><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th><code>type="datetime"</code><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th><code>type="datetime-local"</code><td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
+<tr><th><code>type="date"</code><td>&#x2713;<td>&middot;
+<tr><th><code>type="month"</code><td>&#x2713;<td>&middot;
+<tr><th><code>type="week"</code><td>&#x2713;<td>&middot;
+<tr><th><code>type="time"</code><td>&#x2713;<td>&middot;
+<tr><th><code>type="datetime"</code><td>&#x2713;<td>&middot;
+<tr><th><code>type="datetime-local"</code><td>&#x2713;<td>&middot;
 </tbody>
 </table>
-
-<p>That&#8217;s a whole lotta nothin&#8217;&hellip; except for Opera. Go Opera!
 
 <p>This is how Opera renders <a href=examples/input-type-date.html><code>&lt;input type="date"></code></a>:
 
@@ -323,7 +323,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <p><img src=i/input-type-week.png alt="Opera's type=week picker" width=210 height=191>
 </blockquote>
 
-<p>Last but not least, you can pick a time with <a href=examples/input-type-week.html><code>&lt;input type="time"></code></a>:
+<p>Last but not least, you can pick a time with <a href=examples/input-type-time.html><code>&lt;input type="time"></code></a>:
 
 <blockquote>
 <p><img src=i/input-type-time.png alt="Opera's type=time picker" width=98 height=22>
