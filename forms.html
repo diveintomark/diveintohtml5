@@ -23,7 +23,7 @@ body{counter-reset:h1 10}
 
 <h2 id=placeholder>Placeholder Text</h2>
 
-<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears.
+<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon as you click on (or tab to) the input field, the placeholder text disappears.
 
 <p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox 3.5 now includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
 
@@ -150,7 +150,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>All of these input types still work in <abbr>HTML5</abbr>. If you&#8217;re &#8220;upgrading to <abbr>HTML5</abbr>&#8221; (perhaps by <a href=semantics.html#the-doctype>changing your DOCTYPE</a>), you don&#8217;t need to make a single change to your web forms. Hooray for backward compatibility!
 
-<p>However, <abbr>HTML5</abbr> defines several new field types, and as for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
+<p>However, <abbr>HTML5</abbr> defines several new field types, and for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
 
 <p>The first of these new input types is for <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state>email addresses</a>. It looks like this:
 
@@ -169,7 +169,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>The iPhone does not have a physical keyboard. All &#8220;typing&#8221; is done by tapping on an on-screen keyboard that pops up at appropriate times, like when you focus a form field in a web page. Apple did something very clever in the iPhone&#8217;s web browser. It recognizes several of the new <abbr>HTML5</abbr> input types, and <em>dynamically changes the on-screen keyboard</em> to optimize for that kind of input.
 
-<p>For example, email addresses are text, right? Sure, but they&#8217;re a special kind of type. For example, virtually all email addresses contain the <code>@</code> sign and at least one period (<code>.</code>), but they&#8217;re unlikely to contain any spaces. So when you use an iPhone and focus an <code>&lt;input type="email"></code> element, you get an on-screen keyboard that contains a smaller-than-usual space bar, plus dedicated keys for the <code>@</code> and <code>.</code> characters.
+<p>For example, email addresses are text, right? Sure, but they&#8217;re a special kind of text. For example, virtually all email addresses contain the <code>@</code> sign and at least one period (<code>.</code>), but they&#8217;re unlikely to contain any spaces. So when you use an iPhone and focus an <code>&lt;input type="email"></code> element, you get an on-screen keyboard that contains a smaller-than-usual space bar, plus dedicated keys for the <code>@</code> and <code>.</code> characters.
 
 <p class=c><img src=i/input-type-email.png alt="iPhone rendering input type=email field" title="note the dedicated @ and . keys next to the space bar" width=222 height=333 class=fr><br><a href=examples/input-type-email.html>Test <code>type="email"</code> for yourself</a>.
 
@@ -329,7 +329,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <p><img src=i/input-type-time.png alt="Opera's type=time picker" width=98 height=22>
 </blockquote>
 
-<p>It&#8217;s likely that other browsers will eventually support these input types. But just like <a href=#type-email><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&#8217;t recognize <code>type="date"</code> and the other variants. If you like, you simply use <code>&lt;input type="date"></code> and friends, make Opera users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"></code>, <a href=detect.html#input-types>detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href=http://docs.dojocampus.org/dijit/form/DateTextBox>Dojo</a>, <a href=http://docs.jquery.com/UI/Datepicker>jQuery UI</a>, <a href=http://developer.yahoo.com/yui/calendar/>YUI</a>, <a href=http://closure-library.googlecode.com/svn/trunk/closure/goog/docs/class_goog_ui_DatePicker.html>Closure Library</a>, or some other solution).
+<p>It&#8217;s likely that other browsers will eventually support these input types. But just like <a href=#type-email><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&#8217;t recognize <code>type="date"</code> and the other variants. If you like, you can simply use <code>&lt;input type="date"></code> and friends, make Opera users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"></code>, <a href=detect.html#input-types>detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href=http://docs.dojocampus.org/dijit/form/DateTextBox>Dojo</a>, <a href=http://docs.jquery.com/UI/Datepicker>jQuery UI</a>, <a href=http://developer.yahoo.com/yui/calendar/>YUI</a>, <a href=http://closure-library.googlecode.com/svn/trunk/closure/goog/docs/class_goog_ui_DatePicker.html>Closure Library</a>, or some other solution).
 
 <p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> Date picker with fallback
 <pre><code>&lt;form>
