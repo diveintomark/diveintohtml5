@@ -24,6 +24,8 @@ else:
 original_css = raw_data.split('<style>', 1)[1].split('</style>', 1)[0]
 new_css = ''
 for rule in original_css.split('}')[:-1]:
+    rule = rule.strip()
+    if not rule: continue
     selectors, properties = rule.split('{', 1)
     if selectors.count('@') == 0:
         selectors = ','.join([s for s in selectors.split(',') if keep(s) or pqd(s.split(':', 1)[0])])
