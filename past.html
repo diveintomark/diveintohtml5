@@ -269,50 +269,26 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <p>In June 2004, the W3C held the <a href=http://www.w3.org/2004/04/webapps-cdf-ws/>Workshop on Web Applications and Compound Documents</a>. Present at this workshop were representatives of several browser vendors, web development companies, and other W3C members. A group of interested parties, including the Mozilla Foundation and Opera Software, gave a presentation on their competing vision of the future of the web: <a href=http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html>an evolution of the existing <abbr>HTML</abbr> 4 standard to include new features for modern web application developers</a>.
 
 <blockquote cite=http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html>
-<p>The following seven principles represent what we believe to be
-  the most critical requirements for this work.</p> 
-  <dl> 
-   <dt>Backwards compatibility, clear migration path</dt> 
-   <dd>Web application technologies should be based on technologies
-   authors are familiar with, including HTML, CSS, DOM, and
-   JavaScript.</dd> 
-   <dd>Basic Web application features should be implementable using
-   behaviors, scripting, and style sheets in IE6 today so that authors
-   have a clear migration path. Any solution that cannot be used with
-   the current high-market-share user agent without the need for
-   binary plug-ins is highly unlikely to be successful.</dd> 
-   <dt>Well-defined error handling</dt> 
-   <dd>Error handling in Web applications must be defined to a level
-   of detail where User Agents do not have to invent their own error
-   handling mechanisms or reverse engineer other User Agents&#8217;.<dd> 
-   <dt>Users should not be exposed to authoring errors</dt> 
-   <dd>Specifications must specify exact error recovery behaviour for
-   each possible error scenario. Error handling should for the most
-   part be defined in terms of graceful error recovery (as in CSS),
-   rather than obvious and catastrophic failure (as in XML).</dd> 
-   <dt>Practical use</dt> 
-   <dd>Every feature that goes into the Web Applications
-   specifications must be justified by a practical use case. The
-   reverse is not necessarily true: every use case does not
-   necessarily warrant a new feature.</dd> 
-   <dd>Use cases should preferably be based on real sites where the
-   authors previously used a poor solution to work around the
-   limitation.</dd> 
-   <dt>Scripting is here to stay</dt> 
-   <dd>But should be avoided where more convenient declarative markup
-   can be used.</dd> 
-   <dd>Scripting should be device and presentation neutral unless
-   scoped in a device-specific way (e.g. unless included in XBL).</dd> 
-   <dt>Device-specific profiling should be avoided</dt> 
-   <dd>Authors should be able to depend on the same features being
-   implemented in desktop and mobile versions of the same UA.</dd> 
-   <dt>Open process</dt> 
-   <dd>The Web has benefited from being developed in an open
-   environment. Web Applications will be core to the web, and its
-   development should also take place in the open. Mailing lists,
-   archives and draft specifications should continuously be visible to
-   the public.</dd> 
-  </dl>
+<p>The following seven principles represent what we believe to be the most critical requirements for this work.</p>
+<dl>
+<dt>Backwards compatibility, clear migration path</dt>
+<dd>Web application technologies should be based on technologies authors are familiar with, including HTML, CSS, DOM, and JavaScript.</dd>
+<dd>Basic Web application features should be implementable using behaviors, scripting, and style sheets in IE6 today so that authors have a clear migration path. Any solution that cannot be used with the current high-market-share user agent without the need for binary plug-ins is highly unlikely to be successful.</dd>
+<dt>Well-defined error handling</dt>
+<dd>Error handling in Web applications must be defined to a level of detail where User Agents do not have to invent their own error handling mechanisms or reverse engineer other User Agents&#8217;.<dd>
+<dt>Users should not be exposed to authoring errors</dt>
+<dd>Specifications must specify exact error recovery behaviour for each possible error scenario. Error handling should for the most part be defined in terms of graceful error recovery (as in CSS), rather than obvious and catastrophic failure (as in XML).</dd>
+<dt>Practical use</dt>
+<dd>Every feature that goes into the Web Applications specifications must be justified by a practical use case. The reverse is not necessarily true: every use case does not necessarily warrant a new feature.</dd>
+<dd>Use cases should preferably be based on real sites where the authors previously used a poor solution to work around the limitation.</dd>
+<dt>Scripting is here to stay</dt>
+<dd>But should be avoided where more convenient declarative markup can be used.</dd>
+<dd>Scripting should be device and presentation neutral unless scoped in a device-specific way (e.g. unless included in XBL).</dd>
+<dt>Device-specific profiling should be avoided</dt>
+<dd>Authors should be able to depend on the same features being implemented in desktop and mobile versions of the same UA.</dd>
+<dt>Open process</dt>
+<dd>The Web has benefited from being developed in an open environment. Web Applications will be core to the web, and its development should also take place in the open. Mailing lists, archives and draft specifications should continuously be visible to the public.</dd>
+</dl>
 </blockquote>
 
 <p>In a straw poll, the workshop participants were asked, &#8220;Should the W3C develop declarative extension to HTML and CSS and imperative extensions to DOM, to address medium level Web Application requirements, as opposed to sophisticated, fully-fledged OS-level APIs? (proposed by Ian Hickson, Opera Software)&#8221; The vote was 11 to 8 against. In their <a href=http://www.w3.org/2004/04/webapps-cdf-ws/summary>summary of the workshop</a>, the W3C wrote, &#8220;At present, W3C does not intend to put any resources into the third straw-poll topic: extensions to HTML and CSS for Web Applications, other than technologies being developed under the charter of current W3C Working Groups.&#8221;
@@ -348,7 +324,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <blockquote cite=http://dig.csail.mit.edu/breadcrumbs/node/166>
 <p>Some things are clearer with hindsight of several years. It is necessary to evolve HTML incrementally. The attempt to get the world to switch to XML, including quotes around attribute values and slashes in empty tags and namespaces all at once didn&#8217;t work. The large HTML-generating public did not move, largely because the browsers didn&#8217;t complain. Some large communities did shift and are enjoying the fruits of well-formed systems, but not all. It is important to maintain HTML incrementally, as well as continuing a transition to well-formed world, and developing more power in that world.
 <p>The plan is to charter a completely new HTML group. Unlike the previous one, this one will be chartered to do incremental improvements to HTML, as also in parallel xHTML. It will have a different chair and staff contact. It will work on HTML and xHTML together. We have strong support for this group, from many people we have talked to, including browser makers.
-<p>There will also be work on forms. This is a complex area, as existing HTML forms and XForms are both form languages. HTML forms are ubiquitously deployed, and there are many implementations and users of XForms. Meanwhile, the Webforms submission has suggested sensible extensions to HTML forms. The plan is, informed by Webforms, to extend HTML forms. 
+<p>There will also be work on forms. This is a complex area, as existing HTML forms and XForms are both form languages. HTML forms are ubiquitously deployed, and there are many implementations and users of XForms. Meanwhile, the Webforms submission has suggested sensible extensions to HTML forms. The plan is, informed by Webforms, to extend HTML forms.
 </blockquote>
 
 <p>One of the first things the newly re-chartered W3C HTML Working Group decided was to rename &#8220;Web Applications 1.0&#8221; to &#8220;HTML5.&#8221; And here we are, diving into <abbr>HTML5</abbr>.
