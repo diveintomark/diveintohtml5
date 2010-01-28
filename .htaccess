@@ -3,3 +3,4 @@ FileETag MTime Size
 SetEnv dont-vary
 
 AddType text/cache-manifest .html5cache
+AddType application/x-font-ttf .ttf
