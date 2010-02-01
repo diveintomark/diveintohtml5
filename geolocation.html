@@ -65,22 +65,65 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p>The geolocation <abbr>API</abbr> centers around a new property on the global <code>navigator</code> object: <code>navigator.geolocation</code>. <p>The simplest use of the geolocation <abbr>API</abbr> looks like this:
 
 <pre><code>function get_location() {
-  <mark>navigator.geolocation.getCurrentPosition</mark>(my_callback_func);
+  <mark>navigator.geolocation.getCurrentPosition</mark>(show_map);
 }</code></pre>
 
 <p>That has no detection, no error handling, and no options. Your code should probably include at least the first two of those. To <a href=detect.html#geolocation>detect support for the geolocation <abbr>API</abbr></a>, you can use <a href=http://www.modernizr.com/>Modernizr</a>:
 
-<pre><code>function get_location() {
+<pre style="float:left;padding-left:0"><code>function get_location() {
   if (<mark>Modernizr.geolocation</mark>) {
-    navigator.geolocation.getCurrentPosition(my_callback_func);
+    navigator.geolocation.getCurrentPosition(show_map);
   } else {
-    // no native geolocation support!
+    // no native support; maybe try Gears?
   }
 }</code></pre>
+<p class="legend right" style="margin-top:2.5em"><span class=arrow>&nbsp;&#x21dc;</span> I CAN HAS GEO?
 
-<p>That&#8217;s better. FIXME
+<p class=clear>What you do without geolocation support is up to you. I&#8217;ll explain the Gears fallback option in a minute, but first I want to talk about what happens <em>during</em> that call to <code>getCurrentPosition()</code>. As <a href=#divingin>I mentioned at the beginning of this chapter</a>, geolocation support is <em>opt-in</em>. That means your browser will never force you to reveal your current physical location to a remote server. The user experience differs from browser to browser. In Mozilla Firefox, calling the <code>getCurrentPosition()</code> function of the geolocation <abbr>API</abbr> will cause the browser to pop up an &#8220;infobar&#8221; at the top of the browser window. The infobar looks like this:
 
-<pre><code>function callback_func(FIXME</code></pre>
+<p class=c><img src=i/geolocation-opt-in.png alt="Geolocation opt-in infobar" width=737 height=32>
+
+<p>There&#8217;s a lot going on here. You, as the end user,
+
+<ul>
+<li>are told that a website wants to know your location
+<li>are told <em>which</em> website wants to know your location
+<li>can click through to <a href=http://www.mozilla.com/en-US/firefox/geolocation/>Mozilla&#8217;s &#8220;Location-Aware Browsing&#8221; help page</a> which explains what the heck is going on
+<li>can choose to share your location
+<li>can choose <em>not</em> to share your location
+<li>can tell your browser to remember your choice (either way, share or don&#8217;t share) so you never see this infobar again on this website
+</ul>
+
+<p>Furthermore, this infobar is
+
+<ul>
+<li>non-modal, so it won&#8217;t prevent you from switching to another browser window or tab
+<li>tab-specific, so it will disappear if you switch to another browser window or tab and reappear when you switch back to the original tab
+<li>unconditional, so there is no way for a website to bypass it
+<li>blocking, so there is no chance that the website can determine your location while it&#8217;s waiting for your answer
+</ul>
+
+<p>You just saw the JavaScript code that causes this infobar to appear. It&#8217;s a single function call which takes a callback function (which I called <code>show_map</code>). The call to <code>getCurrentPosition()</code> will return immediately, but that doesn&#8217;t mean that you have access to the user&#8217;s location. The first time you are guaranteed to have location information is in the callback function. The callback function looks like this:
+
+<pre><code>function show_map(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  // let's show a map or do something interesting!
+}</code></pre>
+
+<p>The callback function will be called with a single parameter, an object with two properties: <code>coords</code> and <code>timestamp</code>. The timestamp is just that, the date and time when the location was calculated. (Since this is all happening asynchronously, you can&#8217;t really know when that will happen in advance. It might take some time for the user to read the infobar and agree to share their location. Devices with dedicated <abbr>GPS</abbr> hardware may take some more time to connect to a <abbr>GPS</abbr> satellite. And so on.) The <code>coords</code> object has properties like <code>latitude</code> and <code>longitude</code> which are exactly what they sound like: the user&#8217;s physical location in the world.
+
+<p>FIXME
+
+<div class=pf>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Does the geolocation <abbr>API</abbr> work on the International Space Station, on the moon, or on other planets?<br>
+A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolocation specification states</a>, &#8220;The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported.&#8221; The International Space Station is orbiting Earth, so <a href=http://twitter.com/Astro_TJ>astronauts on the station</a> can describe their location by latitude, longitude, and altitude. However, the World Geodetic System is Earth-centric, so it can&#8217;t be used to describe locations on the moon or on other planets.
+</blockquote>
+</div>
+</div>
 
 <p class=a>&#x2042;
 
