@@ -60,7 +60,27 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>That&#8217;s a bit more encouraging. In fact, there are a plethora of device-specific <abbr>API</abbr>s on other mobile platforms. I&#8217;ll cover all that later in this chapter.
 
-<p>FIXME
+<h2 id=the-code>Show Me The Code</h2>
+
+<p>The geolocation <abbr>API</abbr> centers around a new property on the global <code>navigator</code> object: <code>navigator.geolocation</code>. <p>The simplest use of the geolocation <abbr>API</abbr> looks like this:
+
+<pre><code>function get_location() {
+  <mark>navigator.geolocation.getCurrentPosition</mark>(my_callback_func);
+}</code></pre>
+
+<p>That has no detection, no error handling, and no options. Your code should probably include at least the first two of those. To <a href=detect.html#geolocation>detect support for the geolocation <abbr>API</abbr></a>, you can use <a href=http://www.modernizr.com/>Modernizr</a>:
+
+<pre><code>function get_location() {
+  if (<mark>Modernizr.geolocation</mark>) {
+    navigator.geolocation.getCurrentPosition(my_callback_func);
+  } else {
+    // no native geolocation support!
+  }
+}</code></pre>
+
+<p>That&#8217;s better. FIXME
+
+<pre><code>function callback_func(FIXME</code></pre>
 
 <p class=a>&#x2042;
 
@@ -173,7 +193,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <script src=j/gears_init.js></script>
 <script src=j/geo.js></script>
 <script src=j/dih5.js></script>
-<script src="http://maps.google.com/maps?file=api&amp;v=2"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA9KK0oCozk3pdOlGYD6hrthR5pnyo8QWLgiiZq1vJ3YhZL8oiJBQk9j0jg4PxEDmO36mYgldwXseYGw"></script>
 <script>
 function supports(bool, suffix) {
   var s = "Your browser ";
