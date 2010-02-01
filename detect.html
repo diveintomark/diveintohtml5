@@ -348,9 +348,9 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <h2 id=geolocation>Geolocation</h2>
 
-<p class=ss style="width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
-
 <p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
+
+<p style="margin:0 auto;width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
@@ -579,7 +579,7 @@ A: Geolocation support is being added to browsers right now, at the same time th
 <script src=j/gears_init.js></script>
 <script src=j/geo.js></script>
 <script src=j/dih5.js></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2"></script>
 <script>
 function supports(bool, suffix) {
   var s = "Your browser ";
@@ -602,31 +602,14 @@ function I_CAN_HAS(result) {
 function lookup_location() {
   geo_position_js.getCurrentPosition(show_map, show_map_error);
 }
-function show_map(p) {
-  var myOptions = {
-    zoom: 4,
-    mapTypeControl: true,
-    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-    navigationControl: true,
-    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-    mapTypeId: google.maps.MapTypeId.ROADMAP      
-  };
-  var map = new google.maps.Map(document.getElementById("geo-wrapper"), myOptions);
-  var pos = new google.maps.LatLng(p.coords.latitude,p.coords.longitude);
-  map.set_center(pos);
-  map.set_zoom(14);
-  var infowindow = new google.maps.InfoWindow({
-    content: "Your calculated location:<br>latitude " + p.coords.latitude + "<br>longitude " + p.coords.longitude
-  });
-  var marker = new google.maps.Marker({
-    position: pos,
-    map: map,
-    title:"You are here (more or less)"
-  });
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
+function show_map(loc) {
   $("#geo-wrapper").css({'width':'320px','height':'350px'});
+  var map = new GMap2(document.getElementById("geo-wrapper"));
+  var center = new GLatLng(loc.coords.latitude,loc.coords.longitude);	
+  map.setCenter(center, 14);	
+  map.addControl(new GSmallMapControl());
+  map.addControl(new GMapTypeControl());
+  map.addOverlay(new GMarker(center, {draggable: false, title: "You are here (more or less)"}));
 }
 function show_map_error() {
   $("#live-geolocation").html('Unable to determine your location.');
