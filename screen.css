@@ -98,7 +98,7 @@ pre, kbd, samp, code, var {
   word-spacing: 0;
   letter-spacing: 0;
 }
-.u, table.bc tbody td {
+.a, .u, table.bc tbody td {
   font: 100%/1 "Arial Unicode MS", FreeSerif, OpenSymbol, "DejaVu Sans", sans-serif;
 }
 .baa {
