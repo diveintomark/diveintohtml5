@@ -223,6 +223,7 @@ a:link:hover, a:visited:hover {
 .legend {
   font: italic x-large/1.75 "Essays 1743 Italic","Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
   text-shadow: 0 0 1px #667;
+  filter: glow(color=#666677,strength=1);
   margin-left: 0.5em;
   vertical-align: top;
 }
@@ -273,6 +274,7 @@ h1, h2, h3, h4, caption, thead th {
   font-family: "Essays 1743", "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   text-transform: uppercase;
   text-shadow: 0 0 1px #667;
+  filter: glow(color=#666677,strength=1);
 }
 h1 {
   font-size: 266.7%;
@@ -296,25 +298,6 @@ h3 {
 }
 h1:before {
   content: "№" counter(h1) ". ";
-}
-
-/* previous/next navigation links */
-
-.v a {
-  text-decoration: none;
-  border: 0;
-  display: block;
-}
-.v a:first-child {
-  float: left;
-}
-.v a:last-child {
-  float: right;
-}
-.v span {
-  font-size: 1000%;
-  line-height: 1;
-  text-shadow: gainsboro 3px 3px 3px;
 }
 
 /* video */
