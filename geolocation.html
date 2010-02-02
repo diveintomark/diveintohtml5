@@ -115,7 +115,20 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>The callback function will be called with a single parameter, an object with two properties: <code>coords</code> and <code>timestamp</code>. The timestamp is just that, the date and time when the location was calculated. (Since this is all happening asynchronously, you can&#8217;t really know when that will happen in advance. It might take some time for the user to read the infobar and agree to share their location. Devices with dedicated <abbr>GPS</abbr> hardware may take some more time to connect to a <abbr>GPS</abbr> satellite. And so on.) The <code>coords</code> object has properties like <code>latitude</code> and <code>longitude</code> which are exactly what they sound like: the user&#8217;s physical location in the world.
 
-<p>FIXME
+<table class=st>
+<caption>Position Object</caption>
+<tr class=ho><th>Property<th>Type<th>Notes
+<tr><th><code>coords.latitude</code><td>double</code><td>decimal degrees
+<tr class=zebra><th><code>coords.longitude</code><td>double<td>decimal degrees
+<tr><th><code>coords.altitude<td>double or <code>null</code><td>meters above the <a href=http://en.wikipedia.org/wiki/Reference_ellipsoid>reference ellipsoid</a>
+<tr class=zebra><th><code>coords.accuracy</code><td>double<td>meters
+<tr><th><code>coords.altitudeAccuracy</code><td>double or <code>null</code><td>meters
+<tr class=zebra><th><code>coords.heading</code><td>double or <code>null</code><td>degrees clockwise from <a href=http://en.wikipedia.org/wiki/True_north>true north</a>
+<tr><th><code>coords.speed</code><td>double or <code>null</code><td>meters/second
+<tr class=zebra><th><code>timestamp</code><td>DOMTimeStamp<td>like a <code>Date()</code> object
+</table>
+
+<p>FIXME - error callback, positionoptions, watchposition
 
 <div class=pf>
 <h4>Ask Professor Markup</h4>
