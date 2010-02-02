@@ -153,6 +153,7 @@ p, ul, ol {
 .a {
   font-size: xx-large;
   line-height: .875;
+  text-shadow: 0 0 2px #667;
 }
 .pf, .fr {
   border: 1px solid;

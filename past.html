@@ -13,7 +13,7 @@ body{counter-reset:h1 1}
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#history>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
 <h1>How Did We Get Here?</h1>
 <p id=toc>&nbsp;
-<p class=a>&#x2042;
+<p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
 <p class=f><img src=i/aoc-r.png alt=R width=107 height=103>ecently, I stumbled across a quote from a Mozilla developer <a href=http://lists.w3.org/Archives/Public/public-html/2010Jan/0107.html>about the tension inherent in creating standards</a>:
@@ -25,6 +25,8 @@ body{counter-reset:h1 1}
 <p>Keep this quote in the back of your mind, and let me explain how <abbr>HTML5</abbr> came to be.
 
 <p class=c><img src=i/openclipart.org_johnny_automatic_animals_on_see_saw.png width=526 height=116 alt="animals on a seesaw">
+
+<p class=a>&#x2767;
 
 <h2 id=mime-types>MIME types</h2>
 
@@ -39,6 +41,8 @@ body{counter-reset:h1 1}
 <p>Of course, reality is more complicated than that. Very early web servers (and I&#8217;m talking web servers from 1993) didn&#8217;t send the <code>Content-Type</code> header because it didn&#8217;t exist yet. (It wasn&#8217;t invented until 1994.) For compatibility reasons that date all the way back to 1993, some popular web browsers will ignore the <code>Content-Type</code> header under certain circumstances. (This is called &#8220;content sniffing.&#8221;) But as a general rule of thumb, everything you&#8217;ve ever looked at on the web &mdash; <abbr>HTML</abbr> pages, images, scripts, videos, PDFs, anything with a <abbr>URL</abbr> &mdash; has been served to you with a specific <abbr>MIME</abbr> type in the <code>Content-Type</code> header.
 
 <p>Tuck that under your hat. We&#8217;ll come back to it.
+
+<p class=a>&#x2767;
 
 <h2 id=history-of-the-img-element>A long digression into how standards are made</h2>
 
@@ -206,6 +210,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <p>We&#8217;re not prepared to support <code>INCLUDE</code>/<code>EMBED</code> at this point. &#8230; So we&#8217;re probably going to go with <code>&lt;IMG SRC="url"></code> (not <code>ICON</code>, since not all inlined images can be meaningfully called icons). For the time being, inlined images won&#8217;t be explicitly content-type&#8217;d; down the road, we plan to support that (along with the general adaptation of MIME). Actually, the image reading routines we&#8217;re currently using figure out the image format on the fly, so the filename extension won&#8217;t even be significant. 
 </blockquote> 
  
+<p class=a>&#x2767;
+
 <h2 id=an-unbroken-line>An unbroken line</h2>
 
 <p>I am extraordinarily fascinated with all aspects of this almost-17-year-old conversation that led to the creation of an <abbr>HTML</abbr> element that has been used on virtually every web page ever published. Consider: 
@@ -228,6 +234,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
  
 <p>The ones that win are the ones that ship. 
 
+<p class=a>&#x2767;
+
 <h2 id=timeline>A timeline of HTML development from 1997 to 2004</h2>
 
 <p>In December 1997, the World Wide Web Consortium (W3C) published <a href=http://www.w3.org/TR/REC-html40-971218/><abbr>HTML</abbr> 4.0</a> and promptly shut down the <abbr>HTML</abbr> Working Group. Less than two months later, a separate <abbr>W3C</abbr> Working Group published <a href=http://www.w3.org/TR/1998/REC-xml-19980210><abbr>XML</abbr> 1.0</a>. A mere three months after that, the W3C held a workshop which they called &#8220;<a href=http://www.w3.org/MarkUp/future/>Shaping the Future of <abbr>HTML</abbr></a>&#8221; to answer the question, &#8220;Has W3C given up on HTML?&#8221; This was their answer:
@@ -248,6 +256,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>Meanwhile, with the transition to <abbr>XML</abbr> complete, the <abbr>HTML</abbr> Working Group set their sights on creating &#8220;the next generation of <abbr>HTML</abbr>.&#8221; In May 2001, they published <a href=http://www.w3.org/TR/2001/REC-xhtml11-20010531/>the first edition of <abbr>XHTML</abbr> 1.1</a>, which added <a href=http://www.w3.org/TR/2001/REC-xhtml11-20010531/changes.html#a_changes>only a few minor features</a> on top of <abbr>XHTML</abbr> 1.0, but also eliminated the &#8220;Appendix C&#8221; loophole. Starting with version 1.1, all <abbr>XHTML</abbr> documents were to be served with a <abbr>MIME</abbr> type of <code>application/xhtml+xml</code>.
 
+<p class=a>&#x2767;
+
 <h2 id=xhtml>Everything you know about XHTML is wrong</h2>
 
 <p>Why are <abbr>MIME</abbr> types important? Why do I keep coming back to them? Three words: <a href=http://esw.w3.org/topic/HTML/DraconianErrorHandling>draconian error handling</a>. Browsers have always been &#8220;forgiving&#8221; with <abbr>HTML</abbr>. If you create an <abbr>HTML</abbr> page but forget to give it a <code>&lt;title></code>, browsers will display the page anyway, even though the <code>&lt;title></code> element has always been required in every version of <abbr>HTML</abbr>. Certain tags are not allowed within other tags, but if you create a page that puts them inside anyway, browsers will just deal with it (somehow) and move on without displaying an error message.
@@ -263,6 +273,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <p>Even today, many web pages claim to be <abbr>XHTML</abbr>. They start with the <abbr>XHTML</abbr> doctype on the first line, use lowercase tag names, use quotes around attribute values, and add a trailing slash after empty elements like <code>&lt;br /></code> and <code>&lt;hr /></code>. But only a tiny fraction of these pages are served with the <code>application/xhtml+xml</code> <abbr>MIME</abbr> type that would trigger <abbr>XML</abbr>&#8217;s draconian error handling. Any page served with a <abbr>MIME</abbr> type of <code>text/html</code> &mdash; regardless of doctype, syntax, or coding style &mdash; will be parsed using a &#8220;forgiving&#8221; <abbr>HTML</abbr> parser, silently ignoring any markup errors, and never alerting end users (or anyone else) even if the pages are technically broken.
 
 <p><abbr>XHTML</abbr> 1.0 included this loophole, but <abbr>XHTML</abbr> 1.1 closed it, and the never-finalized <abbr>XHTML</abbr> 2.0 continued the tradition of requiring draconian error handling. And that&#8217;s why there are billions of pages that claim to be <abbr>XHTML</abbr> 1.0, and only a handful that claim to be <abbr>XHTML</abbr> 1.1 (or <abbr>XHTML</abbr> 2.0). So are you really using <abbr>XHTML</abbr>? Check your <abbr>MIME</abbr> type. (Actually, if you don&#8217;t know what <abbr>MIME</abbr> type you&#8217;re using, I can pretty much guarantee that you&#8217;re still using <code>text/html</code>.) Unless you&#8217;re serving your pages with a <abbr>MIME</abbr> type of <code>application/xhtml+xml</code>, your so-called &#8220;<abbr>XHTML</abbr>&#8221; is <abbr>XML</abbr> in name only.
+
+<p class=a>&#x2767;
 
 <h2 id=webapps-cdf>A competing vision</h2>
 
@@ -295,6 +307,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>Faced with this decision, the people who had proposed evolving <abbr>HTML</abbr> and <abbr>HTML</abbr> forms were faced with two choices: give up, or continue their work outside of the W3C. They chose the latter, registered the <a href=http://www.whatwg.org/><code>whatwg.org</code></a> domain, and in June 2004, <a href=http://www.whatwg.org/news/start>the <abbr>WHAT</abbr> Working Group was born</a>.
 
+<p class=a>&#x2767;
+
 <h2 id=whatwg>WHAT Working Group?</h2>
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_big_sandwich.png width=182 height=523 alt="big sandwich">
@@ -315,6 +329,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>While all that reverse-engineering was going on, the <abbr>WHAT</abbr> working group was quietly working on a few other things, too. One of them was a specification, initially dubbed <a href=http://www.whatwg.org/specs/web-forms/current-work/>Web Forms 2.0</a>, which added new types of controls to <abbr>HTML</abbr> forms. (You&#8217;ll learn more about web forms in <a href=forms.html>A Form of Madness</a>.) Another was a draft specification called &#8220;Web Applications 1.0,&#8221; which included major new features like <a href=canvas.html>a direct-mode drawing canvas</a> and native support for <a href=video.html>audio and video without plugins</a>.
 
+<p class=a>&#x2767;
+
 <h2 id=reinventing-html>Back to the W3C</h2>
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_a_dog_and_a_cat_with_an_umbrella.png width=356 height=329 alt="cat and dog holding an imbrella">
@@ -329,6 +345,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>One of the first things the newly re-chartered W3C HTML Working Group decided was to rename &#8220;Web Applications 1.0&#8221; to &#8220;HTML5.&#8221; And here we are, diving into <abbr>HTML5</abbr>.
 
+<p class=a>&#x2767;
+
 <h2 id=postscript>Postscript</h2>
 
 <p>In October 2009, the <abbr>W3C</abbr> <a href=http://www.w3.org/News/2009#item119>shut down the XHTML 2 Working Group</a> and <a href=http://www.w3.org/2009/06/xhtml-faq.html>issued this statement to explain their decision</a>:
@@ -340,6 +358,8 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>The ones that win are the ones that ship.
 
+<p class=a>&#x2767;
+
 <h2 id=further-reading>Further Reading</h2>
 
 <ul>
@@ -348,7 +368,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <li><a href=http://www.atendesigngroup.com/blog/brief-history-of-html>A Brief History of HTML</a>
 </ul>
 
-<p class=a>&#x2042;
+<p class=a>&#x2767;
 
 <div class=pf>
 <h4>Did You Know?</h4>
