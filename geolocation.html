@@ -113,22 +113,24 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
   // let's show a map or do something interesting!
 }</code></pre>
 
+<p class=ss><img src=i/openclipart.org_johnny_automatic_riding_a_bike.png width=196 height=239 alt="boy riding a bicycle">
+
 <p>The callback function will be called with a single parameter, an object with two properties: <code>coords</code> and <code>timestamp</code>. The timestamp is just that, the date and time when the location was calculated. (Since this is all happening asynchronously, you can&#8217;t really know when that will happen in advance. It might take some time for the user to read the infobar and agree to share their location. Devices with dedicated <abbr>GPS</abbr> hardware may take some more time to connect to a <abbr>GPS</abbr> satellite. And so on.) The <code>coords</code> object has properties like <code>latitude</code> and <code>longitude</code> which are exactly what they sound like: the user&#8217;s physical location in the world.
 
 <table class=st>
 <caption>Position Object</caption>
 <tr class=ho><th>Property<th>Type<th>Notes
-<tr><th><code>coords.latitude</code><td>double<td>decimal degrees
-<tr class=zebra><th><code>coords.longitude</code><td>double<td>decimal degrees
-<tr><th><code>coords.altitude</code><td>double or <code>null</code><td>meters above the <a href=http://en.wikipedia.org/wiki/Reference_ellipsoid>reference ellipsoid</a>
-<tr class=zebra><th><code>coords.accuracy</code><td>double<td>meters
-<tr><th><code>coords.altitudeAccuracy</code><td>double or <code>null</code><td>meters
-<tr class=zebra><th><code>coords.heading</code><td>double or <code>null</code><td>degrees clockwise from <a href=http://en.wikipedia.org/wiki/True_north>true north</a>
-<tr><th><code>coords.speed</code><td>double or <code>null</code><td>meters/second
-<tr class=zebra><th><code>timestamp</code><td>DOMTimeStamp<td>like a <code>Date()</code> object
+<tr class=zebra><th><code>coords.latitude</code><td>double<td>decimal degrees
+<tr><th><code>coords.longitude</code><td>double<td>decimal degrees
+<tr class=zebra><th><code>coords.altitude</code><td>double or <code>null</code><td>meters above the <a href=http://en.wikipedia.org/wiki/Reference_ellipsoid>reference ellipsoid</a>
+<tr><th><code>coords.accuracy</code><td>double<td>meters
+<tr class=zebra><th><code>coords.altitudeAccuracy</code><td>double or <code>null</code><td>meters
+<tr><th><code>coords.heading</code><td>double or <code>null</code><td>degrees clockwise from <a href=http://en.wikipedia.org/wiki/True_north>true north</a>
+<tr class=zebra><th><code>coords.speed</code><td>double or <code>null</code><td>meters/second
+<tr><th><code>timestamp</code><td>DOMTimeStamp<td>like a <code>Date()</code> object
 </table>
 
-<p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server tat it talks to.
+<p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&#8217;s previous position, if possible.
 
 <div class=pf>
 <h4>Ask Professor Markup</h4>
@@ -152,8 +154,8 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 <table class=st>
 <caption>PositionError Object</caption>
 <tr class=ho><th>Property<th>Type<th>Notes
-<tr><th><code>code</code><td>short<td>an enumerated value
-<tr class=zebra><th><code>message</code><td>DOMString<td>not intended for end users
+<tr class=zebra><th><code>code</code><td>short<td>an enumerated value
+<tr><th><code>message</code><td>DOMString<td>not intended for end users
 </table>
 
 <p>The <code>code</code> property will be one of
@@ -164,6 +166,13 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 <li><code>TIMEOUT</code> (<code>3</code>) if the network is up but it takes too long to calculate the user&#8217;s position. How long is &#8220;too long&#8221;? I&#8217;ll show you how to define that in the next section.
 <li><code>UNKNOWN_ERROR</code> (<code>0</code>) if anything else goes wrong.
 </ul>
+
+<p class="legend top" style="padding-left:8.5em"><span class=arrow>&#x21b6;</span> Be gracious in defeat
+<pre><code>function handle_error(err) {
+  if (<mark>err.code</mark> == 1) {
+    // user said no!
+  }
+}</code></pre>
 
 <h2 id=options>Choices! I Demand Choices!</h2>
 
@@ -180,9 +189,9 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 <table class=st>
 <caption>PositionOptions Object</caption>
 <tr class=ho><th>Property<th>Type<th>Default<th>Notes
-<tr><th><code>enableHighAccuracy</code><td>boolean<td>false<td>true might be slower
-<tr class=zebra><th><code>timeout</code><td>long<td>(no default)<td>in milliseconds
-<tr><th><code>maximumAge</code><td>long<td>0<td>in milliseconds
+<tr class=zebra><th><code>enableHighAccuracy</code><td>boolean<td>false<td>true might be slower
+<tr><th><code>timeout</code><td>long<td>(no default)<td>in milliseconds
+<tr class=zebra><th><code>maximumAge</code><td>long<td>0<td>in milliseconds
 </table>
 
 <p>The <code>enableHighAccuracy</code> property is exactly what it sounds like. If true, and the device can support it, and the user consents to sharing their exact location, then the device will try to provide it. Both iPhones and Android phones have separate permissions for low- and high-accuracy positioning, so it is possible that calling <code>getCurrentPosition()</code> with <code>enableHighAccuracy:true</code> will fail, but calling with <code>enableHighAccuracy:false</code> would succeed.
