@@ -113,8 +113,6 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
   // let's show a map or do something interesting!
 }</code></pre>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_riding_a_bike.png width=196 height=239 alt="boy riding a bicycle">
-
 <p>The callback function will be called with a single parameter, an object with two properties: <code>coords</code> and <code>timestamp</code>. The timestamp is just that, the date and time when the location was calculated. (Since this is all happening asynchronously, you can&#8217;t really know when that will happen in advance. It might take some time for the user to read the infobar and agree to share their location. Devices with dedicated <abbr>GPS</abbr> hardware may take some more time to connect to a <abbr>GPS</abbr> satellite. And so on.) The <code>coords</code> object has properties like <code>latitude</code> and <code>longitude</code> which are exactly what they sound like: the user&#8217;s physical location in the world.
 
 <table class=st>
@@ -130,17 +128,9 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <tr><th><code>timestamp</code><td>DOMTimeStamp<td>like a <code>Date()</code> object
 </table>
 
-<p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&#8217;s previous position, if possible.
+<p class=ss style="margin-top:1.75em"><img src=i/openclipart.org_johnny_automatic_riding_a_bike.png width=196 height=239 alt="boy riding a bicycle">
 
-<div class=pf>
-<h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
-<p><span>&#x261E;</span>Q: Does the geolocation <abbr>API</abbr> work on the International Space Station, on the moon, or on other planets?<br>
-A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolocation specification states</a>, &#8220;The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported.&#8221; The International Space Station is orbiting Earth, so <a href=http://twitter.com/Astro_TJ>astronauts on the station</a> can describe their location by latitude, longitude, and altitude. However, the World Geodetic System is Earth-centric, so it can&#8217;t be used to describe locations on the moon or on other planets.
-</blockquote>
-</div>
-</div>
+<p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&#8217;s previous position, if possible.
 
 <h2 id=errors>Handling Errors</h2>
 
@@ -174,6 +164,16 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
   }
 }</code></pre>
 
+<div class=pf>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Does the geolocation <abbr>API</abbr> work on the International Space Station, on the moon, or on other planets?<br>
+A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolocation specification states</a>, &#8220;The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported.&#8221; The International Space Station is orbiting Earth, so <a href=http://twitter.com/Astro_TJ>astronauts on the station</a> can describe their location by latitude, longitude, and altitude. However, the World Geodetic System is Earth-centric, so it can&#8217;t be used to describe locations on the moon or on other planets.
+</blockquote>
+</div>
+</div>
+
 <h2 id=options>Choices! I Demand Choices!</h2>
 
 <p>Some popular mobile devices &mdash; like the iPhone and Android phones &mdash; support <em>two</em> methods of figuring out where you are. The first method triangulates your position based on your relative proximity to different cellular towers operated by your phone carrier. This method is fast and doesn&#8217;t require any dedicated <abbr>GPS</abbr> hardware, but it only gives you a rough idea of where you are. Depending on how many cell towers are in your area, &#8220;a rough idea&#8221; could be as little as one city block or as much as a kilometer in every direction.
@@ -204,6 +204,8 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
   success_callback, error_callback, <mark>{maximumAge: 75000}</mark>);</code></pre>
 
 <p>What you&#8217;re saying is that you don&#8217;t necessarily need the user&#8217;s <em>current</em> location. You would be satisfied with knowing where they were 75 seconds ago (75000 milliseconds). The device knows where the user was 60 seconds ago (60000 milliseconds), because it calculated their location after the first time you called <code>getCurrentPosition()</code>. So the device doesn&#8217;t bother to recalculate the user&#8217;s current location. It just returns exactly the same information it returned the first time: same latitude and longitude, same accuracy, and same timestamp (10:00 AM).
+
+<p class=ss><img src=i/openclipart.org_maven_Galileo_Galilei.png alt="old man looking through telescope" width=208 height=508>
 
 <p>Before you ask for the user&#8217;s location, you should think about just how much accuracy you need, and set <code>enableHighAccuracy</code> accordingly. If you need to find their location more than once, you should think about how old the information could be and still be useful, and set <code>maximumAge</code> accordingly. If you need to find their location <em>continuously</em>, then <code>getCurrentPosition()</code> is not for you. You need to upgrade to <code>watchPosition()</code>.
 
