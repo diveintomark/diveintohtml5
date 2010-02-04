@@ -132,6 +132,8 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&#8217;s previous position, if possible.
 
+<p class=a>&#x2767;
+
 <h2 id=errors>Handling Errors</h2>
 
 <p>Geolocation is complicated. So many things can go wrong. I&#8217;ve mentioned the &#8220;user consent&#8221; angle already. If your web application wants the user&#8217;s location but the user doesn&#8217;t want to give it to you, you&#8217;re screwed. The user always wins. But what does that look like in code? It looks like the second argument to the <code>getCurrentPosition()</code> function: an error handling callback function.
@@ -173,6 +175,8 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 </blockquote>
 </div>
 </div>
+
+<p class=a>&#x2767;
 
 <h2 id=options>Choices! I Demand Choices!</h2>
 
