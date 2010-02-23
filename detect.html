@@ -486,6 +486,22 @@ A: Geolocation support is being added to browsers right now, at the same time th
 
 <p class=a>&#x2767;
 
+<h2 id=microdata>Microdata</h2>
+
+<p class=ss style="width:305px"><img src=i/openclipart.org_johnny_automatic_divider_cards.png alt="alphabetized folders" width=305 height=224><br><span id="live-microdata-api"></span>
+
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html>Microdata</a> is a standardized way to provide additional semantics in your web pages. For example, you can use microdata to declare that a photograph is available under a specific Creative Commons license. As you&#8217;ll see in [TODO link to chapter once written], you can use microdata to mark up an &#8220;About Me&#8221; page. Browsers, browser extensions, and search engines can convert your <abbr>HTML5</abbr> microdata markup into a <a href=http://en.wikipedia.org/wiki/VCard>vCard</a>, a standard format for sharing contact information. You can also define your own microdata vocabularies.
+
+<p>The <abbr>HTML5</abbr> microdata standard includes both <abbr>HTML</abbr> markup (primarily for search engines) and a set of <abbr>DOM</abbr> functions (primarily for browsers). There&#8217;s no harm in including microdata markup in your web pages. It&#8217;s nothing more than a few well-placed attributes, and search engines that don&#8217;t understand the microdata attributes will just ignore them. But if you need to access or manipulate microdata through the <abbr>DOM</abbr>, you&#8217;ll need to check whether the browser supports the microdata <abbr>DOM</abbr> <abbr>API</abbr>.
+
+<p>Checking for HTML5 microdata <abbr>API</abbr> support uses <a href=#techniques>detection technique #1</a>. If your browser supports the HTML5 microdata <abbr>API</abbr>, there will be a <code>getItems()</code> function on the global <code>document</code> object. If your browser doesn&#8217;t support microdata, the <code>getItems()</code> function will be undefined.
+
+<pre><code>function supports_microdata_api() {
+  return !!document.getItems;
+}</code></pre>
+
+<p>Modernizr does not yet support checking for the microdata <abbr>API</abbr>, so you&#8217;ll need to use the function like the one listed above.
+
 <!--
 <h2 FIXME id=input-required>&lt;input required></h2>
 
@@ -655,5 +671,6 @@ $(document).ready(function() {
     $("#live-input-types").html('Your browser does not support any HTML5 input types.');
   }
   $("#live-input-autofocus").html(supports(!!("autofocus" in document.createElement("input")), "form autofocus"));
+  $("#live-microdata-api").html(supports(!!document.getItems, "the HTML5 microdata API"));
 });
 </script>
