@@ -23,6 +23,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p style="clear:both"><a href=examples/blog-original.html>Here is the page in question</a>. Learn it. Live it. Love it. Open it in a new tab and don&#8217;t come back until you&#8217;ve hit &#8220;View Source&#8221; at least once.
 
+<p class=a>&#x2767;
+
 <h2 id=the-doctype>The Doctype</h2>
 
 <p>From the top:
@@ -78,6 +80,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>They all trigger &#8220;standards mode&#8221; in all browsers.
 
+<p class=a>&#x2767;
+
 <h2 id=html-element>The Root Element</h2>
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:280px"><img src=i/openclipart.org_johnny_automatic_tree_on_top_of_hill.png alt="tree on top of hill" width=280 height=394>
@@ -110,6 +114,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>And that&#8217;s all I have to say about that.
 
+<p class=a>&#x2767;
+
 <h2 id=head-element>The &lt;head> Element</h2>
 
 <p class=c><img src=i/openclipart.org_johnny_automatic_8_from_behind.png alt="8 men from behind" width=554 height=164>
@@ -130,6 +136,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 &lt;/head></code></pre>
 
 <p>First up: the <code>&lt;meta></code> element.
+
+<p class=a>&#x2767;
 
 <h2 id=encoding>Character Encoding</h2>
 
@@ -171,6 +179,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 </div>
 
 <p>To sum up: character encoding is complicated, and it has not been made any easier by several decades of poorly written software used by copy-and-paste&ndash;educated authors.  You should <strong>always</strong> specify a character encoding on <strong>every</strong> <abbr>HTML</abbr> document, or <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7">bad things will happen</a>.  You can do it with the HTTP <code>Content-Type</code> header, the <code>&lt;meta http-equiv></code> declaration, or the shorter <code>&lt;meta charset></code> declaration, but please do it. The web thanks you.</p>
+
+<p class=a>&#x2767;
 
 <h2 id=link>Friends &amp; (Link) Relations</h2>
 
@@ -272,6 +282,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#link-type-tag>rel="tag"</a> &#8220;indicates that the tag that the referenced document represents applies to the current document.&#8221; Marking up &#8220;tags&#8221; (category keywords) with the <code>rel</code> attribute was <a href=http://www.powazek.com/2005/07/000532.html>invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &#8220;Technorati tags.&#8221; (You read that right: a commercial company convinced the entire world to add metadata that made the company&#8217;s job easier. Nice work if you can get it!) The syntax was later <a href=http://microformats.org/wiki/rel-tag>standardized within the microformats community</a>, where it was simply called <code>rel="tag"</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel="tag"</code> links. Browsers do not do anything special with them, but they&#8217;re really designed for search engines to use as a signal of what the page is about.
 
+<p class=a>&#x2767;
+
 <h2 id=new-elements>New Semantic Elements in HTML5</h2>
 
 <p><abbr>HTML5</abbr> is not just about making existing markup shorter (although it does a fair amount of that). It also defines a number of new semantic elements.
@@ -298,6 +310,8 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 </dl>
 
 <p>I know you&#8217;re anxious to start using these new elements, otherwise you wouldn&#8217;t be reading this chapter. But first we need to take a little detour.
+
+<p class=a>&#x2767;
 
 <h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
 
@@ -409,6 +423,8 @@ p (sibling of h1)
 
 <p>And now we&#8217;re ready to start using the new semantic elements in <abbr>HTML5</abbr>.
 
+<p class=a>&#x2767;
+
 <h2 id=header-element>Headers</h2>
 
 <p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
@@ -514,6 +530,8 @@ p (sibling of h1)
 
 <p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&#8217;re using the heading elements properly.
 
+<p class=a>&#x2767;
+
 <h2 id=article-element>Articles</h2>
 
 <p>Continuing with <a href=examples/blog-original.html>our example page</a>, let&#8217;s see what we can do about this markup:
@@ -584,6 +602,8 @@ p (sibling of h1)
 </blockquote>
 </div>
 </div>
+
+<p class=a>&#x2767;
 
 <h2 id=time-element>Dates and Times</h2>
 
@@ -656,6 +676,8 @@ p (sibling of h1)
   &lt;p>Lorem ipsum dolor sit amet&hellip;&lt;/p>
 &lt;/article></code></pre>
 
+<p class=a>&#x2767;
+
 <h2 id=nav-element>Navigation</h2>
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_a_pink.png alt="a man navigating a sailboat on the water" width=345 height=377>
@@ -698,6 +720,8 @@ p (sibling of h1)
 </blockquote>
 </div>
 </div>
+
+<p class=a>&#x2767;
 
 <h2 id=footer-element>Footers</h2>
 
@@ -794,6 +818,8 @@ p (sibling of h1)
   <mark>&lt;/section></mark>
   &lt;p class="copyright">Copyright &copy; 2009 W3C&lt;/p>
 <mark>&lt;/footer></mark></code></pre>
+
+<p class=a>&#x2767;
 
 <h2 id=further-reading>Further Reading</h2>
 
