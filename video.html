@@ -436,11 +436,15 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>controls</mark>>&lt;/video></code></pre>
 
-<p>There are two other optional attributes I want to mention before we go any further: <code>autobuffer</code> and <code>autoplay</code>. Don&#8217;t shoot the messenger; let me explain why these are useful. The <code>autobuffer</code> attribute tells the browser that you would like it to start downloading the video file as soon as the page loads. This makes sense if the entire point of the page is to view the video. On the other hand, if it&#8217;s just supplementary material that only a few visitors will watch, then maybe you can leave <code>autobuffer</code> off. It&#8217;s off by default.
+<p>There are two other optional attributes I want to mention before we go any further: <code>preload</code> and <code>autoplay</code>. Don&#8217;t shoot the messenger; let me explain why these are useful. The <code>preload</code> attribute tells the browser that you would like it to start downloading the video file as soon as the page loads. This makes sense if the entire point of the page is to view the video. On the other hand, if it&#8217;s just supplementary material that only a few visitors will watch, then you can set <code>preload</code> to <code>none</code> to tell the browser to minimize network traffic.
 
 <p>Here&#8217;s an example of a video that will start downloading (but not playing) as soon as the page loads:
 
-<pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>autobuffer</mark>>&lt;/video></code></pre>
+<pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>preload</mark>>&lt;/video></code></pre>
+
+<p>And here&#8217;s an example of a video that will <em>not</em> start downloading as soon as the page loads:
+
+<pre><code>&lt;video src="NewOrleans2006.ogv" width="320" height="240" <mark>preload="none"</mark>>&lt;/video></code></pre>
 
 <p>The <code>autoplay</code> attribute does exactly what it sounds like: it tells the browser that you would like it to start downloading the video file as soon as the page loads, <em>and</em> you would like it to start playing the video automatically as soon as possible. Some people love this; some people hate it. But let me explain why it&#8217;s important to have an attribute like this in <abbr>HTML5</abbr>. Some people are going to want their videos to play automatically, even if it annoys their visitors. If <abbr>HTML5</abbr> <em>didn&#8217;t</em> define a standard way to auto-play videos, people would resort to JavaScript hacks to do it anyway. (For example, by calling the video&#8217;s <code>play()</code> method during the window&#8217;s <code>load</code> event.) This would be much harder for visitors to counteract. On the other hand, it&#8217;s a simple matter to add a checkbox to your browser (or write an extension that adds such an option) that basically says &#8220;ignore the <code>autoplay</code> attribute, I don&#8217;t ever want videos to play automatically.&#8221;
 
@@ -543,7 +547,7 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 &lt;/html>
 </code></pre>
 
-<p>&hellip;And presto-chango! Your standards-based <abbr>HTML5</abbr> <code>&lt;video></code> element will automatically turn into a FlowPlayer-powered Flash video player in browsers <a href=detect.html#video>that do not support the <code>&lt;video></code> element natively</a>. The <code>html5-video.js</code> script even respects the <code>controls</code>, <code>autobuffer</code>, and <code>autoplay</code> attributes, and translates them into the appropriate FlowPlayer commands to show the player controls, auto-download, and auto-play the video.
+<p>&hellip;And presto-chango! Your standards-based <abbr>HTML5</abbr> <code>&lt;video></code> element will automatically turn into a FlowPlayer-powered Flash video player in browsers <a href=detect.html#video>that do not support the <code>&lt;video></code> element natively</a>. The <code>html5-video.js</code> script even respects the <code>controls</code>, <code>preload</code>, and <code>autoplay</code> attributes, and translates them into the appropriate FlowPlayer commands to show the player controls, auto-download, and auto-play the video.
 
 <p>Here is a live example of a video that uses these techniques. I encoded the source video with these two commands:
 
@@ -563,14 +567,14 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 <p>The markup is straightforward <abbr>HTML5</abbr>:
 
-<pre><code>&lt;video id="movie" width="320" height="240" autobuffer controls>
+<pre><code>&lt;video id="movie" width="320" height="240" preload="none" controls>
   &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
   &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>
 &lt;/video></code></pre>
 
 <p>With the addition of FlowPlayer and <code>html5-video.js</code>, you should be able to watch this video in almost any browser:</p>
 
-<video id=movie width=320 height=240 poster=i/apple-iie.jpg autobuffer controls>
+<video id=movie width=320 height=240 poster=i/apple-iie.jpg preload=none controls>
   <source src=i/pr6.mp4 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
   <source src=i/pr6.ogv type='video/ogg; codecs="theora, vorbis"'>
 </video> 
