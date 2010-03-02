@@ -23,10 +23,10 @@ body{counter-reset:h1 5}
 <table class=bc>
 <caption>&lt;video> element support</caption>
 <thead>
-<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chrome<th title="Opera 10">Opera
+<tr><th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chrome<th title="Opera 10.5">Opera
 </thead>
 <tbody>
-<tr><td>&middot;<td>&middot;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&middot;
+<tr><td>&middot;<td>&middot;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
 </tbody>
 </table>
 
@@ -45,7 +45,7 @@ body{counter-reset:h1 5}
 <ul> 
 <li><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_14>MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href=http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm>based on Apple&#8217;s older QuickTime container</a> (<code>.mov</code>). <a href=http://www.apple.com/trailers/>Movie trailers on Apple&#8217;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li> 
 <li><a href=http://en.wikipedia.org/wiki/Flash_Video>Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. More recent versions of Flash also support the MPEG 4 container.</li> 
-<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open-source-friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &#8220;Theora&#8221;), and Ogg audio (called &#8220;Vorbis&#8221;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
+<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open-source-friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &#8220;Theora&#8221;), and Ogg audio (called &#8220;Vorbis&#8221;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
 <li><a href=http://en.wikipedia.org/wiki/AVI>Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support many of the features of more recent container formats. It does not officially support any sort of video metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, various companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href=http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html>MEncoder</a>.</li> 
 </ul> 
 
@@ -143,6 +143,7 @@ body{counter-reset:h1 5}
 
 <ul>
 <li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container.
+<li>Opera (10.5 and later) supports Theora video and Vorbis audio in an Ogg container.
 <li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. It also supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
 <li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, very few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include Theora video, Vorbis audio, or the Ogg container. However, QuickTime <em>does</em> support H.264 video (main profile) and AAC audio in an MP4 container.
 <li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
@@ -155,11 +156,11 @@ body{counter-reset:h1 5}
 <table class=bc>
 <caption>Video codec support</caption>
 <thead>
-<tr><th style="text-align:left">Codecs/container<th>Firefox 3.5<th>Safari<th>iPhone<th>Android<th>Chrome 3
+<tr><th style="text-align:left">Codecs/container<th>Firefox<th>Opera<th>Chrome<th>Safari<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><th>Theora+Vorbis+Ogg<td>&#x2713;<td>&middot;<td>&middot;<td>&middot;<td>&#x2713;
-<tr><th>H.264+AAC+MP4<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+<tr><th>Theora+Vorbis+Ogg<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&middot;<td>&middot;<td>&middot;
+<tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
 </tbody>
 </table>
 
