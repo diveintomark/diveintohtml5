@@ -613,3 +613,17 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 <script src=j/dih5.js></script>
 <script src=j/flowplayer-3.1.4.min.js></script>
 <script src=j/html5-video.js></script>
+<script>
+$(document).ready(function() {
+  if (/Android/.test(navigator.userAgent)) {
+    $("#movie").click(function() {
+      var video = $(this).get(0);
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  ;}
+});
+</script>
