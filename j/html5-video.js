@@ -53,7 +53,7 @@ function html5_video_replace(video, index) {
     var video_width = video.getAttribute("width");
     var video_height = video.getAttribute("height");
     var video_autoplay = video.getAttribute("autoplay") != null;
-    var video_autobuffer = video.getAttribute("autobuffer") != null;
+    var video_preload = (video.getAttribute("preload") != null) ? (video.getAttribute("preload") == "auto") : false;
     var video_controls = (video.getAttribute("controls") != null) ? {autoHide:"always",hideDelay:1000} : null;
  
     /* create a dummy div for Flowplayer to use */
@@ -69,7 +69,7 @@ function html5_video_replace(video, index) {
       clip: {
         url: video_url,
         autoPlay: video_autoplay,
-        autoBuffering: video_autobuffer
+        autoBuffering: video_preload
       },
       plugins: {
         controls: video_controls
