@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Let&#8217;s Take This Offline - Dive Into HTML5</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
+<link rel="shortcut icon" href=favicon.ico>
+<link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
+<link rel=stylesheet href=screen.css>
+<style>
+body{counter-reset:h1 9}
+</style>
+<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
+<div id=zz>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#offline>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1><br>Let&#8217;s Take This Offline</h1>
+<p id=toc>&nbsp;
+<p class=a>&#x2767;
+<h2 id=divingin>Diving In</h2>
+
+<!--
+<pre>
+- Events
+  - downloading, progress, cached
+  - checking, noupdate, updateready, obsolete
+  - error
+  - offline/online
+- Let's build one!
+  - window.applicationCache
+  - ...
+- Gears
+  - Manifest file is JSON
+  - loaded (bound to page) with JavaScript call
+  - take above example and rewrite as Gears app
+- Some random notes on performance?
+http://googlecode.blogspot.com/search/label/html5
+</pre>
+-->
+
+<p class=f><img src=i/aoc-w.png alt=W width=110 height=108>hat is an offline web application? At first glance, it sounds like a contradiction in terms. Web pages are things you download and render. Downloading implies a network connection. How can you download when you&#8217;re offline? Of course, you can&#8217;t. But you <em>can</em> download when you&#8217;re online. And that&#8217;s how <abbr>HTML5</abbr> offline applications work. 
+
+<p>At its simplest, an offline web application is a list of <abbr>URL</abbr>s &mdash; <abbr>HTML</abbr>, <abbr>CSS</abbr>, JavaScript, images, or any other kind of resource. The home page of the offline web application points to this list, called a manifest file, which is just a text file located elsewhere on the web server. A web browser that implements <abbr>HTML5</abbr> offline applications will read the list of <abbr>URL</abbr>s from the manifest file, download the resources, cache them locally, and automatically keep the local copies up to date as they change. When the time comes that you try to access the web application without a network connection, your web browser will automatically switch over to the local copies instead.
+
+<p>From there, most of the work is up to you, the web developer. There&#8217;s a flag in the <abbr>DOM</abbr> that will tell you whether you&#8217;re online or offline. There are events that fire when your offline status changes (one minute you&#8217;re offline and the next minute you&#8217;re online, or vice-versa). But that&#8217;s pretty much it. If your application creates data or saves state, &#8217;s up to you to store that data locally while you&#8217;re offline and synchronize it with the remote server once you&#8217;re back online. [TODO link to storage chapter once it&#8217;s written] In other words, <abbr>HTML5</abbr> can take your web application offline. What you do once you&#8217;re there is up to you.
+
+<h3 id=examples>Who&#8217;s Offline Already?</h3>
+
+<p>The idea of offline web applications predates <abbr>HTML5</abbr>, and some of the implementations predate it, too. Which is to say, there&#8217;s the <abbr>HTML5</abbr> way of going offline, but there are also other ways. I&#8217;ll talk about one of these ways &mdash; based on Gears &mdash; later in this chapter. Some of these early adopters have already switched to <abbr>HTML5</abbr>, while others are still working on it.
+
+<ul>
+<li><a href=http://mail.google.com/>Gmail</a>, web-based email from Google
+<li><a href=http://www.zoho.com/>Zoho</a>, online productivity and collaboration apps
+<li><a href=http://www.rememberthemilk.com/>Remember The Milk</a>, online task management
+<li><a href=http://wordpress.org/>WordPress</a>, an open source personal publishing platform
+</ul>
+
+<p class=a>&#x2767;
+
+<h2 id=manifest>The Cache Manifest</h2>
+
+<p>An offline web application revolves around a cache manifest file. What&#8217;s a manifest file? It&#8217;s a list of all of the resources that your web application might need to access while it&#8217;s disconnected from the network. In order to bootstrap the process of downloading and caching these resources, you need to point to the manifest file, using a <code>manifest</code> attribute on your <code>&lt;html></code> element.
+
+<pre><code>&lt;!DOCTYPE HTML>
+&lt;html <mark>manifest="/cache.manifest"</mark>>
+&lt;body>
+...
+&lt;/body>
+&lt;/html></code></pre>
+
+<p>Your cache manifest file can be located anywhere on your web server, but it must be served with the content type <code>text/cache-manifest</code>. If you are running an Apache-based web server, you can probably just put <a href=http://httpd.apache.org/docs/2.2/mod/mod_mime.html#addtype>an <code>AddType</code> directive</a> in the <code>.htaccess</code> file at the root of your web directory:
+
+<pre><code>AddType text/cache-manifest .manifest</code></pre>
+
+<p>Then make sure that the name of your cache manifest file ends with <code>.manifest</code>. If you use a different web server or a different configuration of Apache, consult your server&#8217;s documentation on controlling the <code>Content-Type</code> header.
+
+<p>OK, so your <abbr>HTML</abbr> markup points to your cache manifest file, and your cache manifest file is being served with the proper <code>Content-Type</code> header. But what goes <em>in</em> the manifest file? This is where things get interesting.
+
+<p>The first line of every cache manifest file is this:
+
+<pre><code>CACHE MANIFEST</code></pre>
+
+<p>After that, all manifest files are divided into three parts: the &#8220;explicit&#8221; section, the &#8220;fallback&#8221; section, and the &#8220;online whitelist&#8221; section. Each section has a header, on its own line. If the manifest file doesn&#8217;t have any section headers, all the listed resources are implicitly in the &#8220;explicit&#8221; section. Try not to dwell on the terminology, lest your head explode.
+
+<p>Here is a valid manifest file. It lists three resources: a <abbr>CSS</abbr> file, a JavaScript file, and a <abbr>JPEG</abbr> image.
+
+<pre><code>CACHE MANIFEST
+/clock.css
+/clock.js
+/clock-face.jpg</code></pre>
+
+<p>This cache manifest file has no section headers, so all the listed resources are in the &#8220;explicit&#8221; section by default. Resources in the &#8220;explicit&#8221; section will get downloaded and cached locally, and will be used in place of their online counterparts whenever you are disconnected from the network. Thus, upon loading this cache manifest file, your browser would download <code>clock.css</code>, <code>clock.js</code>, and <code>clock-face.jpg</code> from the root directory of your web server. Then you could unplug your network cable and refresh the page, and all of those resources would be available offline.
+
+<p>Here is a slightly more complicated example. Suppose you want your clock application to track visitors, using a <abbr>tracking.cgi</abbr> script that is loaded dynamically from an <code>&lt;img src></code> attribute. Caching this resource would defeat the purpose of tracking, so this resource should never cached and never be available offline. Here is how you do that:
+
+<pre><code>CACHE MANIFEST
+<mark>NETWORK:
+/tracking.cgi</mark>
+CACHE:
+/clock.css
+/clock.js
+/clock-face.jpg</code></pre>
+
+<p>This cache manifest file includes section headers. The line marked <code>NETWORK:</code> is the beginning of the &#8220;online whitelist&#8221; section. Resources in this section are never cached and are not available offline. (Attempting to load them while offline will result in an error.) The line marked <code>CACHE:</code> is the beginning of the &#8220;explicit&#8221; section. The rest of the cache manifest file is the same as the previous example. Each of the three resources listed will be cached and available offline.
+
+<p>There is one more type of section in a cache manifest file: a fallback section. In a fallback section, you can define substitutions for online resources that, for whatever reason, can&#8217;t be cached or weren&#8217;t cached successfully.
+
+<pre><code>CACHE MANIFEST
+NETWORK:
+/tracking.cgi
+<mark>FALLBACK:
+/clock-face.jpg /missing.jpg</mark>
+CACHE:
+/clock.css
+/clock.js
+/clock-face.jpg</code></pre>
+
+<p>FIXME... WTF?
+
+<p class=a>&#x2767;
+
+<h2 id=events>The Flow of Events</h2>
+
+<pre>
+  - downloading, progress, cached
+  - checking, noupdate, updateready, obsolete
+  - error
+  - offline/online
+</pre>
+
+<p class=a>&#x2767;
+
+<h2 id=example>Let&#8217;s Build One!</h2>
+
+<p class=a>&#x2767;
+
+<h2 id=ie>What About IE?</h2>
+
+<p class=a>&#x2767;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<p class=a>&#x2767;
+
+<div class=pf>
+<h4>Did You Know?</h4>
+<div class=moneybags>
+<blockquote><p>In association with O&#8217;Reilly, Google Press will be publishing this book in a variety of formats, including paper, Kindle, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The printed book will be called &#8220;HTML5: Up &amp; Running,&#8221; and we hope to release it <del>by next February</del> <del>in the first quarter of 2010</del> as soon as it&#8217;s good and ready, and not a moment sooner. This chapter will be included in the print edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">pre-order &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+</blockquote>
+</div>
+</div>
+
+<p class=c>Copyright MMIX&ndash;MMX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+</div>
+<script src=j/jquery.js></script>
+<script src=j/modernizr.js></script>
+<script src=j/dih5.js></script>
