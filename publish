@@ -87,9 +87,13 @@ for f in build/*.html; do
   python2.6 util/lesscss.py "$f" || die "Failed to remove unused CSS"
 done
 
+# add revision number to cache manifest files
+sed -i -e "s|# revision|# revision ${revision}|g" build/examples/offline/clock.manifest
+
 # set file permissions (hg resets these, don't know why)
-chmod 755 build/examples build/j build/i build/f build/fonts-original && \
-    chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz || die "Failed to reset file permissions"
+chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz &&
+  chmod 755 build/examples build/j build/i build/f build/fonts-original build/examples/offline || die "Failed to reset file permissions"
+    
 
 #die "Intentionally aborting without publishing"
 # ship it!
