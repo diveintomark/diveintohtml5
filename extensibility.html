@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Distributed Extensibility - Dive Into HTML5</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
+<link rel="shortcut icon" href=favicon.ico>
+<link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
+<link rel=stylesheet href=screen.css>
+<style>
+body{counter-reset:h1 11}
+.st td{vertical-align:top;padding-left:5px}
+.st ul{list-style:none;margin:0;padding:0}
+</style>
+<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
+<div id=zz>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#extensibility>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1><br>&#8220;Distributed,&#8221;<br>&#8220;Extensibility,&#8221;<br>&amp;<br>Other Fancy Words</h1>
+<p id=toc>&nbsp;
+<p class=a>&#x2767;
+<h2 id=divingin>Diving In</h2>
+
+<p class=f><img src=i/aoc-t.png alt=T width=107 height=105> FIXME
+
+<p class=a>&#x2767;
+
+<pre>
+- what is microdata?
+- data model: scoped name/value pairs
+  - itemscope defines an item ( http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#items )
+  - itemprop names the property ( http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#names:-the-itemprop-attribute )
+  - values are stored in whatever attribute or child text makes sense, based on the elements involved ( http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#values )
+  - itemtype defines the vocabulary. Using a shared vocabulary helps to semantically connect your data with other people's data on other pages and other sites
+  - itemid for globally unique identifiers (if applicable)
+  - itemref if an item's properties are defined elsewhere on the page (i.e. not on child elements of the itemscope)
+- "Hello World" of microdata: licensing metadata on Creative-Commons-licensed photograph
+- accessing microdata from JavaScript
+  - document.getItems()
+  - document.getItems("http://www.example.com/animals#cat")
+  - element.properties
+  - element.properties.names
+  - element.properties.values
+- Case study: an about page with contact information
+</pre>
+
+<p class=a>&#x2767;
+
+<h2 id=data-model>The Microdata Data Model</h2>
+
+<p>FIXME
+
+<table class=st>
+<caption>Where Do Microdata Item Values Come From?</caption>
+<tr class=ho><th>Element<th>Value
+<tr class=zebra><td><code>&lt;meta></code><td><code>content</code> attribute
+<tr><td><ul><li><code>&lt;audio></code><li><code>&lt;embed></code><li><code>&lt;iframe></code><li><code>&lt;img></code><li><code>&lt;source></code><li><code>&lt;video></code></ul><td><code>src</code> attribute
+<tr class=zebra><td><ul><li><code>&lt;a></code><li><code>&lt;area></code><li><code>&lt;link></code></ul><td><code>href</code> attribute
+<tr><td><code>&lt;object></code><td><code>data</code> attribute
+<tr class=zebra><td><code>&lt;time></code><td><code>datetime</code> attribute
+<tr><td>all other elements<td>text content
+</table>
+
+<p class=a>&#x2767;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<p>FIXME
+
+<p class=a>&#x2767;
+
+<div class=pf>
+<h4>Did You Know?</h4>
+<div class=moneybags>
+<blockquote><p>In association with O&#8217;Reilly, Google Press will be publishing this book in a variety of formats, including paper, Kindle, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The printed book will be called &#8220;HTML5: Up &amp; Running,&#8221; and we hope to release it <del>by next February</del> <del>in the first quarter of 2010</del> as soon as it&#8217;s good and ready, and not a moment sooner. This chapter will be included in the print edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">pre-order &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+</blockquote>
+</div>
+</div>
+
+<p class=c>Copyright MMIX&ndash;MMX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+</div>
+<script src=j/jquery.js></script>
+<script src=j/dih5.js></script>
