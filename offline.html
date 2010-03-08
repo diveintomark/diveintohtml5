@@ -71,7 +71,17 @@ http://googlecode.blogspot.com/search/label/html5
 
 <p>Then make sure that the name of your cache manifest file ends with <code>.manifest</code>. If you use a different web server or a different configuration of Apache, consult your server&#8217;s documentation on controlling the <code>Content-Type</code> header.
 
-<p>OK, so your <abbr>HTML</abbr> markup points to your cache manifest file, and your cache manifest file is being served with the proper <code>Content-Type</code> header. But what goes <em>in</em> the manifest file? This is where things get interesting.
+<div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: My web application spans several pages. Do I need a <code>manifest</code> attribute in each page, or can I just put it in the home page?
+A: Every page of your web application needs a <code>manifest</code> attribute that points to the cache manifest for the entire application.
+</blockquote>
+</div>
+</div>
+
+<p>OK, so every one of your <abbr>HTML</abbr> pages points to your cache manifest file, and your cache manifest file is being served with the proper <code>Content-Type</code> header. But what goes <em>in</em> the manifest file? This is where things get interesting.
 
 <p>The first line of every cache manifest file is this:
 
@@ -88,6 +98,18 @@ http://googlecode.blogspot.com/search/label/html5
 
 <p>This cache manifest file has no section headers, so all the listed resources are in the &#8220;explicit&#8221; section by default. Resources in the &#8220;explicit&#8221; section will get downloaded and cached locally, and will be used in place of their online counterparts whenever you are disconnected from the network. Thus, upon loading this cache manifest file, your browser would download <code>clock.css</code>, <code>clock.js</code>, and <code>clock-face.jpg</code> from the root directory of your web server. Then you could unplug your network cable and refresh the page, and all of those resources would be available offline.
 
+<div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Do I need to list my <abbr>HTML</abbr> pages in my cache manifest?
+A: Yes and no. If your entire web application is contained in a single page, just make sure that page points to the cache manifest using the <code>manifest</code> attribute. When you navigate to an <abbr>HTML</abbr> page with a <code>manifest</code> attribute, the page itself is assumed to be part of the web application, so you don&#8217;t need to list it in the manifest file itself. However, if your web application spans multiple pages, you should list all of the <abbr>HTML</abbr> pages in the manifest file, otherwise the browser would not know that there are other <abbr>HTML</abbr> pages that need to be downloaded and cached.
+</blockquote>
+</div>
+</div>
+
+<h3 id=network>Network sections</h3>
+
 <p>Here is a slightly more complicated example. Suppose you want your clock application to track visitors, using a <abbr>tracking.cgi</abbr> script that is loaded dynamically from an <code>&lt;img src></code> attribute. Caching this resource would defeat the purpose of tracking, so this resource should never cached and never be available offline. Here is how you do that:
 
 <pre><code>CACHE MANIFEST
@@ -100,17 +122,15 @@ CACHE:
 
 <p>This cache manifest file includes section headers. The line marked <code>NETWORK:</code> is the beginning of the &#8220;online whitelist&#8221; section. Resources in this section are never cached and are not available offline. (Attempting to load them while offline will result in an error.) The line marked <code>CACHE:</code> is the beginning of the &#8220;explicit&#8221; section. The rest of the cache manifest file is the same as the previous example. Each of the three resources listed will be cached and available offline.
 
-<p>There is one more type of section in a cache manifest file: a fallback section. In a fallback section, you can define substitutions for online resources that, for whatever reason, can&#8217;t be cached or weren&#8217;t cached successfully.
+<h3 id=fallback>Fallback Sections</h3>
+
+<p>There is one more type of section in a cache manifest file: a fallback section. In a fallback section, you can define substitutions for online resources that, for whatever reason, can&#8217;t be cached or weren&#8217;t cached successfully. The <abbr>HTML5</abbr> specification offers this clever example of using a fallback section:
 
 <pre><code>CACHE MANIFEST
+FALLBACK:
+/ /offline.html
 NETWORK:
-/tracking.cgi
-<mark>FALLBACK:
-/clock-face.jpg /missing.jpg</mark>
-CACHE:
-/clock.css
-/clock.js
-/clock-face.jpg</code></pre>
+*</code></pre>
 
 <p>FIXME... WTF?
 
