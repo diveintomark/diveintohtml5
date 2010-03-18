@@ -148,12 +148,71 @@ NETWORK:
 
 <h2 id=events>The Flow of Events</h2>
 
-<pre>
-  - downloading, progress, cached
-  - checking, noupdate, updateready, obsolete
-  - error
-  - offline/online
-</pre>
+<p>So far, I&#8217;ve talked about offline web applications, the cache manifest, and the offline application cache (&#8220;appcache&#8221;) in vague, semi-magical terms. Things are downloaded, browsers make decisions, and everything Just Works. You know better than that, right? I mean, this is web development we&#8217;re talking about. Nothing ever Just Works.
+
+<p>First, let&#8217;s talk about the flow of events. Specifically, <abbr>DOM</abbr> events. When your browser visits a page that points to a cache manifest, it fires off a series of events on the <code>window.applicationCache</code> object. I know this looks complicated, but trust me, this is the simplest version I could come up with that didn&#8217;t leave out important information.
+
+<ol>
+<li>As soon as it notices a <code>manifest</code> attribute on the <code>&lt;html></code> element, your browser fires a <strong><code>checking</code></strong> event. (All the events listed here are fired on the <code>window.applicationCache</code> object.) The <code>checking</code> event is always fired, regardless of whether you have previously visited this page or any other page that points to the same cache manifest.
+<li>If your browser has never seen this cache manifest before...
+  <ul>
+  <li>It will fire a <strong><code>downloading</code></strong> event, then start to download the resources listed in the cache manifest.
+  <li>While it&#8217;s downloading, your browser will periodically fire <strong><code>progress</code></strong> events, which contain information on how many files have been downloaded already and how many files are still queued to be downloaded.
+  <li>After all resources listed in the cache manifest have been downloaded successfully, the browser fires one final event, <strong><code>cached</code></strong>. This is your signal that the offline web application is fully cached and ready to be used offline. That&#8217;s it; you&#8217;re done.
+  </ul>
+<li>On the other hand, if you have previously visited this page or any other page that points to the same cache manifest, then your browser already knows about this cache manifest. It may already have some resources in the appcache. It may have the entire working offline web application in the appcache. So now the question is, has the cache manifest changed since the last time your browser checked it?
+  <ul>
+  <li>If the answer is no, the cache manifest has not changed, your browser will immediately fire a <strong><code>noupdate</code></strong> event. That&#8217;s it; you&#8217;re done.
+  <li>If the answer is yes, the cache manifest <em>has</em> changed, your browser will fire a <strong><code>downloading</code></strong> event and start re-downloading every single resource listed in the cache manifest.
+  <li>While it&#8217;s downloading, your browser will periodically fire <strong><code>progress</code></strong> events, which contain information on how many files have been downloaded already and how many files are still queued to be downloaded.
+  <li>After all resources listed in the cache manifest have been re-downloaded successfully, the browser fires one final event, <strong><code>updateready</code></strong>. This is your signal that the new version of your offline web application is fully cached and ready to be used offline. <em>The new version is not yet in use.</em> To &#8220;hot-swap&#8221; to the new version without forcing the user to reload the page, you can manually call the <code>window.applicationCache.swapCache()</code> function.
+  </ul>
+</ol>
+
+<p>If, at any point in this process, something goes horribly wrong, your browser will fire an <strong><code>error</code></strong> event and stop. Here is a very abbreviated list of things that could go wrong:
+
+<ul>
+<li>The cache manifest returned an <abbr>HTTP</abbr> error 404 (Page Not Found) or 410 (Permanently Gone).
+<li>The cache manifest was found and hadn&#8217;t changed, but the <abbr>HTML</abbr> page that pointed to the manifest failed to download properly.
+<li>The cache manifest was found and had changed, but the browser failed to download one of the resources listed in the cache manifest.
+</ul>
+
+<h2 id=debugging>The fine art of debugging, a.k.a. &#8220;Kill me! Kill me now!&#8221;</h2>
+
+<p>I want to call out two important points here. The first is something you just read, but I bet it didn&#8217;t really sink in, so here it is again: if even a single resource listed in your cache manifest file fails to download properly, the entire process of caching your offline web application will fail. Your browser will fire the <code>error</code> event, but there is no indication of what the actual problem was. This can make debugging offline web applications extremely frustrating.
+
+<p>The second important point is something that is not, technically speaking, an error, but it will look like a serious browser bug until you realize what&#8217;s going on. It has to do with exactly how your browser checks whether a cache manifest file has changed. This is a three-phase process. This is boring but important, so pay attention.
+
+<ol>
+<li>Via normal <abbr>HTTP</abbr> semantics, your browser will check whether the cache manifest has expired. Just like any other file being served over <abbr>HTTP</abbr>, your web server will typically include meta-information about the file in the <abbr>HTTP</abbr> response headers. Some of these <abbr>HTTP</abbr> headers (<code>Expires</code> and <code>Cache-Control</code>) tell your browser how it is allowed to cache the file without ever asking the server whether it has changed. This kind of caching has nothing to do with offline web applications. It happens for pretty much every <abbr>HTML</abbr> page, stylesheet, script, image, or other resource on the web.
+<li>If the cache manifest has expired (according to its <abbr>HTTP</abbr> headers), then your browser will ask the server whether there is a new version, and if so, the browser will download it. To do this, your browser issues an <abbr>HTTP</abbr> request that includes that last-modified date of the cache manifest, which your web server included in the <abbr>HTTP</abbr> response headers the last time your browser downloaded the manifest file. If the web server determines that the manifest file hasn&#8217;t changed since that date, it will simply return a <code>304 (Not Modified)</code> status. Again, none of this is specific to offline web applications. This happens for essentially every kind of resource on the web.
+<li>If the web server thinks the manifest file has changed since that date, it will return an <abbr>HTTP</abbr> <code>200 (OK)</code> status code, followed by the contents of the new file, along with new <code>Cache-Control</code> headers and a new last-modified date, so that steps 1 and 2 will work properly the next time. (<abbr>HTTP</abbr> is cool; web servers are always planning for the future. If your web server absolutely must send you a file, it does everything it can to ensure that it doesn&#8217;t need to send it twice for no reason.) Once it&#8217;s downloaded the new cache manifest file, your browser will check the contents against the copy it downloaded last time. If the contents of the cache manifest file are the same as they were last time, your browser won&#8217;t re-download any of the resources listed in the manifest.
+</ol>
+
+<p>Any one of these steps can trip you up while you&#8217;re developing and testing your offline web application. For example, say you deploy one version of your cache manifest file, then 10 minutes later, you realize you need to add another resource to it. No problem, right? Just add another line and redeploy. Bzzt. Here&#8217;s what will happen: you reload the page, your browser notices the <code>manifest</code> attribute, it fires the <code>checking</code> event, and then... nothing. Your browser stubbornly insists that the cache manifest file has not changed. Why? Because, by default, your web server is probably configured to tell browsers to cache static files for a few hours (via <abbr>HTTP</abbr> semantics, using <code>Cache-Control</code> headers). That means your browser will never get past step 1 of that three-phase process. Sure, the web server knows that the file has changed, but your browser never even gets around to asking the web server. Why? Because the last time your browser downloaded the cache manifest, the web server told it to cache the resource for a few hours (via <abbr>HTTP</abbr> semantics, using <code>Cache-Control</code> headers). And now, 10 minutes later, that&#8217;s exactly what your browser is doing.
+
+<p>To be clear, this is not a bug, it&#8217;s a feature. Everything is working exactly the way it&#8217;s supposed to. If web servers didn&#8217;t have a way to tell browsers (and intermediate proxies) to cache things, the web would collapse overnight. But that&#8217;s no comfort to you after you spend a few hours trying to figure out why your browser won&#8217;t notice your updated cache manifest. (And even better, if you wait long enough, it will mysteriously starts working again! Because the <abbr>HTTP</abbr> cache expired! Just like it&#8217;s supposed to! Kill me! Kill me now!)
+
+<p>So here&#8217;s one thing you should absolutely do: reconfigure your web server so that your cache manifest file is not cacheable by <abbr>HTTP</abbr> semantics. If you&#8217;re running an Apache-based web server, these two lines in your <code>.htaccess</code> file will do the trick:
+
+<pre><code>ExpiresActive On
+ExpiresDefault "access"</code></pre>
+
+<p>That will actually disable caching for every file in that directory and all subdirectories. That&#8217;s probably not what you want in production, so you should either qualify this with a <code>&lt;Files></code> directive so it only affects your cache manifest file, or create a subdirectory that contains nothing but this <code>.htaccess</code> file and your cache manifest file. As usual, configuration details vary by web server, so consult your server&#8217;s documentation for how to control <abbr>HTTP</abbr> caching headers.
+
+<p>Once you&#8217;ve disabled <abbr>HTTP</abbr> caching on the cache manifest file itself, you&#8217;ll still have times where you&#8217;ve changed one of the resources in the appcache, but it&#8217;s still at the same <abbr>URL</abbr> on your web server. Here, step 2 of the three-phase process will screw you. If your cache manifest file hasn&#8217;t changed, the browser will never notice that one of the previously cached resources has changed. Consider the following example:
+
+<pre><code>CACHE MANIFEST
+# rev 42
+clock.js
+clock.css</code></pre>
+
+<p>If you change <code>clock.css</code> and redeploy it, you won&#8217;t see the changes, because the cache manifest file itself hasn&#8217;t changed. Every time you make a change to one of the resources in your offline web application, you&#8217;ll need to change the cache manifest file itself. This can be as simple as changing a single character. The easiest way I&#8217;ve found to accomplish this is to include a comment line with a revision number. Change the revision number in the comment, then the web server will return the newly changed cache manifest file, your browser will notice that the contents of of the file have changed, and it will kick off the process to re-download all the resources listed in the manifest.
+
+<pre><code>CACHE MANIFEST
+<mark># rev 43</mark>
+clock.js
+clock.css</code></pre>
 
 <p class=a>&#x2767;
 

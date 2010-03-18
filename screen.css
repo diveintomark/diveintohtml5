@@ -191,6 +191,10 @@ strong, b, em, i {
   font-weight: normal;
   text-transform: uppercase;
 }
+strong code {
+  font-weight: bold;
+  text-transform: none;
+}
 sup {
   font-variant: small-caps;
   vertical-align: text-top;
