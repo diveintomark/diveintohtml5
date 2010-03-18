@@ -221,7 +221,6 @@ a:link:hover, a:visited:hover {
 .legend {
   font: italic x-large/1.75 "Essays 1743 Italic","Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
   text-shadow: 0 0 1px #667;
-  filter: glow(color=#666677,strength=1);
   margin-left: 0.5em;
   vertical-align: top;
 }
@@ -277,7 +276,6 @@ h1, h2, h3, h4, caption, thead th {
   font-family: "Essays 1743", "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   text-transform: uppercase;
   text-shadow: 0 0 1px #667;
-  filter: glow(color=#666677,strength=1);
 }
 h1 {
   font-size: 266.7%;
