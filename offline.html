@@ -124,6 +124,8 @@ CACHE:
 
 <h3 id=fallback>Fallback Sections</h3>
 
+<p><strong style="color:red">[Warning: I have no idea if this section is the slighest bit accurate. You should probably ignore it.]</strong>
+
 <p>There is one more type of section in a cache manifest file: a fallback section. In a fallback section, you can define substitutions for online resources that, for whatever reason, can&#8217;t be cached or weren&#8217;t cached successfully. The <abbr>HTML5</abbr> specification offers this clever example of using a fallback section:
 
 <pre><code>CACHE MANIFEST
@@ -132,7 +134,15 @@ FALLBACK:
 NETWORK:
 *</code></pre>
 
-<p>FIXME... WTF?
+<p>What does this do? First, consider a site that contains millions of pages, like <a href=http://en.wikipedia.org/wiki/Main_Page>Wikipedia</a>. You couldn&#8217;t possibly download the entire site, nor would you want to. But suppose you could make <em>part</em> of it available offline. But how would you decide which pages to cache? How about this: every page you ever look at on a hypothetical offline-enabled Wikipedia would be downloaded and cached. That would include every encyclopedia entry that you ever visited, every talk page (where you can have makeshift discussions about a particular encyclopedia entry), and every edit page (which you can actually make changes to the particular entry).
+
+<p>That&#8217;s what this cache manifest does. Suppose every <abbr>HTML</abbr> page (entry, talk page, edit page, history page) on Wikipedia pointed to this cache manifest file. When you visit any page that points to a cache manifest, your browser says &#8220;hey, this page is part of an offline web application, is it one I know about?&#8221; If your browser hasn&#8217;t ever downloaded this particular cache manifest file, it will set up a new offline &#8220;appcache&#8221; (short for &#8220;application cache&#8221;), download all the resources listed in the cache manifest, and then add the current page to the appcache. If your browser does know about this cache manifest, it will simply add the current page to the existing appcache. Either way, the page you just visited ends up in the appcache. This is important. It means that you can have an offline web application that &#8220;lazily&#8221; adds pages as you visit them. You don&#8217;t need to list every single one of your <abbr>HTML</abbr> pages in your cache manifest.
+
+<p>Now look at the fallback section. The fallback section in this cache manifest only has a single line. The first part of the line (before the space) is not a <abbr>URL</abbr>. It&#8217;s really a <abbr>URL</abbr> pattern. The single character (<code>/</code>) will match any page on your site, not just the home page. When you try to visit a page while you&#8217;re offline, your browser will look for it in the appcache. If your browser finds the page in the appcache (because you visited it while online, and the page was implicitly added to the appcache at that time), then your browser will display the cached copy of the page. If your browser doesn&#8217;t find the page in the appcache, instead of displaying an error message, it will display the page <code>/offline.html</code>, as specified in the second half of that line in the fallback section.
+
+<p>Finally, let&#8217;s examine the network section. The network section in this cache manifest also has just a single line, a line that contains just a single character (<code>*</code>). This character has special meaning in a network section. It&#8217;s called the &#8220;online whitelist wildcard flag.&#8221; That&#8217;s a fancy way of saying that anything that isn&#8217;t in the appcache can still be downloaded from the original web address, as long as you have an internet connection. This is important for an &#8220;open-ended&#8221; offline web application. It means that, while you&#8217;re browsing this hypothetical offline-enabled Wikipedia <em>online</em>, your browser will fetch images and videos and other embedded resources normally, even if they are on a different domain. (This is very common in large websites, even if they aren&#8217;t part of an offline web application. <abbr>HTML</abbr> pages are generated and served locally, while images and videos are served from a <a href=http://en.wikipedia.org/wiki/Content_delivery_network><abbr title="content delivery network">CDN</abbr></a> on another domain.) Without this wildcard flag, our hypothetical offline-enabled Wikipedia would behave strangely when you were online &mdash; specifically, it wouldn&#8217;t load any externally-hosted images or videos!
+
+<p><strong style="color:red">[Here endeth the part where I'm just talking out of my ass.]</strong>
 
 <p class=a>&#x2767;
 
