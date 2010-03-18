@@ -218,15 +218,17 @@ a:link:hover, a:visited:hover {
 
 /* figures and legends */
 
-.arrow {
-  font: xx-large/1 "Arial Unicode MS",FreeSerif,OpenSymbol,"DejaVu Sans",sans-serif;
-}
 .legend {
   font: italic x-large/1.75 "Essays 1743 Italic","Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
   text-shadow: 0 0 1px #667;
   filter: glow(color=#666677,strength=1);
   margin-left: 0.5em;
   vertical-align: top;
+}
+.arrow {
+  font-size: 200%;
+  line-height: 0.3;
+  vertical-align: sub;
 }
 .left {
   float: left;

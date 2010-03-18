@@ -525,7 +525,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
   }
 };
 </code></pre>
-<p class="legend right" style="margin-top:6em"><span class=arrow>&nbsp;&#x21dc;</span>Scale the image</p>
+<p class="legend right" style="margin-top:6em"><span class=arrow>&nbsp;&#x21dc;</span> Scale the image</p>
 
 <p class=clear>All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? What does the extra complexity of image-on-a-canvas buy you over an <code>&lt;img></code> element and some <abbr>CSS</abbr> rules? Even the &#8220;multicat&#8221; effect could be replicated with 10 overlapping <code>&lt;img></code> elements.
 
@@ -619,6 +619,20 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <li>Non-uniform <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-scale>scaling</a> does not correctly scale strokes.
 <li>It&#8217;s slow. This should not come as a raging shock to anyone, since Internet Explorer's JavaScript parser is slower than other browsers to begin with. Once you start drawing complex shapes via a JavaScript library that translates commands to a completely different technology, things are going to be a bit slow. You won&#8217;t notice the performance degradation in simple examples like drawing a few lines and transforming an image, but you&#8217;ll see it right away once you start doing canvas-based animation and other crazy stuff.
 </ol>
+
+<pre>
+FIXME - also need to discuss the racing
+condition that comes when your canvas-
+manipulating script runs after the DOM
+is ready but before excanvas has a chance
+to work its magic. Primary symptom:
+"object doesn't support this property or method"
+when getting the drawing context of a
+canvas element. Best solution: defer
+canvas manipulation to onload in IE.
+This page does that for its own live
+demos.
+</pre>
 
 <p class=a>&#x2767;
 
@@ -871,3 +885,4 @@ $(document).ready(function() {
   }
 });
 </script>
+
