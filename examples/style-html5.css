@@ -7,6 +7,7 @@ a{background:transparent;text-decoration:none;border-bottom:1px dotted}
 a:hover{border-bottom:1px solid}
 a:link{color:#1b67c9}
 a:visited{color:darkorchid}
+a.simple{border:0 !important;float:left;display:block;margin-right:20px}
 h1 a{color:inherit !important}
 h2,p{margin:1.75em 0;font-weight:normal}
 h1,h2{font-size:medium}
@@ -28,4 +29,6 @@ nav li{display:inline;padding-left:1em}
 dt{clear:left;float:left;width:8em}
 dd{margin-left:8em}
 address{font-style:normal}
+address+p{margin-top:0}
 img.me{display:block;float:right;border:1px solid black}
+.phonebook article p,.phonebook article address{margin:0 0 0 120px}

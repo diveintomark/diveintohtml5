@@ -9,6 +9,7 @@
 body{counter-reset:h1 11}
 .st td{vertical-align:top;padding-left:5px}
 .st ul{list-style:none;margin:0;padding:0}
+pre{padding-left:0}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
@@ -66,7 +67,7 @@ body{counter-reset:h1 11}
 
 <p>Let&#8217;s look at the markup first:
 
-<pre style="padding-left:0"><code>&lt;section>
+<pre><code>&lt;section>
   &lt;img class="me" width="204" height="250"
        src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
        alt="[Mark Pilgrim, circa 2000]">
@@ -104,30 +105,30 @@ body{counter-reset:h1 11}
 
 <p>FIXME
 
-<pre style="padding-left:0"><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
+<pre><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
 
 <p>FIXME
 
-<pre style="padding-left:0"><code>  &lt;img <mark>itemprop="photo"</mark> class="me" width="204" height="250"
+<pre><code>  &lt;img <mark>itemprop="photo"</mark> class="me" width="204" height="250"
       src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
       alt="[Mark Pilgrim, circa 2000]"></code></pre>
 
 <p>FIXME
 
-<pre style="padding-left:0"><code>  &lt;h1>Contact Information&lt;/h1>
+<pre><code>  &lt;h1>Contact Information&lt;/h1>
   &lt;dl>
     &lt;dt>Name&lt;/dt>
     &lt;dd <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/dd></code></pre>
 
 <p>FIXME
 
-<pre style="padding-left:0"><code>    &lt;dt>Position&lt;/dt>
+<pre><code>    &lt;dt>Position&lt;/dt>
     &lt;dd>&lt;span <mark>itemprop="title"</mark>>Developer advocate&lt;/span> for
         &lt;span <mark>itemprop="affiliation"</mark>>Google, Inc.&lt;span>&lt;/dd></code></pre>
 
 <p>FIXME
   
-<pre style="padding-left:0"><code>    &lt;dt>Mailing address&lt;/dt>
+<pre><code>    &lt;dt>Mailing address&lt;/dt>
     &lt;dd>&lt;address <mark>itemprop="address"</mark>>
           &lt;span <mark>itemprop="street-address"</mark>>100 Main Street&lt;/span>&lt;br>
           &lt;span <mark>itemprop="city"</mark>>Anytown&lt;/span>,
@@ -139,7 +140,7 @@ body{counter-reset:h1 11}
 
 <p>FIXME
 
-<pre style="padding-left:0"><code>  &lt;h1>My Digital Footprints&lt;/h1>
+<pre><code>  &lt;h1>My Digital Footprints&lt;/h1>
   &lt;ul>
     &lt;li>&lt;a href="http://diveintomark.org/"
            <mark>itemprop="url"</mark>>weblog&lt;/a>&lt;/li>
@@ -153,7 +154,7 @@ body{counter-reset:h1 11}
 
 <p>FIXME
 
-<pre style="padding-left:0"><code>  &lt;h1>My Friends &amp; Relations&lt;/h1>
+<pre><code>  &lt;h1>My Friends &amp; Relations&lt;/h1>
   &lt;ul>
     &lt;li>&lt;a href="http://www.hixie.ch/"
            <mark>rel="friend met colleague"</mark>>Ian Hickson&lt;/a>&lt;/li>
@@ -168,11 +169,11 @@ body{counter-reset:h1 11}
 
 <pre>Extracted Rich Snippet data from the page
 
-rel = friend met colleague 
+rel = friend met co-worker
     Ian Hickson = http://www.hixie.ch/
-rel = friend met colleague 
+rel = friend met co-worker
     Joe Gregorio = http://bitworking.org/
-rel = friend met 
+rel = friend met colleague
     Sam Ruby = http://intertwingly.net/
 
 Item
@@ -195,6 +196,76 @@ Item
 <p class=a>&#x2767;
 
 <h2 id=places>Marking Up Places</h2>
+
+<p>FIXME original markup:
+
+<pre><code>&lt;article>
+  &lt;h1>Google, Inc.&lt;/h1>
+  &lt;address>
+    1600 Amphitheatre Parkway&lt;br>
+    Mountain View, CA 94043
+    USA
+  &lt;/address>
+  &lt;p>650-253-0000&lt;/p>
+  &lt;p>&lt;a href="http://www.google.com/">Google.com&lt;/a>&lt;/p>
+&lt;/article></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;h1 <mark>itemprop="name"</mark>>Google, Inc.&lt;/h1></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;address <mark>itemprop="address"</mark>>
+    &lt;span <mark>itemprop="street-address"</mark>>1600 Amphitheatre Parkway&lt;/span>&lt;br>
+    &lt;span <mark>itemprop="locality"</mark>>Mountain View&lt;/span>,
+    &lt;span <mark>itemprop="region"</mark>>CA&lt;/span>
+    &lt;span <mark>itemprop="postal-code"</mark>>94043&lt;/span>
+    &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
+  &lt;/address></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p <mark>itemprop="tel"</mark>>650-253-0000&lt;/p></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p>&lt;a <mark>itemprop="url"</mark> href="http://www.google.com/">Google.com&lt;/a>&lt;/p></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;span <mark>itemprop="geo"</mark>>
+    &lt;meta itemprop="latitude" content="37.4149" />
+    &lt;meta itemprop="longitude" content="-122.078" />
+  &lt;/span>
+&lt;/article></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;meta <mark>itemprop="latitude"</mark> content="37.4149" /></code></pre>
+
+<p>FIXME
+
+<pre>Extracted Rich Snippet data from the page
+
+Item
+    Type: http://data-vocabulary.org/Organization
+    name = Google, Inc. 
+    address = 1600 Amphitheatre Parkway 
+    street-address = 1600 Amphitheatre Parkway 
+    locality = Mountain View 
+    region = CA 
+    postal-code = 94043 
+    country-name = USA 
+    tel = 650-253-0000 
+    url = http://www.google.com/ 
+    geo = 
+    latitude = 37.4149 
+    longitude = -122.078</pre>
 
 <p class=a>&#x2767;
 
