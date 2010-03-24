@@ -60,9 +60,171 @@ body{counter-reset:h1 11}
 
 <p class=a>&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id=people>Marking Up People</h2>
+
+<p>The easiest way to integrate microdata into a personal website is on your &#8220;about&#8221; page. You <em>do</em> have an &#8220;about&#8221; page, don&#8217;t you? If not, you can follow along as I extend <a href=examples/about-me.html>this sample &#8220;about&#8221; page</a> with additional semantics.
+
+<p>Let&#8217;s look at the markup first:
+
+<pre style="padding-left:0"><code>&lt;section>
+  &lt;img class="me" width="204" height="250"
+       src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
+       alt="[Mark Pilgrim, circa 2000]">
+
+  &lt;h1>Contact Information&lt;/h1>
+  &lt;dl>
+    &lt;dt>Name&lt;/dt>
+    &lt;dd>Mark Pilgrim&lt;/dd>
+
+    &lt;dt>Position&lt;/dt>
+    &lt;dd>Developer advocate for Google, Inc.&lt;/dd>
+  
+    &lt;dt>Mailing address&lt;/dt>
+    &lt;dd>&lt;address>
+          100 Main Street&lt;br>
+          Anytown, PA 19999
+          USA
+        &lt;/address>&lt;/dd>
+  &lt;/dl>
+  &lt;h1>My Digital Footprints&lt;/h1>
+  &lt;ul>
+    &lt;li>&lt;a href="http://diveintomark.org/">weblog&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://www.google.com/profiles/pilgrim">Google profile&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://www.reddit.com/user/MarkPilgrim">Reddit.com profile&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://www.twitter.com/diveintomark">Twitter&lt;/a>&lt;/li>
+  &lt;/ul>
+  &lt;h1>My Friends &amp; Relations&lt;/h1>
+  &lt;ul>
+    &lt;li>&lt;a href="http://www.hixie.ch/">Ian Hickson&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://bitworking.org/">Joe Gregorio&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://intertwingly.net/">Sam Ruby&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/section>    
+</code></pre>
 
 <p>FIXME
+
+<pre style="padding-left:0"><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
+
+<p>FIXME
+
+<pre style="padding-left:0"><code>  &lt;img <mark>itemprop="photo"</mark> class="me" width="204" height="250"
+      src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
+      alt="[Mark Pilgrim, circa 2000]"></code></pre>
+
+<p>FIXME
+
+<pre style="padding-left:0"><code>  &lt;h1>Contact Information&lt;/h1>
+  &lt;dl>
+    &lt;dt>Name&lt;/dt>
+    &lt;dd <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/dd></code></pre>
+
+<p>FIXME
+
+<pre style="padding-left:0"><code>    &lt;dt>Position&lt;/dt>
+    &lt;dd>&lt;span <mark>itemprop="title"</mark>>Developer advocate&lt;/span> for
+        &lt;span <mark>itemprop="affiliation"</mark>>Google, Inc.&lt;span>&lt;/dd></code></pre>
+
+<p>FIXME
+  
+<pre style="padding-left:0"><code>    &lt;dt>Mailing address&lt;/dt>
+    &lt;dd>&lt;address <mark>itemprop="address"</mark>>
+          &lt;span <mark>itemprop="street-address"</mark>>100 Main Street&lt;/span>&lt;br>
+          &lt;span <mark>itemprop="city"</mark>>Anytown&lt;/span>,
+          &lt;span <mark>itemprop="region"</mark>>PA&lt;/span>
+          &lt;span <mark>itemprop="postal-code"</mark>>19999&lt;/span>
+          &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
+        &lt;/address>&lt;/dd>
+  &lt;/dl></code></pre>
+
+<p>FIXME
+
+<pre style="padding-left:0"><code>  &lt;h1>My Digital Footprints&lt;/h1>
+  &lt;ul>
+    &lt;li>&lt;a href="http://diveintomark.org/"
+           <mark>itemprop="url"</mark>>weblog&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://www.google.com/profiles/pilgrim"
+           <mark>itemprop="url"</mark>>Google profile&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://www.reddit.com/user/MarkPilgrim"
+           <mark>itemprop="url"</mark>>Reddit.com profile&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://www.twitter.com/diveintomark"
+           <mark>itemprop="url"</mark>>Twitter&lt;/a>&lt;/li>
+  &lt;/ul></code></pre>
+
+<p>FIXME
+
+<pre style="padding-left:0"><code>  &lt;h1>My Friends &amp; Relations&lt;/h1>
+  &lt;ul>
+    &lt;li>&lt;a href="http://www.hixie.ch/"
+           <mark>rel="friend met colleague"</mark>>Ian Hickson&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://bitworking.org/"
+           <mark>rel="friend met colleague"</mark>>Joe Gregorio&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="http://intertwingly.net/"
+           <mark>rel="friend met"</mark>>Sam Ruby&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/section></code></pre>
+
+<p>FIXME results from Rich Snippets tool:
+
+<pre>Extracted Rich Snippet data from the page
+
+rel = friend met colleague 
+    Ian Hickson = http://www.hixie.ch/
+rel = friend met colleague 
+    Joe Gregorio = http://bitworking.org/
+rel = friend met 
+    Sam Ruby = http://intertwingly.net/
+
+Item
+    Type: http://data-vocabulary.org/Person
+    photo = http://diveintohtml5.org/examples/2000_05_mark.jpg 
+    name = Mark Pilgrim 
+    title = Developer advocate 
+    affiliation = Google, Inc. 
+    address = 100 Main Street 
+    street-address = 100 Main Street 
+    city = Anytown 
+    region = PA 
+    postal-code = 19999 
+    country-name = USA 
+    url = http://diveintomark.org/ 
+    url = http://www.google.com/profiles/pilgrim 
+    url = http://www.reddit.com/user/MarkPilgrim 
+    url = http://www.twitter.com/diveintomark </pre>
+
+<p class=a>&#x2767;
+
+<h2 id=places>Marking Up Places</h2>
+
+<p class=a>&#x2767;
+
+<h2 id=events>Marking Up Events</h2>
+
+<p class=a>&#x2767;
+
+<h2 id=reviews>Marking Up Reviews</h2>
+
+<p class=a>&#x2767;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<p>Google Rich Snippets resources:
+
+<ul>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">About rich snippets and structured data</a>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146646">Marking up contact and social networking information</a>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146861">Businesses <i class=baa>&amp;</i> organizations</a>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=164506">Events</a>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146645">Reviews</a>
+<li><a href=http://www.google.com/webmasters/tools/richsnippets>Google Rich Snippets Testing Tool</a>
+</ul>
+
+<p>Other microdata resources:
+
+<ul>
+<li><a href=http://foolip.org/microdatajs/live/>Live microdata playground</a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html><abbr>HTML5</abbr> microdata specification</a>
+</ul>
 
 <p class=a>&#x2767;
 

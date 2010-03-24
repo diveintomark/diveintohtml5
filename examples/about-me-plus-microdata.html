@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>About Mark Pilgrim</title>
+  <!--[if IE]><script src="../j/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="style-html5.css" />
+</head>
+<body>
+  <header>
+    <hgroup>
+      <h1>My Weblog</h1>
+      <h2>A lot of effort went into making this effortless.</h2>
+    </hgroup>
+    <nav>
+      <ul>
+        <li><a href="../microdata.html">home</a></li>
+        <li><a href="../microdata.html">blog</a></li>
+        <li><a href="../microdata.html">gallery</a></li>
+        <li><a href="../microdata.html">about</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section itemscope itemtype="http://data-vocabulary.org/Person">
+    <img itemprop="photo" class="me" width="204" height="250"
+         src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
+         alt="[Mark Pilgrim, circa 2000]">
+
+    <h1>Contact Information</h1>
+    <dl>
+      <dt>Name</dt>
+      <dd itemprop="name">Mark Pilgrim</dd>
+
+      <dt>Position</dt>
+      <dd><span itemprop="title">Developer advocate</span> for
+          <span itemprop="affiliation">Google, Inc.<span></dd>
+    
+      <dt>Mailing address</dt>
+      <dd><address itemprop="address">
+            <span itemprop="street-address">100 Main Street</span><br>
+            <span itemprop="city">Anytown</span>, <span itemprop="region">PA</span> <span itemprop="postal-code">19999</span>
+            <span itemprop="country-name">USA</span>
+          </address></dd>
+    </dl>
+    <h1>My Digital Footprints</h1>
+    <ul>
+      <li><a href="http://diveintomark.org/" itemprop="url">weblog</a></li>
+      <li><a href="http://www.google.com/profiles/pilgrim" itemprop="url">Google profile</a></li>
+      <li><a href="http://www.reddit.com/user/MarkPilgrim" itemprop="url">Reddit.com profile</a></li>
+      <li><a href="http://www.twitter.com/diveintomark" itemprop="url">Twitter</a></li>
+    </ul>
+    <h1>My Friends &amp; Relations</h1>
+    <ul>
+      <li><a href="http://www.hixie.ch/" rel="friend met colleague">Ian Hickson</a></li>
+      <li><a href="http://bitworking.org/" rel="friend met colleague">Joe Gregorio</a></li>
+      <li><a href="http://intertwingly.net/" rel="friend met">Sam Ruby</a></li>
+    </ul>
+  </section>    
+  <footer>
+     <p>&#167;</p>
+     <p>&copy; 2010 <a href="../microdata.html">Mark Pilgrim</a></p>
+  </footer>
+</body>
+</html>
