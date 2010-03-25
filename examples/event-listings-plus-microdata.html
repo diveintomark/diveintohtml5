@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>Event listings</title>
+  <!--[if IE]><script src="../j/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="style-html5.css" />
+  <style>
+    time{float:none;font-size:inherit;margin:inherit}
+  </style>
+</head>
+<body class="eventcal">
+  <header>
+    <hgroup>
+      <h1>Mark&#8217;s Event Calendar</h1>
+      <h2>Hear Mark speak. Speak, Mark, speak.</h2>
+    </hgroup>
+  </header>
+  <article itemscope itemtype="http://data-vocabulary.org/Event">
+    <h1 itemprop="summary">Google Developer Day 2009</h1>
+    <meta itemprop="eventType" content="conference" />
+    <img itemprop="photo" class="me" width="300" height="200"
+         src="gdd-2009-prague-pilgrim.jpg"
+         alt="[Mark Pilgrim at GDD/Prague]">
+    <p itemprop="description">Google Developer Days are a chance to
+learn about Google developer products from the engineers who built
+them. This one-day conference includes seminars and &#8220;office
+hours&#8221; on web technologies like Google Maps, OpenSocial,
+Android, AJAX APIs, Chrome, and Google Web Toolkit.</p>
+    <p>2009 November 6, 
+       <time itemprop="startDate" datetime="2009-11-06T08:30+01:00">8:30</time>
+       &ndash;
+       <time itemprop="endDate" datetime="2009-11-06T20:30+01:00">20:30</time></p>
+    <address itemprop="location"
+             itemscope itemtype="http://data-vocabulary.org/Organization">
+      <span itemprop="name">Congress Center</span><br>
+      <span itemprop="address"
+            itemscope itemtype="http://data-vocabulary.org/Address">
+        <span itemprop="street-address">5th května 65</span><br>
+        <span itemprop="postal-code">140 21</span>
+        <span itemprop="locality">Praha 4</span><br>
+        <span itemprop="country-name">Czech Republic</span>
+      </span>
+    </address>
+    <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">
+      <meta itemprop="latitude" content="50.047893" />
+      <meta itemprop="longitude" content="14.4491" />
+    </span>
+    <p style="margin-top:1.75em">
+      <a itemprop="url"
+         href="http://code.google.com/intl/cs/events/developerday/2009/home.html">
+        GDD/Prague home page
+      </a>
+    </p>
+    <p class="c">&#167;</p>
+  </article>
+  <article itemscope itemtype="http://data-vocabulary.org/Event">
+    <h1 itemprop="summary">ConFoo.ca 2010</h1>
+    <meta itemprop="eventType" content="conference" />
+    <img itemprop="photo" class="me" width="256" height="256"
+         src="html5-fist.png"
+         alt="[drawing of clenched fist with 'HTML5' spelled on knuckles]">
+    <p itemprop="description">PHP Québec, Montréal-Python, Montréal
+on Rails, W3Qc and OWASP Montréal are proud to announce the first
+edition of the Confoo.ca conference. International experts in Java,
+.Net, PHP, Python and Ruby will present solutions for developers
+and project managers.</p>
+    <p><time itemprop="startDate" datetime="2010-03-10">2010 March 10</time>
+       &ndash;
+       <time itemprop="endDate" datetime="2010-03-12">12</time></p>
+    <address itemprop="location"
+             itemscope itemtype="http://data-vocabulary.org/Organization">
+      <span itemprop="name">Hilton Montreal Bonaventure</span><br>
+      <span itemprop="address"
+            itemscope itemtype="http://data-vocabulary.org/Address">
+        <span itemprop="street-address">900 de La Gauchetière West</span>,<br>
+        <span itemprop="locality">Montréal</span>,
+        <span itemprop="region">Québec</span>,<br>
+        <span itemprop="country-name">Canada</span>
+        <span itemprop="postal-code">H5A 1E4</span>
+      </span>
+    </address>
+    <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">
+      <meta itemprop="latitude" content="45.499576" />
+      <meta itemprop="longitude" content="-73.565958" />
+    </span>
+    <p style="margin-top:1.75em">
+      <a itemprop="url" href="http://confoo.ca/en">ConFoo.ca home page</a>
+    </p>
+  </article>
+  <footer>
+     <p>&#167;</p>
+     <p>&copy; 2010 <a href="../microdata.html">Mark Pilgrim</a></p>
+  </footer>
+</body>
+</html>

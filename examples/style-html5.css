@@ -30,5 +30,5 @@ dt{clear:left;float:left;width:8em}
 dd{margin-left:8em}
 address{font-style:normal}
 address+p{margin-top:0}
-img.me{display:block;float:right;border:1px solid black}
+img.me{display:block;float:right;border:1px solid black;margin-left:1.75em}
 .phonebook article p,.phonebook article address{margin:0 0 0 120px}

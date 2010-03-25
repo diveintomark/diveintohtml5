@@ -238,11 +238,15 @@ Item
 
 <p>FIXME
 
-<pre><code>  &lt;span <mark>itemprop="geo"</mark>>
+<pre><code>  &lt;span <mark>itemprop="geo"</mark> itemscope itemtype="http://data-vocabulary.org/Geo">
     &lt;meta itemprop="latitude" content="37.4149" />
     &lt;meta itemprop="longitude" content="-122.078" />
   &lt;/span>
 &lt;/article></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Geo"</mark>></code></pre>
 
 <p>FIXME
 
@@ -270,6 +274,180 @@ Item
 <p class=a>&#x2767;
 
 <h2 id=events>Marking Up Events</h2>
+
+<p>FIXME
+
+<pre><code>&lt;article>
+  &lt;h1>Google Developer Day 2009&lt;/h1>
+  &lt;img class="me" width="300" height="200"
+       src="gdd-2009-prague-pilgrim.jpg"
+       alt="[Mark Pilgrim at GDD/Prague]">
+  &lt;p>Google Developer Days are a chance to learn about Google
+developer products from the engineers who built them. This
+one-day conference includes seminars and &#8220;office hours&#8221;
+on web technologies like Google Maps, OpenSocial, Android, AJAX
+APIs, Chrome, and Google Web Toolkit.&lt;/p>
+  &lt;p>2009 November 6, 8:30&amp;ndash;20:30&lt;/p>
+  &lt;address>
+    Congress Center&lt;br>
+    5th května 65&lt;br>
+    140 21 Praha 4&lt;br>
+    Czech Republic
+  &lt;/address>
+  &lt;p>&lt;a href="http://code.google.com/intl/cs/events/developerday/2009/home.html">GDD/Prague home page&lt;/a>&lt;/p>
+&lt;/article></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Event"</mark>></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;h1 <mark>itemprop="summary"</mark>>Google Developer Day 2009&lt;/h1></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;meta <mark>itemprop="eventType"</mark> content="conference" /></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;img <mark>itemprop="photo"</mark> class="me" width="300" height="200"
+       src="gdd-2009-prague-pilgrim.jpg"
+       alt="[Mark Pilgrim at GDD/Prague]"></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p <mark>itemprop="description"</mark>>Google Developer Days are a chance to
+learn about Google developer products from the engineers who built
+them. This one-day conference includes seminars and &#8220;office
+hours&#8221; on web technologies like Google Maps, OpenSocial,
+Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
+
+<p>FIXME
+
+<pre><code>
+  &lt;p>2009 November 6, 
+     &lt;time <mark>itemprop="startDate"</mark> datetime="2009-11-06T08:30+01:00">8:30&lt;/time>
+     &amp;ndash;
+     &lt;<time <mark>itemprop="endDate"</mark> datetime="2009-11-06T20:30+01:00">20:30&lt;/time>&lt;/p></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;<mark>time</mark> itemprop="startDate" <mark>datetime="2009-11-06T08:30+01:00"</mark>>8:30&lt;/time></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;address <mark>itemprop="location"</mark>
+           <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
+
+<p>FIXME
+
+<pre><code>    &lt;span <mark>itemprop="name"</mark>>Congress Center&lt;/span>&lt;br></code></pre>
+
+<p>FIXME
+
+<pre><code>
+    &lt;span <mark>itemprop="address"</mark>
+          <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Address"</mark>></code></pre>
+
+<p>FIXME
+
+<pre><code>      &lt;span <mark>itemprop="street-address"</mark>>5th května 65&lt;/span>&lt;br>
+      &lt;span <mark>itemprop="postal-code"</mark>>140 21&lt;/span>
+      &lt;span <mark>itemprop="locality"</mark>>Praha 4&lt;/span>&lt;br>
+      &lt;span <mark>itemprop="country-name"</mark>>Czech Republic&lt;/span>
+    &lt;/span>
+  &lt;/address></code></pre>
+
+<p>FIXME
+
+<pre><code>
+  &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Geo"</mark>></code></pre>
+
+<p>FIXME
+
+<pre><code>    &lt;meta <mark>itemprop="latitude"</mark> content="50.047893" />
+    &lt;meta <mark>itemprop="longitude"</mark> content="14.4491" />
+  &lt;/span></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p>
+    &lt;a <mark>itemprop="url"</mark>
+       href="http://code.google.com/intl/cs/events/developerday/2009/home.html">
+      GDD/Prague home page
+    &lt;/a>
+  &lt;/p>
+&lt;/article></code></pre>
+
+<p>FIXME
+
+<pre>Extracted Rich Snippet data from the page
+
+Item
+    Type: http://data-vocabulary.org/Event
+    summary = Google Developer Day 2009 
+    eventType = conference 
+    photo = gdd-2009-prague-pilgrim.jpg 
+    description = Google Developer Days are a chance to learn about Google developer products from the engineers who built them. This one-day conference includes seminars and office hours on web technologies like Goo... 
+    startDate = 2009-11-06T08:30+01:00 
+    endDate = 2009-11-06T20:30+01:00 
+    location = Item(__1) 
+    geo = Item(__3) 
+    url = http://code.google.com/intl/cs/events/developerday/2009/home.html 
+
+Item
+    Id: __1
+    Type: http://data-vocabulary.org/Organization
+    name = Congress Center 
+    address = Item(__2) 
+
+Item
+    Id: __2
+    Type: http://data-vocabulary.org/Address
+    street-address = 5th května 65 
+    postal-code = 140 21 
+    locality = Praha 4 
+    country-name = Czech Republic 
+
+Item
+    Id: __3
+    Type: http://data-vocabulary.org/Geo
+    latitude = 50.047893 
+    longitude = 14.4491 
+
+Item
+    Type: http://data-vocabulary.org/Event
+    summary = ConFoo.ca 2010 
+    eventType = conference 
+    photo = html5-fist.png 
+    description = PHP Québec, Montréal-Python, Montréal on Rails, W3Qc and OWASP Montréal are proud to announce the first edition of the Confoo.ca conference. International experts in Java, .Net, PHP, Python and Ru... 
+    startDate = 2010-03-10 
+    endDate = 2010-03-12 
+    location = Item(__4) 
+    geo = Item(__6) 
+    url = http://confoo.ca/en 
+
+Item
+    Id: __4
+    Type: http://data-vocabulary.org/Organization
+    name = Hilton Montreal Bonaventure 
+    address = Item(__5) 
+
+Item
+    Id: __5
+    Type: http://data-vocabulary.org/Address
+    street-address = 900 de La Gauchetière West 
+    locality = Montréal 
+    region = Québec 
+    country-name = Canada 
+    postal-code = H5A 1E4 
+
+Item
+    Id: __6
+    Type: http://data-vocabulary.org/Geo
+    latitude = 45.499576
+    longitude = -73.565958</pre>
 
 <p class=a>&#x2767;
 
