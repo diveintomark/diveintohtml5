@@ -2,7 +2,6 @@
 
 die () {
   echo "$1" >/dev/stderr
-  [ -n "$(which Snarl_CMD 2>/dev/null)" ] && Snarl_CMD snShowMessage 10 "Dive Into HTML5" "$1." "C:\Users\pilgrim\site-lisp\todochiku-icons\alert.png"
   exit 1
 }
 
@@ -84,7 +83,7 @@ sed -i -e "s|<script src=j/jquery.js></script>||g" \
 # remove unused CSS properties on a page-by-page basis
 echo "removing unused CSS"
 for f in build/*.html; do
-  python2.6 util/lesscss.py "$f" || die "Failed to remove unused CSS"
+  python2.5 util/lesscss.py "$f" || die "Failed to remove unused CSS"
 done
 
 # add revision number to cache manifest files
@@ -109,4 +108,3 @@ rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" build/i/* build/i/.htaccess d
     rsync -essh -a build/examples build/*.txt build/*.ico build/*.html build/.htaccess build/fonts-original diveintomark.org:~/web/diveintohtml5.org/ && \
     echo "." || die "Failed to publish to remote server"
 
-[ -n "$(which Snarl_CMD 2>/dev/null)" ] && Snarl_CMD snShowMessage 10 "Dive Into HTML5" "Published." "C:\Users\pilgrim\site-lisp\todochiku-icons\clean.png"
