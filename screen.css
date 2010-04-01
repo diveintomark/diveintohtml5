@@ -252,6 +252,7 @@ a:link:hover, a:visited:hover {
 
 pre {
   padding-left: 3.5em;
+  white-space: pre-wrap;
 }
 pre.ib {
   padding: 0;

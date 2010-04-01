@@ -453,6 +453,110 @@ Item
 
 <h2 id=reviews>Marking Up Reviews</h2>
 
+<p>FIXME
+
+<pre><code>&lt;article>
+  &lt;h1>Anna&#8217;s Pizzeria&lt;/h1>
+  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (4 stars out of 5)&lt;/p>
+  &lt;p>New York-style pizza right in historic downtown Apex&lt;/p>
+  &lt;p>
+    Food is top-notch. Atmosphere is just right for a &#8220;neighborhood
+    pizza joint.&#8221; The restaurant itself is a bit cramped; if you&#8217;re
+    overweight, you may have difficulty getting in and out of your
+    seat and navigating between other tables. Used to give free
+    garlic knots when you sat down; now they give you plain bread
+    and you have to pay for the good stuff. Overall, it&#8217;s a winner.
+  &lt;/p>
+  &lt;address>
+    100 North Salem Street&lt;br>
+    Apex, NC 27502&lt;br>
+    USA
+  &lt;/address>
+  &lt;p>&mdash; reviewed by Mark Pilgrim, last updated March 31, 2010&lt;/p>
+&lt;/article></code></pre>
+
+<p>FIXME
+
+<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Review"</mark>></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;h1 <mark>itemprop="itemreviewed"</mark>>Anna&#8217;s Pizzeria&lt;/h1></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>>4&lt;/span> stars out of 5)&lt;/p></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p <mark>itemprop="summary"</mark>>New York-style pizza right in historic downtown Apex&lt;/p></code></pre>
+
+<p>FIXME
+
+<pre><code>  &lt;p <mark>itemprop="description"</mark>>
+    Food is top-notch. Atmosphere is just right for a &#8220;neighborhood
+    pizza joint.&#8221; The restaurant itself is a bit cramped; if you&#8217;re
+    overweight, you may have difficulty getting in and out of your
+    seat and navigating between other tables. Used to give free
+    garlic knots when you sat down; now they give you plain bread
+    and you have to pay for the good stuff. Overall, it&#8217;s a winner.
+  &lt;/p></code></pre>
+
+<p>FIXME ... skipping down to the bottom ...
+
+<pre><code>  &lt;p>&mdash; &lt;span <mark>itemprop="reviewer"</mark>>Mark Pilgrim&lt;/span>, last updated
+     &lt;<mark>time</mark> <mark>itemprop="dtreviewed"</mark> <mark>datetime="2010-03-31"</mark>>
+       March 31, 2010
+     &lt;/time>
+  &lt;/p>
+&lt;/article></code></pre>
+
+<p>FIXME ... going back up to the part we skipped ...
+
+<pre><code>  &lt;address <mark>itemprop="address"</mark> <mark>itemscope</mark>
+           <mark>itemtype="http://data-vocabulary.org/Organization"</mark>>
+    &lt;span <mark>itemprop="street-address"</mark>>100 North Salem Street&lt;/span>&lt;br>
+    &lt;span <mark>itemprop="locality"</mark>>Apex&lt;/span>,
+    &lt;span <mark>itemprop="region"</mark>>NC&lt;/span>
+    &lt;span <mark>itemprop="postal-code"</mark>>27502&lt;/span>&lt;br>
+    &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
+  &lt;/address>
+  &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark>
+        <mark>itemtype="http://data-vocabulary.org/Geo"</mark>>
+    &lt;meta <mark>itemprop="latitude"</mark> content="35.730796" />
+    &lt;meta <mark>itemprop="longitude"</mark> content="-78.851426" />
+  &lt;/span></code></pre>
+
+<p>FIXME
+
+<pre>Extracted Rich Snippet data from the page
+
+Item
+Type: http://data-vocabulary.org/Review
+itemreviewed = Anna&#8217;s Pizzeria 
+rating = 4 
+summary = New York-style pizza right in historic downtown Apex 
+description = Food is top-notch. Atmosphere is just right for a neighborhood pizza joint. The restaurant itself is a bit cramped; if you&#8217;re overweight, you may have difficulty getting in and out of your seat and ... 
+address = Item(__1) 
+geo = Item(__2) 
+reviewer = Mark Pilgrim 
+dtreviewed = 2010-03-31 
+
+Item
+Id: __1
+Type: http://data-vocabulary.org/Organization
+street-address = 100 North Salem Street 
+locality = Apex 
+region = NC 
+postal-code = 27502 
+country-name = USA 
+
+Item
+Id: __2
+Type: http://data-vocabulary.org/Geo
+latitude = 35.730796 
+longitude = -78.851426</pre>
+
 <p class=a>&#x2767;
 
 <h2 id=further-reading>Further Reading</h2>
@@ -466,6 +570,7 @@ Item
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=164506">Events</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146645">Reviews</a>
 <li><a href=http://www.google.com/webmasters/tools/richsnippets>Google Rich Snippets Testing Tool</a>
+<li><a href=http://knol.google.com/k/google-rich-snippets-tips-and-tricks>Google Rich Snippets Tips and Tricks</a>
 </ul>
 
 <p>Other microdata resources:
