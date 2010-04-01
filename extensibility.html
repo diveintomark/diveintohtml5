@@ -59,9 +59,76 @@ pre{padding-left:0}
 <tr><td>all other elements<td>text content
 </table>
 
+<p>Some concrete examples will help illustrate how natural these rules are. Suppose you have a microdata vocabulary at <code>http://data-vocabulary.org/Person</code> which defines three properties:
+
+<ul>
+<li><code>name</code> (your full name)
+<li><code>photo</code> (a link to a picture of you)
+<li><code>url</code> (a link to a site associated with you, like a weblog or a Google profile)
+</ul>
+
+<p>Each of these properties lends itself to a natural form of markup, even before you start thinking about microdata. Your name is probably already marked up as a heading (<code>&lt;h2></code>), your photo is probably already an <code>&lt;img></code> element, and any <abbr>URL</abbr>s associated your profile are probably already marked up as <code>&lt;a href="..."></code>. For the sake of discussion, let&#8217;s say your entire profile is also wrapped in a <code>&lt;section></code> element to separate it from the rest of the page content. Thus:
+
+<pre><code>&lt;section>
+  &lt;h2>Mark Pilgrim&lt;/h2>
+  &lt;p>&lt;img src="http://www.example.com/photo.jpg">&lt;/p>
+  &lt;p>&lt;a href="http://diveintomark.org/">weblog&lt;/a>&lt;/p>
+&lt;/section></code></pre>
+
+<p>To add the three microdata properties to this markup, you first need to define the item scope and type on the outermost element, in this case the <code>&lt;section></code> element:
+
+<pre><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
+
+<p>Your name is wrapped in an <code>&lt;h2></code> element. The <code>&lt;h2></code> element doesn&#8217;t have any special processing in the microdata property value table (above), so it falls under the &#8220;all other elements&#8221; rule where the microdata property value is simply the text content of an element. (This would work equally well if your name was wrapped in a <code>&lt;p></code>, <code>&lt;div></code>, or <code>&lt;span></code> element.)
+
+<pre><code>  &lt;h2 <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/h2></code></pre>
+
+<p>In English, this says &#8220;here is the <code>name</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>Mark Pilgrim</code>.
+
+<p>Next up: the <code>photo</code> property. This is supposed to be a <abbr>URL</abbr>. According to the microdata property value table, the &#8220;value&#8221; of an <code>&lt;img></code> element is its <code>src</code> attribute. Hey look, the <abbr>URL</abbr> of your profile photo is already in an <code>&lt;img src></code> attribute. All you need to do is declare that the <code>&lt;img></code> element is the <code>photo</code> property.
+
+<pre><code>  &lt;p>&lt;img <mark>itemprop="photo"</mark> src="http://www.example.com/photo.jpg">&lt;/p></code></pre>
+
+<p>In English, this says &#8220;here is the <code>photo</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>http://www.example.com/photo.jpg</code>.
+
+<p>Finally, the <code>url</code> property is also a <abbr>URL</abbr>. According to the microdata property value table, the &#8220;value&#8221; of an <code>&lt;a></code> element is its <code>href</code> attribute. And once again, this fits perfectly with your existing markup. All you need to do is say that your existing <code>&lt;a></code> element is the <code>url</code> property:
+
+<pre><code>  &lt;a <mark>itemprop="url"</mark> href="http://diveintomark.org/">dive into mark&lt;/a></code></pre>
+
+<p>In English, this says &#8220;here is the <code>url</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>http://diveintomark.org/</code>.
+
+<p>Of course, if your markup looks a little different, that&#8217;s not a problem. You can add microdata properties and values to any <abbr>HTML</abbr> markup, even really gnarly 20th-century-era, tables-for-layout, Oh-God-why-did-I-agree-to-maintain-this markup. While I don&#8217;t recommend this kind of markup, it is still very common, and you can still add microdata to it.
+
+<p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> For the love of God, don&#8217;t do this
+<pre><code>&lt;TABLE>
+  &lt;TR>&lt;TD>Name&lt;TD>Mark Pilgrim
+  &lt;TR>&lt;TD>Link&lt;TD>
+    &lt;A href=# onclick=goExternalLink()>http://diveintomark.org/&lt;/A>
+&lt;/TABLE></code></pre>
+
+<p>For marking up the <code>name</code> property, just add an <code>itemprop</code> attribute on the table cell that contains the name. Table cells have no special rules in the microdata property value table, so they get the default value, &#8220;the microdata property is the text content.&#8221;
+
+<pre><code>  &lt;TR>&lt;TD>Name&lt;TD <mark>itemprop="name"</mark>>Mark Pilgrim</code></pre>
+
+<p>Adding the <code>url</code> property looks trickier. This markup doesn&#8217;t use the <code>&lt;a></code> element properly. Instead of putting the link target in the <code>href</code> attribute, it has nothing useful in the <code>href</code> attribute and uses Javascript in the <code>onclick</code> attribute to call a function (not shown) that extracts the <abbr>URL</abbr> and navigates to it. For extra &#8220;holy fuck, please stop doing that&#8221; bonus points, let&#8217;s pretend that the function also opens the link in a tiny popup window with no scroll bars.
+
+<p>Anyway, you can still convert this into a microdata property, you just need to be a little creative. Using the <code>&lt;a></code> element directly is out of the question. The link target isn&#8217;t in the <code>href</code> attribute, and there&#8217;s no way to override the rule that says &#8220;in an <code>&lt;a></code> element, look for the microdata property value in the <code>href</code> attribute.&#8221; But you <em>can</em> add a wrapper element around the entire mess, and use that to add the <code>url</code> microdata property.
+
+<p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> This is what you get for subverting HTML
+<pre><code>  &lt;TR>&lt;TD>Link&lt;TD>
+    <mark>&lt;span itemprop="url"></mark>
+      &lt;A href=# onclick=goExternalLink()>http://diveintomark.org/&lt;/A>
+    <mark>&lt;/span></mark></code></pre>
+
+<p>Since the <code>&lt;span></code> element has no special processing, it uses the default rule, &#8220;the microdata property is the text content.&#8221; &#8220;Text content&#8221; doesn&#8217;t mean &#8220;all the markup inside this element&#8221; (like you would get with, say, the <code>innerHTML</code> <abbr>DOM</abbr> property). It means &#8220;just the text, ma&#8217;am.&#8221; In this case, <code>http://diveintomark.org/</code>, the text content of the <code>&lt;a></code> element inside the <code>&lt;span></code> element.
+
+<p>To sum up: you can add microdata properties to any markup. If you&#8217;re using <abbr>HTML</abbr> correctly, you&#8217;ll find it easier to add microdata than if your <abbr>HTML</abbr> markup sucks, but it can always be done.
+
 <p class=a>&#x2767;
 
 <h2 id=people>Marking Up People</h2>
+
+<p>By the way, the starter examples in the previous section weren&#8217;t completely made up. There really is a microdata vocabulary for marking up information about people, and it really is that easy. Let&#8217;s take a closer look.
 
 <p>The easiest way to integrate microdata into a personal website is on your &#8220;about&#8221; page. You <em>do</em> have an &#8220;about&#8221; page, don&#8217;t you? If not, you can follow along as I extend <a href=examples/about-me.html>this sample &#8220;about&#8221; page</a> with additional semantics.
 
