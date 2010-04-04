@@ -126,16 +126,16 @@ pre{padding-left:0}
 
 <p class=a>&#x2767;
 
-<h2 id=people>Marking Up People</h2>
+<h2 id=person>Marking Up People</h2>
 
 <p>By the way, the starter examples in the previous section weren&#8217;t completely made up. There really is a microdata vocabulary for marking up information about people, and it really is that easy. Let&#8217;s take a closer look.
 
 <p>The easiest way to integrate microdata into a personal website is on your &#8220;about&#8221; page. You <em>do</em> have an &#8220;about&#8221; page, don&#8217;t you? If not, you can follow along as I extend <a href=examples/about-me.html>this sample &#8220;about&#8221; page</a> with additional semantics.
 
-<p>Let&#8217;s look at the markup first:
+<p>Let&#8217;s look at the raw markup first, before any microdata properties have been added:
 
 <pre><code>&lt;section>
-  &lt;img class="me" width="204" height="250"
+  &lt;img width="204" height="250"
        src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
        alt="[Mark Pilgrim, circa 2000]">
 
@@ -170,13 +170,31 @@ pre{padding-left:0}
 &lt;/section>    
 </code></pre>
 
-<p>FIXME
+<p>The first thing you always need to do is declare the vocabulary you&#8217;re using, and the scope of the properties you want to add. You do this by adding the <code>itemtype</code> and <code>itemscope</code> attributes on the outermost element that contains the other elements that contain the actual data. In this case, that&#8217;s a <code>&lt;section></code> element.
 
 <pre><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
 
+<p>Now you can start defining microdata properties from the <code>http://data-vocabulary.org/Person</code> vocabulary. But what are those properties? As it happens, you can see the list of properties by navigating to <a href=http://data-vocabulary.org/Person>data-vocabulary.org/Person</a> in your browser. The microdata specification does not require this, but I&#8217;d say it&#8217;s certainly a &#8220;best practice.&#8221; After all, if you want developers to actually <em>use</em> your microdata vocabulary, you need to document it. And where better to put your documentation than the vocabulary <abbr>URL</abbr> itself?
+
+<table class=st>
+<caption>Person vocabulary</caption>
+<tr class=ho><th>Property<th>Description
+<tr class=zebra><td><code>name</code><td>Name
+<tr><td><code>nickname</code><td>Nickname
+<tr class=zebra><td><code>photo</code><td>An image link
+<tr><td><code>title</code><td>The person&#8217;s title (for example, &#8220;Financial Manager&#8221;)
+<tr class=zebra><td><code>role</code><td>The person&#8217;s role (for example, &#8220;Accountant&#8221;)
+<tr><td><code>url</code><td>Link to a web page, such as the person&#8217;s home page
+<tr class=zebra><td><code>affiliation</code><td>The name of an organization with which the person is associated (for example, an employer)
+<tr><td><code>friend</code><td>Identifies a social relationship between the person described and another person
+<tr class=zebra><td><code>contact</code><td>Identifies a social relationship between the person described and another person
+<tr><td><code>acquaintance</code><td>Identifies a social relationship between the person described and another person
+<tr class=zebra><td><code>address</code><td>The location of the person. Can have the subproperties <code>street-address</code>, <code>city</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
+</table>
+
 <p>FIXME
 
-<pre><code>  &lt;img <mark>itemprop="photo"</mark> class="me" width="204" height="250"
+<pre><code>  &lt;img <mark>itemprop="photo"</mark> width="204" height="250"
       src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
       alt="[Mark Pilgrim, circa 2000]"></code></pre>
 
@@ -262,7 +280,7 @@ Item
 
 <p class=a>&#x2767;
 
-<h2 id=places>Marking Up Places</h2>
+<h2 id=organization>Marking Up Organizations</h2>
 
 <p>FIXME original markup:
 
@@ -280,6 +298,18 @@ Item
 <p>FIXME
 
 <pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
+
+<p>FIXME
+
+<table class=st>
+<caption>Organization vocabulary</caption>
+<tr class=ho><th>Property<th>Description
+<tr class=zebra><td><code>name</code><td>The name of the organization (for example, &#8220;Google Inc.&#8221;)
+<tr><td><code>url</code><td>Link to the organization&#8217;s home page
+<tr class=zebra><td><code>address</code><td>The location of the organization. Can contain the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
+<tr><td><code>tel</code><td>The telephone number of the organization
+<tr class=zebra><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
+</table>
 
 <p>FIXME
 
@@ -340,13 +370,13 @@ Item
 
 <p class=a>&#x2767;
 
-<h2 id=events>Marking Up Events</h2>
+<h2 id=event>Marking Up Events</h2>
 
 <p>FIXME
 
 <pre><code>&lt;article>
   &lt;h1>Google Developer Day 2009&lt;/h1>
-  &lt;img class="me" width="300" height="200"
+  &lt;img width="300" height="200"
        src="gdd-2009-prague-pilgrim.jpg"
        alt="[Mark Pilgrim at GDD/Prague]">
   &lt;p>Google Developer Days are a chance to learn about Google
@@ -370,6 +400,23 @@ APIs, Chrome, and Google Web Toolkit.&lt;/p>
 
 <p>FIXME
 
+<table class=st>
+<caption>Event vocabulary</caption>
+<tr class=ho><th>Property<th>Description
+<tr class=zebra><td><code>summary</code><td>The name of the event
+<tr><td><code>url</code><td>Link to the event details page
+<tr class=zebra><td><code>location</code><td>The location or venue of the event. Can optionally be represented by nested <a href=#organization>Organization</a> data.
+<tr><td><code>description</code><td>A description of the event
+<tr class=zebra><td><code>startDate</code><td>The starting date and time of the event in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
+<tr><td><code>endDate</code><td>The ending date and time of the event in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
+<tr class=zebra><td><code>duration</code><td>The duration date of the event in <a href=http://en.wikipedia.org/wiki/ISO_8601#Durations>ISO duration format</a>
+<tr><td><code>eventType</code><td>The category of the event (for example, &#8220;Concert&#8221; or &#8220;Lecture&#8221;). This is a freeform string, not an enumerated attribute.
+<tr class=zebra><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
+<tr><td><code>photo</code><td>A link to a photo or image related to the event
+</table>
+
+<p>FIXME
+
 <pre><code>  &lt;h1 <mark>itemprop="summary"</mark>>Google Developer Day 2009&lt;/h1></code></pre>
 
 <p>FIXME
@@ -378,7 +425,7 @@ APIs, Chrome, and Google Web Toolkit.&lt;/p>
 
 <p>FIXME
 
-<pre><code>  &lt;img <mark>itemprop="photo"</mark> class="me" width="300" height="200"
+<pre><code>  &lt;img <mark>itemprop="photo"</mark> width="300" height="200"
        src="gdd-2009-prague-pilgrim.jpg"
        alt="[Mark Pilgrim at GDD/Prague]"></code></pre>
 
@@ -518,7 +565,7 @@ Item
 
 <p class=a>&#x2767;
 
-<h2 id=reviews>Marking Up Reviews</h2>
+<h2 id=review>Marking Up Reviews</h2>
 
 <p>FIXME
 
@@ -545,6 +592,19 @@ Item
 <p>FIXME
 
 <pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Review"</mark>></code></pre>
+
+<p>FIXME
+
+<table class=st>
+<caption>Review vocabulary</caption>
+<tr class=ho><th>Property<th>Description
+<tr class=zebra><td><code>itemreviewed</code><td>The name of the item being reviewed
+<tr><td><code>rating</code><td>A numerical quality rating for the item, on a scale from 1 to 5. If you prefer a different scale (like 1&ndash;4 or 0&ndash;10), you can specify two subproperties, <code>worst</code> and <code>best</code>.
+<tr class=zebra><td><code>reviewer</code><td>The name of the author who wrote the review
+<tr><td><code>dtreviewed</code><td>The date that the item was reviewed in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
+<tr class=zebra><td><code>summary</code><td>A short summary of the review
+<tr><td><code>description</code><td>The body of the review
+</table>
 
 <p>FIXME
 
