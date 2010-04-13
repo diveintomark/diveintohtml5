@@ -10,6 +10,7 @@ body{counter-reset:h1 11}
 .st td{vertical-align:top;padding-left:5px}
 .st ul{list-style:none;margin:0;padding:0}
 pre{padding-left:0}
+.follow{text-align:center;font-size:small}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
@@ -130,7 +131,7 @@ pre{padding-left:0}
 
 <p>By the way, the starter examples in the previous section weren&#8217;t completely made up. There really is a microdata vocabulary for marking up information about people, and it really is that easy. Let&#8217;s take a closer look.
 
-<p>The easiest way to integrate microdata into a personal website is on your &#8220;about&#8221; page. You <em>do</em> have an &#8220;about&#8221; page, don&#8217;t you? If not, you can follow along as I extend <a href=examples/about-me.html>this sample &#8220;about&#8221; page</a> with additional semantics.
+<p>The easiest way to integrate microdata into a personal website is on your &#8220;about&#8221; page. You <em>do</em> have an &#8220;about&#8221; page, don&#8217;t you? If not, you can follow along as I extend <a href=examples/about-me.html>this sample &#8220;about&#8221; page</a> with additional semantics. The final result is here: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>.
 
 <p>Let&#8217;s look at the raw markup first, before any microdata properties have been added:
 
@@ -148,11 +149,11 @@ pre{padding-left:0}
     &lt;dd>Developer advocate for Google, Inc.&lt;/dd>
   
     &lt;dt>Mailing address&lt;/dt>
-    &lt;dd>&lt;address>
-          100 Main Street&lt;br>
-          Anytown, PA 19999
-          USA
-        &lt;/address>&lt;/dd>
+    &lt;dd>
+      100 Main Street&lt;br>
+      Anytown, PA 19999&lt;br>
+      USA
+    &lt;/dd>
   &lt;/dl>
   &lt;h1>My Digital Footprints&lt;/h1>
   &lt;ul>
@@ -161,18 +162,14 @@ pre{padding-left:0}
     &lt;li>&lt;a href="http://www.reddit.com/user/MarkPilgrim">Reddit.com profile&lt;/a>&lt;/li>
     &lt;li>&lt;a href="http://www.twitter.com/diveintomark">Twitter&lt;/a>&lt;/li>
   &lt;/ul>
-  &lt;h1>My Friends &amp; Relations&lt;/h1>
-  &lt;ul>
-    &lt;li>&lt;a href="http://www.hixie.ch/">Ian Hickson&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://bitworking.org/">Joe Gregorio&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://intertwingly.net/">Sam Ruby&lt;/a>&lt;/li>
-  &lt;/ul>
 &lt;/section>    
 </code></pre>
 
 <p>The first thing you always need to do is declare the vocabulary you&#8217;re using, and the scope of the properties you want to add. You do this by adding the <code>itemtype</code> and <code>itemscope</code> attributes on the outermost element that contains the other elements that contain the actual data. In this case, that&#8217;s a <code>&lt;section></code> element.
 
 <pre><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
+
+<p class=follow>[Follow along! Before: <a href=examples/about-me.html>about-me.html</a>, after: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>]
 
 <p>Now you can start defining microdata properties from the <code>http://data-vocabulary.org/Person</code> vocabulary. But what are those properties? As it happens, you can see the list of properties by navigating to <a href=http://data-vocabulary.org/Person>data-vocabulary.org/Person</a> in your browser. The microdata specification does not require this, but I&#8217;d say it&#8217;s certainly a &#8220;best practice.&#8221; After all, if you want developers to actually <em>use</em> your microdata vocabulary, you need to document it. And where better to put your documentation than the vocabulary <abbr>URL</abbr> itself?
 
@@ -192,38 +189,117 @@ pre{padding-left:0}
 <tr class=zebra><td><code>address</code><td>The location of the person. Can have the subproperties <code>street-address</code>, <code>city</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
 </table>
 
-<p>FIXME
+<p>The first thing in <a href=examples/about-me-plus-microdata.html>this &#8220;about&#8221; page</a> is a picture of me. Naturally, it&#8217;s marked up with an <code>&lt;img></code> element. To declare that this <code>&lt;img></code> element is my profile picture, all we need to do is add <code>itemprop="photo"</code> to the <code>&lt;img></code> element.
 
 <pre><code>  &lt;img <mark>itemprop="photo"</mark> width="204" height="250"
       src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
       alt="[Mark Pilgrim, circa 2000]"></code></pre>
 
-<p>FIXME
+<p class=follow>[Follow along! Before: <a href=examples/about-me.html>about-me.html</a>, after: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>]
 
-<pre><code>  &lt;h1>Contact Information&lt;/h1>
+<p>Where&#8217;s the microdata property value? It&#8217;s already there, in the <code>src</code> attribute. If you recall from <a href=#data-model>the microdata data model</a>, the &#8220;value&#8221; of an <code>&lt;img></code> element is its <code>src</code> attribute. Every <code>&lt;img></code> element has a <code>src</code> attribute &mdash; otherwise it would just be a broken image &mdash; and the <code>src</code> is always a <abbr>URL</abbr>.
+
+<p>Furthermore, this <code>&lt;img></code> element isn&#8217;t alone on the page. It&#8217;s a child element of the <code>&lt;section></code> element, the one we just declared with the <code>itemscope</code> attribute. Microdata reuses the parent-child relationship of elements on the page to define the scoping of microdata properties. In plain English, we&#8217;re saying, &#8220;This <code>&lt;section></code> element represents a person. Any microdata properties you might find on the children of the <code>&lt;section></code> element are properties about that person.&#8221; If it helps, you can think of the <code>&lt;section></code> element has the subject of a sentence. The <code>itemprop</code> attribute represents the verb of the sentence, something like &#8220;is pictured at.&#8221; The microdata property value presents the object of the sentence.
+
+<blockquote>
+<p>This person [explicit, from <code>&lt;section itemscope itemtype="..."></code>]
+<p>is pictured at [explicit, from <code>&lt;img itemprop="photo"></code>]
+<p><code>http://diveintohtml5.org/examples/2000_05_mark.jpg</code> [implicit, from <code>&lt;img src></code> attribute]
+</blockquote>
+
+<p>The subject only needs to be defined once, by putting <code>itemscope</code> and <code>itemtype</code> attributes on the outermost <code>&lt;section></code> element. The verb is defined by putting the <code>itemprop="photo"</code> attribute on the <code>&lt;img></code> element. The object of the sentence doesn&#8217;t need any special markup at all, because <a href=#data-model>the microdata data model</a> says that the property value of an <code>&lt;img></code> element is its <code>src</code> attribute.
+
+<p>Moving on to the next bit of markup, we see an <code>&lt;h1></code> header and the beginnings of a <code>&lt;dl></code> list. Neither the <code>&lt;h1></code> nor the <code>&lt;dl></code> need to be marked up with microdata. Not every piece of <abbr>HTML</abbr> needs to be a microdata property. Microdata is about the properties themselves, not the markup or headers surrounding the properties. This <code>&lt;h1></code> isn&#8217;t a property; it&#8217;s just a header. Similarly, the <code>&lt;dt></code> that says &#8220;Name&#8221; isn&#8217;t a property; it&#8217;s just a label.
+
+<p class="legend top" style="margin-left:8em"><span class=arrow>&#x21b6;</span> Boring
+<p class="legend left" style="margin-top:2.2em">Boring <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<pre><code>  &lt;h1><mark>Contact Information</mark>&lt;/h1>
   &lt;dl>
-    &lt;dt>Name&lt;/dt>
-    &lt;dd <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/dd></code></pre>
+    &lt;dt><mark>Name</mark>&lt;/dt>
+    &lt;dd>Mark Pilgrim&lt;/dd></code></pre>
 
-<p>FIXME
+<p>So where is the real information? It&#8217;s in the <code>&lt;dd></code> element, so that&#8217;s where we need to put the <code>itemprop</code> attribute. Which property is it? It&#8217;s the <code>name</code> property. Where is the property value? It&#8217;s the text within the <code>&lt;dd></code> element. Does that need to be marked up? <a href=#data-model>The microdata data model</a> says no, <code>&lt;dd></code> elements have no special processing, so the property value is just the text within the element.
+
+<p class="legend top" style="margin-left:5em"><span class=arrow>&#x21b6;</span> That&#8217;s my name, don&#8217;t wear it out&nbsp;</p>
+<pre><code>    &lt;dd <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/dd></code></pre>
+
+<p class=follow>[Follow along! Before: <a href=examples/about-me.html>about-me.html</a>, after: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>]
+
+<p>What did we just say, in English? &#8220;This person&#8217;s name is Mark Pilgrim.&#8221; Well OK then. Onward.
+
+<p id=title-and-affiliation>The next two properties are a little tricky. This is the markup, pre-microdata:
+
+<pre><code>    &lt;dt>Position&lt;/dt>
+    &lt;dd>Developer advocate for Google, Inc.&lt;/dd></code></pre>
+
+<p>If you look at the definition of the Person vocabulary, the text &#8220;Developer advocate for Google, Inc.&#8221; actually encompasses <em>two</em> properties: <code>title</code> (&#8220;Developer advocate&#8221;) and <code>affiliation</code> (&#8220;Google, Inc.&#8221;). How can you express that in microdata? The short answer is, you can&#8217;t. Microdata doesn&#8217;t have a way to break up runs of text into separate properties. You can&#8217;t say &#8220;the first 18 characters of this text is one microdata property, and the last 12 characters of this text is another microdata property.&#8221;
+
+<p>But all is not lost. Imagine if you wanted to style the text &#8220;Developer advocate&#8221; in a different font from the text &#8220;Google, Inc.&#8221; <abbr>CSS</abbr> can&#8217;t do that either. So what would you do? You would first need to wrap the different bits of text in dummy elements, like <code>&lt;span></code>, then apply different <abbr>CSS</abbr> rules to each <code>&lt;span></code> element.
+
+<p>This technique is also useful for microdata. There are two distinct pieces of information here: a <code>title</code> and an <code>affiliation</code>. If you wrap each piece in a dummy <code>&lt;span></code> element, you can declare that each <code>&lt;span></code> is a separate microdata property.
 
 <pre><code>    &lt;dt>Position&lt;/dt>
     &lt;dd>&lt;span <mark>itemprop="title"</mark>>Developer advocate&lt;/span> for
         &lt;span <mark>itemprop="affiliation"</mark>>Google, Inc.&lt;span>&lt;/dd></code></pre>
 
-<p>FIXME
-  
+<p class=follow>[Follow along! Before: <a href=examples/about-me.html>about-me.html</a>, after: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>]
+
+<p>Tada! &#8220;This person&#8217;s title is 'Developer advocate.' This person is employed by Google, Inc.&#8221; Two sentences, two microdata properties. A little more markup, but a worthwhile tradeoff.
+
+<p>The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which in turn can have five subproperties: <code>street-address</code>, <code>city</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>. Hey wait a minute... &#8220;subproperties&#8221;<span class=u title='interrobang!'>&#8253;</span> What&#8217;s a subproperty?
+
+<p>A subproperty is just what it sounds like: a nested property within another property. The nesting is accomplished in exactly the same way as nesting <abbr>HTML</abbr> elements. If you&#8217;re a programmer, you are probably familiar with dot notation to define objects and their properties. Think of subproperties like this:
+
+<ul>
+<li><code>Person</code>
+<li><code>Person.address</code>
+<li><code>Person.address.street-address</code>
+<li><code>Person.address.city</code>
+<li><code>Person.address.region</code>
+<li><code>Person.address.postal-code</code>
+<li><code>Person.address.country-name</code>
+</ul>
+
+<p>In this example, the entire street address is contained in a single <code>&lt;dd></code> element. (Once again, the <code>&lt;dt></code> element is just a label, so it plays no role in adding semantics with microdata.) Notating the <code>address</code> property is easy. Just add an <code>itemprop</code> attribute on the <code>&lt;dd></code> element.
+
 <pre><code>    &lt;dt>Mailing address&lt;/dt>
-    &lt;dd>&lt;address <mark>itemprop="address"</mark>>
-          &lt;span <mark>itemprop="street-address"</mark>>100 Main Street&lt;/span>&lt;br>
-          &lt;span <mark>itemprop="city"</mark>>Anytown&lt;/span>,
-          &lt;span <mark>itemprop="region"</mark>>PA&lt;/span>
-          &lt;span <mark>itemprop="postal-code"</mark>>19999&lt;/span>
-          &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
-        &lt;/address>&lt;/dd>
+    &lt;dd <mark>itemprop="address"</mark>></code></pre>
+
+<p>The address subproperties suffer the same problem we encountered with <a href=#title-and-affiliation>the <code>title</code> and <code>affiliation</code> properties</a>. There&#8217;s just one long run of text, but we want to break it up into several separate microdata properties. The solution is the same: wrap each distinct piece of information in a dummy <code>&lt;span></code> element, then declare microdata properties on each <code>&lt;span></code> element.
+
+<pre><code>    &lt;dd itemprop="address">
+      &lt;span <mark>itemprop="street-address"</mark>>100 Main Street&lt;/span>&lt;br>
+      &lt;span <mark>itemprop="city"</mark>>Anytown&lt;/span>,
+      &lt;span <mark>itemprop="region"</mark>>PA&lt;/span>
+      &lt;span <mark>itemprop="postal-code"</mark>>19999&lt;/span>
+      &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
+    &lt;/dd>
   &lt;/dl></code></pre>
 
-<p>FIXME
+<p class=follow>[Follow along! Before: <a href=examples/about-me.html>about-me.html</a>, after: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>]
+
+<p>In English: &#8220;This person has a mailing address. The street address part of the mailing address is '100 Main Street.' The city part is 'Anytown.' The region is 'PA.' The postal code is '19999.' The country name is 'USA.'&#8221; Easy peasy.
+
+<div class="pf clear" id=reset>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: Is this mailing address format US-specific?<br>
+A: No. The subproperties of the <code>address</code> property are generic enough that they can describe most mailing addresses in the world. Not all addresses will have values for every property, but that&#8217;s OK. Some addresses might require fitting more than one &#8220;line&#8221; into a single property, but that&#8217;s OK too. For example, if your mailing address has a street address and a suite number, they would both go into the <code>street-address</code> subproperty:
+<pre><code>&lt;p itemprop="address">
+  &lt;span itemprop="street-address">
+    <mark>100 Main Street
+Suite 415</mark>
+  &lt;/span>
+  ...
+&lt;/p></code></pre>
+</blockquote>
+</div>
+</div>
+
+<p>There&#8217;s one more thing on this sample &#8220;about&#8221; page: a list of <abbr>URLs</abbr>. The Person vocabulary has a property for this, called <code>url</code>. A <code>url</code> property can be anything, really. (Well, it has to be a <abbr>URL</abbr>, but you probably guessed that.) The semantics of the <code>url</code> property are very loose. The property can be any sort of <abbr>URL</abbr> that you want to associate with a Person: a weblog, a photo gallery, or a profile on another site like Facebook or Twitter.
+
+<p>The other important thing to note here is that a single Person can have multiple <code>url</code> properties. Technically, any property can appear more than once, but until now, we haven&#8217;t taken advantage of that. For example, you could have two <code>photo</code> properties, each pointing to a different image <abbr>URL</abbr>. Here, I want to list four different <abbr>URLs</abbr>: my weblog, my Google profile page, my user profile on Reddit, and my Twitter account. In <abbr>HTML</abbr>, that&#8217;s a list of links: four <code>&lt;a></code> elements, each in their own <code>&lt;li></code> element. In microdata, each <code>&lt;a></code> element gets an <code>itemprop="url"</code> attribute.
 
 <pre><code>  &lt;h1>My Digital Footprints&lt;/h1>
   &lt;ul>
@@ -237,46 +313,9 @@ pre{padding-left:0}
            <mark>itemprop="url"</mark>>Twitter&lt;/a>&lt;/li>
   &lt;/ul></code></pre>
 
-<p>FIXME
+<p>According to <a href=#data-model>the microdata data model</a>, <code>&lt;a></code> elements have special processing. The microdata property value is the <code>href</code> attribute. The link text is actually ignored. Thus, in English, this says &#8220;This person has a <abbr>URL</abbr> at <code>http://diveintomark.org/</code>. This person has another <abbr>URL</abbr> at <code>http://www.google.com/profiles/pilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.reddit.com/user/MarkPilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.twitter.com/diveintomark</code>.&#8221;
 
-<pre><code>  &lt;h1>My Friends &amp; Relations&lt;/h1>
-  &lt;ul>
-    &lt;li>&lt;a href="http://www.hixie.ch/"
-           <mark>rel="friend met colleague"</mark>>Ian Hickson&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://bitworking.org/"
-           <mark>rel="friend met colleague"</mark>>Joe Gregorio&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://intertwingly.net/"
-           <mark>rel="friend met"</mark>>Sam Ruby&lt;/a>&lt;/li>
-  &lt;/ul>
-&lt;/section></code></pre>
-
-<p>FIXME results from Rich Snippets tool:
-
-<pre>Extracted Rich Snippet data from the page
-
-rel = friend met co-worker
-    Ian Hickson = http://www.hixie.ch/
-rel = friend met co-worker
-    Joe Gregorio = http://bitworking.org/
-rel = friend met colleague
-    Sam Ruby = http://intertwingly.net/
-
-Item
-    Type: http://data-vocabulary.org/Person
-    photo = http://diveintohtml5.org/examples/2000_05_mark.jpg 
-    name = Mark Pilgrim 
-    title = Developer advocate 
-    affiliation = Google, Inc. 
-    address = 100 Main Street 
-    street-address = 100 Main Street 
-    city = Anytown 
-    region = PA 
-    postal-code = 19999 
-    country-name = USA 
-    url = http://diveintomark.org/ 
-    url = http://www.google.com/profiles/pilgrim 
-    url = http://www.reddit.com/user/MarkPilgrim 
-    url = http://www.twitter.com/diveintomark </pre>
+<p>FIXME concluding paragraph? Segue to next section? Results from live microdata tester (not rich snippets)?
 
 <p class=a>&#x2767;
 
