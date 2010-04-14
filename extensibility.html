@@ -246,7 +246,7 @@ pre{padding-left:0}
 
 <p>Tada! &#8220;This person&#8217;s title is 'Developer advocate.' This person is employed by Google, Inc.&#8221; Two sentences, two microdata properties. A little more markup, but a worthwhile tradeoff.
 
-<p>The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which in turn can have five subproperties: <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>. Hey wait a minute... &#8220;subproperties&#8221;<span class=u title='interrobang!'>&#8253;</span> What&#8217;s a subproperty?
+<p id=address>The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which in turn can have five subproperties: <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>. Hey wait a minute... &#8220;subproperties&#8221;<span class=u title='interrobang!'>&#8253;</span> What&#8217;s a subproperty?
 
 <p>A subproperty is just what it sounds like: a nested property within another property. The nesting is accomplished in exactly the same way as nesting <abbr>HTML</abbr> elements. If you&#8217;re a programmer, you are probably familiar with dot notation to define objects and their properties. Think of subproperties like this:
 
@@ -321,6 +321,8 @@ Suite 415</mark>
 
 <h2 id=organization>Marking Up Organizations</h2>
 
+<p>FIXME
+
 <p>First, let&#8217;s look at the original <abbr>HTML</abbr> markup, without microdata.
 
 <pre><code>&lt;article>
@@ -333,44 +335,53 @@ Suite 415</mark>
   &lt;p>650-253-0000&lt;/p>
   &lt;p>&lt;a href="http://www.google.com/">Google.com&lt;/a>&lt;/p>
 &lt;/article></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
-<p>FIXME
+<p>Short and sweet. All the information about the organization is contained within the <code>&lt;article></code> element, so let&#8217;s start there.
 
 <pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
 
-<p>FIXME
+<p>As with <a href=#person>marking up people</a>, you need to set the <code>itemscope</code> and <code>itemtype</code> attributes on the outermost element. In this case, the outermost element is an <code>&lt;article></code> element. The <code>itemtype</code> attribute declares the microdata vocabulary you&#8217;re using (in this case, <code>http://data-vocabulary.org/Organization</code>), and the <code>itemscope</code> attribute declares that all of the properties you set on child elements relate to this vocabulary.
+
+<p>So what&#8217;s in the Organization vocabulary? It&#8217;s very simple and straightforward. In fact, some of it should already look familiar.
 
 <table class=st>
 <caption>Organization vocabulary</caption>
 <tr class=ho><th>Property<th>Description
-<tr class=zebra><td><code>name</code><td>The name of the organization (for example, &#8220;Google Inc.&#8221;)
+<tr class=zebra><td><code>name</code><td>The name of the organization (for example, &#8220;Initech&#8221;)
 <tr><td><code>url</code><td>Link to the organization&#8217;s home page
 <tr class=zebra><td><code>address</code><td>The location of the organization. Can contain the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
 <tr><td><code>tel</code><td>The telephone number of the organization
 <tr class=zebra><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
 </table>
 
-<p>FIXME
+<p>The first bit of markup within the outermost <code>&lt;article></code> element is an <code>&lt;h1></code>. This <code>&lt;h1></code> element contains the name of a business, so we&#8217;ll put an <code>itemprop="name"</code> attribute directly on the <code>&lt;h1></code> element.
 
 <pre><code>  &lt;h1 <mark>itemprop="name"</mark>>Google, Inc.&lt;/h1></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
-<p>FIXME
+<p>According to <a href=#data-model>the microdata data model</a>, <code>&lt;h1></code> elements don&#8217;t need any special processing. The microdata property value is simply the text content of the <code>&lt;h1></code> element. In this case, the name of the Organization is &#8220;Google, Inc.&#8221;
+
+<p>Next up is a street address. Marking up the address of an Organization works exactly the same way as <a href=#address>marking up the address of a Person</a>. First, add an <code>itemprop="address"</code> attribute to the outermost element of the street address (in this case, a <code>&lt;p></code> element). Then, wrap each distinct piece of information in a dummy <code>&lt;span></code> element. Finally, add the appropriate subproperty name (<code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>) on each <code>&lt;span></code> element.
 
 <pre><code>  &lt;p <mark>itemprop="address"</mark>>
     &lt;span <mark>itemprop="street-address"</mark>>1600 Amphitheatre Parkway&lt;/span>&lt;br>
     &lt;span <mark>itemprop="locality"</mark>>Mountain View&lt;/span>,
     &lt;span <mark>itemprop="region"</mark>>CA&lt;/span>
-    &lt;span <mark>itemprop="postal-code"</mark>>94043&lt;/span>
+    &lt;span <mark>itemprop="postal-code"</mark>>94043&lt;/span>&lt;br>
     &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
   &lt;/p></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
 <p>FIXME
 
 <pre><code>  &lt;p <mark>itemprop="tel"</mark>>650-253-0000&lt;/p></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
 <p>FIXME
 
 <pre><code>  &lt;p>&lt;a <mark>itemprop="url"</mark> href="http://www.google.com/">Google.com&lt;/a>&lt;/p></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
 <p>FIXME
 
@@ -379,14 +390,17 @@ Suite 415</mark>
     &lt;meta itemprop="longitude" content="-122.078" />
   &lt;/span>
 &lt;/article></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
 <p>FIXME
 
 <pre><code>&lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Geo"</mark>></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
 <p>FIXME
 
 <pre><code>&lt;meta <mark>itemprop="latitude"</mark> content="37.4149" /></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/business-listings.html>business-listings.html</a>, after: <a href=examples/business-listings-plus-microdata.html>business-listings-plus-microdata.html</a>]
 
 <p>FIXME
 
