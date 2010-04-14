@@ -186,7 +186,7 @@ pre{padding-left:0}
 <tr><td><code>friend</code><td>Identifies a social relationship between the person described and another person
 <tr class=zebra><td><code>contact</code><td>Identifies a social relationship between the person described and another person
 <tr><td><code>acquaintance</code><td>Identifies a social relationship between the person described and another person
-<tr class=zebra><td><code>address</code><td>The location of the person. Can have the subproperties <code>street-address</code>, <code>city</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
+<tr class=zebra><td><code>address</code><td>The location of the person. Can have the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
 </table>
 
 <p>The first thing in <a href=examples/about-me-plus-microdata.html>this &#8220;about&#8221; page</a> is a picture of me. Naturally, it&#8217;s marked up with an <code>&lt;img></code> element. To declare that this <code>&lt;img></code> element is my profile picture, all we need to do is add <code>itemprop="photo"</code> to the <code>&lt;img></code> element.
@@ -246,7 +246,7 @@ pre{padding-left:0}
 
 <p>Tada! &#8220;This person&#8217;s title is 'Developer advocate.' This person is employed by Google, Inc.&#8221; Two sentences, two microdata properties. A little more markup, but a worthwhile tradeoff.
 
-<p>The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which in turn can have five subproperties: <code>street-address</code>, <code>city</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>. Hey wait a minute... &#8220;subproperties&#8221;<span class=u title='interrobang!'>&#8253;</span> What&#8217;s a subproperty?
+<p>The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which in turn can have five subproperties: <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>. Hey wait a minute... &#8220;subproperties&#8221;<span class=u title='interrobang!'>&#8253;</span> What&#8217;s a subproperty?
 
 <p>A subproperty is just what it sounds like: a nested property within another property. The nesting is accomplished in exactly the same way as nesting <abbr>HTML</abbr> elements. If you&#8217;re a programmer, you are probably familiar with dot notation to define objects and their properties. Think of subproperties like this:
 
@@ -254,7 +254,7 @@ pre{padding-left:0}
 <li><code>Person</code>
 <li><code>Person.address</code>
 <li><code>Person.address.street-address</code>
-<li><code>Person.address.city</code>
+<li><code>Person.address.locality</code>
 <li><code>Person.address.region</code>
 <li><code>Person.address.postal-code</code>
 <li><code>Person.address.country-name</code>
@@ -269,7 +269,7 @@ pre{padding-left:0}
 
 <pre><code>    &lt;dd itemprop="address">
       &lt;span <mark>itemprop="street-address"</mark>>100 Main Street&lt;/span>&lt;br>
-      &lt;span <mark>itemprop="city"</mark>>Anytown&lt;/span>,
+      &lt;span <mark>itemprop="locality"</mark>>Anytown&lt;/span>,
       &lt;span <mark>itemprop="region"</mark>>PA&lt;/span>
       &lt;span <mark>itemprop="postal-code"</mark>>19999&lt;/span>
       &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
@@ -278,7 +278,7 @@ pre{padding-left:0}
 
 <p class=follow>[Follow along! Before: <a href=examples/about-me.html>about-me.html</a>, after: <a href=examples/about-me-plus-microdata.html>about-me-plus-microdata.html</a>]
 
-<p>In English: &#8220;This person has a mailing address. The street address part of the mailing address is '100 Main Street.' The city part is 'Anytown.' The region is 'PA.' The postal code is '19999.' The country name is 'USA.'&#8221; Easy peasy.
+<p>In English: &#8220;This person has a mailing address. The street address part of the mailing address is '100 Main Street.' The locality part is 'Anytown.' The region is 'PA.' The postal code is '19999.' The country name is 'USA.'&#8221; Easy peasy.
 
 <div class="pf clear" id=reset>
 <h4>Ask Professor Markup</h4>
