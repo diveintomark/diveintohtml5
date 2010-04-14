@@ -313,7 +313,7 @@ Suite 415</mark>
            <mark>itemprop="url"</mark>>Twitter&lt;/a>&lt;/li>
   &lt;/ul></code></pre>
 
-<p>According to <a href=#data-model>the microdata data model</a>, <code>&lt;a></code> elements have special processing. The microdata property value is the <code>href</code> attribute. The link text is actually ignored. Thus, in English, this says &#8220;This person has a <abbr>URL</abbr> at <code>http://diveintomark.org/</code>. This person has another <abbr>URL</abbr> at <code>http://www.google.com/profiles/pilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.reddit.com/user/MarkPilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.twitter.com/diveintomark</code>.&#8221;
+<p>According to <a href=#data-model>the microdata data model</a>, <code>&lt;a></code> elements have special processing. The microdata property value is the <code>href</code> attribute, not the child text content. The text of each link is actually ignored by a microdata processor. Thus, in English, this says &#8220;This person has a <abbr>URL</abbr> at <code>http://diveintomark.org/</code>. This person has another <abbr>URL</abbr> at <code>http://www.google.com/profiles/pilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.reddit.com/user/MarkPilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.twitter.com/diveintomark</code>.&#8221;
 
 <p>FIXME concluding paragraph? Segue to next section? Results from live microdata tester (not rich snippets)?
 
@@ -321,15 +321,15 @@ Suite 415</mark>
 
 <h2 id=organization>Marking Up Organizations</h2>
 
-<p>FIXME original markup:
+<p>First, let&#8217;s look at the original <abbr>HTML</abbr> markup, without microdata.
 
 <pre><code>&lt;article>
   &lt;h1>Google, Inc.&lt;/h1>
-  &lt;address>
+  &lt;p>
     1600 Amphitheatre Parkway&lt;br>
-    Mountain View, CA 94043
+    Mountain View, CA 94043&lt;br>
     USA
-  &lt;/address>
+  &lt;/p>
   &lt;p>650-253-0000&lt;/p>
   &lt;p>&lt;a href="http://www.google.com/">Google.com&lt;/a>&lt;/p>
 &lt;/article></code></pre>
@@ -356,13 +356,13 @@ Suite 415</mark>
 
 <p>FIXME
 
-<pre><code>  &lt;address <mark>itemprop="address"</mark>>
+<pre><code>  &lt;p <mark>itemprop="address"</mark>>
     &lt;span <mark>itemprop="street-address"</mark>>1600 Amphitheatre Parkway&lt;/span>&lt;br>
     &lt;span <mark>itemprop="locality"</mark>>Mountain View&lt;/span>,
     &lt;span <mark>itemprop="region"</mark>>CA&lt;/span>
     &lt;span <mark>itemprop="postal-code"</mark>>94043&lt;/span>
     &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
-  &lt;/address></code></pre>
+  &lt;/p></code></pre>
 
 <p>FIXME
 
@@ -424,12 +424,12 @@ one-day conference includes seminars and &#8220;office hours&#8221;
 on web technologies like Google Maps, OpenSocial, Android, AJAX
 APIs, Chrome, and Google Web Toolkit.&lt;/p>
   &lt;p>2009 November 6, 8:30&amp;ndash;20:30&lt;/p>
-  &lt;address>
+  &lt;p>
     Congress Center&lt;br>
     5th května 65&lt;br>
     140 21 Praha 4&lt;br>
     Czech Republic
-  &lt;/address>
+  &lt;/p>
   &lt;p>&lt;a href="http://code.google.com/intl/cs/events/developerday/2009/home.html">GDD/Prague home page&lt;/a>&lt;/p>
 &lt;/article></code></pre>
 
@@ -490,7 +490,7 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
 
 <p>FIXME
 
-<pre><code>  &lt;address <mark>itemprop="location"</mark>
+<pre><code>  &lt;p <mark>itemprop="location"</mark>
            <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
 
 <p>FIXME
@@ -510,7 +510,7 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
       &lt;span <mark>itemprop="locality"</mark>>Praha 4&lt;/span>&lt;br>
       &lt;span <mark>itemprop="country-name"</mark>>Czech Republic&lt;/span>
     &lt;/span>
-  &lt;/address></code></pre>
+  &lt;/p></code></pre>
 
 <p>FIXME
 
@@ -620,11 +620,11 @@ Item
     garlic knots when you sat down; now they give you plain bread
     and you have to pay for the good stuff. Overall, it&#8217;s a winner.
   &lt;/p>
-  &lt;address>
+  &lt;p>
     100 North Salem Street&lt;br>
     Apex, NC 27502&lt;br>
     USA
-  &lt;/address>
+  &lt;/p>
   &lt;p>&mdash; reviewed by Mark Pilgrim, last updated March 31, 2010&lt;/p>
 &lt;/article></code></pre>
 
@@ -679,14 +679,14 @@ Item
 
 <p>FIXME ... going back up to the part we skipped ...
 
-<pre><code>  &lt;address <mark>itemprop="address"</mark> <mark>itemscope</mark>
+<pre><code>  &lt;p <mark>itemprop="address"</mark> <mark>itemscope</mark>
            <mark>itemtype="http://data-vocabulary.org/Organization"</mark>>
     &lt;span <mark>itemprop="street-address"</mark>>100 North Salem Street&lt;/span>&lt;br>
     &lt;span <mark>itemprop="locality"</mark>>Apex&lt;/span>,
     &lt;span <mark>itemprop="region"</mark>>NC&lt;/span>
     &lt;span <mark>itemprop="postal-code"</mark>>27502&lt;/span>&lt;br>
     &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
-  &lt;/address>
+  &lt;/p>
   &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark>
         <mark>itemtype="http://data-vocabulary.org/Geo"</mark>>
     &lt;meta <mark>itemprop="latitude"</mark> content="35.730796" />
