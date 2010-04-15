@@ -191,7 +191,7 @@ strong, b, em, i {
   font-weight: normal;
   text-transform: uppercase;
 }
-strong code {
+strong code, pre b, pre strong {
   font-weight: bold;
   text-transform: none;
 }

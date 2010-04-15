@@ -11,6 +11,10 @@ body{counter-reset:h1 11}
 .st ul{list-style:none;margin:0;padding:0}
 pre{padding-left:0}
 .follow{text-align:center;font-size:small}
+.fakeresults{font:small/1.2 Arial,sans-serif}
+.fakelink{color:#00c;cursor:pointer;text-decoration:underline}
+.fakeinfo{color:grey}
+.fakeurl{color:green}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
@@ -327,15 +331,76 @@ Suite 415</mark>
 
 <p>According to the <a href=#data-model><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;a></code> elements have special processing. The microdata property value is the <code>href</code> attribute, not the child text content. The text of each link is actually ignored by a microdata processor. Thus, in English, this says &#8220;This person has a <abbr>URL</abbr> at <code>http://diveintomark.org/</code>. This person has another <abbr>URL</abbr> at <code>http://www.google.com/profiles/pilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.reddit.com/user/MarkPilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.twitter.com/diveintomark</code>.&#8221;
 
-<p>FIXME concluding paragraph? Segue to next section? Results from live microdata tester (not rich snippets)?
+<h3 id=rich-snippets>Introducing Google Rich Snippets</h3>
+
+<p>I want to step back for just a moment and ask, &#8220;Why are we doing this?&#8221; Are we adding semantics just for the sake of adding semantics? Don&#8217;t get me wrong; I enjoy fiddling with angle brackets as much as the next webhead. But why microdata? Why bother?
+
+<p>There are two major classes of applications that consume <abbr>HTML</abbr>, and by extension, <abbr>HTML5</abbr> microdata:
+
+<ol>
+<li>Web browsers
+<li>Search engines
+</ol>
+
+<p>For browsers, <abbr>HTML5</abbr> defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#microdata-dom-api>a set of <abbr>DOM</abbr> <abbr>APIs</abbr></a> for extracting microdata items, properties, and property values from a web page. As I write this, no browser supports this <abbr>API</abbr>. Not a single one. So that&#8217;s&hellip; kind of a dead end, at least until browsers catch up and implement the client-side <abbr>APIs</abbr>.
+
+<p>But&hellip; the other major consumer of <abbr>HTML</abbr> is search engines. What could a search engine do with microdata properties about a person? Imagine this: instead of simply displaying the page title and an excerpt of text, the search engine could integrate some of that structured information and display it. Full name, job title, employer, address, maybe even a little thumbnail of a profile photo. Would that catch your attention? It would catch mine.
+
+<p>Google supports microdata as part of their <a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">Rich Snippets</a> program. When Google&#8217;s web crawler parses your page and finds microdata properties that conform to the <code>http://data-vocabulary.org/Person</code> vocabulary, it parses out those properties and stores them alongside the rest of the page data. Google even provides <a href=http://www.google.com/webmasters/tools/richsnippets>a handy tool to see how Google &#8220;sees&#8221; your microdata properties</a>. Testing it against our <a href=examples/about-me-plus-microdata.html>sample microdata-enabled &#8220;about&#8221; page</a> yields this output:
+
+<pre><samp>Item
+  <b>Type</b>: http://data-vocabulary.org/person
+  photo = http://diveintohtml5.org/examples/2000_05_mark.jpg 
+  name = Mark Pilgrim 
+  title = Developer advocate 
+  affiliation = Google, Inc. 
+  address = Item( 1 ) 
+  url = http://diveintomark.org/ 
+  url = http://www.google.com/profiles/pilgrim 
+  url = http://www.reddit.com/user/MarkPilgrim 
+  url = http://www.twitter.com/diveintomark 
+
+Item 1 
+  <b>Type</b>: http://data-vocabulary.org/address
+  street-address = 100 Main Street
+  locality = Anytown
+  region = PA
+  postal-code = 19999
+  country-name = USA</samp></pre>
+
+<p>It&#8217;s all there: the <code>photo</code> property from the <code>&lt;img src></code> attribute, all four <abbr>URLs</abbr> from the list of <code>&lt;a href></code> attributes, even the address object (listed as &#8220;Item 1&#8221;) and all five of its subproperties.
+
+<p>And how does Google use all of this information? That depends. There&#8217;s no hard and fast rules about how microdata properties should be displayed, which ones should be displayed, or whether they should be displayed at all. If someone searches for &#8220;Mark Pilgrim,&#8221; <em>and</em> Google determines that this &#8220;about&#8221; page should rank in the results, <em>and</em> Google decides that the microdata properties it originally found on that page are worth displaying, then the search result listing might look something like this:
+
+<blockquote class=fakeresults>
+<p><span class=fakelink>About Mark Pilgrim</span><br>
+<span class=fakeinfo>Anytown PA - Developer advocate - Google, Inc.</span><br>
+<span class=fakeexcerpt>Excerpt from the page will show up here.<br>
+Excerpt from the page will show up here.</span><br>
+<span class=fakeurl>diveintohtml5.org/examples/about-me-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+</blockquote>
+
+<p>The first line, &#8220;About Mark Pilgrim,&#8221; is actually the title of the page, given in the <code>&lt;title></code> element. That&#8217;s not terribly exciting; Google does that for every page. But the second line is full of information taken directly from your microdata annotations. &#8220;Anytown PA&#8221; was part of the <a href=#address>mailing address</a>, marked up with the <code>http://data-vocabulary.org/Address</code> vocabulary. &#8220;Developer advocate&#8221; and &#8220;Google, Inc.&#8221; were two properties from the <code>http://data-vocabulary.org/Person</code> vocabulary (<code>title</code> and <code>affiliation</code>, respectively).
+
+<p>This is really quite amazing. You don&#8217;t need to be a large corporation making special deals with search engine vendors to customize your search result listings. Just take ten minutes and add a couple of <abbr>HTML</abbr> attributes to annotate the data you were already publishing anyway.
+
+<div class="pf clear" id=reset>
+<h4>Ask Professor Markup</h4>
+<div class=inner>
+<blockquote class=note>
+<p><span>&#x261E;</span>Q: I did everything you said, but my Google search result listing doesn&#8217;t look any different. What gives?<br>
+A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">Google does not guarantee</a> that markup on any given page or site will be used in search results.&#8221; But even if Google decides not to use your microdata annotations, another search engine might. Like the rest of <abbr>HTML5</abbr>, microdata is an open standard that anyone can implement.
+</blockquote>
+</div>
+</div>
 
 <p class=a>&#x2767;
 
 <h2 id=organization>Marking Up Organizations</h2>
 
-<p>FIXME
+<p>Microdata isn&#8217;t limited to a single vocabulary. &#8220;About&#8221; pages are nice, but you probably only have one of them. Still hungry for more? Let&#8217;s learn how to mark up organizations and businesses.
 
-<p>First, let&#8217;s look at the original <abbr>HTML</abbr> markup, without microdata.
+<p><a href=examples/business-listings.html>Here is a sample page of business listings</a>. Let&#8217;s look at the original <abbr>HTML</abbr> markup, without microdata.
 
 <pre><code>&lt;article>
   &lt;h1>Google, Inc.&lt;/h1>
@@ -495,7 +560,7 @@ APIs, Chrome, and Google Web Toolkit.&lt;/p>
 <tr class=ho><th>Property<th>Description
 <tr class=zebra><td><code>summary</code><td>The name of the event
 <tr><td><code>url</code><td>Link to the event details page
-<tr class=zebra><td><code>location</code><td>The location or venue of the event. Can optionally be represented by nested <a href=#organization>Organization</a> data.
+<tr class=zebra><td><code>location</code><td>The location or venue of the event. Can optionally be represented by a nested <a href=#organization>Organization</a> or <a href=#address>Address</a>.
 <tr><td><code>description</code><td>A description of the event
 <tr class=zebra><td><code>startDate</code><td>The starting date and time of the event in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
 <tr><td><code>endDate</code><td>The ending date and time of the event in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
