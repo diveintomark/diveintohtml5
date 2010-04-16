@@ -36,7 +36,6 @@ pre{padding-left:0}
 
 <h2 id=what-is-microdata>What is Microdata?</h2>
 
-
 <pre>
 - what is microdata?
 - data model: scoped name/value pairs
@@ -44,16 +43,13 @@ pre{padding-left:0}
   - itemprop names the property ( http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#names:-the-itemprop-attribute )
   - values are stored in whatever attribute or child text makes sense, based on the elements involved ( http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#values )
   - itemtype defines the vocabulary. Using a shared vocabulary helps to semantically connect your data with other people's data on other pages and other sites
-  - itemid for globally unique identifiers (if applicable)
-  - itemref if an item's properties are defined elsewhere on the page (i.e. not on child elements of the itemscope)
-- "Hello World" of microdata: licensing metadata on Creative-Commons-licensed photograph
-- accessing microdata from JavaScript
+
+? accessing microdata from JavaScript (no browser supports this yet, maybe skip it until one does?)
   - document.getItems()
   - document.getItems("http://www.example.com/animals#cat")
   - element.properties
   - element.properties.names
   - element.properties.values
-- Case study: an about page with contact information
 </pre>
 
 <p class=a>&#x2767;
@@ -304,7 +300,7 @@ pre{padding-left:0}
 
 <p>In English: &#8220;This person has a mailing address. The street address part of the mailing address is '100 Main Street.' The locality part is 'Anytown.' The region is 'PA.' The postal code is '19999.' The country name is 'USA.'&#8221; Easy peasy.
 
-<div class="pf clear" id=reset>
+<div class="pf clear">
 <h4>Ask Professor Markup</h4>
 <div class=inner>
 <blockquote class=note>
@@ -393,7 +389,7 @@ Excerpt from the page will show up here.</span><br>
 
 <p>This is really quite amazing. You don&#8217;t need to be a large corporation making special deals with search engine vendors to customize your search result listings. Just take ten minutes and add a couple of <abbr>HTML</abbr> attributes to annotate the data you were already publishing anyway.
 
-<div class="pf clear" id=reset>
+<div class="pf clear">
 <h4>Ask Professor Markup</h4>
 <div class=inner>
 <blockquote class=note>
