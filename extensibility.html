@@ -11,10 +11,13 @@ body{counter-reset:h1 11}
 .st ul{list-style:none;margin:0;padding:0}
 pre{padding-left:0}
 .follow{text-align:center;font-size:small}
-.fakeresults{font:small/1.2 Arial,sans-serif}
+.fakeresults,.fakeresults p{font:small/1.2 Arial,sans-serif}
+.fakeresults p{margin:0;padding:0}
 .fakelink{color:#00c;cursor:pointer;text-decoration:underline}
 .fakeinfo{color:grey}
 .fakeurl{color:green}
+table.faketable{border-collapse:collapse}
+.padright{padding-right:18px}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
@@ -24,11 +27,11 @@ pre{padding-left:0}
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>here are <a href=http://simon.html5.org/html5-elements>over 100 elements</a> in <abbr>HTML5</abbr>. Some are <a href=semantics.html>purely semantic</a>, others are <a href=canvas.html>just containers for scripted <abbr>APIs</abbr></a>. Throughout <a href=past.html>the history of <abbr>HTML</abbr></a>, standards wonks have argued about which elements should be included in the language. Should <abbr>HTML</abbr> include a <code>&lt;figure></code> element? A <code>&lt;person></code> element? How about a <code>&lt;rant></code> element? Decisions are made, specs are written, browsers and search engines and web developers do their own thing anyway, and the web lurches ever forward.
+<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>here are <a href=http://simon.html5.org/html5-elements>over 100 elements</a> in <abbr>HTML5</abbr>. Some are <a href=semantics.html>purely semantic</a>, others are <a href=canvas.html>just containers for scripted <abbr>APIs</abbr></a>. Throughout <a href=past.html>the history of <abbr>HTML</abbr></a>, standards wonks have argued about which elements should be included in the language. Should <abbr>HTML</abbr> include a <code>&lt;figure></code> element? A <code>&lt;person></code> element? How about a <code>&lt;rant></code> element? Decisions are made, specs are written, authors author, implementors implement, and the web lurches ever forward.
 
 <p>Of course, <abbr>HTML</abbr> can&#8217;t please everyone. No standard can. Some ideas don&#8217;t make the cut. For example, there is no <code>&lt;person></code> element in <abbr>HTML5</abbr>. (There&#8217;s no <code>&lt;rant></code> element either, damn it!) There&#8217;s nothing stopping you from including a <code>&lt;person></code> element in a web page, but <a href=http://html5.validator.nu/>it won&#8217;t validate</a>, <a href=semantics.html#unknown-elements>it won&#8217;t work consistently across browsers</a>, and it might conflict with future <abbr>HTML</abbr> specs if we want to add it later.
 
-<p>Right, so if making up your own elements isn&#8217;t the answer, what&#8217;s a semantically inclined web author to do? There have been attempts to extend previous versions of <abbr>HTML</abbr>. The most popular method is <a href=http://microformats.org/>microformats</a>, which uses the <code>class</code> and <code>rel</code> attributes in <abbr>HTML</abbr> 4. Another option is <a href=http://www.w3.org/TR/rdfa-syntax/>RDFa</a>, which was designed to be used in&hellip; <abbr>XHTML</abbr>. Oops. (Now that <a href=past.html#postscript><abbr>XHTML</abbr> is dead</a>, the <abbr>RDFa</abbr> community is working on <a href=http://www.w3.org/TR/rdfa-in-html/>porting it to <abbr>HTML</abbr></a>.)
+<p>Right, so if making up your own elements isn&#8217;t the answer, what&#8217;s a semantically inclined web author to do? There have been attempts to extend previous versions of <abbr>HTML</abbr>. The most popular method is <a href=http://microformats.org/>microformats</a>, which uses the <code>class</code> and <code>rel</code> attributes in <abbr>HTML</abbr> 4. Another option is <a href=http://www.w3.org/TR/rdfa-syntax/>RDFa</a>, which was originally designed to be used in <a href=past.html#postscript><abbr>XHTML</abbr></a> but is now <a href=http://www.w3.org/TR/rdfa-in-html/>being ported to <abbr>HTML</abbr></a> as well.
 
 <p>Microformats and <abbr>RDFa</abbr> each have their strengths and weaknesses. They take radically different approaches towards the same goal: extending web pages with additional semantics that are not part of the core <abbr>HTML</abbr> language. I don&#8217;t intend to turn this chapter into a format flamewar. (That would definitely require a <code>&lt;rant></code> element!) Instead, I want to focus on a third option which is part of, and tightly integrated into, <abbr>HTML5</abbr> itself: microdata.
 
@@ -47,7 +50,7 @@ pre{padding-left:0}
 </div>
 </div>
 
-<p>Now what the hell does that mean? Let&#8217;s start from the end and work backwards. Microdata centers around custom vocabularies. Think of &#8220;the set of all <abbr>HTML5</abbr> elements&#8221; as one vocabulary. This vocabulary includes elements to represent <a href=semantics.html#new-elements>a section or an article</a>, but it doesn&#8217;t include elements to represent a person or an event. If you want to represent a person on a web page, you&#8217;ll need to define your own vocabulary. Microdata lets you do this.
+<p>Now what does that mean? Let&#8217;s start from the end and work backwards. Microdata centers around custom vocabularies. Think of &#8220;the set of all <abbr>HTML5</abbr> elements&#8221; as one vocabulary. This vocabulary includes elements to represent <a href=semantics.html#new-elements>a section or an article</a>, but it doesn&#8217;t include elements to represent a person or an event. If you want to represent a person on a web page, you&#8217;ll need to define your own vocabulary. Microdata lets you do this.
 
 <p>The next thing to know about microdata is that it works with name/value pairs. Every microdata vocabulary defines a set of named properties. For example, a Person vocabulary could define properties like <code>name</code> and <code>photo</code>. To include a specific microdata property on your web page, you provide the property name in a specific place. Depending on where you declare the property name, microdata has rules about how to extract the property value. (More on this in the next section.)
 
@@ -727,6 +730,19 @@ Item
     Type: http://data-vocabulary.org/Geo
     latitude = 45.499576
     longitude = -73.565958</pre>
+
+<p>FIXME
+
+<blockquote class=fakeresults>
+<p><span class=fakelink>Event listings</span><br>
+<span fakeexcerpt>Excerpt from the page will show up here.<br>
+Excerpt from the page will show up here.</span><br>
+<table class=faketable>
+<tr><td class="fakelink padright">Google Developer Day 2009<td class="fakeinfo padright">Fri, Nov 6<td class=fakeinfo>Congress Center, Praha 4, Czech Republic
+<tr><td class="fakelink padright">ConFoo.ca 2010<td class="fakeinfo padright">Wed, Mar 10<td class=fakeinfo>Hilton Montreal Bonaventure, Montréal, Québec, Canada
+</table>
+<p><span class=fakeurl>diveintohtml5.org/examples/event-listings-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+</blockquote>
 
 <p class=a>&#x2767;
 
