@@ -80,6 +80,38 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>They all trigger &#8220;standards mode&#8221; in all browsers.
 
+<h3 id=blank-space-gotcha>One Small &#8220;Gotcha&#8221; About Doctypes</h3>
+
+<p>Your doctype needs to be on the first line of your <abbr>HTML</abbr> file. If there&#8217;s anything else before it &mdash; <em>even a single blank line</em> &mdash; then browsers will treat your page as if it has no doctype at all. That means they will render your page in &#8220;quirks mode.&#8221; This can be a very difficult error to catch. It is made even worse by the fact that, in certain server-side languages, it&#8217;s easy to add a blank line and not at all clear how to get rid of it.
+
+<p>For example, look at this sample <abbr>PHP</abbr> fragment:
+
+<pre><code>&lt;?
+// index.php
+// Copyright (c) 2010 Initech
+// All rights reserved.
+?>
+&lt;DOCTYPE html>
+&lt;html>
+&lt;head>
+...</code></pre>
+
+<p>Can you spot the error? There is a carriage return after the <code>?></code>. This carriage return will be sent to the client before the doctype on the next line, and all manner of &#8220;quirks mode&#8221; hell will break loose.
+
+<p>Here&#8217;s the same fragment, but without the doctype-destroying blank line:
+
+<p class="legend left" style="margin-top:2.5em;padding-right:1em">No carriage return<br>before doctype <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<pre><code>&lt;?
+// index.php
+// Copyright (c) 2010 Initech
+// All rights reserved.
+?>&lt;DOCTYPE html>
+&lt;html>
+&lt;head>
+...</code></pre>
+
+<p>Getting all of your <abbr>PHP</abbr> developers to actually <em>do</em> this on a regular basis is up to you. <span class=u>&#x263A;</span>
+
 <p class=a>&#x2767;
 
 <h2 id=html-element>The Root Element</h2>
