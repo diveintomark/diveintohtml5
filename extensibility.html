@@ -536,13 +536,15 @@ A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 
 <p>According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the <code>&lt;meta></code> element has special processing. The microdata property value is the <code>content</code> attribute. Since this attribute is never visibly displayed, we have the perfect setup for unlimited quantities of invisible data. With great power comes great responsibility. In this case, the responsibility is on you to ensure that this invisible data stays in sync with the visible text around it.
 
+<p>There is no direct support for the Organization vocabulary in Google Rich Snippets, so I don&#8217;t have any pretty sample search result listings to show you. But organizations feature heavily in the next two case studies: events and reviews, and those <em>are</em> supported by Google Rich Snippets.
+
 <p class=a>&#x2767;
 
 <h2 id=event>Marking Up Events</h2>
 
-<p>FIXME
+<p>Shit happens. Some shit happens at pre-determined times. Wouldn&#8217;t it be nice if you could tell search engines exactly when shit was about to happen? There&#8217;s an angle bracket for that. [FIXME I am very tired.]
 
-<p>Let&#8217;s start by looking at <a href=examples/event.html>the original markup for our event</a>.
+<p>Let&#8217;s start by looking at <a href=examples/event.html>a sample schedule of my speaking engagements</a>.
 
 <pre><code>&lt;article>
   &lt;h1>Google Developer Day 2009&lt;/h1>
@@ -631,7 +633,7 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
   &lt;/p></code></pre>
 <p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
 
-<p>In English, this says, &#8220;This event starts on November 6, 2009, at 8:30 AM FIXME timezone, and goes until November 6, 2009, at 8:30 PM FIXME timezone.&#8221;
+<p>In English, this says, &#8220;This event starts on November 6, 2009, at 8:30 in the morning, and goes until November 6, 2009, at 20:30 (times local to Prague, <abbr>GMT</abbr>+1).&#8221;
 
 <p>Next up is the <code>location</code> property. The <a href=http://data-vocabulary.org/Event>definition of the Event vocabulary</a> says that this can be either an Organization or an Address. In this case, the event is being held at a venue that specializes in conferences, the Congress Center in Prague. Marking it up as an Organization allows us to include the name of the venue as well as its address.
 
@@ -646,7 +648,7 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
 <pre><code>    &lt;span <mark>itemprop="name"</mark>>Congress Center&lt;/span>&lt;br></code></pre>
 <p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
 
-<p>Due to the microdata scoping rules, this <code>itemprop="name"</code> is defining a property in the Organization vocabulary, not the Event vocabulary. The <code>&lt;p></code> element defined the beginning of the scope of the Organization properties, and that <code>&lt;p></code> element hasn&#8217;t yet been closed with an <code>&lt;/p></code> tag. Any microdata properties we define here are properties of the most-recently-scoped vocabulary. Nested vocabularies are like a stack [FIXME wikipedia link]. We haven&#8217;t yet popped the stack, so we&#8217;re still talking about properties of the Organization.
+<p>Due to the microdata scoping rules, this <code>itemprop="name"</code> is defining a property in the Organization vocabulary, not the Event vocabulary. The <code>&lt;p></code> element defined the beginning of the scope of the Organization properties, and that <code>&lt;p></code> element hasn&#8217;t yet been closed with an <code>&lt;/p></code> tag. Any microdata properties we define here are properties of the most-recently-scoped vocabulary. Nested vocabularies are like a <a href="http://en.wikipedia.org/wiki/Stack_(data_structure)">stack</a>. We haven&#8217;t yet popped the stack, so we&#8217;re still talking about properties of the Organization.
 
 <p>In fact, we&#8217;re going to add a third vocabulary onto the stack: an Address for the Organization for the Event.
 
@@ -778,7 +780,7 @@ Excerpt from the page will show up here.</span><br>
 
 <pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Review"</mark>></code></pre>
 
-<p>FIXME
+<p>What are the available properties in the Review vocabulary? I&#8217;m glad you asked.
 
 <table class=st>
 <caption>Review vocabulary</caption>
@@ -795,9 +797,7 @@ Excerpt from the page will show up here.</span><br>
 
 <pre><code>  &lt;h1 <mark>itemprop="itemreviewed"</mark>>Anna&#8217;s Pizzeria&lt;/h1></code></pre>
 
-<p>FIXME
-
-<pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>>4&lt;/span> stars out of 5)&lt;/p></code></pre>
+<p>I&#8217;m going to skip over the actual rating and come back to that at the end.
 
 <p>FIXME
 
@@ -839,7 +839,13 @@ Excerpt from the page will show up here.</span><br>
     &lt;meta <mark>itemprop="longitude"</mark> content="-78.851426" />
   &lt;/span></code></pre>
 
+<p>OK, let&#8217;s talk ratings. The trickiest part of marking up a review is the rating. By default, ratings in the Review vocabulary are on a scale of 1&ndash;5, 1 being &#8220;terrible&#8221; and 5 being &#8220;awesome.&#8221; If you want to use a different scale, you can definitely do that. But let&#8217;s talk about the default scale first.
+
+<pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>>4&lt;/span> stars out of 5)&lt;/p></code></pre>
+
 <p>FIXME
+
+<p>FIXME-alternate scales (0-4, 1-10, etc.)
 
 <pre>Extracted Rich Snippet data from the page
 
