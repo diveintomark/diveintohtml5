@@ -123,7 +123,7 @@ table.faketable{border-collapse:collapse}
 <p>Of course, if your markup looks a little different, that&#8217;s not a problem. You can add microdata properties and values to any <abbr>HTML</abbr> markup, even really gnarly 20th-century-era, tables-for-layout, Oh-God-why-did-I-agree-to-maintain-this markup. While I don&#8217;t recommend this kind of markup, it is still very common, and you can still add microdata to it.
 
 <p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> For the love of God, don&#8217;t do this
-<pre><code>&lt;TABLE itemscope itemtype="http://data-vocabulary.org/Person">
+<pre><code>&lt;TABLE>
   &lt;TR>&lt;TD>Name&lt;TD>Mark Pilgrim
   &lt;TR>&lt;TD>Link&lt;TD>
     &lt;A href=# onclick=goExternalLink()>http://diveintomark.org/&lt;/A>
@@ -138,10 +138,13 @@ table.faketable{border-collapse:collapse}
 <p>Anyway, you can still convert this into a microdata property, you just need to be a little creative. Using the <code>&lt;a></code> element directly is out of the question. The link target isn&#8217;t in the <code>href</code> attribute, and there&#8217;s no way to override the rule that says &#8220;in an <code>&lt;a></code> element, look for the microdata property value in the <code>href</code> attribute.&#8221; But you <em>can</em> add a wrapper element around the entire mess, and use that to add the <code>url</code> microdata property.
 
 <p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> This is what you get for subverting HTML
-<pre><code>  &lt;TR>&lt;TD>Link&lt;TD>
+<pre><code>&lt;TABLE itemscope itemtype="http://data-vocabulary.org/Person">
+  &lt;TR>&lt;TD>Name&lt;TD>Mark Pilgrim
+  &lt;TR>&lt;TD>Link&lt;TD>
     <mark>&lt;span itemprop="url"></mark>
       &lt;A href=# onclick=goExternalLink()>http://diveintomark.org/&lt;/A>
-    <mark>&lt;/span></mark></code></pre>
+    <mark>&lt;/span></mark>
+&lt;/TABLE></code></pre>
 
 <p>Since the <code>&lt;span></code> element has no special processing, it uses the default rule, &#8220;the microdata property is the text content.&#8221; &#8220;Text content&#8221; doesn&#8217;t mean &#8220;all the markup inside this element&#8221; (like you would get with, say, the <code>innerHTML</code> <abbr>DOM</abbr> property). It means &#8220;just the text, ma&#8217;am.&#8221; In this case, <code>http://diveintomark.org/</code>, the text content of the <code>&lt;a></code> element inside the <code>&lt;span></code> element.
 
