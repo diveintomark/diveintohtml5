@@ -173,15 +173,15 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=encoding>Character Encoding</h2>
 
-<p>When you think of &#8220;text,&#8221; you probably think of &#8220;characters and symbols I see on my computer screen.&#8221; But computers don&#8217;t deal in characters and symbols; they deal in bits and bytes.  Every piece of text you&#8217;ve ever seen on a computer screen is actually stored in a particular <em>character encoding</em>.  There are many different character encodings, some optimized for particular languages like Russian or Chinese or English, and others that can be used for multiple languages.  Very roughly speaking, the character encoding provides a mapping between the stuff you see on your screen and the stuff your computer actually stores in memory and on disk.</p>
+<p>When you think of &#8220;text,&#8221; you probably think of &#8220;characters and symbols I see on my computer screen.&#8221; But computers don&#8217;t deal in characters and symbols; they deal in bits and bytes. Every piece of text you&#8217;ve ever seen on a computer screen is actually stored in a particular <em>character encoding</em>. There are many different character encodings, some optimized for particular languages like Russian or Chinese or English, and others that can be used for multiple languages. Very roughly speaking, the character encoding provides a mapping between the stuff you see on your screen and the stuff your computer actually stores in memory and on disk.</p>
 
-<p>In reality, it&#8217;s more complicated than that.  Many characters are common to multiple encodings, but each encoding may use a different sequence of bytes to actually store those characters in memory or on disk.  So you can think of the character encoding as a kind of decryption key for the text.  Whenever someone gives you a sequence of bytes and claims it&#8217;s &#8220;text,&#8221; you need to know what character encoding they used so you can decode the bytes into characters and display them (or process them, or whatever).</p>
+<p>In reality, it&#8217;s more complicated than that. Many characters are common to multiple encodings, but each encoding may use a different sequence of bytes to actually store those characters in memory or on disk. So you can think of the character encoding as a kind of decryption key for the text. Whenever someone gives you a sequence of bytes and claims it&#8217;s &#8220;text,&#8221; you need to know what character encoding they used so you can decode the bytes into characters and display them (or process them, or whatever).</p>
 
 <p>So, how does your browser actually determine the character encoding of the stream of bytes that a web server sends? I&#8217;m glad you asked. If you&#8217;re familiar with <abbr>HTTP</abbr> headers, you may have seen a header like this:</p>
 
 <blockquote><p><code>Content-Type: text/html; charset="utf-8"</code></p></blockquote>
 
-<p>Briefly, this says that the web server thinks it&#8217;s sending you an <abbr>HTML</abbr> document, and that it thinks the document uses the <code>UTF-8</code> character encoding.  Unfortunately, in the whole magnificent soup of the world wide web, very few authors actually have control over their HTTP server.  Think <a href="http://www.blogger.com/">Blogger</a>: the content is provided by individuals, but the servers are run by Google.  So <abbr>HTML</abbr> 4 provided a way to specify the character encoding in the <abbr>HTML</abbr> document itself.  You&#8217;ve probably seen this too:</p>
+<p>Briefly, this says that the web server thinks it&#8217;s sending you an <abbr>HTML</abbr> document, and that it thinks the document uses the <code>UTF-8</code> character encoding. Unfortunately, in the whole magnificent soup of the world wide web, very few authors actually have control over their HTTP server. Think <a href="http://www.blogger.com/">Blogger</a>: the content is provided by individuals, but the servers are run by Google. So <abbr>HTML</abbr> 4 provided a way to specify the character encoding in the <abbr>HTML</abbr> document itself. You&#8217;ve probably seen this too:</p>
 
 <blockquote><p><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"></code></p></blockquote>
 
@@ -210,7 +210,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 </div>
 </div>
 
-<p>To sum up: character encoding is complicated, and it has not been made any easier by several decades of poorly written software used by copy-and-paste&ndash;educated authors.  You should <strong>always</strong> specify a character encoding on <strong>every</strong> <abbr>HTML</abbr> document, or <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7">bad things will happen</a>.  You can do it with the HTTP <code>Content-Type</code> header, the <code>&lt;meta http-equiv></code> declaration, or the shorter <code>&lt;meta charset></code> declaration, but please do it. The web thanks you.</p>
+<p>To sum up: character encoding is complicated, and it has not been made any easier by several decades of poorly written software used by copy-and-paste&ndash;educated authors. You should <strong>always</strong> specify a character encoding on <strong>every</strong> <abbr>HTML</abbr> document, or <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7">bad things will happen</a>. You can do it with the HTTP <code>Content-Type</code> header, the <code>&lt;meta http-equiv></code> declaration, or the shorter <code>&lt;meta charset></code> declaration, but please do it. The web thanks you.</p>
 
 <p class=a>&#x2767;
 
@@ -347,16 +347,16 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
 
-<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports.  For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/seamonkey/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>.  Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:</p>
+<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/seamonkey/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:</p>
 
 <ol>
 <li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font.</li>
-<li><b>What should the element&#8217;s DOM look like?</b>  Mozilla&#8217;s <code>nsElementTable.cpp</code> includes information about what kinds of other elements each element can contain.  If you include markup like <code>&lt;p>&lt;p></code>, the second paragraph element implicitly closes the first one, so the elements end up as siblings, not parent-and-child.  But if you write <code>&lt;p>&lt;span></code>, the <code>span</code> does not close the paragraph, because Firefox knows that <code>&lt;p></code> is a block element that can contain the inline element <code>&lt;span></code>.  So the <code>&lt;span></code> ends up as a child of the <code>&lt;p></code> in the DOM.</li>
+<li><b>What should the element&#8217;s DOM look like?</b>  Mozilla&#8217;s <code>nsElementTable.cpp</code> includes information about what kinds of other elements each element can contain. If you include markup like <code>&lt;p>&lt;p></code>, the second paragraph element implicitly closes the first one, so the elements end up as siblings, not parent-and-child. But if you write <code>&lt;p>&lt;span></code>, the <code>span</code> does not close the paragraph, because Firefox knows that <code>&lt;p></code> is a block element that can contain the inline element <code>&lt;span></code>. So the <code>&lt;span></code> ends up as a child of the <code>&lt;p></code> in the DOM.</li>
 </ol>
 
-<p>Different browsers answer these questions in different ways.  (Shocking, I know.)  Of the major browsers, Microsoft Internet Explorer&#8217;s answer to both questions is the most problematic.</p>
+<p>Different browsers answer these questions in different ways. (Shocking, I know.) Of the major browsers, Microsoft Internet Explorer&#8217;s answer to both questions is the most problematic.</p>
 
-<p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements.  Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS.  Unfortunately, Internet Explorer does not allow styling on unknown elements.  For example, if you had this markup:</p>
+<p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements. Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS. Unfortunately, Internet Explorer (prior to version 9) does not allow styling on unknown elements. For example, if you had this markup:</p>
 
 <pre><code>&lt;style type="text/css">
   article { display: block; border: 1px solid red }
@@ -367,9 +367,9 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 &lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
 &lt;/article></code></pre>
 
-<p>Internet Explorer (up to and including IE 8) will not put a red border around the article.</p>
+<p>Internet Explorer (up to and including IE 8) will not put a red border around the article. As I write this, <a href=http://blogs.msdn.com/ie/archive/2009/11/18/an-early-look-at-ie9-for-developers.aspx>Internet Explorer 9 is still in beta</a>, but Microsoft has stated (and developers have verified) that Internet Explorer 9 will not have this problem.</p>
 
-<p>The second problem is the DOM that browsers create when they encounter unknown elements.  Again, the most problematic browser is Internet Explorer.  If IE doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>.  All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
+<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is Internet Explorer. If IE doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
 <p>Here is some <abbr>ASCII</abbr> art to showcase the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
 
@@ -424,9 +424,9 @@ p (sibling of h1)
 
 <p>This works in all versions of Internet Explorer, all the way back to IE 6! We can extend this technique to create dummy copies of all the new <abbr>HTML5</abbr> elements at once &mdash; again, they&#8217;re never inserted into the <abbr>DOM</abbr>, so you&#8217;ll never see these dummy elements &mdash; and then just start using them without having to worry too much about non-HTML5-capable browsers.
 
-<p>Remy Sharp has done just that, with his aptly-named <a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a>. It looks like this:
+<p>Remy Sharp has done just that, with his aptly-named <a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a>. The script has gone through several revisions, but this is the basic idea:
 
-<pre><code>&lt;!--[if IE]>
+<pre><code>&lt;!--[if lte IE 9]>
 &lt;script>
   var e = ("abbr,article,aside,audio,canvas,datalist,details," +
     "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
@@ -437,7 +437,7 @@ p (sibling of h1)
 &lt;/script>
 &lt;![endif]--></code></pre>
 
-<p>The <code>&lt;!--[if IE]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is any version of Internet Explorer, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
+<p>The <code>&lt;!--[if lte IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
 
 <p>The JavaScript code itself is relatively straightforward. The variable <var>e</var> ends up as an array of strings like <code>"abbr"</code>, <code>"article"</code>, <code>"aside"</code>, and so on. Then we loop through this array and create each of the named elements by calling <code>document.createElement()</code>. But since we ignore the return value, the elements are never inserted into the <abbr>DOM</abbr>. But this is enough to get Internet Explorer to treat these elements the way we want them to be treated, once we actually use them later in the page.
 
@@ -448,7 +448,7 @@ p (sibling of h1)
 <pre><code>&lt;head>
   &lt;meta charset="utf-8" />
   &lt;title>My Weblog&lt;/title>
-  &lt;!--[if IE]>
+  &lt;!--[if lte IE 9]>
   &lt;script <mark>src="<a href=http://html5shiv.googlecode.com/svn/trunk/html5.js>http://html5shiv.googlecode.com/svn/trunk/html5.js</a>"</mark>>&lt;/script>
   &lt;![endif]-->
 &lt;/head></code></pre>
