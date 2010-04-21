@@ -124,8 +124,6 @@ CACHE:
 
 <h3 id=fallback>Fallback Sections</h3>
 
-<p><strong style="color:red">[Warning: I have no idea if this section is the slighest bit accurate. You should probably ignore it.]</strong>
-
 <p>There is one more type of section in a cache manifest file: a fallback section. In a fallback section, you can define substitutions for online resources that, for whatever reason, can&#8217;t be cached or weren&#8217;t cached successfully. The <abbr>HTML5</abbr> specification offers this clever example of using a fallback section:
 
 <pre><code>CACHE MANIFEST
@@ -142,7 +140,7 @@ NETWORK:
 
 <p>Finally, let&#8217;s examine the network section. The network section in this cache manifest also has just a single line, a line that contains just a single character (<code>*</code>). This character has special meaning in a network section. It&#8217;s called the &#8220;online whitelist wildcard flag.&#8221; That&#8217;s a fancy way of saying that anything that isn&#8217;t in the appcache can still be downloaded from the original web address, as long as you have an internet connection. This is important for an &#8220;open-ended&#8221; offline web application. It means that, while you&#8217;re browsing this hypothetical offline-enabled Wikipedia <em>online</em>, your browser will fetch images and videos and other embedded resources normally, even if they are on a different domain. (This is very common in large websites, even if they aren&#8217;t part of an offline web application. <abbr>HTML</abbr> pages are generated and served locally, while images and videos are served from a <a href=http://en.wikipedia.org/wiki/Content_delivery_network><abbr title="content delivery network">CDN</abbr></a> on another domain.) Without this wildcard flag, our hypothetical offline-enabled Wikipedia would behave strangely when you were online &mdash; specifically, it wouldn&#8217;t load any externally-hosted images or videos!
 
-<p><strong style="color:red">[Here endeth the part where I'm just talking out of my ass.]</strong>
+<p>Is this example complete? No. Wikipedia is more than <abbr>HTML</abbr> files. It uses common <abbr>CSS</abbr>, JavaScript, and images on each page. Each of these resources would need to be listed explicitly in the <code>CACHE:</code> section of the manifest file, in order for pages to display and behave properly offline. But the point of the fallback section is that you can have an &#8220;open-ended&#8221; offline web application that extends beyond the resources you&#8217;ve listed explicitly in the manifest file.
 
 <p class=a>&#x2767;
 
