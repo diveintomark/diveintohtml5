@@ -81,7 +81,7 @@ table.faketable{border-collapse:collapse}
 <p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> It&#8217;s all about me
 <pre><code>&lt;section>
   &lt;h1>Mark Pilgrim&lt;/h1>
-  &lt;p>&lt;img src="http://www.example.com/photo.jpg">&lt;/p>
+  &lt;p>&lt;img src="http://www.example.com/photo.jpg" alt="[me smiling]">&lt;/p>
   &lt;p>&lt;a href="http://diveintomark.org/">weblog&lt;/a>&lt;/p>
 &lt;/section></code></pre>
 
@@ -110,7 +110,9 @@ table.faketable{border-collapse:collapse}
 
 <p id=person-photo>Next up: the <code>photo</code> property. This is supposed to be a <abbr>URL</abbr>. According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the &#8220;value&#8221; of an <code>&lt;img></code> element is its <code>src</code> attribute. Hey look, the <abbr>URL</abbr> of your profile photo is already in an <code>&lt;img src></code> attribute. All you need to do is declare that the <code>&lt;img></code> element is the <code>photo</code> property.
 
-<pre><code>  &lt;p>&lt;img <mark>itemprop="photo"</mark> src="http://www.example.com/photo.jpg">&lt;/p></code></pre>
+<pre><code>  &lt;p>&lt;img <mark>itemprop="photo"</mark>
+          src="http://www.example.com/photo.jpg"
+          alt="[me smiling]">&lt;/p></code></pre>
 
 <p>In English, this says &#8220;here is the <code>photo</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>http://www.example.com/photo.jpg</code>.
 
