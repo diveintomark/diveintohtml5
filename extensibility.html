@@ -52,7 +52,7 @@ table.faketable{border-collapse:collapse}
 </div>
 </div>
 
-<p>Now what does that mean? Let&#8217;s start from the end and work backwards. Microdata centers around custom vocabularies. Think of &#8220;the set of all <abbr>HTML5</abbr> elements&#8221; as one vocabulary. This vocabulary includes elements to represent <a href=semantics.html#new-elements>a section or an article</a>, but it doesn&#8217;t include elements to represent a person or an event. If you want to represent a person on a web page, you&#8217;ll need to define your own vocabulary. Microdata lets you do this.
+<p>Now what does that mean? Let&#8217;s start from the end and work backwards. Microdata centers around custom vocabularies. Think of &#8220;the set of all <abbr>HTML5</abbr> elements&#8221; as one vocabulary. This vocabulary includes elements to represent <a href=semantics.html#new-elements>a section or an article</a>, but it doesn&#8217;t include elements to represent a person or an event. If you want to represent a person on a web page, you&#8217;ll need to define your own vocabulary. Microdata lets you do this. Anyone can define a microdata vocabulary and start embedding custom properties in their own web pages.
 
 <p>The next thing to know about microdata is that it works with name/value pairs. Every microdata vocabulary defines a set of named properties. For example, a Person vocabulary could define properties like <code>name</code> and <code>photo</code>. To include a specific microdata property on your web page, you provide the property name in a specific place. Depending on where you declare the property name, microdata has rules about how to extract the property value. (More on this in the next section.)
 
@@ -547,7 +547,7 @@ A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 
 <h2 id=event>Marking Up Events</h2>
 
-<p>Shit happens. Some shit happens at pre-determined times. Wouldn&#8217;t it be nice if you could tell search engines exactly when shit was about to happen? There&#8217;s an angle bracket for that. [FIXME I am very tired.]
+<p>Shit happens. Some shit happens at pre-determined times. Wouldn&#8217;t it be nice if you could tell search engines exactly when shit was about to happen? There&#8217;s an angle bracket for that.
 
 <p>Let&#8217;s start by looking at <a href=examples/event.html>a sample schedule of my speaking engagements</a>.
 
@@ -705,7 +705,7 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
 <p><a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.org/examples/event-plus-microdata.html">According to Google&#8217;s Rich Snippets Testing Tool</a>, this is the information that Google&#8217;s crawlers will glean from <a href=examples/event-plus-microdata.html>our sample event listing page</a>:
 
 <pre><samp>Item
-    Type: http://data-vocabulary.org/Event
+    <b>Type:</b> http://data-vocabulary.org/Event
     summary = Google Developer Day 2009 
     eventType = conference 
     photo = http://diveintohtml5.org/examples/gdd-2009-prague-pilgrim.jpg 
@@ -718,13 +718,13 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
 
 Item
     Id: __1
-    Type: http://data-vocabulary.org/Organization
+    <b>Type:</b> http://data-vocabulary.org/Organization
     name = Congress Center 
     address = Item(__2) 
 
 Item
     Id: __2
-    Type: http://data-vocabulary.org/Address
+    <b>Type:</b> http://data-vocabulary.org/Address
     street-address = 5th května 65 
     postal-code = 140 21 
     locality = Praha 4 
@@ -732,7 +732,7 @@ Item
 
 Item
     Id: __3
-    Type: http://data-vocabulary.org/Geo
+    <b>Type:</b> http://data-vocabulary.org/Geo
     latitude = 50.047893 
     longitude = 14.4491</samp></pre>
 
@@ -759,7 +759,9 @@ Excerpt from the page will show up here.</span><br>
 
 <h2 id=review>Marking Up Reviews</h2>
 
-<p>FIXME
+<p>Here&#8217;s another example of making the web (and possibly search result listings) better through markup: business and product reviews.
+
+<p>This is a short review I wrote of my favorite pizza place near my house. (This is a real restaurant, by the way. If you&#8217;re ever in Apex, NC, I highly recommend it.) Let&#8217;s look at <a href=examples/review.html>the original markup</a>:
 
 <pre><code>&lt;article>
   &lt;h1>Anna&#8217;s Pizzeria&lt;/h1>
@@ -780,37 +782,37 @@ Excerpt from the page will show up here.</span><br>
   &lt;/p>
   &lt;p>&mdash; reviewed by Mark Pilgrim, last updated March 31, 2010&lt;/p>
 &lt;/article></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
 
-<p>FIXME
+<p>This review is contained in an <code>&lt;article></code> element, so that&#8217;s where we&#8217;ll put the <code>itemtype</code> and <code>itemscope</code> attributes. The namespace <abbr>URL</abbr> for this vocabulary is <code>http://data-vocabulary.org/Review</code>.
 
 <pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Review"</mark>></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
 
 <p>What are the available properties in the Review vocabulary? I&#8217;m glad you asked.
 
 <table class=st>
 <caption>Review vocabulary</caption>
 <tr class=ho><th>Property<th>Description
-<tr class=zebra><td><code>itemreviewed</code><td>The name of the item being reviewed
-<tr><td><code>rating</code><td>A numerical quality rating for the item, on a scale from 1 to 5. If you prefer a different scale (like 1&ndash;4 or 0&ndash;10), you can specify two subproperties, <code>worst</code> and <code>best</code>.
+<tr class=zebra><td><code>itemreviewed</code><td>The name of the item being reviewed. Can be a product, service, business, <i class=baa>&amp;</i>c.
+<tr><td><code>rating</code><td>A numerical quality rating for the item, on a scale from 1 to 5. Can also be a nested <code>http://data-vocabulary.org/Rating</code> vocabulary to use a nonstandard scale.
 <tr class=zebra><td><code>reviewer</code><td>The name of the author who wrote the review
 <tr><td><code>dtreviewed</code><td>The date that the item was reviewed in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
 <tr class=zebra><td><code>summary</code><td>A short summary of the review
 <tr><td><code>description</code><td>The body of the review
 </table>
 
-<p>FIXME
+<p>The first property is simple: <code>itemreviewed</code> is just text, and here it&#8217;s contained in an <code>&lt;h1></code> element, so that&#8217;s where we should put the <code>itemprop</code> attribute.
 
 <pre><code>  &lt;h1 <mark>itemprop="itemreviewed"</mark>>Anna&#8217;s Pizzeria&lt;/h1></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
 
 <p>I&#8217;m going to skip over the actual rating and come back to that at the end.
 
-<p>FIXME
+<p>The next two properties are also straightforward. The <code>summary</code> property is a short description of what you&#8217;re reviewing, and the <code>description</code> property is the body of the review.
 
-<pre><code>  &lt;p <mark>itemprop="summary"</mark>>New York-style pizza right in historic downtown Apex&lt;/p></code></pre>
-
-<p>FIXME
-
-<pre><code>  &lt;p <mark>itemprop="description"</mark>>
+<pre><code>  &lt;p <mark>itemprop="summary"</mark>>New York-style pizza right in historic downtown Apex&lt;/p>
+  &lt;p <mark>itemprop="description"</mark>>
     Food is top-notch. Atmosphere is just right for a &#8220;neighborhood
     pizza joint.&#8221; The restaurant itself is a bit cramped; if you&#8217;re
     overweight, you may have difficulty getting in and out of your
@@ -818,17 +820,9 @@ Excerpt from the page will show up here.</span><br>
     garlic knots when you sat down; now they give you plain bread
     and you have to pay for the good stuff. Overall, it&#8217;s a winner.
   &lt;/p></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
 
-<p>FIXME ... skipping down to the bottom ...
-
-<pre><code>  &lt;p>&mdash; &lt;span <mark>itemprop="reviewer"</mark>>Mark Pilgrim&lt;/span>, last updated
-     &lt;<mark>time</mark> <mark>itemprop="dtreviewed"</mark> <mark>datetime="2010-03-31"</mark>>
-       March 31, 2010
-     &lt;/time>
-  &lt;/p>
-&lt;/article></code></pre>
-
-<p>FIXME ... going back up to the part we skipped ...
+<p>The <code>location</code> and <code>geo</code> properties aren&#8217;t anything we haven&#8217;t tackled before. (If you&#8217;re just tuning in, check out <a href=#address>marking up the address of a Person</a>, <a href=#organization-address>marking up the address of an Organization</a>, and <a href=#geo>marking up geolocation information</a> from earlier in this chapter.)
 
 <pre><code>  &lt;p <mark>itemprop="location"</mark> <mark>itemscope</mark>
            <mark>itemtype="http://data-vocabulary.org/Address"</mark>>
@@ -843,44 +837,64 @@ Excerpt from the page will show up here.</span><br>
     &lt;meta <mark>itemprop="latitude"</mark> content="35.730796" />
     &lt;meta <mark>itemprop="longitude"</mark> content="-78.851426" />
   &lt;/span></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+
+<p>The final line presents a familiar problem: it contains two bits of information in one element. The name of the reviewer is <code>Mark Pilgrim</code>, and the review date is <code>March 31, 2010</code>. How do we mark up these two distinct properties? <a href=#title-and-affiliation>Wrap them in their own elements</a> and put an <code>itemprop</code> attribute on each element. In fact, the date in this example should have been marked up with a <code>&lt;time></code> element in the first place, so that provides a natural hook on which to hang our <code>itemprop</code> attribute. The reviewer name can just be wrapped in a dummy <code>&lt;span></code> element.
+
+<pre><code>  &lt;p>&mdash; &lt;span <mark>itemprop="reviewer"</mark>>Mark Pilgrim&lt;/span>, last updated
+     &lt;<mark>time</mark> <mark>itemprop="dtreviewed"</mark> <mark>datetime="2010-03-31"</mark>>
+       March 31, 2010
+     &lt;/time>
+  &lt;/p>
+&lt;/article></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
 
 <p>OK, let&#8217;s talk ratings. The trickiest part of marking up a review is the rating. By default, ratings in the Review vocabulary are on a scale of 1&ndash;5, 1 being &#8220;terrible&#8221; and 5 being &#8220;awesome.&#8221; If you want to use a different scale, you can definitely do that. But let&#8217;s talk about the default scale first.
 
 <pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>>4&lt;/span> stars out of 5)&lt;/p></code></pre>
+<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
 
-<p>FIXME
+<p>If you&#8217;re using the default 1&ndash;5 scale, the only property you need to mark up is the rating itself (4, in this case). But what if you want to use a different scale? You can do that; you just need to declare the limits of the scale you&#8217;re using. For example, if you wanted to use a 0&ndash;10 point scale, you would still declare the <code>itemprop="rating"</code> property, but instead of giving the rating value directly, you would use a nested vocabulary of <code>http://data-vocabulary.org/Rating</code> to declare the worst and best values in your custom scale and the actual rating value within that scale.
 
-<p>FIXME-alternate scales (0-4, 1-10, etc.)
+<pre><code>&lt;p <mark>itemprop="rating"</mark> <mark>itemscope</mark>
+   <mark>itemtype="http://data-vocabulary.org/Rating"</mark>>
+  &#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;
+  (&lt;span <mark>itemprop="value"</mark>>9&lt;/span> on a scale of
+   &lt;span <mark>itemprop="worst"</mark>>0&lt;/span> to
+   &lt;span <mark>itemprop="best"</mark>>10&lt;/span>)
+&lt;/p></code></pre>
 
-<pre>Extracted Rich Snippet data from the page
+<p>In English, this says &#8220;the product I&#8217;m reviewing has a rating value of 9 on a scale of 0&ndash;10.&#8221;
+
+<p>Did I mention that review microdata could affect search result listings? Oh yes, it can. Here is the &#8220;raw data&#8221; that the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.org/examples/review-plus-microdata.html">Google Rich Snippets tool extracted from my microdata-enhanced review</a>:
+
+<pre><samp>Item
+  <b>Type:</b> http://data-vocabulary.org/Review
+  itemreviewed = Anna&#8217;s Pizzeria 
+  rating = 4 
+  summary = New York-style pizza right in historic downtown Apex 
+  description = Food is top-notch. Atmosphere is just right ...
+  address = Item(__1) 
+  geo = Item(__2) 
+  reviewer = Mark Pilgrim 
+  dtreviewed = 2010-03-31 
 
 Item
-Type: http://data-vocabulary.org/Review
-itemreviewed = Anna&#8217;s Pizzeria 
-rating = 4 
-summary = New York-style pizza right in historic downtown Apex 
-description = Food is top-notch. Atmosphere is just right for a neighborhood pizza joint. The restaurant itself is a bit cramped; if you&#8217;re overweight, you may have difficulty getting in and out of your seat and ... 
-address = Item(__1) 
-geo = Item(__2) 
-reviewer = Mark Pilgrim 
-dtreviewed = 2010-03-31 
+  Id: __1
+  <b>Type:</b> http://data-vocabulary.org/Organization
+  street-address = 100 North Salem Street 
+  locality = Apex 
+  region = NC 
+  postal-code = 27502 
+  country-name = USA 
 
 Item
-Id: __1
-Type: http://data-vocabulary.org/Organization
-street-address = 100 North Salem Street 
-locality = Apex 
-region = NC 
-postal-code = 27502 
-country-name = USA 
+  Id: __2
+  <b>Type:</b> http://data-vocabulary.org/Geo
+  latitude = 35.730796 
+  longitude = -78.851426</samp></pre>
 
-Item
-Id: __2
-Type: http://data-vocabulary.org/Geo
-latitude = 35.730796 
-longitude = -78.851426</pre>
-
-<p>FIXME
+<p>And here (modulo the whims of Google, the phase of the moon, and so on and so forth) is what my review might look like in a search result listing:
 
 <blockquote class=fakeresults>
 <p><a href=examples/review-plus-microdata.html>Anna&#8217;s Pizzeria: review</a><br>
@@ -889,6 +903,8 @@ longitude = -78.851426</pre>
 Excerpt from the page will show up here.</span><br>
 <span class=fakeurl>diveintohtml5.org/examples/review-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
 </blockquote>
+
+<p>Angle brackets don&#8217;t impress me much, but I have to admit, that&#8217;s pretty cool.
 
 <p class=a>&#x2767;
 
@@ -909,6 +925,7 @@ Excerpt from the page will show up here.</span><br>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146861">Businesses <i class=baa>&amp;</i> organizations</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=164506">Events</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146645">Reviews</a>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=172705">Review ratings</a>
 <li><a href=http://www.google.com/webmasters/tools/richsnippets>Google Rich Snippets Testing Tool</a>
 <li><a href=http://knol.google.com/k/google-rich-snippets-tips-and-tricks>Google Rich Snippets Tips and Tricks</a>
 </ul>
