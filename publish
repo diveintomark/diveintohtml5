@@ -92,7 +92,7 @@ sed -i -e "s|# revision|# revision ${revision}|g" build/examples/offline/clock.m
 # set file permissions (hg resets these, don't know why)
 chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz &&
   chmod 755 build/examples build/j build/i build/f build/fonts-original build/examples/offline &&
-  chmod 644 build/examples/offline/* || die "Failed to reset file permissions"
+  chmod 644 build/examples/offline/* build/examples/offline/.htaccess || die "Failed to reset file permissions"
     
 
 #die "Intentionally aborting without publishing"
