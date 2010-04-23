@@ -496,6 +496,32 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 <p class=a>&#x2767;
 
+<h3 id=video-mime-types>MIME Types Rear Their Ugly Head</h3>
+
+<p>There are so many pieces to the video puzzle, I hesitate to even bring this up. But it&#8217;s important, because a misconfigured web server can lead to endless amounts of frustration as you try to debug why your videos play on your local computer but fail to play when you deploy them to your production site. If you run into this problem, the root cause is probably <abbr>MIME</abbr> types.
+
+<p>I mentioned <abbr>MIME</abbr> types <a href=past.html#mime-types>in the history chapter</a>, but you probably glazed over that and didn&#8217;t appreciate the significance. So here it is in all-caps:
+
+<div class=pf>
+<h4>Professor Markup Shouts</h4>
+<div class=inner>
+<blockquote>
+<p>VIDEO FILES MUST BE SERVED WITH THE PROPER <abbr>MIME</abbr> TYPE!
+</blockquote>
+</div>
+</div>
+
+<p>What&#8217;s the proper <abbr>MIME</abbr> type? You&#8217;ve already seen it; it&#8217;s part of the value of the <code>type</code> attribute on a <code>&lt;source></code> element. But setting the <code>type</code> attribute in your <abbr>HTML</abbr> markup is not sufficient. You also need to ensure that your web server includes the proper <abbr>MIME</abbr> type in the <code>Content-Type</code> <abbr>HTTP</abbr> header.
+
+<p>If you&#8217;re using the Apache web server or some derivative of Apache, you can use an <a href=http://httpd.apache.org/docs/2.0/mod/mod_mime.html#addtype>AddType directive</a> in your site-wide <code>httpd.conf</code> or in an <code>.htaccess</code> file in the directory where you store your video files. (If you use some other web server, consult your server&#8217;s documentation on how to set the <code>Content-Type</code> <abbr>HTTP</abbr> header for specific file types.)
+
+<pre><code>AddType video/ogg .ogv
+AddType video/mp4 .mp4</code></pre>
+
+<p>The first line is for videos in an Ogg container. The second line is for videos in an <abbr>MPEG</abbr>-4 container. Set it once and forget it. If you forget to set it, your videos <em>will</em> fail to play in some browsers, even though you included the <abbr>MIME</abbr> type in the <code>type</code> attribute in your <abbr>HTML</abbr> markup.
+
+<p class=a>&#x2767;
+
 <h2 id=ie>What About IE?</h2>
 
 <p>As I write this, Microsoft has released a &#8220;developer preview&#8221; of Internet Explorer 9. It does not yet support the <abbr>HTML5</abbr> <code>&lt;video></code> element, but <a href="http://blogs.msdn.com/ie/archive/2010/03/16/html5-hardware-accelerated-first-ie9-platform-preview-available-for-developers.aspx">Microsoft has publicly promised</a> that the final version of <abbr>IE</abbr> 9 will support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone.
