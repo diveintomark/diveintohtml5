@@ -32,6 +32,7 @@ li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
 
 <!-- toc -->
 <ol>
+<li><a href=introduction.html>Introduction</a>
 <li><a href=past.html>A Quite Biased History of <abbr>HTML5</abbr></a>
 <li><a href=detect.html>Detecting <abbr>HTML5</abbr> Features: It&#8217;s Elementary, My Dear Watson</a>
 <li><a href=semantics.html>What Does It All Mean?</a>
@@ -40,7 +41,7 @@ li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
 <li><a href=geolocation.html>You Are Here (And So Is Everybody Else)</a>
 <li>SELECT * FROM BROWSER WHERE 5 > 2
 <li>Thread The Needle, Thread The Script
-<li>Let&#8217;s Take This Offline
+<li><a href=offline.html>Let&#8217;s Take This Offline</a>
 <li><a href=forms.html>A Form of Madness</a>
 <li><a href=extensibility.html>&#8220;Distributed,&#8221; &#8220;Extensibility,&#8221; And Other Fancy Words</a>
 </ol>
@@ -60,7 +61,7 @@ li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
 $(document).ready(function() {
   $("ol").css("list-style", "none");
   $("li").each(function(i) {
-    $(this).wrapInner('<span class=title></span>').append('<span class=number>'+(i+1)+'</span>').css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
+    $(this).wrapInner('<span class=title></span>').append('<span class=number>'+i+'</span>').css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
   });
 });
 </script>
