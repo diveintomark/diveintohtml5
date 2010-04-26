@@ -541,6 +541,12 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <canvas id=e3 width=177 height=113></canvas>
 
+<pre><code>  var cat = document.getElementById("cat");
+  var e3 = document.getElementById("e3");
+  var ctx = e3.getContext("2d");
+  <mark>ctx.rotate(-Math.PI);</mark>
+  ctx.drawImage(cat, -177, -113);</code></pre>
+
 <p>&hellip;to be continued&hellip; <!-- FIXME -->
 
 <p class=a>&#x2767;
