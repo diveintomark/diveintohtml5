@@ -151,15 +151,15 @@ function drawPiece(p, selected) {
 }
 
 function newGame() {
-    gPieces = [new Cell(6, 0),
-	       new Cell(7, 0),
-	       new Cell(8, 0),
-	       new Cell(6, 1),
-	       new Cell(7, 1),
-	       new Cell(8, 1),
-	       new Cell(6, 2),
-	       new Cell(7, 2),
-	       new Cell(8, 2)];
+    gPieces = [new Cell(kBoardHeight - 3, 0),
+	       new Cell(kBoardHeight - 2, 0),
+	       new Cell(kBoardHeight - 1, 0),
+	       new Cell(kBoardHeight - 3, 1),
+	       new Cell(kBoardHeight - 2, 1),
+	       new Cell(kBoardHeight - 1, 1),
+	       new Cell(kBoardHeight - 3, 2),
+	       new Cell(kBoardHeight - 2, 2),
+	       new Cell(kBoardHeight - 1, 2)];
     gNumPieces = gPieces.length;
     gSelectedPieceIndex = -1;
     gSelectedPieceHasMoved = false;
