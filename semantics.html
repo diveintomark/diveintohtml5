@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
 <title>What Does It All Mean? - Dive Into HTML5</title>
-<!--[if lte IE 9]><script src=j/html5.js></script><![endif]-->
+<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
 <link rel="shortcut icon" href=favicon.ico>
 <link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
 <link rel=stylesheet href=screen.css>
@@ -414,7 +414,7 @@ p (sibling of h1)
 
 <p>Remy Sharp has done just that, with his aptly-named <a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a>. The script has gone through several revisions, but this is the basic idea:
 
-<pre><code>&lt;!--[if lte IE 9]>
+<pre><code>&lt;!--[if lt IE 9]>
 &lt;script>
   var e = ("abbr,article,aside,audio,canvas,datalist,details," +
     "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
@@ -425,7 +425,7 @@ p (sibling of h1)
 &lt;/script>
 &lt;![endif]--></code></pre>
 
-<p>The <code>&lt;!--[if lte IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
+<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
 
 <p>The JavaScript code itself is relatively straightforward. The variable <var>e</var> ends up as an array of strings like <code>"abbr"</code>, <code>"article"</code>, <code>"aside"</code>, and so on. Then we loop through this array and create each of the named elements by calling <code>document.createElement()</code>. But since we ignore the return value, the elements are never inserted into the <abbr>DOM</abbr>. But this is enough to get Internet Explorer to treat these elements the way we want them to be treated, once we actually use them later in the page.
 
@@ -436,7 +436,7 @@ p (sibling of h1)
 <pre><code>&lt;head>
   &lt;meta charset="utf-8" />
   &lt;title>My Weblog&lt;/title>
-  &lt;!--[if lte IE 9]>
+  &lt;!--[if lt IE 9]>
   &lt;script <mark>src="<a href=http://html5shiv.googlecode.com/svn/trunk/html5.js>http://html5shiv.googlecode.com/svn/trunk/html5.js</a>"</mark>>&lt;/script>
   &lt;![endif]-->
 &lt;/head></code></pre>

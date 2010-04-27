@@ -1,4 +1,4 @@
-#!/usr/bin/python2.6
+#!/usr/bin/python2.5
 
 from pyquery import PyQuery as pq
 import sys

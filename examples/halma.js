@@ -4,13 +4,17 @@ var kPieceWidth = 50;
 var kPieceHeight= 50;
 var kPixelWidth = 1 + (kBoardWidth * kPieceWidth);
 var kPixelHeight= 1 + (kBoardHeight * kPieceHeight);
+
 var gCanvasElement;
 var gDrawingContext;
+var gPattern;
+
 var gPieces;
 var gNumPieces;
 var gSelectedPieceIndex;
 var gSelectedPieceHasMoved;
 var gMoveCount;
+var gGameInProgress;
 
 function Cell(row, column) {
     this.row = row;
@@ -105,7 +109,23 @@ function isThereAPieceBetween(cell1, cell2) {
     return false;
 }
 
+function isTheGameOver() {
+    for (var i = 0; i < gNumPieces; i++) {
+	if (gPieces[i].row > 2) {
+	    return false;
+	}
+	if (gPieces[i].column < (kBoardWidth - 3)) {
+	    return false;
+	}
+    }
+    return true;
+}
+
 function drawBoard() {
+    if (gGameInProgress && isTheGameOver()) {
+	endGame();
+    }
+
     gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);
 
     gDrawingContext.beginPath();
@@ -164,7 +184,13 @@ function newGame() {
     gSelectedPieceIndex = -1;
     gSelectedPieceHasMoved = false;
     gMoveCount = 0;
+    gGameInProgress = true;
     drawBoard();
+}
+
+function endGame() {
+    gSelectedPieceIndex = -1;
+    gGameInProgress = false;
 }
 
 function init() {
@@ -175,7 +201,12 @@ function init() {
     document.body.appendChild(gCanvasElement);
     gCanvasElement.addEventListener("click", onclick, false);
     gDrawingContext = gCanvasElement.getContext("2d");
-    newGame();
+    var pastel = new Image();
+    pastel.src = "../i/pastel.png";
+    pastel.onload = function() {
+	gPattern = gDrawingContext.createPattern(pastel, "repeat");
+	newGame();
+    }
 }
 
 window.onload = init;
