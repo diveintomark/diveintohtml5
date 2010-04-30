@@ -22,6 +22,7 @@ init: clean
 	cp -R j build/
 	cp -R i build/
 	cp -R f build/
+	cp -R s build/
 	cp -R examples build/
 	cp fonts-original/*.tar.gz build/fonts-original/
 
@@ -72,8 +73,8 @@ add-revision-number-to-manifests: init
 	sed -i -e "s|# revision|# revision ${REVISION}|g" build/examples/offline/clock.manifest
 
 set-file-permissions: init
-	chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz
-	chmod 755 build/examples build/j build/i build/f build/fonts-original build/examples/offline
+	chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz build/s/*
+	chmod 755 build/examples build/j build/i build/f build/fonts-original build/examples/offline build/s
 	chmod 644 build/examples/offline/* build/examples/offline/.htaccess
 
 live: all
@@ -81,4 +82,4 @@ live: all
 	rsync -essh -a build/i/*.mp4 build/i/*.ogv build/i/pastel.png build/i/apple-iie.jpg diveintomark.org:~/web/diveintohtml5.org/i/
 	rsync -essh -a build/j/${REVISION}*.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/
 	rsync -essh -a build/f/*.ttf build/f/*.eot build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/
-	rsync -essh -a build/examples build/*.txt build/*.ico build/*.html build/.htaccess build/fonts-original diveintomark.org:~/web/diveintohtml5.org/
+	rsync -essh -a build/examples build/*.txt build/*.ico build/*.html build/.htaccess build/fonts-original build/s diveintomark.org:~/web/diveintohtml5.org/
