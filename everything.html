@@ -197,6 +197,9 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora, vorbis"').r
 <dt><a href=http://dev.w3.org/html5/eventsource/>Server-sent events</a>
 <dd><code>return typeof EventSource !== 'undefined';</code>
 
+<dt><a href=http://dev.w3.org/html5/webstorage/>Session storage</a>
+<dd><code>return !!window.sessionStorage;</code>
+
 <dt><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
 <dd><code>return !!window.Worker;</code>
 
