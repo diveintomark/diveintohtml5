@@ -64,18 +64,19 @@ Acknowledgements & Inspirations
 
 @font-face {
   font-family: "Essays 1743";
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
   src: url("f/essays1743-min.eot");
-  src: local("Essays 1743"), url("f/essays1743-min.ttf");
-}
-@font-face {
-  font-family: "Essays 1743 Italic";
-  src: url("f/essays1743i-min.eot");
-  src: local("Essays 1743 Italic"), url("f/essays1743i-min.ttf");
+  src: local('Essays 1743'), url("f/essays1743-min.ttf");
 }
 @font-face {
   font-family: "Linux Libertine";
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
   src: url("f/lin-libertine-min.eot");
-  src: local("Linux Libertine"), url("f/lin-libertine-min.ttf");
+  src: local('Linux Libertine'), url("f/lin-libertine-min.ttf");
 }
 
 html, body {
@@ -184,16 +185,8 @@ p, ul, ol {
   margin: 0 0 1.75em 1.75em;
   font-size: medium;
 }
-address, cite, dfn, em, i, var {
+address, cite, dfn, var {
   font-style: normal;
-}
-strong, b, em, i {
-  font-weight: normal;
-  text-transform: uppercase;
-}
-strong code, pre b, pre strong {
-  font-weight: bold;
-  text-transform: none;
 }
 sup {
   font-variant: small-caps;
@@ -223,7 +216,7 @@ a:link:hover, a:visited:hover {
 /* figures and legends */
 
 .legend {
-  font: italic x-large/1.75 "Essays 1743 Italic","Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman Italic",serif;
+  font: italic x-large/1.75 "Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman",serif;
   text-shadow: 0 0 1px #667;
   margin-left: 0.5em;
   vertical-align: top;
@@ -279,6 +272,7 @@ code, var, samp {
 
 h1, h2, h3, h4, caption, thead th {
   font-family: "Essays 1743", "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  font-weight: normal;
   text-transform: uppercase;
   text-shadow: 0 0 1px #667;
 }
