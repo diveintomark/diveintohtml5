@@ -265,7 +265,7 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 <p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined.
 
 <pre><code>function supports_local_storage() {
-  return !!window.localStorage;
+  return ('localStorage' in window) && window['localStorage'] !== null;
 }</code></pre>
 
 <p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
