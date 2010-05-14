@@ -16,7 +16,7 @@ pre{margin:0;padding:0}
 <h1><br>The All-In-One<br>Almost-Alphabetical<br>No-Bullshit Guide to<br>Detecting Everything</h1>
 <p class=a>&#x2767;
 
-<p>(Confused? Read <a href=detect.html>Detecting <abbr>HTML5</abbr> Features</a> for a conceptual introduction.)
+<p>(Confused? Read <a href=detect.html>Detecting <abbr>HTML5</abbr> Features</a> for a conceptual introduction. Want an all-in-one library instead? Try <a href=http://modernizr.com/>Modernizr</a>.)
 
 <dl>
 
@@ -186,7 +186,7 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora, vorbis"').r
 <dd><code>return !!(window.history && window.history.pushState && window.history.popState);</code>
 
 <dt><a href=http://dev.w3.org/html5/webstorage/>Local storage</a>
-<dd><code>return return ('localStorage' in window) && window['localStorage'] !== null;</code>
+<dd><code>return ('localStorage' in window) && window['localStorage'] !== null;</code>
 
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata-dom-api>Microdata</a>
 <dd><code>return !!document.getItems;</code>
