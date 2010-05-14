@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything - Dive Into HTML5</title>
+<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
+<link rel="shortcut icon" href=favicon.ico>
+<link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
+<link rel=stylesheet href=screen.css>
+<style>
+h1:before{content:"Appendix A:"}
+dd{padding-bottom:1.75em}
+pre{margin:0;padding:0}
+</style>
+<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
+<div id=zz>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#everything>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1><br>The All-In-One<br>Almost-Alphabetical<br>No-Bullshit Guide to<br>Detecting Everything</h1>
+<p class=a>&#x2767;
+
+<p>(Confused? Read <a href=detect.html>Detecting <abbr>HTML5</abbr> Features</a> for a conceptual introduction.)
+
+<dl>
+
+<dt><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio></code></a>
+<dd><code>return !!document.createElement('audio').canPlayType;</code>
+
+<dt><a href=http://en.wikipedia.org/wiki/MP3><code>&lt;audio></code> in MP3 format</a>
+<dd><pre><code>var a = document.createElement('audio');
+return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));</code></pre>
+
+<dt><a href=http://en.wikipedia.org/wiki/Vorbis><code>&lt;audio></code> in Vorbis format</a>
+<dd><pre><code>var a = document.createElement('audio');
+return !!(a.canPlayType && a.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''));</code></pre>
+
+<dt><a href=http://en.wikipedia.org/wiki/WAV><code>&lt;audio></code> in WAV format</a>
+<dd><pre><code>var a = document.createElement('audio');
+return !!(a.canPlayType && (a.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));</code></pre>
+
+<dt><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding><code>&lt;audio></code> in AAC format</a>
+<dd><pre><code>var a = document.createElement('audio');
+return !!(a.canPlayType && (a.canPlayType('audio/x-m4a;').replace(/no/, '') || a.canPlayType('audio/aac;').replace(/no/, '')));</code></pre>
+
+<dt><a href=canvas.html><code>&lt;canvas></code></a>
+<dd><code>return !!document.createElement('canvas').getContext;</code>
+
+<dt><a href=canvas.html#text><code>&lt;canvas></code> text <abbr>API</abbr></a>
+<dd><pre><code>var c = document.createElement('canvas');
+return c.getContext && typeof c.getContext('2d').fillText == 'function';</code></pre>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command><code>&lt;command></code></a>
+<dd><code>return 'type' in document.createElement('command');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element><code>&lt;datalist></code></a>
+<dd><pre><code>return 'options' in document.createElement('datalist');</code></pre>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-details-element><code>&lt;details></code></a>
+<dd><code>return 'open' in document.createElement('details');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/commands.html#devices><code>&lt;device></code></a>
+<dd><code>return 'type' in document.createElement('device');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#constraints><code>&lt;form></code> constraint validation</a>
+<dd><code>return 'noValidate' in document.createElement('form');</code>
+
+<dt><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox><code>&lt;iframe sandbox></code></a>
+<dd><code>return 'sandbox' in document.createElement('iframe');</code>
+
+<dt><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox><code>&lt;iframe srcdoc></code></a>
+<dd><code>return 'srcdoc' in document.createElement('iframe');</code>
+
+<dt><a href=forms.html#autofocus><code>&lt;input autofocus></code></a>
+<dd><code>return 'autofocus' in document.createElement('input');</code>
+
+<dt><a href=forms.html#placeholder><code>&lt;input placeholder></code></a>
+<dd><code>return 'placeholder' in document.createElement('input');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'color');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#type-email><code>&lt;input type="email"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'email');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#type-number><code>&lt;input type="number"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'number');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#type-range><code>&lt;input type="range"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'range');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#type-search><code>&lt;input type="search"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'search');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state><code>&lt;input type="tel"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'tel');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#type-url><code>&lt;input type="url"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'url');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#date><code>&lt;input type="date"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'date');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#date><code>&lt;input type="time"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'time');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#date><code>&lt;input type="datetime"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'datetime');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#date><code>&lt;input type="datetime-local"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'datetime-local);
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#date><code>&lt;input type="month"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'month');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=forms.html#date><code>&lt;input type="week"></code></a>
+<dd><pre><code>var i = document.createElement('input');
+i.setAttribute('type', 'week');
+return i.type !== 'text';</code></pre>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element><code>&lt;meter></code></a>
+<dd><code>return 'value' in document.createElement('meter');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-output-element><code>&lt;output></code></a>
+<dd><code>return 'value' in document.createElement('output');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element><code>&lt;progress></code></a>
+<dd><code>return 'value' in document.createElement('progress');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#the-time-element-0><code>&lt;time></code></a>
+<dd><code>return 'valueAsDate' in document.createElement('time');</code>
+
+<dt><a href=video.html><code>&lt;video></code></a>
+<dd><code>return !!document.createElement('video').canPlayType;</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#websrt><code>&lt;video></code> captions</a>
+<dd><code>return 'track' in document.createElement('track');</code>
+
+<dt><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#attr-video-poster"><code>&lt;video poster></code></a>
+<dd><code>return 'poster' in document.createElement('video');</code>
+
+<dt><a href=video.html#h264><code>&lt;video></code> in H.264 format</a>
+<dd><pre><code>var v = document.createElement('video');
+return !!(v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, ''));</code></pre>
+
+<dt><a href=video.html#theora><code>&lt;video></code> in Theora format</a>
+<dd><pre><code>var v = document.createElement('video');
+return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora, vorbis"').replace(/no/, ''));</code></pre>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#contenteditable><code>contentEditable</code></a>
+<dd><code>return 'isContentEditable' in document.createElement('span');</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#web-messaging>Cross-document messaging</a>
+<dd><code>return !!window.postMessage;</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#dnd>Drag-and-drop</a>
+<dd><code>return 'draggable' in document.createElement('span');</code>
+
+<dt><a href=http://dev.w3.org/2006/webapi/FileAPI/>File <abbr>API</abbr></a>
+<dd><code>return typeof FileReader != 'undefined';</code>
+
+<dt><a href=geolocation.html>Geolocation</a>
+<dd><code>return !!navigator.geolocation;</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-history-interface>History</a>
+<dd><code>return !!(window.history && window.history.pushState && window.history.popState);</code>
+
+<dt><a href=http://dev.w3.org/html5/webstorage/>Local storage</a>
+<dd><code>return !!window.localStorage;</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata-dom-api>Microdata</a>
+<dd><code>return !!document.getItems;</code>
+
+<dt><a href=offline.html>Offline web applications</a>
+<dd><code>return !!window.applicationCache;</code>
+
+<dt><a href=http://dev.w3.org/html5/eventsource/>Server-sent events</a>
+<dd><code>return typeof EventSource !== 'undefined';</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
+<dd><code>return !!window.Worker;</code>
+
+<dt><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
+<dd><code>return !!window.WebSocket;</code>
+
+<dt><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a>
+<dd><code>return !!window.openDatabase;</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo</a>
+<dd><code>return typeof UndoManager !== 'undefined';</code>
+
+</dl>
+
+<p class=a>&#x2767;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<p>Specifications and standards:
+
+<ul>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/><abbr>HTML5</abbr></a>
+<li><a href=http://www.w3.org/TR/geolocation-API/>Geolocation</a>
+<li><a href=http://dev.w3.org/html5/eventsource/>Server-Sent Events</a>
+<li><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
+<li><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a>
+<li><a href=http://dev.w3.org/html5/webstorage/>Web Storage</a>
+<li><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
+</ul>
+
+<p>JavaScript libraries:
+
+<ul>
+<li><a href=http://www.modernizr.com/>Modernizr</a>, an <abbr>HTML5</abbr> detection library
+</ul>
+
+<p class=a>&#x2767;
+
+<div class=pf>
+<h4>Did You Know?</h4>
+<div class=moneybags>
+<blockquote><p>In association with O&#8217;Reilly, Google Press will be publishing this book in a variety of formats, including paper, Kindle, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The printed book will be called &#8220;HTML5: Up &amp; Running,&#8221; and we hope to release it <del>by next February</del> <del>in the first quarter of 2010</del> as soon as it&#8217;s good and ready, and not a moment sooner. This appendix will be included in the print edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">pre-order &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+</blockquote>
+</div>
+</div>
+
+<p class=c>Copyright MMIX&ndash;MMX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+</div>
+<script src=j/jquery.js></script>
+<script src=j/dih5.js></script>
