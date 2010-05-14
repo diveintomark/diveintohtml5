@@ -200,14 +200,25 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora, vorbis"').r
 <dt><a href=http://dev.w3.org/html5/webstorage/>Session storage</a>
 <dd><code>return !!window.sessionStorage;</code>
 
-<dt><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
-<dd><code>return !!window.Worker;</code>
+<dt><a href=http://www.w3.org/TR/SVG/><abbr>SVG</abbr></a>
+<dd><code>return !!(document.createElementNS && document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGRect);</code>
+
+<dt><a href=http://hacks.mozilla.org/2010/05/firefox-4-the-html5-parser-inline-svg-speed-and-more/><abbr>SVG</abbr> in <code>text/html</code></a>
+<dd><pre><code>var e = document.createElement("div");
+e.innerHTML = '<svg></svg>';
+return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);</code></pre>
+
+<dt><a href=http://dev.w3.org/2006/webapi/WebSimpleDB/>WebSimpleDB</a>
+<dd><code>return !!window.indexedDB;</code>
 
 <dt><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
 <dd><code>return !!window.WebSocket;</code>
 
 <dt><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a>
 <dd><code>return !!window.openDatabase;</code>
+
+<dt><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
+<dd><code>return !!window.Worker;</code>
 
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo</a>
 <dd><code>return typeof UndoManager !== 'undefined';</code>
