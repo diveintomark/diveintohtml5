@@ -33,11 +33,11 @@ return !!(a.canPlayType && a.canPlayType('audio/ogg; codecs="vorbis"').replace(/
 
 <dt><a href=http://en.wikipedia.org/wiki/WAV><code>&lt;audio></code> in WAV format</a>
 <dd><pre><code>var a = document.createElement('audio');
-return !!(a.canPlayType && (a.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));</code></pre>
+return !!(a.canPlayType && a.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));</code></pre>
 
 <dt><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding><code>&lt;audio></code> in AAC format</a>
 <dd><pre><code>var a = document.createElement('audio');
-return !!(a.canPlayType && (a.canPlayType('audio/x-m4a;').replace(/no/, '') || a.canPlayType('audio/aac;').replace(/no/, '')));</code></pre>
+return !!(a.canPlayType && a.canPlayType('audio/mp4; codecs="mp4a.40.2"').replace(/no/, ''));</code></pre>
 
 <dt><a href=canvas.html><code>&lt;canvas></code></a>
 <dd><code>return !!document.createElement('canvas').getContext;</code>
