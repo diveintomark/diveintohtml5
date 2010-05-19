@@ -159,6 +159,10 @@ return i.type !== 'text';</code></pre>
 <dt><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#attr-video-poster"><code>&lt;video poster></code></a>
 <dd><code>return 'poster' in document.createElement('video');</code>
 
+<dt><a href=http://www.webmproject.org/><code>&lt;video></code> in WebM format</a>
+<dd><pre><code>var v = document.createElement('video');
+return !!(v.canPlayType && v.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/no/, ''));</code></pre>
+
 <dt><a href=video.html#h264><code>&lt;video></code> in H.264 format</a>
 <dd><pre><code>var v = document.createElement('video');
 return !!(v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, ''));</code></pre>
