@@ -232,7 +232,15 @@ body{counter-reset:h1 2}
   return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> video formats.
+<p>Finally, <a href=http://www.webmproject.org/>WebM</a> is a newly open-sourced (and non-patent-encumbered) video codec that will be included in the next version of major browsers, including Chrome, <a href=http://nightly.mozilla.org/webm/>Firefox</a>, and <a href=http://labs.opera.com/news/2010/05/19/>Opera</a>. You can use the same technique to detect support for open WebM video.
+
+<pre><code>function supports_webm_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType(<mark>'video/webm; codecs="vp8, vorbis"'</mark>);
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for several different <abbr>HTML5</abbr> video formats. (Note that Modernizr does not yet have support for detecting support for the open WebM video format.)
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> video formats
 <pre><code>if (Modernizr.video) {
@@ -596,6 +604,7 @@ $(document).ready(function() {
   if (Modernizr.video) {
     var ogg = Modernizr.video.ogg;
     var h264 = Modernizr.video.h264;
+    var webm = document.createElement('video').canPlayType('video/webm; codecs="vp8, vorbis"');
     var vf = "Your browser ";
     if ((ogg == "probably") && (h264 == "probably")) {
       vf += "can play both Ogg Theora and H.264";
@@ -606,7 +615,11 @@ $(document).ready(function() {
     } else {
       vf += I_CAN_HAS(ogg) + " Ogg Theora video. Your browser " + I_CAN_HAS(h264) + " H.264";
     }
-    $("#live-video-formats").html(vf + " video.");
+    vf += " video.";
+    if (webm) {
+      vf += " Hey, you can play WebM video, too!";
+    }
+    $("#live-video-formats").html(vf);
   } else {
     $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
   }
