@@ -83,7 +83,7 @@ body{counter-reset:h1 5}
 
 <h3 id=vp8</h3>
 
-<p><a href=http://en.wikipedia.org/wiki/Theora>VP8</a> is another video codec from On2, the same company that originally developed VP3 (later Theora). Technically, it is <a href=http://x264dev.multimedia.cx/?p=377>similar in quality to H.264 Baseline</a>, with <a href=http://lists.wikimedia.org/pipermail/wikitech-l/2010-May/047795.html>lots of potential for future improvements</a>.
+<p><a href=http://en.wikipedia.org/wiki/Theora>VP8</a> is another video codec from On2, the same company that originally developed VP3 (later Theora). Technically, it is <a href="http://x264dev.multimedia.cx/?p=377">similar in quality to H.264 Baseline</a>, with <a href=http://lists.wikimedia.org/pipermail/wikitech-l/2010-May/047795.html>lots of potential for future improvements</a>.
 
 <p>In 2010, Google acquired On2 and published the video codec specification and a sample encoder and decoder as open source. As part of this, Google also &#8220;opened&#8221; all the patents that On2 had filed on VP8, by licensing them royalty-free. (This is the best you can hope for with patents. You can&#8217;t actually &#8220;release&#8221; them or nullify them once they&#8217;ve been issued. To make them open-source friendly, you license them royalty-free, and then anyone can use the technologies the patents cover without paying anything or negotiating patent licenses.) As of May 19, 2010, <b>VP8 is a royalty-free, modern codec and is not encumbered by any known patents</b>, other than the patents that On2 (now Google) has already licensed royalty-free.
 
@@ -640,9 +640,9 @@ AddType video/webm .webm</code></pre>
 <p>The final markup uses a <code>&lt;video></code> element for <abbr>HTML5</abbr> video, with a nested <code>&lt;object></code> element for Flash fallback:
 
 <pre><code>&lt;video id="movie" width="320" height="240" preload controls>
-  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>&lt;/source>
-  &lt;source src="pr6.webm" type='video/webm; codecs="vp8, vorbis"'>&lt;/source>
-  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>&lt;/source>
+  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+  &lt;source src="pr6.webm" type='video/webm; codecs="vp8, vorbis"' />
+  &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"' />
   &lt;object width="320" height="240" type="application/x-shockwave-flash"
     data="flowplayer-3.2.1.swf"> 
     &lt;param name="movie" value="flowplayer-3.2.1.swf" /> 
@@ -655,9 +655,9 @@ AddType video/webm .webm</code></pre>
 <p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to watch this video in almost any browser and device:
 
 <video id="video" width="320" height="240" preload controls> 
-  <source src="i/pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'><!-- Safari, iPad, iPhone, Chrome --></source> 
-  <source src="i/pr6.webm" type='video/webm; codecs="vp8, vorbis"'><!-- Firefox.next, Opera.next --></source> 
-  <source src="i/pr6.ogv" type='video/ogg; codecs="theora, vorbis"'><!-- Firefox 3.5, Opera 10.5 --></source> 
+  <source src="i/pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+  <source src="i/pr6.webm" type='video/webm; codecs="vp8, vorbis"' />
+  <source src="i/pr6.ogv" type='video/ogg; codecs="theora, vorbis"' />
   <object width="320" height="240" type="application/x-shockwave-flash"
     data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf"> 
     <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" /> 
