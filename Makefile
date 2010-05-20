@@ -32,7 +32,6 @@ minimize-html: init
 minimize-js: init
 	${JAVA} -jar util/compiler.jar -js build/j/dih5.js > build/j/dih5.min.js
 	${JAVA} -jar util/compiler.jar -js build/j/canvastext-fx3.js > build/j/canvastext-fx3.min.js
-	${JAVA} -jar util/compiler.jar -js build/j/html5-video.js > build/j/html5-video.min.js
 
 minimize-css: init
 	sed -i -e "s|url(i/|url(//d.wearehugh.com/dih5/|g" build/screen.css
@@ -44,7 +43,6 @@ minimize-css: init
 combine-js: minimize-js
 	cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/dih5.min.js > build/j/${REVISION}.js
 	cat build/j/legal.js build/j/gears_init.min.js build/j/geo.min.js > build/j/${REVISION}-maps.js
-	cat build/j/legal.js build/j/flowplayer-3.1.4.min.js build/j/html5-video.min.js > build/j/${REVISION}-video.js
 
 build-sitemap: minimize-html
 	ls build/*.html | sed -e "s|build/|http://diveintohtml5.org/|g" -e "s|/index.html|/|g" > build/sitemap.txt
@@ -56,7 +54,6 @@ substitute-minimized-scripts-and-css: minimize-html minimize-js minimize-css com
 		-e "s|<script src=j/geo.js>|<script src=j/${REVISION}-maps.js>|g" \
 		-e "s|<script src=j/canvastext-fx3.js></script>||g" \
 		-e "s|<script src=j/flowplayer-3.1.4.min.js></script>||g" \
-		-e "s|<script src=j/html5-video.js>|<script src=j/${REVISION}-video.js>|g" \
 		-e "s|<script src=j/dih5.js>|<script src=j/${REVISION}.js>|g" \
 		-e "s|<link rel=stylesheet href=screen.css>|<style>$(shell cat build/${REVISION}.css)</style>|g" \
 		-e "s|<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>|<style>@media screen and (max-device-width:480px){$(shell cat build/m-${REVISION}.css)}</style>|g" \
@@ -80,6 +77,6 @@ set-file-permissions: init
 live: all
 	rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/
 	rsync -essh -a build/i/*.mp4 build/i/*.ogv build/i/pastel.png build/i/apple-iie.jpg diveintomark.org:~/web/diveintohtml5.org/i/
-	rsync -essh -a build/j/${REVISION}*.js build/j/html5.js build/j/html5-video.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/
+	rsync -essh -a build/j/${REVISION}*.js build/j/html5.js build/j/excanvas.min.js build/j/*.swf build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/
 	rsync -essh -a build/f/*.ttf build/f/*.eot build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/
 	rsync -essh -a build/examples build/*.txt build/*.ico build/*.html build/.htaccess build/fonts-original build/s diveintomark.org:~/web/diveintohtml5.org/
