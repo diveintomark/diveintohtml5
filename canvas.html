@@ -569,7 +569,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <li>It&#8217;s slow. This should not come as a raging shock to anyone, since Internet Explorer's JavaScript parser is slower than other browsers to begin with. Once you start drawing complex shapes via a JavaScript library that translates commands to a completely different technology, things are going to get bogged down. You won&#8217;t notice the performance degradation in simple examples like drawing a few lines and transforming an image, but you&#8217;ll see it right away once you start doing canvas-based animation and other crazy stuff.
 </ol>
 
-<p>There is one more caveat about using <code>excanvas.js</code>, and it&#8217;s a problem that I ran into while creating the examples in this chapter. ExplorerCanvas initializes its own faux-canvas interface automatically whenever you include the <code>excanvas.js</code> script in your <abbr>HTML</abbr> page. But that doesn&#8217;t mean that Internet Explorer is ready to use it immediately. In certain situations, you can run into a race condition where the faux-canvas interface is <em>almost</em>, but not quite, ready to use. The primary symptom of this state is that Internet Explorer will complain that &#8220;<samp>object doesn&#8217;t support this property or method</code>&#8221; whenever you try to do anything with a <code>&lt;canvas></code> element, such as get its drawing context.
+<p>There is one more caveat about using <code>excanvas.js</code>, and it&#8217;s a problem that I ran into while creating the examples in this chapter. ExplorerCanvas initializes its own faux-canvas interface automatically whenever you include the <code>excanvas.js</code> script in your <abbr>HTML</abbr> page. But that doesn&#8217;t mean that Internet Explorer is ready to use it immediately. In certain situations, you can run into a race condition where the faux-canvas interface is <em>almost</em>, but not quite, ready to use. The primary symptom of this state is that Internet Explorer will complain that &#8220;<samp>object doesn&#8217;t support this property or method</samp>&#8221; whenever you try to do anything with a <code>&lt;canvas></code> element, such as get its drawing context.
 
 <p>The easiest solution to this is to defer all of your canvas-related manipulation until after the <code>onload</code> event fires. This may be a while &mdash; if your page has a lot of images or videos, they will delay the <code>onload</code> event &mdash; but it will give ExplorerCanvas time to work its magic.
 
@@ -577,98 +577,39 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <h2 id=halma>A Complete, Live Example</h2>
 
-<p>FIXME
+<p>Halma is a centuries-old board game. Many variations exist. In this example, I&#8217;ve created a solitaire version of Halma with 9 pieces on a 9 &times; 9 board. In the beginning of the game, the pieces form a 3 &times; 3 square in the bottom-left corner of the board. The object of the game is to move all the pieces so they form a 3 &times; 3 square in the upper-right corner of the board, in the least number of moves.
 
-<canvas id=halma width=500 height=500></canvas>
+<p>There are two types of legal moves in Halma:
 
-<pre><code>function init() {
-    gCanvasElement = document.createElement("canvas");
-    gCanvasElement.id = "c";
-    gCanvasElement.width = kPixelWidth;
-    gCanvasElement.height = kPixelHeight;
-    document.body.appendChild(gCanvasElement);
-    gCanvasElement.addEventListener("click", onclick, false);
-    gDrawingContext = gCanvasElement.getContext("2d");
-    newGame();
-}
+<ul>
+<li>Take a piece and move it to any adjacent empty square. An &#8220;empty&#8221; square is one that does not currently have a piece in it. An &#8220;adjacent&#8221; square is immediately north, south, east, west, northwest, northeast, southwest, or southeast of the piece&#8217;s current position. (The board does not wrap around from one side to the other. If a piece is in the left-most column, it can not move west, northwest, or southwest. If a piece is in the bottom-most row, it can not move south, southeast, or southwest.)
+<li>Take a piece and hop over an adjacent piece, and possibly repeat. That is, if you hop over an adjacent piece, then hop over <em>another</em> piece adjacent to your new position, that counts as a single move. In fact, any number of hops still counts as a single move. (Since the goal is to minimize the total number of moves, doing well in Halma involves constructing, and then using, long chains of staggered pieces so that other pieces can hop over them in long sequences.)
+</ul>
 
-window.onload = init;</code></pre>
+<p>Here is the game itself. You can also <a href=examples/canvas-halma.html>play it on a separate page</a> if you want to poke at it with your browser&#8217;s developer tools.</p>
 
-<p>FIXME
+<canvas id=halmacanvas></canvas>
 
-<pre><code>function drawBoard() {
-    if (gGameInProgress && isTheGameOver()) {
-	endGame();
-    }
+<p style="margin-top:0;font-style:normal" class="legend">Moves: <span id=halmamovecount>0</span>
 
-    gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);
+<p>How does it work? I&#8217;m so glad you asked. I won&#8217;t show <em>all</em> the code here. (You can see it at <a href=examples/halma.js>diveintohtml5.org/examples/halma.js</a>.) I&#8217;ll skip over most of the gameplay code itself, but I want to highlight a few parts of the code that deal with actually drawing on the canvas and responding to mouse clicks on the canvas element.
 
-    gDrawingContext.beginPath();
-    
-    /* vertical lines */
-    for (var x = 0; x <= kPixelWidth; x += kPieceWidth) {
-	gDrawingContext.moveTo(0.5 + x, 0);
-	gDrawingContext.lineTo(0.5 + x, kPixelHeight);
-    }
-    
-    /* horizontal lines */
-    for (var y = 0; y <= kPixelHeight; y += kPieceHeight) {
-	gDrawingContext.moveTo(0, 0.5 + y);
-	gDrawingContext.lineTo(kPixelWidth, 0.5 +  y);
-    }
-    
-    /* draw it! */
-    gDrawingContext.strokeStyle = "#ccc";
-    gDrawingContext.stroke();
-    
-    for (var i = 0; i < 9; i++) {
-	drawPiece(gPieces[i], i == gSelectedPieceIndex);
-    }
+<p>During page load, we initialize the game by setting the dimensions of the <code>&lt;canvas></code> itself and storing a reference to its drawing context.
 
-    document.getElementById("movecount").innerHTML = gMoveCount;
-}
+<pre><code>gCanvasElement.width = kPixelWidth;
+gCanvasElement.height = kPixelHeight;
+gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
-function drawPiece(p, selected) {
-    var column = p.column;
-    var row = p.row;
-    var x = (column * kPieceWidth) + (kPieceWidth/2);
-    var y = (row * kPieceHeight) + (kPieceHeight/2);
-    var radius = (kPieceWidth/2) - (kPieceWidth/10);
-    gDrawingContext.beginPath();
-    gDrawingContext.arc(x, y, radius, 0, Math.PI*2);
-    gDrawingContext.closePath();
-    gDrawingContext.strokeStyle = "#000";
-    gDrawingContext.stroke();
-    if (selected) {
-	gDrawingContext.fillStyle = "#000";
-	gDrawingContext.fill();
-    }
-}</code></pre>
+<p>Then we do something you haven&#8217;t seen yet: we add an event listener to the <code>&lt;canvas></code> element to listen for click events.
 
-<p>FIXME
+<pre><code>gCanvasElement.<mark>addEventListener</mark>(<mark>"click"</mark>, halmaOnClick, false);</code></pre>
 
-<pre><code>function getCursorPosition(e) {
-    /* returns Cell with .row and .column properties */
-    var x;
-    var y;
-    if (e.pageX || e.pageY) {
-	x = e.pageX;
-	y = e.pageY;
-    }
-    else {
-	x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-	y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-    }
-    x -= gCanvasElement.offsetLeft;
-    y -= gCanvasElement.offsetTop;
-    x = Math.min(x, kBoardWidth * kPieceWidth);
-    y = Math.min(y, kBoardHeight * kPieceHeight);
-    var cell = new Cell(Math.floor(y/kPieceWidth), Math.floor(x/kPieceHeight));
-    return cell;
-}
+<p>The <code>halmaOnClick()</code> function gets called when the user clicks anywhere within the canvas. Its argument is a <code>MouseEvent</code> object that contains information about where the user clicked.
 
-function onclick(e) {
-    var cell = getCursorPosition(e);
+<pre><code>function halmaOnClick(e) {
+    var cell = <mark>getCursorPosition(e)</mark>;
+
+    // the rest of this is just gameplay logic
     for (var i = 0; i < gNumPieces; i++) {
 	if ((gPieces[i].row == cell.row) && 
 	    (gPieces[i].column == cell.column)) {
@@ -679,7 +620,90 @@ function onclick(e) {
     clickOnEmptyCell(cell);
 }</code></pre>
 
-<p>FIXME
+<p>The next step is to take the <code>MouseEvent</code> object and calculate which square on the Halma board just got clicked. The Halma board takes up the entire canvas, so every click is <em>somewhere</em> on the board. We just need to figure out where. This is tricky, because mouse events are implemented differently in just about every browser.
+
+<pre><code>function getCursorPosition(e) {
+    var x;
+    var y;
+    if (e.pageX || e.pageY) {
+	x = e.pageX;
+	y = e.pageY;
+    }
+    else {
+	x = e.clientX + document.body.scrollLeft +
+            document.documentElement.scrollLeft;
+	y = e.clientY + document.body.scrollTop +
+            document.documentElement.scrollTop;
+    }</code></pre>
+
+<p>At this point, we have <code>x</code> and <code>y</code> coordinates that are relative to the document (that is, the entire <abbr>HTML</abbr> page). That&#8217;s not quite useful yet. We want coordinates relative to the canvas.
+
+<pre><code>    x -= gCanvasElement.offsetLeft;
+    y -= gCanvasElement.offsetTop;</code></pre>
+
+<p>Now we have <code>x</code> and <code>y</code> coordinates that are <a href=#coordinates>relative to the canvas</a>. That is, if <code>x</code> is 0 and <code>y</code> is 0 at this point, we know that the user just clicked the top-left pixel of the canvas.
+
+<p>From here, we can calculate which Halma square the user clicked, and then act accordingly.
+
+<pre><code>    var cell = new Cell(Math.floor(y/kPieceWidth),
+                        Math.floor(x/kPieceHeight));
+    return cell;
+}</code></pre>
+
+<p>Whew! Mouse events are tough. But you can use the same logic (in fact, this exact code) in all of your own canvas-based applications. Remember: mouse click &rarr; document-relative coordinates &rarr; canvas-relative coordinates &rarr; application-specific code.
+
+<p>OK, let&#8217;s look at the main drawing routine. Because the graphics are so simple, I&#8217;ve chosen to clear and redraw the board in its entirely every time anything changes within the game. This is not strictly necessary. The canvas drawing context will retain whatever you have previously drawn on it, even if the user scrolls the canvas out of view or changes to another tab and then comes back later. If you&#8217;re developing a canvas-based application with more complicated graphics (such as an arcade game), you can optimize performance by tracking which regions of the canvas are &#8220;dirty&#8221; and redrawing just the dirty regions. But that is outside the scope of this book.
+
+<pre><code>gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);</code></pre>
+
+<p>The board-drawing routine should look familiar. It&#8217;s very similar to how we drew the <a href=#coordinates>canvas coordinates diagram</a> earlier in this chapter.
+
+<pre><code>gDrawingContext.beginPath();
+
+/* vertical lines */
+for (var x = 0; x <= kPixelWidth; x += kPieceWidth) {
+    gDrawingContext.moveTo(0.5 + x, 0);
+    gDrawingContext.lineTo(0.5 + x, kPixelHeight);
+}
+
+/* horizontal lines */
+for (var y = 0; y <= kPixelHeight; y += kPieceHeight) {
+    gDrawingContext.moveTo(0, 0.5 + y);
+    gDrawingContext.lineTo(kPixelWidth, 0.5 +  y);
+}
+
+/* draw it! */
+gDrawingContext.strokeStyle = "#ccc";
+gDrawingContext.stroke();</code></pre>
+
+<p>The real fun begins when we go to draw each of the individual pieces. A piece is a circle, something we haven&#8217;t drawn before. Most pieces are just a circle, but if you select a piece in anticipation of moving it, we want to draw the piece as a filled-in circle. Here, the argument <code>p</code> represents a piece, which has <code>row</code> and <code>column</code> properties that denote the piece&#8217;s current location on the board. We use some in-game constants to translate <code>(column, row)</code> into canvas-relative <code>(x, y)</code> coordinates, then draw a circle, then (if the piece is selected) fill in the circle with a solid color.
+
+<pre><code>function drawPiece(p, selected) {
+    var column = p.column;
+    var row = p.row;
+    var x = (column * kPieceWidth) + (kPieceWidth/2);
+    var y = (row * kPieceHeight) + (kPieceHeight/2);
+    var radius = (kPieceWidth/2) - (kPieceWidth/10);</code></pre>
+
+<p>That&#8217;s the end of the game-specific logic. Now we have <code>(x, y)</code> coordinates, relative to the canvas, for the center of the circle we want to draw. There is no <code>circle()</code> method in the canvas <abbr>API</abbr>, but there is an <code>arc()</code> method. And really, what is a circle but an arc that goes all the way around? Do you remember your basic geometry? The <code>arc()</code> method takes a center point <code>(x, y)</code>, a radius, and a start and end angle (in radians). You can use the <code>Math</code> module that&#8217;s built into JavaScript to calculate radians.
+
+<pre><code>gDrawingContext.beginPath();
+gDrawingContext.<mark>arc</mark>(x, y, radius, 0, Math.PI*2);
+gDrawingContext.closePath();</code></pre>
+
+<p>But wait! Nothing has been drawn yet. Like <code>moveTo()</code> and <code>lineTo</code>, the <code>arc()</code> method is <a href=#paths>a &#8220;pencil&#8221; method</a>. To actually draw the circle, we need to set the <code>strokeStyle</code> and call <code>stroke()</code> to trace it in &#8220;ink.&#8221;
+
+<pre><code>gDrawingContext.strokeStyle = "#000";
+gDrawingContext.stroke();</code></pre>
+
+<p>What if the piece is selected? We can re-use the same path we created to draw the outline of the piece, to fill in the circle with a solid color.
+
+<pre><code>if (selected) {
+    gDrawingContext.fillStyle = "#000";
+    gDrawingContext.fill();
+}</code></pre>
+
+<p>And that&#8217;s&hellip; well, that&#8217;s pretty much it. The rest of the program is game-specific logic &mdash; distinguishing between valid and invalid moves, keeping track of the number of moves, detecting whether the game is over. With 1 canvas, 9 circles, a few straight lines, and 1 <code>onclick</code> handler, we&#8217;ve created an entire game in <code>&lt;canvas></code>. Huzzah!
 
 <p class=a>&#x2767;
 
@@ -711,7 +735,7 @@ function onclick(e) {
 <script src=j/jquery.js></script>
 <script src=j/canvastext-fx3.js></script>
 <script src=j/dih5.js></script>
-<script src=j/halma.js></script>
+<script src=examples/halma.js></script>
 <script>
 function draw_b() {
 try {
@@ -894,6 +918,8 @@ function draw(imagesReady) {
 
   draw_gradients();
   draw_images(imagesReady);
+
+  initGame(document.getElementById("halmacanvas"), document.getElementById("halmamovecount"));
 }
 
 $(document).ready(function() {
