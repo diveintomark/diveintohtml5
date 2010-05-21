@@ -68,6 +68,7 @@ remove-unused-css-selectors: substitute-minimized-scripts-and-css
 
 add-revision-number-to-manifests: init
 	sed -i -e "s|# revision|# revision ${REVISION}|g" build/examples/offline/clock.manifest
+	sed -i -e "s|# revision|# revision ${REVISION}|g" build/examples/offline/halma.manifest
 
 set-file-permissions: init
 	chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz build/s/*
