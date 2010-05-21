@@ -14,6 +14,7 @@ var gNumPieces;
 var gSelectedPieceIndex;
 var gSelectedPieceHasMoved;
 var gMoveCount;
+var gMoveCountElem;
 var gGameInProgress;
 
 function Cell(row, column) {
@@ -150,7 +151,7 @@ function drawBoard() {
 	drawPiece(gPieces[i], i == gSelectedPieceIndex);
     }
 
-    document.getElementById("movecount").innerHTML = gMoveCount;
+    gMoveCountElem.innerHTML = gMoveCount;
 }
 
 function drawPiece(p, selected) {
@@ -193,14 +194,21 @@ function endGame() {
     gGameInProgress = false;
 }
 
-function initGame() {
-    gCanvasElement = document.createElement("canvas");
-    gCanvasElement.id = "c";
+function initGame(canvasElement, moveCountElement) {
+    if (!canvasElement) {
+        canvasElement = document.createElement("canvas");
+	canvasElement.id = "halma_canvas";
+	document.body.appendChild(canvasElement);
+    }
+    if (!moveCountElement) {
+        moveCountElement = document.createElement("p");
+	document.body.appendChild(moveCountElement);
+    }
+    gCanvasElement = canvasElement;
     gCanvasElement.width = kPixelWidth;
     gCanvasElement.height = kPixelHeight;
-    document.body.appendChild(gCanvasElement);
     gCanvasElement.addEventListener("click", halmaOnClick, false);
+    gMoveCountElem = moveCountElement;
     gDrawingContext = gCanvasElement.getContext("2d");
     newGame();
 }
-
