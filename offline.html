@@ -16,34 +16,21 @@ body{counter-reset:h1 9}
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<!--
-<pre>
-- Let's build one!
-  - window.applicationCache
-  - ...
-- Gears
-  - Manifest file is JSON
-  - loaded (bound to page) with JavaScript call
-  - take above example and rewrite as Gears app
-</pre>
--->
-
 <p class=f><img src=i/aoc-w.png alt=W width=110 height=108>hat is an offline web application? At first glance, it sounds like a contradiction in terms. Web pages are things you download and render. Downloading implies a network connection. How can you download when you&#8217;re offline? Of course, you can&#8217;t. But you <em>can</em> download when you&#8217;re online. And that&#8217;s how <abbr>HTML5</abbr> offline applications work. 
 
 <p>At its simplest, an offline web application is a list of <abbr>URL</abbr>s &mdash; <abbr>HTML</abbr>, <abbr>CSS</abbr>, JavaScript, images, or any other kind of resource. The home page of the offline web application points to this list, called a manifest file, which is just a text file located elsewhere on the web server. A web browser that implements <abbr>HTML5</abbr> offline applications will read the list of <abbr>URL</abbr>s from the manifest file, download the resources, cache them locally, and automatically keep the local copies up to date as they change. When the time comes that you try to access the web application without a network connection, your web browser will automatically switch over to the local copies instead.
 
 <p>From there, most of the work is up to you, the web developer. There&#8217;s a flag in the <abbr>DOM</abbr> that will tell you whether you&#8217;re online or offline. There are events that fire when your offline status changes (one minute you&#8217;re offline and the next minute you&#8217;re online, or vice-versa). But that&#8217;s pretty much it. If your application creates data or saves state, &#8217;s up to you to store that data locally while you&#8217;re offline and synchronize it with the remote server once you&#8217;re back online. [TODO link to storage chapter once it&#8217;s written] In other words, <abbr>HTML5</abbr> can take your web application offline. What you do once you&#8217;re there is up to you.
 
-<h3 id=examples>Who&#8217;s Offline Already?</h3>
-
-<p>The idea of offline web applications predates <abbr>HTML5</abbr>, and some of the implementations predate it, too. Which is to say, there&#8217;s the <abbr>HTML5</abbr> way of going offline, but there are also other ways. I&#8217;ll talk about one of these ways &mdash; based on Gears &mdash; later in this chapter. Some of these early adopters have already switched to <abbr>HTML5</abbr>, while others are still working on it.
-
-<ul>
-<li><a href=http://mail.google.com/>Gmail</a>, web-based email from Google
-<li><a href=http://www.zoho.com/>Zoho</a>, online productivity and collaboration apps
-<li><a href=http://www.rememberthemilk.com/>Remember The Milk</a>, online task management
-<li><a href=http://wordpress.org/>WordPress</a>, an open source personal publishing platform
-</ul>
+<table class=bc>
+<caption>Offline support</caption>
+<thead>
+<tr><th title="Internet Explorer">IE<th title="Firefox 3.5">Firefox<th title="Safari 4">Safari<th title="Google Chrome 5">Chrome<th>Opera<th>iPhone<th>Android
+</thead>
+<tbody>
+<tr><td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&#x2713;
+</tbody>
+</table>
 
 <p class=a>&#x2767;
 
