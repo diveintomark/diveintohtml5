@@ -41,7 +41,7 @@ function getCursorPosition(e) {
     return cell;
 }
 
-function onclick(e) {
+function halmaOnClick(e) {
     var cell = getCursorPosition(e);
     for (var i = 0; i < gNumPieces; i++) {
 	if ((gPieces[i].row == cell.row) && 
@@ -193,15 +193,14 @@ function endGame() {
     gGameInProgress = false;
 }
 
-function init() {
+function initGame() {
     gCanvasElement = document.createElement("canvas");
     gCanvasElement.id = "c";
     gCanvasElement.width = kPixelWidth;
     gCanvasElement.height = kPixelHeight;
     document.body.appendChild(gCanvasElement);
-    gCanvasElement.addEventListener("click", onclick, false);
+    gCanvasElement.addEventListener("click", halmaOnClick, false);
     gDrawingContext = gCanvasElement.getContext("2d");
     newGame();
 }
 
-window.onload = init;
