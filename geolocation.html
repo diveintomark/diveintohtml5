@@ -294,7 +294,33 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <h2 id=putting-it-all-together>A Complete, Live Example</h2>
 
+<p>Here is a live example of using <a href=#geo-js><code>geo.js</code></a> to attempt to get your location and display a map of your immediate surroundings:
+
 <p style="margin:0 auto;width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
+
+<p>How does it work? Let&#8217;s take a look. On page load, this page calls <code>geo_position_js.init()</code> to determine whether geolocation is available through any of the interfaces that <code>geo.js</code> supports. If so, it sets up a link you can click to look up your location. Clicking that link calls the <code>lookup_location()</code> function, shown here:
+
+<pre><code>function lookup_location() {
+  geo_position_js.getCurrentPosition(show_map, show_map_error);
+}</code></pre>
+
+<p>If you give your consent to track your location, <em>and</em> the backend service was actually able to determine your location, <code>geo.js</code> calls the first callback function, <code>show_map()</code>, with a single argument, <code>loc</code>. The <code>loc</code> object has a <code>coords</code> property which contains latitude, longitude, and accuracy information. (This example doesn&#8217;t use the accuracy information.) The rest of the <code>show_map()</code> function uses the Google Maps API to set up an embedded map.
+
+<pre><code>function show_map(loc) {
+  $("#geo-wrapper").css({'width':'320px','height':'350px'});
+  var map = new GMap2(document.getElementById("geo-wrapper"));
+  var center = new GLatLng(<mark>loc.coords.latitude</mark>, <mark>loc.coords.longitude</mark>);
+  map.setCenter(center, 14);
+  map.addControl(new GSmallMapControl());
+  map.addControl(new GMapTypeControl());
+  map.addOverlay(new GMarker(center, {draggable: false, title: "You are here (more or less)"}));
+}</code></pre>
+
+<p>If <code>geo.js</code> is unable to determine your location, it calls the second callback function, <code>show_map_error()</code>.
+
+<pre><code>function show_map_error() {
+  $("#live-geolocation").html('Unable to determine your location.');
+}</code></pre>
 
 <p class=a>&#x2767;
 
