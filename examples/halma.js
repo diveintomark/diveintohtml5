@@ -201,12 +201,7 @@ function init() {
     document.body.appendChild(gCanvasElement);
     gCanvasElement.addEventListener("click", onclick, false);
     gDrawingContext = gCanvasElement.getContext("2d");
-    var pastel = new Image();
-    pastel.src = "../i/pastel.png";
-    pastel.onload = function() {
-	gPattern = gDrawingContext.createPattern(pastel, "repeat");
-	newGame();
-    }
+    newGame();
 }
 
 window.onload = init;
