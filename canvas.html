@@ -571,11 +571,77 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>There is one more caveat about using <code>excanvas.js</code>, and it&#8217;s a problem that I ran into while creating the examples in this chapter. ExplorerCanvas initializes its own faux-canvas interface automatically whenever you include the <code>excanvas.js</code> script in your <abbr>HTML</abbr> page. But that doesn&#8217;t mean that Internet Explorer is ready to use it immediately. In certain situations, you can run into a race condition where the faux-canvas interface is <em>almost</em>, but not quite, ready to use. The primary symptom of this state is that Internet Explorer will complain that &#8220;<samp>object doesn&#8217;t support this property or method</code>&#8221; whenever you try to do anything with a <code>&lt;canvas></code> element, such as get its drawing context.
 
-<p>The best solution to this is to defer all of your canvas-related manipulation until after the <code>onload</code> event fires. This may be a while &mdash; if your page has a lot of images or videos, they will delay the <code>onload</code> event &mdash; but it will give ExplorerCanvas time to work its magic.
+<p>The easiest solution to this is to defer all of your canvas-related manipulation until after the <code>onload</code> event fires. This may be a while &mdash; if your page has a lot of images or videos, they will delay the <code>onload</code> event &mdash; but it will give ExplorerCanvas time to work its magic.
 
 <p class=a>&#x2767;
 
 <h2 id=putting-it-all-together>A Complete, Live Example</h2>
+
+<p>FIXME
+
+<pre><code>function init() {
+    gCanvasElement = document.createElement("canvas");
+    gCanvasElement.id = "c";
+    gCanvasElement.width = kPixelWidth;
+    gCanvasElement.height = kPixelHeight;
+    document.body.appendChild(gCanvasElement);
+    gCanvasElement.addEventListener("click", onclick, false);
+    gDrawingContext = gCanvasElement.getContext("2d");
+    newGame();
+}
+
+window.onload = init;</code></pre>
+
+<p>FIXME
+
+<pre><code>function drawBoard() {
+    if (gGameInProgress && isTheGameOver()) {
+	endGame();
+    }
+
+    gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);
+
+    gDrawingContext.beginPath();
+    
+    /* vertical lines */
+    for (var x = 0; x <= kPixelWidth; x += kPieceWidth) {
+	gDrawingContext.moveTo(0.5 + x, 0);
+	gDrawingContext.lineTo(0.5 + x, kPixelHeight);
+    }
+    
+    /* horizontal lines */
+    for (var y = 0; y <= kPixelHeight; y += kPieceHeight) {
+	gDrawingContext.moveTo(0, 0.5 + y);
+	gDrawingContext.lineTo(kPixelWidth, 0.5 +  y);
+    }
+    
+    /* draw it! */
+    gDrawingContext.strokeStyle = "#ccc";
+    gDrawingContext.stroke();
+    
+    for (var i = 0; i < 9; i++) {
+	drawPiece(gPieces[i], i == gSelectedPieceIndex);
+    }
+
+    document.getElementById("movecount").innerHTML = gMoveCount;
+}
+
+function drawPiece(p, selected) {
+    var column = p.column;
+    var row = p.row;
+    var x = (column * kPieceWidth) + (kPieceWidth/2);
+    var y = (row * kPieceHeight) + (kPieceHeight/2);
+    var radius = (kPieceWidth/2) - (kPieceWidth/10);
+    gDrawingContext.beginPath();
+    gDrawingContext.arc(x, y, radius, 0, Math.PI*2);
+    gDrawingContext.closePath();
+    gDrawingContext.strokeStyle = "#000";
+    gDrawingContext.stroke();
+    if (selected) {
+	gDrawingContext.fillStyle = "#000";
+	gDrawingContext.fill();
+    }
+}</code></pre>
 
 <p>FIXME
 
