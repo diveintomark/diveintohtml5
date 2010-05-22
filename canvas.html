@@ -658,52 +658,52 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
 <p>The board-drawing routine should look familiar. It&#8217;s very similar to how we drew the <a href=#coordinates>canvas coordinates diagram</a> earlier in this chapter.
 
-<pre><code>gDrawingContext.beginPath();
+<pre><code>gDrawingContext.<mark>beginPath()</mark>;
 
 /* vertical lines */
 for (var x = 0; x <= kPixelWidth; x += kPieceWidth) {
-    gDrawingContext.moveTo(0.5 + x, 0);
-    gDrawingContext.lineTo(0.5 + x, kPixelHeight);
+    gDrawingContext.<mark>moveTo</mark>(0.5 + x, 0);
+    gDrawingContext.<mark>lineTo</mark>(0.5 + x, kPixelHeight);
 }
 
 /* horizontal lines */
 for (var y = 0; y <= kPixelHeight; y += kPieceHeight) {
-    gDrawingContext.moveTo(0, 0.5 + y);
-    gDrawingContext.lineTo(kPixelWidth, 0.5 +  y);
+    gDrawingContext.<mark>moveTo</mark>(0, 0.5 + y);
+    gDrawingContext.<mark>lineTo</mark>(kPixelWidth, 0.5 +  y);
 }
 
 /* draw it! */
-gDrawingContext.strokeStyle = "#ccc";
-gDrawingContext.stroke();</code></pre>
+gDrawingContext.<mark>strokeStyle</mark> = "#ccc";
+gDrawingContext.<mark>stroke()</mark>;</code></pre>
 
 <p>The real fun begins when we go to draw each of the individual pieces. A piece is a circle, something we haven&#8217;t drawn before. Most pieces are just a circle, but if you select a piece in anticipation of moving it, we want to draw the piece as a filled-in circle. Here, the argument <code>p</code> represents a piece, which has <code>row</code> and <code>column</code> properties that denote the piece&#8217;s current location on the board. We use some in-game constants to translate <code>(column, row)</code> into canvas-relative <code>(x, y)</code> coordinates, then draw a circle, then (if the piece is selected) fill in the circle with a solid color.
 
 <pre><code>function drawPiece(p, selected) {
     var column = p.column;
     var row = p.row;
-    var x = (column * kPieceWidth) + (kPieceWidth/2);
-    var y = (row * kPieceHeight) + (kPieceHeight/2);
+    var <mark>x</mark> = (column * kPieceWidth) + (kPieceWidth/2);
+    var <mark>y</mark> = (row * kPieceHeight) + (kPieceHeight/2);
     var radius = (kPieceWidth/2) - (kPieceWidth/10);</code></pre>
 
 <p>That&#8217;s the end of the game-specific logic. Now we have <code>(x, y)</code> coordinates, relative to the canvas, for the center of the circle we want to draw. There is no <code>circle()</code> method in the canvas <abbr>API</abbr>, but there is an <code>arc()</code> method. And really, what is a circle but an arc that goes all the way around? Do you remember your basic geometry? The <code>arc()</code> method takes a center point <code>(x, y)</code>, a radius, and a start and end angle (in radians). You can use the <code>Math</code> module that&#8217;s built into JavaScript to calculate radians.
 
 <pre><code>gDrawingContext.beginPath();
-gDrawingContext.<mark>arc</mark>(x, y, radius, 0, Math.PI*2);
+gDrawingContext.<mark>arc</mark>(x, y, radius, 0, <mark>Math.PI * 2</mark>);
 gDrawingContext.closePath();</code></pre>
 
 <p>But wait! Nothing has been drawn yet. Like <code>moveTo()</code> and <code>lineTo</code>, the <code>arc()</code> method is <a href=#paths>a &#8220;pencil&#8221; method</a>. To actually draw the circle, we need to set the <code>strokeStyle</code> and call <code>stroke()</code> to trace it in &#8220;ink.&#8221;
 
-<pre><code>gDrawingContext.strokeStyle = "#000";
-gDrawingContext.stroke();</code></pre>
+<pre><code>gDrawingContext.<mark>strokeStyle</mark> = "#000";
+gDrawingContext.<mark>stroke()</mark>;</code></pre>
 
 <p>What if the piece is selected? We can re-use the same path we created to draw the outline of the piece, to fill in the circle with a solid color.
 
 <pre><code>if (selected) {
-    gDrawingContext.fillStyle = "#000";
-    gDrawingContext.fill();
+    gDrawingContext.<mark>fillStyle</mark> = "#000";
+    gDrawingContext.<mark>fill()</mark>;
 }</code></pre>
 
-<p>And that&#8217;s&hellip; well, that&#8217;s pretty much it. The rest of the program is game-specific logic &mdash; distinguishing between valid and invalid moves, keeping track of the number of moves, detecting whether the game is over. With 1 canvas, 9 circles, a few straight lines, and 1 <code>onclick</code> handler, we&#8217;ve created an entire game in <code>&lt;canvas></code>. Huzzah!
+<p>And that&#8217;s&hellip; well, that&#8217;s pretty much it. The rest of the program is game-specific logic &mdash; distinguishing between valid and invalid moves, keeping track of the number of moves, detecting whether the game is over. With 9 circles, a few straight lines, and 1 <code>onclick</code> handler, we&#8217;ve created an entire game in <code>&lt;canvas></code>. Huzzah!
 
 <p class=a>&#x2767;
 
