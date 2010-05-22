@@ -661,13 +661,13 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 <pre><code>gDrawingContext.<mark>beginPath()</mark>;
 
 /* vertical lines */
-for (var x = 0; x <= kPixelWidth; x += kPieceWidth) {
+for (var x = 0; x &lt;= kPixelWidth; x += kPieceWidth) {
     gDrawingContext.<mark>moveTo</mark>(0.5 + x, 0);
     gDrawingContext.<mark>lineTo</mark>(0.5 + x, kPixelHeight);
 }
 
 /* horizontal lines */
-for (var y = 0; y <= kPixelHeight; y += kPieceHeight) {
+for (var y = 0; y &lt;= kPixelHeight; y += kPieceHeight) {
     gDrawingContext.<mark>moveTo</mark>(0, 0.5 + y);
     gDrawingContext.<mark>lineTo</mark>(kPixelWidth, 0.5 +  y);
 }
