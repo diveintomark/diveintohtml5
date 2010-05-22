@@ -90,7 +90,7 @@ A: Yes and no. If your entire web application is contained in a single page, jus
 
 <h3 id=network>Network sections</h3>
 
-<p>Here is a slightly more complicated example. Suppose you want your clock application to track visitors, using a <abbr>tracking.cgi</abbr> script that is loaded dynamically from an <code>&lt;img src></code> attribute. Caching this resource would defeat the purpose of tracking, so this resource should never cached and never be available offline. Here is how you do that:
+<p>Here is a slightly more complicated example. Suppose you want your clock application to track visitors, using a <abbr>tracking.cgi</abbr> script that is loaded dynamically from an <code>&lt;img src></code> attribute. Caching this resource would defeat the purpose of tracking, so this resource should never be cached and never be available offline. Here is how you do that:
 
 <pre><code>CACHE MANIFEST
 <mark>NETWORK:
