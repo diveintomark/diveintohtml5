@@ -152,6 +152,8 @@ function drawBoard() {
     }
 
     gMoveCountElem.innerHTML = gMoveCount;
+
+    saveGameState();
 }
 
 function drawPiece(p, selected) {
@@ -161,13 +163,22 @@ function drawPiece(p, selected) {
     var y = (row * kPieceHeight) + (kPieceHeight/2);
     var radius = (kPieceWidth/2) - (kPieceWidth/10);
     gDrawingContext.beginPath();
-    gDrawingContext.arc(x, y, radius, 0, Math.PI*2);
+    gDrawingContext.arc(x, y, radius, 0, Math.PI*2, false);
     gDrawingContext.closePath();
     gDrawingContext.strokeStyle = "#000";
     gDrawingContext.stroke();
     if (selected) {
 	gDrawingContext.fillStyle = "#000";
 	gDrawingContext.fill();
+    }
+}
+
+if (typeof resumeGame != "function") {
+    saveGameState = function() {
+	return false;
+    }
+    resumeGame = function() {
+	return false;
     }
 }
 
@@ -210,5 +221,7 @@ function initGame(canvasElement, moveCountElement) {
     gCanvasElement.addEventListener("click", halmaOnClick, false);
     gMoveCountElem = moveCountElement;
     gDrawingContext = gCanvasElement.getContext("2d");
-    newGame();
+    if (!resumeGame()) {
+	newGame();
+    }
 }
