@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Halma</title>
+<script src="halma-localstorage.js"></script>
 <script src="halma.js"></script>
 </head>
-<body onload="initGame()">
+<body>
 <h1>Canvas Halma</h1>
 <p>(<a href=../canvas.html#halma>Rules of play</a>)</p>
 <p id="moves">Moves: <span id="movecount">0</span></p>
+<script>
+  initGame(null, document.getElementById('movecount'));
+</script>
 </body>
 </html>
