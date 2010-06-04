@@ -16,26 +16,193 @@ body{counter-reset:h1 7}
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-g.png alt=G width=106 height=103>FIXME
+<!--
+TODO
+- HTML5 Web Storage
+  - sessionStorage
+  - storage event
+  - limitations in current browsers
+- future of local storage
+  - web database?
+  - indexDB?
+-->
+
+<p class=f><img src=i/aoc-p.png alt=P width=110 height=106>ersistent local storage is one of the areas where native client applications have held an advantage over web applications. For native applications, the operating system typically provides an abstraction layer for storing and retrieving application-specific data like preferences or runtime state. These values may be stored in the registry, INI files, XML files, or some other place according to platform convention. If your native client application needs local storage beyond key/value pairs, you can embed your own database, invent your own file format, or any number of other solutions.
+
+<p>Historically, web applications have had none of these luxuries. Cookies were invented early in the web&#8217;s history, and indeed they can be used for persistent local storage of small amounts of data. But they have several potentially dealbreaking downsides:
+
+<ul>
+<li>Cookies are included with every <abbr>HTTP</abbr> request, thereby slowing down your web application by needlessly transmitting the same data over and over
+<li>Cookies are included with every <abbr>HTTP</abbr> request, thereby sending data unencrypted over the internet (unless your entire web application is served over <abbr>SSL</abbr>)
+</ul>
+
+<p>What we really want is persistent local storage that never leaves the client browser. There have been a number of attempts to achieve this, each ultimately unsatisfactory in different ways.
 
 <p class=a>&#x2767;
 
-<h2 id=ie>What About IE?</h2>
+<h2 id=history>A Brief History of Local Storage Hacks Before HTML5</h2>
 
-<p>Internet Explorer does not support it! Surprise surprise!
+<p>In the beginning, there was only Internet Explorer. Or at least, that&#8217;s what Microsoft wanted the world to think. To that end, as part of the <a href="http://en.wikipedia.org/wiki/Browser_wars#The_first_browser_war">First Great Browser Wars</a>, Microsoft invented a great many things and included them in their browser-to-end-all-browser-wars, Internet Explorer. One of these things was called <a href="http://msdn.microsoft.com/en-us/library/ms531078(v=VS.85).aspx"><abbr>DHTML</abbr> Behaviors</a>, and one of these behaviors was called <a href="http://msdn.microsoft.com/en-us/library/ms531424(VS.85).aspx">userData</a>.
+
+<p><code>userData</code> allows web pages to store up to 64 Kb of data per domain, in a hierarchical XML-based structure. (Trusted domains, such as intranet sites, can store 10 times that amount. And hey, <a href="http://en.wikiquote.org/wiki/Bill_Gates#Misattributed">640 Kb ought to be enough for anybody</a>.) IE does not present any form of permissions dialog, and there is no allowance for increasing the amount of storage available.
+
+<p>In 2002, Adobe introduced a feature in Flash 6 that gained the unfortunate and misleading name of &#8220;Flash cookies.&#8221; Within the Flash environment, the feature is properly known as <a href="http://kb2.adobe.com/cps/161/tn_16194.html">Local Shared Objects</a>. Briefly, it allows Flash objects to store up to 100 Kb of data per domain. By 2006, with the advent of <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/external/ExternalInterface.html">ExternalInterface</a> in Flash 8, it became possible to access Flash&#8217;s Local Shared Objects from JavaScript. Brad Neuberg developered an early prototype of such a Flash-to-JavaScript bridge called <a href="http://codinginparadise.org/weblog/2005/10/amass-ajax-massive-storage-system.html">AMASS</a> (AJAX Massive Storage System). He later incorporated this work into the popular Dojo JavaScript Toolkit under the moniker <a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage</code></a>. Flash gives each domain 100 Kb of storage &#8220;for free.&#8221; Beyond that, it prompts the user for each order of magnitude increase in data storage (1 Mb, 10 Mb, and so on).
+
+<p>In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source browser plugin aimed at providing additional capabilities in browsers. (We&#8217;ve previously discussed Gears in the context of <a href=geolocation.html#ie>providing a geolocation <abbr>API</abbr> in Internet Explorer</a>. Gears provides <a href="http://code.google.com/apis/gears/api_database.html">an <abbr>API</abbr> to an embedded <abbr>SQL</abbr> database</a> based on <a href="http://www.sqlite.org/">SQLite</a>. After obtaining permission from the user once, Gears can store unlimited amounts of data per domain in <abbr>SQL</abbr> database tables.
+
+<p>In the meantime, Brad Neuberg and others continued to hack away on <code>dojox.storage</code> to provide a unified interface to all these different plugins and <abbr>API</abbr>s. By 2009, <code>dojox.storage</code> could auto-detect (and provide a unified interface on top of) Adobe Flash, Google Gears, Adobe AIR, and an early prototype of <abbr>HTML5</abbr> storage that was only implemented in older versions of Firefox.
+
+<p>As you survey these solutions, a pattern emerges: all of them are either specific to a single browser, or reliant on a third-party plugin. Despite heroic efforts to paper over the differences (in <code>dojox.storage</code>), they all expose radically different interfaces, have different storage limitations, and present different user experiences. So this is the problem that <abbr>HTML5</abbr> set out to solve: to provide a standardized <abbr>API</abbr>, implemented natively and consistently in multiple browsers, without having to rely on third-party plugins.
+
+<p class=a>&#x2767;
+
+<h2 id=localstorage>Introducing HTML5 Storage</h2>
+
+<p>What I will refer to as &#8220;<abbr>HTML5</abbr> Storage&#8221; is a specification named <a href="http://dev.w3.org/html5/webstorage/">Web Storage</a>, which was at one time part of the <abbr>HTML5</abbr> specification proper, but was split out into its own specification for uninteresting political reasons. Certain browser vendors also refer to it as &#8220;Local Storage&#8221 or &#8220;<abbr>DOM</abbr> Storage.&#8221; The naming situation is made even more complicated by some related, similarly-named, emerging standards that I&#8217;ll discuss later in this chapter.
+
+<p>So what is <abbr>HTML5</abbr> Storage? Simply put, it&#8217;s a way for web pages to store named key/value pairs locally, within the client web browser. Like cookies, this data persists even after you navigate away from the web site, close your browser tab, exit your browser, or what have you. Unlike cookies, this data is never transmitted to the remote web server (unless you go out of your way to send it manually). Unlike <a href=#history>all previous attempts</a> at providing persistent local storage, it is implemented natively in web browsers, so it is available even when third-party browser plugins are not.
+
+<p>Which browsers? Well, the latest version of pretty much every browser supports <abbr>HTML5</abbr> Storage&hellip; even Internet Explorer!
+
+<table class=bc>
+<caption><abbr>HTML5</abbr> Storage support</caption>
+<thead>
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+</thead>
+<tbody>
+<tr><td>8.0+<td>3.5+<td>4.0+<td>1.0+<td>10.5+<td>2.0+<td>2.0+
+</tbody>
+</table>
+
+<p>From your JavaScript code, you&#8217;ll access <abbr>HTML5</abbr> Storage through the <code>localStorage</code> object on the global <code>window</code> object. Before you can use it, you should <a href=detect.html#storage>detect whether the browser supports it</a>.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> Storage
+<pre><code>function supports_html5_storage() {
+  return ('localStorage' in window) && window['localStorage'] !== null;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href=detect.html#modernizr>Modernizr</a> to detect support for <abbr>HTML5</abbr> Storage.
+
+<pre><code>if (<mark>Modernizr.localstorage</mark>) {
+  // window.localStorage is available!
+} else {
+  // no native support for HTML5 storage :(
+  // maybe try dojox.storage or a third-party solution
+}</code></pre>
+
+<p class=a>&#x2767;
+
+<h2 id=methods>Using HTML5 Storage</h2>
+
+<p><abbr>HTML5</abbr> Storage is based on named key/value pairs. You store data based on a named key, then you can retrieve that data with the same key. The named key is a string. The data can be any type supported by JavaScript, including strings, booleans, integers, or floats. However, the data is actually stored as a string. If you are storing and retrieving anything other than strings, you will need to use functions like <code>parseInt()</code> or <code>parseFloat()</code> to coerce your retrieved data into the expected JavaScript datatype.
+
+<pre><code>interface Storage {
+  getter any getItem(in DOMString key);
+  setter creator void setItem(in DOMString key, in any data);
+};</code></pre>
+
+<p>Calling <code>setItem()</code> with a named key that already exists will silently overwrite the previous value. Calling <code>getItem()</code> with a non-existent key will return <code>null</code> rather than throw an exception.
+
+<p>There are also methods for removing the value for a given named key, and clearing the entire storage area (that is, deleting all the keys and values at once).
+
+<pre><code>interface Storage {
+  deleter void removeItem(in DOMString key);
+  void clear();
+};</code></pre>
+
+<p>Finally, there is a property to get the total number of values in the storage area, and to iterate through all of the keys by index (to get the name of each key).
+
+<pre><code>interface Storage {
+  readonly attribute unsigned long length;
+  getter DOMString key(in unsigned long index);
+};</code></pre>
+
+<p class=a>&#x2767;
+
+<h2 id=halma>HTML5 Storage in Action</h2>
+
+<p>Let&#8217;s see <abbr>HTML5</abbr> Storage in action. Recall <a href=canvas.html#halma>the Halma game we constructed in the canvas chapter</a>. There&#8217;s a small problem with the game: if you close the browser window mid-game, you&#8217;ll lose your progress. But with <abbr>HTML5</abbr> Storage, we can save the progress locally, within the browser itself. Here is <a href=examples/localstorage-halma.html>a live demonstration</a>. Make a few moves, then close the browser tab, then re-open it. If your browser supports <abbr>HTML5</abbr> Storage, the demonstration page should magically remember your exact position within the game, including the number of moves you&#8217;ve made, the position of each of the pieces on the board, and even whether a particular piece is selected.
+
+<p>How does it work? Every time a change occurs within the game, we call this function:
+
+<pre><code>function saveGameState() {
+    if (!supportsLocalStorage()) { return false; }
+    localStorage.setItem("halma.game.in.progress", gGameInProgress);
+    for (var i = 0; i < kNumPieces; i++) {
+	localStorage.setItem("halma.piece." + i + ".row", gPieces[i].row);
+	localStorage.setItem("halma.piece." + i + ".column", gPieces[i].column);
+    }
+    localStorage.setItem("halma.selectedpiece", gSelectedPieceIndex);
+    localStorage.setItem("halma.selectedpiecehasmoved", gSelectedPieceHasMoved);
+    localStorage.setItem("halma.movecount", gMoveCount);
+    return true;
+}</code></pre>
+
+<p>As you can see, it uses the <code>localStorage</code> object to save whether there is a game in progress (<code>gGameInProgress</code>, a boolean). If so, it iterates through the pieces (<code>gPieces</code>, a JavaScript <code>Array</code>) and saves the row and column number of each piece. Then it saves some additional game state, including which piece is selected (<code>gSelectedPieceIndex</code>, an integer), whether the piece is in the middle of a potentially long series of hops (<code>gSelectedPieceHasMoved</code>, a boolean), and the total number of moves made so far (<code>gMoveCount</code>, an integer).
+
+<p>On page load, instead of automatically calling a <code>newGame()</code> function that would reset these variables to hard-coded values, we call a <code>resumeGame()</code> function instead. Using <abbr>HTML5</abbr> Storage, the <code>resumeGame()</code> function checks whether a state about a game-in-progress is stored locally. If so, it restores those values using the <code>localStorage</code> object.
+
+<pre><code>function resumeGame() {
+    if (!supportsLocalStorage()) { return false; }
+    gGameInProgress = (localStorage.getItem("halma.game.in.progress") == "true");
+    if (!gGameInProgress) { return false; }
+    gPieces = new Array(kNumPieces);
+    for (var i = 0; i < kNumPieces; i++) {
+	var row = parseInt(localStorage.getItem("halma.piece." + i + ".row"));
+	var column = parseInt(localStorage.getItem("halma.piece." + i + ".column"));
+	gPieces[i] = new Cell(row, column);
+    }
+    gNumPieces = kNumPieces;
+    gSelectedPieceIndex = parseInt(localStorage.getItem("halma.selectedpiece"));
+    gSelectedPieceHasMoved = localStorage.getItem("halma.selectedpiecehasmoved") == "true";
+    gMoveCount = parseInt(localStorage.getItem("halma.movecount"));
+    drawBoard();
+    return true;
+}</code></pre>
+
+<p>The most important part of this function is the caveat that I mentioned earlier in this chapter, which I&#8217;ll repeat here: <em>Data is stored as strings. If you are storing something other than a string, you&#8217;ll need to coerce it yourself when you retrieve it.</em> For example, the flag for whether there is a game in progress (<code>gGameInProgress</code>) is a boolean. In the <code>saveGameState()</code> function, we just stored it and didn&#8217;t worry about the datatype:
+
+<pre><code>localStorage.setItem("halma.game.in.progress", <mark>gGameInProgress</mark>);</code></pre>
+
+<p>But in the <code>resumeGame()</code> function, we need to treat the return value from <code>getItem()</code> as a string and manually construct the proper boolean value ourselves:
+
+<pre><code>gGameInProgress = (localStorage.getItem("halma.game.in.progress") <mark>== "true"</mark>);</code></pre>
+
+<p>Similarly, the number of moves is stored in <code>gMoveCount</code> as an integer. In the <code>saveGameState()</code> function, we just stored it:
+
+<pre><code>localStorage.setItem("halma.movecount", <mark>gMoveCount</mark>);</code></pre>
+
+<p>But in the <code>resumeGame()</code> function, we need to coerce the value to an integer, using the <code>parseInt()</code> function built into JavaScript:
+
+<pre><code>gMoveCount = <mark>parseInt</mark>(localStorage.getItem("halma.movecount"));</code></pre>
+
+<p class=a>&#x2767;
+
+<h2 id=future>Beyond Named Key/Value Pairs: Competing Visions</h2>
 
 <p>FIXME
 
+<p class=a>&#x2767;
+
 <h2 id=further-reading>Further Reading</h2>
 
+<p><abbr>HTML5</abbr> storage:
+
 <ul>
-<li>
-<li>
-<li>
-<li>
-<li>
-<li>
-<li>
+<li><a href="http://dev.w3.org/html5/webstorage/"><abbr>HTML5</abbr> Storage</a> specification
+<li><a href="http://msdn.microsoft.com/en-us/library/cc197062(VS.85).aspx">Introduction to DOM Storage</a> on <abbr>MSDN</abbr>
+<li><a href="http://dev.opera.com/articles/view/web-storage/">Web Storage: easier, more powerful client-side data storage</a> on Opera Developer Community
+<li><a href="https://developer.mozilla.org/en/dom/storage">DOM Storage</a> on Mozilla Developer Center. (Note: most of this page is devoted to Firefox&#8217;s prototype implementation of a <code>globalStorage</code> object, a non-standard precursor to <code>localStorage</code>. Mozilla added support for the standard <code>localStorage</code> interface in Firefox 3.5.)
+<li><a href="http://www.ibm.com/developerworks/xml/library/x-html5mobile2/">Unlock local storage for mobile Web applications with HTML 5</a>, a tutorial on IBM DeveloperWorks
+</ul>
+
+<p>Pioneering work by Brad Neuberg <i>et. al.</i> (pre-<abbr>HTML5</abbr>):
+
+<ul>
+<li><a href="http://codinginparadise.org/weblog/2005/08/ajax-internet-explorer-has-native.html">Internet Explorer Has Native Support for Persistence?!?!</a> (about the <code>userData</code> object in IE)
+<li><a href="http://docs.google.com/View?docid=dhkhksk4_8gdp9gr#dojo_storage">Dojo Storage</a>, part of a larger tutorial about the (now-defunct) Dojo Offline library
+<li><a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage.manager</code> <abbr>API</abbr> reference</a>
+<li><a href="http://svn.dojotoolkit.org/src/dojox/trunk/storage/">dojox.storage</a> Subversion repository
 </ul>
 
 <p class=a>&#x2767;

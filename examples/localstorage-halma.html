@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Halma</title>
+<script src="halma-localstorage.js"></script>
+</head>
+<body>
+<h1>Halma with HTML5 Storage</h1>
+<p>(<a href=../canvas.html#halma>Rules of play</a>, <a href=../storage.html#halma>explanation of <code>localStorage</code> implementation</a>)</p>
+<button onclick="newGame()">Reset game</button>
+<p id="moves">Moves: <span id="movecount">0</span></p>
+<script>
+  initGame(null, document.getElementById('movecount'));
+</script>
+</body>
+</html>
