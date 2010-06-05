@@ -40,7 +40,7 @@ body{counter-reset:h1 7}
 
 <p>In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source browser plugin aimed at providing additional capabilities in browsers. (We&#8217;ve previously discussed Gears in the context of <a href=geolocation.html#ie>providing a geolocation <abbr>API</abbr> in Internet Explorer</a>. Gears provides <a href="http://code.google.com/apis/gears/api_database.html">an <abbr>API</abbr> to an embedded <abbr>SQL</abbr> database</a> based on <a href="http://www.sqlite.org/">SQLite</a>. After obtaining permission from the user once, Gears can store unlimited amounts of data per domain in <abbr>SQL</abbr> database tables.
 
-<p>In the meantime, Brad Neuberg and others continued to hack away on <code>dojox.storage</code> to provide a unified interface to all these different plugins and <abbr>API</abbr>s. By 2009, <code>dojox.storage</code> could auto-detect (and provide a unified interface on top of) Adobe Flash, Google Gears, Adobe AIR, and an early prototype of <abbr>HTML5</abbr> storage that was only implemented in older versions of Firefox.
+<p>In the meantime, Brad Neuberg and others continued to hack away on <code>dojox.storage</code> to provide a unified interface to all these different plugins and <abbr>API</abbr>s. By 2009, <code>dojox.storage</code> could auto-detect (and provide a unified interface on top of) Adobe Flash, Gears, Adobe AIR, and an early prototype of <abbr>HTML5</abbr> storage that was only implemented in older versions of Firefox.
 
 <p>As you survey these solutions, a pattern emerges: all of them are either specific to a single browser, or reliant on a third-party plugin. Despite heroic efforts to paper over the differences (in <code>dojox.storage</code>), they all expose radically different interfaces, have different storage limitations, and present different user experiences. So this is the problem that <abbr>HTML5</abbr> set out to solve: to provide a standardized <abbr>API</abbr>, implemented natively and consistently in multiple browsers, without having to rely on third-party plugins.
 
@@ -60,7 +60,7 @@ body{counter-reset:h1 7}
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>8.0+<td>3.5+<td>4.0+<td>1.0+<td>10.5+<td>2.0+<td>2.0+
+<tr><td>8.0+<td>3.5+<td>4.0+<td>4.0+<td>10.5+<td>2.0+<td>2.0+
 </tbody>
 </table>
 
@@ -213,7 +213,48 @@ body{counter-reset:h1 7}
 
 <h2 id=future>Beyond Named Key-Value Pairs: Competing Visions</h2>
 
-<p>FIXME
+<p>While <a href=#history>the past is littered with hacks and workarounds</a>, the present condition of <abbr>HTML5</abbr> Storage is surprisingly rosy. A new <abbr>API</abbr> has been standardized and implemented across all major browsers, platforms, and devices. As a web developer, that&#8217;s just not something you see every day, is it? But there is more to life than &#8220;5 megabytes of named key/value pairs,&#8221; and the future of persistent local storage is&hellip; how shall I put it&hellip; well, there are a number of competing visions.
+
+<p>One vision is an acronym that you probably know already: <abbr>SQL</abbr>. In 2007, Google launched <a href=http://gears.google.com/>Gears</a>, an open source cross-browser plugin which included an embedded database based on <a href=http://www.sqlite.org/>SQLite</a>. This early prototype later influenced the creation of the <a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a> specification. Web SQL Database (formerly known as &#8220;WebDB&#8221;) provides a thin wrapper around a <abbr>SQL</abbr> database, allowing you to do things like this from JavaScript:
+
+<p class="legend top" style="padding-left:3em"><span class=arrow>&#x21b6;</span> actual working code in 4 browsers
+<pre><code><mark>openDatabase</mark>('documents', '1.0', 'Local document storage', 5*1024*1024, function (db) {
+  db.changeVersion('', '1.0', function (t) {
+    t.<mark>executeSql</mark>('CREATE TABLE docids (id, name)');
+  }, error);
+});</code></pre>
+
+<p>As you can see, most of the action resides in the string you pass to the <code>executeSql</code> method. This string can be any supported <abbr>SQL</abbr> statement, including <code>SELECT</code>, <code>UPDATE</code>, <code>INSERT</code>, and <code>DELETE</code> statements. It&#8217;s just like backend database programming, except you&#8217;re doing it from JavaScript! Oh joy!
+
+<p>The Web SQL Database specification has been implemented by a number of browsers and platforms.
+
+<table class=bc>
+<caption>Web SQL Database support</caption>
+<thead>
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+</thead>
+<tbody>
+<tr><td>&middot;<td>&middot;<td>4.0+<td>4.0+<td>10.5+<td>3.0+<td>&middot;
+</tbody>
+</table>
+
+<p>Of course, if you&#8217;ve used more than one database product in your life, you are aware that &#8220;<abbr>SQL</abbr>&#8221; is more of a marketing term than a hard-and-fast standard. (Some would say the same of &#8220;HTML5,&#8221; but never mind that.) Sure, there is an actual <abbr>SQL</abbr> specification (it&#8217;s called <a href="http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt">SQL-92</a>), but there is no database server in the world that conforms to that and only that specification. There&#8217;s Oracle&#8217;s <abbr>SQL</abbr>, Microsoft&#8217;s <abbr>SQL</abbr>, MySQL&#8217;s <abbr>SQL</abbr>, Postgresql&#8217;s <abbr>SQL</abbr>, and SQLite&#8217;s <abbr>SQL</abbr>. Indeed, each of these products adds new <abbr>SQL</abbr> features over time, so even saying &#8220;SQLite&#8217;s <abbr>SQL</abbr>&#8221; is not sufficient to pin down exactly what you&#8217;re talking about. You need to say &#8220;the version of <abbr>SQL</abbr> that shipped with SQLite version X.Y.Z.&#8221;
+
+<p>All of which brings us to the following disclaimer, currently residing at the top of the Web SQL Database specification:
+
+<blockquote>
+<p>This specification has reached an impasse: all interested implementors have used the same SQL backend (Sqlite), but we need multiple independent implementations to proceed along a standardisation path. Until another implementor is interested in implementing this spec, the description of the SQL dialect has been left as simply a reference to Sqlite, which isn't acceptable for a standard.
+</blockquote>
+
+<p>It is against this backdrop that I will introduce you to another competing vision for advanced, persistent, local storage for web applications: <a href=http://dev.w3.org/2006/webapi/IndexedDB/>the Indexed Database <abbr>API</abbr></a>, formerly known as &#8220;WebSimpleDB,&#8221; now affectionally known as &#8220;IndexedDB.&#8221;
+
+<p>The Indexed Database <abbr>API</abbr> exposes what&#8217;s called an <em>object store</em>. An object store shares many concepts with a <abbr>SQL</abbr> database. There are &#8220;databases&#8221; with &#8220;records,&#8221; and each record has a set number of &#8220;fields.&#8221; Each field has a specific datatype, which is defined when the database is created. You can select a subset of records, then enumerate them with a &#8220;cursor.&#8221; Changes to the object store are handled within &#8220;transactions.&#8221;
+
+<p>If you&#8217;ve done any <abbr>SQL</abbr> database programming, these terms probably sound familiar. The primary difference is that the object store has no structured query language. You don&#8217;t construct a statement like <code>"SELECT * from USERS where ACTIVE = 'Y'"</code>. Instead, you use methods provided by the object store to open a cursor on the database named &#8220;<code>USERS</code>,&#8221; enumerate through the records, filter out records for inactive users, and use accessor methods to get the values of each field in the remaining records. <a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/">An early walk-through of IndexedDB</a> is a good tutorial of how IndexedDB works, giving side-by-side comparisons of IndexedDB and Web SQL Database.
+
+<p>At time of writing, IndexedDB has been implemented in Firefox nightly builds, and Mozilla plans to ship it in Firefox 4. (By contrast, Mozilla has stated that <a href="http://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">they will never implement Web SQL Database</a>.) Google has stated that <a href="http://www.chromium.org/developers/design-documents/indexeddb">they are working on IndexedDB support</a>, possibly as soon as Chrome 6. And even Microsoft has said that IndexedDB &#8220;<a href="http://blogs.msdn.com/b/ie/archive/2010/03/09/working-with-the-html5-community.aspx">is a great solution for the web</a>.&#8221;
+
+<p>So what can you, as a web developer, do with IndexedDB? At the moment, absolutely nothing. A year from now? Maybe something. Check the &#8220;Further Reading&#8221; section for links to some good tutorials to get you started.
 
 <p class=a>&#x2767;
 
@@ -229,13 +270,30 @@ body{counter-reset:h1 7}
 <li><a href="http://www.ibm.com/developerworks/xml/library/x-html5mobile2/">Unlock local storage for mobile Web applications with HTML 5</a>, a tutorial on IBM DeveloperWorks
 </ul>
 
-<p>Pioneering work by Brad Neuberg <i>et. al.</i> (pre-<abbr>HTML5</abbr>):
+<p>Early work by Brad Neuberg <i>et. al.</i> (pre-<abbr>HTML5</abbr>):
 
 <ul>
 <li><a href="http://codinginparadise.org/weblog/2005/08/ajax-internet-explorer-has-native.html">Internet Explorer Has Native Support for Persistence?!?!</a> (about the <code>userData</code> object in IE)
 <li><a href="http://docs.google.com/View?docid=dhkhksk4_8gdp9gr#dojo_storage">Dojo Storage</a>, part of a larger tutorial about the (now-defunct) Dojo Offline library
 <li><a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage.manager</code> <abbr>API</abbr> reference</a>
 <li><a href="http://svn.dojotoolkit.org/src/dojox/trunk/storage/">dojox.storage</a> Subversion repository
+</ul>
+
+<p>Web SQL Database:
+
+<ul>
+<li><a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a> specification
+<li><a href="http://html5doctor.com/introducing-web-sql-databases/">Introducing Web <abbr>SQL</abbr> Databases</a>
+<li><a href="http://html5demos.com/database">Web Database demonstration</a>
+<lI><a href="http://zef.me/2774/persistence-js-an-asynchronous-javascript-orm-for-html5gears">persistence.js</a>, an &#8220;asynchronous JavaScript <abbr>ORM</abbr>&#8221; built on top of Web <abbr>SQL</abbr> Database and Gears
+</ul>
+
+<p>IndexedDB:
+
+<ul>
+<li><a href="http://dev.w3.org/2006/webapi/IndexedDB/">Indexed Database <abbr>API</abbr></a> specification
+<li><a href="http://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">Beyond HTML5: Database APIs and the Road to IndexedDB</a>
+<li><a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/">Firefox 4: An early walk-through of IndexedDB</a>
 </ul>
 
 <p class=a>&#x2767;
