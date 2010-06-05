@@ -11,7 +11,7 @@ body{counter-reset:h1 7}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#storage>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
-<h1><br>A Place To Put<br>Your Stuff</h1>
+<h1><br>A Place To Put<br>Your Stuff:<br>The Past, Present &amp; Future of Local Storage for Web Applications</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
@@ -34,6 +34,7 @@ TODO
 <ul>
 <li>Cookies are included with every <abbr>HTTP</abbr> request, thereby slowing down your web application by needlessly transmitting the same data over and over
 <li>Cookies are included with every <abbr>HTTP</abbr> request, thereby sending data unencrypted over the internet (unless your entire web application is served over <abbr>SSL</abbr>)
+<li>Cookies are limited to about 4 Kb of data &mdash; enough to slow down your application (see above), but not enough to be terribly useful
 </ul>
 
 <p>What we really want is persistent local storage that never leaves the client browser. There have been a number of attempts to achieve this, each ultimately unsatisfactory in different ways.
@@ -110,12 +111,47 @@ TODO
   void clear();
 };</code></pre>
 
+<p>Calling <code>removeItem()</code> with a non-existent key will do nothing.
+
 <p>Finally, there is a property to get the total number of values in the storage area, and to iterate through all of the keys by index (to get the name of each key).
 
 <pre><code>interface Storage {
   readonly attribute unsigned long length;
   getter DOMString key(in unsigned long index);
 };</code></pre>
+
+<p>If you call <code>key()</code> with an index that is not between 0&ndash;(length-1), the function will return <code>null</code>.
+
+<h3 id=storage-event>Tracking Changes to the HTML5 Storage Area</h3>
+
+<p>If you want to keep track programmatically of when the storage area changes, you can trap the <code>storage</code> event. The <code>storage</code> event is fired on the <code>window</code> object whenever <code>setItem()</code>, <code>removeItem()</code>, or <code>clear()</code> is called <em>and actually changes something</em>. For example, if you set an item to its existing value or call <code>clear()</code> when there are no named keys, the <code>storage</code> event will not fire, because nothing actually changed in the storage area.
+
+<p>The <code>storage</code> event is supported everywhere the <code>localStorage</code> object is supported, which includes Internet Explorer 8. IE 8 does not support the W3C standard <code>addEventListener</code> (although that will finally be added in IE 9). Therefore, to hook the <code>storage</code> event, you&#8217;ll need to check which event mechanism the browser supports. (If you&#8217;ve done this before with other events, you can skip to the end of this section. Trapping the <code>storage</code> event works the same as every other event you&#8217;ve ever trapped. If you prefer to use jQuery or some other JavaScript library to register your event handlers, you can do that with the <code>storage</code> event, too.)
+
+<pre><code>if (window.addEventListener) {
+  window.addEventListener("storage", handle_storage, false);
+} else {
+  window.attachEvent("onstorage", handle_storage);
+};</code></pre>
+
+<p>The <code>handle_storage</code> callback function will be called with a <code>StorageEvent</code> object, except in Internet Explorer where the event object is stored in <code>window.event</code>.
+
+<pre><code>function handle_storage(e) {
+  if (!e) { e = window.event; }
+}</code></pre>
+
+<p>At this point, the variable <code>e</code> will be a <code>StorageEvent</code> object, which has the following useful properties.
+
+<table class=st>
+<caption>StorageEvent Object</caption>
+<tr class=ho><th>Property<th>Type<th>Notes
+<tr class=zebra><th><code>key</code><td>string<td>the named key that was added, removed, or modified
+<tr><th><code>oldValue</code><td>any<td>the previous value (now overwritten), or <code>null</code> if a new item was added
+<tr class=zebra><th><code>newValue</code><td>any<td>the new value, or <code>null</code> if an item was removed
+<tr><th><code>url</code><td>string<td>the page which called a method that triggered this change
+</table>
+
+<p>The <code>storage</code> event is not cancelable. From within the <code>handle_storage</code> callback function, there is no way to stop the change from occurring. It&#8217;s simply a way for the browser to tell you, &#8220;hey, this just happened. There&#8217;s nothing you can do about it now; I just wanted to let you know.&#8221;
 
 <p class=a>&#x2767;
 
@@ -175,6 +211,12 @@ TODO
 <p>But in the <code>resumeGame()</code> function, we need to coerce the value to an integer, using the <code>parseInt()</code> function built into JavaScript:
 
 <pre><code>gMoveCount = <mark>parseInt</mark>(localStorage.getItem("halma.movecount"));</code></pre>
+
+<p class=a>&#x2767;
+
+<h2 id=everything>Everything You Always Wanted To Know About HTML5 Storage (But Were Afraid To Ask)</h2>
+
+<p>FIXME
 
 <p class=a>&#x2767;
 
