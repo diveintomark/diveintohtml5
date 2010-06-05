@@ -16,17 +16,6 @@ body{counter-reset:h1 7}
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<!--
-TODO
-- HTML5 Web Storage
-  - sessionStorage
-  - storage event
-  - limitations in current browsers
-- future of local storage
-  - web database?
-  - indexDB?
--->
-
 <p class=f><img src=i/aoc-p.png alt=P width=110 height=106>ersistent local storage is one of the areas where native client applications have held an advantage over web applications. For native applications, the operating system typically provides an abstraction layer for storing and retrieving application-specific data like preferences or runtime state. These values may be stored in the registry, INI files, XML files, or some other place according to platform convention. If your native client application needs local storage beyond key/value pairs, you can embed your own database, invent your own file format, or any number of other solutions.
 
 <p>Historically, web applications have had none of these luxuries. Cookies were invented early in the web&#8217;s history, and indeed they can be used for persistent local storage of small amounts of data. But they have several potentially dealbreaking downsides:
@@ -120,7 +109,7 @@ TODO
   getter DOMString key(in unsigned long index);
 };</code></pre>
 
-<p>If you call <code>key()</code> with an index that is not between 0&ndash;(length-1), the function will return <code>null</code>.
+<p>If you call <code>key()</code> with an index that is not between 0&ndash;(<code>length</code>-1), the function will return <code>null</code>.
 
 <h3 id=storage-event>Tracking Changes to the HTML5 Storage Area</h3>
 
@@ -152,6 +141,14 @@ TODO
 </table>
 
 <p>The <code>storage</code> event is not cancelable. From within the <code>handle_storage</code> callback function, there is no way to stop the change from occurring. It&#8217;s simply a way for the browser to tell you, &#8220;hey, this just happened. There&#8217;s nothing you can do about it now; I just wanted to let you know.&#8221;
+
+<h3 id=limitations>Limitations in Current Browsers</h3>
+
+<p>In talking about <a href=#history>the history of local storage hacks</a> using third-party plugins, I made a point of mentioning the limitations of each technique, such as storage limits. I just realized that I haven&#8217;t mentioned anything about the limitations of the now-standardized <abbr>HTML5</abbr> Storage. I&#8217;ll give you the answers first, then explain them. The answers, in order of importance, are &#8220;5 megabytes,&#8221; &#8220;<code>QUOTA_EXCEEDED_ERR</code>,&#8221; and &#8220;no.&#8221;
+
+<p>&#8220;5 megabytes&#8221; is how much storage space you get by default. This is surprisingly consistent across browsers, although it phrased as no more than a suggestion in the <abbr>HTML5</abbr> Storage specification. One thing to keep in mind is that you&#8217;re storing strings, not data in its original format. If you&#8217;re storing a lot of integers or floats, the difference in representation can really add up. Each digit in that float is being stored as a character, not in the usual representation of a floating point number.
+
+<p>&#8220;<code>QUOTA_EXCEEDED_ERR</code>&#8221; is the exception that will get thrown if you exceed your storage quota of 5 megabytes. &#8220;No&#8221; is the answer to the next obvious question, &#8220;Can I ask the user for more storage space?&#8221; At time of writing, no browser supports any mechanism for web developers to request more storage space. Some browsers (<a href=http://dev.opera.com/articles/view/web-storage/>like Opera</a>) allow the user to control each site&#8217;s storage quota, but it is purely a user-initiated action, not something that you as a web developer can build into your web application.
 
 <p class=a>&#x2767;
 
@@ -214,13 +211,7 @@ TODO
 
 <p class=a>&#x2767;
 
-<h2 id=everything>Everything You Always Wanted To Know About HTML5 Storage (But Were Afraid To Ask)</h2>
-
-<p>FIXME
-
-<p class=a>&#x2767;
-
-<h2 id=future>Beyond Named Key/Value Pairs: Competing Visions</h2>
+<h2 id=future>Beyond Named Key-Value Pairs: Competing Visions</h2>
 
 <p>FIXME
 
