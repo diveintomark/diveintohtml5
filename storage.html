@@ -161,7 +161,7 @@ body{counter-reset:h1 7}
 <pre><code>function saveGameState() {
     if (!supportsLocalStorage()) { return false; }
     localStorage.setItem("halma.game.in.progress", gGameInProgress);
-    for (var i = 0; i < kNumPieces; i++) {
+    for (var i = 0; i &lt; kNumPieces; i++) {
 	localStorage.setItem("halma.piece." + i + ".row", gPieces[i].row);
 	localStorage.setItem("halma.piece." + i + ".column", gPieces[i].column);
     }
@@ -180,7 +180,7 @@ body{counter-reset:h1 7}
     gGameInProgress = (localStorage.getItem("halma.game.in.progress") == "true");
     if (!gGameInProgress) { return false; }
     gPieces = new Array(kNumPieces);
-    for (var i = 0; i < kNumPieces; i++) {
+    for (var i = 0; i &lt; kNumPieces; i++) {
 	var row = parseInt(localStorage.getItem("halma.piece." + i + ".row"));
 	var column = parseInt(localStorage.getItem("halma.piece." + i + ".column"));
 	gPieces[i] = new Cell(row, column);
