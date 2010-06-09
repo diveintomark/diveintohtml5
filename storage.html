@@ -133,11 +133,18 @@ body{counter-reset:h1 7}
 
 <table class=st>
 <caption>StorageEvent Object</caption>
-<tr class=ho><th>Property<th>Type<th>Notes
+<thead>
+<tr class=ho><th>Property<th>Type<th>Description
+</thead>
+<tbody>
 <tr class=zebra><th><code>key</code><td>string<td>the named key that was added, removed, or modified
 <tr><th><code>oldValue</code><td>any<td>the previous value (now overwritten), or <code>null</code> if a new item was added
 <tr class=zebra><th><code>newValue</code><td>any<td>the new value, or <code>null</code> if an item was removed
-<tr><th><code>url</code><td>string<td>the page which called a method that triggered this change
+<tr><th><code>url</code><sup>*</sup><td>string<td>the page which called a method that triggered this change
+</tbody>
+<tfoot>
+<tr><td colspan=3>* Note: the <code>url</code> property was originally called <code>uri</code>. Some browsers shipped with that property before the specification changed. For maximum compatibility, you should check whether the <code>url</code> property exists, and if not, check for the <code>uri</code> property instead.
+</tfoot>
 </table>
 
 <p>The <code>storage</code> event is not cancelable. From within the <code>handle_storage</code> callback function, there is no way to stop the change from occurring. It&#8217;s simply a way for the browser to tell you, &#8220;hey, this just happened. There&#8217;s nothing you can do about it now; I just wanted to let you know.&#8221;
