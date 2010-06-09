@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Local Storage - Dive Into HTML 5</title>
+<title>Persistent Storage - Dive Into HTML 5</title>
 <!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
 <link rel="shortcut icon" href=favicon.ico>
 <link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
@@ -11,7 +11,7 @@ body{counter-reset:h1 7}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#storage>Dive Into <abbr>HTML</abbr> 5</a> <span class=u>&#8227;</span>
-<h1><br>The Past, Present &amp; Future of Local Storage for Web Applications</h1>
+<h1><br>The Past, Present &amp; Future of Persistent Storage for Web Applications</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
@@ -259,7 +259,7 @@ body{counter-reset:h1 7}
 
 <p>If you&#8217;ve done any <abbr>SQL</abbr> database programming, these terms probably sound familiar. The primary difference is that the object store has no structured query language. You don&#8217;t construct a statement like <code>"SELECT * from USERS where ACTIVE = 'Y'"</code>. Instead, you use methods provided by the object store to open a cursor on the database named &#8220;<code>USERS</code>,&#8221; enumerate through the records, filter out records for inactive users, and use accessor methods to get the values of each field in the remaining records. <a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/">An early walk-through of IndexedDB</a> is a good tutorial of how IndexedDB works, giving side-by-side comparisons of IndexedDB and Web SQL Database.
 
-<p>At time of writing, IndexedDB has been implemented in Firefox nightly builds, and Mozilla plans to ship it in Firefox 4. (By contrast, Mozilla has stated that <a href="http://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">they will never implement Web SQL Database</a>.) Google has stated that <a href="http://www.chromium.org/developers/design-documents/indexeddb">they are working on IndexedDB support</a>, possibly as soon as Chrome 6. And even Microsoft has said that IndexedDB &#8220;<a href="http://blogs.msdn.com/b/ie/archive/2010/03/09/working-with-the-html5-community.aspx">is a great solution for the web</a>.&#8221;
+<p>At time of writing, IndexedDB hasn&#8217;t been implemented in any major browser. In early June, Mozilla has said they will &#8220;<a href="http://blog.mozilla.com/about_mozilla/2010/06/08/firefox-sudosocial-indexeddb-privacy-bugzilla-jetpack-add-ons-qmo-design-challenge-and-more/#an">have some test builds in the next few weeks</a>,&#8221; but there is no word yet on whether it will even ship in Firefox 4. (By contrast, Mozilla has stated that <a href="http://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">they will never implement Web SQL Database</a>.) Google has stated that <a href="http://www.chromium.org/developers/design-documents/indexeddb">they are considering IndexedDB support</a>. And even Microsoft has said that IndexedDB &#8220;<a href="http://blogs.msdn.com/b/ie/archive/2010/03/09/working-with-the-html5-community.aspx">is a great solution for the web</a>.&#8221;
 
 <p>So what can you, as a web developer, do with IndexedDB? At the moment, absolutely nothing. A year from now? Maybe something. Check the &#8220;Further Reading&#8221; section for links to some good tutorials to get you started.
 
