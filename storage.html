@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Persistent Storage - Dive Into HTML 5</title>
+<title>Local Storage - Dive Into HTML 5</title>
 <!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
 <link rel="shortcut icon" href=favicon.ico>
 <link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
@@ -11,7 +11,7 @@ body{counter-reset:h1 7}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <div id=zz>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#storage>Dive Into <abbr>HTML</abbr> 5</a> <span class=u>&#8227;</span>
-<h1><br>The Past, Present &amp; Future of Persistent Storage for Web Applications</h1>
+<h1><br>The Past, Present &amp; Future of Local Storage for Web Applications</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
@@ -26,7 +26,16 @@ body{counter-reset:h1 7}
 <li>Cookies are limited to about 4 Kb of data &mdash; enough to slow down your application (see above), but not enough to be terribly useful
 </ul>
 
-<p>What we really want is persistent local storage that never leaves the client browser. There have been a number of attempts to achieve this, each ultimately unsatisfactory in different ways.
+<p>What we really want is
+
+<ul>
+<li>a lot of storage space
+<li>on the client
+<li>that persistents beyond a page refresh
+<li>and isn&#8217;t trasmitted to the server
+</ul>
+
+<p>There have been a number of attempts to achieve this, each ultimately unsatisfactory in different ways.
 
 <p class=a>&#x2767;
 
@@ -92,6 +101,18 @@ body{counter-reset:h1 7}
 };</code></pre>
 
 <p>Calling <code>setItem()</code> with a named key that already exists will silently overwrite the previous value. Calling <code>getItem()</code> with a non-existent key will return <code>null</code> rather than throw an exception.
+
+<p>Like other JavaScript objects, you can treat the <code>localStorage</code> object as an associative array. Instead of using the <code>getItem()</code> and <code>setItem()</code> methods, you can simply use square brackets. For example, this snippet of code:
+
+<pre><code>var foo = localStorage.<mark>getItem</mark>("bar");
+// ...
+localStorage.<mark>setItem</mark>("bar", foo);</code></pre>
+
+<p>&hellip;could be rewritten to use square bracket syntax instead:
+
+<pre><code>var foo = localStorage<mark>["bar"]</mark>;
+// ...
+localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>There are also methods for removing the value for a given named key, and clearing the entire storage area (that is, deleting all the keys and values at once).
 
@@ -167,14 +188,14 @@ body{counter-reset:h1 7}
 
 <pre><code>function saveGameState() {
     if (!supportsLocalStorage()) { return false; }
-    localStorage.setItem("halma.game.in.progress", gGameInProgress);
+    localStorage["halma.game.in.progress"] = gGameInProgress;
     for (var i = 0; i &lt; kNumPieces; i++) {
-	localStorage.setItem("halma.piece." + i + ".row", gPieces[i].row);
-	localStorage.setItem("halma.piece." + i + ".column", gPieces[i].column);
+	localStorage["halma.piece." + i + ".row"] = gPieces[i].row;
+	localStorage["halma.piece." + i + ".column"] = gPieces[i].column;
     }
-    localStorage.setItem("halma.selectedpiece", gSelectedPieceIndex);
-    localStorage.setItem("halma.selectedpiecehasmoved", gSelectedPieceHasMoved);
-    localStorage.setItem("halma.movecount", gMoveCount);
+    localStorage["halma.selectedpiece"] = gSelectedPieceIndex;
+    localStorage["halma.selectedpiecehasmoved"] gSelectedPieceHasMoved;
+    localStorage["halma.movecount"] = gMoveCount;
     return true;
 }</code></pre>
 
@@ -184,37 +205,37 @@ body{counter-reset:h1 7}
 
 <pre><code>function resumeGame() {
     if (!supportsLocalStorage()) { return false; }
-    gGameInProgress = (localStorage.getItem("halma.game.in.progress") == "true");
+    gGameInProgress = (localStorage["halma.game.in.progress"] == "true");
     if (!gGameInProgress) { return false; }
     gPieces = new Array(kNumPieces);
     for (var i = 0; i &lt; kNumPieces; i++) {
-	var row = parseInt(localStorage.getItem("halma.piece." + i + ".row"));
-	var column = parseInt(localStorage.getItem("halma.piece." + i + ".column"));
+	var row = parseInt(localStorage["halma.piece." + i + ".row"]);
+	var column = parseInt(localStorage["halma.piece." + i + ".column"]);
 	gPieces[i] = new Cell(row, column);
     }
     gNumPieces = kNumPieces;
-    gSelectedPieceIndex = parseInt(localStorage.getItem("halma.selectedpiece"));
-    gSelectedPieceHasMoved = localStorage.getItem("halma.selectedpiecehasmoved") == "true";
-    gMoveCount = parseInt(localStorage.getItem("halma.movecount"));
+    gSelectedPieceIndex = parseInt(localStorage["halma.selectedpiece"]);
+    gSelectedPieceHasMoved = localStorage["halma.selectedpiecehasmoved"] == "true";
+    gMoveCount = parseInt(localStorage["halma.movecount"]);
     drawBoard();
     return true;
 }</code></pre>
 
 <p>The most important part of this function is the caveat that I mentioned earlier in this chapter, which I&#8217;ll repeat here: <em>Data is stored as strings. If you are storing something other than a string, you&#8217;ll need to coerce it yourself when you retrieve it.</em> For example, the flag for whether there is a game in progress (<code>gGameInProgress</code>) is a boolean. In the <code>saveGameState()</code> function, we just stored it and didn&#8217;t worry about the datatype:
 
-<pre><code>localStorage.setItem("halma.game.in.progress", <mark>gGameInProgress</mark>);</code></pre>
+<pre><code>localStorage["halma.game.in.progress"] = <mark>gGameInProgress</mark>;</code></pre>
 
-<p>But in the <code>resumeGame()</code> function, we need to treat the return value from <code>getItem()</code> as a string and manually construct the proper boolean value ourselves:
+<p>But in the <code>resumeGame()</code> function, we need to treat the value we got from the local storage area as a string and manually construct the proper boolean value ourselves:
 
-<pre><code>gGameInProgress = (localStorage.getItem("halma.game.in.progress") <mark>== "true"</mark>);</code></pre>
+<pre><code>gGameInProgress = (localStorage["halma.game.in.progress"] <mark>== "true"</mark>);</code></pre>
 
 <p>Similarly, the number of moves is stored in <code>gMoveCount</code> as an integer. In the <code>saveGameState()</code> function, we just stored it:
 
-<pre><code>localStorage.setItem("halma.movecount", <mark>gMoveCount</mark>);</code></pre>
+<pre><code>localStorage["halma.movecount"] = <mark>gMoveCount</mark>;</code></pre>
 
 <p>But in the <code>resumeGame()</code> function, we need to coerce the value to an integer, using the <code>parseInt()</code> function built into JavaScript:
 
-<pre><code>gMoveCount = <mark>parseInt</mark>(localStorage.getItem("halma.movecount"));</code></pre>
+<pre><code>gMoveCount = <mark>parseInt</mark>(localStorage["halma.movecount"]);</code></pre>
 
 <p class=a>&#x2767;
 
