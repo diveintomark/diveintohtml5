@@ -313,7 +313,7 @@ video {
   border-collapse:collapse;
 }
 
-.bc tbody th, .bc thead th.l, .bc tfoot td {
+.bc tbody th, .bc thead th.l, tfoot td {
   text-align:left;
 }
 
@@ -321,7 +321,7 @@ video {
   text-align:center;
 }
 
-.bc tfoot {
+tfoot {
   font-size:small;
 }
 

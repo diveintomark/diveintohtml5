@@ -1,5 +1,4 @@
 CACHE MANIFEST
 # revision
 halma.html
-../halma.js
-../../i/pastel.png
+../halma-localstorage.js

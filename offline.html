@@ -194,9 +194,31 @@ clock.css</code></pre>
 
 <p class=a>&#x2767;
 
-<h2 id=example>Let&#8217;s Build One!</h2>
+<h2 id=halma>Let&#8217;s Build One!</h2>
 
-<p>FIXME
+<p>Remember the Halma game that we introduced in <a href=canvas.html#halma>the canvas chapter</a> and later improved by <a href=storage.html#halma>saving state with persistent local storage</a>? Let&#8217;s take our Halma game offline.
+
+<p>To do that, we need a manifest that lists all the resources the game needs. Well, there&#8217;s the main <abbr>HMTL</abbr> page, a single JavaScript file that contains all the game code, and&hellip; that&#8217;s it. There are no images, because all the drawing is done programmatically via the <a href=canvas.html>canvas <abbr>API</abbr></a>. All the necessary <abbr>CSS</abbr> styles are in a <code>&lt;style></code> element at the top of the <abbr>HTML</abbr> page. So this is our cache manifest:
+
+<pre><code>CACHE MANIFEST
+halma.html
+../halma-localstorage.js</code></pre>
+
+<p>A word about paths. I&#8217;ve created an <code>offline/</code> subdirectory in the <code>examples/</code> directory, and this cache manifest file lives inside the subdirectory. Because the <abbr>HTML</abbr> page will need one minor addition to work offline (more on that in a minute), I&#8217;ve created a separate copy of the <abbr>HTML</abbr> file, which also lives in the <code>offline/</code> subdirectory. But because there are no changes to the JavaScript code itself since <a href=storage.html#halma>we added local storage support</a>, I&#8217;m literally reusing the same <code>.js</code> file, which lives in the parent directory (<code>examples/</code>). Altogether, the files look like this:
+
+<pre><samp>/examples/localstorage-halma.html
+/examples/halma-localstorage.js
+/examples/offline/halma.manifest
+/examples/offline/halma.html</samp></pre>
+
+<p>In the cache manifest file (<code>/examples/offline/halma.manifest</code>), we want to reference two files. First, the offline version of the <abbr>HTML</abbr> file (<code>/examples/offline/halma.html</code>). Since these two files are in the same directory, it is listed in the manifest file without any path prefix. Second, the JavaScript file which lives in the parent directory (<code>/examples/halma-localstorage.js</code>). This is listed in the manifest file using relative <abbr>URL</abbr> notation: <code>../halma-localstorage.js</code>. This is just like you might use a relative <abbr>URL</abbr> in an <code>&lt;img src></code> attribute. As you&#8217;ll see in the next example, you can also use absolute paths (that start at the root of the current domain) or even absolute <abbr>URL</abbr>s (that point to resources on other domains).
+
+<p>Now, in the <abbr>HTML</abbr> file, we need to add the <code>manifest</code> attribute that points to the cache manifest file.
+
+<pre><code>&lt;!DOCTYPE html>
+&lt;html lang="en" <mark>manifest="halma.manifest"</mark>></code></pre>
+
+<p>And that&#8217;s it! When an offline-capable browser first loads <a href=examples/offline/halma.html>the offline-enabled <abbr>HTML</abbr> page</a>, it will download the linked cache manifest file and start downloading all the referenced resources and storing them in the offline application cache. From then on, the offline application algorithm takes over whenever you revisit the page. You can play the game offline, and since it remembers its state locally, you can leave and come back as often as you like.
 
 <p class=a>&#x2767;
 
