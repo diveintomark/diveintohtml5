@@ -472,7 +472,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <p>For the second pass, <code>ffmpeg</code> will read the statistics it wrote during the first pass and actually do the encoding of the video and the audio. It will write out an <code>MKV</code> file. We will convert this to a WebM file later. (Eventually, <code>ffmpeg</code> will be able to write WebM files directly, but that functionality is currently broken in a subtle and pernicious way.)
 
-<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -b 614400 -s 320x240 -aspect 4:3 -acodec vorbis -y pr6.mkv</kbd></pre>
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -b 614400 -s 320x240 -aspect 4:3 -acodec libvorbis -y pr6.mkv</kbd></pre>
 
 <p>There are five important parameters here:
 
@@ -481,7 +481,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 <li><code>-b 614400</code> specifies the bitrate. Unlike other formats, <code>libvp8</code> expects the bitrate in actual bits, not kilobits. If you want a 600 kbps video, multiply 600 by 1024 to get 614400.
 <li><code>-s 320x240</code> specifies the target size, width by height.
 <li><code>-aspect 4:3</code> specifies the aspect ratio of the video. Standard definition video is usually 4:3, but most high-definition video is 16:9 or 16:10. In my testing, I found that I had to specify this explicitly on the command line, instead of relying on <code>ffmpeg</code> to autodetect it.
-<li><code>-acodec vorbis</code> specifies that we&#8217;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
+<li><code>-acodec libvorbis</code> specifies that we&#8217;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
 </ul>
 
 <p>Now we have an MKV file with VP8 video and Vorbis audio. That&#8217;s <em>really close</em> to what we want. The container format of WebM is technically very similar to MKV. In fact, it&#8217;s a proper subset. We only need to twiddle a few bits to create our final WebM video file, using the <a href=http://www.matroska.org/downloads/mkclean.html><code>mkclean</code></a> utility I mentioned earlier.
@@ -638,7 +638,7 @@ AddType video/webm .webm</code></pre>
 
 ## VP8/Vorbis/WebM
 <samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -an -f rawvideo -y NULffmpeg --videobitrate 200</kbd>
-<samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -b 204800 -s 320x240 -aspect 4:3 -acodec vorbis -ac 2 -y pr6.mkv</kbd>
+<samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -b 204800 -s 320x240 -aspect 4:3 -acodec libvorbis -ac 2 -y pr6.mkv</kbd>
 <samp class=p>you@localhost$ </samp><kbd>mkclean --doctype 4 pr6.mkv pr6.webm</kbd></pre>
 
 <p>The final markup uses a <code>&lt;video></code> element for <abbr>HTML5</abbr> video, with a nested <code>&lt;object></code> element for Flash fallback:
