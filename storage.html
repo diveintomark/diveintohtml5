@@ -93,7 +93,7 @@ body{counter-reset:h1 7}
 
 <h2 id=methods>Using HTML5 Storage</h2>
 
-<p><abbr>HTML5</abbr> Storage is based on named key/value pairs. You store data based on a named key, then you can retrieve that data with the same key. The named key is a string. The data can be any type supported by JavaScript, including strings, booleans, integers, or floats. However, the data is actually stored as a string. If you are storing and retrieving anything other than strings, you will need to use functions like <code>parseInt()</code> or <code>parseFloat()</code> to coerce your retrieved data into the expected JavaScript datatype.
+<p><abbr>HTML5</abbr> Storage is based on named key/value pairs. You store data based on a named key, then you can retrieve that data with the same key. The named key is a string. The data can be any type supported by JavaScript, including strings, Booleans, integers, or floats. However, the data is actually stored as a string. If you are storing and retrieving anything other than strings, you will need to use functions like <code>parseInt()</code> or <code>parseFloat()</code> to coerce your retrieved data into the expected JavaScript datatype.
 
 <pre><code>interface Storage {
   getter any getItem(in DOMString key);
@@ -199,7 +199,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
     return true;
 }</code></pre>
 
-<p>As you can see, it uses the <code>localStorage</code> object to save whether there is a game in progress (<code>gGameInProgress</code>, a boolean). If so, it iterates through the pieces (<code>gPieces</code>, a JavaScript <code>Array</code>) and saves the row and column number of each piece. Then it saves some additional game state, including which piece is selected (<code>gSelectedPieceIndex</code>, an integer), whether the piece is in the middle of a potentially long series of hops (<code>gSelectedPieceHasMoved</code>, a boolean), and the total number of moves made so far (<code>gMoveCount</code>, an integer).
+<p>As you can see, it uses the <code>localStorage</code> object to save whether there is a game in progress (<code>gGameInProgress</code>, a Boolean). If so, it iterates through the pieces (<code>gPieces</code>, a JavaScript <code>Array</code>) and saves the row and column number of each piece. Then it saves some additional game state, including which piece is selected (<code>gSelectedPieceIndex</code>, an integer), whether the piece is in the middle of a potentially long series of hops (<code>gSelectedPieceHasMoved</code>, a Boolean), and the total number of moves made so far (<code>gMoveCount</code>, an integer).
 
 <p>On page load, instead of automatically calling a <code>newGame()</code> function that would reset these variables to hard-coded values, we call a <code>resumeGame()</code> function instead. Using <abbr>HTML5</abbr> Storage, the <code>resumeGame()</code> function checks whether a state about a game-in-progress is stored locally. If so, it restores those values using the <code>localStorage</code> object.
 
@@ -221,11 +221,11 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
     return true;
 }</code></pre>
 
-<p>The most important part of this function is the caveat that I mentioned earlier in this chapter, which I&#8217;ll repeat here: <em>Data is stored as strings. If you are storing something other than a string, you&#8217;ll need to coerce it yourself when you retrieve it.</em> For example, the flag for whether there is a game in progress (<code>gGameInProgress</code>) is a boolean. In the <code>saveGameState()</code> function, we just stored it and didn&#8217;t worry about the datatype:
+<p>The most important part of this function is the caveat that I mentioned earlier in this chapter, which I&#8217;ll repeat here: <em>Data is stored as strings. If you are storing something other than a string, you&#8217;ll need to coerce it yourself when you retrieve it.</em> For example, the flag for whether there is a game in progress (<code>gGameInProgress</code>) is a Boolean. In the <code>saveGameState()</code> function, we just stored it and didn&#8217;t worry about the datatype:
 
 <pre><code>localStorage["halma.game.in.progress"] = <mark>gGameInProgress</mark>;</code></pre>
 
-<p>But in the <code>resumeGame()</code> function, we need to treat the value we got from the local storage area as a string and manually construct the proper boolean value ourselves:
+<p>But in the <code>resumeGame()</code> function, we need to treat the value we got from the local storage area as a string and manually construct the proper Boolean value ourselves:
 
 <pre><code>gGameInProgress = (localStorage["halma.game.in.progress"] <mark>== "true"</mark>);</code></pre>
 
