@@ -226,7 +226,7 @@ table.faketable{border-collapse:collapse}
 
 <p>Where&#8217;s the microdata property value? It&#8217;s already there, in the <code>src</code> attribute. If you recall from the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the &#8220;value&#8221; of an <code>&lt;img></code> element is its <code>src</code> attribute. Every <code>&lt;img></code> element has a <code>src</code> attribute &mdash; otherwise it would just be a broken image &mdash; and the <code>src</code> is always a <abbr>URL</abbr>. See? If you&#8217;re using <abbr>HTML</abbr> correctly, microdata is easy.
 
-<p>Furthermore, this <code>&lt;img></code> element isn&#8217;t alone on the page. It&#8217;s a child element of the <code>&lt;section></code> element, the one we just declared with the <code>itemscope</code> attribute. Microdata reuses the parent-child relationship of elements on the page to define the scoping of microdata properties. In plain English, we&#8217;re saying, &#8220;This <code>&lt;section></code> element represents a person. Any microdata properties you might find on the children of the <code>&lt;section></code> element are properties of that person.&#8221; If it helps, you can think of the <code>&lt;section></code> element has the subject of a sentence. The <code>itemprop</code> attribute represents the verb of the sentence, something like &#8220;is pictured at.&#8221; The microdata property value presents the object of the sentence.
+<p>Furthermore, this <code>&lt;img></code> element isn&#8217;t alone on the page. It&#8217;s a child element of the <code>&lt;section></code> element, the one we just declared with the <code>itemscope</code> attribute. Microdata reuses the parent-child relationship of elements on the page to define the scoping of microdata properties. In plain English, we&#8217;re saying, &#8220;This <code>&lt;section></code> element represents a person. Any microdata properties you might find on the children of the <code>&lt;section></code> element are properties of that person.&#8221; If it helps, you can think of the <code>&lt;section></code> element has the subject of a sentence. The <code>itemprop</code> attribute represents the verb of the sentence, something like &#8220;is pictured at.&#8221; The microdata property value represents the object of the sentence.
 
 <blockquote>
 <p>This person [explicit, from <code>&lt;section itemscope itemtype="..."></code>]
@@ -365,7 +365,7 @@ Suite 415</mark>
 <li>Search engines
 </ol>
 
-<p>For browsers, <abbr>HTML5</abbr> defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#microdata-dom-api>a set of <abbr>DOM</abbr> <abbr>APIs</abbr></a> for extracting microdata items, properties, and property values from a web page. As I write this, no browser supports this <abbr>API</abbr>. Not a single one. So that&#8217;s&hellip; kind of a dead end, at least until browsers catch up and implement the client-side <abbr>APIs</abbr>.
+<p>For browsers, <abbr>HTML5</abbr> defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata-dom-api>a set of <abbr>DOM</abbr> <abbr>APIs</abbr></a> for extracting microdata items, properties, and property values from a web page. As I write this, no browser supports this <abbr>API</abbr>. Not a single one. So that&#8217;s&hellip; kind of a dead end, at least until browsers catch up and implement the client-side <abbr>APIs</abbr>.
 
 <p>The other major consumer of <abbr>HTML</abbr> is search engines. What could a search engine do with microdata properties about a person? Imagine this: instead of simply displaying the page title and an excerpt of text, the search engine could integrate some of that structured information and display it. Full name, job title, employer, address, maybe even a little thumbnail of a profile photo. Would that catch your attention? It would catch mine.
 
@@ -583,7 +583,7 @@ A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 <pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Event"</mark>></code></pre>
 <p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
 
-<p>The <abbr>URL</abbr> for the Event vocabulary is <code><a href=http://data-vocabulary.org/Event>http://data-vocbulary.org/Event</a></code>, which also happens to contain a nice little chart describing the vocabulary&#8217;s properties. And what are those properties?
+<p>The <abbr>URL</abbr> for the Event vocabulary is <code><a href=http://data-vocabulary.org/Event>http://data-vocabulary.org/Event</a></code>, which also happens to contain a nice little chart describing the vocabulary&#8217;s properties. And what are those properties?
 
 <table class=st>
 <caption>Event vocabulary</caption>
@@ -914,7 +914,7 @@ Excerpt from the page will show up here.</span><br>
 
 <ul>
 <li><a href=http://foolip.org/microdatajs/live/>Live microdata playground</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html><abbr>HTML5</abbr> microdata specification</a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata><abbr>HTML5</abbr> microdata specification</a>
 </ul>
 
 <p>Google Rich Snippets resources:
