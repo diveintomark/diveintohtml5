@@ -23,7 +23,7 @@ body{counter-reset:h1 7}
 <ul>
 <li>Cookies are included with every <abbr>HTTP</abbr> request, thereby slowing down your web application by needlessly transmitting the same data over and over
 <li>Cookies are included with every <abbr>HTTP</abbr> request, thereby sending data unencrypted over the internet (unless your entire web application is served over <abbr>SSL</abbr>)
-<li>Cookies are limited to about 4 Kb of data &mdash; enough to slow down your application (see above), but not enough to be terribly useful
+<li>Cookies are limited to about 4 KB of data &mdash; enough to slow down your application (see above), but not enough to be terribly useful
 </ul>
 
 <p>What we really want is
@@ -31,8 +31,8 @@ body{counter-reset:h1 7}
 <ul>
 <li>a lot of storage space
 <li>on the client
-<li>that persistents beyond a page refresh
-<li>and isn&#8217;t trasmitted to the server
+<li>that persists beyond a page refresh
+<li>and isn&#8217;t transmitted to the server
 </ul>
 
 <p>There have been a number of attempts to achieve this, each ultimately unsatisfactory in different ways.
@@ -43,9 +43,9 @@ body{counter-reset:h1 7}
 
 <p>In the beginning, there was only Internet Explorer. Or at least, that&#8217;s what Microsoft wanted the world to think. To that end, as part of the <a href="http://en.wikipedia.org/wiki/Browser_wars#The_first_browser_war">First Great Browser Wars</a>, Microsoft invented a great many things and included them in their browser-to-end-all-browser-wars, Internet Explorer. One of these things was called <a href="http://msdn.microsoft.com/en-us/library/ms531078(v=VS.85).aspx"><abbr>DHTML</abbr> Behaviors</a>, and one of these behaviors was called <a href="http://msdn.microsoft.com/en-us/library/ms531424(VS.85).aspx">userData</a>.
 
-<p><code>userData</code> allows web pages to store up to 64 Kb of data per domain, in a hierarchical XML-based structure. (Trusted domains, such as intranet sites, can store 10 times that amount. And hey, <a href="http://en.wikiquote.org/wiki/Bill_Gates#Misattributed">640 Kb ought to be enough for anybody</a>.) IE does not present any form of permissions dialog, and there is no allowance for increasing the amount of storage available.
+<p><code>userData</code> allows web pages to store up to 64 KB of data per domain, in a hierarchical XML-based structure. (Trusted domains, such as intranet sites, can store 10 times that amount. And hey, <a href="http://en.wikiquote.org/wiki/Bill_Gates#Misattributed">640 KB ought to be enough for anybody</a>.) IE does not present any form of permissions dialog, and there is no allowance for increasing the amount of storage available.
 
-<p>In 2002, Adobe introduced a feature in Flash 6 that gained the unfortunate and misleading name of &#8220;Flash cookies.&#8221; Within the Flash environment, the feature is properly known as <a href="http://kb2.adobe.com/cps/161/tn_16194.html">Local Shared Objects</a>. Briefly, it allows Flash objects to store up to 100 Kb of data per domain. Brad Neuberg developed an early prototype of such a Flash-to-JavaScript bridge called <a href="http://codinginparadise.org/weblog/2005/10/amass-ajax-massive-storage-system.html">AMASS</a> (AJAX Massive Storage System), but it was limited by some of Flash&#8217;s design quirks. By 2006, with the advent of <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/external/ExternalInterface.html">ExternalInterface</a> in Flash 8, accessing <abbr>LSO</abbr>s from JavaScript became an order of magnitude easier and faster. Brad rewrote <abbr>AMASS</abbr> and integrated it into the popular <a href=http://www.dojotoolkit.org/>Dojo Toolkit</a> under the moniker <a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage</code></a>. Flash gives each domain 100 Kb of storage &#8220;for free.&#8221; Beyond that, it prompts the user for each order of magnitude increase in data storage (1 Mb, 10 Mb, and so on).
+<p>In 2002, Adobe introduced a feature in Flash 6 that gained the unfortunate and misleading name of &#8220;Flash cookies.&#8221; Within the Flash environment, the feature is properly known as <a href="http://kb2.adobe.com/cps/161/tn_16194.html">Local Shared Objects</a>. Briefly, it allows Flash objects to store up to 100 KB of data per domain. Brad Neuberg developed an early prototype of such a Flash-to-JavaScript bridge called <a href="http://codinginparadise.org/weblog/2005/10/amass-ajax-massive-storage-system.html">AMASS</a> (AJAX Massive Storage System), but it was limited by some of Flash&#8217;s design quirks. By 2006, with the advent of <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/external/ExternalInterface.html">ExternalInterface</a> in Flash 8, accessing <abbr>LSO</abbr>s from JavaScript became an order of magnitude easier and faster. Brad rewrote <abbr>AMASS</abbr> and integrated it into the popular <a href=http://www.dojotoolkit.org/>Dojo Toolkit</a> under the moniker <a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage</code></a>. Flash gives each domain 100 KB of storage &#8220;for free.&#8221; Beyond that, it prompts the user for each order of magnitude increase in data storage (1 Mb, 10 Mb, and so on).
 
 <p>In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source browser plugin aimed at providing additional capabilities in browsers. (We&#8217;ve previously discussed Gears in the context of <a href=geolocation.html#ie>providing a geolocation <abbr>API</abbr> in Internet Explorer</a>. Gears provides <a href="http://code.google.com/apis/gears/api_database.html">an <abbr>API</abbr> to an embedded <abbr>SQL</abbr> database</a> based on <a href="http://www.sqlite.org/">SQLite</a>. After obtaining permission from the user once, Gears can store unlimited amounts of data per domain in <abbr>SQL</abbr> database tables.
 
