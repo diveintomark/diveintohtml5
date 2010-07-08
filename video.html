@@ -45,7 +45,7 @@ body{counter-reset:h1 5}
 <ul> 
 <li><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_14>MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href=http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm>based on Apple&#8217;s older QuickTime container</a> (<code>.mov</code>). <a href=http://www.apple.com/trailers/>Movie trailers on Apple&#8217;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li> 
 <li><a href=http://en.wikipedia.org/wiki/Flash_Video>Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. More recent versions of Flash also support the MPEG 4 container.</li> 
-<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open-source-friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &#8220;Theora&#8221;), and Ogg audio (called &#8220;Vorbis&#8221;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
+<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open source&ndash;friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &#8220;Theora&#8221;), and Ogg audio (called &#8220;Vorbis&#8221;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
 <li><a href=http://www.webmproject.org/>WebM</a> is a new container format. It is technically very similar to another format, called <a href=http://en.wikipedia.org/wiki/Matroska>Matroska</a>. WebM was announced at Google I/O 2010. It is designed to be used exclusively with the VP8 video codec and Vorbis audio codec. (More on these in a minute.) It will be supported natively, without platform-specific plugins, in the next versions of Chromium, Google Chrome, Mozilla Firefox, and Opera. Adobe has also announced that the next version of Flash will support WebM video.</li>
 <li><a href=http://en.wikipedia.org/wiki/AVI>Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support many of the features of more recent container formats. It does not officially support any sort of video metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, various companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href=http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html>MEncoder</a>.</li> 
 </ul> 
@@ -85,7 +85,7 @@ body{counter-reset:h1 5}
 
 <p><a href=http://en.wikipedia.org/wiki/VP8>VP8</a> is another video codec from On2, the same company that originally developed VP3 (later Theora). Technically, it is <a href="http://x264dev.multimedia.cx/?p=377">similar in quality to H.264 Baseline</a>, with <a href=http://lists.wikimedia.org/pipermail/wikitech-l/2010-May/047795.html>lots of potential for future improvements</a>.
 
-<p>In 2010, Google acquired On2 and published the video codec specification and a sample encoder and decoder as open source. As part of this, Google also &#8220;opened&#8221; all the patents that On2 had filed on VP8, by licensing them royalty-free. (This is the best you can hope for with patents. You can&#8217;t actually &#8220;release&#8221; them or nullify them once they&#8217;ve been issued. To make them open-source friendly, you license them royalty-free, and then anyone can use the technologies the patents cover without paying anything or negotiating patent licenses.) As of May 19, 2010, <b>VP8 is a royalty-free, modern codec and is not encumbered by any known patents</b>, other than the patents that On2 (now Google) has already licensed royalty-free.
+<p>In 2010, Google acquired On2 and published the video codec specification and a sample encoder and decoder as open source. As part of this, Google also &#8220;opened&#8221; all the patents that On2 had filed on VP8, by licensing them royalty-free. (This is the best you can hope for with patents. You can&#8217;t actually &#8220;release&#8221; them or nullify them once they&#8217;ve been issued. To make them open source&ndash;friendly, you license them royalty-free, and then anyone can use the technologies the patents cover without paying anything or negotiating patent licenses.) As of May 19, 2010, <b>VP8 is a royalty-free, modern codec and is not encumbered by any known patents</b>, other than the patents that On2 (now Google) has already licensed royalty-free.
 
 <p class=a>&#x2767;
 
@@ -119,7 +119,7 @@ body{counter-reset:h1 5}
  
 <p>The MP3 standard doesn&#8217;t define exactly how to encode MP3s (although it does define exactly how to decode them); different encoders use different psychoacoustic models that produce wildly different results, but are all decodable by the same players. The open source <a href=http://lame.sourceforge.net/>LAME project</a> is the best free encoder, and arguably the best encoder period for all but the lowest bitrates. 
  
-<p>The MP3 format was standardized in 1991 and <strong>is patent-encumbered</strong>, which explains why Linux <del>sucks</del> can&#8217;t play MP3 files out of the box. Pretty much every portable music player supports standalone MP3 files, and MP3 audio streams can be embedded in any <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>video container</a>. Adobe Flash can play both standalone MP3 files and MP3 audio streams within an MP4 video container. 
+<p>The MP3 format (standardized in 1991) <strong>is patent-encumbered</strong>, which explains why Linux can&#8217;t play MP3 files out of the box. Pretty much every portable music player supports standalone MP3 files, and MP3 audio streams can be embedded in any <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>video container</a>. Adobe Flash can play both standalone MP3 files and MP3 audio streams within an MP4 video container. 
  
 <h3 id=aac>Advanced Audio Coding</h3>
  
@@ -127,7 +127,7 @@ body{counter-reset:h1 5}
  
 <p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbps.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
  
-<p>All current Apple products, including iPods, AppleTV, and QuickTime support certain profiles of AAC in standalone audio files and in audio streams in an MP4 video container. Adobe Flash supports all profiles of AAC in MP4, as do the open source mplayer and VLC video players. For encoding, the FAAC library is the open source option; support for it is a compile-time option in mencoder and ffmpeg.
+<p>All current Apple products, including iPods, AppleTV, and QuickTime support certain profiles of AAC in standalone audio files and in audio streams in an MP4 video container. Adobe Flash supports all profiles of AAC in MP4, as do the open source MPlayer and VLC video players. For encoding, the FAAC library is the open source option; support for it is a compile-time option in mencoder and ffmpeg.
  
 <h3 id=vorbis>Vorbis</h3>
  
@@ -243,24 +243,24 @@ body{counter-reset:h1 5}
 
 <p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
 
-<p><dfn>FireFogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&#8217;ll need to install <a href=http://www.getfirefox.com/>Mozilla Firefox</a> 3.5 or later, then visit <a href=http://firefogg.org/>firefogg.org</a>.
+<p><dfn>Firefogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&#8217;ll need to install <a href=http://www.getfirefox.com/>Mozilla Firefox</a> 3.5 or later, then visit <a href=http://firefogg.org/>firefogg.org</a>.
 
-<p class="legend top">FireFogg home page <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top">Firefogg home page <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-01.png alt="Firefogg home page" width=800 height=600>
 
 <p>Click &#8220;Install Firefogg.&#8221; Firefox will prompt whether you really want to allow the site to install an extension. Click &#8220;Allow&#8221; to continue.
-<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Allow FireFogg to install
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Allow Firefogg to install
 <p><img src=i/firefogg-02.png alt="Firefogg: install software" width=800 height=600>
 
 <p>Firefox will present the standard software installation window. Click &#8220;Install&#8221; to continue.
-<p class="legend top" style="text-align:center">Install FireFogg <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top" style="text-align:center">Install Firefogg <span class=arrow>&#x21b7;</span><br></p>
 <p class=c><img src=i/firefogg-03.png alt="Firefox Software Installation window" width=547 height=367>
 
 <p>Click &#8220;Restart Firefox&#8221; to complete the installation.
 <p class="legend top" style="text-align:center"><span class=arrow>&#x21b6;</span> Restart Firefox
 <p class=c><img src=i/firefogg-04.png alt="Firefox Add-ons window after installation" width=520 height=380>
 
-<p>After restarting Firefox, <code>firefogg.org</code> will confirm that FireFogg was successfully installed.
+<p>After restarting Firefox, <code>firefogg.org</code> will confirm that Firefogg was successfully installed.
 <p class="legend top">Installation successful <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-05.png alt="Firefogg home page after installation" width=800 height=600>
 
@@ -272,7 +272,7 @@ body{counter-reset:h1 5}
 <p class="legend top">Select your video file <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-07.png alt="Firefogg: Select file" width=800 height=600>
 
-<p>FireFogg has six &#8220;tabs&#8221;:
+<p>Firefogg has six &#8220;tabs&#8221;:
 
 <ol>
 <li>Presets. The default preset is &#8220;web video,&#8221; which is fine for our purposes.
@@ -292,20 +292,20 @@ body{counter-reset:h1 5}
 <li>Audio Quality. This is measured on a scale of -1 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, just like the video quality setting.
 <li>Video Codec. This should always be &#8220;theora.&#8221;
 <li>Audio Codec. This should always be &#8220;vorbis.&#8221;
-<li>Video Width and Video Height. These defaults to the actual width and height of your source video. If you want to resize the video during encoding, you can change the width (or height) here. FireFogg will automatically adjust the other dimension to maintain the original proportions (so your video won&#8217;t end up smooshed or stretched).
+<li>Video Width and Video Height. These defaults to the actual width and height of your source video. If you want to resize the video during encoding, you can change the width (or height) here. Firefogg will automatically adjust the other dimension to maintain the original proportions (so your video won&#8217;t end up smooshed or stretched).
 </ul>
 
 <p><img src=i/firefogg-09.png alt="Firefogg basic quality and resolution control" width=800 height=600>
 
-<p>In this example, I&#8217;m going to resize the video to half its original width. Notice how FireFogg automatically adjusts the height to match.
+<p>In this example, I&#8217;m going to resize the video to half its original width. Notice how Firefogg automatically adjusts the height to match.
 <p class="legend top">Adjust video width and height <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-10.png alt="Firefogg: set video width and height" width=800 height=600>
 
-<p>Once you&#8217;ve fiddled with all the knobs, click &#8220;Save Ogg&#8221; to start the actual encoding process. FireFogg will prompt you for a filename for the encoded video.
+<p>Once you&#8217;ve fiddled with all the knobs, click &#8220;Save Ogg&#8221; to start the actual encoding process. Firefogg will prompt you for a filename for the encoded video.
 <p class="legend top">&#8220;Save Ogg&#8221; <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-12.png alt="Firefogg: Save Ogg" width=800 height=600>
 
-<p>FireFogg will show a nice progress bar as it encodes your video. All you need to do is wait (and wait, and wait)!
+<p>Firefogg will show a nice progress bar as it encodes your video. All you need to do is wait (and wait, and wait)!
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Encoding in progress
 <p><img src=i/firefogg-13.png alt="Firefogg: Encoding progress" width=800 height=600>
 
@@ -317,7 +317,7 @@ body{counter-reset:h1 5}
 
 <p>There are a number of offline encoders for Ogg video. If you&#8217;re looking at batch encoding a lot of video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>.
 
-<p>ffmpeg2theora is an open-source, GPL-licensed application for encoding Ogg video. Pre-built binaries are available <a href=http://v2v.cc/~j/ffmpeg2theora/download.html>for Mac OS X, Windows, and modern Linux distributions</a>. It can take virtually any video file as input, including DV video produced by many consumer-level camcorders.
+<p>ffmpeg2theora is an open source, GPL-licensed application for encoding Ogg video. Pre-built binaries are available <a href=http://v2v.cc/~j/ffmpeg2theora/download.html>for Mac OS X, Windows, and modern Linux distributions</a>. It can take virtually any video file as input, including DV video produced by many consumer-level camcorders.
 
 <p>To use ffmpeg2theora, you need to call it from the command line. (On Mac OS X, open Applications <span class=u>&rarr;</span> Utilities <span class=u>&rarr;</span> Terminal. On Windows, open your Start Menu <span class=u>&rarr;</span> Programs <span class=u>&rarr;</span> Accessories <span class=u>&rarr;</span> Command Prompt.)
 
@@ -413,9 +413,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
 
-<p>HandBrake also comes in a command-line edition. Like <a href=#handbrake-gui>the graphical edition of HandBrake</a>, you should <a href=http://handbrake.fr/snapshot.php>download a recent snapshot</a>.
-
-<p>As with <a href=#ffmpeg2theora>ffmpeg2theora</a>, the command-line edition of HandBrake offers a dizzying array of options. (Type <code>HandBrakeCLI --help</code> to read about them.) I&#8217;ll focus on just a few:
+<p><a href=http://www.handbrake.fr>HandBrake</a> also comes in a command-line edition. As with <a href=#ffmpeg2theora>ffmpeg2theora</a>, the command-line edition of HandBrake offers a dizzying array of options. (Type <code>HandBrakeCLI --help</code> to read about them.) I&#8217;ll focus on just a few:
 
 <ul>
 <li><code>--preset "X"</code>, where &#8220;X&#8221; is the name of a HandBrake preset. The preset you want for H.264 web video is called &#8220;iPhone &amp; iPod Touch&#8221;, and it&#8217;s important to put the entire name in quotes.
@@ -521,7 +519,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <pre><code>&lt;video src="pr6.webm" width="320" height="240" <mark>preload="none"</mark>>&lt;/video></code></pre>
 
-<p>The <code>autoplay</code> attribute does exactly what it sounds like: it tells the browser that you would like it to start downloading the video file as soon as the page loads, <em>and</em> you would like it to start playing the video automatically as soon as possible. Some people love this; some people hate it. But let me explain why it&#8217;s important to have an attribute like this in <abbr>HTML5</abbr>. Some people are going to want their videos to play automatically, even if it annoys their visitors. If <abbr>HTML5</abbr> <em>didn&#8217;t</em> define a standard way to auto-play videos, people would resort to JavaScript hacks to do it anyway. (For example, by calling the video&#8217;s <code>play()</code> method during the window&#8217;s <code>load</code> event.) This would be much harder for visitors to counteract. On the other hand, it&#8217;s a simple matter to add a checkbox to your browser (or write an extension that adds such an option) that basically says &#8220;ignore the <code>autoplay</code> attribute, I don&#8217;t ever want videos to play automatically.&#8221;
+<p>The <code>autoplay</code> attribute does exactly what it sounds like: it tells the browser that you would like it to start downloading the video file as soon as the page loads, <em>and</em> you would like it to start playing the video automatically as soon as possible. Some people love this; some people hate it. But let me explain why it&#8217;s important to have an attribute like this in <abbr>HTML5</abbr>. Some people are going to want their videos to play automatically, even if it annoys their visitors. If <abbr>HTML5</abbr> <em>didn&#8217;t</em> define a standard way to auto-play videos, people would resort to JavaScript hacks to do it anyway. (For example, by calling the video&#8217;s <code>play()</code> method during the window&#8217;s <code>load</code> event.) This would be much harder for visitors to counteract. On the other hand, it&#8217;s a simple matter to add an extension to your browser (or write one, if necessary)to say &#8220;ignore the <code>autoplay</code> attribute, I don&#8217;t ever want videos to play automatically.&#8221;
 
 <p>Here&#8217;s an example of a video that will start downloading and playing as soon as possible after the page loads:
 

@@ -368,7 +368,7 @@ context.fillRect(497, 372, 3, 3);</code></pre>
 </tfoot>
 </table>
 
-<p>Earlier in this chapter, you learned how to draw <a href=#shapes>a rectangle filled with a solid color</a>, then <a href=#paths>a line stroked with a solid color</a>. But shapes and lines aren&#8217;t limited to solid colors. You can do all kinds of magic with gradients.</p>
+<p>Earlier in this chapter, you learned how to draw <a href=#shapes>a rectangle filled with a solid color</a>, then <a href=#paths>a line stroked with a solid color</a>. But shapes and lines aren&#8217;t limited to solid colors. You can do all kinds of magic with gradients. Let&#8217;s look at an example.</p>
 
 <canvas id=d width=300 height=225></canvas>
 
@@ -651,7 +651,7 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
 <p>Whew! Mouse events are tough. But you can use the same logic (in fact, this exact code) in all of your own canvas-based applications. Remember: mouse click &rarr; document-relative coordinates &rarr; canvas-relative coordinates &rarr; application-specific code.
 
-<p>OK, let&#8217;s look at the main drawing routine. Because the graphics are so simple, I&#8217;ve chosen to clear and redraw the board in its entirely every time anything changes within the game. This is not strictly necessary. The canvas drawing context will retain whatever you have previously drawn on it, even if the user scrolls the canvas out of view or changes to another tab and then comes back later. If you&#8217;re developing a canvas-based application with more complicated graphics (such as an arcade game), you can optimize performance by tracking which regions of the canvas are &#8220;dirty&#8221; and redrawing just the dirty regions. But that is outside the scope of this book.
+<p>OK, let&#8217;s look at the main drawing routine. Because the graphics are so simple, I&#8217;ve chosen to clear and redraw the board in its entirety every time anything changes within the game. This is not strictly necessary. The canvas drawing context will retain whatever you have previously drawn on it, even if the user scrolls the canvas out of view or changes to another tab and then comes back later. If you&#8217;re developing a canvas-based application with more complicated graphics (such as an arcade game), you can optimize performance by tracking which regions of the canvas are &#8220;dirty&#8221; and redrawing just the dirty regions. But that is outside the scope of this book.
 
 <pre><code>gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);</code></pre>
 
@@ -675,7 +675,7 @@ for (var y = 0; y &lt;= kPixelHeight; y += kPieceHeight) {
 gDrawingContext.<mark>strokeStyle</mark> = "#ccc";
 gDrawingContext.<mark>stroke()</mark>;</code></pre>
 
-<p>The real fun begins when we go to draw each of the individual pieces. A piece is a circle, something we haven&#8217;t drawn before. Most pieces are just a circle, but if you select a piece in anticipation of moving it, we want to draw the piece as a filled-in circle. Here, the argument <code>p</code> represents a piece, which has <code>row</code> and <code>column</code> properties that denote the piece&#8217;s current location on the board. We use some in-game constants to translate <code>(column, row)</code> into canvas-relative <code>(x, y)</code> coordinates, then draw a circle, then (if the piece is selected) fill in the circle with a solid color.
+<p>The real fun begins when we go to draw each of the individual pieces. A piece is a circle, something we haven&#8217;t drawn before. Furthermore, if the user selects a piece in anticipation of moving it, we want to draw that piece as a filled-in circle. Here, the argument <code>p</code> represents a piece, which has <code>row</code> and <code>column</code> properties that denote the piece&#8217;s current location on the board. We use some in-game constants to translate <code>(column, row)</code> into canvas-relative <code>(x, y)</code> coordinates, then draw a circle, then (if the piece is selected) fill in the circle with a solid color.
 
 <pre><code>function drawPiece(p, selected) {
     var column = p.column;
@@ -710,9 +710,9 @@ gDrawingContext.<mark>stroke()</mark>;</code></pre>
 
 <ul>
 <li><a href=https://developer.mozilla.org/en/Canvas_tutorial>Canvas tutorial</a> on Mozilla Developer Center
-<li><a href=http://dev.opera.com/articles/view/html-5-canvas-the-basics/><abbr>HTML5</abbr> <code>canvas</code> &mdash; the basics</a>
-<li><a href=http://www.canvasdemos.com/>CanvasDemos.com</a>: Demos, tools, and tutorials for the <abbr>HTML</abbr> <code>canvas</code> element
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>The <code>canvas</code> element</a> in <abbr>HTML5</abbr>
+<li><a href=http://dev.opera.com/articles/view/html-5-canvas-the-basics/><abbr>HTML5</abbr> <code>canvas</code> &mdash; the basics</a>, by Mihai Sucan
+<li><a href=http://www.canvasdemos.com/>CanvasDemos.com</a>: demos, tools, and tutorials for the <abbr>HTML</abbr> <code>canvas</code> element
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>The <code>canvas</code> element</a> in the <abbr>HTML5</abbr> draft standard
 </ul>
 
 <p class=a>&#x2767;
