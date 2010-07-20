@@ -46,7 +46,7 @@ body{counter-reset:h1 4}
 <canvas width=300 height=225 class=clear style="border:1px dotted;float:left"></canvas>
 <p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Canvas with border
 
-<p class=clear>You can have several <code>&lt;canvas></code> elements on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
+<p class=clear>You can have more than one <code>&lt;canvas></code> element on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
 
 <p>Let&#8217;s expand that markup to include an <code>id</code> attribute:
 
@@ -466,7 +466,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <canvas id=e width=177 height=113></canvas>
 </div>
 
-<p class=clear>The canvas drawing context defines several methods for drawing an image on a canvas.
+<p class=clear>The canvas drawing context defines a <code>drawImage()</code> method for drawing an image on a canvas. The method can take three, five, or nine arguments.
 
 <ul>
 <li><code>drawImage(image, dx, dy)</code> takes an image and draws it on the canvas. The given coordinates <code>(dx, dy)</code> will be the upper-left corner of the image. Coordinates <code>(0, 0)</code> would draw the image at the upper-left corner of the canvas.
@@ -655,7 +655,7 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
 <pre><code>gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);</code></pre>
 
-<p>The board-drawing routine should look familiar. It&#8217;s very similar to how we drew the <a href=#coordinates>canvas coordinates diagram</a> earlier in this chapter.
+<p>The board-drawing routine should look familiar. It&#8217;s similar to how we drew the <a href=#coordinates>canvas coordinates diagram</a> earlier in this chapter.
 
 <pre><code>gDrawingContext.<mark>beginPath()</mark>;
 

@@ -71,7 +71,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262>
 
-<p>Many web sites use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&#8217;s autofocus script may &#8220;helpfully&#8221; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
+<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&#8217;s autofocus script may &#8220;helpfully&#8221; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
 
 <p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&#8217;t want a web page to &#8220;steal&#8221; the focus.
 
@@ -145,7 +145,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>All of these input types still work in <abbr>HTML5</abbr>. If you&#8217;re &#8220;upgrading to <abbr>HTML5</abbr>&#8221; (perhaps by <a href=semantics.html#the-doctype>changing your DOCTYPE</a>), you don&#8217;t need to make a single change to your web forms. Hooray for backward compatibility!
 
-<p>However, <abbr>HTML5</abbr> defines several new field types, and for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
+<p>However, <abbr>HTML5</abbr> defines 13 new field types, and for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
 
 <p>The first of these new input types is for <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state>email addresses</a>. It looks like this:
 
@@ -162,7 +162,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>And then there&#8217;s the iPhone.
 
-<p>The iPhone does not have a physical keyboard. All &#8220;typing&#8221; is done by tapping on an on-screen keyboard that pops up at appropriate times, like when you focus a form field in a web page. Apple did something very clever in the iPhone&#8217;s web browser. It recognizes several of the new <abbr>HTML5</abbr> input types, and <em>dynamically changes the on-screen keyboard</em> to optimize for that kind of input.
+<p>The iPhone does not have a physical keyboard. All &#8220;typing&#8221; is done by tapping on an on-screen keyboard that pops up at appropriate times, like when you focus a form field in a web page. Apple did something clever in the iPhone&#8217;s web browser. It recognizes several of the new <abbr>HTML5</abbr> input types, and <em>dynamically changes the on-screen keyboard</em> to optimize for that kind of input.
 
 <p>For example, email addresses are text, right? Sure, but they&#8217;re a special kind of text. For example, virtually all email addresses contain the <code>@</code> sign and at least one period (<code>.</code>), but they&#8217;re unlikely to contain any spaces. So when you use an iPhone and focus an <code>&lt;input type="email"></code> element, you get an on-screen keyboard that contains a smaller-than-usual space bar, plus dedicated keys for the <code>@</code> and <code>.</code> characters.
 
@@ -174,7 +174,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id=type-url>Web Addresses</h2>
 
-<p>Web addresses &mdash; known to many as <abbr>URLs</abbr>, and to a few <a href="http://www.douglasadams.com/dna/pedants.html">pedants</a> as <abbr>URIs</abbr> &mdash; are another type of specialized text. The syntax of a web address is constrained by the relevant Internet standards. If someone asks you to enter a web address into a form, they&#8217;re expecting something like &#8220;<code>http://www.google.com/</code>&#8221;, not &#8220;125 Farwood Road.&#8221; Forward slashes are common &mdash; even Google&#8217;s home page has three of them. Periods are also common, but spaces are forbidden. And every web address has a domain suffix like &#8220;.com&#8221; or &#8220;.org&#8221;.
+<p>Web addresses &mdash; which standards wonks call <abbr>URLs</abbr>, except for a few <a href="http://www.douglasadams.com/dna/pedants.html">pedants</a> which call them <abbr>URIs</abbr> &mdash; are another type of specialized text. The syntax of a web address is constrained by the relevant Internet standards. If someone asks you to enter a web address into a form, they&#8217;re expecting something like &#8220;<code>http://www.google.com/</code>&#8221;, not &#8220;125 Farwood Road.&#8221; Forward slashes are common &mdash; even Google&#8217;s home page has three of them. Periods are also common, but spaces are forbidden. And every web address has a domain suffix like &#8220;.com&#8221; or &#8220;.org&#8221;.
 
 <p>Behold... (drum roll please)... <code>&lt;input type="url"></code>. On the iPhone, it looks like this:
 
@@ -188,7 +188,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id=type-number>Numbers as Spinboxes</h2>
 
-<p>Next up: numbers. Asking for a number is, in many ways, trickier than asking for an email address or web address. First of all, numbers are more complicated than you might think. Quick: pick a number. -1? No, I meant a number between 1 and 10. 7&frac12;? No no, not a fraction, silly. <span class=u>&pi;</span>? Now you&#8217;re just being irrational.
+<p>Next up: numbers. Asking for a number is trickier than asking for an email address or web address. First of all, numbers are more complicated than you might think. Quick: pick a number. -1? No, I meant a number between 1 and 10. 7&frac12;? No no, not a fraction, silly. <span class=u>&pi;</span>? Now you&#8217;re just being irrational.
 
 <p>My point is, you don&#8217;t often ask for &#8220;just a number.&#8221; It&#8217;s more likely that you&#8217;ll ask for a number in a particular range. You may only want certain kinds of numbers within that range &mdash; maybe whole numbers but not fractions or decimals, or something more esoteric like numbers divisible by 10. <abbr>HTML5</abbr> has you covered.
 
@@ -231,7 +231,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p class=c><img src=i/input-type-number-at-max-opera.png alt="Opera rendering input type=number field at max value" width=142 height=28 class=fr>
 
-<p>As with all the other input types I&#8217;ve discussed in this chapter, browsers that don&#8217;t support <code>type="number"</code> will treat it as <code>type="text"</code>. The default value will show up in the field (since it&#8217;s stored in the <code>value</code> attribute), but the other attributes like <code>min</code> and <code>max</code> will be ignored. You&#8217;re free to implement them yourself, or you could reuse one of the many JavaScript frameworks that have already implemented spinbox controls. Just <a href=detect.html#input-types>check for the native <abbr>HTML5</abbr> support</a> first, like this:
+<p>As with all the other input types I&#8217;ve discussed in this chapter, browsers that don&#8217;t support <code>type="number"</code> will treat it as <code>type="text"</code>. The default value will show up in the field (since it&#8217;s stored in the <code>value</code> attribute), but the other attributes like <code>min</code> and <code>max</code> will be ignored. You&#8217;re free to implement them yourself, or you could reuse a JavaScript framework that has already implemented spinbox controls. Just <a href=detect.html#input-types>check for the native <abbr>HTML5</abbr> support</a> first, like this:
 
 <pre><code>if (!<a href=detect.html#modernizr>Modernizr</a>.inputtypes.number) {
   // no native support for type=number fields

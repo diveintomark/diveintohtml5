@@ -16,7 +16,7 @@ body{counter-reset:h1 6}
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-g.png alt=G width=106 height=103>eolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There are many ways to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
+<p class=f><img src=i/aoc-g.png alt=G width=106 height=103>eolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There is more than one way to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that receives latitude and longitude information from satellites in the sky.
 
 <div class=pf>
 <h4>Ask Professor Markup</h4>
@@ -34,7 +34,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>The <a href=http://www.w3.org/TR/geolocation-API/>geolocation <abbr>API</abbr></a> lets you share your location with trusted web sites. The latitude and longitude are available to JavaScript on the page, which in turn can send it back to the remote web server and do fancy location-aware things like finding local businesses or showing your location on a map.
 
-<p>As you can see from the following table, the geolocation <abbr>API</abbr> is supported by several browsers on the desktop and mobile devices. Additionally, some older browsers and devices can be supported by wrapper libraries, as we&#8217;ll see later in this chapter.
+<p>As you can see from the following table, the geolocation <abbr>API</abbr> is supported by most browsers on the desktop and mobile devices. Additionally, some older browsers and devices can be supported by wrapper libraries, as we&#8217;ll see later in this chapter.
 
 <table class=bc>
 <caption>Geolocation <abbr>API</abbr> support</caption>
@@ -124,7 +124,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <h2 id=errors>Handling Errors</h2>
 
-<p>Geolocation is complicated. So many things can go wrong. I&#8217;ve mentioned the &#8220;user consent&#8221; angle already. If your web application wants the user&#8217;s location but the user doesn&#8217;t want to give it to you, you&#8217;re screwed. The user always wins. But what does that look like in code? It looks like the second argument to the <code>getCurrentPosition()</code> function: an error handling callback function.
+<p>Geolocation is complicated. Things can go wrong. I&#8217;ve mentioned the &#8220;user consent&#8221; angle already. If your web application wants the user&#8217;s location but the user doesn&#8217;t want to give it to you, you&#8217;re screwed. The user always wins. But what does that look like in code? It looks like the second argument to the <code>getCurrentPosition()</code> function: an error handling callback function.
 
 <pre><code>navigator.geolocation.getCurrentPosition(
   show_map, <mark>handle_error</mark>)</code></pre>
@@ -174,7 +174,7 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <p>The second method actually uses dedicated <abbr>GPS</abbr> hardware on your device to talk to dedicated <abbr>GPS</abbr> positioning satellites that are orbiting the Earth. <abbr>GPS</abbr> can usually pinpoint your location within a few meters. The downside is that the dedicated <abbr>GPS</abbr> chip on your device draws a lot of power, so phones and other general purpose mobile devices usually turn off the chip until it&#8217;s needed. That means there will be a startup delay while the chip is initializing its connection with the <abbr>GPS</abbr> satellites in the sky. If you&#8217;ve ever used Google Maps on an iPhone or other smartphone, you&#8217;ve seen both methods in action. First you see a large circle that approximates your position (finding the nearest cell tower), then a smaller circle (triangulating with other cell towers), then a single dot with an exaction position (given by <abbr>GPS</abbr> satellites).
 
-<p>The reason I mention this is that, depending on your web application, you may not need high accuracy. If you&#8217;re just looking for nearby movie listings, a &#8220;low accuracy&#8221; location is probably good enough. There aren&#8217;t <em>that</em> many movie theaters, even in dense cities, and you&#8217;ll probably be listing several of them anyway. On the other hand, if you&#8217;re giving turn by turn directions in real time, you really <em>do</em> need to know exactly where the user is so you can say &#8220;turn right in 20 meters&#8221; or whatever.
+<p>The reason I mention this is that, depending on your web application, you may not need high accuracy. If you&#8217;re just looking for nearby movie listings, a &#8220;low accuracy&#8221; location is probably good enough. There aren&#8217;t <em>that</em> many movie theaters, even in dense cities, and you&#8217;ll probably be listing more than one of them anyway. On the other hand, if you&#8217;re giving turn by turn directions in real time, you really <em>do</em> need to know exactly where the user is so you can say &#8220;turn right in 20 meters&#8221; or whatever.
 
 <p>The <code>getCurrentPosition()</code> function has an optional third argument, <a href=http://www.w3.org/TR/geolocation-API/#position-options>a <code>PositionOptions</code> object</a>. There are three properties you can set in a <code>PositionOptions</code> object. All the properties are optional. You can set any or all or none of them.
 
@@ -190,7 +190,7 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <p>The <code>timeout</code> property is the number of milliseconds your web application is willing to wait for a position. This timer doesn&#8217;t start counting down until <em>after</em> the user gives permission to even try to calculate their position. You&#8217;re not timing the user; you&#8217;re timing the network.
 
-<p>The <code>maximumAge</code> property allows the device to answer immediately with a cached position. For example, let&#8217;s say you call <code>getCurrentPosition()</code> for the very first time, the user consents, and your success callback function is called with a position that was calculated at exactly 10:00 AM. Exactly one minute later, at 10:01 AM, you call <code>getCurrentPosition()</code> again with a <code>maximumAge</code> property of <code>75000</code>.
+<p>The <code>maximumAge</code> property allows the device to answer immediately with a cached position. For example, let&#8217;s say you call <code>getCurrentPosition()</code> for the first time, the user consents, and your success callback function is called with a position that was calculated at exactly 10:00 AM. Exactly one minute later, at 10:01 AM, you call <code>getCurrentPosition()</code> again with a <code>maximumAge</code> property of <code>75000</code>.
 
 <pre><code>navigator.geolocation.getCurrentPosition(
   success_callback, error_callback, <mark>{maximumAge: 75000}</mark>);</code></pre>
