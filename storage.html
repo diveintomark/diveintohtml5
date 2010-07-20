@@ -35,7 +35,7 @@ body{counter-reset:h1 7}
 <li>and isn&#8217;t transmitted to the server
 </ul>
 
-<p>There have been a number of attempts to achieve this, each ultimately unsatisfactory in different ways.
+<p>Before <abbr>HTML5</abbr>, all attempts to achieve this were ultimately unsatisfactory in different ways.
 
 <p class=a>&#x2767;
 
@@ -241,7 +241,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <h2 id=future>Beyond Named Key-Value Pairs: Competing Visions</h2>
 
-<p>While <a href=#history>the past is littered with hacks and workarounds</a>, the present condition of <abbr>HTML5</abbr> Storage is surprisingly rosy. A new <abbr>API</abbr> has been standardized and implemented across all major browsers, platforms, and devices. As a web developer, that&#8217;s just not something you see every day, is it? But there is more to life than &#8220;5 megabytes of named key/value pairs,&#8221; and the future of persistent local storage is&hellip; how shall I put it&hellip; well, there are a number of competing visions.
+<p>While <a href=#history>the past is littered with hacks and workarounds</a>, the present condition of <abbr>HTML5</abbr> Storage is surprisingly rosy. A new <abbr>API</abbr> has been standardized and implemented across all major browsers, platforms, and devices. As a web developer, that&#8217;s just not something you see every day, is it? But there is more to life than &#8220;5 megabytes of named key/value pairs,&#8221; and the future of persistent local storage is&hellip; how shall I put it&hellip; well, there are competing visions.
 
 <p>One vision is an acronym that you probably know already: <abbr>SQL</abbr>. In 2007, Google launched <a href=http://gears.google.com/>Gears</a>, an open source cross-browser plugin which included an embedded database based on <a href=http://www.sqlite.org/>SQLite</a>. This early prototype later influenced the creation of the <a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a> specification. Web SQL Database (formerly known as &#8220;WebDB&#8221;) provides a thin wrapper around a <abbr>SQL</abbr> database, allowing you to do things like this from JavaScript:
 
@@ -254,7 +254,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>As you can see, most of the action resides in the string you pass to the <code>executeSql</code> method. This string can be any supported <abbr>SQL</abbr> statement, including <code>SELECT</code>, <code>UPDATE</code>, <code>INSERT</code>, and <code>DELETE</code> statements. It&#8217;s just like backend database programming, except you&#8217;re doing it from JavaScript! Oh joy!
 
-<p>The Web SQL Database specification has been implemented by a number of browsers and platforms.
+<p>The Web SQL Database specification has been implemented by four browsers and platforms.
 
 <table class=bc>
 <caption>Web SQL Database support</caption>

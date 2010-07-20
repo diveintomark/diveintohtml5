@@ -282,7 +282,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=new-elements>New Semantic Elements in HTML5</h2>
 
-<p><abbr>HTML5</abbr> is not just about making existing markup shorter (although it does a fair amount of that). It also defines a number of new semantic elements.
+<p><abbr>HTML5</abbr> is not just about making existing markup shorter (although it does a fair amount of that). It also defines new semantic elements.
 
 <dl class=col>
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-section-element><code>&lt;section></code></a>
@@ -448,7 +448,7 @@ p (sibling of h1)
 
 <p>First off, let&#8217;s get rid of that <code>&lt;div id="header"></code>. This is a common pattern, but it doesn&#8217;t mean anything. The <code>div</code> element has no defined semantics, and the <code>id</code> attribute has no defined semantics. (User agents are not allowed to infer any meaning from the value of the <code>id</code> attribute.) You could change this to <code>&lt;div id="shazbot"></code> and it would have the same semantic value, <i>i.e.</i>, nothing.
 
-<p><abbr>HTML5</abbr> defines a <code>&lt;header></code> element for this purpose. The <abbr>HTML5</abbr> specification has <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element>a number of real-world examples</a> of using the <code>&lt;header></code> element. Here is what it would look like on <a href=examples/blog-original.html>our example page</a>:
+<p><abbr>HTML5</abbr> defines a <code>&lt;header></code> element for this purpose. The <abbr>HTML5</abbr> specification has <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element>real-world examples of using the <code>&lt;header></code> element</a>. Here is what it would look like on <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;header>
   &lt;h1>My Weblog&lt;/h1>
@@ -634,7 +634,7 @@ p (sibling of h1)
   October 22, 2009 1:59pm EDT
 &lt;/time></code></pre>
 
-<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string>contains a number of examples of valid date/time strings</a>.)
+<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string>contains examples of valid date/time strings</a>.)
 
 <p>Notice I changed the text content &mdash; the stuff between <code>&lt;time></code> and <code>&lt;/time></code> &mdash; to match the machine-readable timestamp. This is not actually required. The text content can be anything you like, as long as you provide a machine-readable date/timestamp in the <code>datetime</code> attribute. So this is valid <abbr>HTML5</abbr>:
 
