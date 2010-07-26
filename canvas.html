@@ -229,6 +229,11 @@ var context = c_canvas.getContext("2d");</code></pre>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
 A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
+<p>For example, if you try to draw a line from <code>(1,&nbsp;0)</code> to <code>(1,&nbsp;3)</code>, the browser will draw a line covering 0.5 screen pixels on either side of <code>x=1</code>. The screen can&#8217;t display half a pixel, so it expands the line to cover a total of two pixels:
+<p><img src=i/canvas-half-pixels-1.jpg alt="A line from (1,0) to (1,3) is drawn 2 pixels wide" width=406 height=314>
+<p>But, if you try to draw a line from <code>(1.5,&nbsp;0)</code> to <code>(1.5,&nbsp;3)</code>, the browser will draw a line covering 0.5 screen pixels on either side of <code>x=1.5</code>, which results in a true 1-pixel-wide line:
+<p><img src=i/canvas-half-pixels-2.jpg alt="A line from (1.5,0) to (1.5,3) is draw 1 pixel wide" width=404 height=323>
+<p><em>Thanks to Jason Johnson for providing these diagrams.</em>
 </blockquote>
 </div>
 </div>
