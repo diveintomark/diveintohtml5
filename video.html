@@ -457,7 +457,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <p>Most of the <code>ffmpeg</code> command line has nothing to do with VP8 or WebM. <code>libvpx</code> does support a number of VP8-specific options that you can pass to <code>ffmpeg</code>, but I don&#8217;t yet know how any of them work. Once I find a good explanation of them, I&#8217;ll link it here and incorporate them into the narrative if it&#8217;s worthwhile to do so. 
 
-<p>For the second pass, <code>ffmpeg</code> will read the statistics it wrote during the first pass and actually do the encoding of the video and the audio. It will write out an <code>MKV</code> file. We will convert this to a WebM file later. (Eventually, <code>ffmpeg</code> will be able to write WebM files directly, but that functionality is currently broken in a subtle and pernicious way.)
+<p>For the second pass, <code>ffmpeg</code> will read the statistics it wrote during the first pass and actually do the encoding of the video and the audio. It will write out a <code>.webm</code> file.
 
 <pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx -b 614400 -s 320x240 -aspect 4:3 -acodec libvorbis -y pr6.webm</kbd></pre>
 
