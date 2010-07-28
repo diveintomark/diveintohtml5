@@ -442,51 +442,34 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <h2 id=webm-cli>Encoding WebM Video with ffmpeg</h2>
 
-<p>I&#8217;m writing this on May 20, 2010. The WebM format was literally released yesterday. As such, there is not a lot of choice for encoding tools, and few end-to-end guides. This will all get easier as tools are written (or updated) to provide one-click support for WebM. Until then, here are the tools you will need:
-
-<ul>
-<li><code>libvp8</code>, and a special version of <code>ffmpeg</code> with additional patches (to connect it with <code>libvp8</code>) that are not yet part of the official ffmpeg repository.
-  <ul>
-  <li><a href=http://lardbucket.org/blog/archives/2010/05/19/vp8-webm-and-ffmpeg/>Instructions for Linux</a>, which I have personally tested on Ubuntu &#8220;Lucid&#8221; 10.04.
-  <li><a href=http://www.ioncannon.net/meta/1128/compiling-webm-ffmpeg-windows/>Instructions for Windows</a>, which I have not personally tested.
-  </ul>
-<li>The latest version of <a href=http://www.matroska.org/downloads/mkclean.html><code>mkclean</code></a>.
-</ul>
-
-<p>Ready? OK. On the command line, run <code>ffmpeg</code> with no parameters and verify that it was compiled with VP8 support:
+<p>WebM is fully supported in <a href=http://www.ffmpeg.org/><code>ffmpeg</code> 0.6 and later</a>. On the command line, run <code>ffmpeg</code> with no parameters and verify that it was compiled with VP8 support:
 
 <pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg</kbd>
 <samp>FFmpeg version SVN-r23197, Copyright (c) 2000-2010 the FFmpeg developers
   built on May 19 2010 22:32:20 with gcc 4.4.3
-  configuration: --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-pthreads --enable-libfaac --enable-libfaad --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab <mark>--enable-libvpx-vp8</mark></samp></pre>
+  configuration: --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-pthreads --enable-libfaac --enable-libfaad --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab <mark>--enable-libvorbis</mark> <mark>--enable-libvpx</mark></samp></pre>
 
-<p>If you don&#8217;t see the magic words &#8220;<code>--enable-libvpx-vp8</code>,&#8221; you don&#8217;t have the right version of <code>ffmpeg</code>. (If you swear you just compiled it properly, check to see if you have two versions installed. That&#8217;s fine, they won&#8217;t conflict with each other. You&#8217;ll just need to use the full path of the VP8-enabled version of <code>ffmpeg</code>.)
+<p>If you don&#8217;t see the magic words &#8220;<code>--enable-libvorbis</code>&#8221; and &#8220;<code>--enable-libvpx</code>,&#8221; you don&#8217;t have the right version of <code>ffmpeg</code>. (If you compiled <code>ffmpeg</code> yourself, check to see if you have two versions installed. That&#8217;s fine, they won&#8217;t conflict with each other. You&#8217;ll just need to use the full path of the VP8-enabled version of <code>ffmpeg</code>.)
 
 <p>I&#8217;m going to do <a href=#two-pass-encoding>a two-pass encode</a>. Pass 1 just scans through the input video file (<code>-i pr6.dv</code>) and writes out some statistics to a log file (which will be auto-named <code>pr6.dv-0.log</code>). I specify the video codec with the <code>-vcodec</code> parameter:
 
-<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv <mark>-vcodec libvpx_vp8</mark> -an -f rawvideo -y NUL</kbd></pre>
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv <mark>-vcodec libvpx</mark> -b 614400 -s 320x240 -aspect 4:3 -an -y NUL</kbd></pre>
 
-<p>Most of the <code>ffmpeg</code> command line has nothing to do with VP8 or WebM. <code>libvp8</code> does support a number of VP8-specific options that you can pass to <code>ffmpeg</code>, but I don&#8217;t yet know how any of them work. Once I find a good explanation of them, I&#8217;ll link it here and incorporate them into the narrative if it&#8217;s worthwhile to do so. 
+<p>Most of the <code>ffmpeg</code> command line has nothing to do with VP8 or WebM. <code>libvpx</code> does support a number of VP8-specific options that you can pass to <code>ffmpeg</code>, but I don&#8217;t yet know how any of them work. Once I find a good explanation of them, I&#8217;ll link it here and incorporate them into the narrative if it&#8217;s worthwhile to do so. 
 
 <p>For the second pass, <code>ffmpeg</code> will read the statistics it wrote during the first pass and actually do the encoding of the video and the audio. It will write out an <code>MKV</code> file. We will convert this to a WebM file later. (Eventually, <code>ffmpeg</code> will be able to write WebM files directly, but that functionality is currently broken in a subtle and pernicious way.)
 
-<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -b 614400 -s 320x240 -aspect 4:3 -acodec vorbis -y pr6.mkv</kbd></pre>
+<pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx -b 614400 -s 320x240 -aspect 4:3 -acodec libvorbis -y pr6.webm</kbd></pre>
 
 <p>There are five important parameters here:
 
 <ul>
-<li><code>-vcodec libvpx_vp8</code> specifies that we&#8217;re encoding with the VP8 video codec. WebM always uses VP8 video.
-<li><code>-b 614400</code> specifies the bitrate. Unlike other formats, <code>libvp8</code> expects the bitrate in actual bits, not kilobits. If you want a 600 kbps video, multiply 600 by 1024 to get 614400.
+<li><code>-vcodec libvpx</code> specifies that we&#8217;re encoding with the VP8 video codec. WebM always uses VP8 video.
+<li><code>-b 614400</code> specifies the bitrate. Unlike other formats, <code>libvpx</code> expects the bitrate in actual bits, not kilobits. If you want a 600 kbps video, multiply 600 by 1024 to get 614400.
 <li><code>-s 320x240</code> specifies the target size, width by height.
 <li><code>-aspect 4:3</code> specifies the aspect ratio of the video. Standard definition video is usually 4:3, but most high-definition video is 16:9 or 16:10. In my testing, I found that I had to specify this explicitly on the command line, instead of relying on <code>ffmpeg</code> to autodetect it.
-<li><code>-acodec vorbis</code> specifies that we&#8217;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
+<li><code>-acodec libvorbis</code> specifies that we&#8217;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
 </ul>
-
-<p>Now we have an MKV file with VP8 video and Vorbis audio. That&#8217;s <em>really close</em> to what we want. The container format of WebM is technically similar to MKV. In fact, it&#8217;s a proper subset. We only need to twiddle a few bits to create our final WebM video file, using the <a href=http://www.matroska.org/downloads/mkclean.html><code>mkclean</code></a> utility I mentioned earlier.
-
-<pre><samp class=p>you@localhost$ </samp><kbd>mkclean --doctype 4 pr6.mkv pr6.webm</kbd></pre>
-
-<p>And that&#8217;s all she wrote!
 
 <p class=a>&#x2767;
 
@@ -635,9 +618,8 @@ AddType video/webm .webm</code></pre>
 <samp class=p>you@localhost$ </samp><kbd>HandBrakeCLI --preset "iPhone &amp; iPod Touch" --vb 200 --width 320 --two-pass --turbo --optimize --input pr6.dv --output pr6.mp4</kbd>
 
 ## VP8/Vorbis/WebM
-<samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -an -f rawvideo -y NULffmpeg --videobitrate 200</kbd>
-<samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16 -token_partitions 4 -altref 1 -lag 16 -keyint_min 0 -g 250 -mb_static_threshold 0 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx_vp8 -b 204800 -s 320x240 -aspect 4:3 -acodec vorbis -ac 2 -y pr6.mkv</kbd>
-<samp class=p>you@localhost$ </samp><kbd>mkclean --doctype 4 pr6.mkv pr6.webm</kbd></pre>
+<samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx -b 204800 -s 320x240 -aspect 4:3 -an -f webm -y NUL</kbd>
+<samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx -b 204800 -s 320x240 -aspect 4:3 -acodec libvorbis -ac 2 -y pr6.webm</kbd>
 
 <p>The final markup uses a <code>&lt;video></code> element for <abbr>HTML5</abbr> video, with a nested <code>&lt;object></code> element for Flash fallback:
 
