@@ -228,6 +228,9 @@ return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);
 <dt><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
 <dd><code>return !!window.Worker;</code>
 
+<dt><a href=http://www.w3.org/TR/widgets/>Widgets</a>: am I in one?
+<dd><code>return typeof widget !== 'undefined';</code>
+
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo</a>
 <dd><code>return typeof UndoManager !== 'undefined';</code>
 
