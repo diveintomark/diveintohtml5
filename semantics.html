@@ -463,32 +463,32 @@ p (sibling of h1)
 <p>In <abbr>HTML</abbr> 4, <code>&lt;h1></code>&ndash;<code>&lt;h6></code> elements were the <em>only</em> way to create a document outline. The outline on the example page looks like this:
 
 <pre>My Weblog (h1)
-|
-+--Travel day (h2)
-|
-+--I'm going to Prague! (h2)</pre>
+   |
+   +--Travel day (h2)
+   |
+   +--I'm going to Prague! (h2)</pre>
 
 <p>That&#8217;s fine, but it means that there&#8217;s no way to mark up the tagline &#8220;A lot of effort went into making this effortless.&#8221; If we tried to mark it up as an <code>&lt;h2></code>, it would add a phantom node to the document outline:
 
 <pre>My Weblog (h1)
-|
-+--A lot of effort went into making this effortless. (h2)
-|
-+--Travel day (h2)
-|
-+--I'm going to Prague! (h2)</pre>
+   |
+   +--A lot of effort went into making this effortless. (h2)
+   |
+   +--Travel day (h2)
+   |
+   +--I'm going to Prague! (h2)</pre>
 
 <p>But that&#8217;s not the structure of the document. The tagline does not represent a section; it&#8217;s just a subheading.
 
 <p>Perhaps we could mark up the tagline as an <code>&lt;h2></code> and mark up each article title as an <code>&lt;h3></code>? No, that&#8217;s even worse:
 
 <pre>My Weblog (h1)
-|
-+--A lot of effort went into making this effortless. (h2)
    |
-   +--Travel day (h3)
-   |
-   +--I'm going to Prague! (h3)</pre>
+   +--A lot of effort went into making this effortless. (h2)
+         |
+         +--Travel day (h3)
+         |
+         +--I'm going to Prague! (h3)</pre>
 
 <p>Now we still have a phantom node in our document outline, but it has &#8220;stolen&#8221; the children that rightfully belong to the root node. And herein lies the problem: <abbr>HTML</abbr> 4 does not provide a way to mark up a subheading without adding it to the document outline. No matter how we try to shift things around, &#8220;A lot of effort went into making this effortless&#8221; is going to end up in that graph. And that&#8217;s why we ended up with semantically meaningless markup like <code>&lt;p class="tagline"></code>.
 
@@ -519,10 +519,10 @@ p (sibling of h1)
 <p>This is the document outline that is created:
 
 <pre>My Weblog (h1 of its hgroup)
-|
-+--Travel day (h2)
-|
-+--I'm going to Prague! (h2)</pre>
+   |
+   +--Travel day (h2)
+   |
+   +--I'm going to Prague! (h2)</pre>
 
 <p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&#8217;re using the heading elements properly.
 
