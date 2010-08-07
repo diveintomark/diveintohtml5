@@ -1,5 +1,5 @@
 PYTHON3 = python3
-PYTHON2 = python2.5
+PYTHON2 = python2.6
 JAVA    = java
 
 REVISION := $(shell hg tip | grep changeset|cut -d":" -f2|cut -d" " -f4)
