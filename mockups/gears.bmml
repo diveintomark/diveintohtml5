@@ -1,0 +1,15 @@
+<mockup version="1.0" skin="sketch" measuredW="144" measuredH="95" mockupW="125" mockupH="75">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Icon" x="86" y="37" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>GearIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Tooltip" x="9" y="10" w="-1" h="-1" measuredW="96" measuredH="33.9" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>I%20can%20help</text>
+        <tooltipDirection>SE</tooltipDirection>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

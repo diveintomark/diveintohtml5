@@ -1,0 +1,27 @@
+<mockup version="1.0" skin="sketch" measuredW="256" measuredH="223" mockupW="234" mockupH="202">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="12" y="11" w="234" h="202" measuredW="234" measuredH="202" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="234" h="202" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="0">
+          <controlProperties>
+            <text>index.html</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="2" y="22" w="227" h="158" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="0">
+          <controlProperties>
+            <text>%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Chead%3E%0A%3Ctitle%3EHTML5%3A%20Up%20and%20Running%3C/title%3E%0A%3C/head%3E%0A%3Cbody%3E%0A...%0A%3C/body%3E%0A%3C/html%3E</text>
+            <verticalScrollbar>true</verticalScrollbar>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Arrow" x="124" y="38" w="65" h="40" measuredW="150" measuredH="100" zOrder="2" locked="false" isInGroup="0">
+          <controlProperties>
+            <curvature>1</curvature>
+            <direction>top</direction>
+            <rightArrow>false</rightArrow>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

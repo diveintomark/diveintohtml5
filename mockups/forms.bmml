@@ -1,0 +1,16 @@
+<mockup version="1.0" skin="sketch" measuredW="155" measuredH="218" mockupW="134" mockupH="196">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::SearchBox" x="11" y="47" w="134" h="-1" measuredW="64" measuredH="25" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::VolumeSlider" x="11" y="12" w="134" h="-1" measuredW="72" measuredH="16" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Calendar" x="11" y="112" w="-1" h="-1" measuredW="96" measuredH="96" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::DateChooser" x="11" y="86" w="134" h="-1" measuredW="102" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%20/%20%20/%20%20%20%20</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

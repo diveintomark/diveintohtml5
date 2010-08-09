@@ -1,0 +1,14 @@
+<mockup version="1.0" skin="sketch" measuredW="250" measuredH="213" mockupW="227" mockupH="192">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneKeyboard" x="13" y="43" w="-1" h="-1" measuredW="227" measuredH="160" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <orientation>portrait</orientation>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="13" y="11" w="225" h="-1" measuredW="119" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>you@example.com</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
