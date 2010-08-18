@@ -284,6 +284,50 @@ img{
 <tr>
   <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timed-tracks>Captions</a></span>
   <td><code>"track" in $dce("track")</code>
+
+<tr>
+  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#htmlmediaelement>Properties</a></span>
+  <td><i>These apply to both <b>&lt;audio></b> and <b>&lt;video></b> elements.</i>
+
+<tr>
+  <th><span class=in>Playback</span>
+  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currenttime>currentTime</a>          // <span>in seconds</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-initialtime>initialTime</a>          // <span>in seconds, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-duration>duration</a>             // <span>in seconds, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-startoffsettime>startOffsetTime</a>      // <span>datetime, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-paused>paused</a>               // <span>boolean</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-ended>ended</a>                // <span>boolean, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-autoplay>autoplay</a>             // <span>boolean</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-loop>loop</a>                 // <span>boolean</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-playbackrate>playbackRate</a>         // <span>default = 1.0</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-defaultplaybackrate>defaultPlaybackRate</a>  // <span>default = 1.0</span></code></pre>
+
+<tr>
+  <th><span class=in>User interface</span>
+  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-controls>controls</a>             // <span>boolean</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-volume>volume</a>               // <span>between 0.0 and 1.0, default = 1.0</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-muted>muted</a>                // <span>boolean</span></code></pre>
+
+<tr>
+  <th><span class=in>Captions</span>
+  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-tracks>tracks</a>               // <span>array of <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timedtrack>TimedTrack</a> objects</span></code></pre>
+
+<tr>
+  <th><span class=in>Network</span>
+  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-src>src</a>                  // <span>string</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currentsrc>currentSrc</a>           // <span>string, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-preload>preload</a>              // <span>string</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-buffered>buffered</a>             // <span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timeranges>TimeRanges</a> object, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-played>played</a>               // <span>TimeRanges object, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-seekable>seekable</a>             // <span>TimeRanges object, read-only</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-networkstate>networkState</a>         // <span>read-only; one of NETWORK_EMPTY, NETWORK_IDLE,</span>
+                        <span>NETWORK_LOADING, NETWORK_NO_SOURCE</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-readystate>readyState</a>           // <span>read-only; one of HAVE_NOTHING, HAVE_METADATA,</span>
+                        <span>HAVE_CURRENT_DATA, HAVE_FUTURE_DATA,</span>
+                        <span>HAVE_ENOUGH_DATA</span>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-error>error.code</a>           // <span>read-only; one of MEDIA_ERR_ABORTED, MEDIA_ERR_NETWORK</span>
+                        <span>MEDIA_ERR_DECODE, MEDIA_ERR_SRC_NOT_SUPPORTED</span></code></pre>
+
 </table>
 
 <table>
