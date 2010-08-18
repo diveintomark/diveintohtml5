@@ -16,6 +16,10 @@ output_file = sys.argv[2]
 in_pre = False
 with open(output_file, 'w', encoding="utf-8") as _out, open(input_file, encoding="utf-8") as _in:
     for line in _in:
+        if input_file.count('peeks-pokes-and-pointers'):
+            _out.write(line)
+            continue
+            
         # round-robin image servers
         if "<img src=i/" in line:
             line = line.replace("<img src=i/", "<img src=http://" + next(available_server) + "/dih5/")

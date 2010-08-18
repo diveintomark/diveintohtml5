@@ -78,5 +78,5 @@ live: all
 	rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" --exclude="*.webm" build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/
 	rsync -essh -a build/i/*.mp4 build/i/*.ogv build/i/*.webm build/i/.htaccess diveintomark.org:~/web/diveintohtml5.org/i/
 	rsync -essh -a build/j/${REVISION}*.js build/j/html5.js build/j/excanvas.min.js build/j/.htaccess diveintomark.org:~/web/diveintohtml5.org/j/
-	rsync -essh -a build/f/*.ttf build/f/*.eot build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/
+	rsync -essh -a build/f/*.ttf build/f/*.eot build/f/*.woff build/f/*.svg build/f/.htaccess diveintomark.org:~/web/diveintohtml5.org/f/
 	rsync -essh -a build/examples build/*.txt build/*.ico build/*.html build/.htaccess build/fonts-original build/s diveintomark.org:~/web/diveintohtml5.org/
