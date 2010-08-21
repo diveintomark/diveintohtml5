@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<html lang=en>
+<head>
 <meta charset=utf-8>
 <title>HTML5 Peeks, Pokes and Pointers</title>
 <!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
 <style>
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,menu,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}                  
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,menu,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
 nav ul{list-style:none}
 blockquote,q{quotes:none}
@@ -60,10 +62,9 @@ input,select{vertical-align:middle}
 }
 body{
   font-family:'DejaVuSansBook','DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
-  display:table;
   margin:0 auto 2em auto;
-  width:50em;
-  background:tan;
+  width:52em;
+  background-color:tan;
   color:black;
   line-height: 1.4;
 }
@@ -92,14 +93,14 @@ h1{
   border-bottom:12px solid;
   text-shadow:1px 1px 1px #fcc;
 }
-section h1{
+.section h1{
   font-size:xx-large;
   text-align:left;
   width:100%;
   border-bottom:1px solid;
   margin-bottom:3px;
 }
-section h1 span{
+.section h1 span{
   float:right;
   font-size:x-small;
   font-family:'DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
@@ -112,7 +113,6 @@ section h1 span{
   float:left;
 }
 .fl20{
-  clear:both;
   width:20%;
 }
 .fl30{
@@ -122,6 +122,7 @@ section h1 span{
   width:48%;
 }
 .o{
+  clear:left;
   font-weight:bold;
 }
 .o span{
@@ -139,8 +140,8 @@ a:link,a:visited{
   border-bottom:1px dotted tan;
   color:black;
 }
-section:hover a:link,
-section:hover a:visited{
+.section:hover a:link,
+.section:hover a:visited{
   text-decoration:none;
   border-bottom:1px dotted black;
   color:black;
@@ -149,7 +150,7 @@ a:hover{
   text-decoration:none;
   border-bottom:1px solid black !important;
 }
-section{
+.section{
   border-collapse:collapse;
   width:100%;
   margin-top:1em;
@@ -168,18 +169,19 @@ pre,p{
 p.t{
   line-height:1.4em;
 }
-p.o{
+.o{
   width:20%;
   background:tan url(i/dot-tan.png) repeat-x 0 0.8em;
 }
-p.nd{
+.nd{
+  clear:left;
   font-weight:bold;
   background:tan;
 }
 .halfwidth{
   width:50%;
 }
-section.halfwidth p.o{
+.section.halfwidth p.o{
   width:40%;
 }
 code{
@@ -213,47 +215,22 @@ img{
   padding:1em 1em;
   border-radius: 1.4em;
 }
-@media screen and (max-device-width:480px){
-  body,pre span{
-    font:normal 12px sans-serif;
-  }
-  pre,kbd,code,samp,var{
-    font:normal 12px monospace;
-  }
-  h1{
-    font:normal 32px serif;
-  }
-  h1,.cap{
-    text-shadow:none;
-  }
-}
-@media print{
-  body{
-    background:white;
-    color:black;
-  }
-  h1{
-    font-size:32pt;
-    word-spacing:-5pt;
-  }
-  h1,.cap{
-    text-shadow:none;
-  }
-}
 </style>
+</head>
+<body>
 <h1>HTML5 Peeks, Pokes and Pointers</h1>
 <hr>
 
-<section>
+<div class=section>
   <p><i>Common abbreviations (you&#8217;ll see these throughout this chart):</i>
 
   <p class=r><b>$bool</b>=<code>function(any){return!(any=="no"||!any)}</code>
   <p><b>$new</b>=<code>document.createElement</code>
 
   <p class=clear><i>Most new features can be detected in JavaScript. To test for HTML5 video support, create a &lt;video> element and check for a property in its DOM: <code>if("canPlayType" in $new("video")){...}</code> See <a href=detect.html>Chapter 2: Detecting HTML5 Features</a></i>.
-</section>
+</div>
 
-<section class="r halfwidth">
+<div class="section r halfwidth">
   <h1><span>5 > 2</span> Forms</h1>
 
   <p><i>See <a href=forms.html>Chapter 9: A Form of Madness</a>.</i>
@@ -298,9 +275,9 @@ img{
   return i.type !== "text";
 }</code></pre>
   <p class=in><i>Some browers claim to &#8220;support&#8221; an input type but offer no default user interface. <a href=http://www.modernizr.com/>Modernizr</a> can detect this.</i>
-</section>
+</div>
 
-<section class=halfwidth>
+<div class="section halfwidth">
   <h1>New elements</h1>
 
   <p><i>See <a href=semantics.html>Chapter 3: What Does It All Mean?</a></i>
@@ -354,9 +331,9 @@ img{
 
   <p class=note>Always quote your attribute values unless you&#8217;re a rockstar. Keep your trailing slashes if you like. Validation is still cool: <b><a href=http://html5.validator.nu/>html5.validator.nu</a></b>
 
-</section>
+</div>
 
-<section class=clear>
+<div class="section clear">
   <h1><span>look ma, no plugins</span> Multimedia</h1>
 
   <p><i>Royalty-free formats are listed first. See <a href=video.html>Chapter 5: Video on the Web</a>.</i>
@@ -388,7 +365,7 @@ img{
   <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#htmlmediaelement>Properties</a></span>
   <p class=t><i>These apply to both <code>&lt;audio></code> and <code>&lt;video></code> elements.</i>
 
-  <section class="r halfwidth" style="margin-top:0">
+  <div class="section r halfwidth" style="margin-top:0">
   <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currentsrc>currentSrc</a></code>
   <p class=t>string, read-only
 
@@ -415,7 +392,7 @@ img{
 
   <p class=note>Encode video with <a href=http://firefogg.org/>Firefogg</a> (Theora), <a href=http://handbrake.fr/>HandBrake</a> (H.264), or <a href=http://www.mirovideoconverter.com/>Miro</a> (multiple). You can list multiple <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#the-source-element><code>&lt;source></code></a> elements in an <code>&lt;audio></code> or <code>&lt;video></code>.
 
-  </section>
+  </div>
 
   <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-src>src</a></code>
   <p class=t>string
@@ -459,9 +436,9 @@ img{
   <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-playbackrate>playbackRate</a></code>
   <p class=t>default = 1.0
 
-</section>
+</div>
 
-<section class="r halfwidth">
+<div class="section r halfwidth">
   <h1><span><a href=http://isgeolocationpartofhtml5.com/>IsGeolocationPartOfHTML5.com</a></span> Geolocation</h1>
 
   <p><i>See <a href=geolocation.html>Chapter 6: You Are Here</a>.</i>
@@ -489,7 +466,7 @@ img{
   <p class=o><code class=in>enableHighAccuracy</code>
   <p class=t>true or false
 
-  <p><i><a href=http://www.w3.org/TR/geolocation-API/#position>Position object</a> (in callback) has <code>timestamp</code> and <code>coords</code>.</i>
+  <p style="clear:left"><i><a href=http://www.w3.org/TR/geolocation-API/#position>Position object</a> (in callback) has <code>timestamp</code> and <code>coords</code>.</i>
   <p class=nd><a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>Coordinates object</a> <i style="font-weight:normal">Unsupported properties will be <code>null</code>.</i>
   <p class=o><code class=in>latitude</code>
   <p class=t>in decimal degrees
@@ -512,11 +489,11 @@ img{
   <p class=o><code class=in>speed</code>
   <p class=t>in meters/second
 
-  <p><i><a href=http://www.w3.org/TR/geolocation-API/#position-error>PositionError object</a> (in err callback) has <code>message</code> and <code>code</code>:</i>
+  <p style="clear:left"><i><a href=http://www.w3.org/TR/geolocation-API/#position-error>PositionError object</a> (in err callback) has <code>message</code> and <code>code</code>:</i>
   <p class=in>TIMEOUT, POSITION_UNAVAILABLE, PERMISSION_DENIED, or UNKNOWN_ERROR
-</section>
+</div>
 
-<section class=halfwidth>
+<div class="section halfwidth">
   <h1>Offline</h1>
 
   <p><i>See <a href=offline.html>Chapter 8: Let&#8217;s Take This Offline</a>.</i>
@@ -568,9 +545,9 @@ img{
 
   <p class=note>HTTP semantics still apply to resources listed in the cache manifest, so check your <code>Expires</code> and <code>Cache-Control</code> headers. Manifest must be served as <code>text/cache-manifest</code>, so check your <code>Content-Type</code> headers too. If <i>any</i> required resource fails to load, application will not work offline. 
 
-</section>
+</div>
 
-<section class=clear>
+<div class="section clear">
   <h1>Canvas</h1>
 
   <p><i>See <a href=canvas.html>Chapter 4: Let&#8217;s Call It A Draw(ing) Surface</a>.</i>
@@ -583,7 +560,7 @@ img{
 
   <p class=o><span>Functions</span>
   <p><i>Root path is implicit; subpaths must be explicit. <code>drawImage()</code> can also draw video or canvas.</i>
-  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-beginpath>beginPath();</a></code>
+  <p class=fl20 style="clear:left"><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-beginpath>beginPath();</a></code>
   <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage>drawImage(image,dx,dy,<i title="optional">dw,dh</i>);</a></code>
   <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-quadraticcurveto>quadraticCurveTo(cpx,cpy,x,y);</a></code>
 
@@ -630,7 +607,7 @@ img{
   <p class="o cl"><span>Properties</span>
   <p class=t><i>All properties are read/write. <code>fillStyle</code> &amp; <code>strokeStyle</code> can also be a gradient or pattern.</i>
 
-  <section class="r halfwidth" style="margin-top:0">
+  <div class="section r halfwidth" style="margin-top:0">
   <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-shadowcolor>shadowColor</a></code>
   <p class=t>default = "transparent black"
 
@@ -644,7 +621,7 @@ img{
   <p class=t>in pixels, default = 0
 
   <p class=note>Learn about states! A <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-state>canvas state</a> includes all transformations, all properties, and the clipping path. <code>save()</code> pushes a state onto the stack and <code>restore()</code> pops it off.
-  </section>
+  </div>
 
   <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-fillstyle>fillStyle</a></code>
   <p class=t>CSS color, default = "black"
@@ -676,9 +653,9 @@ img{
   <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-miterlimit>miterLimit</a></code>
   <p class=t>float, default = 10
 
-</section>
+</div>
 
-<section>
+<div class=section>
   <h1>Bits &amp; Bytes</h1>
 
   <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#the-doctype>Doctype</a></span>
@@ -689,7 +666,7 @@ img{
 
   <p class=o><span><a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>Optional end tags</a></span>
   <p class=t><code>&lt;html></code>, <code>&lt;head></code>, <code>&lt;body></code>, <code>&lt;li></code>, <code>&lt;p></code>, <code>&lt;dt></code>, <code>&lt;dd></code>, <code>&lt;colgroup></code>, <code>&lt;option></code>, <code>&lt;optgroup></code>,
-  <p class=fl20>&nbsp;
+  <p class=fl20 style="clear:left">&nbsp;
   <p class=t><code>&lt;thead></code>, <code>&lt;tbody></code>, <code>&lt;tfoot></code>, <code>&lt;tr></code>, <code>&lt;td></code>, <code>&lt;rt></code>, <code>&lt;rp></code>
 
   <p class=o><span><a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>Optional start tags</a></span>
@@ -700,7 +677,7 @@ img{
 
   <p class=o><span><a href=http://hacks.mozilla.org/2010/05/firefox-4-the-html5-parser-inline-svg-speed-and-more/>Inline SVG</a></span>
   <p class=t><code>function() { var e=$new("div"); e.innerHTML="&lt;svg>&lt;/svg>";</code>
-  <p class=fl20>&nbsp;
+  <p class=fl20 style="clear:left">&nbsp;
   <p class=t><code>return window.SVGSVGElement &amp;&amp; e.firstChild instanceof window.SVGSVGElement)}</code>
 
   <p class=o><span><a href=http://dev.w3.org/html5/webstorage/>Web Storage</a></span>
@@ -739,12 +716,12 @@ img{
   <p class=o><span><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox>&lt;iframe sandbox></a></span>
   <p class=t><code>"sandbox" in $new("iframe")</code>
 
-</section>
+</div>
 
-<section>
-  <h1><span>Serial Number 100820</span> Credits</h1>
+<div class=section>
+  <h1><span>Serial Number 100821</span> Credits</h1>
 
-  <section class="r halfwidth" style="margin-top:0">
+  <div class="section r halfwidth" style="margin-top:0">
   <p class=o><span>References</span>
   <p class=t><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>HTML5</a>, <a href=http://dev.w3.org/html5/html4-differences/>HTML-diff</a>, <a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>HTML vs. XHTML</a>
 
@@ -753,7 +730,7 @@ img{
 
   <p class=o><span>License</span>
   <p class=t><a href=http://creativecommons.org/licenses/by/3.0 rel=license title="Creative Commons Attribution 3.0 Unported">CC-BY-3.0</a>
-  </section>
+  </div>
 
   <p class=o><span>Writing</span>
   <p class=t><a href=http://diveintomark.org/>Mark Pilgrim</a>
@@ -764,4 +741,6 @@ img{
   <p class=o><span>Typography</span>
   <p class=t><a href=http://www.theleagueofmoveabletype.com/fonts/4-chunk>Chunk</a>, <a href=http://dejavu-fonts.org/>DejaVu Sans &amp; Mono</a>
 
-</section>
+</div>
+</body>
+</html>
