@@ -3,7 +3,6 @@
 <head>
 <meta charset=utf-8>
 <title>HTML5 Peeks, Pokes and Pointers</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
 <style>
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,menu,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
@@ -20,50 +19,44 @@ hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padd
 input,select{vertical-align:middle}
 @font-face{
   font-family:'ChunkFiveRegular';
-  src:url('f/chunk-webfont.eot');
   src:local('☺'),url('f/chunk-webfont.woff') format('woff'),url('f/chunk-webfont.ttf') format('truetype'),url('f/chunk-webfont.svg#webfontp2unCWQ0') format('svg');
-  font-weight:bold;
+  font-weight:normal;
   font-style:normal;
 }
 @font-face {
   font-family: 'DejaVuSansOblique';
-  src: url('f/dejavusans-oblique-webfont.eot');
-  src: local('☺'), url('f/dejavusans-oblique-webfont.woff') format('woff'), url('f/dejavusans-oblique-webfont.ttf') format('truetype'), url('f/dejavusans-oblique-webfont.svg#webfontLQdsS4tq') format('svg');
+  src: local('DejaVu Sans'), url('f/dejavusans-oblique-webfont.woff') format('woff'), url('f/dejavusans-oblique-webfont.ttf') format('truetype'), url('f/dejavusans-oblique-webfont.svg#webfontLQdsS4tq') format('svg');
   font-weight: normal;
   font-style: oblique;
 }
 @font-face {
   font-family: 'DejaVuSansBold';
-  src: url('f/dejavusans-bold-webfont.eot');
-  src: local('☺'), url('f/dejavusans-bold-webfont.woff') format('woff'), url('f/dejavusans-bold-webfont.ttf') format('truetype'), url('f/dejavusans-bold-webfont.svg#webfontlcKTI8yK') format('svg');
+  src: local('DejaVu Sans'), url('f/dejavusans-bold-webfont.woff') format('woff'), url('f/dejavusans-bold-webfont.ttf') format('truetype'), url('f/dejavusans-bold-webfont.svg#webfontlcKTI8yK') format('svg');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'DejaVuSansBook';
-  src: url('f/dejavusans-webfont.eot');
-  src: local('☺'), url('f/dejavusans-webfont.woff') format('woff'), url('f/dejavusans-webfont.ttf') format('truetype'), url('f/dejavusans-webfont.svg#webfontOAd6ZdwC') format('svg');
+  src: local('DejaVu Sans'), url('f/dejavusans-webfont.woff') format('woff'), url('f/dejavusans-webfont.ttf') format('truetype'), url('f/dejavusans-webfont.svg#webfontOAd6ZdwC') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'DejaVuSansMonoBook';
-  src: url('f/DejaVuSansMono-webfont.eot');
-  src: local('☺'), url('f/DejaVuSansMono-webfont.woff') format('woff'), url('f/DejaVuSansMono-webfont.ttf') format('truetype'), url('f/DejaVuSansMono-webfont.svg#webfontWKSFvneu') format('svg');
+  src: local('DejaVu Sans Mono'), url('f/DejaVuSansMono-webfont.woff') format('woff'), url('f/DejaVuSansMono-webfont.ttf') format('truetype'), url('f/DejaVuSansMono-webfont.svg#webfontWKSFvneu') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'DejaVuSansMonoBold';
-  src: url('f/DejaVuSansMono-Bold-webfont.eot');
-  src: local('☺'), url('f/DejaVuSansMono-Bold-webfont.woff') format('woff'), url('f/DejaVuSansMono-Bold-webfont.ttf') format('truetype'), url('f/DejaVuSansMono-Bold-webfont.svg#webfont0C4GUWEE') format('svg');
+  src: local('DejaVu Sans Mono'), url('f/DejaVuSansMono-Bold-webfont.woff') format('woff'), url('f/DejaVuSansMono-Bold-webfont.ttf') format('truetype'), url('f/DejaVuSansMono-Bold-webfont.svg#webfont0C4GUWEE') format('svg');
   font-weight: bold;
   font-style: normal;
 }
 body{
   font-family:'DejaVuSansBook','DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
   margin:0 auto 2em auto;
-  width:52em;
+  width:50em;
   background-color:tan;
   color:black;
   line-height: 1.4;
@@ -72,9 +65,6 @@ pre,kbd,code,samp,var{
   font-family:'DejaVuSansMonoBook','DejaVu Sans Mono','Andale Mono',Consolas,monospace;
   background:tan;
   font-weight:normal;
-}
-pre b,kbd b,code b,samp b,var b{
-  font-family:'DejaVuSansMonoBold','DejaVu Sans Mono','Andale Mono',Consolas,monospace;
 }
 pre span{
   font-family:'DejaVuSansBook','DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
@@ -89,6 +79,7 @@ strong,b{
 h1{
   font-family:ChunkFiveRegular,serif;
   font-size:300%;
+  font-weight:normal;
   text-align:center;
   border-bottom:12px solid;
   text-shadow:1px 1px 1px #fcc;
@@ -103,7 +94,7 @@ h1{
 .section h1 span{
   float:right;
   font-size:x-small;
-  font-family:'DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
+  font-family:'DejaVuSansBook','DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
   font-weight:bold;
   display:inline-block;
   margin-top:2.5em;
@@ -213,6 +204,43 @@ img{
   border-radius: 1.4em;
 }
 </style>
+<!--[if IE]>
+<style>
+@font-face{
+  font-family:'ChunkFiveRegular';
+  src:url('f/chunk-webfont.eot');
+}
+@font-face {
+  font-family: 'DejaVuSansOblique';
+  src: url('f/dejavusans-oblique-webfont.eot');
+}
+@font-face {
+  font-family: 'DejaVuSansBold';
+  src: url('f/dejavusans-bold-webfont.eot');
+}
+@font-face {
+  font-family: 'DejaVuSansBook';
+  src: url('f/dejavusans-webfont.eot');
+}
+@font-face {
+  font-family: 'DejaVuSansMonoBook';
+  src: url('f/DejaVuSansMono-webfont.eot');
+}
+@font-face {
+  font-family: 'DejaVuSansMonoBold';
+  src: url('f/DejaVuSansMono-Bold-webfont.eot');
+}
+em,i{
+  font-family:'DejaVuSansOblique';
+}
+strong,b{
+  font-family:'DejaVuSansBold';
+}
+pre b,kbd b,code b,samp b,var b{
+  font-family:'DejaVuSansMonoBold',monospace;
+}
+</style>
+<![endif]-->
 </head>
 <body>
 <h1>HTML5 Peeks, Pokes and Pointers</h1>
