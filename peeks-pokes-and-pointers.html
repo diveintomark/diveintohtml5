@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
 <title>HTML5 Peeks, Pokes and Pointers</title>
+<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
 <style>
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,menu,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}                  
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
@@ -19,45 +20,118 @@ input,select{vertical-align:middle}
   font-family:'ChunkFiveRegular';
   src:url('f/chunk-webfont.eot');
   src:local('☺'),url('f/chunk-webfont.woff') format('woff'),url('f/chunk-webfont.ttf') format('truetype'),url('f/chunk-webfont.svg#webfontp2unCWQ0') format('svg');
-  font-weight:normal;
+  font-weight:bold;
   font-style:normal;
 }
+@font-face {
+  font-family: 'DejaVuSansOblique';
+  src: url('f/dejavusans-oblique-webfont.eot');
+  src: local('☺'), url('f/dejavusans-oblique-webfont.woff') format('woff'), url('f/dejavusans-oblique-webfont.ttf') format('truetype'), url('f/dejavusans-oblique-webfont.svg#webfontLQdsS4tq') format('svg');
+  font-weight: normal;
+  font-style: oblique;
+}
+@font-face {
+  font-family: 'DejaVuSansBold';
+  src: url('f/dejavusans-bold-webfont.eot');
+  src: local('☺'), url('f/dejavusans-bold-webfont.woff') format('woff'), url('f/dejavusans-bold-webfont.ttf') format('truetype'), url('f/dejavusans-bold-webfont.svg#webfontlcKTI8yK') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DejaVuSansBook';
+  src: url('f/dejavusans-webfont.eot');
+  src: local('☺'), url('f/dejavusans-webfont.woff') format('woff'), url('f/dejavusans-webfont.ttf') format('truetype'), url('f/dejavusans-webfont.svg#webfontOAd6ZdwC') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DejaVuSansMonoBook';
+  src: url('f/DejaVuSansMono-webfont.eot');
+  src: local('☺'), url('f/DejaVuSansMono-webfont.woff') format('woff'), url('f/DejaVuSansMono-webfont.ttf') format('truetype'), url('f/DejaVuSansMono-webfont.svg#webfontWKSFvneu') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DejaVuSansMonoBold';
+  src: url('f/DejaVuSansMono-Bold-webfont.eot');
+  src: local('☺'), url('f/DejaVuSansMono-Bold-webfont.woff') format('woff'), url('f/DejaVuSansMono-Bold-webfont.ttf') format('truetype'), url('f/DejaVuSansMono-Bold-webfont.svg#webfont0C4GUWEE') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 body{
-  font-family:'DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
+  font-family:'DejaVuSansBook','DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
   display:table;
   margin:0 auto 2em auto;
-  width:auto;
+  width:50em;
   background:tan;
   color:black;
+  line-height: 1.4;
 }
 pre,kbd,code,samp,var{
-  font-family:'DejaVu Sans Mono','Andale Mono',Consolas,monospace;
-}
-pre span{
-  font-family:'DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
+  font-family:'DejaVuSansMonoBook','DejaVu Sans Mono','Andale Mono',Consolas,monospace;
+  background:tan;
   font-weight:normal;
 }
-.baa{
-  font:oblique 105% Constantia,Baskerville,Palatino,'Palatino Linotype','URW Palladio L',serif;
+pre b,kbd b,code b,samp b,var b{
+  font-family:'DejaVuSansMonoBold','DejaVu Sans Mono','Andale Mono',Consolas,monospace;
+}
+pre span{
+  font-family:'DejaVuSansBook','DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
+  font-weight:normal;
+}
+em,i{
+  font-family:'DejaVuSansOblique',sans-serif;
+}
+strong,b{
+  font-family:'DejaVuSansBold',sans-serif;
 }
 h1{
   font-family:ChunkFiveRegular,serif;
-  font-weight:normal;
   font-size:300%;
   text-align:center;
   border-bottom:12px solid;
-}
-h1,caption{
   text-shadow:1px 1px 1px #fcc;
 }
-th span{
+section h1{
+  font-size:xx-large;
+  text-align:left;
+  width:100%;
+  border-bottom:1px solid;
+  margin-bottom:3px;
+}
+section h1 span{
+  float:right;
+  font-size:x-small;
+  font-family:'DejaVu Sans','Helvetica Neue',Calibri,sans-serif;
+  font-weight:bold;
+  display:inline-block;
+  margin-top:2.5em;
+  text-shadow:none;
+}
+.o,.fl20,.fl30,.fl50{
+  float:left;
+}
+.fl20{
+  clear:both;
+  width:20%;
+}
+.fl30{
+  width:32%;
+}
+.fl50{
+  width:48%;
+}
+.o{
+  font-weight:bold;
+}
+.o span{
   display:inline-block;
   padding-right:0.4em;
   font-size:100%;
   background:tan;
   text-align:left;
 }
-th span.in{
+.in{
   padding-left:1em;
 }
 a:link,a:visited{
@@ -65,8 +139,8 @@ a:link,a:visited{
   border-bottom:1px dotted tan;
   color:black;
 }
-table:hover a:link,
-table:hover a:visited{
+section:hover a:link,
+section:hover a:visited{
   text-decoration:none;
   border-bottom:1px dotted black;
   color:black;
@@ -75,42 +149,42 @@ a:hover{
   text-decoration:none;
   border-bottom:1px solid black !important;
 }
-table{
+section{
   border-collapse:collapse;
   width:100%;
   margin-top:1em;
 }
-caption{
-  font-size:x-large;
-  font-weight:bold;
-  text-align:left;
-  width:100%;
-  border-bottom:1px solid;
-  margin-bottom:3px;
-}
-caption span{
+.r{
   float:right;
-  font-size:x-small;
-  display:inline-block;
-  margin-top:1em;
-  text-shadow:none;
+  width:50%;
 }
-pre,tr,th,td{
+pre,p{
   margin:0;
   padding:0;
   font-size:small;
   text-align:left;
   vertical-align:top;
 }
-td{
+p.t{
   line-height:1.4em;
 }
-th{
+p.o{
   width:20%;
   background:tan url(i/dot-tan.png) repeat-x 0 0.8em;
 }
+p.nd{
+  font-weight:bold;
+  background:tan;
+}
+.halfwidth{
+  width:50%;
+}
+section.halfwidth p.o{
+  width:40%;
+}
 code{
   font-size:small;
+  font-style:normal !important;
 }
 mark{
   display:inline-block;
@@ -129,6 +203,16 @@ hr{
 img{
   float:right;
 }
+.clear{
+  clear:both;
+}
+.note{
+  width:86%;
+  border:5px double;
+  margin-top:1.4em;
+  padding:1em 1em;
+  border-radius: 1.4em;
+}
 @media screen and (max-device-width:480px){
   body,pre span{
     font:normal 12px sans-serif;
@@ -136,13 +220,10 @@ img{
   pre,kbd,code,samp,var{
     font:normal 12px monospace;
   }
-  .baa{
-    font:oblique 12px serif;
-  }
   h1{
     font:normal 32px serif;
   }
-  h1,caption{
+  h1,.cap{
     text-shadow:none;
   }
 }
@@ -155,7 +236,7 @@ img{
     font-size:32pt;
     word-spacing:-5pt;
   }
-  h1,caption{
+  h1,.cap{
     text-shadow:none;
   }
 }
@@ -163,529 +244,524 @@ img{
 <h1>HTML5 Peeks, Pokes and Pointers</h1>
 <hr>
 
-<table>
-<caption>Abbreviations</caption>
-<tr>
-  <td colspan=2><i>To make the chart itself more readable.</i>
+<section>
+  <p><i>Common abbreviations (you&#8217;ll see these throughout this chart):</i>
 
-<tr>
-  <th><span>$dce</span>
-  <td><code>document.createElement</code>
+  <p class=r><b>$bool</b>=<code>function(any){return!(any=="no"||!any)}</code>
+  <p><b>$new</b>=<code>document.createElement</code>
 
-<tr>
-  <th><span>$bool</span>
-  <td><code>function(any){return!(any=="no"||!any)}</code>
-</table>
+  <p class=clear><i>Most new features can be detected in JavaScript. To test for HTML5 video support, create a &lt;video> element and check for a property in its DOM: <code>if("canPlayType" in $new("video")){...}</code> See <a href=detect.html>Chapter 2: Detecting HTML5 Features</a></i>.
+</section>
 
-<table>
-<caption>New elements</caption>
+<section class="r halfwidth">
+  <h1><span>5 > 2</span> Forms</h1>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command>&lt;command></a></span>
-  <td><code>"type" in $dce("command")</code>
+  <p><i>See <a href=forms.html>Chapter 9: A Form of Madness</a>.</i>
+  <p class=nd>Test for support
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#constraints>Validation</a></span>
+  <p class=t><code>"noValidate" in $new("form")</code>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element>&lt;datalist></a></span>
-  <td><code>"options" in $dce("datalist")</code>
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-pattern-attribute>Regex constraint</a></span>
+  <p class=t><code>"pattern" in $new("input")</code>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#the-details-element-0>&lt;details></a></span>
-  <td><code>"open" in $dce("details")</code>
+  <p class=o><span class=in><a href=forms.html#placeholder>Placeholder text</a></span>
+  <p class=t><code>"placeholder" in $new("input")</code>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-output-element>&lt;output></a></span>
-  <td><code>"value" in $dce("output")</code>
+  <p class=o><span class=in><a href=forms.html#autofocus>Autofocus</a></span>
+  <p class=t><code>"autofocus" in $new("input")</code>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element>&lt;progress></a></span>
-  <td><code>"value" in $dce("progress")</code>
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-required-attribute>Required</a></span>
+  <p class=t><code>"required" in $new("input")</code>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element>&lt;meter></a></span>
-  <td><code>"value" in $dce("meter")</code>
+  <p class=nd><a href=forms.html>New input types</a>
+  <p class="o clear"><span><code class=in>type="search"</code></span>
+  <p class=t><i>search box</i>
+  <p class="o clear"><span><code class=in>type="number"</code></span>
+  <p class=t><i>spinbox</i>
+  <p class="o clear"><span><code class=in>type="range"</code></span>
+  <p class=t><i>slider</i>
+  <p class="o clear"><span><code class=in>type="color"</code></span>
+  <p class=t><i>color picker</i>
+  <p class="o clear"><span><code class=in>type="tel"</code></span>
+  <p class=t><i>telephone number</i>
+  <p class="o clear"><span><code class=in>type="url"</code></span>
+  <p class=t><i>web address</i>
+  <p class="o clear"><span><code class=in>type="email"</code></span>
+  <p class=t><i>email address</i>
+  <p class="o clear"><span><code class=in>type="date"/"time"/"month"/"week"/"datetime"</code></span>
 
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element>&lt;time></a></span>
-  <td><code>"valueAsDate" in $dce("time")</code>
+  <p class="nd clear"><span><a href=detect.html#input-types>Test for new input types</a></span>
+  <p class=in><i>All tests follow the same pattern:</i>
+<pre class=in><code>function() {
+  var i = $new("input");
+  i.setAttribute("type", "<b>search</b>");
+  return i.type !== "text";
+}</code></pre>
+  <p class=in><i>Some browers claim to &#8220;support&#8221; an input type but offer no default user interface. <a href=http://www.modernizr.com/>Modernizr</a> can detect this.</i>
+</section>
 
-<tr>
-  <th><span>Text annotations</span>
-  <td><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-ruby-element>&lt;ruby></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-rt-element>&lt;rt></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-rp-element>&lt;rp></a>
-<tr>
-  <th><span>Semantics</span>
-  <td><i>Usable in all browsers. <a href=http://code.google.com/p/html5shiv/>IE &lt; 9 requires a shim</a>. Use <a href=http://html5doctor.com/html-5-reset-stylesheet/>HTML5 CSS reset</a> to set default styles.</i><br>
+<section class=halfwidth>
+  <h1>New elements</h1>
+
+  <p><i>See <a href=semantics.html>Chapter 3: What Does It All Mean?</a></i>
+
+  <p class=nd><span>Test for support</span>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command>&lt;command></a></span>
+  <p class=t><code>"type" in $new("command")</code>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element>&lt;datalist></a></span>
+  <p class=t><code>"options" in $new("datalist")</code>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#the-details-element-0>&lt;details></a></span>
+  <p class=t><code>"open" in $new("details")</code>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-output-element>&lt;output></a></span>
+  <p class=t><code>"value" in $new("output")</code>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element>&lt;progress></a></span>
+  <p class=t><code>"value" in $new("progress")</code>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element>&lt;meter></a></span>
+  <p class=t><code>"value" in $new("meter")</code>
+
+  <p class=o><span class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element>&lt;time></a></span>
+  <p class=t><code>"valueAsDate" in $new("time")</code>
+
+  <p class=o><span>Text annotations</span>
+  <p class=t><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-ruby-element>&lt;ruby></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-rt-element>&lt;rt></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-rp-element>&lt;rp></a>
+  <p class=nd><span>Semantics</span> <span style="font-weight:normal"><i>Usable in all browsers. <a href=http://code.google.com/p/html5shiv/>IE &lt; 9 requires a shim</a>.</i></span>
+  <p class=in>
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-article-element>&lt;article></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-aside-element>&lt;aside></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element>&lt;footer></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element>&lt;header></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-hgroup-element>&lt;hgroup></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-nav-element>&lt;nav></a>,
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-section-element>&lt;section></a>,<br>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-section-element>&lt;section></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-figure-element>&lt;figure></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-figcaption-element>&lt;figcaption></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-mark-element>&lt;mark></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-summary-element>&lt;summary></a>
 
-<tr>
-  <th><span>Newly documented</span>
-  <td><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-embed-element>&lt;embed></a>,
+  <p class=o><span>Newly documented</span>
+  <p class=t><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-embed-element>&lt;embed></a>,
 <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-keygen-element>&lt;keygen></a>,
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-wbr-element>&lt;wbr></a> // wait, you mean these were <i>undocumented</i> before?
-
-<tr>
-  <th><span><a href=http://dev.w3.org/html5/html4-differences/#absent-elements>Obsolete</a></span>
-  <td><i>Still supported by browsers, but won&#8217;t validate.</i><br>
-&lt;basefont>, &lt;big>, &lt;center>, &lt;font>, &lt;s>, &lt;strike>, &lt;tt>, &lt;u>,<br>&lt;frame>, &lt;frameset>, &lt;noframes>, &lt;applet>, &lt;isindex>, &lt;dir>,<br>&lt;acronym> (use &lt;abbr> instead)
-
-</table>
-
-<table>
-<caption><span>look ma, no plugins</span> Multimedia support</caption>
-
-<tr>
-  <td colspan=2><i>You can use multiple <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#the-source-element><b>&lt;source></b></a> elements within an <b>&lt;audio></b> or <b>&lt;video></b>. Royalty-free formats are listed first.</i>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio>Audio</a></span>
-  <td><code>"canPlayType" in $dce("audio")</code>
-
-<tr>
-  <th><span class=in><a href=http://en.wikipedia.org/wiki/Vorbis>Vorbis</a></span>
-  <td><code>$bool($dce("audio").canPlayType(<mark>'audio/ogg; codecs="vorbis"'</mark>))</code>
-
-<tr>
-  <th><span class=in><a href=http://en.wikipedia.org/wiki/MP3>MP3</a></span>
-  <td><code>$bool($dce("audio").canPlayType(<mark>'audio/mpeg;'</mark>))</code>
-
-<tr>
-  <th><span class=in><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>AAC</a></span>
-  <td><code>$bool($dce("audio").canPlayType(<mark>'audio/mp4; codecs="mp4a.40.2"'</mark>))</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video>Video</a></span>
-  <td><code>"canPlayType" in $dce("video")</code>
-
-<tr>
-  <th><span class=in><a href=http://en.wikipedia.org/wiki/WebM>WebM</a></span>
-  <td><code>$bool($dce("video").canPlayType(<mark>'video/webm; codecs="vp8, vorbis"'</mark>))</code>
-
-<tr>
-  <th><span class=in><a href=http://en.wikipedia.org/wiki/Theora>Theora</a></span>
-  <td><code>$bool($dce("video").canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>))</code>
-
-<tr>
-  <th><span class=in><a href=http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC>H.264</a></span>
-  <td><code>$bool($dce("video").canPlayType(<mark>'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>))</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#attr-video-poster>Poster image</a></span>
-  <td><code>"poster" in $dce("video")</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timed-tracks>Captions</a></span>
-  <td><code>"track" in $dce("track")</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#htmlmediaelement>Properties</a></span>
-  <td><i>These apply to both <b>&lt;audio></b> and <b>&lt;video></b> elements.</i>
-
-<tr>
-  <th><span class=in>Playback</span>
-  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currenttime>currentTime</a>          // <span>in seconds</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-initialtime>initialTime</a>          // <span>in seconds, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-duration>duration</a>             // <span>in seconds, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-startoffsettime>startOffsetTime</a>      // <span>datetime, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-paused>paused</a>               // <span>boolean</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-ended>ended</a>                // <span>boolean, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-autoplay>autoplay</a>             // <span>boolean</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-loop>loop</a>                 // <span>boolean</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-playbackrate>playbackRate</a>         // <span>default = 1.0</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-defaultplaybackrate>defaultPlaybackRate</a>  // <span>default = 1.0</span></code></pre>
-
-<tr>
-  <th><span class=in>User interface</span>
-  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-controls>controls</a>             // <span>boolean</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-volume>volume</a>               // <span>between 0.0 and 1.0, default = 1.0</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-muted>muted</a>                // <span>boolean</span></code></pre>
-
-<tr>
-  <th><span class=in>Captions</span>
-  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-tracks>tracks</a>               // <span>array of <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timedtrack>TimedTrack</a> objects</span></code></pre>
-
-<tr>
-  <th><span class=in>Network</span>
-  <td><pre><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-src>src</a>                  // <span>string</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currentsrc>currentSrc</a>           // <span>string, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-preload>preload</a>              // <span>string</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-buffered>buffered</a>             // <span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timeranges>TimeRanges</a> object, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-played>played</a>               // <span>TimeRanges object, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-seekable>seekable</a>             // <span>TimeRanges object, read-only</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-networkstate>networkState</a>         // <span>read-only; one of NETWORK_EMPTY, NETWORK_IDLE,</span>
-                        <span>NETWORK_LOADING, NETWORK_NO_SOURCE</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-readystate>readyState</a>           // <span>read-only; one of HAVE_NOTHING, HAVE_METADATA,</span>
-                        <span>HAVE_CURRENT_DATA, HAVE_FUTURE_DATA,</span>
-                        <span>HAVE_ENOUGH_DATA</span>
-<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-error>error.code</a>           // <span>read-only; one of MEDIA_ERR_ABORTED, MEDIA_ERR_NETWORK</span>
-                        <span>MEDIA_ERR_DECODE, MEDIA_ERR_SRC_NOT_SUPPORTED</span></code></pre>
-
-</table>
-
-<table>
-<caption>Canvas</caption>
-
-<tr>
-  <td colspan=2><i>All child elements of <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html><b>&lt;canvas></b></a> are treated as fallback content for assistive technologies and older browsers.<br>Functions have no return value unless specified.</i>
-
-<tr>
-  <th><span><a href=detect.html#canvas>Test for support</a></span>
-  <td><code>"getContext" in $dce("canvas")</code>
-
-<tr>
-  <th><span><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#complex-shapes-(paths)">Paths</a></span>
-  <td><img src=i/johnny_automatic_gerbil_in_a_chair.png alt="" width=133 height=250>
-<i>Root path is implicit; subpaths must be explicit.<br>Nothing is drawn until <b>fill()</b> or <b>stroke()</b>!</i>
-<pre><code>beginPath();
-closePath();
-moveTo(x, y);
-lineTo(x, y);
-arcTo(x1, y1, x2, y2, radius);
-rect(x, y, w, h);
-arc(x, y, radius, startAngle, endAngle, anticlockwise);
-quadraticCurveTo(cpx, cpy, x, y);
-bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
-fill();
-stroke();
-clip();
-isPointInPath(x, y); <span>&rarr; boolean</span></code></pre>
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#transformations>Transformations</a></span>
-  <td><pre><code>scale(x, y);
-rotate(angle);
-translate(x, y);
-transform(a, b, c, d, e, f);
-setTransform(a, b, c, d, e, f);</code></pre>
-
-<tr>
-  <th><span><a href=detect.html#canvas-text>Text support</a></span>
-  <td><code>typeof $dce("canvas").fillText == "function"</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#text-0>Text</a></span>
-  <td><pre><code>fillText(text, x, y, <i title="optional">maxWidth</i>);
-strokeText(text, x, y, <i title="optional">maxWidth</i>);
-measureText(text); <span>&rarr; TextMetrics</span></code></pre>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>Images</a></span>
-  <td><pre><code>drawImage(image_or_video_or_canvas, dx, dy, <i title="optional">dw, dh</i>);
-drawImage(image_or_video_or_canvas, sx, sy, sw, sh, dx, dy, dw, dh);
-createImageData(sw, sh); <span>&rarr; ImageData</span>
-createImageData(imagedata); <span>&rarr; ImageData</span>
-getImageData(sx, sy, sw, sh); <span>&rarr; ImageData</span>
-putImageData(imagedata, dx, dy, <i title="optional">dirtyX, dirtyY, dirtyWidth, dirtyHeight</i>);</code></pre>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#interpolation>Patterns</a></span>
-  <td><pre><code>createPattern(image_or_video_or_canvas, repetition); <span>&rarr; CanvasPattern</span>
-createLinearGradient(x0, y0, x1, y1); <span>&rarr; CanvasGradient</span>
-createRadialGradient(x0, y0, r0, x1, y1, r1); <span>&rarr; CanvasGradient</span></code></pre>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-state>State</a></span>
-  <td><i>A single state includes all transformations, all properties, and clipping path.<br>State is a stack; <b>save()</b> pushes and <b>restore()</b> pops.</i>
-<pre><code>save();
-restore();</code></pre>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#canvasrenderingcontext2d>Properties</a></span>
-  <td><i>All properties are read/write except <b>canvas</b>.</i>
-
-<tr>
-  <th><span class=in>Style</span>
-  <td><pre><code>fillStyle                    // <span>default = "black"</span>
-strokeStyle                  // <span>default = "black"</span></code></pre>
-
-<tr>
-  <th><span class=in>Text</span>
-  <td><pre><code>font                         // <span>default = "10px sans-serif"</span>
-textAlign                    // <span>default = "start"</span>
-textBaseline                 // <span>default = "alphabetic"</span></code></pre>
-
-<tr>
-  <th><span class=in>Shadows</span>
-  <td><pre><code>shadowOffsetX                // <span>default = 0</span>
-shadowOffsetY                // <span>default = 0</span>
-shadowBlur                   // <span>default = 0</span>
-shadowColor                  // <span>default = "transparent black"</span></code></pre>
-
-<tr>
-  <th><span class=in>Compositing</span>
-  <td><pre><code>globalAlpha                  // <span>default = 1.0</span>
-globalCompositeOperation     // <span>default = "source-over"</span></code></pre>
-
-<tr>
-  <th><span class=in>Line caps</span>
-  <td><pre><code>lineWidth                    // <span>default = 1</span>
-lineCap                      // <span>default = "butt"</span>
-lineJoin                     // <span>default = "miter"</span>
-miterLimit                   // <span>default = 10</span></code></pre>
-
-<tr>
-  <th><span class=in>Link to parent</span>
-  <td><pre><code>canvas                       // <span>read-only</span></code></pre>
-</table>
-
-<table>
-<caption><span>5 > 2</span> Web Forms</caption>
-
-<tr>
-  <td colspan=2><i>All additions are backward compatible with HTML 4. Detect new features, fall back to scripted solutions.</i>
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#constraints>Validation</a></span>
-  <td><code>"noValidate" in $dce("form")</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-pattern-attribute>Regex constraints</a></span>
-  <td><code>"pattern" in $dce("input")</code>
-
-<tr>
-  <th><span><a href=forms.html#placeholder>Placeholder text</a></span>
-  <td><code>"placeholder" in $dce("input")</code>
-
-<tr>
-  <th><span><a href=forms.html#autofocus>Autofocus</a></span>
-  <td><code>"autofocus" in $dce("input")</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-required-attribute>Required</a></span>
-  <td><code>"required" in $dce("input")</code>
-
-<tr>
-  <th><span><a href=forms.html>New input types</a></span>
-  <td><img src=i/johnny_automatic_man_using_binoculars_2.png alt="" width=203 height=163><pre><code>type="search"          // <span>search box</span>
-type="number"          // <span>spinbox</span>
-type="range"           // <span>slider</span>
-type="color"           // <span>color picker</span>
-type="tel"             // <span>telephone number</span>
-type="url"             // <span>web address</span>
-type="email"           // <span>email address</span>
-type="date"            // <span>date picker</span>
-type="month"           // <span>month picker</span>
-type="week"            // <span>week picker</span>
-type="time"            // <span>timestamp</span>
-type="datetime"        // <span>precise, absolute date+timestamp</span>
-type="datetime-local"  // <span>local date and time</span></code></pre>
-
-<tr>
-  <th><span><a href=detect.html#input-types>Test input types</a></span>
-  <td><i>All tests follow the same pattern. This is for <b>type="search"</b>. Substitute as needed.</i>
-<pre><code>function() {
-  var i = $dce("input");
-  i.setAttribute("type", "<b>search</b>");
-  return i.type !== "text";
-}</code></pre>
-<i>Some browsers "support" an input type but offer no UI. <a href=http://www.modernizr.com/><b>Modernizr.js</b></a> can detect this.</i>
-</table>
-
-<table>
-<caption><span><a href=http://isgeolocationpartofhtml5.com/>IsGeolocationPartOfHTML5.com</a></span> Geolocation</caption>
-
-<tr>
-  <td colspan=2><i>Geolocation is always opt-in. <b>getCurrentPosition()</b> will block on user-facing UI.</i>
-
-<tr>
-  <th><span><a href=detect.html#geolocation>Test for support</a></span>
-  <td><code>navigator.geolocation</code>
-
-<tr>
-  <th><span><a href=http://www.w3.org/TR/geolocation-API/#geolocation_interface>Functions</a></span>
-  <td><pre><code>getCurrentPosition(successCallback, <i title="optional">errorCallback, positionOptions</i>); <span>&rarr; Position</span>
-watchPosition(successCallback, <i title="optional">errorCallback, positionOptions</i>); <span>&rarr; long</span>
-clearWatch(watchId); // <span><b>watchId</b> is returned from <b>watchPosition()</b></span></code></pre>
-
-<tr>
-  <th><span><a href=http://www.w3.org/TR/geolocation-API/#position-options>PositionOptions</a></span>
-  <td><pre><code>enableHighAccuracy   // true or false
-timeout              // in milliseconds
-maximumAge           // also milliseconds</code></pre>
-
-<tr>
-  <th><span><a href=http://www.w3.org/TR/geolocation-API/#position-callback>Callbacks</a></span>
-  <td><pre><code>function successCallback(position);
-function errorCallback(positionError);</code></pre>
-
-<tr>
-  <th><span><a href=http://www.w3.org/TR/geolocation-API/#position>Position object</a></span>
-  <td><img src=i/johnny_automatic_planet_with_spyglass.png alt="" width=157 height=160>
-<i>Unsupported properties will be <b>null</b>.</i>
-<pre><code>timestamp
-coords.latitude
-coords.longitude
-<i title="optional">coords.altitude
-coords.accuracy
-coords.altitudeAccuracy
-coords.heading
-coords.speed</i></code></pre>
-
-<tr>
-  <th><span><a href=http://www.w3.org/TR/geolocation-API/#position-error>PositionError</a></span>
-  <td><pre><code>message        // <span>a human-readable string</span>
-code           // UNKNOWN_ERROR, PERMISSION_DENIED,
-                  POSITION_UNAVAILABLE, <span>or</span> TIMEOUT</code></pre>
-</table>
-
-<table>
-<caption>Offline Web Applications</caption>
-
-<tr>
-  <td colspan=2><i>Application cache is separate from browser cache; browsers may have separate limits for each.<br>HTTP semantics still apply to resources in cache manifest. Check your <b>Expires</b> and <b>Cache-Control</b> headers!</i>
-
-<tr>
-  <th><span><a href=detect.html#offline>Test for support</a></span>
-  <td><code>window.applicationCache</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest>&lt;html manifest></a></span>
-  <td><i>Links to cache manifest. Attribute must be in page markup; adding it later has no effect.</i>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcacheevents>Events</a></span>
-  <td><i>First four events are the most common, and they occur in order.</i>
-<pre><code>checking      <span>// always first event in sequence</span>
-downloading   <span>// found manifest, fetching resources</span>
-progress      <span>// still fetching resources</span>
-cached        <span>// all resources cached, offline is a go!</span>
-noupdate      <span>// manifest hasn't changed</span>
-updateready   <span>// resources have changed, call <b>swapCache()</b> to activate</span>
-obsolete      <span>// manifest has gone <b>404</b> (or <b>410</b>)</span>
-error         <span>// it all went wrong somewhere</span></code></pre>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#manifests>Manifest syntax</a></span>
-  <td><i>Must be served as <code>text/cache-manifest</code>. Check your <b>Content-Type</b> headers!</i>
-
-<tr>
-  <th><span class=in>CACHE:</span>
-  <td><i>Required resources. URLs can be absolute or relative to manifest. No wildcards.<br>If <b>any</b> required resource fails to load, application will not work offline.</i>
-
-<tr>
-  <th><span class=in>NETWORK:</span>
-  <td><i>Resources that are never cached. Accepts "<b>*</b>" wildcards.</i>
-
-<tr>
-  <th><span class=in>FALLBACK:</span>
-  <td><i>Pairs of resources. Second is used when first is unavailable. Matches partial URLs.</i>
-
-</table>
-
-<table>
-<caption>Bits <i class=baa>&amp;</i> Bytes</caption>
-
-<tr>
-  <td colspan=2><i>Quote your attribute values unless you&#8217;re a rockstar. <a href=http://code.google.com/p/doctype/wiki/ArticleUtf7 title="content sniffing still sucks">Always declare a charset</a>, even if you&#8217;re a rockstar.<br>Keep your trailing slashes if you like. Validation is still cool: <b><a href=http://html5.validator.nu/>html5.validator.nu</a></b></i>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#the-doctype>Doctype</a></span>
-  <td><code>&lt;!DOCTYPE html></code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-meta-charset>Charset declaration</a></span>
-  <td><code>&lt;meta charset="utf-8"></code>
-
-<tr>
-  <th><span><a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>End tags optional</a></span>
-  <td>&lt;html>, &lt;head>, &lt;body>, &lt;li>, &lt;p>, &lt;dt>, &lt;dd>,<br>&lt;thead>, &lt;tbody>, &lt;tfoot>, &lt;colgroup>, &lt;tr>, &lt;td>,<br>&lt;rt>, &lt;rp>, &lt;optgroup>, &lt;option>
-
-<tr>
-  <th><span><a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>Start tags optional</a></span>
-  <td>&lt;html>, &lt;head>, &lt;body>, &lt;tbody>, &lt;colgroup>
-
-<tr>
-  <th><span><a href=http://dev.w3.org/html5/html4-differences/#new-attributes>New attributes</a></span>
-  <td><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#attr-hyperlink-media>&lt;a media></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#ping>&lt;a ping></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-base-target>&lt;base target></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-style-scoped>&lt;style scoped></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#attr-script-async>&lt;script async></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#attr-ol-reversed>&lt;ol reversed></a>
-
-<tr>
-  <th><span><a href=http://dev.w3.org/html5/webstorage/>Web Storage</a></span>
-  <td><code>("localStorage" in window) && window["localStorage"] !== null</code>
-
-<tr>
-  <th><span><a href=http://dev.w3.org/2006/webapi/WebSimpleDB/>IndexedDB</a></span>
-  <td><code>window.indexedDB</code>
-
-<tr>
-  <th><span><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a></span>
-  <td><code>window.openDatabase</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a></span>
-  <td><code>window.Worker</code>
-
-<tr>
-  <th><span><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a></span>
-  <td><code>window.WebSocket</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#contenteditable>contentEditable</a></span>
-  <td><code>"isContentEditable" in $dce("span")</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#web-messaging>X-doc messaging</a></span>
-  <td><code>window.postMessage</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#dnd>Drag-and-drop</a></span>
-  <td><code>"draggable" in $dce("span")</code>
-
-<tr>
-  <th><span><a href=http://dev.w3.org/2006/webapi/FileAPI/>File <abbr>API</abbr></a></span>
-  <td><code>typeof FileReader != "undefined"</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-history-interface>History</a></span>
-  <td><code>window.history && window.history.pushState && window.history.popState</code>
-
-<tr>
-  <th><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo history</a></span>
-  <td><code>typeof UndoManager !== 'undefined'</code>
-
-<tr>
-  <th><span><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox>&lt;iframe sandbox></a></span>
-  <td><code>"sandbox" in $dce("iframe")</code>
-
-<tr>
-  <th><span><a href=http://hacks.mozilla.org/2010/05/firefox-4-the-html5-parser-inline-svg-speed-and-more/>Inline SVG</a></span>
-  <td><pre><code>function() {
-  var e = $dce("div");
-  e.innerHTML = "&lt;svg>&lt;/svg>";
-  if (!window.SVGSVGElement) { return false; }
-  return e.firstChild instanceof window.SVGSVGElement;
-}</code></pre>
-
-</table>
-
-<footer>
-<table>
-<caption><span>Serial Number 100818</span> Credits</caption>
-
-<tr>
-  <th><span>Writing</span>
-  <td><a href=http://diveintomark.org/>Mark Pilgrim</a>
-
-<tr>
-  <th><span>Code</span>
-  <td><a href=http://www.modernizr.com/>Modernizr</a> (<a href=http://farukat.es/>Faruk Ateş</a>, <a href=http://paulirish.com/>Paul Irish</a>, <i>et. al.</i>)
-
-<tr>
-  <th><span>Illustrations</span>
-  <td><a href=http://www.openclipart.org/>Open Clip Art Library</a>
-
-<tr>
-  <th><span>References</span>
-  <td><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>HTML5</a>, <a href=http://dev.w3.org/html5/html4-differences/>HTML5 differences from HTML4</a>, <a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>HTML vs. XHTML</a>
-
-<tr>
-  <th><span>Inspiration</span>
-  <td><a href=http://www.lazilong.com/apple_II/bbros/>Beagle Bros &#8220;Peeks, Pokes and Pointers&#8221; chart for Apple ][</a>
-
-</table>
-</footer>
+<a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-wbr-element>&lt;wbr></a>
+
+  <p class=nd><a href=http://dev.w3.org/html5/html4-differences/#absent-elements>Obsolete</a> <span style="font-weight:normal"><i>Still supported, but won&#8217;t validate.</i></span>
+  <p class="t in">&lt;basefont>, &lt;big>, &lt;center>, &lt;font>, &lt;s>, &lt;strike>, &lt;tt>, &lt;u>, &lt;frame>, &lt;frameset>, &lt;noframes>, &lt;applet>, &lt;isindex>, &lt;dir>, &lt;acronym> (use <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-abbr-element>&lt;abbr></a>)
+
+  <p class=note>Always quote your attribute values unless you&#8217;re a rockstar. Keep your trailing slashes if you like. Validation is still cool: <b><a href=http://html5.validator.nu/>html5.validator.nu</a></b>
+
+</section>
+
+<section class=clear>
+  <h1><span>look ma, no plugins</span> Multimedia</h1>
+
+  <p><i>Royalty-free formats are listed first. See <a href=video.html>Chapter 5: Video on the Web</a>.</i>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio>&lt;audio></a> support</span>
+  <p class=t><code>"canPlayType" in $new("audio")</code>
+
+  <p class=o><span class=in><a href=http://en.wikipedia.org/wiki/Vorbis>Vorbis</a></span>
+  <p class=t><code>$bool($new("audio").canPlayType(<mark>'audio/ogg; codecs="vorbis"'</mark>))</code>
+
+  <p class=o><span class=in><a href=http://en.wikipedia.org/wiki/MP3>MP3</a></span>
+  <p class=t><code>$bool($new("audio").canPlayType(<mark>'audio/mpeg;'</mark>))</code>
+
+  <p class=o><span class=in><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>AAC</a></span>
+  <p class=t><code>$bool($new("audio").canPlayType(<mark>'audio/mp4; codecs="mp4a.40.2"'</mark>))</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video>&lt;video></a> support</span>
+  <p class=t><code>"canPlayType" in $new("video")</code>
+
+  <p class=o><span class=in><a href=http://en.wikipedia.org/wiki/WebM>WebM</a></span>
+  <p class=t><code>$bool($new("video").canPlayType(<mark>'video/webm; codecs="vp8, vorbis"'</mark>))</code>
+
+  <p class=o><span class=in><a href=http://en.wikipedia.org/wiki/Theora>Theora</a></span>
+  <p class=t><code>$bool($new("video").canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>))</code>
+
+  <p class=o><span class=in><a href=http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC>H.264</a></span>
+  <p class=t><code>$bool($new("video").canPlayType(<mark>'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>))</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#htmlmediaelement>Properties</a></span>
+  <p class=t><i>These apply to both <code>&lt;audio></code> and <code>&lt;video></code> elements.</i>
+
+  <section class="r halfwidth" style="margin-top:0">
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currentsrc>currentSrc</a></code>
+  <p class=t>string, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-tracks>tracks</a></code>
+  <p class=t>array of <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timedtrack>TimedTrack</a> objects
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-buffered>buffered</a></code>
+  <p class=t><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#timeranges>TimeRanges</a> object, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-played>played</a></code>
+  <p class=t>TimeRanges object, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-seekable>seekable</a></code>
+  <p class=t>TimeRanges object, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-networkstate>networkState</a></code>
+  <p class=t>enumerated, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-readystate>readyState</a></code>
+  <p class=t>enumerated, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-error>error.code</a></code>
+  <p class=t>enumerated, read-only
+
+  <p class=note>Encode video with <a href=http://firefogg.org/>Firefogg</a> (Theora), <a href=http://handbrake.fr/>HandBrake</a> (H.264), or <a href=http://www.mirovideoconverter.com/>Miro</a> (multiple). You can list multiple <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#the-source-element><code>&lt;source></code></a> elements in an <code>&lt;audio></code> or <code>&lt;video></code>.
+
+  </section>
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-src>src</a></code>
+  <p class=t>string
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-preload>preload</a></code>
+  <p class=t>string
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currenttime>currentTime</a></code>
+  <p class=t>in seconds
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-initialtime>initialTime</a></code>
+  <p class=t>in seconds, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-duration>duration</a></code>
+  <p class=t>in seconds, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-startoffsettime>startOffsetTime</a></code>
+  <p class=t>datetime, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-paused>paused</a></code>
+  <p class=t>boolean
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-ended>ended</a></code>
+  <p class=t>boolean, read-only
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-autoplay>autoplay</a></code>
+  <p class=t>boolean
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-loop>loop</a></code>
+  <p class=t>boolean
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-controls>controls</a></code>
+  <p class=t>boolean
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-volume>volume</a></code>
+  <p class=t>0.0 to 1.0, default = 1.0
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-muted>muted</a></code>
+  <p class=t>boolean
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-playbackrate>playbackRate</a></code>
+  <p class=t>default = 1.0
+
+</section>
+
+<section class="r halfwidth">
+  <h1><span><a href=http://isgeolocationpartofhtml5.com/>IsGeolocationPartOfHTML5.com</a></span> Geolocation</h1>
+
+  <p><i>See <a href=geolocation.html>Chapter 6: You Are Here</a>.</i>
+
+  <p class=o><span><a href=detect.html#geolocation>Test for support</a></span>
+  <p class=t><code>navigator.geolocation</code>
+
+  <p class=nd><span><a href=http://www.w3.org/TR/geolocation-API/#geolocation_interface>Functions</a></span>
+
+  <p><code class=in>Position <b>getCurrentPosition</b>(callback, <i title="optional">err, opt</i>);</code>
+
+  <p><code class=in>long <b>watchPosition</b>(callback, <i title="optional">err, opt</i>);</code>
+
+  <p><code class=in>void <b>clearWatch</b>(watchId);</code>
+
+  <p><code class=in>void <b><i>callback</i></b>(position);</code> <i>Called on success</i>
+
+  <p><code class=in>void <b><i>err</i></b>(positionError);</code> <i>Called on error</i>
+
+  <p class=nd><span><a href=http://www.w3.org/TR/geolocation-API/#position-options>PositionOptions object</a></span>
+  <p class=o><code class=in>timeout</code>
+  <p class=t>in milliseconds
+  <p class=o><code class=in>maximumAge</code>
+  <p class=t>also milliseconds
+  <p class=o><code class=in>enableHighAccuracy</code>
+  <p class=t>true or false
+
+  <p><i><a href=http://www.w3.org/TR/geolocation-API/#position>Position object</a> (in callback) has <code>timestamp</code> and <code>coords</code>.</i>
+  <p class=nd><a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>Coordinates object</a> <i style="font-weight:normal">Unsupported properties will be <code>null</code>.</i>
+  <p class=o><code class=in>latitude</code>
+  <p class=t>in decimal degrees
+
+  <p class=o><code class=in>longitude</code>
+  <p class=t>also decimal degrees
+
+  <p class=o><code class=in>altitude</code>
+  <p class=t>meters above the ellipsoid
+
+  <p class=o><code class=in>accuracy</code>
+  <p class=t>in meters
+
+  <p class=o><code class=in>altitudeAccuracy</code>
+  <p class=t>also in meters
+
+  <p class=o><code class=in>heading</code>
+  <p class=t>degrees CCW from true north
+
+  <p class=o><code class=in>speed</code>
+  <p class=t>in meters/second
+
+  <p><i><a href=http://www.w3.org/TR/geolocation-API/#position-error>PositionError object</a> (in err callback) has <code>message</code> and <code>code</code>:</i>
+  <p class=in>TIMEOUT, POSITION_UNAVAILABLE, PERMISSION_DENIED, or UNKNOWN_ERROR
+</section>
+
+<section class=halfwidth>
+  <h1>Offline</h1>
+
+  <p><i>See <a href=offline.html>Chapter 8: Let&#8217;s Take This Offline</a>.</i>
+
+  <p class=o><span><a href=detect.html#offline>Test for support</a></span>
+  <p class=t><code>window.applicationCache</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest>&lt;html manifest></a></span>
+  <p class=t><i>Points to cache manifest.</i>
+
+  <p class=nd><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#manifests>Cache manifest sections</a></span>
+
+  <p class=o><span class=in>CACHE:</span>
+  <p class=t>Always cached. No wildcards.
+
+  <p class=o><span class=in>NETWORK:</span>
+  <p class=t>Never cached. "*" wildcards.
+
+  <p class=o><span class=in>FALLBACK:</span>
+  <p class=t>Pairs; second is used offline.
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcacheevents>Events</a></span>
+  <p class=t><i>First four are most common.</i>
+  
+  <p class=o><code class=in>checking</code>
+  <p class=t>always first
+
+  <p class=o><code class=in>downloading</code>
+  <p class=t>found manifest, fetching stuff
+
+  <p class=o><code class=in>progress</code>
+  <p class=t>still fetching stuff
+
+
+  <p class=o><code class=in>cached</code>
+  <p class=t>all resources cached
+
+  <p class=o><code class=in>noupdate</code>
+  <p class=t>manifest hasn't changed
+
+  <p class=o><code class=in>updateready</code>
+  <p class=t>call <code>swapCache()</code> to activate
+
+  <p class=o><code class=in>obsolete</code>
+  <p class=t>manifest is 404 (or 410)
+
+  <p class=o><code class=in>error</code>
+  <p class=t>it all went wrong somewhere
+
+  <p class=note>HTTP semantics still apply to resources listed in the cache manifest, so check your <code>Expires</code> and <code>Cache-Control</code> headers. Manifest must be served as <code>text/cache-manifest</code>, so check your <code>Content-Type</code> headers too. If <i>any</i> required resource fails to load, application will not work offline. 
+
+</section>
+
+<section class=clear>
+  <h1>Canvas</h1>
+
+  <p><i>See <a href=canvas.html>Chapter 4: Let&#8217;s Call It A Draw(ing) Surface</a>.</i>
+
+  <p class=o><span><a href=detect.html#canvas>Basic support</a></span>
+  <p class=t><code>"getContext" in $new("canvas")</code>
+
+  <p class=o><span><a href=detect.html#canvas-text>Text support</a></span>
+  <p class=t><code>typeof $new("canvas").fillText == "function"</code>
+
+  <p class=o><span>Functions</span>
+  <p><i>Root path is implicit; subpaths must be explicit. <code>drawImage()</code> can also draw video or canvas.</i>
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-beginpath>beginPath();</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage>drawImage(image,dx,dy,<i title="optional">dw,dh</i>);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-quadraticcurveto>quadraticCurveTo(cpx,cpy,x,y);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-closepath>closePath();</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-rotate>rotate(angle);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-beziercurveto>bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-moveto>moveTo(x,y);</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-translate>translate(x,y);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-arc>arc(x,y,radius,startAng,endAng,anticlockwise);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-lineto>lineTo(x,y);</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-arcto>arcTo(x1,y1,x2,y2,radius);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-getimagedata>getImageData(sx,sy,sw,sh);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-rect>rect(x,y,w,h);</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-ispointinpath>isPointInPath(x,y);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-putimagedata>putImageData(imagedata,dx,dy,x,y,w,h);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-fill>fill();</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-fillrect>fillRect(x,y,w,h);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-filltext>fillText(text,x,y,<i title="optional">maxWidth</i>);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-stroke>stroke();</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-strokerect>strokeRect(x,y,w,h);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-stroketext>strokeText(text,x,y,<i title="optional">maxWidth</i>);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-clip>clip();</a></code>  
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-clearrect>clearRect(x,y,w,h);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-measuretext>measureText(text);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-save>save();</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-settransform>setTransform(a,b,c,d,e,f);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-createlineargradient>createLinearGradient(x0,y0,x1,y1);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-restore>restore();</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-transform>transform(a,b,c,d,e,f);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-createradialgradient>createRadialGradient(x0,y0,r0,x1,y1,r1);</a></code>
+
+  <p class=fl20><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-scale>scale(x,y);</a></code>
+  <p class=fl30><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-createimagedata>createImageData(sw,sh);</a></code>
+  <p class=fl50><code><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-createpattern>createPattern(image,repetition);</a></code>
+
+  <p class="o cl"><span>Properties</span>
+  <p class=t><i>All properties are read/write. <code>fillStyle</code> &amp; <code>strokeStyle</code> can also be a gradient or pattern.</i>
+
+  <section class="r halfwidth" style="margin-top:0">
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-shadowcolor>shadowColor</a></code>
+  <p class=t>default = "transparent black"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-shadowoffsetx>shadowOffsetX</a></code>
+  <p class=t>in pixels, default = 0
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-shadowoffsety>shadowOffsetY</a></code>
+  <p class=t>in pixels, default = 0
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-shadowblur>shadowBlur</a></code>
+  <p class=t>in pixels, default = 0
+
+  <p class=note>Learn about states! A <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-state>canvas state</a> includes all transformations, all properties, and the clipping path. <code>save()</code> pushes a state onto the stack and <code>restore()</code> pops it off.
+  </section>
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-fillstyle>fillStyle</a></code>
+  <p class=t>CSS color, default = "black"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-strokestyle>strokeStyle</a></code>
+  <p class=t>CSS color, default = "black"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-font>font</a></code>
+  <p class=t>CSS font, default = "10px sans-serif"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textalign>textAlign</a></code>
+  <p class=t>enumerated, default = "start"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>textBaseline</a></code>
+  <p class=t>enumerated, default = "alphabetic"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-globalalpha>globalAlpha</a></code>
+  <p class=t>0.0 (transparent) to 1.0 (opaque)
+  
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-linewidth>lineWidth</a></code>
+  <p class=t>in pixels, default = 1
+  
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-linecap>lineCap</a></code>
+  <p class=t>enumerated, default = "butt"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-linejoin>lineJoin</a></code>
+  <p class=t>enumerated, default = "miter"
+
+  <p class=o><code class=in><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-miterlimit>miterLimit</a></code>
+  <p class=t>float, default = 10
+
+</section>
+
+<section>
+  <h1>Bits &amp; Bytes</h1>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#the-doctype>Doctype</a></span>
+  <p class=t><code>&lt;!DOCTYPE html></code> <i>Triggers <a href=semantics.html#the-doctype>standards mode</a> in all browsers.</i>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-meta-charset>Charset declaration</a></span>
+  <p class=t><code>&lt;meta charset="utf-8"></code> <i><a href=http://code.google.com/p/doctype/wiki/ArticleUtf7 title="content sniffing still sucks">Always declare a charset</a>, even if you&#8217;re a rockstar.</i>
+
+  <p class=o><span><a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>Optional end tags</a></span>
+  <p class=t><code>&lt;html></code>, <code>&lt;head></code>, <code>&lt;body></code>, <code>&lt;li></code>, <code>&lt;p></code>, <code>&lt;dt></code>, <code>&lt;dd></code>, <code>&lt;colgroup></code>, <code>&lt;option></code>, <code>&lt;optgroup></code>,
+  <p class=fl20>&nbsp;
+  <p class=t><code>&lt;thead></code>, <code>&lt;tbody></code>, <code>&lt;tfoot></code>, <code>&lt;tr></code>, <code>&lt;td></code>, <code>&lt;rt></code>, <code>&lt;rp></code>
+
+  <p class=o><span><a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>Optional start tags</a></span>
+  <p class=t><code>&lt;html></code>, <code>&lt;head></code>, <code>&lt;body></code>, <code>&lt;tbody></code>, <code>&lt;colgroup></code>
+
+  <p class=o><span><a href=http://dev.w3.org/html5/html4-differences/#new-attributes>New attributes</a></span>
+  <p class=t><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#attr-hyperlink-media>&lt;a media></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#ping>&lt;a ping></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-base-target>&lt;base target></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-style-scoped>&lt;style scoped></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#attr-script-async>&lt;script async></a>, <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#attr-ol-reversed>&lt;ol reversed></a>
+
+  <p class=o><span><a href=http://hacks.mozilla.org/2010/05/firefox-4-the-html5-parser-inline-svg-speed-and-more/>Inline SVG</a></span>
+  <p class=t><code>function() { var e=$new("div"); e.innerHTML="&lt;svg>&lt;/svg>";</code>
+  <p class=fl20>&nbsp;
+  <p class=t><code>return window.SVGSVGElement &amp;&amp; e.firstChild instanceof window.SVGSVGElement)}</code>
+
+  <p class=o><span><a href=http://dev.w3.org/html5/webstorage/>Web Storage</a></span>
+  <p class=t><code>("localStorage" in window) && window["localStorage"] !== null</code>
+
+  <p class=o><span><a href=http://dev.w3.org/2006/webapi/WebSimpleDB/>IndexedDB</a></span>
+  <p class=t><code>window.indexedDB</code>
+
+  <p class=o><span><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a></span>
+  <p class=t><code>window.openDatabase</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a></span>
+  <p class=t><code>window.Worker</code>
+
+  <p class=o><span><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a></span>
+  <p class=t><code>window.WebSocket</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#contenteditable>contentEditable</a></span>
+  <p class=t><code>"isContentEditable" in $new("span")</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#web-messaging>X-doc messaging</a></span>
+  <p class=t><code>window.postMessage</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#dnd>Drag-and-drop</a></span>
+  <p class=t><code>"draggable" in $new("span")</code>
+
+  <p class=o><span><a href=http://dev.w3.org/2006/webapi/FileAPI/>File <abbr>API</abbr></a></span>
+  <p class=t><code>typeof FileReader != "undefined"</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-history-interface>History</a></span>
+  <p class=t><code>window.history && window.history.pushState && window.history.popState</code>
+
+  <p class=o><span><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo history</a></span>
+  <p class=t><code>typeof UndoManager !== 'undefined'</code>
+
+  <p class=o><span><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox>&lt;iframe sandbox></a></span>
+  <p class=t><code>"sandbox" in $new("iframe")</code>
+
+</section>
+
+<section>
+  <h1><span>Serial Number 100820</span> Credits</h1>
+
+  <section class="r halfwidth" style="margin-top:0">
+  <p class=o><span>References</span>
+  <p class=t><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>HTML5</a>, <a href=http://dev.w3.org/html5/html4-differences/>HTML-diff</a>, <a href=http://wiki.whatwg.org/wiki/HTML_vs._XHTML>HTML vs. XHTML</a>
+
+  <p class=o><span>Inspiration</span>
+  <p class=t><a href=http://www.lazilong.com/apple_II/bbros/>Beagle Bros</a>
+
+  <p class=o><span>License</span>
+  <p class=t><a href=http://creativecommons.org/licenses/by/3.0 rel=license title="Creative Commons Attribution 3.0 Unported">CC-BY-3.0</a>
+  </section>
+
+  <p class=o><span>Writing</span>
+  <p class=t><a href=http://diveintomark.org/>Mark Pilgrim</a>
+
+  <p class=o><span>Code</span>
+  <p class=t><a href=http://www.modernizr.com/>Modernizr</a> (<a href=http://paulirish.com/>Paul Irish</a> <i>et. al.</i>)
+
+  <p class=o><span>Typography</span>
+  <p class=t><a href=http://www.theleagueofmoveabletype.com/fonts/4-chunk>Chunk</a>, <a href=http://dejavu-fonts.org/>DejaVu Sans &amp; Mono</a>
+
+</section>
