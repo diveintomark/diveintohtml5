@@ -113,17 +113,15 @@ h2 span{
   line-height:1.4;
   display:inline-block;
   margin-top:2.5em;
-  text-shadow:none;
+  text-shadow:0;
 }
 a:link,a:visited{
   text-decoration:none;
-  border-bottom:1px dotted tan;
   color:black;
 }
 table:hover a:link,
 table:hover a:visited{
   text-decoration:underline !important;
-  color:black;
 }
 td{
   margin:0;
@@ -155,6 +153,14 @@ hr{
   margin-top:0.7em;
   padding: 0.3em 1em 0.5em 1em;
   line-height:1.6;
+}
+@media print {
+  a:link,a:visited{
+    text-underline:none;
+  }
+  h1,h2{
+    text-shadow:0;
+  }
 }
 </style>
 <!--[if IE]>
