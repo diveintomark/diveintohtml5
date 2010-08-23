@@ -57,7 +57,7 @@ substitute-minimized-scripts-and-css: minimize-html minimize-js minimize-css com
 		-e "s|<link rel=stylesheet href=screen.css>|<style>$(shell cat build/${REVISION}.css)</style>|g" \
 		-e "s|<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>|<style>@media screen and (max-device-width:480px){$(shell cat build/m-${REVISION}.css)}</style>|g" \
 		-e "s|</style><style>||g" \
-		-e "s|</style>|</style>$(shell cat j/ga.js)|g" \
+		-e "s|</style>|</style>$(shell cat j/ga.js)|1" \
 		-e "s|=http:|=|g" \
 		-e "s|href=index.html|href=/|g" \
 		build/*.html
