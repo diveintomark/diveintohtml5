@@ -63,22 +63,40 @@ Acknowledgements & Inspirations
 /* typography */
 
 @font-face {
-  font-family: "Essays 1743";
+  font-family: 'Essays 1743';
+  src: url('f/essays1743-webfont.eot');
+  src: local('Essays 1743'), url('f/essays1743-webfont.woff') format('woff'), url('f/essays1743-webfont.ttf') format('truetype'), url('f/essays1743-webfont.svg#webfontJXSJmflx') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-variant: normal;
-  src: url("f/essays1743-min.eot");
-  src: local('Essays 1743'), url("f/essays1743-min.ttf");
 }
 @font-face {
-  font-family: "Linux Libertine";
+  font-family: 'Essays 1743';
+  src: url('f/essays1743-italic-webfont.eot');
+  src: local('Essays 1743'), url('f/essays1743-italic-webfont.woff') format('woff'), url('f/essays1743-italic-webfont.ttf') format('truetype'), url('f/essays1743-italic-webfont.svg#webfontmRs1TiYo') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Linux Libertine';
+  src: url('f/linlibertine_re-4.7.5-webfont.eot');
+  src: local('Linux Libertine'), url('f/linlibertine_re-4.7.5-webfont.woff') format('woff'), url('f/linlibertine_re-4.7.5-webfont.ttf') format('truetype'), url('f/linlibertine_re-4.7.5-webfont.svg#webfont2LeWOA6q') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-variant: normal;
-  src: url("f/lin-libertine-min.eot");
-  src: local('Linux Libertine'), url("f/lin-libertine-min.ttf");
 }
-
+@font-face {
+  font-family: 'Linux Libertine';
+  src: url('f/linlibertine_bd-4.1.5-webfont.eot');
+  src: local('Linux Libertine'), url('f/linlibertine_bd-4.1.5-webfont.woff') format('woff'), url('f/linlibertine_bd-4.1.5-webfont.ttf') format('truetype'), url('f/linlibertine_bd-4.1.5-webfont.svg#webfontyIlB2m0g') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Linux Libertine';
+  src: url('f/linlibertine_it-4.2.6-webfont.eot');
+  src: local('Linux Libertine'), url('f/linlibertine_it-4.2.6-webfont.woff') format('woff'), url('f/linlibertine_it-4.2.6-webfont.ttf') format('truetype'), url('f/linlibertine_it-4.2.6-webfont.svg#webfont1XkT3xNb') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
 html, body {
   background: #fff;
   color: #000;
@@ -90,7 +108,7 @@ body {
   word-spacing: 0.1em;
 }
 #zz {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   padding-bottom: 2em;
 }
@@ -271,7 +289,7 @@ code, var, samp {
 /* headers */
 
 h1, h2, h3, h4, caption, thead th {
-  font-family: "Essays 1743", "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  font-family: "Essays 1743", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   font-weight: normal;
   text-transform: uppercase;
   text-shadow: 0 0 1px #667;
