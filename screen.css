@@ -65,35 +65,35 @@ Acknowledgements & Inspirations
 @font-face {
   font-family: 'Essays 1743';
   src: url('f/essays1743-webfont.eot');
-  src: local('Essays 1743'), url('f/essays1743-webfont.woff') format('woff'), url('f/essays1743-webfont.ttf') format('truetype'), url('f/essays1743-webfont.svg#webfontJXSJmflx') format('svg');
+  src: local('Essays 1743'), url('f/essays1743-webfont.woff') format('woff'), url('f/essays1743-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Essays 1743';
   src: url('f/essays1743-italic-webfont.eot');
-  src: local('Essays 1743'), url('f/essays1743-italic-webfont.woff') format('woff'), url('f/essays1743-italic-webfont.ttf') format('truetype'), url('f/essays1743-italic-webfont.svg#webfontmRs1TiYo') format('svg');
+  src: local('Essays 1743'), url('f/essays1743-italic-webfont.woff') format('woff'), url('f/essays1743-italic-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_re-4.7.5-webfont.eot');
-  src: local('Linux Libertine'), url('f/linlibertine_re-4.7.5-webfont.woff') format('woff'), url('f/linlibertine_re-4.7.5-webfont.ttf') format('truetype'), url('f/linlibertine_re-4.7.5-webfont.svg#webfont2LeWOA6q') format('svg');
+  src: local('Linux Libertine'), url('f/linlibertine_re-4.7.5-webfont.woff') format('woff'), url('f/linlibertine_re-4.7.5-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_bd-4.1.5-webfont.eot');
-  src: local('Linux Libertine'), url('f/linlibertine_bd-4.1.5-webfont.woff') format('woff'), url('f/linlibertine_bd-4.1.5-webfont.ttf') format('truetype'), url('f/linlibertine_bd-4.1.5-webfont.svg#webfontyIlB2m0g') format('svg');
+  src: local('Linux Libertine'), url('f/linlibertine_bd-4.1.5-webfont.woff') format('woff'), url('f/linlibertine_bd-4.1.5-webfont.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_it-4.2.6-webfont.eot');
-  src: local('Linux Libertine'), url('f/linlibertine_it-4.2.6-webfont.woff') format('woff'), url('f/linlibertine_it-4.2.6-webfont.ttf') format('truetype'), url('f/linlibertine_it-4.2.6-webfont.svg#webfont1XkT3xNb') format('svg');
+  src: local('Linux Libertine'), url('f/linlibertine_it-4.2.6-webfont.woff') format('woff'), url('f/linlibertine_it-4.2.6-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
