@@ -23,10 +23,10 @@ body{counter-reset:h1 5}
 <table class=bc>
 <caption>&lt;video> element support</caption>
 <thead>
-<tr><th title="Internet Explorer 9">IE9<th title="Internet Explorer 8">IE8<th title="Internet Explorer 7">IE7<th title="Firefox 3.5">Fx3.5<th title="Firefox 3.0">Fx3.0<th title="Safari 4">Saf4<th title="Safari 3">Saf3<th title="Google Chrome 3">Chrome<th title="Opera 10.5">Opera
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>&#x2713;<td>&middot;<td>&middot;<td>&#x2713;<td>&middot;<td>&#x2713;<td>&#x2713;<td>&#x2713;<td>&#x2713;
+<tr><td>9.0+<td>3.5+<td>3.0+<td>3.0+<td>10.5+<td>1.0+<td>2.0+
 </tbody>
 </table>
 
@@ -46,7 +46,7 @@ body{counter-reset:h1 5}
 <li><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_14>MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href=http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm>based on Apple&#8217;s older QuickTime container</a> (<code>.mov</code>). <a href=http://www.apple.com/trailers/>Movie trailers on Apple&#8217;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li> 
 <li><a href=http://en.wikipedia.org/wiki/Flash_Video>Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. More recent versions of Flash also support the MPEG 4 container.</li> 
 <li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open source&ndash;friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &#8220;Theora&#8221;), and Ogg audio (called &#8220;Vorbis&#8221;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
-<li><a href=http://www.webmproject.org/>WebM</a> is a new container format. It is technically similar to another format, called <a href=http://en.wikipedia.org/wiki/Matroska>Matroska</a>. WebM was announced at Google I/O 2010. It is designed to be used exclusively with the VP8 video codec and Vorbis audio codec. (More on these in a minute.) It will be supported natively, without platform-specific plugins, in the next versions of Chromium, Google Chrome, Mozilla Firefox, and Opera. Adobe has also announced that the next version of Flash will support WebM video.</li>
+<li><a href=http://www.webmproject.org/>WebM</a> is a new container format. It is technically similar to another format, called <a href=http://en.wikipedia.org/wiki/Matroska>Matroska</a>. WebM was announced in May, 2010. It is designed to be used exclusively with the VP8 video codec and Vorbis audio codec. (More on these in a minute.) It is supported natively, without platform-specific plugins, in the latest versions of Chromium, Google Chrome, Mozilla Firefox, and Opera. Adobe has also announced that a future version of Flash will support WebM video.</li>
 <li><a href=http://en.wikipedia.org/wiki/AVI>Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support features of more recent container formats like embedded metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href=http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html>MEncoder</a>.</li> 
 </ul> 
 
@@ -144,11 +144,10 @@ body{counter-reset:h1 5}
 <p>As of this writing, this is the landscape of <abbr>HTML5</abbr> video:
 
 <ul>
-<li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container.
-<li>Opera (10.5 and later) supports Theora video and Vorbis audio in an Ogg container.
-<li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. It also supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
-<li>As of this writing (June 9, 2010), <a href=http://www.chromium.org/getting-involved/dev-channel>the &#8220;dev channel&#8221; of Google Chrome</a>, <a href=http://build.chromium.org/buildbot/snapshots/>nightly builds of Chromium</a>, <a href=http://nightly.mozilla.org/>nightly builds of Mozilla Firefox</a>, and <a href=http://labs.opera.com/news/2010/05/19/>experimental builds of Opera</a> all support VP8 video and Vorbis audio in a WebM container. (Visit <a href=http://www.webmproject.org/users/>webmproject.org</a> for more up-to-date information and download links for WebM-compatible browsers.)
-<li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include Theora video, Vorbis audio, or the Ogg container. However, QuickTime <em>does</em> support H.264 video (main profile) and AAC audio in an MP4 container.
+<li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container. Firefox 4 also supports WebM.
+<li>Opera (10.5 and later) supports Theora video and Vorbis audio in an Ogg container. Opera 10.60 also supports WebM.
+<li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. It also supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container. Google Chrome 6.0 also supports WebM.
+<li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include WebM, Theora, Vorbis, or the Ogg container. However, QuickTime <em>does</em> ship with support for H.264 video (main profile) and AAC audio in an MP4 container.
 <li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
 <li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
 <li>Internet Explorer 9 will support some as-yet-unspecified profiles of H.264 video and AAC audio in an MP4 container.
@@ -165,7 +164,7 @@ body{counter-reset:h1 5}
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&middot;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
 <tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>3.0+<td>5.0+<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;<td>&middot;
+<tr><th>WebM<td>&middot;<td>&middot;<td>&middot;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
 </tbody>
 </table>
 
@@ -179,7 +178,7 @@ body{counter-reset:h1 5}
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&middot;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
 <tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>3.0+<td>5.0+<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>9.0+<sup>*</sup><td>4.0+<td>&middot;<td>6.0+<td>11.0+<td>&middot;<td>&dagger;<sup>
+<tr><th>WebM<td>9.0+<sup>*</sup><td>4.0+<td>&middot;<td>6.0+<td>10.6+<td>&middot;<td>&dagger;<sup>
 </tbody>
 <tfoot>
 <tr><td colspan=8>* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221; which implies that Microsoft will not be shipping the codec themselves.
@@ -202,9 +201,9 @@ body{counter-reset:h1 5}
 <p>For maximum compatibility, here&#8217;s what your video workflow will look like:
 
 <ol>
-<li>Make one version that uses Theora video and Vorbis audio in an Ogg container.
-<li>Make another version that uses WebM (VP8 + Vorbis).
+<li>Make one version that uses WebM (VP8 + Vorbis).
 <li>Make another version that uses H.264 baseline video and AAC &#8220;low complexity&#8221; audio in an MP4 container.
+<li>Make another version that uses Theora video and Vorbis audio in an Ogg container.
 <li>Link to all three video files from a single <code>&lt;video></code> element, and fall back to a Flash-based video player.
 </ol>
 
@@ -235,7 +234,7 @@ body{counter-reset:h1 5}
 <p>The fees are potentially somewhat steeper for internet broadcasts, perhaps assuming that internet delivery will grow much faster than OTA or &#8220;free&#8221; television via cable or satellite. Adding the &#8220;free television&#8221; broadcast-market fee together with an additional fee, MPEG LA grants a reprieve of sorts during the first license term, which ends on Dec. 31, 2010, and notes that &#8220;after the first term the royalty shall be no more than the economic equivalent of royalties payable during the same time for free television.&#8221;
 </blockquote>
 
-<p>That last part &mdash; about the fee structure for internet broadcasts &mdash; has already been amended. The <abbr>MPEG-LA</abbr> recently <a href="http://www.mpegla.com/Lists/MPEG%20LA%20News%20List/Attachments/226/n-10-02-02.pdf" title="warning: PDF">announced</a> that free internet streaming would be extended through December 31, 2015. And after that&hellip; who knows?
+<p>That last part &mdash; about the fee structure for internet broadcasts &mdash; has already been amended. The <abbr>MPEG-LA</abbr> recently <a href="http://www.mpegla.com/Lists/MPEG%20LA%20News%20List/Attachments/226/n-10-02-02.pdf" title="warning: PDF">announced</a> that free internet streaming would be extended through December 31, 2015. That does <em>not</em> mean that H.264 is royalty-free for all users. See <a href=http://shaver.off.net/diary/2010/08/27/free-as-in-smokescreen/>Free as in smokescreen</a> for more information.
 
 <p class=a>&#x2767;
 
