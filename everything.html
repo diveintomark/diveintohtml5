@@ -154,7 +154,7 @@ return i.type !== 'text';</code></pre>
 <dd><code>return !!document.createElement('video').canPlayType;</code>
 
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#websrt><code>&lt;video></code> captions</a>
-<dd><code>return 'track' in document.createElement('track');</code>
+<dd><code>return 'src' in document.createElement('track');</code>
 
 <dt><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#attr-video-poster"><code>&lt;video poster></code></a>
 <dd><code>return 'poster' in document.createElement('video');</code>
