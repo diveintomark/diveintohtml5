@@ -117,14 +117,66 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p><a href=examples/input-autofocus-with-fallback.html>See an example of <code>autofocus</code> with fallback</a>.
 
-<div class="pf clear">
-<h4>Professor Markup Says</h4>
-<div class=inner>
-<blockquote class=note>
-<p>Lots of web pages wait until <code>window.onload</code> fires to set focus. But the <code>window.onload</code> event doesn&#8217;t fire until <em>after</em> all your images have loaded. If your page has a lot of images, such a naive script could potentially re-focus the field after the user has started interacting with another part of your page. (This is why power users hate autofocus scripts.) The above example places the auto-focus script immediately after the form field that it references, but your back-end systems may not be that flexible. If you can&#8217;t insert a script in the middle of your page, you should set focus during a custom event like jQuery&#8217;s <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
-</blockquote>
-</div>
-</div>
+<h3 id=more-on-focus>Setting focus as early as possible</h3>
+
+<p>Lots of web pages wait until <code>window.onload</code> fires to set focus. But the <code>window.onload</code> event doesn&#8217;t fire until <em>after</em> all your images have loaded. If your page has a lot of images, such a naive script could potentially re-focus the field after the user has started interacting with another part of your page. This is why power users hate autofocus scripts.
+
+<p>The example in the previous section placed the auto-focus script immediately after the form field that it references. This is the optimal solution, but it may offend your sensibilities to put a block of JavaScript code in the middle of your page. (Or, more mundanely, your back-end systems may just not be that flexible.) If you can&#8217;t insert a script in the middle of your page, you should set focus during a custom event like jQuery&#8217;s <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
+
+<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with jQuery
+<pre><code>&lt;head>
+&lt;script src=jquery.min.js>&lt;/script>
+&lt;script>
+  <mark>$(document).ready()</mark> = function() {
+    if (!("autofocus" in document.createElement("input"))) {
+      $("#q").focus();
+    }
+  }
+&lt;/script>
+&lt;/head>
+&lt;body>
+&hellip;
+&lt;form name="f">
+  &lt;input id="q" autofocus>
+  &lt;input type="submit" value="Go">
+&lt;/form>
+&hellip;</code></pre>
+
+<p>jQuery fires its custom <code>ready</code> event as soon as the page <abbr>DOM</abbr> is available &mdash; that is, it waits until the page text is loaded, but it doesn&#8217;t wait until all the images are loaded. This is not an optimal approach &mdash; if the page is unusually large or the network connection is unusually slow, a user could still start interacting with the page before your focus script executes. But it is miles better than waiting until the <code>window.onload</code> event fires.
+
+<p>If you are willing and able to insert a single script statement in your page markup, there is a middle ground that is less offensive than the first option and more optimal than the second. You can use jQuery&#8217;s custom events to define your own event, say <code>autofocus_ready</code>. Then you can trigger this event manually, immediately after the autofocus form field is available.
+
+<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with a custom jQuery event
+<pre><code>&lt;head>
+&lt;script src=jquery.min.js>&lt;/script>
+&lt;script>
+  <mark>$(document).bind('autofocus_ready',</mark> function() {
+    if (!("autofocus" in document.createElement("input"))) {
+      $("#q").focus();
+    }
+  }
+&lt;/script>
+&lt;/head>
+&lt;body>
+&hellip;
+&lt;form name="f">
+  &lt;input id="q" autofocus>
+  &lt;script><mark>$(document).trigger('autofocus_ready');</mark>&lt;/script>
+  &lt;input type="submit" value="Go">
+&lt;/form>
+&hellip;</code></pre>
+
+<p>This is as optimal as the first approach; it will set focus to the form field as soon as technically possible, while the text of the page is still loading. But it transfers the bulk of your application logic (focusing the form field) out of the body of the page and into the head. This example relies on jQuery, but the concept of custom events is not unique to jQuery. Other JavaScript libraries like YUI and Dojo offer similar capabilities.
+
+<p>To sum up:
+
+<ul>
+<li>Setting focus properly is important.
+<li>If at all possible, let the browser do it by setting the <code>autofocus</code> attribute on the form field you want to have focus.
+<li>If you code a fallback for older browsers, detect support for the <code>autofocus</code> attribute to make sure your fallback is <em>only</em> executed in older browsers.
+<li>Set focus as early as possible. Insert the focus script into your markup immediately after the form field. If that offends you, use a JavaScript library that supports custom events, and trigger a custom event immediately after the form field markup. If that&#8217;s not possible, use something like jQuery&#8217;s <code>$(document).ready()</code> event.
+<li>Under no circumstances should you wait until <code>window.onload</code> to set focus.
+</ul>
 
 <p class=a>&#x2767;
 
