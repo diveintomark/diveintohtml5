@@ -123,7 +123,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>The example in the previous section placed the auto-focus script immediately after the form field that it references. This is the optimal solution, but it may offend your sensibilities to put a block of JavaScript code in the middle of your page. (Or, more mundanely, your back-end systems may just not be that flexible.) If you can&#8217;t insert a script in the middle of your page, you should set focus during a custom event like jQuery&#8217;s <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
 
-<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with jQuery
+<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with jQuery fallback
 <pre><code>&lt;head>
 &lt;script src=jquery.min.js>&lt;/script>
 &lt;script>
@@ -135,18 +135,19 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 &lt;/script>
 &lt;/head>
 &lt;body>
-&hellip;
 &lt;form name="f">
   &lt;input id="q" autofocus>
   &lt;input type="submit" value="Go">
 &lt;/form>
-&hellip;</code></pre>
+</code></pre>
+
+<p><a href=examples/input-autofocus-with-fallback-document-ready.html>See an example of <code>autofocus</code> with jQuery fallback</a>.
 
 <p>jQuery fires its custom <code>ready</code> event as soon as the page <abbr>DOM</abbr> is available &mdash; that is, it waits until the page text is loaded, but it doesn&#8217;t wait until all the images are loaded. This is not an optimal approach &mdash; if the page is unusually large or the network connection is unusually slow, a user could still start interacting with the page before your focus script executes. But it is still far better than waiting until the <code>window.onload</code> event fires.
 
 <p>If you are willing and able to insert a single script statement in your page markup, there is a middle ground that is less offensive than the first option and more optimal than the second. You can use jQuery&#8217;s custom events to define your own event, say <code>autofocus_ready</code>. Then you can trigger this event manually, immediately after the autofocus form field is available. <i>Thanks to E. M. Sternberg for teaching me about this technique.</i>
 
-<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with a custom jQuery event
+<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with a custom event fallback
 <pre><code>&lt;head>
 &lt;script src=jquery.min.js>&lt;/script>
 &lt;script>
@@ -158,13 +159,14 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 &lt;/script>
 &lt;/head>
 &lt;body>
-&hellip;
 &lt;form name="f">
   &lt;input id="q" autofocus>
   &lt;script><mark>$(document).trigger('autofocus_ready');</mark>&lt;/script>
   &lt;input type="submit" value="Go">
 &lt;/form>
-&hellip;</code></pre>
+</code></pre>
+
+<p><a href=examples/input-autofocus-with-fallback-custom-event.html>See an example of <code>autofocus</code> with a custom event fallback</a>.
 
 <p>This is as optimal as the first approach; it will set focus to the form field as soon as technically possible, while the text of the page is still loading. But it transfers the bulk of your application logic (focusing the form field) out of the body of the page and into the head. This example relies on jQuery, but the concept of custom events is not unique to jQuery. Other JavaScript libraries like YUI and Dojo offer similar capabilities.
 

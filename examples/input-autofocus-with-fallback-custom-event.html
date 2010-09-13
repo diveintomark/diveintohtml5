@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>&lt;input autofocus> with jQuery fallback - Dive Into HTML 5</title>
+  <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
+  <script src="../j/jquery.js"></script>
+  <script>
+    $(document).bind('autofocus_ready', function() {
+      if (!("autofocus" in document.createElement("input"))) {
+        $("#q").focus();
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="style-html5.css" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <meta name=viewport content='initial-scale=1.0' />
+</head>
+
+<body>
+
+  <form>
+    <input id="q" autofocus>
+    <script>$(document).trigger('autofocus_ready');</script>
+    <input type="submit" value="Go">
+  </form>
+
+  <pre><code>&lt;head>
+  &lt;script src="jquery.js">&lt;/script>
+  &lt;script>
+    $(document).bind('autofocus_ready', function() {
+      if (!("autofocus" in document.createElement("input"))) {
+        $("#q").focus();
+      }
+    }
+  &lt;/script>
+&lt;/head>
+&lt;body>
+  &lt;form name="f">
+  &lt;input id="q" autofocus>
+  &lt;script>$(document).trigger('autofocus_ready');&lt;/script>
+  &lt;input type="submit" value="Go">
+&lt;/form>
+&lt;/body>
+</code></pre>
+
+  <p><a href=../forms.html#more-on-focus>&larr; back to Dive Into HTML 5</a>
+
+</body>
+
+</html>
