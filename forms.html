@@ -127,11 +127,11 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <pre><code>&lt;head>
 &lt;script src=jquery.min.js>&lt;/script>
 &lt;script>
-  <mark>$(document).ready()</mark> = function() {
+  <mark>$(document).ready(function() {
     if (!("autofocus" in document.createElement("input"))) {
       $("#q").focus();
     }
-  }
+  });
 &lt;/script>
 &lt;/head>
 &lt;body>
