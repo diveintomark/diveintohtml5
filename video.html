@@ -162,10 +162,13 @@ body{counter-reset:h1 5}
 <tr><th style="text-align:left">Codecs/container<th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&middot;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
+<tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
 <tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>3.0+<td>5.0+<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>&middot;<td>&middot;<td>&middot;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
+<tr><th>WebM<td>&middot;<td>&middot;<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
 </tbody>
+<tfoot>
+<tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play. QuickTime comes pre-installed with H.264/AAC/MP4 support. There are installable third-party plugins that add support for Theora and WebM, but each user needs to install these plugins before Safari will recognize those video formats.
+</tfoot>
 </table>
 
 <p>A year from now, the landscape will look significantly different as WebM is implemented in multiple browsers, those browsers ship non-experimental WebM-enabled versions, and users upgrade to those new versions.
@@ -176,13 +179,14 @@ body{counter-reset:h1 5}
 <tr><th style="text-align:left">Codecs/container<th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&middot;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
+<tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
 <tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>5.0+<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>&nbsp;9.0+<sup>*</sup><td>4.0+<td>&middot;<td>6.0+<td>10.6+<td>&middot;<td>&dagger;<sup>
+<tr><th>WebM<td>&nbsp;9.0+<sup>*</sup><td>4.0+<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&Dagger;<sup>
 </tbody>
 <tfoot>
-<tr><td colspan=8>* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221; which implies that Microsoft will not be shipping the codec themselves.
-<tr><td colspan=8>&dagger; Google has committed to supporting WebM &#8220;in a future release&#8221; of Android, but there&#8217;s no firm timeline yet.
+<tr><td colspan=8 style="text-align:left">* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221; which implies that Microsoft will not be shipping the codec themselves.
+<tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play, but QuickTime only comes with H.264/AAC/MP4 support pre-installed.
+<tr><td colspan=8 style="text-align:left">&Dagger; Google has committed to supporting WebM &#8220;in a future release&#8221; of Android, but there&#8217;s no firm timeline yet.
 </tfoot>
 </table>
 
