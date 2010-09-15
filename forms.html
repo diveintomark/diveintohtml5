@@ -424,6 +424,16 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id=validation>And One More Thing...</h2>
 
+<table class=bc>
+<caption>Form validation support</caption>
+<thead>
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+</thead>
+<tbody>
+<tr><td>&middot;<td>4.0+<td>5.0+<td>6.0+<td>9.0+<td>&middot;<td>&middot;
+</tbody>
+</table>
+
 <p>In this chapter, I&#8217;ve talked about new input types and new features like auto-focus form fields, but I haven&#8217;t mentioned what is perhaps the most exciting part of <abbr>HTML5</abbr> forms: automatic input validation. Consider the common problem of entering an email address into a web form. You probably have some client-side validation in JavaScript, followed by server-side validation in PHP or Python or some other server-side scripting language. <abbr>HTML5</abbr> can never replace your server-side validation, but it might someday replace your client-side validation.
 
 <p>There are two big problems with validating email addresses in JavaScript:
@@ -442,7 +452,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p class=c><img src=i/input-type-number-validation.png alt="error message on invalid type=number field" width=135 height=76>
 
-<p>Unfortunately, no other browser supports automatic <abbr>HTML5</abbr> form validation yet, so you&#8217;re going to be stuck with script-based fallbacks for a little while.
+<p>Other browsers are slowly implementing support for <abbr>HTML5</abbr> form validation. <a href=https://developer.mozilla.org/en/HTML/HTML5/Forms_in_HTML5#Constraint_Validation>Firefox 4 will have complete support</a>. Unfortunately, Safari and Chrome have shipped an incomplete implementation that may trip you up: they validate form controls, but they don&#8217;t offer any visible feedback when a form field fails validation. In other words, if you enter an invalid (or improperly formatted) date in a <code>type="date"</code> field, Safari and Chrome will not submit the form, but they won&#8217;t tell you why they didn&#8217;t submit the form. (They will set focus to the field that contains the invalid value, but they don&#8217;t display an error message like Opera or Firefox 4.)
 
 <p class=a>&#x2767;
 
