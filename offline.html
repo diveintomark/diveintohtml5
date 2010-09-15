@@ -185,7 +185,7 @@ ExpiresDefault "access"</code></pre>
 clock.js
 clock.css</code></pre>
 
-<p>If you change <code>clock.css</code> and redeploy it, you won&#8217;t see the changes, because the cache manifest file itself hasn&#8217;t changed. Every time you make a change to one of the resources in your offline web application, you&#8217;ll need to change the cache manifest file itself. This can be as simple as changing a single character. The easiest way I&#8217;ve found to accomplish this is to include a comment line with a revision number. Change the revision number in the comment, then the web server will return the newly changed cache manifest file, your browser will notice that the contents of of the file have changed, and it will kick off the process to re-download all the resources listed in the manifest.
+<p>If you change <code>clock.css</code> and redeploy it, you won&#8217;t see the changes, because the cache manifest file itself hasn&#8217;t changed. Every time you make a change to one of the resources in your offline web application, you&#8217;ll need to change the cache manifest file itself. This can be as simple as changing a single character. The easiest way I&#8217;ve found to accomplish this is to include a comment line with a revision number. Change the revision number in the comment, then the web server will return the newly changed cache manifest file, your browser will notice that the contents of the file have changed, and it will kick off the process to re-download all the resources listed in the manifest.
 
 <pre><code>CACHE MANIFEST
 <mark># rev 43</mark>
