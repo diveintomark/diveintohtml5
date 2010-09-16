@@ -649,8 +649,8 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
 <p>From here, we can calculate which Halma square the user clicked, and then act accordingly.
 
-<pre><code>    var cell = new Cell(Math.floor(y/kPieceWidth),
-                        Math.floor(x/kPieceHeight));
+<pre><code>    var cell = new Cell(Math.floor(y/kPieceHeight),
+                        Math.floor(x/kPieceWidth));
     return cell;
 }</code></pre>
 

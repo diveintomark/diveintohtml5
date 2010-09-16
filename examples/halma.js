@@ -38,7 +38,7 @@ function getCursorPosition(e) {
     y -= gCanvasElement.offsetTop;
     x = Math.min(x, kBoardWidth * kPieceWidth);
     y = Math.min(y, kBoardHeight * kPieceHeight);
-    var cell = new Cell(Math.floor(y/kPieceWidth), Math.floor(x/kPieceHeight));
+    var cell = new Cell(Math.floor(y/kPieceHeight), Math.floor(x/kPieceWidth));
     return cell;
 }
 
