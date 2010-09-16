@@ -642,7 +642,7 @@ AddType video/webm .webm</code></pre>
 <p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to watch this video in almost any browser and device:
 
 <video id="video" width="320" height="240" preload controls> 
-  <source src="i/pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+  <source src="i/pr6.mp4" />
   <source src="i/pr6.webm" type='video/webm; codecs="vp8, vorbis"' />
   <source src="i/pr6.ogv" type='video/ogg; codecs="theora, vorbis"' />
   <object width="320" height="240" type="application/x-shockwave-flash"
@@ -689,3 +689,8 @@ AddType video/webm .webm</code></pre>
 </div>
 <script src=j/jquery.js></script>
 <script src=j/dih5.js></script>
+<script>
+  $("#video").click(function() {
+    $(this).get(0).play();
+  });
+</script>
