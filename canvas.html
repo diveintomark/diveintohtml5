@@ -629,7 +629,7 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 <pre><code>function getCursorPosition(e) {
     var x;
     var y;
-    if (e.pageX || e.pageY) {
+    if (e.pageX != undefined && e.pageY != undefined) {
 	x = e.pageX;
 	y = e.pageY;
     }

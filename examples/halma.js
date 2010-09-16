@@ -26,7 +26,7 @@ function getCursorPosition(e) {
     /* returns Cell with .row and .column properties */
     var x;
     var y;
-    if (e.pageX || e.pageY) {
+    if (e.pageX != undefined && e.pageY != undefined) {
 	x = e.pageX;
 	y = e.pageY;
     }
