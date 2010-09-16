@@ -304,7 +304,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class=ss style="margin:1.75em"><span id=live-web-workers></span>
 
-<p><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a> provide a standard way for browsers to run JavaScript in the background. With web workers, You can spawn multiple &#8220;threads&#8221; that all run at the same time, more or less. (Think of how your computer can run multiple applications at the same time, and you&#8217;re most of the way there.) These &#8220;background threads&#8221; can do complex mathematical calculations, make network requests, or access <a href=#local-storage>local storage</a> while the main web page responds to the user scrolling, clicking, or typing.
+<p><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a> provide a standard way for browsers to run JavaScript in the background. With web workers, you can spawn multiple &#8220;threads&#8221; that all run at the same time, more or less. (Think of how your computer can run multiple applications at the same time, and you&#8217;re most of the way there.) These &#8220;background threads&#8221; can do complex mathematical calculations, make network requests, or access <a href=#local-storage>local storage</a> while the main web page responds to the user scrolling, clicking, or typing.
 
 <p>Checking for web workers uses <a href=#techniques>detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
 
