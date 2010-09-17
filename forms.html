@@ -409,7 +409,11 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <h4>Professor Markup Says</h4>
 <div class=inner>
 <blockquote class=note>
-<p>Well, there is <em>one</em> reason you might not want to use <code>&lt;input type="search"></code>. Safari will not apply the usual CSS styles to search fields. And by &#8220;usual styles,&#8221; I mean basic things like border, background-color, background image, padding, <i class=baa>&amp;</i>c.) But you get rounded corners!
+<p>By default, Safari will not apply even the most basic CSS styles to <code>&lt;input type="search"></code> fields. If you want to force Safari to treat your search field like a normal text field (so you can apply your own <abbr>CSS</abbr> styles), add this rule to your stylesheet:
+<blockquote><pre><code>input[type="search"] {
+  -webkit-appearance: textfield;
+}</code></pre></blockquote>
+<p><i>Thanks to John Lein for teaching me this trick.</i>
 </blockquote>
 </div>
 </div>
