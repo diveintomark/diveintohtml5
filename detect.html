@@ -240,12 +240,14 @@ body{counter-reset:h1 2}
   return v.canPlayType(<mark>'video/webm; codecs="vp8, vorbis"'</mark>);
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for different <abbr>HTML5</abbr> video formats. (Note that Modernizr does not yet have support for detecting support for the open WebM video format.)
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.5 or later) to detect support for different <abbr>HTML5</abbr> video formats.
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> video formats
 <pre><code>if (Modernizr.video) {
   // let's play some video! but what kind?
-  if (<mark>Modernizr.video.ogg</mark>) {
+  if (<mark>Modernizr.video.webm</mark>) {
+    // try WebM
+  } else if (<mark>Modernizr.video.ogg</mark>) {
     // try Ogg Theora + Vorbis in an Ogg container
   } else if (<mark>Modernizr.video.h264</mark>){
     // try H.264 video + AAC audio in an MP4 container
@@ -270,10 +272,14 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 </div>
 </div>
 
-<p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined.
+<p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&#8217;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined. Due to an unfortunate bug in older versions of Firefox, this test will raise an exception if cookies are disabled, so the entire test is wrapped in a <code>try..catch</code> statement.
 
 <pre><code>function supports_local_storage() {
-  return ('localStorage' in window) && window['localStorage'] !== null;
+  try {
+    return ('localStorage' in window) && window['localStorage'] !== null;
+  } catch(e){
+    return false;
+  }
 }</code></pre>
 
 <p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
@@ -606,7 +612,7 @@ $(document).ready(function() {
   if (Modernizr.video) {
     var ogg = Modernizr.video.ogg;
     var h264 = Modernizr.video.h264;
-    var webm = document.createElement('video').canPlayType('video/webm; codecs="vp8, vorbis"');
+    var webm = Modernizr.video.webm;
     var vf = "Your browser ";
     if ((ogg == "probably") && (h264 == "probably")) {
       vf += "can play both Ogg Theora and H.264";
@@ -625,9 +631,13 @@ $(document).ready(function() {
   } else {
     $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
   }
-  $("#live-storage").html(supports(!!window.localStorage, "HTML5 storage"));
-  $("#live-web-workers").html(supports(!!window.Worker, "web workers"));
-  $("#live-offline").html(supports(!!window.applicationCache, "offline web applications"));
+  var localstorage = false;
+  try {
+    localstorage = Modernizr.localstorage;
+  } catch(e) {}
+  $("#live-storage").html(supports(localstorage, "HTML5 storage"));
+  $("#live-web-workers").html(supports(Modernizr.webworkers, "web workers"));
+  $("#live-offline").html(supports(Modernizr.applicationcache, "offline web applications"));
   if (geo_position_js.init()) {
     $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
   } else {
