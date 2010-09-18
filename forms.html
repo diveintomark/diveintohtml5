@@ -24,16 +24,6 @@ body{counter-reset:h1 9}
 
 <h2 id=placeholder>Placeholder Text</h2>
 
-<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon as you click on (or tab to) the input field, the placeholder text disappears.
-
-<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
-
-<p class=c><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
-
-<p>When you click on (or tab to) the location bar, the placeholder text disappears:
-
-<p class=c><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
-
 <table class=bc>
 <caption>Placeholder support</caption>
 <thead>
@@ -43,6 +33,16 @@ body{counter-reset:h1 9}
 <tr><td>&middot;<td>3.7+<td>4.0+<td>4.0+<td>&middot;<td>4.0+<td>&middot;
 </tbody>
 </table>
+
+<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon as you click on (or tab to) the input field, the placeholder text disappears.
+
+<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
+
+<p class=c><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
+
+<p>When you click on (or tab to) the location bar, the placeholder text disappears:
+
+<p class=c><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
 
 <p>Here&#8217;s how you can include placeholder text in your own web forms:
 
@@ -67,14 +67,6 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id=autofocus>Autofocus Fields</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262>
-
-<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&#8217;s autofocus script may &#8220;helpfully&#8221; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
-
-<p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&#8217;t want a web page to &#8220;steal&#8221; the focus.
-
-<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&#8217;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
-
 <table class=bc>
 <caption>Autofocus support</caption>
 <thead>
@@ -84,6 +76,14 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <tr><td>&middot;<td>&middot;<td>4.0+<td>3.0+<td>10.0+<td>&middot;<td>&middot;
 </tbody>
 </table>
+
+<p class=ss><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262>
+
+<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&#8217;s autofocus script may &#8220;helpfully&#8221; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
+
+<p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&#8217;t want a web page to &#8220;steal&#8221; the focus.
+
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&#8217;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
 
 <p>Here&#8217;s how you can set a form field to autofocus:
 
@@ -426,7 +426,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p class=a>&#x2767;
 
-<h2 id=validation>And One More Thing...</h2>
+<h2 id=validation>Form Validation</h2>
 
 <table class=bc>
 <caption>Form validation support</caption>
@@ -452,11 +452,50 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <p class="legend top" style="width:500px;text-align:center">Opera validates type=&#8220;email&#8221; <span class=arrow>&#x21b7;</span><br></p>
 <p class=c><img src=i/input-type-email-validation.png alt="error message on invalid type=email field" width=243 height=76>
 
-<p>That screenshot is from Opera 10, although the functionality has been present since Opera 9. The only markup involved is <a href=#type-email>setting the <code>type</code> attribute to <code>"email"</code></a>. When an Opera user tries to submit a form with an <code>&lt;input type="email"></code> field, Opera automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled. Opera also offers validation of web addresses entered into <code>&lt;input type="url"></code> fields, and numbers in <code>&lt;input type="number"></code> fields. The validation of numbers even takes into account the <code>min</code> and <code>max</code> attributes, so Opera will not let you submit the form if you enter a number that is too large.
+<p>That screenshot is from Opera 10, although the functionality has been present since Opera 9. The only markup involved is <a href=#type-email>setting the <code>type</code> attribute to <code>"email"</code></a>. When an Opera user tries to submit a form with an <code>&lt;input type="email"></code> field, Opera automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled.
+
+<p><abbr>HTML5</abbr> also offers validation of web addresses entered into <code>&lt;input type="url"></code> fields, and numbers in <code>&lt;input type="number"></code> fields. The validation of numbers even takes into account the <code>min</code> and <code>max</code> attributes, so browsers will not let you submit the form if you enter a number that is too large.
 
 <p class=c><img src=i/input-type-number-validation.png alt="error message on invalid type=number field" width=135 height=76>
 
-<p>Other browsers are slowly implementing support for <abbr>HTML5</abbr> form validation. <a href=https://developer.mozilla.org/en/HTML/HTML5/Forms_in_HTML5#Constraint_Validation>Firefox 4 will have complete support</a>. Unfortunately, Safari and Chrome have shipped an incomplete implementation that may trip you up: they validate form controls, but they don&#8217;t offer any visible feedback when a form field fails validation. In other words, if you enter an invalid (or improperly formatted) date in a <code>type="date"</code> field, Safari and Chrome will not submit the form, but they won&#8217;t tell you why they didn&#8217;t submit the form. (They will set focus to the field that contains the invalid value, but they don&#8217;t display an error message like Opera or Firefox 4.)
+<p>There is no markup required to activate <abbr>HTML5</abbr> form validation; it is on by default. To turn it off, use the <code>novalidate</code> attribute.
+
+<p class="legend top">Don&#8217;t validate me <span class=arrow>&#x21b7;</span><br></p>
+<pre><code>&lt;form <mark>novalidate</mark>>
+  &lt;input type="email" id="addr">
+  &lt;input type="submit" value="Subscribe">
+&lt;/form></code></pre>
+
+<p>Browsers are slowly implementing support for <abbr>HTML5</abbr> form validation. <a href=https://developer.mozilla.org/en/HTML/HTML5/Forms_in_HTML5#Constraint_Validation>Firefox 4 will have complete support</a>. Unfortunately, Safari and Chrome have shipped an incomplete implementation that may trip you up: they validate form controls, but they don&#8217;t offer any visible feedback when a form field fails validation. In other words, if you enter an invalid (or improperly formatted) date in a <code>type="date"</code> field, Safari and Chrome will not submit the form, but they won&#8217;t tell you why they didn&#8217;t submit the form. (They will set focus to the field that contains the invalid value, but they don&#8217;t display an error message like Opera or Firefox 4.)
+
+<p class=a>&#x2767;
+
+<h2 id=required>Required Fields</h2>
+
+<table class=bc>
+<caption>&lt;input required> support</caption>
+<thead>
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+</thead>
+<tbody>
+<tr><td>&middot;<td>4.0+<td>&middot;<td>&middot;<td>9.0+<td>&middot;<td>&middot;
+</tbody>
+</table>
+
+<p><a href=#validation><abbr>HTML5</abbr> form validation</a> isn&#8217;t limited to the type of each field. You can also specify that certain fields are required. Required fields must have a value before you can submit the form.
+
+<p>The markup for required fields is as simple as can be:
+
+<pre><code>&lt;form>
+  &lt;input id="q" <mark>required</mark>>
+  &lt;input type="submit" value="Search">
+&lt;/form></code></pre>
+
+<p class="clear"><a href=examples/input-required.html>Test <code>&lt;input required></code> in your own browser</a>. Browsers may alter the default appearance of required fields. For example, this is what a required field looks like in Mozilla Firefox 4.0:
+
+<p class=c><img src=i/input-required.png alt="default appearance of required fields in Firefox" width=250 height=122>
+
+<p>Furthermore, if you attempt to submit the form without filling in the required value, Firefox will pop up an infobar telling you that the field is mandatory and can not be left blank.
 
 <p class=a>&#x2767;
 
@@ -468,6 +507,9 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute><code>&lt;input></code> types</a>
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>the <code>&lt;input placeholder></code> attribute</a>
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control>the <code>&lt;input autofocus></code> attribute</a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#attr-fs-novalidate>the <code>&lt;form novalidate></code> attribute</a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-required-attribute>The <code>&lt;input required></code> attribute</a>
+<li><a href=https://developer.mozilla.org/en/HTML/HTML5/Forms_in_HTML5><abbr>HTML5</abbr> Forms in Mozilla Firefox 4.0+</a>
 </ul>
 
 <p>JavaScript libraries:
