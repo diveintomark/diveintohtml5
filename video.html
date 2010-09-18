@@ -610,6 +610,28 @@ AddType video/webm .webm</code></pre>
 
 <p class=a>&#x2767;
 
+<h2 id=ios>Issues on iPhones and iPads</h2>
+
+<p>iOS is Apple&#8217;s operating system that powers iPhones, iPod Touches, and iPads. iOS 3.2 has a number of issues with <abbr>HTML5</abbr> video.
+
+<ol>
+<li>iOS will not recognize the video if you include a <code>poster</code> attribute. The <code>poster</code> attribute of the <code>&lt;video></code> element allows you to display a custom image while the video is loading, or until the user presses &#8220;play.&#8221; This bug is fixed in iOS 4.0, but it will be some time before users upgrade.
+<li>If you have multiple <code>&lt;source></code> elements, iOS will not recognize anything but the first one. Since iOS devices only support H.264+AAC+MP4, this effectively means you must always list your MP4 first. This bug is also fixed in iOS 4.0.
+</ol>
+
+<p class=a>&#x2767;
+
+<h2 id=android>Issues on Android devices</h2>
+
+<p>Android is Google&#8217;s operating system that powers a number of different phones and handheld devices. Android (up to and including 2.2, the latest version at time of writing) has a number of issues with <abbr>HTML5</abbr> video.
+
+<ol>
+<li>The <code>type</code> attribute on <code>&lt;source></code> elements confuses Android greatly. The only way to get it to recognize a video source is, ironically, to omit the <code>type</code> attribute altogether and ensure that your H.264+AAC+MP4 video file&#8217;s name ends with an <code>.mp4</code> extension. This does not appear to affect any other browser&#8217;s ability to detect support for the video; in the absence of a <code>type</code> attribute, other browsers appear to guess based on file extension as well. You can still include the <code>type</code> attribute on your other video sources, since H.264 is the only video format that Android devices support at the moment.
+<li>The <code>controls</code> attribute is not supported. There are no ill effects to including it, but Android will not display any user interface controls for a video. You will need to provide your own user interface controls. At a minimum, you should provide a script that starts playing the video when the user clicks the video.
+</ol>
+
+<p class=a>&#x2767;
+
 <h2 id=example>A Complete, Live Example</h2>
 
 <p>Here is a live example of a video that uses these techniques. I extended the &#8220;Video For Everybody&#8221; code to include a WebM-formatted video. I encoded the same source video into three formats, with these commands:
@@ -624,10 +646,10 @@ AddType video/webm .webm</code></pre>
 <samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx -b 204800 -s 320x240 -aspect 4:3 -an -f webm -y NUL</kbd>
 <samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 2 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv -vcodec libvpx -b 204800 -s 320x240 -aspect 4:3 -acodec libvorbis -ac 2 -y pr6.webm</kbd></pre>
 
-<p>The final markup uses a <code>&lt;video></code> element for <abbr>HTML5</abbr> video, with a nested <code>&lt;object></code> element for Flash fallback:
+<p>The final markup uses a <code>&lt;video></code> element for <abbr>HTML5</abbr> video, a nested <code>&lt;object></code> element for Flash fallback, and a small bit of script for the benefit of Android devices:
 
 <pre><code>&lt;video id="movie" width="320" height="240" preload controls>
-  &lt;source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+  &lt;source src="pr6.mp4" />
   &lt;source src="pr6.webm" type='video/webm; codecs="vp8, vorbis"' />
   &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"' />
   &lt;object width="320" height="240" type="application/x-shockwave-flash"
@@ -637,9 +659,16 @@ AddType video/webm .webm</code></pre>
     &lt;param name="flashvars" value='config={"clip": {"url": "http://wearehugh.com/dih5/good/bbb_480p.mp4", "autoPlay":false, "autoBuffering":true}}' /> 
     &lt;p>Download video as &lt;a href="pr6.mp4">MP4&lt;/a>, &lt;a href="pr6.webm">WebM&lt;/a>, or &lt;a href="pr6.ogv">Ogg&lt;/a>.&lt;/p> 
   &lt;/object>
-&lt;/video></code></pre>
+&lt;/video>
+&lt;script>
+  var v = document.getElementById("movie");
+  v.onclick = function() {
+    v.play();
+  });
+&lt;/script>
+</code></pre>
 
-<p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to watch this video in almost any browser and device:
+<p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to click this video and watch it in almost any browser and device:
 
 <video id="video" width="320" height="240" preload controls> 
   <source src="i/pr6.mp4" />
