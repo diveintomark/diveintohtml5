@@ -306,13 +306,33 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/seamonkey/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:
 
 <ol>
-<li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font.</li>
+<li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font. But what default styles should be applied to unknown elements?</li>
 <li><b>What should the element&#8217;s DOM look like?</b>  Mozilla&#8217;s <code>nsElementTable.cpp</code> includes information about what kinds of other elements each element can contain. If you include markup like <code>&lt;p>&lt;p></code>, the second paragraph element implicitly closes the first one, so the elements end up as siblings, not parent-and-child. But if you write <code>&lt;p>&lt;span></code>, the <code>span</code> does not close the paragraph, because Firefox knows that <code>&lt;p></code> is a block element that can contain the inline element <code>&lt;span></code>. So, the <code>&lt;span></code> ends up as a child of the <code>&lt;p></code> in the DOM.</li>
 </ol>
 
-<p>Different browsers answer these questions in different ways. (Shocking, I know.) Of the major browsers, Microsoft Internet Explorer&#8217;s answer to both questions is the most problematic.
+<p>Different browsers answer these questions in different ways. (Shocking, I know.) Of the major browsers, Microsoft Internet Explorer&#8217;s answer to both questions is the most problematic, but every browser needs a little bit of help here.
 
-<p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements. Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS. Unfortunately, Internet Explorer (prior to version 9) does not allow styling on unknown elements. For example, if you had this markup:
+<p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements. Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS. And that works, mostly, but there&#8217;s one little gotcha you need to be aware of.
+
+<div class=pf>
+<h4>Professor Markup Says</h4>
+<div class=inner>
+<blockquote>
+<p>All browsers render unknown elements inline, <i>i.e.</i> as if they had a <code>display:inline</code> <abbr>CSS</abbr> rule.
+</blockquote>
+</div>
+</div>
+
+<p>There are several new elements defined in <abbr>HTML5</abbr> which are block-level elements. That is, they can contain other block-level elements, and <abbr>HTML5</abbr>-compliant browsers will style them as <code>display:block</code> by default. If you want to use these elements in older browsers, you will need to define the display style manually:
+
+<pre><code>article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}</code></pre>
+
+<p>(This code is lifted from Rich Clark&#8217;s <a href=http://html5doctor.com/html-5-reset-stylesheet/><abbr>HTML5</abbr> Reset Stylesheet</a>, which does many other things that are beyond the scope of this chapter.)
+
+<p>But wait, it gets worse! Prior to version 9, Internet Explorer did not apply <em>any</em> styling on unknown elements. For example, if you had this markup:
 
 <pre><code>&lt;style type="text/css">
   article { display: block; border: 1px solid red }
@@ -323,11 +343,11 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 &lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
 &lt;/article></code></pre>
 
-<p>Internet Explorer (up to and including IE 8) will not put a red border around the article. As I write this, <a href=http://blogs.msdn.com/ie/archive/2009/11/18/an-early-look-at-ie9-for-developers.aspx>Internet Explorer 9 is still in beta</a>, but Microsoft has stated (and developers have verified) that Internet Explorer 9 will not have this problem.
+<p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. As I write this, <a href=http://blogs.msdn.com/ie/archive/2009/11/18/an-early-look-at-ie9-for-developers.aspx>Internet Explorer 9 is still in beta</a>, but Microsoft has stated (and developers have verified) that Internet Explorer 9 will not have this problem.
 
 <p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is Internet Explorer. If IE doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
-<p>Here is some <abbr>ASCII</abbr> art to showcase the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
+<p>Here is some righteous <abbr>ASCII</abbr> art to illustrate the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
 
 <pre>article
 |
