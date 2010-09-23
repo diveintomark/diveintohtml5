@@ -663,12 +663,16 @@ AddType video/webm .webm</code></pre>
 &lt;script>
   var v = document.getElementById("movie");
   v.onclick = function() {
-    v.play();
+    if (v.paused) {
+      v.play();
+    } else {
+      v.pause();
+    }
   });
 &lt;/script>
 </code></pre>
 
-<p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to click this video and watch it in almost any browser and device:
+<p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to watch this video in almost any browser and device:
 
 <video id="video" width="320" height="240" preload controls> 
   <source src="i/pr6.mp4" />
@@ -720,7 +724,13 @@ AddType video/webm .webm</code></pre>
 <script src=j/jquery.js></script>
 <script src=j/dih5.js></script>
 <script>
-  $("#video").click(function() {
-    $(this).get(0).play();
-  });
+  if (navigator.userAgent.toLowerCase().search("android") > -1) {
+    $("#video").click(function() {
+      if (v.paused) {
+        v.play();
+      } else {
+        v.pause();
+      }
+    });
+  }
 </script>
