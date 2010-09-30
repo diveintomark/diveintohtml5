@@ -222,6 +222,9 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 e.innerHTML = '&lt;svg>&lt;/svg>';
 return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);</code></pre>
 
+<dt id=undo><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo</a>
+<dd><code>return typeof UndoManager !== 'undefined';</code>
+
 <dt id=indexeddb><a href=http://dev.w3.org/2006/webapi/WebSimpleDB/>WebSimpleDB</a>
 <dd><code>return !!window.indexedDB;</code>
 
@@ -237,9 +240,14 @@ return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);
 <dt id=widgets><a href=http://www.w3.org/TR/widgets/>Widgets</a>: am I in one?
 <dd><code>return typeof widget !== 'undefined';</code>
 
-<dt id=undo><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo</a>
-<dd><code>return typeof UndoManager !== 'undefined';</code>
+<dt id=xmlhttprequest-withcredentials><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-withcredentials-attribute>XMLHttpRequest: cross-domain requests</a>
+<dd><code>return "withCredentials" in (new XMLHttpRequest());</code>
 
+<dt id=xmlhttprequest-formdata><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-formdata-interface>XMLHttpRequest: send as form data</a>
+<dd><code>return !!window.FormData;</code>
+
+<dt id=xmlhttprequest-upload><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-upload-attribute>XMLHttpRequest: upload progress events</a>
+<dd><code>return "upload" in (new XMLHttpRequest());</code>
 </dl>
 
 <p class=a>&#x2767;
