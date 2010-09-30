@@ -276,7 +276,7 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 
 <pre><code>function supports_local_storage() {
   try {
-    return ('localStorage' in window) && window['localStorage'] !== null;
+    return 'localStorage' in window && window['localStorage'] !== null;
   } catch(e){
     return false;
   }

@@ -193,7 +193,7 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 
 <dt id=storage><a href=http://dev.w3.org/html5/webstorage/>Local storage</a>
 <dd><pre><code>try {
-  return ('localStorage' in window) && window['localStorage'] !== null;
+  return 'localStorage' in window && window['localStorage'] !== null;
 } catch(e) {
   return false;
 }</code></pre>
@@ -209,7 +209,7 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 
 <dt id=session-storage><a href=http://dev.w3.org/html5/webstorage/>Session storage</a>
 <dd><pre><code>try {
-  return ('sessionStorage' in window) && window['sessionStorage'] !== null;
+  return 'sessionStorage' in window && window['sessionStorage'] !== null;
 } catch(e) {
   return false;
 }</code></pre>
@@ -241,13 +241,13 @@ return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);
 <dd><code>return typeof widget !== 'undefined';</code>
 
 <dt id=xmlhttprequest-withcredentials><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-withcredentials-attribute>XMLHttpRequest: cross-domain requests</a>
-<dd><code>return "withCredentials" in (new XMLHttpRequest());</code>
+<dd><code>return "withCredentials" in new XMLHttpRequest;</code>
 
 <dt id=xmlhttprequest-formdata><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-formdata-interface>XMLHttpRequest: send as form data</a>
 <dd><code>return !!window.FormData;</code>
 
 <dt id=xmlhttprequest-upload><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-upload-attribute>XMLHttpRequest: upload progress events</a>
-<dd><code>return "upload" in (new XMLHttpRequest());</code>
+<dd><code>return "upload" in new XMLHttpRequest;</code>
 </dl>
 
 <p class=a>&#x2767;

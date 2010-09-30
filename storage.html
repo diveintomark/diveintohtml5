@@ -78,7 +78,7 @@ body{counter-reset:h1 7}
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> Storage
 <pre><code>function supports_html5_storage() {
   try {
-    return ('localStorage' in window) && window['localStorage'] !== null;
+    return 'localStorage' in window && window['localStorage'] !== null;
   } catch (e) {
     return false;
   }
