@@ -111,8 +111,6 @@ html, body {
 body {
   font: large/1.556 "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   word-spacing: 0.1em;
-}
-#zz {
   max-width: 960px;
   margin: 0 auto;
   padding-bottom: 2em;
