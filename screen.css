@@ -97,6 +97,11 @@ Acknowledgements & Inspirations
   font-weight: normal;
   font-style: italic;
 }
+html {
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+}
+
 html, body {
   background: #fff;
   color: #000;
@@ -148,6 +153,7 @@ pre, kbd, samp, code, var {
   float: left;
   margin-right: 5px;
   margin-bottom: 5px;
+  -ms-interpolation-mode: bicubic;
 }
 p, ul, ol {
   font-size: large;
@@ -263,7 +269,10 @@ a:link:hover, a:visited:hover {
 
 pre {
   padding-left: 3.5em;
-  white-space: pre-wrap;
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 */
+  word-wrap: break-word; /* IE */
 }
 pre.ib {
   padding: 0;
