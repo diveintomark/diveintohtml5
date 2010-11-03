@@ -75,6 +75,9 @@ return c.getContext && typeof c.getContext('2d').fillText == 'function';</code><
 <dt id=placeholder><a href=forms.html#placeholder><code>&lt;input placeholder></code></a>
 <dd><code>return 'placeholder' in document.createElement('input');</code>
 
+<dt id=placeholder-textarea><a href=forms.html#placeholder><code>&lt;textarea placeholder></code></a>
+<dd><code>return 'placeholder' in document.createElement('textarea');</code>
+
 <dt id=input-color><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'color');
