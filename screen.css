@@ -269,7 +269,6 @@ pre {
   padding-left: 3.5em;
   white-space: pre; /* CSS2 */
   white-space: pre-wrap; /* CSS 2.1 */
-  white-space: pre-line; /* CSS 3 */
   word-wrap: break-word; /* IE */
 }
 pre.ib {
