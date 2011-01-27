@@ -30,7 +30,7 @@ body{counter-reset:h1 9}
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>&middot;<td>3.7+<td>4.0+<td>4.0+<td>&middot;<td>4.0+<td>&middot;
+<tr><td>&middot;<td>3.7+<td>4.0+<td>4.0+<td>11.0+<td>4.0+<td>&middot;
 </tbody>
 </table>
 
@@ -422,7 +422,11 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id=type-color>Color Pickers</h2>
 
-<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&#8217;s hexadecimal representation. No browser supports it yet, which is a shame, because I&#8217;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>. Maybe someday.
+<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&#8217;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&#8217;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href=http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color>Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
+
+<p class=c><img src=i/input-type-color.png alt="Opera rendering of input type=range field on multiple platforms" width=582 height=444><br><a href=examples/input-type-color.html>Test <code>type="color"</code> for yourself</a>.
+
+<p><i>Thanks to Patrick Lauke and Chris Mills for relicensing this image for inclusion in this book.</i> You should <a href=http://dev.opera.com/articles/view/new-form-features-in-html5/>read their article about the new form features in Opera 11</a>.
 
 <p class=a>&#x2767;
 
@@ -522,6 +526,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <ul>
 <li><a href=http://www.alistapart.com/articles/forward-thinking-form-validation/>Forward Thinking Form Validation</a>
+<li><a href=http://dev.opera.com/articles/view/new-form-features-in-html5/>New form features in Opera 11</a>
 </ul>
 
 <p class=a>&#x2767;
