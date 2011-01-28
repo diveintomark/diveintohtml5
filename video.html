@@ -163,11 +163,12 @@ body{counter-reset:h1 5}
 </thead>
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
-<tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>3.0+<td>5.0+<td>&middot;<td>3.0+<td>2.0+
+<tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>3.0+<td>5.0&ndash;?&Dagger;<td>&middot;<td>3.0+<td>2.0+
 <tr><th>WebM<td>&middot;<td>&middot;<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
 </tbody>
 <tfoot>
 <tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play. QuickTime comes pre-installed with H.264/AAC/MP4 support. There are installable third-party plugins that add support for Theora and WebM, but each user needs to install these plugins before Safari will recognize those video formats.
+<tr><td colspan=8 style="text-align:left">&Dagger; Google Chrome will <a href=http://blog.chromium.org/2011/01/html-video-codec-support-in-chrome.html>drop support for H.264</a> soon. <a href=http://blog.chromium.org/2011/01/more-about-chrome-html-video-codec.html>Read about why</a>.
 </tfoot>
 </table>
 
@@ -180,13 +181,13 @@ body{counter-reset:h1 5}
 </thead>
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
-<tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>5.0+<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>&nbsp;9.0+<sup>*</sup><td>4.0+<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&Dagger;<sup>
+<tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>&middot;<td>&middot;<td>3.0+<td>2.0+
+<tr><th>WebM<td>&nbsp;9.0+<sup>*</sup><td>4.0+<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>2.3&Dagger;<sup>
 </tbody>
 <tfoot>
 <tr><td colspan=8 style="text-align:left">* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221; which implies that Microsoft will not be shipping the codec themselves.
 <tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play, but QuickTime only comes with H.264/AAC/MP4 support pre-installed.
-<tr><td colspan=8 style="text-align:left">&Dagger; Google has committed to supporting WebM &#8220;in a future release&#8221; of Android, but there&#8217;s no firm timeline yet.
+<tr><td colspan=8 style="text-align:left">&Dagger; Although Android 2.3 supports WebM, there are no hardware decoders yet, so battery life is a concern.
 </tfoot>
 </table>
 
@@ -238,9 +239,88 @@ body{counter-reset:h1 5}
 <p>The fees are potentially somewhat steeper for internet broadcasts, perhaps assuming that internet delivery will grow much faster than OTA or &#8220;free&#8221; television via cable or satellite. Adding the &#8220;free television&#8221; broadcast-market fee together with an additional fee, MPEG LA grants a reprieve of sorts during the first license term, which ends on Dec. 31, 2010, and notes that &#8220;after the first term the royalty shall be no more than the economic equivalent of royalties payable during the same time for free television.&#8221;
 </blockquote>
 
-<p>That last part &mdash; about the fee structure for internet broadcasts &mdash; has already been amended. The <abbr>MPEG-LA</abbr> recently <a href="http://www.mpegla.com/Lists/MPEG%20LA%20News%20List/Attachments/226/n-10-02-02.pdf" title="warning: PDF">announced</a> that internet streaming would not be charged. That does <em>not</em> mean that H.264 is royalty-free for all users. In particular, encoders (like the one that processes video uploaded to YouTube) and decoders (like the one included in the Google Chrome browser) are still subject to licensing fees. See <a href=http://shaver.off.net/diary/2010/08/27/free-as-in-smokescreen/>Free as in smokescreen</a> for more information.
+<p>That last part &mdash; about the fee structure for internet broadcasts &mdash; has already been amended. The <abbr>MPEG-LA</abbr> recently <a href="http://www.mpegla.com/Lists/MPEG%20LA%20News%20List/Attachments/226/n-10-02-02.pdf" title="warning: PDF">announced</a> that internet streaming would not be charged. That does <em>not</em> mean that H.264 is royalty-free for all users. In particular, encoders (like the one that processes video uploaded to YouTube) and decoders (like the one included in Microsoft Internet Explorer 9) are still subject to licensing fees. See <a href=http://shaver.off.net/diary/2010/08/27/free-as-in-smokescreen/>Free as in smokescreen</a> for more information.
 
 <p class=a>&#x2767;
+
+<h2 id=miro>Encoding Video With<br>Miro Video Converter</h2>
+
+<p>There are many tools for encoding video, and there are many video encoding options that affect video quality. If you do not wish to take the time to understand anything about video encoding, this section is for you.
+
+<p><dfn>Miro Video Converter</dfn> is an open source, GPL-licensed program for encoding video in multiple formats. <a href=http://www.mirovideoconverter.com/>Download it for Mac OS X or Windows</a>. It supports all the output formats mentioned in this chapter. It offers no options beyond choosing a video file and choosing an output format. It can take virtually any video file as input, including DV video produced by consumer-level camcorders. It produces reasonable quality output from most videos. Due to its lack of options, if you are unhappy with the output, you have no recourse but to try another program.
+
+<p>To start, just launch the Miro Video Converter application.
+
+<div class=c>
+<p class="legend top">Miro Video Converter main screen <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-01.png alt="Miro Video Converter main screen" width=365 height=445>
+</div>
+
+<p>Click &#8220;Choose file&#8221; and select the source video you want to encode.
+
+<div class=c>
+<p class="legend top">&#8220;Choose file&#8221; <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-02.png alt="Miro Video Converter after choosing a file" width=365 height=445>
+</div>
+
+<p>The &#8220;Pick a Device or Video Format&#8221; dropdown menu lists a variety of devices and formats. For the purposes of this chapter, we are only interested in three of them.
+
+<ol>
+<li><em>WebM (vp8)</em> is WebM video (<a href=#vp8>VP8 video</a> and <a href=#vorbis>Vorbis audio</a> in a WebM container).
+<li><em>Theora</em> is <a href=#theora>Theora video</a> and <a href=#vorbis>Vorbis audio</a> in an Ogg container. 
+<li><em>iPhone</em> is <a href=#h264>H.264 Baseline Profile video</a> and <a href=#aac>AAC low-complexity audio</a> in an MP4 container.
+</ol>
+
+<p>Select &#8220;WebM&#8221; first.
+
+<div class=c>
+<p class="legend top">Choosing WebM output <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-03.png alt="Miro Video Converter: choosing WebM output format" width=365 height=445>
+</div>
+
+<p>Click the &#8220;Convert&#8221; button and Miro Video Converter will immediately start encoding your video. The output file will be named <code>SOURCEFILE.webm</code> and will be saved in the same directory as the source video.
+
+<div class=c>
+<p class="legend top">You&#8217;ll be staring at this screen<br>for a long time <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-04.png alt="Miro Video Converter: WebM encoding progress" width=365 height=445>
+</div>
+
+<p>Once the encoding is complete, you&#8217;ll be dumped back to the main screen. This time, select &#8220;Theora&#8221; from the Devices and Formats list.
+
+<div class=c>
+<p class="legend top">Time for Theora <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-08.png alt="Miro Video Encoder: choosing Theora output format" width=365 height=445>
+</div>
+
+<p>That&#8217;s it; press the &#8220;Convert&#8221; button again to encode your Theora video. The video will be named <code>SOURCEFILE.theora.ogv</code> and will be saved in the same directory as the source video.
+
+<div class=c>
+<p class="legend top">Time for a cup of coffee <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-09.png alt="Miro Video Encoder: Theora encoding progress" width=365 height=445>
+</div>
+
+<p>Finally, encode your iPhone-compatible H.264 video by selecting &#8220;iPhone&#8221; from the Devices and Formats list.
+
+<div class=c>
+<p class="legend top">iPhone, not iPhone 4 <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-05.png alt="Miro Video Encoder: choosing iPhone-compatible output format" width=365 height=445>
+</div>
+
+<p>For iPhone-compatible video, Miro Video Converter will give you an option to send the encoded file to your iTunes library. I have no opinion on whether you would want to do that, but it&#8217;s not necessary for publishing video on the web.
+
+<div class=c>
+<p class="legend top">Don&#8217;t send to iTunes <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-06.png alt="Miro Video Encoder: send to iTunes checkbox" width=365 height=445>
+</div>
+
+<p>Press the magical &#8220;Convert&#8221; button and wait. The encoded file will be named <code>SOURCENAME.iphone.mp4</code> and will be saved in the same directory as the source video.
+
+<div class=c>
+<p class="legend top">Do some yoga or something <span class=arrow>&#x21b7;</span><br></p>
+<p><img src=i/miro-07.png alt="Miro Video Converter: H.264 encoding progress" width=365 height=445>
+</div>
+
+<p>You should now have three video files alongside your original source video. If you&#8217;re satisfied with the video quality, skip ahead to <a href=#markup>At Last, The Markup</a> to see how to assemble them into a single <code>&lt;video></code> element that works across browsers. If you&#8217;d like to learn more about other tools or video encoding options, read on.
 
 <h2 id=firefogg>Encoding Ogg Video with Firefogg</h2>
 
