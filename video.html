@@ -642,7 +642,7 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 <div class=pf>
 <h4>Professor Markup Says</h4>
 <div class=inner>
-<blockquote><p>At time of writing (May 20, 2010), the iPad has a bug that prevents it from noticing anything but the first video source listed. Sadly, this means you will need to list your MP4 file first, followed by the free video formats. <em>Sigh.</em>
+<blockquote><p>iPads running iOS 3.x had a bug that prevented them from noticing anything but the first video source listed. iOS 4 (a free upgrade for all iPads) fixes this bug. If you want to deliver video to iPad owners who haven&#8217;t yet upgraded to iOS 4, you will need to list your MP4 file first, followed by the free video formats. <em>Sigh.</em>
 </blockquote>
 </div>
 </div>
@@ -682,7 +682,7 @@ AddType video/webm .webm</code></pre>
 
 <h2 id=ie>What About IE?</h2>
 
-<p>As I write this, Microsoft has released a &#8220;developer preview&#8221; of Internet Explorer 9. It does not yet support the <abbr>HTML5</abbr> <code>&lt;video></code> element, but <a href="http://blogs.msdn.com/ie/archive/2010/03/16/html5-hardware-accelerated-first-ie9-platform-preview-available-for-developers.aspx">Microsoft has publicly promised</a> that the final version of <abbr>IE</abbr> 9 will support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone.
+<p>As I write this (January 2011), Microsoft has released a &#8220;developer preview&#8221; of Internet Explorer 9. It does not yet support the <abbr>HTML5</abbr> <code>&lt;video></code> element, but <a href="http://blogs.msdn.com/ie/archive/2010/03/16/html5-hardware-accelerated-first-ie9-platform-preview-available-for-developers.aspx">Microsoft has publicly promised</a> that the final version of <abbr>IE</abbr> 9 will support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone.
 
 <p>But what about older versions of Internet Explorer? Like, you know, all shipping versions up to and including <abbr>IE</abbr> 8? Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you&#8217;ve <a href=#handbrake-gui>encoded your H.264 video</a> for Safari, you can play it in a Flash-based video player if you detect that one of your visitors doesn&#8217;t have an <abbr>HTML5</abbr>-capable browser.
 
@@ -731,9 +731,9 @@ AddType video/webm .webm</code></pre>
 <p>The final markup uses a <code>&lt;video></code> element for <abbr>HTML5</abbr> video, a nested <code>&lt;object></code> element for Flash fallback, and a small bit of script for the benefit of Android devices:
 
 <pre><code>&lt;video id="movie" width="320" height="240" preload controls>
-  &lt;source src="pr6.mp4" />
   &lt;source src="pr6.webm" type='video/webm; codecs="vp8, vorbis"' />
   &lt;source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"' />
+  &lt;source src="pr6.mp4" />
   &lt;object width="320" height="240" type="application/x-shockwave-flash"
     data="flowplayer-3.2.1.swf"> 
     &lt;param name="movie" value="flowplayer-3.2.1.swf" /> 
@@ -757,9 +757,9 @@ AddType video/webm .webm</code></pre>
 <p>With the combination of <abbr>HTML5</abbr> and Flash, you should be able to watch this video in almost any browser and device:
 
 <video id="video" width="320" height="240" preload controls> 
-  <source src="i/pr6.mp4" />
   <source src="i/pr6.webm" type='video/webm; codecs="vp8, vorbis"' />
   <source src="i/pr6.ogv" type='video/ogg; codecs="theora, vorbis"' />
+  <source src="i/pr6.mp4" />
   <object width="320" height="240" type="application/x-shockwave-flash"
     data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf"> 
     <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" /> 
