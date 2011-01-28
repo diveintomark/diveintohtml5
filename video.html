@@ -705,11 +705,11 @@ AddType video/webm .webm</code></pre>
 
 <h2 id=android>Issues on Android devices</h2>
 
-<p>Android is Google&#8217;s operating system that powers a number of different phones and handheld devices. Android (up to and including 2.2, the latest version at time of writing) has a number of issues with <abbr>HTML5</abbr> video.
+<p>Android is Google&#8217;s operating system that powers a number of different phones and handheld devices. Versions of Android before 2.3 had a number of issues with <abbr>HTML5</abbr> video.
 
 <ol>
-<li>The <code>type</code> attribute on <code>&lt;source></code> elements confuses Android greatly. The only way to get it to recognize a video source is, ironically, to omit the <code>type</code> attribute altogether and ensure that your H.264+AAC+MP4 video file&#8217;s name ends with an <code>.mp4</code> extension. This does not appear to affect any other browser&#8217;s ability to detect support for the video; in the absence of a <code>type</code> attribute, other browsers appear to guess based on file extension as well. You can still include the <code>type</code> attribute on your other video sources, since H.264 is the only video format that Android devices support at the moment.
-<li>The <code>controls</code> attribute is not supported. There are no ill effects to including it, but Android will not display any user interface controls for a video. You will need to provide your own user interface controls. At a minimum, you should provide a script that starts playing the video when the user clicks the video.
+<li>The <code>type</code> attribute on <code>&lt;source></code> elements confused Android greatly. The only way to get it to recognize a video source is, ironically, to omit the <code>type</code> attribute altogether and ensure that your H.264+AAC+MP4 video file&#8217;s name ends with an <code>.mp4</code> extension. This does not appear to affect any other browser&#8217;s ability to detect support for the video; in the absence of a <code>type</code> attribute, other browsers appear to guess based on file extension as well. You can still include the <code>type</code> attribute on your other video sources, since H.264 is the only video format that Android 2.2 supports. (This bug is fixed in Android 2.3.)
+<li>The <code>controls</code> attribute was not supported. There are no ill effects to including it, but Android will not display any user interface controls for a video. You will need to provide your own user interface controls. At a minimum, you should provide a script that starts playing the video when the user clicks the video. This bug is also fixed in Android 2.3.
 </ol>
 
 <p class=a>&#x2767;
