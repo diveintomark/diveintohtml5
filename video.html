@@ -150,7 +150,7 @@ body{counter-reset:h1 5}
 <li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include WebM, Theora, Vorbis, or the Ogg container. However, QuickTime <em>does</em> ship with support for H.264 video (main profile) and AAC audio in an MP4 container.
 <li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
 <li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
-<li>Internet Explorer 9 will support some as-yet-unspecified profiles of H.264 video and AAC audio in an MP4 container.
+<li>Internet Explorer 9 supports all profiles of H.264 video and either AAC or MP3 audio in an MP4 container. It will also play WebM video if you install a third-party codec, which is not installed by default on any version of Windows. IE9 does not support other third-party codecs (unlike Safari, which will play anything QuickTime can play).
 <li>Internet Explorer 8 has no <abbr>HTML5</abbr> video support at all, but virtually all Internet Explorer users will have the Adobe Flash plugin. Later in this chapter, I&#8217;ll show you how you can use <abbr>HTML5</abbr> video but gracefully fall back to Flash.
 </ul>
 
@@ -682,7 +682,7 @@ AddType video/webm .webm</code></pre>
 
 <h2 id=ie>What About IE?</h2>
 
-<p>As I write this (January 2011), Microsoft has released a &#8220;developer preview&#8221; of Internet Explorer 9. It does not yet support the <abbr>HTML5</abbr> <code>&lt;video></code> element, but <a href="http://blogs.msdn.com/ie/archive/2010/03/16/html5-hardware-accelerated-first-ie9-platform-preview-available-for-developers.aspx">Microsoft has publicly promised</a> that the final version of <abbr>IE</abbr> 9 will support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone.
+<p>Internet Explorer 9 <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_video_audio>supports the <abbr>HTML5</abbr> <code>&lt;video></code> element</a>, but <a href="http://blogs.msdn.com/ie/archive/2010/03/16/html5-hardware-accelerated-first-ie9-platform-preview-available-for-developers.aspx">Microsoft has publicly promised</a> that the final version of <abbr>IE</abbr> 9 will support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone.
 
 <p>But what about older versions of Internet Explorer? Like, you know, all shipping versions up to and including <abbr>IE</abbr> 8? Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you&#8217;ve <a href=#handbrake-gui>encoded your H.264 video</a> for Safari, you can play it in a Flash-based video player if you detect that one of your visitors doesn&#8217;t have an <abbr>HTML5</abbr>-capable browser.
 
@@ -784,6 +784,7 @@ AddType video/webm .webm</code></pre>
 <li><a href=http://videojs.com/>Zencoder video.js</a>, custom controls for <abbr>HTML5</abbr> video
 <li><a href=http://dev.opera.com/articles/view/everything-you-need-to-know-about-html5-video-and-audio/>Everything you need to know about <abbr>HTML5</abbr> audio and video</a>
 <li><a href=http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/>Making <abbr>HTML5</abbr> video work on Android phones</a>. <i>Le sigh.</i>
+<li><a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_video_audio>Internet Explorer 9 Guide for Developers: HTML5 video and audio elements</a>
 </ul>
 
 <p class=a>&#x2767;
