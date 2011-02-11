@@ -345,7 +345,7 @@ footer,header,hgroup,menu,nav,section {
 
 <p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>Internet Explorer 9 fixes this problem</a>.
 
-<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
+<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
 <p>Here is some righteous <abbr>ASCII</abbr> art to illustrate the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
 
