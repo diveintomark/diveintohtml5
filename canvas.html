@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
 <title>Let&#8217;s Call It a Draw(ing Surface) - Dive Into HTML5</title>
-<!--[if IE]><script src=j/excanvas.min.js></script><![endif]-->
+<!--[if lt IE 9]><script src=j/excanvas.min.js></script><![endif]-->
 <link rel="shortcut icon" href=favicon.ico>
 <link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
 <link rel=stylesheet href=screen.css>
@@ -22,13 +22,13 @@ body{counter-reset:h1 4}
 <table class=bc>
 <caption>Basic &lt;canvas> support</caption>
 <thead>
-<tr><th title="Internet Explorer">IE<sup>*</sup><th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>7.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 </tbody>
 <tfoot>
-<tr><td colspan=7>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> natively.
 </tfoot>
 </table>
 
@@ -62,13 +62,13 @@ body{counter-reset:h1 4}
 
 <table class=bc>
 <thead>
-<tr><th title="Internet Explorer">IE<sup>*</sup><th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>7.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 </tbody>
 <tfoot>
-<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> shapes natively.
 </tfoot>
 </table>
 
@@ -175,13 +175,13 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <table class=bc>
 <thead>
-<tr><th title="Internet Explorer">IE<sup>*</sup><th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>7.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 </tbody>
 <tfoot>
-<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> paths natively.
 </tfoot>
 </table>
 
@@ -276,14 +276,14 @@ context.stroke();</code></pre>
 
 <table class=bc>
 <thead>
-<tr><th title="Internet Explorer">IE<sup>*</sup><th title="Mozilla Firefox">Firefox<sup>&dagger;</sup><th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>7.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><td>7.0+<sup>*</sup><td>3.0+<sup>&dagger;</sup><td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 </tbody>
 <tfoot>
-<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
-<tr><td colspan=8>&dagger; Mozilla Firefox 3.0 support requires a compatibility shim.
+<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> text natively.
+<tr><td colspan=7>&dagger; Mozilla Firefox 3.0 requires a compatibility shim.
 </tfoot>
 </table>
 
@@ -361,15 +361,15 @@ context.fillRect(497, 372, 3, 3);</code></pre>
 
 <table class=bc>
 <thead>
-<tr><th><th title="Internet Explorer">IE<sup>*</sup><th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
 <tr>
-<tr><th>linear gradients<td>7.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-<tr><th>radial gradients<td>&middot;<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><th>linear gradients<td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><th>radial gradients<td>9.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 </tbody>
 <tfoot>
-<tr><td colspan=9>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+<tr><td colspan=8 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> gradients natively.
 </tfoot>
 </table>
 
@@ -449,13 +449,13 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <table class=bc>
 <thead>
-<tr><th title="Internet Explorer">IE<sup>*</sup><th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 </thead>
 <tbody>
-<tr><td>7.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 </tbody>
 <tfoot>
-<tr><td colspan=8>* Internet Explorer support requires the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library.
+<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> images natively.
 </tfoot>
 </table>
 
@@ -549,7 +549,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 &lt;head>
   &lt;meta charset="utf-8">
   &lt;title>Dive Into HTML5&lt;/title>
-  <mark>&lt;!--[if IE]>
+  <mark>&lt;!--[if lt IE 9]>
     &lt;script src="excanvas.js">&lt;/script>
 &lt;![endif]--></mark>
 &lt;/head>
@@ -559,7 +559,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 &lt;/html>
 </code></pre>
 
-<p>The <code>&lt;!--[if IE]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is any version of Internet Explorer, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer will download the <code>excanvas.js</code> script and execute it, but other browsers will ignore the script altogether (not download it, not execute it, not anything). This makes your page load faster in browsers that implement the canvas <abbr>API</abbr> natively.
+<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer prior to (but not including) version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer 7 and 8 will download the <code>excanvas.js</code> script and execute it, but other browsers will ignore the script altogether (not download it, not execute it, not anything). This makes your page load faster in browsers that implement the canvas <abbr>API</abbr> natively.
 
 <p>Once you include the <code>excanvas.js</code> in the <code>&lt;head></code> of your page, you don&#8217;t need to do anything else to accomodate Internet Explorer. Just include <code>&lt;canvas></code> elements in your markup, or create them dynamically with JavaScript. Follow the instructions in this chapter to get the drawing context of a <code>&lt;canvas></code> element, and you can draw shapes, text, and patterns.
 
