@@ -508,13 +508,39 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>The <abbr>HTML5</abbr> microdata standard includes both <abbr>HTML</abbr> markup (primarily for search engines) and a set of <abbr>DOM</abbr> functions (primarily for browsers). There&#8217;s no harm in including microdata markup in your web pages. It&#8217;s nothing more than a few well-placed attributes, and search engines that don&#8217;t understand the microdata attributes will just ignore them. But if you need to access or manipulate microdata through the <abbr>DOM</abbr>, you&#8217;ll need to check whether the browser supports the microdata <abbr>DOM</abbr> <abbr>API</abbr>.
 
-<p>Checking for HTML5 microdata <abbr>API</abbr> support uses <a href=#techniques>detection technique #1</a>. If your browser supports the HTML5 microdata <abbr>API</abbr>, there will be a <code>getItems()</code> function on the global <code>document</code> object. If your browser doesn&#8217;t support microdata, the <code>getItems()</code> function will be undefined.
+<p>Checking for <abbr>HTML5</abbr> microdata <abbr>API</abbr> support uses <a href=#techniques>detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> microdata <abbr>API</abbr>, there will be a <code>getItems()</code> function on the global <code>document</code> object. If your browser doesn&#8217;t support microdata, the <code>getItems()</code> function will be undefined.
 
 <pre><code>function supports_microdata_api() {
   return !!document.getItems;
 }</code></pre>
 
 <p>Modernizr does not yet support checking for the microdata <abbr>API</abbr>, so you&#8217;ll need to use the function like the one listed above.
+
+<p class=a>&#x2767;
+
+<h2 id=history>History <abbr>API</abbr></h2>
+
+<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:218px"><img src=i/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png alt="demon reading book" width=218 height=231><br><span id=live-history-api></span>
+
+<p>The <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html><abbr>HTML5</abbr> history <abbr>API</abbr></a> is a standardized way to manipulate the browser history via script. Part of this <abbr>API</abbr> &mdash; navigating the history &mdash; has been available in previous versions of <abbr>HTML</abbr>. The new part in <abbr>HTML5</abbr> is a way to add entries to the browser history, and respond when those entries are removed from the stack by the user pressing the browser&#8217;s back button. This means that the <abbr>URL</abbr> can continue to do its job as a unique identifier for the current resource, even in script-heavy applications that don&#8217;t ever perform a full page refresh.
+
+<p>Checking for <abbr>HTML5</abbr> history <abbr>API</abbr> support uses <a href=#techniques>detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> history <abbr>API</abbr>, there will be a <code>pushState()</code> function on the global <code>history</code> object. If your browser doesn&#8217;t support the history <abbr>API</abbr>, the <code>pushState()</code> function will be undefined.
+
+<pre><code>function supports_history_api() {
+  return !!(window.history && history.pushState);
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.6 or later) to detect support for the <abbr>HTML5</abbr> history <abbr>API</abbr>.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for history <abbr>API</abbr> support
+<pre><code>if (<mark>Modernizr.history</mark>) {
+  // history management works!
+} else {
+  // no history support :(
+  // fall back to a scripted solution like <a href=https://github.com/balupton/History.js/>History.js</a>
+}</code></pre>
+
+<p class=a>&#x2767;
 
 <h2 id=further-reading>Further Reading</h2>
 
@@ -530,6 +556,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 <li><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a>
 <li><a href=http://www.w3.org/TR/geolocation-API/>Geolocation <abbr>API</abbr></a>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html>Session history and navigation</a>
 </ul>
 
 <p>JavaScript libraries:
@@ -537,6 +564,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 <ul>
 <li><a href=http://www.modernizr.com/>Modernizr</a>, an <abbr>HTML5</abbr> detection library
 <li><a href=http://code.google.com/p/geo-location-javascript/>geo.js</a>, a geolocation <abbr>API</abbr> wrapper
+<li><a href=https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills><abbr>HTML5</abbr> Cross-browser Polyfills</a>
 </ul>
 
 <p>Other articles and tutorials:
@@ -562,7 +590,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMX <a href=about.html>Mark Pilgrim</a>
+<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
 
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
 <script src=j/jquery.js></script>
@@ -656,5 +684,6 @@ $(document).ready(function() {
   }
   $("#live-input-autofocus").html(supports(!!("autofocus" in document.createElement("input")), "form autofocus"));
   $("#live-microdata-api").html(supports(!!document.getItems, "the HTML5 microdata API"));
+  $("#live-history-api").html(supports(!!Modernizr.history, "the HTML5 history API"));
 });
 </script>
