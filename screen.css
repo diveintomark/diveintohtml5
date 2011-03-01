@@ -321,7 +321,7 @@ h3 {
   text-align: center;
 }
 h1:before {
-  content: "№" counter(h1) ". ";
+  content: "№" counter(h1) ".";
 }
 
 /* video */
