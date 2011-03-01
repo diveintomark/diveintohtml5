@@ -43,8 +43,9 @@ li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
 <li><a href=offline.html>Let&#8217;s Take This Offline</a>
 <li><a href=forms.html>A Form of Madness</a>
 <li><a href=extensibility.html>&#8220;Distributed,&#8221; &#8220;Extensibility,&#8221; And Other Fancy Words</a>
-<li><a href=everything.html>The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything</a>
-<li><a href=peeks-pokes-and-pointers.html><abbr>HTML5</abbr> Peeks, Pokes and Pointers</a>
+<li><a href=history.html>Manipulating History for Fun <i>&amp;</i> Profit</a>
+<li class=app><a href=everything.html>The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything</a>
+<li class=app><a href=peeks-pokes-and-pointers.html><abbr>HTML5</abbr> Peeks, Pokes and Pointers</a>
 </ol>
 <!-- /toc -->
 
@@ -52,7 +53,7 @@ li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
 
 <p class=c>&#8220;If you&#8217;re good at something, never do it for free.&#8221; <span class=u>&mdash;</span><cite>The Joker</cite><br>(but that doesn&#8217;t mean you should keep it to yourself)
 
-<p class=c>Copyright MMIX&ndash;MMX <a href=about.html>Mark Pilgrim</a>
+<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
 
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
 <script src=j/jquery.js></script>
@@ -61,7 +62,11 @@ li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
 $(document).ready(function() {
   $("ol").css("list-style", "none");
   $("li").each(function(i) {
-    $(this).wrapInner('<span class=title></span>').append('<span class=number>'+i+'</span>').css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
+    var num = i;
+    if ($(this).hasClass("app")) {
+      num = String.fromCharCode(53+num);
+    }
+    $(this).wrapInner('<span class=title></span>').append('<span class=number>'+num+'</span>').css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
   });
 });
 </script>
