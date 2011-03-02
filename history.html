@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>History API - Dive Into HTML5</title>
+<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
+<link rel="shortcut icon" href=favicon.ico>
+<link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
+<link rel=stylesheet href=screen.css>
+<style>
+body{counter-reset:h1 11}
+</style>
+<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#history>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<h1><br>Manipulating History<br>for Fun &amp; Profit</h1>
+<p id=toc>&nbsp;
+<p class=a>&#x2767;
+<h2 id=divingin>Diving In</h2>
+
+<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>he browser location bar is perhaps the geekiest mainstream piece of user interface in the world. There are <abbr>URL</abbr>s on billboards, on the sides of trains, and even in street graffiti. Combined with the back button &mdash; easily the most important button in the browser &mdash; you have a powerful way to go forward and backward through the vast set of intertwingled resources called the Web.
+
+<p>The <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html><abbr>HTML5</abbr> history <abbr>API</abbr></a> is a standardized way to manipulate the browser history via script. Part of this <abbr>API</abbr> &mdash; navigating the history &mdash; has been available in previous versions of <abbr>HTML</abbr>. The new parts in <abbr>HTML5</abbr> include a way to add entries to the browser history, to visibly change the <abbr>URL</abbr> in the browser location bar (without triggering a page refresh), and an event that fires when those entries are removed from the stack by the user pressing the browser&#8217;s back button. This means that the <abbr>URL</abbr> in the browser location bar can continue to do its job as a unique identifier for the current resource, even in script-heavy applications that don&#8217;t ever perform a full page refresh.
+
+<p class=a>&#x2767;
+
+<h2 id=why>The Why</h2>
+
+<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:218px"><img src=i/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png alt="demon reading book" width=218 height=231>
+
+<p>Why would you manually manipulate the browser location? After all, a simple link can navigate to a new <abbr>URL</abbr>; that&#8217;s the way the web has worked for 20 years. And it will continue to work that way. This <abbr>API</abbr> doesn&#8217;t try to subvert the web. Just the opposite. In recent years, web developers have found new and exciting ways of subverting the web without any help from emerging standards. The <abbr>HTML5</abbr> history <abbr>API</abbr> is actually designed to ensure that <abbr>URL</abbr>s continue to be useful in script-heavy web applications.
+
+<p>Going back to first principles, what does a <abbr>URL</abbr> do? It identifies a unique resource. You can link to it directly; you can bookmark it; search engines can index it; you can copy and paste it and email it to someone else, who can click it and end up seeing the same resource you saw originally. These are all excellent qualities. <abbr>URL</abbr>s matter.
+
+<p>So we want unique resources to have unique <abbr>URL</abbr>s. But at the same time, browsers have always had a fundamental limitation: if you change the <abbr>URL</abbr>, even through script, it triggers a roundtrip to the remote web server and a full page refresh. This takes time and resources, and it seems especially wasteful when you are navigating to a page that is substantially similar to the current page. Everything on the new page gets downloaded, even the parts that are exactly the same as the current page. There is no way tell a browser to change the <abbr>URL</abbr> but only download half a page.
+
+<p>The <abbr>HTML5</abbr> history <abbr>API</abbr> lets you do this. Instead of triggering a full page refresh, you can use script to, in essence, download half a page. This illusion is tricky to pull off, and it requires some work on your part. Are you watching closely?
+
+<p class=ss><img src=i/openclipart.org_johnny_automatic_card_trick.png width=287 height=238 alt="magician performing a card trick">
+
+<p id=illusion>Let&#8217;s say you have two pages, page A and page B. The two pages are 90% identical; only 10% of the page content is different. The user navigates to page A, then tries to navigate to page B. But instead of triggering a full page refresh, you interrupt this navigation and do the following steps manually:
+
+<ol>
+<li><em>Load the 10% of the page</em> from page B that is different from page A (probably using <code>XMLHttpRequest</code>). This will require some server-side changes to your web application. You will need to write code to return just the 10% of page B that is different from page A. This can be a hidden <abbr>URL</abbr> or query parameter that the end user would not normally see.
+<li><em>Swap in the changed content</em> (using <code>innerHTML</code> or other <abbr>DOM</abbr> methods). You may also need to reset any event handlers on elements within the swapped-in content.
+<li><em>Update the browser location bar</em> with the <abbr>URL</abbr> of page B, using a particular method from the <abbr>HTML5</abbr> history <abbr>API</abbr> that I&#8217;ll show you in a moment.
+</ol>
+
+<p>At the end of this illusion (if you executed it correctly), the browser ends up with a <abbr>DOM</abbr> that is identical to page B, just as if you had navigated to page B directly. The browser location bar ends up with a <abbr>URL</abbr> that is identical to page B, just as if you had navigated to page B directly. But you never really did navigate to page B, and you never did a full page refresh. That&#8217;s the illusion. But because the &#8220;compiled&#8221; page looks the same as page B and has the same <abbr>URL</abbr> as page B, the user should never notice the difference (nor appreciate all your hard work micromanaging their experience).
+
+<p class=a>&#x2767;
+
+<h2 id=how>The How</h2>
+
+<p>The <abbr>HTML5</abbr> history <abbr>API</abbr> is just a handful of methods on the <code>window.history</code> object, plus one event on the <code>window</code> object. You can use these to <a href=detect.html#history>detect support for the history <abbr>API</abbr></a>. Support is currently limited to the very latest versions of a few browsers, putting these techniques squarely in the &#8220;progressive enhancement&#8221; camp.
+
+<table class=bc>
+<caption>history.pushState support</caption>
+<thead>
+<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+</thead>
+<tbody>
+<tr><td>&middot;<td>4.0+<td>5.0+<td>8.0+<td>&middot;<td>4.2.1+<td>&middot;
+</tbody>
+</table>
+
+<p><a href=examples/history/fer.html>dive into dogs</a> is a straightforward but non-trivial example of using the <abbr>HTML5</abbr> history <abbr>API</abbr>. It demonstrates a common pattern: a long article with an associated inline photo gallery. In a supported browser, navigating the Next and Previous links in the photo gallery will update the photo in place <em>and update the <abbr>URL</abbr> in the browser location bar</em>, without triggering a full page refresh. In unsupported browsers &mdash; or, indeed, supported browsers where the user has disabled scripting &mdash; the links simply function as regular links, taking you to a new page with a full page refresh.
+
+<p>This brings up an important point:
+
+<div class=pf>
+<h4>Professor Markup Says</h4>
+<div class=inner>
+<blockquote><p>If your web application fails in browsers with scripting disabled, Jakob Nielsen&#8217;s dog will come to your house and shit on your carpet.
+</blockquote>
+</div>
+</div>
+
+<p id=gallery-markup>Let&#8217;s dig into the <a href=examples/history/fer.html>dive into dogs</a> demo and see how it works. This is the relevant markup for a single photo:
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The pledge</abbr>
+<pre><code>&lt;aside id="gallery">
+  &lt;p class="photonav">
+    &lt;a id="photonext" href="casey.html">Next &amp;gt;&lt;/a>
+    &lt;a id="photoprev" href="adagio.html">&amp;lt; Previous&lt;/a>
+  &lt;/p>
+  &lt;figure id="photo">
+    &lt;img id="photoimg" src="gallery/1972-fer-500.jpg"
+            alt="Fer" width="500" height="375">
+    &lt;figcaption>Fer, 1972&lt;/figcaption>
+  &lt;/figure>
+&lt;/aside></code></pre>
+
+<p>Nothing unusual there. The photo itself is an <code>&lt;img></code> inside a <code>&lt;figure></code>, the links are just regular <code>&lt;a></code> elements, and the entire thing is wrapped in an <code>&lt;aside></code>. It&#8217;s important that these are just regular links that actually work. All the code that follows is behind a <a href=detect.html#history>detection script</a>. If the user is using an unsupported browser, none of our fancy history <abbr>API</abbr> code will ever be executed. And of course, there&#8217;s always some users with scripting disabled altogether.
+
+<p>The main driver function gets each of these links and passes it to a function, <code>addClicker()</code>, which does the actual work of setting up the custom <code>click</code> handler.
+
+<pre><code>function setupHistoryClicks() {
+  addClicker(document.getElementById("photonext"));
+  addClicker(document.getElementById("photoprev"));
+}</code></pre>
+
+<p>This is the <code>addClicker()</code> function. It takes an <code>&lt;a></code> element and adds a <code>click</code> handler. And within this <code>click</code> handler is where it gets interesting.
+
+<pre style="float:left"><code>function addClicker(link) {
+  link.addEventListener("click", function(e) {
+    swapPhoto(link.href);
+    history.pushState(null, null, link.href);
+    e.preventDefault();
+  }, false);
+}</code></pre>
+<p class="legend right" style="margin-top:5em"><span class=arrow>&nbsp;&#x219c;</span> Interesting
+
+<p style="clear:left">The <code>swapPhoto()</code> function performs the first two steps of our <a href=#illusion>three-step illusion</a>. The first half of the <code>swapPhoto()</code> function takes part of the <abbr>URL</abbr> of the navigation link itself &mdash; <code>casey.html</code>, <code>adagio.html</code>, <i>&amp;</i>c. &mdash; and constructs a <abbr>URL</abbr> to a hidden page that contains nothing but the markup required by the next photo.
+
+<pre><code>function swapPhoto(href) {
+  var req = new XMLHttpRequest();
+  req.open("GET",
+           "http://diveintohtml5.org/examples/history/gallery/" +
+             href.split("/").pop(),
+           false);
+  req.send(null);</code></pre>
+
+<p>Here is a sample of the markup returned by <code><a href=http://diveintohtml5.org/examples/history/gallery/casey.html>http://diveintohtml5.org/examples/history/gallery/casey.html</a></code>. (You can verify this in your browser by visiting that <abbr>URL</abbr> directly.)
+
+<pre><code>&lt;p class="photonav">
+  &lt;a id="photonext" href="brandy.html">Next &amp;gt;&lt;/a>
+  &lt;a id="photoprev" href="fer.html">&amp;lt; Previous&lt;/a>
+&lt;/p>
+&lt;figure id="photo">
+  &lt;img id="photoimg" src="gallery/1984-casey-500.jpg"
+          alt="Casey" width="500" height="375">
+  &lt;figcaption>Casey, 1984&lt;/figcaption>
+&lt;/figure></code></pre>
+
+<p>Does that look familiar? It should. It&#8217;s the <a href=#gallery-markup>same basic markup that the original page used</a> to display the first photo.
+
+<p>The second half of the <code>swapPhoto()</code> function performs the second step of our <a href=#illusion>three-step illusion</a>: inserting this newly downloaded markup into the current page. Remember that there is an <code>&lt;aside></code> wrapping the entire figure, photo, and caption. So inserting the new photo markup is a one-liner, setting the <code>innerHTML</code> property of the <code>&lt;aside></code> to the <code>responseText</code> property returned from <code>XMLHttpRequest</code>.
+
+<pre><code>  if (req.status == 200) {
+    document.getElementById("gallery").innerHTML = req.responseText;
+    setupHistoryClicks();
+    return true;
+  }
+  return false;
+}</code></pre>
+
+<p>(Also notice the call to <code>setupHistoryClicks()</code>. This is necessary to reset the custom <code>click</code> event handlers on the newly inserted navigation links. Setting <code>innerHTML</code> wipes out any trace of the old links and their event handlers.)
+
+<p>Now, let&#8217;s go back to the <code>addClicker()</code> function. After successfully swapping out the photo, there&#8217;s one more step in our <a href=#illusion>three-step illusion</a>: setting the <abbr>URL</abbr> in the browser location bar without refreshing the page.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The turn</abbr>
+<pre><code>history.pushState(null, null, link.href);</code></pre>
+
+<p>The <code>history.pushState()</code> function takes three parameters:
+
+<ol>
+<li><code>state</code> can be any <abbr>JSON</abbr> data structure. It is passed back to the <code>popstate</code> event hander, which you&#8217;ll learn about in just a moment. We don&#8217;t need to track any state in this demo, so I&#8217;ve left it as <code>null</code>.
+<li><code>title</code> can be any string. This parameter is currently unused by major browsers. If you want to set the page title, you should store it in the <code>state</code> argument and set it manually in your <code>popstate</code> callback.
+<li><code>url</code> can be, well, any <abbr>URL</abbr>. This is the <abbr>URL</abbr> you want to appear in the browser&#8217;s location bar.
+</ol>
+
+<p>Calling <code>history.pushState</code> will immediately change the <abbr>URL</abbr> in the browser&#8217;s location bar. So is that the end of the illusion? Well, not quite. We still need to talk about what happens when the user presses the all-important back button.
+
+<p>Normally when the user navigates to a new page (with a full page refresh), the browser pushes the new <abbr>URL</abbr> onto its history stack and downloads and draws the new page. When the user presses the back button, the browser pops one page off its history stack and redraws the previous page. But what happens now that you&#8217;ve short-circuited this navigation to avoid a full page refresh? Well, you&#8217;ve faked &#8220;moving forward&#8221; to a new <abbr>URL</abbr>, so now you also need to fake &#8220;moving backward&#8221; to the previous <abbr>URL</abbr>. And the key to faking &#8220;moving backwards&#8221; is the <code>popstate</code> event.
+
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The prestige</abbr>
+<pre><code>window.addEventListener("popstate", function(e) {
+    swapPhoto(location.pathname);
+}</code></pre>
+
+<p>After you&#8217;ve used the <code>history.pushState()</code> function to push a fake <abbr>URL</abbr> onto the browser&#8217;s history stack, when the user presses the back button, the browser will fire a <code>popstate</code> event on the <code>window</code> object. This is your chance to complete the illusion once and for all. Because making something disappear isn't enough; you have to bring it back.
+
+<p>In this demonstration, &#8220;bringing it back&#8221; is as simple as swapping in the original photo, which we do by calling the <code>swapPhoto()</code> with the current location. By the time your <code>popstate</code> callback is called, the <abbr>URL</abbr> visible in the browser&#8217;s location bar has been changed to the previous <abbr>URL</abbr>. Also, the global <code>location</code> property has already been updated with the previous <abbr>URL</abbr>.
+
+<p>To help you visualize this, let&#8217;s step through the entire illusion from the beginning to the end:
+
+<ul>
+<li>User loads <code><a href=http://diveintohtml5.org/examples/history/fer.html>http://diveintohtml5.org/examples/history/fer.html</a></code>, sees story and a photo of Fer.
+<li>User clicks the link labeled &#8220;Next,&#8221; an <code>&lt;a></code> element whose <code>href</code> property is <code><a href=http://diveintohtml5.org/examples/history/casey.html>http://diveintohtml5.org/examples/history/casey.html</a></code>.
+<li>Instead of navigating <code><a href=http://diveintohtml5.org/examples/history/casey.html>http://diveintohtml5.org/examples/history/casey.html</a></code> with a full page refresh, the custom <code>click</code> handler on the <code>&lt;a></code> element traps the click and executes its own code.
+<li>Our custom <code>click</code> handler calls the <code>swapPhoto()</code> function, which creates an <code>XMLHttpRequest</code> object to synchronously download the <abbr>HTML</abbr> snippet located at <code><a href=http://diveintohtml5.org/examples/history/gallery/casey.html>http://diveintohtml5.org/examples/history/<strong>gallery</strong>/casey.html</a></code>.
+<li>The <code>swapPhoto()</code> function sets the <code>innerHTML</code> property of the photo gallery wrapper (an <code>&lt;aside></code> element), thereby replacing the captioned photo of Fer with a captioned photo of Casey.
+<li>Finally, our custom <code>click</code> handler calls the <code>history.pushState()</code> function to manually change the <abbr>URL</abbr> in the browser&#8217;s location bar to <code><a href=http://diveintohtml5.org/examples/history/casey.html>http://diveintohtml5.org/examples/history/casey.html</a></code>.
+<li>User clicks the browser&#8217;s back button.
+<li>The browser notices that a <abbr>URL</abbr> has been manually pushed onto the history stack (by the <code>history.pushState()</code> function). Instead of navigating to the previous <abbr>URL</abbr> and redrawing the entire page, the browser simply updates the location bar to the previous <abbr>URL</abbr> (<code><a href=http://diveintohtml5.org/examples/history/fer.html>http://diveintohtml5.org/examples/history/fer.html</a></code>) and fires a <code>popstate</code> event.
+<li>Our custom <code>popstate</code> handler calls the <code>swapPhoto()</code> function again, this time with the previous <abbr>URL</abbr> that by now is already visible in the browser&#8217;s location bar.
+<li>Again using <code>XMLHttpRequest</code>, the <code>swapPhoto()</code> function downloads a snippet of <abbr>HTML</abbr> located at <code><a href=http://diveintohtml5.org/examples/history/gallery/fer.html>http://diveintohtml5.org/examples/history/<strong>gallery</strong>/fer.html</a></code> and sets the <code>innerHTML</code> property of the <code>&lt;aside></code> wrapper element, thereby replacing the captioned photo of Casey with a captioned photo of Fer.
+</ul>
+
+<p>The illusion is complete. All visible evidence (the content of the page, and the <abbr>URL</abbr> in the location bar) suggests to the user that they have navigated forward one page and backward one page. But no full page refresh ever occurred &mdash; it was all a meticulously executed illusion.
+
+<p class=a>&#x2767;
+
+<h2 id=further-reading>Further Reading</h2>
+
+<ul>
+<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html>Session history and navigation</a> in the <abbr>HTML5</abbr> draft standard
+<li><a href=https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history>Manipulating the browser history</a> on Mozilla Developer Center
+<li><a href=http://html5demos.com/history>Simple history <abbr>API</abbr> demo</a>
+<li><a href=http://www.20thingsilearned.com/>20 Things I Learned About Browsers and the Web</a>, an advanced demo that uses the history <abbr>API</abbr> and other <abbr>HTML5</abbr> techniques
+<li><a href=http://www.facebook.com/note.php?note_id=438532093919>Using <abbr>HTML5</abbr> today</a> describes <a href=http://www.facebook.com/>Facebook&#8217;s</a> use of the history <abbr>API</abbr>
+<li><a href=https://github.com/blog/760-the-tree-slider>The Tree Slider</a> describes <a href=https://github.com/>Github&#8217;s</a> use of the history <abbr>API</abbr>
+<li><a href=https://github.com/balupton/History.js/>History.js</a>, a meta-<abbr>API</abbr> for manipulating history in both newer and older browsers
+</ul>
+
+<p class=a>&#x2767;
+
+<p>This has been &#8220;Manipulating History for Fun <i>&amp;</i> Profit.&#8221; The <a href=table-of-contents.html>full table of contents</a> has more if you&#8217;d like to keep reading.
+
+<div class=pf>
+<h4>Did You Know?</h4>
+<div class=moneybags>
+<blockquote><p>In association with Google Press, O&#8217;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &#8220;HTML5: Up &amp; Running,&#8221; and it is available now. This chapter is not yet included in the paid edition, so consider it a bonus.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&#8217;Reilly</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+</blockquote>
+</div>
+</div>
+
+<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+<script src=j/jquery.js></script>
+<script src=j/modernizr.js></script>
+<script src=j/dih5.js></script>

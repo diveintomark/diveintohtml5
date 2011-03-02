@@ -2,22 +2,27 @@ function supports_history_api() {
   return !!(window.history && history.pushState);
 }
 
-function swapPhoto(url) {
+function swapPhoto(href) {
   var req = new XMLHttpRequest();
-  req.open("GET", "http://diveintohtml5.org/examples/history/gallery/"+url, false);
+  req.open("GET",
+           "http://diveintohtml5.org/examples/history/gallery/" +
+             href.split("/").pop(),
+           false);
   req.send(null);
   if (req.status == 200) {
     document.getElementById("gallery").innerHTML = req.responseText;
-    window.setTimeout(setupHistoryClicks, 1);
+    setupHistoryClicks();
+    return true;
   }
+  return false;
 }
 
 function addClicker(link) {
   link.addEventListener("click", function(e) {
-    var url = link.href.split("/").pop();
-    swapPhoto(url);
-    history.pushState({"url":url}, null, url);
-    e.preventDefault();
+    if (swapPhoto(link.href)) {
+      history.pushState(null, null, link.href);
+      e.preventDefault();
+    }
   }, true);
 }
 
@@ -31,8 +36,7 @@ window.onload = function() {
   setupHistoryClicks();
   window.setTimeout(function() {
     window.addEventListener("popstate", function(e) {
-      var state = e.state || {"url":location.href.split("/").pop()};
-      swapPhoto(state["url"]);
+      swapPhoto(location.pathname);
     }, false);
   }, 1);
 }
