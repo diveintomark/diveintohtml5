@@ -75,7 +75,7 @@ body{counter-reset:h1 11}
 
 <p id=gallery-markup>Let&#8217;s dig into the <a href=examples/history/fer.html>dive into dogs</a> demo and see how it works. This is the relevant markup for a single photo:
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The pledge</abbr>
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The pledge
 <pre><code>&lt;aside id="gallery">
   &lt;p class="photonav">
     &lt;a id="photonext" href="casey.html">Next &amp;gt;&lt;/a>
@@ -146,7 +146,7 @@ body{counter-reset:h1 11}
 
 <p>Now, let&#8217;s go back to the <code>addClicker()</code> function. After successfully swapping out the photo, there&#8217;s one more step in our <a href=#illusion>three-step illusion</a>: setting the <abbr>URL</abbr> in the browser location bar without refreshing the page.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The turn</abbr>
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The turn
 <pre><code>history.pushState(null, null, link.href);</code></pre>
 
 <p>The <code>history.pushState()</code> function takes three parameters:
@@ -161,7 +161,7 @@ body{counter-reset:h1 11}
 
 <p>Normally when the user navigates to a new page (with a full page refresh), the browser pushes the new <abbr>URL</abbr> onto its history stack and downloads and draws the new page. When the user presses the back button, the browser pops one page off its history stack and redraws the previous page. But what happens now that you&#8217;ve short-circuited this navigation to avoid a full page refresh? Well, you&#8217;ve faked &#8220;moving forward&#8221; to a new <abbr>URL</abbr>, so now you also need to fake &#8220;moving backward&#8221; to the previous <abbr>URL</abbr>. And the key to faking &#8220;moving backwards&#8221; is the <code>popstate</code> event.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The prestige</abbr>
+<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The prestige
 <pre><code>window.addEventListener("popstate", function(e) {
     swapPhoto(location.pathname);
 }</code></pre>
@@ -196,7 +196,7 @@ body{counter-reset:h1 11}
 <li><a href=https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history>Manipulating the browser history</a> on Mozilla Developer Center
 <li><a href=http://html5demos.com/history>Simple history <abbr>API</abbr> demo</a>
 <li><a href=http://www.20thingsilearned.com/>20 Things I Learned About Browsers and the Web</a>, an advanced demo that uses the history <abbr>API</abbr> and other <abbr>HTML5</abbr> techniques
-<li><a href=http://www.facebook.com/note.php?note_id=438532093919>Using <abbr>HTML5</abbr> today</a> describes <a href=http://www.facebook.com/>Facebook&#8217;s</a> use of the history <abbr>API</abbr>
+<li><a href="http://www.facebook.com/note.php?note_id=438532093919">Using <abbr>HTML5</abbr> today</a> describes <a href=http://www.facebook.com/>Facebook&#8217;s</a> use of the history <abbr>API</abbr>
 <li><a href=https://github.com/blog/760-the-tree-slider>The Tree Slider</a> describes <a href=https://github.com/>Github&#8217;s</a> use of the history <abbr>API</abbr>
 <li><a href=https://github.com/balupton/History.js/>History.js</a>, a meta-<abbr>API</abbr> for manipulating history in both newer and older browsers
 </ul>
