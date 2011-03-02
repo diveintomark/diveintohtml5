@@ -71,8 +71,8 @@ add-revision-number-to-manifests: init
 
 set-file-permissions: init
 	chmod 644 build/*.html build/*.txt build/*.ico build/examples/* build/examples/.htaccess build/j/* build/j/.htaccess build/i/* build/i/.htaccess build/f/* build/f/.htaccess build/.htaccess build/fonts-original/*.tar.gz build/s/*
-	chmod 755 build/examples build/j build/i build/f build/fonts-original build/examples/offline build/s
-	chmod 644 build/examples/offline/* build/examples/offline/.htaccess
+	chmod 755 build/examples build/j build/i build/f build/fonts-original build/examples/offline build/examples/history build/examples/history/gallery build/s
+	chmod 644 build/examples/offline/* build/examples/offline/.htaccess build/examples/history/*.html build/examples/history/*.css build/examples/history/*.js build/examples/history/gallery/*
 
 live: all
 	rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" --exclude="*.webm" build/i/* build/i/.htaccess diveintomark.org:~/web/wearehugh.com/dih5/
