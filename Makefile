@@ -2,7 +2,7 @@ PYTHON3 = python3
 PYTHON2 = python2.6
 JAVA    = java
 
-REVISION := $(shell hg tip | grep changeset|cut -d":" -f2|cut -d" " -f4)
+REVISION := $(shell git rev-parse --short HEAD)
 
 all: validate-html buildtoc clean init minimize-html minimize-js minimize-css combine-js build-sitemap substitute-minimized-scripts-and-css remove-unused-css-selectors add-revision-number-to-manifests set-file-permissions
 
