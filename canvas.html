@@ -23,13 +23,10 @@ body{counter-reset:h1 4}
 <caption>Basic &lt;canvas> support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-</tbody>
 <tfoot>
 <tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> natively.
-</tfoot>
 </table>
 
 <p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas></code> element has no content and no border of its own.</p>
@@ -63,13 +60,10 @@ body{counter-reset:h1 4}
 <table class=bc>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-</tbody>
 <tfoot>
 <tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> shapes natively.
-</tfoot>
 </table>
 
 <p>Every canvas starts out blank. That&#8217;s boring! Let&#8217;s draw something.</p>
@@ -176,13 +170,10 @@ var context = c_canvas.getContext("2d");</code></pre>
 <table class=bc>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-</tbody>
 <tfoot>
 <tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> paths natively.
-</tfoot>
 </table>
 
 <p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_media_files_johnny_automatic_7563.png alt="gerbil sitting on a chair with a quill and ink jar" width=167 height=347>
@@ -277,14 +268,11 @@ context.stroke();</code></pre>
 <table class=bc>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<sup>&dagger;</sup><td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-</tbody>
 <tfoot>
 <tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports canvas text natively.
 <tr><td colspan=7 style="text-align:left">&dagger; Mozilla Firefox 3.0 requires a compatibility shim.
-</tfoot>
 </table>
 
 <p>In addition to drawing <a href=#paths>lines on a canvas</a>, you can also draw text on a canvas. Unlike text on the surrounding web page, there is no box model. That means none of the familiar CSS layout techniques are available: no floats, no margins, no padding, no word wrapping. (Maybe you think that&#8217;s a good thing!) You can set a few font attributes, then you pick a point on the canvas and draw your text there.
@@ -362,15 +350,12 @@ context.fillRect(497, 372, 3, 3);</code></pre>
 <table class=bc>
 <thead>
 <tr><th><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr>
 <tr><th>linear gradients<td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 <tr><th>radial gradients<td>9.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-</tbody>
 <tfoot>
 <tr><td colspan=8 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> gradients natively.
-</tfoot>
 </table>
 
 <p>Earlier in this chapter, you learned how to draw <a href=#shapes>a rectangle filled with a solid color</a>, then <a href=#paths>a line stroked with a solid color</a>. But shapes and lines aren&#8217;t limited to solid colors. You can do all kinds of magic with gradients. Let&#8217;s look at an example.</p>
@@ -450,13 +435,10 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <table class=bc>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-</tbody>
 <tfoot>
 <tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> images natively.
-</tfoot>
 </table>
 
 <p>Here is a cat:

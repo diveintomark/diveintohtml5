@@ -28,6 +28,7 @@ init: clean
 
 minimize-html: init
 	{ for f in *.html; do python3 util/htmlminimizer.py "$$f" build/"$$f" || exit 1; done }
+	sed -i -e "s|;</script>|</script>|g" build/*.html
 
 minimize-js: init
 	${JAVA} -jar util/compiler.jar -js build/j/dih5.js > build/j/dih5.min.js

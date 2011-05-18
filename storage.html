@@ -67,10 +67,8 @@ body{counter-reset:h1 7}
 <caption><abbr>HTML5</abbr> Storage support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>8.0+<td>3.5+<td>4.0+<td>4.0+<td>10.5+<td>2.0+<td>2.0+
-</tbody>
 </table>
 
 <p>From your JavaScript code, you&#8217;ll access <abbr>HTML5</abbr> Storage through the <code>localStorage</code> object on the global <code>window</code> object. Before you can use it, you should <a href=detect.html#storage>detect whether the browser supports it</a>.
@@ -160,16 +158,13 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 <caption>StorageEvent Object</caption>
 <thead>
 <tr class=ho><th>Property<th>Type<th>Description
-</thead>
 <tbody>
 <tr class=zebra><th><code>key</code><td>string<td>the named key that was added, removed, or modified
 <tr><th><code>oldValue</code><td>any<td>the previous value (now overwritten), or <code>null</code> if a new item was added
 <tr class=zebra><th><code>newValue</code><td>any<td>the new value, or <code>null</code> if an item was removed
 <tr><th><code>url</code><sup>*</sup><td>string<td>the page which called a method that triggered this change
-</tbody>
 <tfoot>
 <tr><td colspan=3>* Note: the <code>url</code> property was originally called <code>uri</code>. Some browsers shipped with that property before the specification changed. For maximum compatibility, you should check whether the <code>url</code> property exists, and if not, check for the <code>uri</code> property instead.
-</tfoot>
 </table>
 
 <p>The <code>storage</code> event is not cancelable. From within the <code>handle_storage</code> callback function, there is no way to stop the change from occurring. It&#8217;s simply a way for the browser to tell you, &#8220;hey, this just happened. There&#8217;s nothing you can do about it now; I just wanted to let you know.&#8221;
@@ -264,10 +259,8 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 <caption>Web SQL Database support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-</thead>
 <tbody>
 <tr><td>&middot;<td>&middot;<td>4.0+<td>4.0+<td>10.5+<td>3.0+<td>2.0+
-</tbody>
 </table>
 
 <p>Of course, if you&#8217;ve used more than one database product in your life, you are aware that &#8220;<abbr>SQL</abbr>&#8221; is more of a marketing term than a hard-and-fast standard. (Some would say the same of &#8220;HTML5,&#8221; but never mind that.) Sure, there is an actual <abbr>SQL</abbr> specification (it&#8217;s called <a href="http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt">SQL-92</a>), but there is no database server in the world that conforms to that and only that specification. There&#8217;s Oracle&#8217;s <abbr>SQL</abbr>, Microsoft&#8217;s <abbr>SQL</abbr>, MySQL&#8217;s <abbr>SQL</abbr>, PostgreSQL&#8217;s <abbr>SQL</abbr>, and SQLite&#8217;s <abbr>SQL</abbr>. Indeed, each of these products adds new <abbr>SQL</abbr> features over time, so even saying &#8220;SQLite&#8217;s <abbr>SQL</abbr>&#8221; is not sufficient to pin down exactly what you&#8217;re talking about. You need to say &#8220;the version of <abbr>SQL</abbr> that shipped with SQLite version X.Y.Z.&#8221;

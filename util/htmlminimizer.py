@@ -36,7 +36,11 @@ with open(output_file, 'w', encoding="utf-8") as _out, open(input_file, encoding
                 else:
                     continue
             line = line.replace('&' + e + ';', chr(n))
-    
+
+
+        # &amp; followed by whitespace can be minimized as & (really!)
+        line = line.replace("&amp; ", "& ")
+
         # strip leading and trailing whitespace, except inside <pre> blocks
         g = line.strip()
         if g.count('<pre'):
