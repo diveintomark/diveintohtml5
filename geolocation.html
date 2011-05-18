@@ -370,7 +370,7 @@ function show_map(loc) {
 function show_map_error() {
   $("#live-geolocation").html('Unable to determine your location.');
 }
-$(document).ready(function() {
+$(function() {
   if (geo_position_js.init()) {
     $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
   } else {

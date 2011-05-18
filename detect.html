@@ -633,7 +633,7 @@ function show_map(loc) {
 function show_map_error() {
   $("#live-geolocation").html('Unable to determine your location.');
 }
-$(document).ready(function() {
+$(function() {
   $("#live-canvas").html(supports(Modernizr.canvas, "the canvas API"));
   $("#live-canvas-text").html(supports(Modernizr.canvastext, "the canvas text API"));
   $("#live-video").html(supports(Modernizr.video, "HTML5 video"));
