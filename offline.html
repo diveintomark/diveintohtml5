@@ -196,7 +196,7 @@ clock.css</code></pre>
 
 <p>Remember the Halma game that we introduced in <a href=canvas.html#halma>the canvas chapter</a> and later improved by <a href=storage.html#halma>saving state with persistent local storage</a>? Let&#8217;s take our Halma game offline.
 
-<p>To do that, we need a manifest that lists all the resources the game needs. Well, there&#8217;s the main <abbr>HMTL</abbr> page, a single JavaScript file that contains all the game code, and&hellip; that&#8217;s it. There are no images, because all the drawing is done programmatically via the <a href=canvas.html>canvas <abbr>API</abbr></a>. All the necessary <abbr>CSS</abbr> styles are in a <code>&lt;style></code> element at the top of the <abbr>HTML</abbr> page. So this is our cache manifest:
+<p>To do that, we need a manifest that lists all the resources the game needs. Well, there&#8217;s the main <abbr>HTML</abbr> page, a single JavaScript file that contains all the game code, and&hellip; that&#8217;s it. There are no images, because all the drawing is done programmatically via the <a href=canvas.html>canvas <abbr>API</abbr></a>. All the necessary <abbr>CSS</abbr> styles are in a <code>&lt;style></code> element at the top of the <abbr>HTML</abbr> page. So this is our cache manifest:
 
 <pre><code>CACHE MANIFEST
 halma.html
