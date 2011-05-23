@@ -42,8 +42,8 @@ minimize-css: init
 	sed -i -e "s|;}|}|g" -e "s|\"|'|g" build/m-${REVISION}.css
 
 combine-js: minimize-js
-	cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/dih5.min.js > build/j/${REVISION}.js
-	cat build/j/legal.js build/j/gears_init.min.js build/j/geo.min.js > build/j/${REVISION}-maps.js
+	cat build/j/legal.js build/j/jquery.min.js build/j/modernizr.min.js build/j/canvastext-fx3.min.js build/j/dih5.min.js > build/j/diveintohtml5-common-${REVISION}.min.js
+	cat build/j/legal.js build/j/gears_init.min.js build/j/geo.min.js > build/j/diveintohtml5-common-${REVISION}-maps.min.js
 
 build-sitemap: minimize-html
 	ls build/*.html | sed -e "s|build/|http://diveintohtml5.org/|g" -e "s|/index.html|/|g" > build/sitemap.txt
@@ -52,9 +52,9 @@ substitute-minimized-scripts-and-css: minimize-html minimize-js minimize-css com
 	sed -i -e "s|<script src=j/jquery.js></script>||g" \
 		-e "s|<script src=j/modernizr.js></script>||g" \
 		-e "s|<script src=j/gears_init.js></script>||g" \
-		-e "s|<script src=j/geo.js>|<script src=j/${REVISION}-maps.js>|g" \
+		-e "s|<script src=j/geo.js>|<script src=j/diveintohtml5-common-${REVISION}-maps.min.js>|g" \
 		-e "s|<script src=j/canvastext-fx3.js></script>||g" \
-		-e "s|<script src=j/dih5.js>|<script src=j/${REVISION}.js>|g" \
+		-e "s|<script src=j/dih5.js>|<script src=j/diveintohtml5-common-${REVISION}.min.js>|g" \
 		-e "s|<link rel=stylesheet href=screen.css>|<style>$(shell cat build/${REVISION}.css)</style>|g" \
 		-e "s|<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>|<style>@media screen and (max-device-width:480px){$(shell cat build/m-${REVISION}.css)}</style>|g" \
 		-e "s|</style><style>||g" \
