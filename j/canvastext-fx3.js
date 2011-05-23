@@ -33,7 +33,7 @@ It uses code from two different projects, Bespin and canvas.text.js.
  *
  * ***** END LICENSE BLOCK ***** */
 
-/** 
+/* 
  * http://code.google.com/p/canvas-text/
  * @projectDescription An implementation of the <canvas> text functions in browsers that don't already have it
  * @author Fabien Ménager
