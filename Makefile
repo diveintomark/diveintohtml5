@@ -78,6 +78,6 @@ set-file-permissions: init
 live: all
 	rsync -essh -a --exclude="*.mp4" --exclude="*.ogv" --exclude="*.webm" build/i/* build/i/.htaccess diveintomark@diveintomark.webfactional.com:~/webapps/wearehugh/dih5/
 	rsync -essh -a build/i/*.mp4 build/i/*.ogv build/i/*.webm build/i/.htaccess diveintomark@diveintomark.webfactional.com:~/webapps/diveintohtml5/i/
-	rsync -essh -a build/j/${REVISION}*.js build/j/html5.js build/j/excanvas.min.js build/j/jquery.js build/j/.htaccess diveintomark@diveintomark.webfactional.com:~/webapps/diveintohtml5/j/
+	rsync -essh -a build/j/diveintohtml5-common-${REVISION}*.js build/j/html5.js build/j/excanvas.min.js build/j/jquery.js build/j/.htaccess diveintomark@diveintomark.webfactional.com:~/webapps/diveintohtml5/j/
 	rsync -essh -a build/f/*.ttf build/f/*.eot build/f/*.woff build/f/*.svg build/f/.htaccess diveintomark@diveintomark.webfactional.com:~/webapps/diveintohtml5/f/
 	rsync -essh -a build/examples build/*.txt build/*.ico build/*.html build/.htaccess build/fonts-original build/s diveintomark@diveintomark.webfactional.com:~/webapps/diveintohtml5/
