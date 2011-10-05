@@ -343,7 +343,7 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 <script src=j/gears_init.js></script>
 <script src=j/geo.js></script>
 <script src=j/dih5.js></script>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA9KK0oCozk3pdOlGYD6hrthR5pnyo8QWLgiiZq1vJ3YhZL8oiJBQk9j0jg4PxEDmO36mYgldwXseYGw"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script>
 function supports(bool, suffix) {
   var s = "Your browser ";
@@ -359,12 +359,10 @@ function lookup_location() {
 }
 function show_map(loc) {
   $("#geo-wrapper").css({'width':'320px','height':'350px'});
-  var map = new GMap2(document.getElementById("geo-wrapper"));
-  var center = new GLatLng(loc.coords.latitude,loc.coords.longitude);	
-  map.setCenter(center, 14);	
-  map.addControl(new GSmallMapControl());
-  map.addControl(new GMapTypeControl());
-  map.addOverlay(new GMarker(center, {draggable: false, title: "You are here (more or less)"}));
+  var map = new google.maps.Map(document.getElementById("geo-wrapper"), {zoom: 14, mapTypeControl:true, zoomControl: true, mapTypeId: google.maps.MapTypeId.ROADMAP});
+  var center = new google.maps.LatLng(loc.coords.latitude,loc.coords.longitude);  
+  map.setCenter(center);
+  var marker = new google.maps.Marker({map: map, position: center, draggable: false, title: "You are here (more or less)"});
 }
 function show_map_error() {
   $("#live-geolocation").html('Unable to determine your location.');
