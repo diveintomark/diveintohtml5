@@ -47,7 +47,7 @@ return !!(a.canPlayType && a.canPlayType('audio/mp4; codecs="mp4a.40.2"').replac
 <dd><pre><code>var c = document.createElement('canvas');
 return c.getContext && typeof c.getContext('2d').fillText == 'function';</code></pre>
 
-<dt id=command><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command><code>&lt;command></code></a>
+<dt id=command><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command-element><code>&lt;command></code></a>
 <dd><code>return 'type' in document.createElement('command');</code>
 
 <dt id=datalist><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element><code>&lt;datalist></code></a>
@@ -55,9 +55,6 @@ return c.getContext && typeof c.getContext('2d').fillText == 'function';</code><
 
 <dt id=details><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-details-element><code>&lt;details></code></a>
 <dd><code>return 'open' in document.createElement('details');</code>
-
-<dt id=device><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/commands.html#devices><code>&lt;device></code></a>
-<dd><code>return 'type' in document.createElement('device');</code>
 
 <dt id=novalidate><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#constraints><code>&lt;form></code> constraint validation</a>
 <dd><code>return 'noValidate' in document.createElement('form');</code>
@@ -77,7 +74,7 @@ return c.getContext && typeof c.getContext('2d').fillText == 'function';</code><
 <dt id=placeholder-textarea><a href=forms.html#placeholder><code>&lt;textarea placeholder></code></a>
 <dd><code>return 'placeholder' in document.createElement('textarea');</code>
 
-<dt id=input-color><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>
+<dt id=input-color><a href=forms.html#type-color><code>&lt;input type="color"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'color');
 return i.type !== 'text';</code></pre>
@@ -102,7 +99,7 @@ return i.type !== 'text';</code></pre>
 i.setAttribute('type', 'search');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-tel><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state><code>&lt;input type="tel"></code></a>
+<dt id=input-tel><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state-(type=tel)><code>&lt;input type="tel"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'tel');
 return i.type !== 'text';</code></pre>
@@ -112,32 +109,32 @@ return i.type !== 'text';</code></pre>
 i.setAttribute('type', 'url');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-date><a href=forms.html#date><code>&lt;input type="date"></code></a>
+<dt id=input-date><a href=forms.html#type-date><code>&lt;input type="date"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'date');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-time><a href=forms.html#date><code>&lt;input type="time"></code></a>
+<dt id=input-time><a href=forms.html#type-date><code>&lt;input type="time"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'time');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-datetime><a href=forms.html#date><code>&lt;input type="datetime"></code></a>
+<dt id=input-datetime><a href=forms.html#type-date><code>&lt;input type="datetime"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'datetime');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-datetime-local><a href=forms.html#date><code>&lt;input type="datetime-local"></code></a>
+<dt id=input-datetime-local><a href=forms.html#type-date><code>&lt;input type="datetime-local"></code></a>
 <dd><pre><code>var i = document.createElement('input');
-i.setAttribute('type', 'datetime-local);
+i.setAttribute('type', 'datetime-local');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-month><a href=forms.html#date><code>&lt;input type="month"></code></a>
+<dt id=input-month><a href=forms.html#type-date><code>&lt;input type="month"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'month');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-week><a href=forms.html#date><code>&lt;input type="week"></code></a>
+<dt id=input-week><a href=forms.html#type-date><code>&lt;input type="week"></code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'week');
 return i.type !== 'text';</code></pre>
@@ -152,18 +149,18 @@ return i.type !== 'text';</code></pre>
 <dd><code>return 'value' in document.createElement('progress');</code>
 
 <dt id=time><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element><code>&lt;time></code></a>
-<dd><code>return 'valueAsDate' in document.createElement('time');</code>
+<dd><code>return 'datetime' in document.createElement('time');</code>
 
 <dt id=video><a href=video.html><code>&lt;video></code></a>
 <dd><code>return !!document.createElement('video').canPlayType;</code>
 
-<dt id=video-captions><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#websrt><code>&lt;video></code> captions</a>
+<dt id=video-captions><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-track-element><code>&lt;video></code> captions</a>
 <dd><code>return 'src' in document.createElement('track');</code>
 
-<dt id=video-poster><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#attr-video-poster"><code>&lt;video poster></code></a>
+<dt id=video-poster><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#attr-video-poster"><code>&lt;video poster></code></a>
 <dd><code>return 'poster' in document.createElement('video');</code>
 
-<dt id=video-webm><a href=http://www.webmproject.org/><code>&lt;video></code> in WebM format</a>
+<dt id=video-webm><a href=video.html#vp8><code>&lt;video></code> in WebM format</a>
 <dd><pre><code>var v = document.createElement('video');
 return !!(v.canPlayType && v.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/no/, ''));</code></pre>
 
@@ -178,7 +175,7 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 <dt id=contenteditable><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#contenteditable><code>contentEditable</code></a>
 <dd><code>return 'isContentEditable' in document.createElement('span');</code>
 
-<dt id=postmessage><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#web-messaging>Cross-document messaging</a>
+<dt id=postmessage><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/web-messaging.html#web-messaging>Cross-document messaging</a>
 <dd><code>return !!window.postMessage;</code>
 
 <dt id=dnd><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#dnd>Drag-and-drop</a>
@@ -193,14 +190,14 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 <dt id=history><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-history-interface>History</a>
 <dd><code>return !!(window.history && window.history.pushState);</code>
 
-<dt id=storage><a href=http://dev.w3.org/html5/webstorage/>Local storage</a>
+<dt id=storage><a href=http://dev.w3.org/html5/webstorage/#the-localstorage-attribute>Local storage</a>
 <dd><pre><code>try {
   return 'localStorage' in window && window['localStorage'] !== null;
 } catch(e) {
   return false;
 }</code></pre>
 
-<dt id=microdata><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata-dom-api>Microdata</a>
+<dt id=microdata><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#microdata-dom-api>Microdata</a>
 <dd><code>return !!document.getItems;</code>
 
 <dt id=offline><a href=offline.html>Offline web applications</a>
@@ -209,7 +206,7 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 <dt id=eventsource><a href=http://dev.w3.org/html5/eventsource/>Server-sent events</a>
 <dd><code>return typeof EventSource !== 'undefined';</code>
 
-<dt id=session-storage><a href=http://dev.w3.org/html5/webstorage/>Session storage</a>
+<dt id=session-storage><a href=http://dev.w3.org/html5/webstorage/#the-sessionstorage-attribute>Session storage</a>
 <dd><pre><code>try {
   return 'sessionStorage' in window && window['sessionStorage'] !== null;
 } catch(e) {
@@ -224,10 +221,10 @@ return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/
 e.innerHTML = '&lt;svg>&lt;/svg>';
 return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);</code></pre>
 
-<dt id=undo><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#undo>Undo</a>
+<dt id=undo><a href=http://rniwa.com/editing/undomanager.html>Undo</a>
 <dd><code>return typeof UndoManager !== 'undefined';</code>
 
-<dt id=indexeddb><a href=http://www.w3.org/TR/IndexedDB/>IndexedDB</a>
+<dt id=indexeddb><a href=http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html>IndexedDB</a>
 <dd><code>return !!window.indexedDB;</code>
 
 <dt id=websockets><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
@@ -242,13 +239,13 @@ return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);
 <dt id=widgets><a href=http://www.w3.org/TR/widgets/>Widgets</a>: am I in one?
 <dd><code>return typeof widget !== 'undefined';</code>
 
-<dt id=xmlhttprequest-withcredentials><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-withcredentials-attribute>XMLHttpRequest: cross-domain requests</a>
+<dt id=xmlhttprequest-withcredentials><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#the-withcredentials-attribute>XMLHttpRequest: cross-domain requests</a>
 <dd><code>return "withCredentials" in new XMLHttpRequest;</code>
 
-<dt id=xmlhttprequest-formdata><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-formdata-interface>XMLHttpRequest: send as form data</a>
+<dt id=xmlhttprequest-formdata><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#interface-formdata>XMLHttpRequest: send as form data</a>
 <dd><code>return !!window.FormData;</code>
 
-<dt id=xmlhttprequest-upload><a href=http://www.w3.org/TR/XMLHttpRequest2/#the-upload-attribute>XMLHttpRequest: upload progress events</a>
+<dt id=xmlhttprequest-upload><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#the-upload-attribute>XMLHttpRequest: upload progress events</a>
 <dd><code>return "upload" in new XMLHttpRequest;</code>
 </dl>
 
@@ -262,13 +259,14 @@ return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/><abbr>HTML5</abbr></a>
 <li><a href=http://www.w3.org/TR/geolocation-API/>Geolocation</a>
 <li><a href=http://dev.w3.org/html5/eventsource/>Server-Sent Events</a>
-<li><a href=http://dev.w3.org/2006/webapi/WebSimpleDB/>WebSimpleDB</a>
+<li><a href=http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html>IndexedDB</a>
+<li><a href=http://rniwa.com/editing/undomanager.html>UndoManager</a>
 <li><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
 <li><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a>
 <li><a href=http://dev.w3.org/html5/webstorage/>Web Storage</a>
 <li><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
 <li><a href=http://www.w3.org/TR/widgets/>Widgets</a>
-<li><a href=http://www.w3.org/TR/XMLHttpRequest2/>XMLHttpRequest Level 2</a>
+<li><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html>XMLHttpRequest</a>
 </ul>
 
 <p>JavaScript libraries:
