@@ -163,7 +163,7 @@ table.faketable{border-collapse:collapse}
 
 <pre><code>&lt;section>
   &lt;img width="204" height="250"
-       src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
+       src="http://diveintohtml5.info/examples/2000_05_mark.jpg"
        alt="[Mark Pilgrim, circa 2000]">
 
   &lt;h1>Contact Information&lt;/h1>
@@ -218,7 +218,7 @@ table.faketable{border-collapse:collapse}
 <p>The first thing in <a href=examples/person-plus-microdata.html>this sample &#8220;about&#8221; page</a> is a picture of me. Naturally, it&#8217;s marked up with an <code>&lt;img></code> element. To declare that this <code>&lt;img></code> element is my profile picture, all we need to do is add <code>itemprop="photo"</code> to the <code>&lt;img></code> element.
 
 <pre><code>  &lt;img <mark>itemprop="photo"</mark> width="204" height="250"
-      src="http://diveintohtml5.org/examples/2000_05_mark.jpg"
+      src="http://diveintohtml5.info/examples/2000_05_mark.jpg"
       alt="[Mark Pilgrim, circa 2000]"></code></pre>
 
 <p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
@@ -230,7 +230,7 @@ table.faketable{border-collapse:collapse}
 <blockquote>
 <p>This person [explicit, from <code>&lt;section itemscope itemtype="..."></code>]
 <p>is pictured at [explicit, from <code>&lt;img itemprop="photo"></code>]
-<p><code>http://diveintohtml5.org/examples/2000_05_mark.jpg</code> [implicit, from <code>&lt;img src></code> attribute]
+<p><code>http://diveintohtml5.info/examples/2000_05_mark.jpg</code> [implicit, from <code>&lt;img src></code> attribute]
 </blockquote>
 
 <p>The subject only needs to be defined once, by putting <code>itemscope</code> and <code>itemtype</code> attributes on the outermost <code>&lt;section></code> element. The verb is defined by putting the <code>itemprop="photo"</code> attribute on the <code>&lt;img></code> element. The object of the sentence doesn&#8217;t need any special markup at all, because the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a> says that the property value of an <code>&lt;img></code> element is its <code>src</code> attribute.
@@ -372,7 +372,7 @@ Suite 415</mark>
 
 <pre><samp>Item
   <b>Type</b>: http://data-vocabulary.org/person
-  photo = http://diveintohtml5.org/examples/2000_05_mark.jpg 
+  photo = http://diveintohtml5.info/examples/2000_05_mark.jpg 
   name = Mark Pilgrim 
   title = Developer advocate 
   affiliation = Google, Inc. 
@@ -399,7 +399,7 @@ Item 1
 <span class=fakeinfo>Anytown PA - Developer advocate - Google, Inc.</span><br>
 <span class=fakeexcerpt>Excerpt from the page will show up here.<br>
 Excerpt from the page will show up here.</span><br>
-<span class=fakeurl>diveintohtml5.org/examples/person-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+<span class=fakeurl>diveintohtml5.info/examples/person-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
 </blockquote>
 
 <p>The first line, &#8220;About Mark Pilgrim,&#8221; is actually the title of the page, given in the <code>&lt;title></code> element. That&#8217;s not terribly exciting; Google does that for every page. But the second line is full of information taken directly from the microdata annotations we added to the page. &#8220;Anytown PA&#8221; was part of the <a href=#address>mailing address</a>, marked up with the <code>http://data-vocabulary.org/Address</code> vocabulary. &#8220;Developer advocate&#8221; and &#8220;Google, Inc.&#8221; were two properties from the <code>http://data-vocabulary.org/Person</code> vocabulary (<code>title</code> and <code>affiliation</code>, respectively).
@@ -553,7 +553,7 @@ A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 <pre><code>&lt;article>
   &lt;h1>Google Developer Day 2009&lt;/h1>
   &lt;img width="300" height="200"
-       src="http://diveintohtml5.org/examples/gdd-2009-prague-pilgrim.jpg"
+       src="http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg"
        alt="[Mark Pilgrim at podium]">
   &lt;p>
     Google Developer Days are a chance to learn about Google
@@ -608,11 +608,11 @@ A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 <p>This event listing has a photo, which can be marked up with the <code>photo</code> property. As you would expect, the photo is already marked up with an <code>&lt;img></code> element. Like <a href=#person-photo>the <code>photo</code> property in the Person vocabulary</a>, an Event photo is a <abbr>URL</abbr>. Since the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a> says that the property value of an <code>&lt;img></code> element is its <code>src</code> attribute, the only thing we need to do is add the <code>itemprop</code> attribute to the <code>&lt;img></code> element.
 
 <pre><code>  &lt;img <mark>itemprop="photo"</mark> width="300" height="200"
-       src="http://diveintohtml5.org/examples/gdd-2009-prague-pilgrim.jpg"
+       src="http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg"
        alt="[Mark Pilgrim at podium]"></code></pre>
 <p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
 
-<p>In English, this says, &#8220;The photo for this event is at <code>http://diveintohtml5.org/examples/gdd-2009-prague-pilgrim.jpg</code>.&#8221;
+<p>In English, this says, &#8220;The photo for this event is at <code>http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg</code>.&#8221;
 
 <p>Next up is a longer description of the event, which is just a pargaraph of freeform text.
 
@@ -701,13 +701,13 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
 
 <h3 id=event-rich-snippets>The Return of Google Rich Snippets</h3>
 
-<p><a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.org/examples/event-plus-microdata.html">According to Google&#8217;s Rich Snippets Testing Tool</a>, this is the information that Google&#8217;s crawlers will glean from <a href=examples/event-plus-microdata.html>our sample event listing page</a>:
+<p><a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.info/examples/event-plus-microdata.html">According to Google&#8217;s Rich Snippets Testing Tool</a>, this is the information that Google&#8217;s crawlers will glean from <a href=examples/event-plus-microdata.html>our sample event listing page</a>:
 
 <pre><samp>Item
     <b>Type:</b> http://data-vocabulary.org/Event
     summary = Google Developer Day 2009 
     eventType = conference 
-    photo = http://diveintohtml5.org/examples/gdd-2009-prague-pilgrim.jpg 
+    photo = http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg 
     description = Google Developer Days are a chance to learn about Google developer products from the engineers who built them. This one-day conference includes seminars and office hours on web technologies like Goo... 
     startDate = 2009-11-06T08:30+01:00 
     endDate = 2009-11-06T20:30+01:00 
@@ -747,7 +747,7 @@ Excerpt from the page will show up here.</span><br>
 <tr><td class=padright><a href=http://code.google.com/intl/cs/events/developerday/2009/home.html>Google Developer Day 2009</a><td class="fakeinfo padright">Fri, Nov 6<td class=fakeinfo>Congress Center, Praha 4, Czech Republic
 <tr><td class=padright><a href=http://confoo.ca/en>ConFoo.ca 2010</a><td class="fakeinfo padright">Wed, Mar 10<td class=fakeinfo>Hilton Montreal Bonaventure, Montréal, Québec, Canada
 </table>
-<p><span class=fakeurl>diveintohtml5.org/examples/event-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+<p><span class=fakeurl>diveintohtml5.info/examples/event-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
 </blockquote>
 
 <p>After the page title and auto-generated excerpt text, Google starts using the microdata markup we added to the page to display a little table of events. Note the date format: &#8220;Fri, Nov 6.&#8221; That is not a string that appeared anywhere in our <abbr>HTML</abbr> or microdata markup. We used two fully qualified <abbr>ISO</abbr>-formatted strings, <code>2009-11-06T08:30+01:00</code> and <code>2009-11-06T20:30+01:00</code>. Google took those two dates, figured out that they were on the same day, and decided to display a single date in a more friendly format.
@@ -865,7 +865,7 @@ Excerpt from the page will show up here.</span><br>
 
 <p>In English, this says &#8220;the product I&#8217;m reviewing has a rating value of 9 on a scale of 0&ndash;10.&#8221;
 
-<p>Did I mention that review microdata could affect search result listings? Oh yes, it can. Here is the &#8220;raw data&#8221; that the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.org/examples/review-plus-microdata.html">Google Rich Snippets tool extracted from my microdata-enhanced review</a>:
+<p>Did I mention that review microdata could affect search result listings? Oh yes, it can. Here is the &#8220;raw data&#8221; that the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.info/examples/review-plus-microdata.html">Google Rich Snippets tool extracted from my microdata-enhanced review</a>:
 
 <pre><samp>Item
   <b>Type:</b> http://data-vocabulary.org/Review
@@ -900,7 +900,7 @@ Item
 <span class=fakeinfo><span class=fakestar>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span> Review by Mark Pilgrim - Mar 31, 2010</span><br>
 <span class=fakeexcerpt>Excerpt from the page will show up here.<br>
 Excerpt from the page will show up here.</span><br>
-<span class=fakeurl>diveintohtml5.org/examples/review-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+<span class=fakeurl>diveintohtml5.info/examples/review-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
 </blockquote>
 
 <p>Angle brackets don&#8217;t impress me much, but I have to admit, that&#8217;s pretty cool.
