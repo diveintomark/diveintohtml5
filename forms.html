@@ -194,7 +194,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>However, <abbr>HTML5</abbr> defines 13 new field types, and for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
 
-<p>The first of these new input types is for <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state>email addresses</a>. It looks like this:
+<p>The first of these new input types is for <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-(type=email)>email addresses</a>. It looks like this:
 
 <pre><code>&lt;form>
   <mark>&lt;input type="email"></mark>
@@ -415,7 +415,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id=type-color>Color Pickers</h2>
 
-<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&#8217;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&#8217;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href=http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color>Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
+<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#color-state-(type=color)><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&#8217;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&#8217;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href=http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color>Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
 
 <p class=c><img src=i/input-type-color.png alt="Opera rendering of input type=range field on multiple platforms" width=582 height=444><br><a href=examples/input-type-color.html>Test <code>type="color"</code> for yourself</a>.
 
