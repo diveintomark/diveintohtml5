@@ -110,12 +110,12 @@ body{counter-reset:h1 11}
 <pre><code>function swapPhoto(href) {
   var req = new XMLHttpRequest();
   req.open("GET",
-           "http://diveintohtml5.org/examples/history/gallery/" +
+           "http://diveintohtml5.info/examples/history/gallery/" +
              href.split("/").pop(),
            false);
   req.send(null);</code></pre>
 
-<p>Here is a sample of the markup returned by <code><a href=http://diveintohtml5.org/examples/history/gallery/casey.html>http://diveintohtml5.org/examples/history/gallery/casey.html</a></code>. (You can verify this in your browser by visiting that <abbr>URL</abbr> directly.)
+<p>Here is a sample of the markup returned by <code><a href=examples/history/gallery/casey.html>http://diveintohtml5.info/examples/history/gallery/casey.html</a></code>. (You can verify this in your browser by visiting that <abbr>URL</abbr> directly.)
 
 <pre><code>&lt;p class="photonav">
   &lt;a id="photonext" href="brandy.html">Next &amp;gt;&lt;/a>
@@ -170,16 +170,16 @@ body{counter-reset:h1 11}
 <p>To help you visualize this, let&#8217;s step through the entire illusion from the beginning to the end:
 
 <ul>
-<li>User loads <code><a href=http://diveintohtml5.org/examples/history/fer.html>http://diveintohtml5.org/examples/history/fer.html</a></code>, sees story and a photo of Fer.
-<li>User clicks the link labeled &#8220;Next,&#8221; an <code>&lt;a></code> element whose <code>href</code> property is <code><a href=http://diveintohtml5.org/examples/history/casey.html>http://diveintohtml5.org/examples/history/casey.html</a></code>.
-<li>Instead of navigating <code><a href=http://diveintohtml5.org/examples/history/casey.html>http://diveintohtml5.org/examples/history/casey.html</a></code> with a full page refresh, the custom <code>click</code> handler on the <code>&lt;a></code> element traps the click and executes its own code.
-<li>Our custom <code>click</code> handler calls the <code>swapPhoto()</code> function, which creates an <code>XMLHttpRequest</code> object to synchronously download the <abbr>HTML</abbr> snippet located at <code><a href=http://diveintohtml5.org/examples/history/gallery/casey.html>http://diveintohtml5.org/examples/history/<strong>gallery</strong>/casey.html</a></code>.
+<li>User loads <code><a href=examples/history/fer.html>http://diveintohtml5.info/examples/history/fer.html</a></code>, sees story and a photo of Fer.
+<li>User clicks the link labeled &#8220;Next,&#8221; an <code>&lt;a></code> element whose <code>href</code> property is <code><a href=examples/history/casey.html>http://diveintohtml5.info/examples/history/casey.html</a></code>.
+<li>Instead of navigating <code><a href=examples/history/casey.html>http://diveintohtml5.info/examples/history/casey.html</a></code> with a full page refresh, the custom <code>click</code> handler on the <code>&lt;a></code> element traps the click and executes its own code.
+<li>Our custom <code>click</code> handler calls the <code>swapPhoto()</code> function, which creates an <code>XMLHttpRequest</code> object to synchronously download the <abbr>HTML</abbr> snippet located at <code><a href=examples/history/gallery/casey.html>http://diveintohtml5.info/examples/history/<strong>gallery</strong>/casey.html</a></code>.
 <li>The <code>swapPhoto()</code> function sets the <code>innerHTML</code> property of the photo gallery wrapper (an <code>&lt;aside></code> element), thereby replacing the captioned photo of Fer with a captioned photo of Casey.
-<li>Finally, our custom <code>click</code> handler calls the <code>history.pushState()</code> function to manually change the <abbr>URL</abbr> in the browser&#8217;s location bar to <code><a href=http://diveintohtml5.org/examples/history/casey.html>http://diveintohtml5.org/examples/history/casey.html</a></code>.
+<li>Finally, our custom <code>click</code> handler calls the <code>history.pushState()</code> function to manually change the <abbr>URL</abbr> in the browser&#8217;s location bar to <code><a href=examples/history/casey.html>http://diveintohtml5.info/examples/history/casey.html</a></code>.
 <li>User clicks the browser&#8217;s back button.
-<li>The browser notices that a <abbr>URL</abbr> has been manually pushed onto the history stack (by the <code>history.pushState()</code> function). Instead of navigating to the previous <abbr>URL</abbr> and redrawing the entire page, the browser simply updates the location bar to the previous <abbr>URL</abbr> (<code><a href=http://diveintohtml5.org/examples/history/fer.html>http://diveintohtml5.org/examples/history/fer.html</a></code>) and fires a <code>popstate</code> event.
+<li>The browser notices that a <abbr>URL</abbr> has been manually pushed onto the history stack (by the <code>history.pushState()</code> function). Instead of navigating to the previous <abbr>URL</abbr> and redrawing the entire page, the browser simply updates the location bar to the previous <abbr>URL</abbr> (<code><a href=examples/history/fer.html>http://diveintohtml5.info/examples/history/fer.html</a></code>) and fires a <code>popstate</code> event.
 <li>Our custom <code>popstate</code> handler calls the <code>swapPhoto()</code> function again, this time with the previous <abbr>URL</abbr> that by now is already visible in the browser&#8217;s location bar.
-<li>Again using <code>XMLHttpRequest</code>, the <code>swapPhoto()</code> function downloads a snippet of <abbr>HTML</abbr> located at <code><a href=http://diveintohtml5.org/examples/history/gallery/fer.html>http://diveintohtml5.org/examples/history/<strong>gallery</strong>/fer.html</a></code> and sets the <code>innerHTML</code> property of the <code>&lt;aside></code> wrapper element, thereby replacing the captioned photo of Casey with a captioned photo of Fer.
+<li>Again using <code>XMLHttpRequest</code>, the <code>swapPhoto()</code> function downloads a snippet of <abbr>HTML</abbr> located at <code><a href=examples/history/gallery/fer.html>http://diveintohtml5.info/examples/history/<strong>gallery</strong>/fer.html</a></code> and sets the <code>innerHTML</code> property of the <code>&lt;aside></code> wrapper element, thereby replacing the captioned photo of Casey with a captioned photo of Fer.
 </ul>
 
 <p>The illusion is complete. All visible evidence (the content of the page, and the <abbr>URL</abbr> in the location bar) suggests to the user that they have navigated forward one page and backward one page. But no full page refresh ever occurred &mdash; it was all a meticulously executed illusion.
