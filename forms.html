@@ -28,23 +28,23 @@ body{counter-reset:h1 9}
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
-<tr><td>10.0+<td>3.7+<td>4.0+<td>4.0+<td>11.0+<td>4.0+<td>2.1+
+<tr><td>10.0+<td>4.0+<td>4.0+<td>4.0+<td>11.0+<td>4.0+<td>2.1+
 </table>
 
-<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty. As soon as you click on (or tab to) the input field and type in, the placeholder text disappears.
+<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty. When you click on (or tab to) the input field and start typing, the placeholder text disappears.
 
-<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox includes placeholder text in the location bar that reads &#8220;Search Bookmarks and History&#8221;:
+<p>You&#8217;ve probably seen placeholder text before. For example, Mozilla Firefox includes placeholder text in the location bar that reads &#8220;Go to a Website&#8221;:
 
-<p class=c><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
+<p class=c><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=280 height=40>
 
 <p>When you click on (or tab to) the location bar, the placeholder text disappears:
 
-<p class=c><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
+<p class=c><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=280 height=40>
 
 <p>Here&#8217;s how you can include placeholder text in your own web forms:
 
 <pre><code>&lt;form>
-  &lt;input name="q" <mark>placeholder="Search Bookmarks and History"</mark>>
+  &lt;input name="q" <mark>placeholder="Go to a Website"</mark>>
   &lt;input type="submit" value="Search">
 &lt;/form></code></pre>
 
