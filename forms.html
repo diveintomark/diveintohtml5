@@ -317,14 +317,14 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <table class=bc>
 <caption>Date picker support</caption>
 <thead>
-<tr><th style="text-align:left">Input Type<th>Opera<th>Every other browser
+<tr><th style="text-align:left">Input Type<th>Opera<th>iPhone<th>Other browsers
 <tbody>
-<tr><th><code>type="date"</code><td>9.0+<td>&middot;
-<tr><th><code>type="month"</code><td>9.0+<td>&middot;
-<tr><th><code>type="week"</code><td>9.0+<td>&middot;
-<tr><th><code>type="time"</code><td>9.0+<td>&middot;
-<tr><th><code>type="datetime"</code><td>9.0+<td>&middot;
-<tr><th><code>type="datetime-local"</code><td>9.0+<td>&middot;
+<tr><th><code>type="date"</code><td>9.0+<td>5.0+<td>&middot;
+<tr><th><code>type="datetime"</code><td>9.0+<td>5.0+<td>&middot;
+<tr><th><code>type="datetime-local"</code><td>9.0+<td>5.0+<td>&middot;
+<tr><th><code>type="month"</code><td>9.0+<td>5.0+<td>&middot;
+<tr><th><code>type="week"</code><td>9.0+<td>5.0+<td>&middot;
+<tr><th><code>type="time"</code><td>9.0+<td>5.0+<td>&middot;
 </table>
 
 <p>This is how Opera renders <a href=examples/input-type-date.html><code>&lt;input type="date"></code></a>:
@@ -357,7 +357,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <p><img src=i/input-type-time.png alt="Opera's type=time picker" width=98 height=22>
 </blockquote>
 
-<p>It&#8217;s likely that other browsers will eventually support these input types. But just like <a href=#type-email><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&#8217;t recognize <code>type="date"</code> and the other variants. If you like, you can simply use <code>&lt;input type="date"></code> and friends, make Opera users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"></code>, <a href=detect.html#input-types>detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href=http://docs.dojocampus.org/dijit/form/DateTextBox>Dojo</a>, <a href=http://docs.jquery.com/UI/Datepicker>jQuery UI</a>, <a href=http://developer.yahoo.com/yui/calendar/>YUI</a>, <a href=http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html>Closure Library</a>, or some other solution).
+<p>It&#8217;s likely that other browsers will eventually support these input types. But just like <a href=#type-email><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&#8217;t recognize <code>type="date"</code> and the other variants. If you like, you can simply use <code>&lt;input type="date"></code> and friends, make Opera and iOS users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"></code>, <a href=detect.html#input-types>detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href=http://docs.dojocampus.org/dijit/form/DateTextBox>Dojo</a>, <a href=http://docs.jquery.com/UI/Datepicker>jQuery UI</a>, <a href=http://developer.yahoo.com/yui/calendar/>YUI</a>, <a href=http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html>Closure Library</a>, or some other solution).
 
 <p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> Date picker with fallback
 <pre><code>&lt;form>
