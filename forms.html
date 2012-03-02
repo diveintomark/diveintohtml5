@@ -470,7 +470,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
-<tr><td>&middot;<td>4.0+<td>&middot;<td>10.0+<td>9.0+<td>&middot;<td>&middot;
+<tr><td>10.0+<td>4.0+<td>&middot;<td>10.0+<td>9.0+<td>&middot;<td>&middot;
 </table>
 
 <p><a href=#validation><abbr>HTML5</abbr> form validation</a> isn&#8217;t limited to the type of each field. You can also specify that certain fields are required. Required fields must have a value before you can submit the form.
@@ -482,9 +482,9 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
   &lt;input type="submit" value="Search">
 &lt;/form></code></pre>
 
-<p class="clear"><a href=examples/input-required.html>Test <code>&lt;input required></code> in your own browser</a>. Browsers may alter the default appearance of required fields. For example, this is what a required field looks like in Mozilla Firefox 4.0:
+<p class="clear"><a href=examples/input-required.html>Test <code>&lt;input required></code> in your own browser</a>. Browsers may supply additional information to required fields. For example, to hover over required field a popup will show up in Mozilla Firefox:
 
-<p class=c><img src=i/input-required.png alt="default appearance of required fields in Firefox" width=250 height=122>
+<p class=c><img src=i/input-required.png alt="a popup show up on required fields in Firefox" width=250 height=122>
 
 <p>Furthermore, if you attempt to submit the form without filling in the required value, Firefox will pop up an infobar telling you that the field is mandatory and can not be left blank.
 
