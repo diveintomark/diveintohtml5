@@ -9,7 +9,7 @@ body{counter-reset:h1 1}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#history>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#past>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
 <h1><br>How Did We Get Here?</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
@@ -220,7 +220,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <p class=ss><img src=i/openclipart.org_johnny_automatic_Corsican_Pine.png width=216 height=405 alt="pine tree">
 
 <ul> 
-<li>HTTP still exists. HTTP successfully evolved from 0.9 into 1.0 and later 1.1. <a href="http://www.ietf.org/dyn/wg/charter/httpbis-charter.html">And still it evolves</a>. 
+<li>HTTP still exists. HTTP successfully evolved from 0.9 into 1.0 and later 1.1. <a href="http://datatracker.ietf.org/wg/httpbis/charter/">And still it evolves</a>. 
 <li>HTML still exists. That rudimentary data format &mdash; it didn&#8217;t even support inline images! &mdash; successfully evolved into 2.0, 3.2, 4.0. HTML is an unbroken line. A twisted, knotted, snarled line, to be sure. There were plenty of &#8220;dead branches&#8221; in the evolutionary tree, places where standards-minded people got ahead of themselves (and ahead of authors and implementors). But still. Here we are, in 2010, and <a href="http://www.w3.org/People/Berners-Lee/FAQ.html#Examples">web pages from 1990</a> still render in modern browsers. I just loaded one up in the browser of my state-of-the-art Android mobile phone, and I didn&#8217;t even get prompted to &#8220;please wait while importing legacy format&#8230;&#8221; 
 <li>HTML has always been a conversation between browser makers, authors, standards wonks, and other people who just showed up and liked to talk about angle brackets. Most of the successful versions of HTML have been &#8220;retro-specs,&#8221; catching up to the world while simultaneously trying to nudge it in the right direction. Anyone who tells you that HTML should be kept &#8220;pure&#8221; (presumably by ignoring browser makers, or ignoring authors, or both) is simply misinformed. HTML has never been pure, and all attempts to purify it have been spectacular failures, matched only by the attempts to replace it. 
 <li>None of the browsers from 1993 still exist in any recognizable form. Netscape Navigator was <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Open_sourcing_of_Communicator">abandoned in 1998</a> and <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Rewriting_from_scratch">rewritten from scratch</a> to create the Mozilla Suite, which was then <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Firefox">forked to create Firefox</a>. Internet Explorer had its humble &#8220;beginnings&#8221; in &#8220;Microsoft Plus! for Windows 95,&#8221; where it was bundled with some desktop themes and a pinball game. (But of course that browser <a href="http://en.wikipedia.org/wiki/Spyglass_Mosaic">can be traced back further too</a>.) 
@@ -231,7 +231,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
  
 <p>But none of this answers the original question: why do we have an <code>&lt;img></code> element? Why not an <code>&lt;icon></code> element? Or an <code>&lt;include></code> element? Why not a hyperlink with an <code>include</code> attribute, or some combination of <code>rel</code> values? Why an <code>&lt;img></code> element? Quite simply, because Marc Andreessen shipped one, and shipping code wins. 
  
-<p>That&#8217;s not to say that <em>all</em> shipping code wins; after all, Andrew and Intermedia and HyTime shipped code too. Code is necessary but not sufficient for success. And I <em>certainly</em> don&#8217;t mean to say that shipping code before a standard will produce the best solution. Marc&#8217;s <code>&lt;img></code> element didn&#8217;t mandate a common graphics format; it didn&#8217;t define how text flowed around it; it didn&#8217;t support text alternatives or fallback content for older browsers. And 17 years later, <a href="http://tools.ietf.org/html/draft-abarth-mime-sniff">we&#8217;re still struggling with content sniffing</a>, and <a href="http://www.securityfocus.com/archive/1/503867">it&#8217;s still a source of crazy security vulnerabilities</a>. And you can trace that all the way back, 17 years, through the <a href="http://en.wikipedia.org/wiki/Browser_wars">Great Browser Wars</a>, all the way back to February 25, 1993, when Marc Andreessen offhandedly remarked, &#8220;MIME, someday, maybe,&#8221; and then shipped his code anyway. 
+<p>That&#8217;s not to say that <em>all</em> shipping code wins; after all, Andrew and Intermedia and HyTime shipped code too. Code is necessary but not sufficient for success. And I <em>certainly</em> don&#8217;t mean to say that shipping code before a standard will produce the best solution. Marc&#8217;s <code>&lt;img></code> element didn&#8217;t mandate a common graphics format; it didn&#8217;t define how text flowed around it; it didn&#8217;t support text alternatives or fallback content for older browsers. And 17 years later, <a href="http://mimesniff.spec.whatwg.org/">we&#8217;re still struggling with content sniffing</a>, and <a href="http://www.securityfocus.com/archive/1/503867">it&#8217;s still a source of crazy security vulnerabilities</a>. And you can trace that all the way back, 17 years, through the <a href="http://en.wikipedia.org/wiki/Browser_wars">Great Browser Wars</a>, all the way back to February 25, 1993, when Marc Andreessen offhandedly remarked, &#8220;MIME, someday, maybe,&#8221; and then shipped his code anyway. 
  
 <p>The ones that win are the ones that ship. 
 
@@ -241,7 +241,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>In December 1997, the World Wide Web Consortium (W3C) published <a href=http://www.w3.org/TR/REC-html40-971218/><abbr>HTML</abbr> 4.0</a> and promptly shut down the <abbr>HTML</abbr> Working Group. Less than two months later, a separate <abbr>W3C</abbr> Working Group published <a href=http://www.w3.org/TR/1998/REC-xml-19980210><abbr>XML</abbr> 1.0</a>. A mere three months after that, the people who ran the W3C held a workshop called &#8220;<a href=http://www.w3.org/MarkUp/future/>Shaping the Future of <abbr>HTML</abbr></a>&#8221; to answer the question, &#8220;Has W3C given up on HTML?&#8221; This was their answer:
 
-<blockquote cite=http://esw.w3.org/topic/HTML/history>
+<blockquote cite=http://www.w3.org/html/wg/wiki/History>
 <p>In discussions, it was agreed that further extending <abbr>HTML</abbr> 4.0 would be difficult, as would converting 4.0 to be an <abbr>XML</abbr> application. The proposed way to break free of these restrictions is to make a fresh start with the next generation of HTML based upon a suite of <abbr>XML</abbr> tag-sets.
 </blockquote>
 
@@ -261,7 +261,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <h2 id=xhtml>Everything you know about XHTML is wrong</h2>
 
-<p>Why are <abbr>MIME</abbr> types important? Why do I keep coming back to them? Three words: <a href=http://esw.w3.org/topic/HTML/DraconianErrorHandling>draconian error handling</a>. Browsers have always been &#8220;forgiving&#8221; with <abbr>HTML</abbr>. If you create an <abbr>HTML</abbr> page but forget the <code>&lt;/head></code> tag, browsers will display the page anyway. (Certain tags implicitly trigger the end of the <code>&lt;head></code> and the start of the <code>&lt;body></code>.) You are supposed to nest tags hierarchically &mdash; closing them in last-in-first-out order &mdash; but if you create markup like <code>&lt;b>&lt;i>&lt;/b>&lt;/i></code>, browsers will just deal with it (somehow) and move on without displaying an error message.
+<p>Why are <abbr>MIME</abbr> types important? Why do I keep coming back to them? Three words: <a href=http://www.w3.org/html/wg/wiki/DraconianErrorHandling>draconian error handling</a>. Browsers have always been &#8220;forgiving&#8221; with <abbr>HTML</abbr>. If you create an <abbr>HTML</abbr> page but forget the <code>&lt;/head></code> tag, browsers will display the page anyway. (Certain tags implicitly trigger the end of the <code>&lt;head></code> and the start of the <code>&lt;body></code>.) You are supposed to nest tags hierarchically &mdash; closing them in last-in-first-out order &mdash; but if you create markup like <code>&lt;b>&lt;i>&lt;/b>&lt;/i></code>, browsers will just deal with it (somehow) and move on without displaying an error message.
 
 <p style="float:left;margin-right:1.75em"><img src=i/openclipart.org_johnny_automatic_3_birds.png width=187 height=362 alt="three birds laughing">
 
@@ -365,7 +365,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <ul>
 <li><a href=http://hixie.ch/commentary/web/history>The History of the Web</a>, an old draft by Ian Hickson
-<li><a href=http://esw.w3.org/topic/HTML/history>HTML/History</a>, by Michael Smith, Henri Sivonen, and others
+<li><a href=http://www.w3.org/html/wg/wiki/History>HTML/History</a>, by Michael Smith, Henri Sivonen, and others
 <li><a href=http://www.atendesigngroup.com/blog/brief-history-of-html>A Brief History of HTML</a>, by Scott Reynen
 </ul>
 
