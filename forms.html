@@ -430,7 +430,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
-<tr><td>&middot;<td>4.0+<td>5.0+<td>10.0+<td>9.0+<td>&middot;<td>&middot;
+<tr><td>10.0+<td>4.0+<td>5.0+<td>10.0+<td>9.0+<td>&middot;<td>&middot;
 </table>
 
 <p>In this chapter, I&#8217;ve talked about new input types and new features like auto-focus form fields, but I haven&#8217;t mentioned what is perhaps the most exciting part of <abbr>HTML5</abbr> forms: automatic input validation. Consider the common problem of entering an email address into a web form. You probably have some client-side validation in JavaScript, followed by server-side validation in PHP or Python or some other server-side scripting language. <abbr>HTML5</abbr> can never replace your server-side validation, but it might someday replace your client-side validation.
@@ -445,13 +445,13 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <p>Seriously, you&#8217;ll get it wrong. Determining whether a random string of characters is a valid email address <a href="http://www.regular-expressions.info/email.html">is unbelievably complicated</a>. The harder you look, <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">the more complicated it gets</a>. Did I mention it&#8217;s <a href="http://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx">really, really complicated</a>? Wouldn&#8217;t it be easier to offload the entire headache to your browser?
 
 <p class="legend top" style="width:500px;text-align:center">Most modern browsers validate type=&#8220;email&#8221; <span class=arrow>&#x21b7;</span><br></p>
-<p class=c><img src=i/input-type-email-validation.png alt="error message on invalid type=email field" width=243 height=76>
+<p class=c><img src=i/input-type-email-validation.png alt="error message on invalid type=email field" width=217 height=62>
 
-<p>That screenshot is from Opera 10, although the functionality has been present since Opera 9. <a href=http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/>Firefox 4 and Chrome 10 provide similar functionality</a>. The only markup involved is <a href=#type-email>setting the <code>type</code> attribute to <code>"email"</code></a>. When the user tries to submit a form with an <code>&lt;input type="email"></code> field, the browser automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled.
+<p>That screenshot is from Opera 11, although the functionality has been present since Opera 9. <a href=http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/>Firefox 4 and Chrome 10 provide similar functionality</a>. The only markup involved is <a href=#type-email>setting the <code>type</code> attribute to <code>"email"</code></a>. When the user tries to submit a form with an <code>&lt;input type="email"></code> field, the browser automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled.
 
 <p><abbr>HTML5</abbr> also offers validation of web addresses entered into <code>&lt;input type="url"></code> fields, and numbers in <code>&lt;input type="number"></code> fields. The validation of numbers even takes into account the <code>min</code> and <code>max</code> attributes, so browsers will not let you submit the form if you enter a number that is too large.
 
-<p class=c><img src=i/input-type-number-validation.png alt="error message on invalid type=number field" width=135 height=76>
+<p class=c><img src=i/input-type-number-validation.png alt="error message on invalid type=number field" width=260 height=75>
 
 <p>There is no markup required to activate <abbr>HTML5</abbr> form validation; it is on by default. To turn it off, use the <code>novalidate</code> attribute.
 
