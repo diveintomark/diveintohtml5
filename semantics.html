@@ -197,7 +197,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I make up my own link relations?<br>
-<p>A: There seems to be an infinite supply of ideas for new link relations. In an attempt to prevent people from <a href=http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4>just making shit up</a>, the WHATWG <a href=http://wiki.whatwg.org/wiki/RelExtensions>maintains a registry of proposed <code>rel</code> values</a> and <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#other-link-types>defines the process for getting them accepted</a>.
+<p>A: There seems to be an infinite supply of ideas for new link relations. In an attempt to prevent people from <a href=http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4>just making shit up</a>, the microformats community <a href=http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions>maintains a registry of proposed <code>rel</code> values</a> and the HTML specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#other-link-types>defines the process for getting them accepted</a>.
 </blockquote>
 </div>
 </div>
@@ -300,7 +300,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
 
-<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/seamonkey/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:
+<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/mozilla-central/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:
 
 <ol>
 <li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font. But what default styles should be applied to unknown elements?</li>
@@ -340,9 +340,9 @@ footer,header,hgroup,menu,nav,section {
 &lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
 &lt;/article></code></pre>
 
-<p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>Internet Explorer 9 fixes this problem</a>.
+<p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>Internet Explorer 9 fixes this problem</a>.
 
-<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
+<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
 <p>Here is some righteous <abbr>ASCII</abbr> art to illustrate the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
 
@@ -410,7 +410,7 @@ p (sibling of h1)
 &lt;/script>
 &lt;![endif]--></code></pre>
 
-<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
+<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
 
 <p>The JavaScript code itself is relatively straightforward. The variable <var>e</var> ends up as an array of strings like <code>"abbr"</code>, <code>"article"</code>, <code>"aside"</code>, and so on. Then we loop through this array and create each of the named elements by calling <code>document.createElement()</code>. But since we ignore the return value, the elements are never inserted into the <abbr>DOM</abbr>. But this is enough to get Internet Explorer to treat these elements the way we want them to be treated, once we actually use them later in the page.
 
@@ -643,7 +643,7 @@ p (sibling of h1)
   October 22, 2009 1:59pm EDT
 &lt;/time></code></pre>
 
-<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string>contains examples of valid date/time strings</a>.)
+<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#datetime-value>contains examples of valid date/time strings</a>.)
 
 <p>Notice I changed the text content &mdash; the stuff between <code>&lt;time></code> and <code>&lt;/time></code> &mdash; to match the machine-readable timestamp. This is not actually required. The text content can be anything you like, as long as you provide a machine-readable date/timestamp in the <code>datetime</code> attribute. So this is valid <abbr>HTML5</abbr>:
 
@@ -838,22 +838,23 @@ p (sibling of h1)
 <p>On character encoding:
 
 <ul>
-<li><a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a> by <cite>Joel Spolsky</cite>
-<li><a href="http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode">On the Goodness of Unicode</a>, <a href="http://www.tbray.org/ongoing/When/200x/2003/04/13/Strings">On Character Strings</a>, and <a href="http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF">Characters vs. Bytes</a> by <cite>Tim Bray</cite>
+<li><a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a> by Joel Spolsky
+<li><a href="http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode">On the Goodness of Unicode</a>, <a href="http://www.tbray.org/ongoing/When/200x/2003/04/13/Strings">On Character Strings</a>, and <a href="http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF">Characters vs. Bytes</a> by Tim Bray
 </ul>
 
 <p>On enabling new <abbr>HTML5</abbr> in Internet Explorer:
 
 <ul>
-<li><a href=http://xopus.com/devblog/2008/style-unknown-elements.html>How to style unknown elements in IE</a> by <cite>Sjoerd Visscher</cite>
-<li><a href=http://ejohn.org/blog/html5-shiv/><abbr>HTML5</abbr> shiv</a> by <cite>John Resig</cite>
-<li><a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a> by <cite>Remy Sharp</cite>
+<li><a href=http://xopus.com/devblog/2008/style-unknown-elements.html>How to style unknown elements in IE</a> by Sjoerd Visscher
+<li><a href=http://ejohn.org/blog/html5-shiv/><abbr>HTML5</abbr> shiv</a> by John Resig
+<li><a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a> by Remy Sharp
+<li><a href=http://paulirish.com/2011/the-history-of-the-html5-shiv/>The Story of the <abbr>HTML5</abbr> Shiv</a> by Paul Irish
 </ul>
 
 <p>On standards modes and doctype sniffing:
 
 <ul>
-<li><a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a> by <cite>Henri Sivonen</cite>. This is the only article you should read on the subject. Any article on doctypes that doesn&#8217;t reference Henri&#8217;s work is guaranteed to be out of date, incomplete, or wrong.
+<li><a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a> by Henri Sivonen. This is the only article you should read on the subject. Any article on doctypes that doesn&#8217;t reference Henri&#8217;s work is guaranteed to be out of date, incomplete, or wrong.
 </ul>
 
 <p><abbr>HTML5</abbr>-aware validator:
