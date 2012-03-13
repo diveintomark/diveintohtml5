@@ -5,7 +5,7 @@ function supports_history_api() {
 function swapPhoto(href) {
   var req = new XMLHttpRequest();
   req.open("GET",
-           "http://diveintohtml5.org/examples/history/gallery/" +
+           "http://diveintohtml5.info/examples/history/gallery/" +
              href.split("/").pop(),
            false);
   req.send(null);
