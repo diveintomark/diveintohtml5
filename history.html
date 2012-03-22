@@ -60,6 +60,16 @@ body{counter-reset:h1 11}
 
 <p><a href=examples/history/fer.html>dive into dogs</a> is a straightforward but non-trivial example of using the <abbr>HTML5</abbr> history <abbr>API</abbr>. It demonstrates a common pattern: a long article with an associated inline photo gallery. In a supported browser, navigating the Next and Previous links in the photo gallery will update the photo in place <em>and update the <abbr>URL</abbr> in the browser location bar</em>, without triggering a full page refresh. In unsupported browsers &mdash; or, indeed, supported browsers where the user has disabled scripting &mdash; the links simply function as regular links, taking you to a new page with a full page refresh.
 
+<p>This brings up an important point:
+
+<div class=pf>
+<h4>Professor Markup Says</h4>
+<div class=inner>
+<blockquote><p>If your web application fails in browsers with scripting disabled, Jakob Nielsen&#8217;s dog will come to your house and shit on your carpet.
+</blockquote>
+</div>
+</div>
+
 <p id=gallery-markup>Let&#8217;s dig into the <a href=examples/history/fer.html>dive into dogs</a> demo and see how it works. This is the relevant markup for a single photo:
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> The pledge

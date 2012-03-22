@@ -30,7 +30,7 @@ table.faketable{border-collapse:collapse}
 
 <p class=f><img src=i/aoc-t.png alt=T width=107 height=105>here are <a href=http://simon.html5.org/html5-elements>over 100 elements</a> in <abbr>HTML5</abbr>. Some are <a href=semantics.html>purely semantic</a>, others are <a href=canvas.html>just containers for scripted <abbr>APIs</abbr></a>. Throughout <a href=past.html>the history of <abbr>HTML</abbr></a>, standards wonks have argued about which elements should be included in the language. Should <abbr>HTML</abbr> include a <code>&lt;figure></code> element? A <code>&lt;person></code> element? How about a <code>&lt;rant></code> element? Decisions are made, specs are written, authors author, implementors implement, and the web lurches ever forward.
 
-<p>Of course, <abbr>HTML</abbr> can&#8217;t please everyone. No standard can. Some ideas don&#8217;t make the cut. For example, there is no <code>&lt;person></code> element in <abbr>HTML5</abbr>. (There&#8217;s no <code>&lt;rant></code> element either) There&#8217;s nothing stopping you from including a <code>&lt;person></code> element in a web page, but <a href=http://html5.validator.nu/>it won&#8217;t validate</a>, <a href=semantics.html#unknown-elements>it won&#8217;t work consistently across browsers</a>, and it might conflict with future <abbr>HTML</abbr> specs if we want to add it later.
+<p>Of course, <abbr>HTML</abbr> can&#8217;t please everyone. No standard can. Some ideas don&#8217;t make the cut. For example, there is no <code>&lt;person></code> element in <abbr>HTML5</abbr>. (There&#8217;s no <code>&lt;rant></code> element either, damn it!) There&#8217;s nothing stopping you from including a <code>&lt;person></code> element in a web page, but <a href=http://html5.validator.nu/>it won&#8217;t validate</a>, <a href=semantics.html#unknown-elements>it won&#8217;t work consistently across browsers</a>, and it might conflict with future <abbr>HTML</abbr> specs if we want to add it later.
 
 <p>Right, so if making up your own elements isn&#8217;t the answer, what&#8217;s a semantically inclined web author to do? There have been attempts to extend previous versions of <abbr>HTML</abbr>. The most popular method is <a href=http://microformats.org/>microformats</a>, which uses the <code>class</code> and <code>rel</code> attributes in <abbr>HTML</abbr>. Another option is <a href=http://www.w3.org/TR/rdfa-syntax/>RDFa</a>, which was originally designed to be used in <a href=past.html#postscript><abbr>XHTML</abbr></a> but has <a href=http://www.w3.org/TR/rdfa-in-html/>been ported to <abbr>HTML</abbr></a> as well.
 
@@ -134,7 +134,7 @@ table.faketable{border-collapse:collapse}
 
 <pre><code>  &lt;TR>&lt;TD>Name&lt;TD <mark>itemprop="name"</mark>>Mark Pilgrim</code></pre>
 
-<p>Adding the <code>url</code> property looks trickier. This markup doesn&#8217;t use the <code>&lt;a></code> element properly. Instead of putting the link target in the <code>href</code> attribute, it has nothing useful in the <code>href</code> attribute and uses Javascript in the <code>onclick</code> attribute to call a function (not shown) that extracts the <abbr>URL</abbr> and navigates to it. For extra &#8220;please stop doing that&#8221; bonus points, let&#8217;s pretend that the function also opens the link in a tiny popup window with no scroll bars. Wasn&#8217;t the internet fun last century?
+<p>Adding the <code>url</code> property looks trickier. This markup doesn&#8217;t use the <code>&lt;a></code> element properly. Instead of putting the link target in the <code>href</code> attribute, it has nothing useful in the <code>href</code> attribute and uses Javascript in the <code>onclick</code> attribute to call a function (not shown) that extracts the <abbr>URL</abbr> and navigates to it. For extra &#8220;holy fuck, please stop doing that&#8221; bonus points, let&#8217;s pretend that the function also opens the link in a tiny popup window with no scroll bars. Wasn&#8217;t the internet fun last century?
 
 <p>Anyway, you can still convert this into a microdata property, you just need to be a little creative. Using the <code>&lt;a></code> element directly is out of the question. The link target isn&#8217;t in the <code>href</code> attribute, and there&#8217;s no way to override the rule that says &#8220;in an <code>&lt;a></code> element, look for the microdata property value in the <code>href</code> attribute.&#8221; But you <em>can</em> add a wrapper element around the entire mess, and use that to add the <code>url</code> microdata property.
 
@@ -546,7 +546,7 @@ A: &#8220;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 
 <h2 id=event>Marking Up Events</h2>
 
-<p>Events happen. Some events happen at pre-determined times. Wouldn&#8217;t it be nice if you could tell search engines exactly when an event was about to happen? There&#8217;s an angle bracket for that.
+<p>Shit happens. Some shit happens at pre-determined times. Wouldn&#8217;t it be nice if you could tell search engines exactly when shit was about to happen? There&#8217;s an angle bracket for that.
 
 <p>Let&#8217;s start by looking at <a href=examples/event.html>a sample schedule of my speaking engagements</a>.
 
