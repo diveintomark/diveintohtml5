@@ -120,7 +120,7 @@ body{counter-reset:h1 5}
  
 <h3 id=aac>Advanced Audio Coding</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Selected songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/Licensing/AAC_fees.cfm>licensing rates are available online</a>. 
+<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Selected songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/licensing/aac-fees.aspx>licensing rates are available online</a>. 
  
 <p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbps.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
  
@@ -159,9 +159,10 @@ body{counter-reset:h1 5}
 <tr><th style="text-align:left">Codecs/container<th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
-<tr><th>H.264+AAC+MP4<td>&middot;<td>&middot;<td>3.0+<td>5.0&ndash;?&Dagger;<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>&middot;<td>&middot;<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
+<tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>5.0&ndash;?&Dagger;<td>&middot;<td>3.0+<td>2.0+
+<tr><th>WebM<td>9.0+<sup>*</sup><td>&middot;<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
 <tfoot>
+<tr><td colspan=8 style="text-align:left">* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221;.
 <tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play. QuickTime comes pre-installed with H.264/AAC/MP4 support. There are installable third-party plugins that add support for Theora and WebM, but each user needs to install these plugins before Safari will recognize those video formats.
 <tr><td colspan=8 style="text-align:left">&Dagger; Google Chrome will <a href=http://blog.chromium.org/2011/01/html-video-codec-support-in-chrome.html>drop support for H.264</a> soon. <a href=http://blog.chromium.org/2011/01/more-about-chrome-html-video-codec.html>Read about why</a>.
 </table>
@@ -175,9 +176,8 @@ body{counter-reset:h1 5}
 <tbody>
 <tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
 <tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>&middot;<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>&nbsp;9.0+<sup>*</sup><td>4.0+<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>2.3&Dagger;<sup>
+<tr><th>WebM<td>&nbsp;9.0+<td>4.0+<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>2.3&Dagger;<sup>
 <tfoot>
-<tr><td colspan=8 style="text-align:left">* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221; which implies that Microsoft will not be shipping the codec themselves.
 <tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play, but QuickTime only comes with H.264/AAC/MP4 support pre-installed.
 <tr><td colspan=8 style="text-align:left">&Dagger; Although Android 2.3 supports WebM, there are no hardware decoders yet, so battery life is a concern.
 </table>

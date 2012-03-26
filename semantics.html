@@ -197,7 +197,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I make up my own link relations?<br>
-<p>A: There seems to be an infinite supply of ideas for new link relations. In an attempt to prevent people from <a href=http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4>just making shit up</a>, the WHATWG <a href=http://wiki.whatwg.org/wiki/RelExtensions>maintains a registry of proposed <code>rel</code> values</a> and <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#other-link-types>defines the process for getting them accepted</a>.
+<p>A: There seems to be an infinite supply of ideas for new link relations. In an attempt to prevent people from <a href=http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4>just making shit up</a>, the microformats community <a href=http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions>maintains a registry of proposed <code>rel</code> values</a> and the HTML specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#other-link-types>defines the process for getting them accepted</a>.
 </blockquote>
 </div>
 </div>
@@ -231,15 +231,12 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p><code>rel="author"</code> is used to link to information about the author of the page. This can be a <code>mailto:</code> address, though it doesn&#8217;t have to be. It could simply link to a contact form or &#8220;about the author&#8221; page.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-external>rel="external"</a> &#8220;indicates that the link is leading to a document that is not part of the site that the current document forms a part of.&#8221; I believe it was first popularized by <a href=http://www.wordpress.org/>WordPress</a>, which uses it on links left by commenters.
-
 <p class=ss style="width:313px"><img src=i/openclipart.org_johnny_automatic_girl_feeding_birds.png width=313 height=384 alt="girl feeding birds">
 
-<p>HTML 4 defined <a href=http://www.w3.org/TR/html401/types.html#type-links><code>rel="start"</code>, <code>rel="prev"</code>, and <code>rel="next"</code></a> to define relations between pages that are part of a series (like chapters of a book, or even posts on a blog). The only one that was ever used correctly was <code>rel="next"</code>. People used <code>rel="previous"</code> instead of <code>rel="prev"</code>; they used <code>rel="begin"</code> and <code>rel="first"</code> instead of <code>rel="start"</code>; they used <code>rel="end"</code> instead of <code>rel="last"</code>. Oh, and &mdash; all by themselves &mdash; they made up <code>rel="up"</code> to point to a &#8220;parent&#8221; page.
+<p>HTML 4 defined <a href=http://www.w3.org/TR/html401/types.html#type-links><code>rel="start"</code>, <code>rel="prev"</code>, and <code>rel="next"</code></a> to define relations between pages that are part of a series (like chapters of a book, or even posts on a blog). The only one that was ever used correctly was <code>rel="next"</code>. People used <code>rel="previous"</code> instead of <code>rel="prev"</code>; they used <code>rel="begin"</code> and <code>rel="first"</code> instead of <code>rel="start"</code>; they used <code>rel="end"</code> instead of <code>rel="last"</code>.
+<p>Oh, and &mdash; all by themselves &mdash; they made up <code>rel="up"</code> to point to a &#8220;parent&#8221; page. The best way to think of <code>rel="up"</code> is to look at your breadcrumb navigation (or at least imagine it). Your home page is probably the first page in your breadcrumbs, and the current page is at the tail end. <code>rel="up"</code> points to the next-to-last page in the breadcrumbs.
 
-<p><abbr>HTML5</abbr> includes <code>rel="first"</code>, which was the most common variation of the different ways to say &#8220;first page in a series.&#8221; (<code>rel="start"</code> is a non-conforming synonym, provided for backward compatibility.) It also includes <code>rel="prev"</code> and <code>rel="next"</code>, just like <abbr>HTML</abbr> 4, and supports <code>rel="previous"</code> for backward compatibility, as well as <code>rel="last"</code> (the last in a series, mirroring <code>rel="first"</code>) and <code>rel="up"</code>.
-
-<p>The best way to think of <code>rel="up"</code> is to look at your breadcrumb navigation (or at least imagine it). Your home page is probably the first page in your breadcrumbs, and the current page is at the tail end. <code>rel="up"</code> points to the next-to-last page in the breadcrumbs.
+<p><abbr>HTML5</abbr> includes <code>rel="next"</code> and <code>rel="prev"</code>, just like <abbr>HTML</abbr> 4, and supports <code>rel="previous"</code> for backward compatibility. The specification once had <code>rel="first"</code>, <code>rel="last"</code>, and <code>rel="up"</code>, too. However, &#8220;<a href=http://lists.w3.org/Archives/Public/public-html/2011Feb/att-0481/issue-118-decision.html>based on the lack of interest from implementors and users</a>&#8221; the HTML Working Group decided to drop these values from the specification.
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon>rel="icon"</a> is the <a href=http://code.google.com/webstats/2005-12/linkrels.html>second most popular link relation</a>, after <code>rel="stylesheet"</code>. It is usually found together with <code>shortcut</code>, like so:
 
@@ -253,17 +250,13 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-nofollow>rel="nofollow"</a> &#8220;indicates that the link is not endorsed by the original author or publisher of the page, or that the link to the referenced document was included primarily because of a commercial relationship between people affiliated with the two pages.&#8221; It was <a href=http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html>invented by Google</a> and <a href=http://microformats.org/wiki/rel-nofollow>standardized within the microformats community</a>. <a href=http://www.wordpress.org>WordPress</a> adds <code>rel="nofollow"</code> to links added by commenters. The thinking was that if &#8220;nofollow&#8221; links did not pass on PageRank, spammers would give up trying to post spam comments on weblogs. That didn&#8217;t happen, but <code>rel="nofollow"</code> persists.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-noreferrer>rel="noreferrer"</a> &#8220;indicates that no referrer information is to be leaked when following the link.&#8221; No shipping browser currently supports this, but support <a href=http://webkit.org/blog/907/webkit-nightlies-support-html5-noreferrer-link-relation/>was recently added to WebKit nightlies</a>, so it will eventually be showing up in Safari, Google Chrome, and other WebKit-based browsers. [<a href=http://wearehugh.com/public/2009/04/rel-noreferrer.html>rel="noreferrer" test case</a>]
-
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-pingback>rel="pingback"</a> specifies the address of a &#8220;pingback&#8221; server. As explained in <a href=http://hixie.ch/specs/pingback/pingback-1.0>the Pingback specification</a>, &#8220;The pingback system is a way for a blog to be automatically notified when other Web sites link to it. ... It enables reverse linking &mdash; a way of going back up a chain of links rather than merely drilling down.&#8221; Blogging systems, notably WordPress, implement the pingback mechanism to notify authors that you have linked to them when creating a new blog post.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-noreferrer>rel="noreferrer"</a> &#8220;indicates that no referrer information is to be leaked when following the link.&#8221; <a href=http://webkit.org/blog/907/webkit-nightlies-support-html5-noreferrer-link-relation/>WebKit supports rel="noreferrer"</a> so it works on Google Chome and Safari (and hopefully on other WebKit-based browsers). [<a href=http://wearehugh.com/public/2009/04/rel-noreferrer.html>rel="noreferrer" test case</a>]
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:271px"><img src=i/openclipart.org_johnny_automatic_dog_on_chair.png width=271 height=309 alt="dog on chair">
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch>rel="prefetch"</a> &#8220;indicates that preemptively fetching and caching the specified resource is likely to be beneficial, as it is highly likely that the user will require this resource.&#8221; Search engines sometimes add <code>&lt;link rel="prefetch" href="<i>URL of top search result</i>"></code> to the search results page if they feel that the top result is wildly more popular than any other. For example: using Firefox, <a href="http://www.google.com/search?q=cnn">search Google for CNN</a>, view the page source, and search for the keyword <code>prefetch</code>. Mozilla Firefox is the only current browser that supports <code>rel="prefetch"</code>.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-search>rel="search"</a> &#8220;indicates that the referenced document provides an interface specifically for searching the document and its related resources.&#8221; Specifically, if you want <code>rel="search"</code> to do anything useful, it should point to an <a href=http://www.opensearch.org/>OpenSearch</a> document that describes how a browser could construct a URL to search the current site for a given keyword. OpenSearch (and <code>rel="search"</code> links that point to OpenSearch description documents) has been supported in Microsoft Internet Explorer since version 7 and Mozilla Firefox since version 2.
-
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-sidebar>rel="sidebar"</a> &#8220;indicates that the referenced document, if retrieved, is intended to be shown in a secondary browsing context (if possible), instead of in the current browsing context.&#8221; What does that mean? In Opera and Mozilla Firefox, it means &#8220;when I click this link, prompt the user to create a bookmark that, when selected from the Bookmarks menu, opens the linked document in a browser sidebar.&#8221; (Opera actually calls it the &#8220;panel&#8221; instead of the &#8220;sidebar.&#8221;) Internet Explorer, Safari, and Chrome ignore <code>rel="sidebar"</code> and just treat it as a regular link. [<a href=http://wearehugh.com/public/2009/04/rel-sidebar.html>rel="sidebar" test case</a>]
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-search>rel="search"</a> &#8220;indicates that the referenced document provides an interface specifically for searching the document and its related resources.&#8221; Specifically, if you want <code>rel="search"</code> to do anything useful, it should point to an <a href=http://www.opensearch.org/>OpenSearch</a> document that describes how a browser could construct a URL to search the current site for a given keyword. OpenSearch (and <code>rel="search"</code> links that point to OpenSearch description documents) has been supported in Internet Explorer since version 7, Mozilla Firefox since version 2, and Google Chrome.
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-tag>rel="tag"</a> &#8220;indicates that the tag that the referenced document represents applies to the current document.&#8221; Marking up &#8220;tags&#8221; (category keywords) with the <code>rel</code> attribute was <a href=http://www.powazek.com/2005/07/000532.html>invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &#8220;Technorati tags.&#8221; (You read that right: a commercial company convinced the entire world to add metadata that made the company&#8217;s job easier. Nice work if you can get it!) The syntax was later <a href=http://microformats.org/wiki/rel-tag>standardized within the microformats community</a>, where it was simply called <code>rel="tag"</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel="tag"</code> links. Browsers do not do anything special with them; they&#8217;re really designed for search engines to use as a signal of what the page is about.
 
@@ -300,7 +293,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
 
-<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/seamonkey/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:
+<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/mozilla-central/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:
 
 <ol>
 <li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font. But what default styles should be applied to unknown elements?</li>
@@ -340,9 +333,9 @@ footer,header,hgroup,menu,nav,section {
 &lt;p>This is your &lt;span>first day&lt;/span>.&lt;/p>
 &lt;/article></code></pre>
 
-<p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>Internet Explorer 9 fixes this problem</a>.
+<p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>Internet Explorer 9 fixes this problem</a>.
 
-<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
+<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
 <p>Here is some righteous <abbr>ASCII</abbr> art to illustrate the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
 
@@ -410,7 +403,7 @@ p (sibling of h1)
 &lt;/script>
 &lt;![endif]--></code></pre>
 
-<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
+<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
 
 <p>The JavaScript code itself is relatively straightforward. The variable <var>e</var> ends up as an array of strings like <code>"abbr"</code>, <code>"article"</code>, <code>"aside"</code>, and so on. Then we loop through this array and create each of the named elements by calling <code>document.createElement()</code>. But since we ignore the return value, the elements are never inserted into the <abbr>DOM</abbr>. But this is enough to get Internet Explorer to treat these elements the way we want them to be treated, once we actually use them later in the page.
 
@@ -643,7 +636,7 @@ p (sibling of h1)
   October 22, 2009 1:59pm EDT
 &lt;/time></code></pre>
 
-<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string>contains examples of valid date/time strings</a>.)
+<p>(The date/time format is pretty flexible. The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#datetime-value>contains examples of valid date/time strings</a>.)
 
 <p>Notice I changed the text content &mdash; the stuff between <code>&lt;time></code> and <code>&lt;/time></code> &mdash; to match the machine-readable timestamp. This is not actually required. The text content can be anything you like, as long as you provide a machine-readable date/timestamp in the <code>datetime</code> attribute. So this is valid <abbr>HTML5</abbr>:
 
@@ -838,22 +831,23 @@ p (sibling of h1)
 <p>On character encoding:
 
 <ul>
-<li><a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a> by <cite>Joel Spolsky</cite>
-<li><a href="http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode">On the Goodness of Unicode</a>, <a href="http://www.tbray.org/ongoing/When/200x/2003/04/13/Strings">On Character Strings</a>, and <a href="http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF">Characters vs. Bytes</a> by <cite>Tim Bray</cite>
+<li><a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a> by Joel Spolsky
+<li><a href="http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode">On the Goodness of Unicode</a>, <a href="http://www.tbray.org/ongoing/When/200x/2003/04/13/Strings">On Character Strings</a>, and <a href="http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF">Characters vs. Bytes</a> by Tim Bray
 </ul>
 
 <p>On enabling new <abbr>HTML5</abbr> in Internet Explorer:
 
 <ul>
-<li><a href=http://xopus.com/devblog/2008/style-unknown-elements.html>How to style unknown elements in IE</a> by <cite>Sjoerd Visscher</cite>
-<li><a href=http://ejohn.org/blog/html5-shiv/><abbr>HTML5</abbr> shiv</a> by <cite>John Resig</cite>
-<li><a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a> by <cite>Remy Sharp</cite>
+<li><a href=http://xopus.com/devblog/2008/style-unknown-elements.html>How to style unknown elements in IE</a> by Sjoerd Visscher
+<li><a href=http://ejohn.org/blog/html5-shiv/><abbr>HTML5</abbr> shiv</a> by John Resig
+<li><a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a> by Remy Sharp
+<li><a href=http://paulirish.com/2011/the-history-of-the-html5-shiv/>The Story of the <abbr>HTML5</abbr> Shiv</a> by Paul Irish
 </ul>
 
 <p>On standards modes and doctype sniffing:
 
 <ul>
-<li><a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a> by <cite>Henri Sivonen</cite>. This is the only article you should read on the subject. Any article on doctypes that doesn&#8217;t reference Henri&#8217;s work is guaranteed to be out of date, incomplete, or wrong.
+<li><a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a> by Henri Sivonen. This is the only article you should read on the subject. Any article on doctypes that doesn&#8217;t reference Henri&#8217;s work is guaranteed to be out of date, incomplete, or wrong.
 </ul>
 
 <p><abbr>HTML5</abbr>-aware validator:
