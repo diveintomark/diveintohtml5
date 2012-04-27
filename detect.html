@@ -375,10 +375,10 @@ A: Geolocation support is being added to browsers right now, along with support 
 </div>
 </div>
 
-<p>Checking for geolocation support uses <a href=#techniques>detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&#8217;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will be undefined. Here&#8217;s how to check for geolocation support:
+<p>Checking for geolocation support uses <a href=#techniques>detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&#8217;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will not be present inside of <code>navigator</code>. Here&#8217;s how to check for geolocation support:
 
 <pre><code>function supports_geolocation() {
-  return !!navigator.geolocation;
+  return 'geolocation' in navigator;
 }</code></pre>
 
 <p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the geolocation <abbr>API</abbr>.
