@@ -91,29 +91,7 @@ var geoPosition=function() {
                 }
             }
         }
-		
-        pub.ieVersion = function( lessThan ) {
-            var detect = navigator.userAgent.toLowerCase();
-            if(!(navigator && navigator.userAgent && navigator.userAgent.toLowerCase)) {
-                  return -1;
-            } else {
-                  if(detect.indexOf('msie') + 1) {
-                          // Returns the version of Internet Explorer or a -1
-                          // (indicating the use of another browser).
-                          var rv = -1; // Return value assumes failure
-                          if (navigator.appName == 'Microsoft Internet Explorer') {
-                              var ua = navigator.userAgent;
-                              var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-                              if (re.exec(ua) != null) {
-                                  rv = parseFloat( RegExp.$1 );
-                              }
-                          }
-                            if( rv <= lessThan )
-                              return rv;
-                      } 
-            }
-          return -1;
-        } 
+		        
 
         pub.init = function()
         {			
@@ -172,20 +150,7 @@ var geoPosition=function() {
                                     blackberry.location.refreshLocation();
                             }
                             provider = blackberry.location;				
-                    } else if( pub.ieVersion(8) > 0) {
-                            // IE behaviour
-                            pub.getCurrentPosition = function(success, error, opts) {
-                                    pub.jsonp.fetch(ipGeolocationSrv, 
-                                            function( p ){ success( { timestamp: p.timestamp, 
-                                                                       coords: { 
-                                                                            latitude:   p.latitude, 
-                                                                            longitude:  p.longitude,
-                                                                            heading:    p.heading
-                                                                        }
-                                                                    });});
-                            }
-                            provider = true;
-
+                    
                     } else if ( typeof(Mojo) !=u && typeof(Mojo.Service.Request)!="Mojo.Service.Request") {
                             provider = true;
                             pub.getCurrentPosition = function(success, error, opts) {
@@ -240,8 +205,7 @@ var geoPosition=function() {
                             }
 
                     }
-                    else if (typeof(device)!=u && typeof(device.getServiceObject)!=u)
-                    {
+                    else if (typeof(device)!=u && typeof(device.getServiceObject)!=u) {
                             provider=device.getServiceObject("Service.Location", "ILocation");
 
                             //override default method implementation
@@ -267,7 +231,20 @@ var geoPosition=function() {
                             //make the call
                             provider.ILocation.GetLocation(criteria,callback);
                             }
+                    } else  {                            
+                            pub.getCurrentPosition = function(success, error, opts) {
+                                    pub.jsonp.fetch(ipGeolocationSrv, 
+                                            function( p ){ success( { timestamp: p.timestamp, 
+                                                                       coords: { 
+                                                                            latitude:   p.latitude, 
+                                                                            longitude:  p.longitude,
+                                                                            heading:    p.heading
+                                                                        }
+                                                                    });});
+                            }
+                            provider = true;
                     }
+
 
                 }
                 catch (e){ 
