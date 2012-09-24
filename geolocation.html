@@ -61,12 +61,12 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
   if (<mark>Modernizr.geolocation</mark>) {
     navigator.geolocation.getCurrentPosition(show_map);
   } else {
-    // no native support; maybe try Gears?
+    // no native support; maybe try a fallback?
   }
 }</code></pre>
 <p class="legend right" style="margin-top:2.5em"><span class=arrow>&nbsp;&#x21dc;</span> I CAN HAS GEO?
 
-<p class=clear>What you do without geolocation support is up to you. I&#8217;ll explain the Gears fallback option in a minute, but first I want to talk about what happens <em>during</em> that call to <code>getCurrentPosition()</code>. As <a href=#divingin>I mentioned at the beginning of this chapter</a>, geolocation support is <em>opt-in</em>. That means your browser will never force you to reveal your current physical location to a remote server. The user experience differs from browser to browser. In Mozilla Firefox, calling the <code>getCurrentPosition()</code> function of the geolocation <abbr>API</abbr> will cause the browser to pop up an &#8220;infobar&#8221; at the top of the browser window. The infobar looks like this:
+<p class=clear>What you do without geolocation support is up to you. I&#8217;ll explain the Javascript fallback option in a minute, but first I want to talk about what happens <em>during</em> that call to <code>getCurrentPosition()</code>. As <a href=#divingin>I mentioned at the beginning of this chapter</a>, geolocation support is <em>opt-in</em>. That means your browser will never force you to reveal your current physical location to a remote server. The user experience differs from browser to browser. In Mozilla Firefox, calling the <code>getCurrentPosition()</code> function of the geolocation <abbr>API</abbr> will cause the browser to pop up an &#8220;infobar&#8221; at the top of the browser window. The infobar looks like this:
 
 <p class=c><img src=i/geolocation-opt-in.png alt="Geolocation opt-in infobar" width=737 height=32>
 
@@ -205,17 +205,15 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <h2 id=ie>What About IE?</h2>
 
-<p>Prior to version 9 (technically 9.0RC1), Internet Explorer did not support the <a href=#w3c><abbr>W3C</abbr> geolocation <abbr>API</abbr></a> that I&#8217;ve just described. But don&#8217;t despair! <a href=http://tools.google.com/gears/>Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides features for older browsers. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&#8217;s not quite the same as the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, but it serves the same purpose.
+<p>Prior to version 9 (technically 9.0RC1), Internet Explorer did not support the <a href=#w3c><abbr>W3C</abbr> geolocation <abbr>API</abbr></a> that I&#8217;ve just described. But don&#8217;t despair! For these prior versions, we will need a JavaScript fallback. It&#8217;s not quite the same as the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, but it serves the same purpose.
 
-<p>While we&#8217;re on the subject of legacy platforms, I should point out that many older mobile phone platforms had their own device-specific geolocation <abbr>API</abbr>s. <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a> all provide their own geolocation <abbr>API</abbr>s. Of course, they all work differently from Gears, which in turn works differently from the <abbr>W3C</abbr> geolocation <abbr>API</abbr>. Wheeeeee!
+<p>While we&#8217;re on the subject of legacy platforms, I should point out that many older mobile phone platforms had their own device-specific geolocation <abbr>API</abbr>s. <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.developer.nokia.com/Resources/Library/Web/#!web-apps/symbian-web-runtime/platform-services-20-javascript-api-reference/platform-services-20-javascript-api-reference/platform-services-20-location-api/geolocation-object.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a> all provide their own geolocation <abbr>API</abbr>s. Of course, they all work differently which in turn works differently from the <abbr>W3C</abbr> geolocation <abbr>API</abbr>. Wheeeeee!
 
 <p class=a>&#x2767;
 
-<h2 id=geo-js>geo.js to the Rescue</h2>
+<h2 id=geo-js>geoPosition.js to the Rescue</h2>
 
-<p><a href=http://code.google.com/p/geo-location-javascript/><code>geo.js</code></a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that smooths over the differences between the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, the Gears <abbr>API</abbr>, and the <abbr>API</abbr>s provided by mobile platforms. To use it, you&#8217;ll need to add two <code>&lt;script></code> elements at the bottom of your page. (Technically, you could put them anywhere, but scripts in your <code>&lt;head></code> will make your page load more slowly. So don&#8217;t do that!)
-
-<p>The first script is <a href=http://code.google.com/apis/gears/gears_init.js><code>gears_init.js</code></a>, which initializes Gears if it&#8217;s installed. The second script is <a href=http://geo-location-javascript.googlecode.com/svn/trunk/js/geo.js><code>geo.js</code></a>.
+<p><a href=https://github.com/estebanav/javascript-mobile-desktop-geolocation/><code>geoPositon.js</code></a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that smooths over the differences between the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, <abbr>IP</abbr> geolocation services, and the <abbr>API</abbr>s provided by mobile platforms. To use it, you&#8217;ll need to add one <code>&lt;script></code> element at the bottom of your page. (Technically, you could put it anywhere, but scripts in your <code>&lt;head></code> will make your page load more slowly. So don&#8217;t do that!)
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
 &lt;html>
@@ -225,70 +223,69 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 &lt;/head>
 &lt;body>
   ...
-  <mark>&lt;script src="gears_init.js">&lt;/script>
-&lt;script src="geo.js">&lt;/script></mark>
+  <mark>&lt;script src="geoPosition.js">&lt;/script></mark>
 &lt;/body>
 &lt;/html>
 </code></pre>
-<p class="legend right" style="margin-top:11.2em"><span class=arrow>&nbsp;&#x21dc;</span> Don&#8217;t let it go to your &lt;head>
+<p class="legend right" style="margin-top:11em"><span class=arrow>&nbsp;&#x21dc;</span> Don&#8217;t let it go to your &lt;head>
 
 <p class=clear>Now you&#8217;re ready to use whichever geolocation <abbr>API</abbr> is installed.
 
-<pre><code>if (geo_position_js.init()) {
-  geo_position_js.getCurrentPosition(geo_success, geo_error);
+<pre><code>if (geoPosition.init()) {
+  geoPosition.getCurrentPosition(geoSuccess, geoError);
 }
 </code></pre>
 
 <p>Let&#8217;s take that one step at a time. First, you need to explicitly call an <code>init()</code> function. The <code>init()</code> function returns <code>true</code> if a supported geolocation <abbr>API</abbr> is available.
 
-<pre><code>if (<mark>geo_position_js.init()</mark>) {</code></pre>
+<pre><code>if (<mark>geoPosition.init()</mark>) {</code></pre>
 
 <p>Calling the <code>init()</code> function does not actually find your location. It just verifies that finding your location is possible. To actually find your location, you need to call the <code>getCurrentPosition()</code> function.
 
-<pre><code>  <mark>geo_position_js.getCurrentPosition</mark>(geo_success, geo_error);</code></pre>
+<pre><code>  <mark>geoPosition.getCurrentPosition</mark>(geoSuccess, geo_error);</code></pre>
 
-<p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If geolocation is being provided by Gears, this will pop up a dialog asking if your trust the web site to use Gears. If your browser natively supports the geolocation <abbr>API</abbr>, the dialog will look different. For example, Firefox 3.5 natively supports the geolocation <abbr>API</abbr>. If you try to find your location in Firefox 3.5, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
+<p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If your browser natively supports the geolocation <abbr>API</abbr>, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
 
 <p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location &mdash; that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic &mdash; it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
 
-<pre><code>  geo_position_js.getCurrentPosition(<mark>geo_success</mark>, geo_error);</code></pre>
+<pre><code>  geoPosition.getCurrentPosition(<mark>geoSuccess</mark>, geoError);</code></pre>
 
 <p>The success callback function takes a single argument, which contains the position information.
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> Success callback
-<pre><code>function geo_success(p) {
+<pre><code>function geoSuccess(p) {
   alert("Found you at latitude " + p.coords.latitude +
         ", longitude " + p.coords.longitude);
 }</code></pre>
 
-<p>If the <code>getCurrentPosition()</code> function could not find your location &mdash; either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason &mdash; it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geo_error</code>.
+<p>If the <code>getCurrentPosition()</code> function could not find your location &mdash; either because you declined to give your permission, or the geolocation <abbr>API</abbr> failed for some reason &mdash; it will call the function passed in as the second argument. In this example, the failure callback function is called <code>geoError</code>.
 
-<pre><code>  geo_position_js.getCurrentPosition(geo_success, <mark>geo_error</mark>);</code></pre>
+<pre><code>  geoPosition.getCurrentPosition(geoSuccess, <mark>geoError</mark>);</code></pre>
 
 <p>The failure callback function takes no arguments.
 
 <p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> Failure callback
-<pre><code>function geo_error() {
+<pre><code>function geoError() {
   alert("Could not find you!");
 }</code></pre>
 
-<p><code>geo.js</code> does not currently support the <code>watchPosition()</code> function. If you need continuous location information, you&#8217;ll need to actively poll <code>getCurrentPosition()</code> yourself.
+<p><code>geoPosition.js</code> does not currently support the <code>watchPosition()</code> function. If you need continuous location information, you&#8217;ll need to actively poll <code>getCurrentPosition()</code> yourself.
 
 <p class=a>&#x2767;
 
 <h2 id=putting-it-all-together>A Complete, Live Example</h2>
 
-<p>Here is a live example of using <a href=#geo-js><code>geo.js</code></a> to attempt to get your location and display a map of your immediate surroundings:
+<p>Here is a live example of using <a href=#geo-js><code>geoPosition.js</code></a> to attempt to get your location and display a map of your immediate surroundings:
 
 <p style="margin:0 auto;width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
-<p>How does it work? Let&#8217;s take a look. On page load, this page calls <code>geo_position_js.init()</code> to determine whether geolocation is available through any of the interfaces that <code>geo.js</code> supports. If so, it sets up a link you can click to look up your location. Clicking that link calls the <code>lookup_location()</code> function, shown here:
+<p>How does it work? Let&#8217;s take a look. On page load, this page calls <code>geoPosition.init()</code> to determine whether geolocation is available through any of the interfaces that <code>geoPosition.js</code> supports. If so, it sets up a link you can click to look up your location. Clicking that link calls the <code>lookup_location()</code> function, shown here:
 
 <pre><code>function lookup_location() {
-  geo_position_js.getCurrentPosition(show_map, show_map_error);
+  geoPosition.getCurrentPosition(show_map, show_map_error);
 }</code></pre>
 
-<p>If you give your consent to track your location, <em>and</em> the backend service was actually able to determine your location, <code>geo.js</code> calls the first callback function, <code>show_map()</code>, with a single argument, <code>loc</code>. The <code>loc</code> object has a <code>coords</code> property which contains latitude, longitude, and accuracy information. (This example doesn&#8217;t use the accuracy information.) The rest of the <code>show_map()</code> function uses the Google Maps API to set up an embedded map.
+<p>If you give your consent to track your location, <em>and</em> the backend service was actually able to determine your location, <code>geoPosition.js</code> calls the first callback function, <code>show_map()</code>, with a single argument, <code>loc</code>. The <code>loc</code> object has a <code>coords</code> property which contains latitude, longitude, and accuracy information. (This example doesn&#8217;t use the accuracy information.) The rest of the <code>show_map()</code> function uses the Google Maps API to set up an embedded map.
 
 <pre><code>function show_map(loc) {
   $("#geo-wrapper").css({'width':'320px','height':'350px'});
@@ -300,7 +297,7 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
   map.addOverlay(new GMarker(center, {draggable: false, title: "You are here (more or less)"}));
 }</code></pre>
 
-<p>If <code>geo.js</code> is unable to determine your location, it calls the second callback function, <code>show_map_error()</code>.
+<p>If <code>geoPosition.js</code> is unable to determine your location, it calls the second callback function, <code>show_map_error()</code>.
 
 <pre><code>function show_map_error() {
   $("#live-geolocation").html('Unable to determine your location.');
@@ -312,12 +309,11 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <ul>
 <li><a href=http://www.w3.org/TR/geolocation-API/><abbr>W3C</abbr> geolocation <abbr>API</abbr></a>
-<li><a href=http://tools.google.com/gears/>Gears</a>
 <li><a href=http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx>BlackBerry geolocation <abbr>API</abbr></a>
-<li><a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia geolocation <abbr>API</abbr></a>
+<li><a href="http://www.developer.nokia.com/Resources/Library/Web/#!web-apps/symbian-web-runtime/platform-services-20-javascript-api-reference/platform-services-20-javascript-api-reference/platform-services-20-location-api/geolocation-object.html">Nokia geolocation <abbr>API</abbr></a>
 <li><a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm geolocation <abbr>API</abbr></a>
 <li><a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI geolocation <abbr>API</abbr></a>
-<li><a href=http://code.google.com/p/geo-location-javascript/>geo.js</a>, the geolocation <abbr>API</abbr> wrapper script
+<li><a href=https://github.com/estebanav/javascript-mobile-desktop-geolocation>geoPosition.js</a>, a geolocation <abbr>API</abbr> wrapper script
 <li><a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_geolocation>Internet Explorer 9 Guide for Developers: Geolocation</a>
 </ul>
 
@@ -339,10 +335,9 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
 <script src=j/jquery.js></script>
 <script src=j/modernizr.js></script>
-<script src=j/gears_init.js></script>
-<script src=j/geo.js></script>
+<script src=j/geoPosition.js></script>
 <script src=j/dih5.js></script>
-<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script>
 function supports(bool, suffix) {
   var s = "Your browser ";
@@ -354,7 +349,7 @@ function supports(bool, suffix) {
   return s;
 }
 function lookup_location() {
-  geo_position_js.getCurrentPosition(show_map, show_map_error);
+  geoPosition.getCurrentPosition(show_map, show_map_error);
 }
 function show_map(loc) {
   $("#geo-wrapper").css({'width':'320px','height':'350px'});
@@ -367,7 +362,7 @@ function show_map_error() {
   $("#live-geolocation").html('Unable to determine your location.');
 }
 $(function() {
-  if (geo_position_js.init()) {
+  if (geoPosition.init()) {
     $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
   } else {
     $("#live-geolocation").html(supports(false, "geolocation"));
