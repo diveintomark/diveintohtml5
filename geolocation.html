@@ -9,7 +9,7 @@ body{counter-reset:h1 6}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#geolocation>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#geolocation>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
 <h1><br>You Are Here<br>(And So Is Everybody Else)</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
@@ -22,7 +22,7 @@ body{counter-reset:h1 6}
 <div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Geolocation sounds scary. Can I turn it off?<br>
-A: Privacy is an obvious concern when you&#8217;re talking about sharing your physical location with a remote web server. The <a href=http://www.w3.org/TR/geolocation-API/#security>geolocation <abbr>API</abbr> explicitly states</a>: &#8220;User Agents must not send location information to Web sites without the express permission of the user.&#8221; In other words, sharing your location is always opt-in. If you don&#8217;t want to, you don&#8217;t have to.
+A: Privacy is an obvious concern when you&rsquo;re talking about sharing your physical location with a remote web server. The <a href=http://www.w3.org/TR/geolocation-API/#security>geolocation <abbr>API</abbr> explicitly states</a>: &ldquo;User Agents must not send location information to Web sites without the express permission of the user.&rdquo; In other words, sharing your location is always opt-in. If you don&rsquo;t want to, you don&rsquo;t have to.
 </blockquote>
 </div>
 </div>
@@ -33,7 +33,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p>The <a href=http://www.w3.org/TR/geolocation-API/>geolocation <abbr>API</abbr></a> lets you share your location with trusted web sites. The latitude and longitude are available to JavaScript on the page, which in turn can send it back to the remote web server and do fancy location-aware things like finding local businesses or showing your location on a map.
 
-<p>As you can see from the following table, the geolocation <abbr>API</abbr> is supported by most browsers on the desktop and mobile devices. Additionally, some older browsers and devices can be supported by wrapper libraries, as we&#8217;ll see later in this chapter.
+<p>As you can see from the following table, the geolocation <abbr>API</abbr> is supported by most browsers on the desktop and mobile devices. Additionally, some older browsers and devices can be supported by wrapper libraries, as we&rsquo;ll see later in this chapter.
 
 <table class=bc>
 <caption>Geolocation <abbr>API</abbr> support</caption>
@@ -43,7 +43,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <tr><td>9.0+<td>3.5+<td>5.0+<td>5.0+<td>10.6+<td>3.0+<td>2.0+
 </table>
 
-<p>Along with support for the standard geolocation <abbr>API</abbr>, there are a plethora of device-specific <abbr>API</abbr>s on other mobile platforms. I&#8217;ll cover all that later in this chapter.
+<p>Along with support for the standard geolocation <abbr>API</abbr>, there are a plethora of device-specific <abbr>API</abbr>s on other mobile platforms. I&rsquo;ll cover all that later in this chapter.
 
 <p class=a>&#x2767;
 
@@ -66,31 +66,31 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 }</code></pre>
 <p class="legend right" style="margin-top:2.5em"><span class=arrow>&nbsp;&#x21dc;</span> I CAN HAS GEO?
 
-<p class=clear>What you do without geolocation support is up to you. I&#8217;ll explain the Javascript fallback option in a minute, but first I want to talk about what happens <em>during</em> that call to <code>getCurrentPosition()</code>. As <a href=#divingin>I mentioned at the beginning of this chapter</a>, geolocation support is <em>opt-in</em>. That means your browser will never force you to reveal your current physical location to a remote server. The user experience differs from browser to browser. In Mozilla Firefox, calling the <code>getCurrentPosition()</code> function of the geolocation <abbr>API</abbr> will cause the browser to pop up an &#8220;infobar&#8221; at the top of the browser window. The infobar looks like this:
+<p class=clear>What you do without geolocation support is up to you. I&rsquo;ll explain the Javascript fallback option in a minute, but first I want to talk about what happens <em>during</em> that call to <code>getCurrentPosition()</code>. As <a href=#divingin>I mentioned at the beginning of this chapter</a>, geolocation support is <em>opt-in</em>. That means your browser will never force you to reveal your current physical location to a remote server. The user experience differs from browser to browser. In Mozilla Firefox, calling the <code>getCurrentPosition()</code> function of the geolocation <abbr>API</abbr> will cause the browser to pop up an &ldquo;infobar&rdquo; at the top of the browser window. The infobar looks like this:
 
 <p class=c><img src=i/geolocation-opt-in.png alt="Geolocation opt-in infobar" width=737 height=32>
 
-<p>There&#8217;s a lot going on here. You, as the end user,
+<p>There&rsquo;s a lot going on here. You, as the end user,
 
 <ul>
 <li>are told that a website wants to know your location
 <li>are told <em>which</em> website wants to know your location
-<li>can click through to <a href=http://www.mozilla.com/en-US/firefox/geolocation/>Mozilla&#8217;s &#8220;Location-Aware Browsing&#8221; help page</a> which explains what the heck is going on (short story: Google provides the location and stores your data in accordance with its <a href=http://www.google.com/intl/en/privacy/lsf.html>Location Service Privacy Policy</a>)
+<li>can click through to <a href=http://www.mozilla.com/en-US/firefox/geolocation/>Mozilla&rsquo;s &ldquo;Location-Aware Browsing&rdquo; help page</a> which explains what the heck is going on (short story: Google provides the location and stores your data in accordance with its <a href=http://www.google.com/intl/en/privacy/lsf.html>Location Service Privacy Policy</a>)
 <li>can choose to share your location
 <li>can choose <em>not</em> to share your location
-<li>can tell your browser to remember your choice (either way, share or don&#8217;t share) so you never see this infobar again on this website
+<li>can tell your browser to remember your choice (either way, share or don&rsquo;t share) so you never see this infobar again on this website
 </ul>
 
 <p>Furthermore, this infobar is
 
 <ul>
-<li>non-modal, so it won&#8217;t prevent you from switching to another browser window or tab
+<li>non-modal, so it won&rsquo;t prevent you from switching to another browser window or tab
 <li>tab-specific, so it will disappear if you switch to another browser window or tab and reappear when you switch back to the original tab
 <li>unconditional, so there is no way for a website to bypass it
-<li>blocking, so there is no chance that the website can determine your location while it&#8217;s waiting for your answer
+<li>blocking, so there is no chance that the website can determine your location while it&rsquo;s waiting for your answer
 </ul>
 
-<p>You just saw the JavaScript code that causes this infobar to appear. It&#8217;s a single function call which takes a callback function (which I called <code>show_map</code>). The call to <code>getCurrentPosition()</code> will return immediately, but that doesn&#8217;t mean that you have access to the user&#8217;s location. The first time you are guaranteed to have location information is in the callback function. The callback function looks like this:
+<p>You just saw the JavaScript code that causes this infobar to appear. It&rsquo;s a single function call which takes a callback function (which I called <code>show_map</code>). The call to <code>getCurrentPosition()</code> will return immediately, but that doesn&rsquo;t mean that you have access to the user&rsquo;s location. The first time you are guaranteed to have location information is in the callback function. The callback function looks like this:
 
 <pre><code>function show_map(position) {
   var latitude = position.coords.latitude;
@@ -98,7 +98,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
   // let's show a map or do something interesting!
 }</code></pre>
 
-<p>The callback function will be called with a single parameter, an object with two properties: <code>coords</code> and <code>timestamp</code>. The timestamp is just that, the date and time when the location was calculated. (Since this is all happening asynchronously, you can&#8217;t really know when that will happen in advance. It might take some time for the user to read the infobar and agree to share their location. Devices with dedicated <abbr>GPS</abbr> hardware may take some more time to connect to a <abbr>GPS</abbr> satellite. And so on.) The <code>coords</code> object has properties like <code>latitude</code> and <code>longitude</code> which are exactly what they sound like: the user&#8217;s physical location in the world.
+<p>The callback function will be called with a single parameter, an object with two properties: <code>coords</code> and <code>timestamp</code>. The timestamp is just that, the date and time when the location was calculated. (Since this is all happening asynchronously, you can&rsquo;t really know when that will happen in advance. It might take some time for the user to read the infobar and agree to share their location. Devices with dedicated <abbr>GPS</abbr> hardware may take some more time to connect to a <abbr>GPS</abbr> satellite. And so on.) The <code>coords</code> object has properties like <code>latitude</code> and <code>longitude</code> which are exactly what they sound like: the user&rsquo;s physical location in the world.
 
 <table class=st>
 <caption>Position Object</caption>
@@ -115,13 +115,13 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 
 <p class=ss style="margin-top:1.75em"><img src=i/openclipart.org_johnny_automatic_riding_a_bike.png width=196 height=239 alt="boy riding a bicycle">
 
-<p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&#8217;s previous position, if possible.
+<p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&rsquo;s previous position, if possible.
 
 <p class=a>&#x2767;
 
 <h2 id=errors>Handling Errors</h2>
 
-<p>Geolocation is complicated. Things can go wrong. I&#8217;ve mentioned the &#8220;user consent&#8221; angle already. If your web application wants the user&#8217;s location but the user doesn&#8217;t want to give it to you, you&#8217;re screwed. The user always wins. But what does that look like in code? It looks like the second argument to the <code>getCurrentPosition()</code> function: an error handling callback function.
+<p>Geolocation is complicated. Things can go wrong. I&rsquo;ve mentioned the &ldquo;user consent&rdquo; angle already. If your web application wants the user&rsquo;s location but the user doesn&rsquo;t want to give it to you, you&rsquo;re screwed. The user always wins. But what does that look like in code? It looks like the second argument to the <code>getCurrentPosition()</code> function: an error handling callback function.
 
 <pre><code>navigator.geolocation.getCurrentPosition(
   show_map, <mark>handle_error</mark>)</code></pre>
@@ -138,9 +138,9 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <p>The <code>code</code> property will be one of
 
 <ul>
-<li><code>PERMISSION_DENIED</code> (<code>1</code>) if the user clicks that &#8220;Don&#8217;t Share&#8221; button or otherwise denies you access to their location.
-<li><code>POSITION_UNAVAILABLE</code> (<code>2</code>) if the network is down or the positioning satellites can&#8217;t be contacted.
-<li><code>TIMEOUT</code> (<code>3</code>) if the network is up but it takes too long to calculate the user&#8217;s position. How long is &#8220;too long&#8221;? I&#8217;ll show you how to define that in the next section.
+<li><code>PERMISSION_DENIED</code> (<code>1</code>) if the user clicks that &ldquo;Don&rsquo;t Share&rdquo; button or otherwise denies you access to their location.
+<li><code>POSITION_UNAVAILABLE</code> (<code>2</code>) if the network is down or the positioning satellites can&rsquo;t be contacted.
+<li><code>TIMEOUT</code> (<code>3</code>) if the network is up but it takes too long to calculate the user&rsquo;s position. How long is &ldquo;too long&rdquo;? I&rsquo;ll show you how to define that in the next section.
 </ul>
 
 <p class="legend top" style="padding-left:8.5em"><span class=arrow>&#x21b6;</span> Be gracious in defeat
@@ -155,7 +155,7 @@ A: Privacy is an obvious concern when you&#8217;re talking about sharing your ph
 <div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Does the geolocation <abbr>API</abbr> work on the International Space Station, on the moon, or on other planets?<br>
-A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolocation specification states</a>, &#8220;The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported.&#8221; The International Space Station is orbiting Earth, so <a href=http://twitter.com/Astro_TJ>astronauts on the station</a> can describe their location by latitude, longitude, and altitude. However, the World Geodetic System is Earth-centric, so it can&#8217;t be used to describe locations on the moon or on other planets.
+A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolocation specification states</a>, &ldquo;The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported.&rdquo; The International Space Station is orbiting Earth, so <a href=http://twitter.com/Astro_TJ>astronauts on the station</a> can describe their location by latitude, longitude, and altitude. However, the World Geodetic System is Earth-centric, so it can&rsquo;t be used to describe locations on the moon or on other planets.
 </blockquote>
 </div>
 </div>
@@ -164,13 +164,13 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <h2 id=options>Choices! I Demand Choices!</h2>
 
-<p>Some popular mobile devices &mdash; like the iPhone and Android phones &mdash; support <em>two</em> methods of figuring out where you are. The first method triangulates your position based on your relative proximity to different cellular towers operated by your phone carrier. This method is fast and doesn&#8217;t require any dedicated <abbr>GPS</abbr> hardware, but it only gives you a rough idea of where you are. Depending on how many cell towers are in your area, &#8220;a rough idea&#8221; could be as little as one city block or as much as a kilometer in every direction.
+<p>Some popular mobile devices &mdash; like the iPhone and Android phones &mdash; support <em>two</em> methods of figuring out where you are. The first method triangulates your position based on your relative proximity to different cellular towers operated by your phone carrier. This method is fast and doesn&rsquo;t require any dedicated <abbr>GPS</abbr> hardware, but it only gives you a rough idea of where you are. Depending on how many cell towers are in your area, &ldquo;a rough idea&rdquo; could be as little as one city block or as much as a kilometer in every direction.
 
 <p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_johnny_automatic_young_girl_pointing.png alt="young girl pointing" width=336 height=229>
 
-<p>The second method actually uses dedicated <abbr>GPS</abbr> hardware on your device to talk to dedicated <abbr>GPS</abbr> positioning satellites that are orbiting the Earth. <abbr>GPS</abbr> can usually pinpoint your location within a few meters. The downside is that the dedicated <abbr>GPS</abbr> chip on your device draws a lot of power, so phones and other general purpose mobile devices usually turn off the chip until it&#8217;s needed. That means there will be a startup delay while the chip is initializing its connection with the <abbr>GPS</abbr> satellites in the sky. If you&#8217;ve ever used Google Maps on an iPhone or other smartphone, you&#8217;ve seen both methods in action. First you see a large circle that approximates your position (finding the nearest cell tower), then a smaller circle (triangulating with other cell towers), then a single dot with an exaction position (given by <abbr>GPS</abbr> satellites).
+<p>The second method actually uses dedicated <abbr>GPS</abbr> hardware on your device to talk to dedicated <abbr>GPS</abbr> positioning satellites that are orbiting the Earth. <abbr>GPS</abbr> can usually pinpoint your location within a few meters. The downside is that the dedicated <abbr>GPS</abbr> chip on your device draws a lot of power, so phones and other general purpose mobile devices usually turn off the chip until it&rsquo;s needed. That means there will be a startup delay while the chip is initializing its connection with the <abbr>GPS</abbr> satellites in the sky. If you&rsquo;ve ever used Google Maps on an iPhone or other smartphone, you&rsquo;ve seen both methods in action. First you see a large circle that approximates your position (finding the nearest cell tower), then a smaller circle (triangulating with other cell towers), then a single dot with an exaction position (given by <abbr>GPS</abbr> satellites).
 
-<p>The reason I mention this is that, depending on your web application, you may not need high accuracy. If you&#8217;re just looking for nearby movie listings, a &#8220;low accuracy&#8221; location is probably good enough. There aren&#8217;t <em>that</em> many movie theaters, even in dense cities, and you&#8217;ll probably be listing more than one of them anyway. On the other hand, if you&#8217;re giving turn by turn directions in real time, you really <em>do</em> need to know exactly where the user is so you can say &#8220;turn right in 20 meters&#8221; or whatever.
+<p>The reason I mention this is that, depending on your web application, you may not need high accuracy. If you&rsquo;re just looking for nearby movie listings, a &ldquo;low accuracy&rdquo; location is probably good enough. There aren&rsquo;t <em>that</em> many movie theaters, even in dense cities, and you&rsquo;ll probably be listing more than one of them anyway. On the other hand, if you&rsquo;re giving turn by turn directions in real time, you really <em>do</em> need to know exactly where the user is so you can say &ldquo;turn right in 20 meters&rdquo; or whatever.
 
 <p>The <code>getCurrentPosition()</code> function has an optional third argument, <a href=http://www.w3.org/TR/geolocation-API/#position-options>a <code>PositionOptions</code> object</a>. There are three properties you can set in a <code>PositionOptions</code> object. All the properties are optional. You can set any or all or none of them.
 
@@ -184,36 +184,36 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <p>The <code>enableHighAccuracy</code> property is exactly what it sounds like. If true, and the device can support it, and the user consents to sharing their exact location, then the device will try to provide it. Both iPhones and Android phones have separate permissions for low- and high-accuracy positioning, so it is possible that calling <code>getCurrentPosition()</code> with <code>enableHighAccuracy:true</code> will fail, but calling with <code>enableHighAccuracy:false</code> would succeed.
 
-<p>The <code>timeout</code> property is the number of milliseconds your web application is willing to wait for a position. This timer doesn&#8217;t start counting down until <em>after</em> the user gives permission to even try to calculate their position. You&#8217;re not timing the user; you&#8217;re timing the network.
+<p>The <code>timeout</code> property is the number of milliseconds your web application is willing to wait for a position. This timer doesn&rsquo;t start counting down until <em>after</em> the user gives permission to even try to calculate their position. You&rsquo;re not timing the user; you&rsquo;re timing the network.
 
-<p>The <code>maximumAge</code> property allows the device to answer immediately with a cached position. For example, let&#8217;s say you call <code>getCurrentPosition()</code> for the first time, the user consents, and your success callback function is called with a position that was calculated at exactly 10:00 AM. Exactly one minute later, at 10:01 AM, you call <code>getCurrentPosition()</code> again with a <code>maximumAge</code> property of <code>75000</code>.
+<p>The <code>maximumAge</code> property allows the device to answer immediately with a cached position. For example, let&rsquo;s say you call <code>getCurrentPosition()</code> for the first time, the user consents, and your success callback function is called with a position that was calculated at exactly 10:00 AM. Exactly one minute later, at 10:01 AM, you call <code>getCurrentPosition()</code> again with a <code>maximumAge</code> property of <code>75000</code>.
 
 <pre><code>navigator.geolocation.getCurrentPosition(
   success_callback, error_callback, <mark>{maximumAge: 75000}</mark>);</code></pre>
 
-<p>What you&#8217;re saying is that you don&#8217;t necessarily need the user&#8217;s <em>current</em> location. You would be satisfied with knowing where they were 75 seconds ago (75000 milliseconds). The device knows where the user was 60 seconds ago (60000 milliseconds), because it calculated their location after the first time you called <code>getCurrentPosition()</code>. So the device doesn&#8217;t bother to recalculate the user&#8217;s current location. It just returns exactly the same information it returned the first time: same latitude and longitude, same accuracy, and same timestamp (10:00 AM).
+<p>What you&rsquo;re saying is that you don&rsquo;t necessarily need the user&rsquo;s <em>current</em> location. You would be satisfied with knowing where they were 75 seconds ago (75000 milliseconds). The device knows where the user was 60 seconds ago (60000 milliseconds), because it calculated their location after the first time you called <code>getCurrentPosition()</code>. So the device doesn&rsquo;t bother to recalculate the user&rsquo;s current location. It just returns exactly the same information it returned the first time: same latitude and longitude, same accuracy, and same timestamp (10:00 AM).
 
 <p class=ss><img src=i/openclipart.org_maven_Galileo_Galilei.png alt="old man looking through telescope" width=208 height=508>
 
-<p>Before you ask for the user&#8217;s location, you should think about just how much accuracy you need, and set <code>enableHighAccuracy</code> accordingly. If you need to find their location more than once, you should think about how old the information could be and still be useful, and set <code>maximumAge</code> accordingly. If you need to find their location <em>continuously</em>, then <code>getCurrentPosition()</code> is not for you. You need to upgrade to <code>watchPosition()</code>.
+<p>Before you ask for the user&rsquo;s location, you should think about just how much accuracy you need, and set <code>enableHighAccuracy</code> accordingly. If you need to find their location more than once, you should think about how old the information could be and still be useful, and set <code>maximumAge</code> accordingly. If you need to find their location <em>continuously</em>, then <code>getCurrentPosition()</code> is not for you. You need to upgrade to <code>watchPosition()</code>.
 
-<p>The <code>watchPosition()</code> function has the same structure as <code>getCurrentPosition()</code>. It takes two callback functions, a required one for success and an optional one for error conditions, and it can also take an optional <code>PositionOptions</code> object that has all the same properties you just learned about. The difference is that your callback function will be called <em>every time the user&#8217;s location changes</em>. There is no need to actively poll their position. The device will determine the optimal polling interval, and it will call your callback function whenever it determines that the user&#8217;s position has changed. You can use this to update a visible marker on a map, provide instructions on where to go next, or whatever you like. It&#8217;s entirely up to you.
+<p>The <code>watchPosition()</code> function has the same structure as <code>getCurrentPosition()</code>. It takes two callback functions, a required one for success and an optional one for error conditions, and it can also take an optional <code>PositionOptions</code> object that has all the same properties you just learned about. The difference is that your callback function will be called <em>every time the user&rsquo;s location changes</em>. There is no need to actively poll their position. The device will determine the optimal polling interval, and it will call your callback function whenever it determines that the user&rsquo;s position has changed. You can use this to update a visible marker on a map, provide instructions on where to go next, or whatever you like. It&rsquo;s entirely up to you.
 
-<p>The <code>watchPosition()</code> function itself returns a number. You should probably store this number somewhere. If you ever want to stop watching the user&#8217;s location change, you can call the <code>clearWatch()</code> method and pass it this number, and the device will stop calling your callback function. If you&#8217;ve ever used the <code>setInterval()</code> and <code>clearInterval()</code> functions in JavaScript, this works the same way.
+<p>The <code>watchPosition()</code> function itself returns a number. You should probably store this number somewhere. If you ever want to stop watching the user&rsquo;s location change, you can call the <code>clearWatch()</code> method and pass it this number, and the device will stop calling your callback function. If you&rsquo;ve ever used the <code>setInterval()</code> and <code>clearInterval()</code> functions in JavaScript, this works the same way.
 
 <p class=a>&#x2767;
 
 <h2 id=ie>What About IE?</h2>
 
-<p>Prior to version 9 (technically 9.0RC1), Internet Explorer did not support the <a href=#w3c><abbr>W3C</abbr> geolocation <abbr>API</abbr></a> that I&#8217;ve just described. But don&#8217;t despair! For these prior versions, we will need a JavaScript fallback. It&#8217;s not quite the same as the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, but it serves the same purpose.
+<p>Prior to version 9 (technically 9.0RC1), Internet Explorer did not support the <a href=#w3c><abbr>W3C</abbr> geolocation <abbr>API</abbr></a> that I&rsquo;ve just described. But don&rsquo;t despair! For these prior versions, we will need a JavaScript fallback. It&rsquo;s not quite the same as the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, but it serves the same purpose.
 
-<p>While we&#8217;re on the subject of legacy platforms, I should point out that many older mobile phone platforms had their own device-specific geolocation <abbr>API</abbr>s. <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.developer.nokia.com/Resources/Library/Web/#!web-apps/symbian-web-runtime/platform-services-20-javascript-api-reference/platform-services-20-javascript-api-reference/platform-services-20-location-api/geolocation-object.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a> all provide their own geolocation <abbr>API</abbr>s. Of course, they all work differently which in turn works differently from the <abbr>W3C</abbr> geolocation <abbr>API</abbr>. Wheeeeee!
+<p>While we&rsquo;re on the subject of legacy platforms, I should point out that many older mobile phone platforms had their own device-specific geolocation <abbr>API</abbr>s. <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.developer.nokia.com/Resources/Library/Web/#!web-apps/symbian-web-runtime/platform-services-20-javascript-api-reference/platform-services-20-javascript-api-reference/platform-services-20-location-api/geolocation-object.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a> all provide their own geolocation <abbr>API</abbr>s. Of course, they all work differently which in turn works differently from the <abbr>W3C</abbr> geolocation <abbr>API</abbr>. Wheeeeee!
 
 <p class=a>&#x2767;
 
 <h2 id=geo-js>geoPosition.js to the Rescue</h2>
 
-<p><a href=https://github.com/estebanav/javascript-mobile-desktop-geolocation/><code>geoPositon.js</code></a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that smooths over the differences between the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, <abbr>IP</abbr> geolocation services, and the <abbr>API</abbr>s provided by mobile platforms. To use it, you&#8217;ll need to add one <code>&lt;script></code> element at the bottom of your page. (Technically, you could put it anywhere, but scripts in your <code>&lt;head></code> will make your page load more slowly. So don&#8217;t do that!)
+<p><a href=https://github.com/estebanav/javascript-mobile-desktop-geolocation/><code>geoPositon.js</code></a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that smooths over the differences between the <abbr>W3C</abbr> geolocation <abbr>API</abbr>, <abbr>IP</abbr> geolocation services, and the <abbr>API</abbr>s provided by mobile platforms. To use it, you&rsquo;ll need to add one <code>&lt;script></code> element at the bottom of your page. (Technically, you could put it anywhere, but scripts in your <code>&lt;head></code> will make your page load more slowly. So don&rsquo;t do that!)
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
 &lt;html>
@@ -227,16 +227,16 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 &lt;/body>
 &lt;/html>
 </code></pre>
-<p class="legend right" style="margin-top:11em"><span class=arrow>&nbsp;&#x21dc;</span> Don&#8217;t let it go to your &lt;head>
+<p class="legend right" style="margin-top:11em"><span class=arrow>&nbsp;&#x21dc;</span> Don&rsquo;t let it go to your &lt;head>
 
-<p class=clear>Now you&#8217;re ready to use whichever geolocation <abbr>API</abbr> is installed.
+<p class=clear>Now you&rsquo;re ready to use whichever geolocation <abbr>API</abbr> is installed.
 
 <pre><code>if (geoPosition.init()) {
   geoPosition.getCurrentPosition(geoSuccess, geoError);
 }
 </code></pre>
 
-<p>Let&#8217;s take that one step at a time. First, you need to explicitly call an <code>init()</code> function. The <code>init()</code> function returns <code>true</code> if a supported geolocation <abbr>API</abbr> is available.
+<p>Let&rsquo;s take that one step at a time. First, you need to explicitly call an <code>init()</code> function. The <code>init()</code> function returns <code>true</code> if a supported geolocation <abbr>API</abbr> is available.
 
 <pre><code>if (<mark>geoPosition.init()</mark>) {</code></pre>
 
@@ -269,7 +269,7 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
   alert("Could not find you!");
 }</code></pre>
 
-<p><code>geoPosition.js</code> does not currently support the <code>watchPosition()</code> function. If you need continuous location information, you&#8217;ll need to actively poll <code>getCurrentPosition()</code> yourself.
+<p><code>geoPosition.js</code> does not currently support the <code>watchPosition()</code> function. If you need continuous location information, you&rsquo;ll need to actively poll <code>getCurrentPosition()</code> yourself.
 
 <p class=a>&#x2767;
 
@@ -279,13 +279,13 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <p style="margin:0 auto;width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
 
-<p>How does it work? Let&#8217;s take a look. On page load, this page calls <code>geoPosition.init()</code> to determine whether geolocation is available through any of the interfaces that <code>geoPosition.js</code> supports. If so, it sets up a link you can click to look up your location. Clicking that link calls the <code>lookup_location()</code> function, shown here:
+<p>How does it work? Let&rsquo;s take a look. On page load, this page calls <code>geoPosition.init()</code> to determine whether geolocation is available through any of the interfaces that <code>geoPosition.js</code> supports. If so, it sets up a link you can click to look up your location. Clicking that link calls the <code>lookup_location()</code> function, shown here:
 
 <pre><code>function lookup_location() {
   geoPosition.getCurrentPosition(show_map, show_map_error);
 }</code></pre>
 
-<p>If you give your consent to track your location, <em>and</em> the backend service was actually able to determine your location, <code>geoPosition.js</code> calls the first callback function, <code>show_map()</code>, with a single argument, <code>loc</code>. The <code>loc</code> object has a <code>coords</code> property which contains latitude, longitude, and accuracy information. (This example doesn&#8217;t use the accuracy information.) The rest of the <code>show_map()</code> function uses the Google Maps API to set up an embedded map.
+<p>If you give your consent to track your location, <em>and</em> the backend service was actually able to determine your location, <code>geoPosition.js</code> calls the first callback function, <code>show_map()</code>, with a single argument, <code>loc</code>. The <code>loc</code> object has a <code>coords</code> property which contains latitude, longitude, and accuracy information. (This example doesn&rsquo;t use the accuracy information.) The rest of the <code>show_map()</code> function uses the Google Maps API to set up an embedded map.
 
 <pre><code>function show_map(loc) {
   $("#geo-wrapper").css({'width':'320px','height':'350px'});
@@ -319,13 +319,13 @@ A: <a href=http://www.w3.org/TR/geolocation-API/#coordinates_interface>The geolo
 
 <p class=a>&#x2767;
 
-<p>This has been &#8220;You Are Here (And So Is Everybody Else).&#8221; The <a href=table-of-contents.html>full table of contents</a> has more if you&#8217;d like to keep reading.
+<p>This has been &ldquo;You Are Here (And So Is Everybody Else).&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
 
 <div class=pf>
 <h4>Did You Know?</h4>
 <div class=moneybags>
-<blockquote><p>In association with Google Press, O&#8217;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &#8220;HTML5: Up &amp; Running,&#8221; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&#8217;Reilly</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+<blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>

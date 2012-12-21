@@ -9,15 +9,15 @@ body{counter-reset:h1 5}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#video>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#video>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
 <h1><br>Video on the Web</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-a.png alt=A width=105 height=105>nyone who has visited YouTube.com in the past four years knows that you can embed video in a web page. But prior to <abbr>HTML5</abbr>, there was no standards-based way to do this. Virtually all the video you&#8217;ve ever watched &#8220;on the web&#8221; has been funneled through a third-party plugin &mdash; maybe QuickTime, maybe RealPlayer, maybe Flash. (YouTube uses Flash.) These plugins integrate with your browser well enough that you may not even be aware that you&#8217;re using them. That is, until you try to watch a video on a platform that doesn&#8217;t support that plugin.
+<p class=f><img src=i/aoc-a.png alt=A width=105 height=105>nyone who has visited YouTube.com in the past four years knows that you can embed video in a web page. But prior to <abbr>HTML5</abbr>, there was no standards-based way to do this. Virtually all the video you&rsquo;ve ever watched &ldquo;on the web&rdquo; has been funneled through a third-party plugin &mdash; maybe QuickTime, maybe RealPlayer, maybe Flash. (YouTube uses Flash.) These plugins integrate with your browser well enough that you may not even be aware that you&rsquo;re using them. That is, until you try to watch a video on a platform that doesn&rsquo;t support that plugin.
 
-<p><abbr>HTML5</abbr> defines a standard way to embed video in a web page, using a <code>&lt;video></code> element. Support for the <code>&lt;video></code> element is still evolving, which is a polite way of saying it doesn&#8217;t work yet. At least, it doesn&#8217;t work everywhere. But don&#8217;t despair! There are alternatives and fallbacks and options galore.
+<p><abbr>HTML5</abbr> defines a standard way to embed video in a web page, using a <code>&lt;video></code> element. Support for the <code>&lt;video></code> element is still evolving, which is a polite way of saying it doesn&rsquo;t work yet. At least, it doesn&rsquo;t work everywhere. But don&rsquo;t despair! There are alternatives and fallbacks and options galore.
 
 <table class=bc>
 <caption>&lt;video> element support</caption>
@@ -33,16 +33,16 @@ body{counter-reset:h1 5}
 
 <h2 id=video-containers>Video Containers</h2>
 
-<p>You may think of video files as &#8220;AVI files&#8221; or &#8220;MP4 files.&#8221;  In reality, &#8220;AVI&#8221; and &#8220;MP4&#8243; are just container formats. Just like a ZIP file can contain any sort of file within it, video container formats only define <em>how</em> to store things within them, not <em>what</em> kinds of data are stored. (It&#8217;s a little more complicated than that, because not all video streams are compatible with all container formats, but never mind that for now.)
+<p>You may think of video files as &ldquo;AVI files&rdquo; or &ldquo;MP4 files.&rdquo;  In reality, &ldquo;AVI&rdquo; and &ldquo;MP4&#8243; are just container formats. Just like a ZIP file can contain any sort of file within it, video container formats only define <em>how</em> to store things within them, not <em>what</em> kinds of data are stored. (It&rsquo;s a little more complicated than that, because not all video streams are compatible with all container formats, but never mind that for now.)
 
 <p>A video file usually contains multiple <em>tracks</em> &#8212; a video track (without audio), plus one or more audio tracks (without video). Tracks are usually interrelated. An audio track contains markers within it to help synchronize the audio with the video. Individual tracks can have metadata, such as the aspect ratio of a video track, or the language of an audio track. Containers can also have metadata, such as the title of the video itself, cover art for the video, episode numbers (for television shows), and so on. 
  
 <p>There are <em>lots</em> of video container formats. Some of the most popular include 
  
 <ul> 
-<li><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_14>MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href=http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm>based on Apple&#8217;s older QuickTime container</a> (<code>.mov</code>). <a href=http://www.apple.com/trailers/>Movie trailers on Apple&#8217;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li> 
+<li><a href=http://en.wikipedia.org/wiki/MPEG-4_Part_14>MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href=http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm>based on Apple&rsquo;s older QuickTime container</a> (<code>.mov</code>). <a href=http://www.apple.com/trailers/>Movie trailers on Apple&rsquo;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li> 
 <li><a href=http://en.wikipedia.org/wiki/Flash_Video>Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. More recent versions of Flash also support the MPEG 4 container.</li> 
-<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open source&ndash;friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &#8220;Theora&#8221;), and Ogg audio (called &#8220;Vorbis&#8221;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
+<li><a href=http://en.wikipedia.org/wiki/Ogg>Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open source&ndash;friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &#8212; natively, without platform-specific plugins &#8212; the Ogg container format, Ogg video (called &ldquo;Theora&rdquo;), and Ogg audio (called &ldquo;Vorbis&rdquo;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href=http://www.xiph.org/quicktime/>QuickTime components</a> or <a href=http://www.xiph.org/dshow/>DirectShow filters</a>, respectively. It is also playable with the excellent <a href=http://www.videolan.org/vlc/>VLC</a> on all platforms.</li> 
 <li><a href=http://www.webmproject.org/>WebM</a> is a new container format. It is technically similar to another format, called <a href=http://en.wikipedia.org/wiki/Matroska>Matroska</a>. WebM was announced in May, 2010. It is designed to be used exclusively with the VP8 video codec and Vorbis audio codec. (More on these in a minute.) It is supported natively, without platform-specific plugins, in the latest versions of Chromium, Google Chrome, Mozilla Firefox, and Opera. Adobe has also announced that a future version of Flash will support WebM video.</li>
 <li><a href=http://en.wikipedia.org/wiki/AVI>Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support features of more recent container formats like embedded metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href=http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html>MEncoder</a>.</li> 
 </ul> 
@@ -51,9 +51,9 @@ body{counter-reset:h1 5}
 
 <h2 id=video-codecs>Video Codecs</h2>
 
-<p>When you talk about &#8220;watching a video,&#8221; you&#8217;re probably talking about a combination of one video stream and one audio stream. But you don&#8217;t have two different files; you just have &#8220;the video.&#8221;  Maybe it&#8217;s an AVI file, or an MP4 file. These are <a href=#video-containers>just container formats</a>, like a ZIP file that contains multiple kinds of files within it. The container format defines how to store the video and audio streams in a single file. 
+<p>When you talk about &ldquo;watching a video,&rdquo; you&rsquo;re probably talking about a combination of one video stream and one audio stream. But you don&rsquo;t have two different files; you just have &ldquo;the video.&rdquo;  Maybe it&rsquo;s an AVI file, or an MP4 file. These are <a href=#video-containers>just container formats</a>, like a ZIP file that contains multiple kinds of files within it. The container format defines how to store the video and audio streams in a single file. 
  
-<p>When you &#8220;watch a video,&#8221; your video player is doing at least three things at once: 
+<p>When you &ldquo;watch a video,&rdquo; your video player is doing at least three things at once: 
  
 <ol> 
 <li>Interpreting the container format to find out which video and audio tracks are available, and how they are stored within the file so that it can find the data it needs to decode next</li> 
@@ -61,38 +61,38 @@ body{counter-reset:h1 5}
 <li>Decoding the audio stream and sending the sound to your speakers</li> 
 </ol> 
  
-<p>A <i>video codec</i> is an algorithm by which a video stream is encoded, i.e. it specifies how to do #2 above. (The word &#8220;codec&#8221; is a <a href=http://en.wikipedia.org/wiki/Portmanteau>portmanteau</a>, a combination of the words &#8220;coder&#8221; and &#8220;decoder.&#8221;) Your video player <i>decodes</i> the video stream according to the <i>video codec</i>, then displays a series of images, or &#8220;frames,&#8221; on the screen. Most modern video codecs use all sorts of tricks to minimize the amount of information required to display one frame after the next. For example, instead of storing each individual frame (like a screenshot), they will only store the differences between frames. Most videos don&#8217;t actually change all that much from one frame to the next, so this allows for high compression rates, which results in smaller file sizes.
+<p>A <i>video codec</i> is an algorithm by which a video stream is encoded, i.e. it specifies how to do #2 above. (The word &ldquo;codec&rdquo; is a <a href=http://en.wikipedia.org/wiki/Portmanteau>portmanteau</a>, a combination of the words &ldquo;coder&rdquo; and &ldquo;decoder.&rdquo;) Your video player <i>decodes</i> the video stream according to the <i>video codec</i>, then displays a series of images, or &ldquo;frames,&rdquo; on the screen. Most modern video codecs use all sorts of tricks to minimize the amount of information required to display one frame after the next. For example, instead of storing each individual frame (like a screenshot), they will only store the differences between frames. Most videos don&rsquo;t actually change all that much from one frame to the next, so this allows for high compression rates, which results in smaller file sizes.
  
-<p>There are <i>lossy</i> and <i>lossless</i> video codecs. Lossless video is much too big to be useful on the web, so I&#8217;ll concentrate on lossy codecs. A <i>lossy video codec</i> means that information is being irretrievably lost during encoding. Like copying an audio cassette tape, you&#8217;re losing information about the source video, and degrading the quality, every time you encode. Instead of the &#8220;hiss&#8221; of an audio cassette, a re-re-re-encoded video may look blocky, especially during scenes with a lot of motion. (Actually, this can happen even if you encode straight from the original source, if you choose a poor video codec or pass it the wrong set of parameters.)  On the bright side, lossy video codecs can offer amazing compression rates by smoothing over blockiness during playback, to make the loss less noticeable to the human eye. 
+<p>There are <i>lossy</i> and <i>lossless</i> video codecs. Lossless video is much too big to be useful on the web, so I&rsquo;ll concentrate on lossy codecs. A <i>lossy video codec</i> means that information is being irretrievably lost during encoding. Like copying an audio cassette tape, you&rsquo;re losing information about the source video, and degrading the quality, every time you encode. Instead of the &ldquo;hiss&rdquo; of an audio cassette, a re-re-re-encoded video may look blocky, especially during scenes with a lot of motion. (Actually, this can happen even if you encode straight from the original source, if you choose a poor video codec or pass it the wrong set of parameters.)  On the bright side, lossy video codecs can offer amazing compression rates by smoothing over blockiness during playback, to make the loss less noticeable to the human eye. 
  
 <p>There are <a href=http://samples.mplayerhq.hu/V-codecs/><em>tons</em> of video codecs</a>. The three most relevant codecs are <a href=#h264>H.264</a>, <a href=#theora>Theora</a>, and <a href=#vp8>VP8</a>.
  
 <h3 id=h264>H.264</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/H.264>H.264</a> is also known as &#8220;MPEG-4 part 10,&#8221; a.k.a. &#8220;MPEG-4 AVC,&#8221; a.k.a. &#8220;MPEG-4 Advanced Video Coding.&#8221;  H.264 was also developed by <a href=http://en.wikipedia.org/wiki/Moving_Picture_Experts_Group>the MPEG group</a> and standardized in 2003. It aims to provide a single codec for low-bandwidth, low-CPU devices (cell phones); high-bandwidth, high-CPU devices (modern desktop computers); and everything in between. To accomplish this, the H.264 standard is split into &#8220;<a href=http://en.wikipedia.org/wiki/H.264#Profiles>profiles</a>,&#8221; which each define a set of optional features that trade complexity for file size. Higher profiles use more optional features, offer better visual quality at smaller file sizes, take longer to encode, and require more CPU power to decode in real-time. 
-<p>To give you a rough idea of the range of profiles, <a href=http://www.apple.com/iphone/specs.html>Apple&#8217;s iPhone supports Baseline profile</a>, the <a href=http://www.apple.com/appletv/specs.html>AppleTV set-top box supports Baseline and Main profiles</a>, and <a href=http://www.kaourantin.net/2007/08/what-just-happened-to-video-on-web_20.html>Adobe Flash on a desktop PC supports Baseline, Main, and High profiles</a>. YouTube now uses H.264 to encode <a href=http://blog.wired.com/business/2008/12/youtube-adds-hd.html>high-definition videos</a>, playable through Adobe Flash; YouTube also provides H.264-encoded video to mobile devices, including Apple&#8217;s iPhone and phones running Google&#8217;s <a href=http://code.google.com/android/>Android mobile operating system</a>. Also, H.264 is one of the video codecs mandated by the Blu-Ray specification; Blu-Ray discs that use it generally use the High profile. 
-<p>Most non-PC devices that play H.264 video (including iPhones and standalone Blu-Ray players) actually do the decoding on a dedicated chip, since their main CPUs are nowhere near powerful enough to decode the video in real-time. These days, even low-end desktop graphics cards support decoding H.264 in hardware. There are <a href=http://compression.ru/video/codec_comparison/mpeg-4_avc_h264_2007_en.html>competing H.264 encoders</a>, including the open source <a href=http://www.videolan.org/developers/x264.html>x264 library</a>. <b>The H.264 standard is patent-encumbered</b>; licensing is brokered through the <a href=http://www.mpegla.com/>MPEG LA group</a>. H.264 video can be embedded in most popular <a href=#video-containers>container formats</a>, including MP4 (used primarily by <a href=http://www.apple.com/itunes/whatson/movies.html>Apple&#8217;s iTunes Store</a>) and MKV (used primarily by non-commercial video enthusiasts).
+<p><a href=http://en.wikipedia.org/wiki/H.264>H.264</a> is also known as &ldquo;MPEG-4 part 10,&rdquo; a.k.a. &ldquo;MPEG-4 AVC,&rdquo; a.k.a. &ldquo;MPEG-4 Advanced Video Coding.&rdquo;  H.264 was also developed by <a href=http://en.wikipedia.org/wiki/Moving_Picture_Experts_Group>the MPEG group</a> and standardized in 2003. It aims to provide a single codec for low-bandwidth, low-CPU devices (cell phones); high-bandwidth, high-CPU devices (modern desktop computers); and everything in between. To accomplish this, the H.264 standard is split into &ldquo;<a href=http://en.wikipedia.org/wiki/H.264#Profiles>profiles</a>,&rdquo; which each define a set of optional features that trade complexity for file size. Higher profiles use more optional features, offer better visual quality at smaller file sizes, take longer to encode, and require more CPU power to decode in real-time. 
+<p>To give you a rough idea of the range of profiles, <a href=http://www.apple.com/iphone/specs.html>Apple&rsquo;s iPhone supports Baseline profile</a>, the <a href=http://www.apple.com/appletv/specs.html>AppleTV set-top box supports Baseline and Main profiles</a>, and <a href=http://www.kaourantin.net/2007/08/what-just-happened-to-video-on-web_20.html>Adobe Flash on a desktop PC supports Baseline, Main, and High profiles</a>. YouTube now uses H.264 to encode <a href=http://blog.wired.com/business/2008/12/youtube-adds-hd.html>high-definition videos</a>, playable through Adobe Flash; YouTube also provides H.264-encoded video to mobile devices, including Apple&rsquo;s iPhone and phones running Google&rsquo;s <a href=http://code.google.com/android/>Android mobile operating system</a>. Also, H.264 is one of the video codecs mandated by the Blu-Ray specification; Blu-Ray discs that use it generally use the High profile. 
+<p>Most non-PC devices that play H.264 video (including iPhones and standalone Blu-Ray players) actually do the decoding on a dedicated chip, since their main CPUs are nowhere near powerful enough to decode the video in real-time. These days, even low-end desktop graphics cards support decoding H.264 in hardware. There are <a href=http://compression.ru/video/codec_comparison/mpeg-4_avc_h264_2007_en.html>competing H.264 encoders</a>, including the open source <a href=http://www.videolan.org/developers/x264.html>x264 library</a>. <b>The H.264 standard is patent-encumbered</b>; licensing is brokered through the <a href=http://www.mpegla.com/>MPEG LA group</a>. H.264 video can be embedded in most popular <a href=#video-containers>container formats</a>, including MP4 (used primarily by <a href=http://www.apple.com/itunes/whatson/movies.html>Apple&rsquo;s iTunes Store</a>) and MKV (used primarily by non-commercial video enthusiasts).
  
 <h3 id=theora>Theora</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/Theora>Theora</a> evolved from the <a href=http://en.wikipedia.org/wiki/Theora#History>VP3 codec</a> and has subsequently been developed by the <a href=http://xiph.org/>Xiph.org Foundation</a>. <b>Theora is a royalty-free codec and is not encumbered by any known patents</b> other than the original VP3 patents, which have been licensed royalty-free. Although the standard has been &#8220;frozen&#8221; since 2004, the Theora project (which includes an open source reference encoder and decoder) <a href=http://lists.xiph.org/pipermail/theora-dev/2008-November/003736.html>only released version 1.0 in November 2008</a> and <a href=http://lists.xiph.org/pipermail/theora-dev/2009-September/003985.html>version 1.1 in September 2009</a>. 
-<p>Theora video can be embedded in any container format, although it is most often seen in an Ogg container. All major Linux distributions support Theora out-of-the-box, and Mozilla Firefox 3.5 <a href=https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox>includes native support for Theora video</a> in an Ogg container. And by &#8220;native&#8221;, I mean &#8220;available on all platforms without platform-specific plugins.&#8221;  You can also play Theora video <a href=http://www.xiph.org/dshow/>on Windows</a> or <a href=http://xiph.org/quicktime/>on Mac OS X</a> after installing Xiph.org&#8217;s open source decoder software. 
+<p><a href=http://en.wikipedia.org/wiki/Theora>Theora</a> evolved from the <a href=http://en.wikipedia.org/wiki/Theora#History>VP3 codec</a> and has subsequently been developed by the <a href=http://xiph.org/>Xiph.org Foundation</a>. <b>Theora is a royalty-free codec and is not encumbered by any known patents</b> other than the original VP3 patents, which have been licensed royalty-free. Although the standard has been &ldquo;frozen&rdquo; since 2004, the Theora project (which includes an open source reference encoder and decoder) <a href=http://lists.xiph.org/pipermail/theora-dev/2008-November/003736.html>only released version 1.0 in November 2008</a> and <a href=http://lists.xiph.org/pipermail/theora-dev/2009-September/003985.html>version 1.1 in September 2009</a>. 
+<p>Theora video can be embedded in any container format, although it is most often seen in an Ogg container. All major Linux distributions support Theora out-of-the-box, and Mozilla Firefox 3.5 <a href=https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox>includes native support for Theora video</a> in an Ogg container. And by &ldquo;native&rdquo;, I mean &ldquo;available on all platforms without platform-specific plugins.&rdquo;  You can also play Theora video <a href=http://www.xiph.org/dshow/>on Windows</a> or <a href=http://xiph.org/quicktime/>on Mac OS X</a> after installing Xiph.org&rsquo;s open source decoder software. 
 
 <h3 id=vp8>VP8</h3>
 
 <p><a href=http://en.wikipedia.org/wiki/VP8>VP8</a> is another video codec from On2, the same company that originally developed VP3 (later Theora). Technically, it produces output on par with H.264 High Profile, while maintaining a low decoding complexity on par with H.264 Baseline.
 
-<p>In 2010, Google acquired On2 and published the video codec specification and a sample encoder and decoder as open source. As part of this, Google also &#8220;opened&#8221; all the patents that On2 had filed on VP8, by licensing them royalty-free. (This is the best you can hope for with patents. You can&#8217;t actually &#8220;release&#8221; them or nullify them once they&#8217;ve been issued. To make them open source&ndash;friendly, you license them royalty-free, and then anyone can use the technologies the patents cover without paying anything or negotiating patent licenses.) As of May 19, 2010, <b>VP8 is a royalty-free, modern codec and is not encumbered by any known patents</b>, other than the patents that On2 (now Google) has already licensed royalty-free.
+<p>In 2010, Google acquired On2 and published the video codec specification and a sample encoder and decoder as open source. As part of this, Google also &ldquo;opened&rdquo; all the patents that On2 had filed on VP8, by licensing them royalty-free. (This is the best you can hope for with patents. You can&rsquo;t actually &ldquo;release&rdquo; them or nullify them once they&rsquo;ve been issued. To make them open source&ndash;friendly, you license them royalty-free, and then anyone can use the technologies the patents cover without paying anything or negotiating patent licenses.) As of May 19, 2010, <b>VP8 is a royalty-free, modern codec and is not encumbered by any known patents</b>, other than the patents that On2 (now Google) has already licensed royalty-free.
 
 <p class=a>&#x2767;
 
 <h2 id=audio-codecs>Audio Codecs</h2>
 
-<p>Unless you&#8217;re going to stick to films made before <a href=http://www.filmsite.org/jazz.html>1927 or so</a>, you&#8217;re going to want an audio track in your video. Like <a href=#video-codecs>video codecs</a>, <i>audio codecs</i> are algorithms by which an audio stream is encoded. Like video codecs, there are <i>lossy</i> and <i>lossless</i> audio codecs. And like lossless video, lossless audio is really too big to put on the web. So I&#8217;ll concentrate on lossy audio codecs.
+<p>Unless you&rsquo;re going to stick to films made before <a href=http://www.filmsite.org/jazz.html>1927 or so</a>, you&rsquo;re going to want an audio track in your video. Like <a href=#video-codecs>video codecs</a>, <i>audio codecs</i> are algorithms by which an audio stream is encoded. Like video codecs, there are <i>lossy</i> and <i>lossless</i> audio codecs. And like lossless video, lossless audio is really too big to put on the web. So I&rsquo;ll concentrate on lossy audio codecs.
 
-<p>Actually, it&#8217;s even narrower than that, because there are different categories of lossy audio codecs. Audio is used in places where video is not (telephony, for example), and there is an entire category of <a href=http://www.voip-info.org/wiki-Codecs>audio codecs optimized for encoding speech</a>. You wouldn&#8217;t rip a music CD with these codecs, because the result would sound like a 4-year-old singing into a speakerphone. But you <em>would</em> use them in an <a href=http://www.asterisk.org/>Asterisk</a> PBX, because bandwidth is precious, and these codecs can compress human speech into a fraction of the size of general-purpose codecs. However, due to lack of support in both native browsers and third-party plugins, speech-optimized audio codecs never really took off on the web. So I&#8217;ll concentrate on <i>general purpose lossy audio codecs</i>.
+<p>Actually, it&rsquo;s even narrower than that, because there are different categories of lossy audio codecs. Audio is used in places where video is not (telephony, for example), and there is an entire category of <a href=http://www.voip-info.org/wiki-Codecs>audio codecs optimized for encoding speech</a>. You wouldn&rsquo;t rip a music CD with these codecs, because the result would sound like a 4-year-old singing into a speakerphone. But you <em>would</em> use them in an <a href=http://www.asterisk.org/>Asterisk</a> PBX, because bandwidth is precious, and these codecs can compress human speech into a fraction of the size of general-purpose codecs. However, due to lack of support in both native browsers and third-party plugins, speech-optimized audio codecs never really took off on the web. So I&rsquo;ll concentrate on <i>general purpose lossy audio codecs</i>.
  
-<p><a href=#video-codecs>As I mentioned earlier</a>, when you &#8220;watch a video,&#8221; your computer is doing at least three things at once: 
+<p><a href=#video-codecs>As I mentioned earlier</a>, when you &ldquo;watch a video,&rdquo; your computer is doing at least three things at once: 
  
 <ol> 
 <li>Interpreting the container format</li> 
@@ -100,9 +100,9 @@ body{counter-reset:h1 5}
 <li>Decoding the audio stream and sending the sound to your speakers</li> 
 </ol> 
  
-<p>The <i>audio codec</i> specifies how to do #3 &#8212; decoding the audio stream and turning it into digital waveforms that your speakers then turn into sound. As with video codecs, there are all sorts of tricks to minimize the amount of information stored in the audio stream. And since we&#8217;re talking about <i>lossy</i> audio codecs, information is being lost during the recording <span class=u>&rarr;</span> encoding <span class=u>&rarr;</span> decoding <span class=u>&rarr;</span> listening lifecycle. Different audio codecs throw away different things, but they all have the same purpose: to trick your ears into not noticing the parts that are missing. 
+<p>The <i>audio codec</i> specifies how to do #3 &#8212; decoding the audio stream and turning it into digital waveforms that your speakers then turn into sound. As with video codecs, there are all sorts of tricks to minimize the amount of information stored in the audio stream. And since we&rsquo;re talking about <i>lossy</i> audio codecs, information is being lost during the recording <span class=u>&rarr;</span> encoding <span class=u>&rarr;</span> decoding <span class=u>&rarr;</span> listening lifecycle. Different audio codecs throw away different things, but they all have the same purpose: to trick your ears into not noticing the parts that are missing. 
  
-<p>One concept that audio has that video does not is <i>channels</i>. We&#8217;re sending sound to your speakers, right?  Well, how many speakers do you have?  If you&#8217;re sitting at your computer, you may only have two: one on the left and one on the right. My desktop has three: left, right, and one more on the floor. So-called &#8220;<a href=http://en.wikipedia.org/wiki/Surround_sound>surround sound</a>&#8221; systems can have six or more speakers, strategically placed around the room. Each speaker is fed a particular <i>channel</i> of the original recording. The theory is that you can sit in the middle of the six speakers, literally surrounded by six separate channels of sound, and your brain synthesizes them and feels like you&#8217;re in the middle of the action. Does it work?  A multi-billion-dollar industry seems to think so. 
+<p>One concept that audio has that video does not is <i>channels</i>. We&rsquo;re sending sound to your speakers, right?  Well, how many speakers do you have?  If you&rsquo;re sitting at your computer, you may only have two: one on the left and one on the right. My desktop has three: left, right, and one more on the floor. So-called &ldquo;<a href=http://en.wikipedia.org/wiki/Surround_sound>surround sound</a>&rdquo; systems can have six or more speakers, strategically placed around the room. Each speaker is fed a particular <i>channel</i> of the original recording. The theory is that you can sit in the middle of the six speakers, literally surrounded by six separate channels of sound, and your brain synthesizes them and feels like you&rsquo;re in the middle of the action. Does it work?  A multi-billion-dollar industry seems to think so. 
  
 <p>Most general-purpose audio codecs can handle two channels of sound. During recording, the sound is split into left and right channels; during encoding, both channels are stored in the same audio stream; during decoding, both channels are decoded and each is sent to the appropriate speaker. Some audio codecs can handle more than two channels, and they keep track of which channel is which and so your player can send the right sound to the right speaker. 
  
@@ -110,25 +110,25 @@ body{counter-reset:h1 5}
  
 <h3 id=mp3>MPEG-1 Audio Layer 3</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_3>MPEG-1 Audio Layer 3</a> is colloquially known as &#8220;MP3.&#8221;  If you haven&#8217;t heard of MP3s, I don&#8217;t know what to do with you. <a href="http://www.walmart.com/catalog/catalog.gsp?cat=96469">Walmart sells portable music players</a> and calls them &#8220;MP3 players.&#8221;  <em>Walmart.</em>  Anyway&#8230; 
+<p><a href=http://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_3>MPEG-1 Audio Layer 3</a> is colloquially known as &ldquo;MP3.&rdquo;  If you haven&rsquo;t heard of MP3s, I don&rsquo;t know what to do with you. <a href="http://www.walmart.com/catalog/catalog.gsp?cat=96469">Walmart sells portable music players</a> and calls them &ldquo;MP3 players.&rdquo;  <em>Walmart.</em>  Anyway&#8230; 
  
-<p>MP3s can contain <strong>up to 2 channels</strong> of sound. They can be encoded at different <i>bitrates</i>: 64 kbps, 128 kbps, 192 kbps, and a variety of others from 32 to 320. Higher bitrates mean larger file sizes and better quality audio, although the ratio of audio quality to bitrate is not linear. (128 kbps sounds more than twice as good as 64 kbps, but 256 kbps doesn&#8217;t sound twice as good as 128 kbps.)  Furthermore, the MP3 format allows for <i>variable bitrate encoding</i>, which means that some parts of the encoded stream are compressed more than others. For example, silence between notes can be encoded at a low bitrate, then the bitrate can spike up a moment later when multiple instruments start playing a complex chord. MP3s can also be encoded with a constant bitrate, which, unsurprisingly, is called <i>constant bitrate encoding</i>. 
+<p>MP3s can contain <strong>up to 2 channels</strong> of sound. They can be encoded at different <i>bitrates</i>: 64 kbps, 128 kbps, 192 kbps, and a variety of others from 32 to 320. Higher bitrates mean larger file sizes and better quality audio, although the ratio of audio quality to bitrate is not linear. (128 kbps sounds more than twice as good as 64 kbps, but 256 kbps doesn&rsquo;t sound twice as good as 128 kbps.)  Furthermore, the MP3 format allows for <i>variable bitrate encoding</i>, which means that some parts of the encoded stream are compressed more than others. For example, silence between notes can be encoded at a low bitrate, then the bitrate can spike up a moment later when multiple instruments start playing a complex chord. MP3s can also be encoded with a constant bitrate, which, unsurprisingly, is called <i>constant bitrate encoding</i>. 
  
-<p>The MP3 standard doesn&#8217;t define exactly how to encode MP3s (although it does define exactly how to decode them); different encoders use different psychoacoustic models that produce wildly different results, but are all decodable by the same players. The open source <a href=http://lame.sourceforge.net/>LAME project</a> is the best free encoder, and arguably the best encoder period for all but the lowest bitrates. 
+<p>The MP3 standard doesn&rsquo;t define exactly how to encode MP3s (although it does define exactly how to decode them); different encoders use different psychoacoustic models that produce wildly different results, but are all decodable by the same players. The open source <a href=http://lame.sourceforge.net/>LAME project</a> is the best free encoder, and arguably the best encoder period for all but the lowest bitrates. 
  
-<p>The MP3 format (standardized in 1991) <strong>is patent-encumbered</strong>, which explains why Linux can&#8217;t play MP3 files out of the box. Pretty much every portable music player supports standalone MP3 files, and MP3 audio streams can be embedded in any <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>video container</a>. Adobe Flash can play both standalone MP3 files and MP3 audio streams within an MP4 video container. 
+<p>The MP3 format (standardized in 1991) <strong>is patent-encumbered</strong>, which explains why Linux can&rsquo;t play MP3 files out of the box. Pretty much every portable music player supports standalone MP3 files, and MP3 audio streams can be embedded in any <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>video container</a>. Adobe Flash can play both standalone MP3 files and MP3 audio streams within an MP4 video container. 
  
 <h3 id=aac>Advanced Audio Coding</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a> is affectionately known as &#8220;AAC.&#8221;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &#8220;bought&#8221; from the iTunes Store were encrypted with Apple&#8217;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Selected songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &#8220;iTunes Plus&#8221; because it sounds so much better than calling everything else &#8220;iTunes Minus.&#8221;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/licensing/aac-fees.aspx>licensing rates are available online</a>. 
+<p><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding>Advanced Audio Coding</a> is affectionately known as &ldquo;AAC.&rdquo;  Standardized in 1997, it lurched into prominence when Apple chose it as their default format for the iTunes Store. Originally, all AAC files &ldquo;bought&rdquo; from the iTunes Store were encrypted with Apple&rsquo;s proprietary DRM scheme, called <a href=http://en.wikipedia.org/wiki/FairPlay>FairPlay</a>. Selected songs in the iTunes Store are now available as unprotected AAC files, which Apple calls &ldquo;iTunes Plus&rdquo; because it sounds so much better than calling everything else &ldquo;iTunes Minus.&rdquo;  <strong>The AAC format is patent-encumbered</strong>; <a href=http://www.vialicensing.com/licensing/aac-fees.aspx>licensing rates are available online</a>. 
  
-<p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbps.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &#8220;low-complexity&#8221; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
+<p>AAC was designed to provide better sound quality than MP3 at the same <i>bitrate</i>, and it can encode audio at any bitrate. (MP3 is limited to a fixed number of bitrates, with an upper bound of 320 kbps.)  AAC can encode <strong>up to 48 channels of sound</strong>, although in practice no one does that. The AAC format also differs from MP3 in defining multiple <i>profiles</i>, in much the same way as <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs#h264>H.264</a>, and for the same reasons. The &ldquo;low-complexity&rdquo; profile is designed to be playable in real-time on devices with limited CPU power, while higher profiles offer better sound quality at the same bitrate at the expense of slower encoding and decoding. 
  
 <p>All current Apple products, including iPods, AppleTV, and QuickTime support certain profiles of AAC in standalone audio files and in audio streams in an MP4 video container. Adobe Flash supports all profiles of AAC in MP4, as do the open source MPlayer and VLC video players. For encoding, the FAAC library is the open source option; support for it is a compile-time option in mencoder and ffmpeg.
  
 <h3 id=vorbis>Vorbis</h3>
  
-<p><a href=http://en.wikipedia.org/wiki/Vorbis>Vorbis</a> is often called &#8220;Ogg Vorbis,&#8221; although this is technically incorrect. (&#8220;Ogg&#8221; is just <a href=#video-containers>a container format</a>, and Vorbis audio streams can be embedded in other containers.)  <strong>Vorbis is not encumbered by any known patents</strong> and is therefore supported out-of-the-box by all major Linux distributions and by portable devices running the open source <a href=http://www.rockbox.org/>Rockbox</a> firmware. Mozilla Firefox 3.5 supports Vorbis audio files in an Ogg container, or Ogg videos with a Vorbis audio track. <a href=http://code.google.com/android/>Android</a> mobile phones can also play standalone Vorbis audio files. Vorbis audio streams are usually embedded in an Ogg or WebM container, but they can also be <a href=http://samples.mplayerhq.hu/MPEG-4/vorbis-in-mp4/>embedded in an MP4</a> or <a href=http://en.wikipedia.org/wiki/Matroska>MKV</a> container (or, with some hacking, <a href=http://www.alexander-noe.com/video/amg/>in AVI</a>). Vorbis supports <strong>an arbitrary number of sound channels</strong>.
+<p><a href=http://en.wikipedia.org/wiki/Vorbis>Vorbis</a> is often called &ldquo;Ogg Vorbis,&rdquo; although this is technically incorrect. (&ldquo;Ogg&rdquo; is just <a href=#video-containers>a container format</a>, and Vorbis audio streams can be embedded in other containers.)  <strong>Vorbis is not encumbered by any known patents</strong> and is therefore supported out-of-the-box by all major Linux distributions and by portable devices running the open source <a href=http://www.rockbox.org/>Rockbox</a> firmware. Mozilla Firefox 3.5 supports Vorbis audio files in an Ogg container, or Ogg videos with a Vorbis audio track. <a href=http://code.google.com/android/>Android</a> mobile phones can also play standalone Vorbis audio files. Vorbis audio streams are usually embedded in an Ogg or WebM container, but they can also be <a href=http://samples.mplayerhq.hu/MPEG-4/vorbis-in-mp4/>embedded in an MP4</a> or <a href=http://en.wikipedia.org/wiki/Matroska>MKV</a> container (or, with some hacking, <a href=http://www.alexander-noe.com/video/amg/>in AVI</a>). Vorbis supports <strong>an arbitrary number of sound channels</strong>.
  
 <p>There are open source Vorbis encoders and decoders, including <a href=http://oggconvert.tristanb.net/>OggConvert</a> (encoder), <a href=http://www.ffmpeg.org/>ffmpeg</a> (decoder), <a href=http://www.geocities.jp/aoyoume/aotuv/>aoTuV</a> (encoder), and <a href=http://downloads.xiph.org/releases/vorbis/>libvorbis</a> (decoder). There are also <a href=http://www.xiph.org/quicktime/>QuickTime components for Mac OS X</a> and <a href=http://www.xiph.org/dshow/>DirectShow filters for Windows</a>. 
 
@@ -136,7 +136,7 @@ body{counter-reset:h1 5}
 
 <h2 id=what-works>What Works on the Web</h2>
 
-<p>If your eyes haven&#8217;t glazed over yet, you&#8217;re doing better than most. As you can tell, video (and audio) is a complicated subject &mdash; and this was the abridged version! I&#8217;m sure you&#8217;re wondering how all of this relates to <abbr>HTML5</abbr>. Well, <abbr>HTML5</abbr> includes a <code>&lt;video></code> element for embedding video into a web page. There are no restrictions on the video codec, audio codec, or container format you can use for your video. One <code>&lt;video></code> element can link to multiple video files, and the browser will choose the first video file it can actually play. <strong>It is up to you to know which browsers support which containers and codecs.</strong>
+<p>If your eyes haven&rsquo;t glazed over yet, you&rsquo;re doing better than most. As you can tell, video (and audio) is a complicated subject &mdash; and this was the abridged version! I&rsquo;m sure you&rsquo;re wondering how all of this relates to <abbr>HTML5</abbr>. Well, <abbr>HTML5</abbr> includes a <code>&lt;video></code> element for embedding video into a web page. There are no restrictions on the video codec, audio codec, or container format you can use for your video. One <code>&lt;video></code> element can link to multiple video files, and the browser will choose the first video file it can actually play. <strong>It is up to you to know which browsers support which containers and codecs.</strong>
 
 <p>As of this writing, this is the landscape of <abbr>HTML5</abbr> video:
 
@@ -144,11 +144,11 @@ body{counter-reset:h1 5}
 <li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container. Firefox 4 also supports WebM.
 <li>Opera (10.5 and later) supports Theora video and Vorbis audio in an Ogg container. Opera 10.60 also supports WebM.
 <li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. Google Chrome 6.0 also supports WebM.
-<li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&#8217;re left with the formats that QuickTime supports &#8220;out of the box.&#8221; This is a long list, but it does not include WebM, Theora, Vorbis, or the Ogg container. However, QuickTime <em>does</em> ship with support for H.264 video (main profile) and AAC audio in an MP4 container.
-<li>Mobile phones like Apple&#8217;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&#8220;low complexity&#8221; profile) in an MP4 container.
+<li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&rsquo;re left with the formats that QuickTime supports &ldquo;out of the box.&rdquo; This is a long list, but it does not include WebM, Theora, Vorbis, or the Ogg container. However, QuickTime <em>does</em> ship with support for H.264 video (main profile) and AAC audio in an MP4 container.
+<li>Mobile phones like Apple&rsquo;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&ldquo;low complexity&rdquo; profile) in an MP4 container.
 <li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
 <li>Internet Explorer 9 supports all profiles of H.264 video and either AAC or MP3 audio in an MP4 container. It will also play WebM video if you install a third-party codec, which is not installed by default on any version of Windows. IE9 does not support other third-party codecs (unlike Safari, which will play anything QuickTime can play).
-<li>Internet Explorer 8 has no <abbr>HTML5</abbr> video support at all, but virtually all Internet Explorer users will have the Adobe Flash plugin. Later in this chapter, I&#8217;ll show you how you can use <abbr>HTML5</abbr> video but gracefully fall back to Flash.
+<li>Internet Explorer 8 has no <abbr>HTML5</abbr> video support at all, but virtually all Internet Explorer users will have the Adobe Flash plugin. Later in this chapter, I&rsquo;ll show you how you can use <abbr>HTML5</abbr> video but gracefully fall back to Flash.
 </ul>
 
 <p>That might be easier to digest in table form.
@@ -162,7 +162,7 @@ body{counter-reset:h1 5}
 <tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>5.0&ndash;?&Dagger;<td>&middot;<td>3.0+<td>2.0+
 <tr><th>WebM<td>9.0+<sup>*</sup><td>&middot;<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
 <tfoot>
-<tr><td colspan=8 style="text-align:left">* Internet Explorer 9 will only support WebM &#8220;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&#8221;.
+<tr><td colspan=8 style="text-align:left">* Internet Explorer 9 will only support WebM &ldquo;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&rdquo;.
 <tr><td colspan=8 style="text-align:left">&dagger; Safari will play anything that QuickTime can play. QuickTime comes pre-installed with H.264/AAC/MP4 support. There are installable third-party plugins that add support for Theora and WebM, but each user needs to install these plugins before Safari will recognize those video formats.
 <tr><td colspan=8 style="text-align:left">&Dagger; Google Chrome will <a href=http://blog.chromium.org/2011/01/html-video-codec-support-in-chrome.html>drop support for H.264</a> soon. <a href=http://blog.chromium.org/2011/01/more-about-chrome-html-video-codec.html>Read about why</a>.
 </table>
@@ -189,16 +189,16 @@ body{counter-reset:h1 5}
 <div class=inner>
 <blockquote><p>There is no single combination of containers and codecs that works in all <abbr>HTML5</abbr> browsers.
 <p>This is not likely to change in the near future.
-<p>To make your video watchable across all of these devices and platforms, you&#8217;re going to need to encode your video more than once.
+<p>To make your video watchable across all of these devices and platforms, you&rsquo;re going to need to encode your video more than once.
 </blockquote>
 </div>
 </div>
 
-<p>For maximum compatibility, here&#8217;s what your video workflow will look like:
+<p>For maximum compatibility, here&rsquo;s what your video workflow will look like:
 
 <ol>
 <li>Make one version that uses WebM (VP8 + Vorbis).
-<li>Make another version that uses H.264 baseline video and AAC &#8220;low complexity&#8221; audio in an MP4 container.
+<li>Make another version that uses H.264 baseline video and AAC &ldquo;low complexity&rdquo; audio in an MP4 container.
 <li>Make another version that uses Theora video and Vorbis audio in an Ogg container.
 <li>Link to all three video files from a single <code>&lt;video></code> element, and fall back to a Flash-based video player.
 </ol>
@@ -207,16 +207,16 @@ body{counter-reset:h1 5}
 
 <h2 id=licensing>Licensing Issues with H.264 Video</h2>
 
-<p>Before we continue, I need to point out that there is a cost to encoding your videos twice. Well, there&#8217;s the obvious cost, that you have to encode your videos twice, and that takes more computers and more time than just doing it once. But there&#8217;s another real cost associated with H.264 video: licensing costs.
+<p>Before we continue, I need to point out that there is a cost to encoding your videos twice. Well, there&rsquo;s the obvious cost, that you have to encode your videos twice, and that takes more computers and more time than just doing it once. But there&rsquo;s another real cost associated with H.264 video: licensing costs.
 
-<p>Remember when I first explained <a href=#h264>H.264 video</a>, and I mentioned offhand that the video codec was patent-encumbered and licensing was brokered by the MPEG LA consortium. That turns out to be kind of important. To understand why it&#8217;s important, I direct you to <a href="http://www.streamingmedia.com/Articles/Editorial/Featured-Articles/The-H.264-Licensing-Labyrinth-65403.aspx">The H.264 Licensing Labyrinth</a>:
+<p>Remember when I first explained <a href=#h264>H.264 video</a>, and I mentioned offhand that the video codec was patent-encumbered and licensing was brokered by the MPEG LA consortium. That turns out to be kind of important. To understand why it&rsquo;s important, I direct you to <a href="http://www.streamingmedia.com/Articles/Editorial/Featured-Articles/The-H.264-Licensing-Labyrinth-65403.aspx">The H.264 Licensing Labyrinth</a>:
 
 <blockquote>
 <p>MPEG LA splits the H.264 license portfolio into two sublicenses: one for manufacturers of encoders or decoders and the other for distributors of content. &hellip;
 
 <p>The sublicense on the distribution side gets further split out to four key subcategories, two of which (subscription and title-by-title purchase or paid use) are tied to whether the end user pays directly for video services, and two of which (“free” television and internet broadcast) are tied to remuneration from sources other than the end viewer. &hellip;
 
-<p>The licensing fee for &#8220;free&#8221; television is based on one of two royalty options. The first is a one-time payment of $2,500 per AVC transmission encoder, which covers one AVC encoder &#8220;used by or on behalf of a Licensee in transmitting AVC video to the End User,&#8221; who will decode and view it. If you&#8217;re wondering whether this is a double charge, the answer is yes: A license fee has already been charged to the encoder manufacturer, and the broadcaster will in turn pay one of the two royalty options.
+<p>The licensing fee for &ldquo;free&rdquo; television is based on one of two royalty options. The first is a one-time payment of $2,500 per AVC transmission encoder, which covers one AVC encoder &ldquo;used by or on behalf of a Licensee in transmitting AVC video to the End User,&rdquo; who will decode and view it. If you&rsquo;re wondering whether this is a double charge, the answer is yes: A license fee has already been charged to the encoder manufacturer, and the broadcaster will in turn pay one of the two royalty options.
 
 <p>The second licensing fee is an annual broadcast fee. &hellip; [T]he annual broadcast fee is broken down by viewership sizes:
 <ul>
@@ -225,9 +225,9 @@ body{counter-reset:h1 5}
 <li>$10,000 per calendar year per broadcast market of 1,000,000 or more television households
 </ul>
 
-<p>&hellip; With all the issues around &#8220;free&#8221; television, why should someone involved in nonbroadcast delivery care? As I mentioned before, the participation fees apply to any delivery of content. After defining that &#8220;free&#8221; television meant more than just [over-the-air], MPEG LA went on to define participation fees for internet broadcasting as &#8220;AVC video that is delivered via the Worldwide Internet to an end user for which the end user does not pay remuneration for the right to receive or view.&#8221; In other words, any public broadcast, whether it is [over-the-air], cable, satellite, or the internet, is subject to participation fees. &hellip;
+<p>&hellip; With all the issues around &ldquo;free&rdquo; television, why should someone involved in nonbroadcast delivery care? As I mentioned before, the participation fees apply to any delivery of content. After defining that &ldquo;free&rdquo; television meant more than just [over-the-air], MPEG LA went on to define participation fees for internet broadcasting as &ldquo;AVC video that is delivered via the Worldwide Internet to an end user for which the end user does not pay remuneration for the right to receive or view.&rdquo; In other words, any public broadcast, whether it is [over-the-air], cable, satellite, or the internet, is subject to participation fees. &hellip;
 
-<p>The fees are potentially somewhat steeper for internet broadcasts, perhaps assuming that internet delivery will grow much faster than OTA or &#8220;free&#8221; television via cable or satellite. Adding the &#8220;free television&#8221; broadcast-market fee together with an additional fee, MPEG LA grants a reprieve of sorts during the first license term, which ends on Dec. 31, 2010, and notes that &#8220;after the first term the royalty shall be no more than the economic equivalent of royalties payable during the same time for free television.&#8221;
+<p>The fees are potentially somewhat steeper for internet broadcasts, perhaps assuming that internet delivery will grow much faster than OTA or &ldquo;free&rdquo; television via cable or satellite. Adding the &ldquo;free television&rdquo; broadcast-market fee together with an additional fee, MPEG LA grants a reprieve of sorts during the first license term, which ends on Dec. 31, 2010, and notes that &ldquo;after the first term the royalty shall be no more than the economic equivalent of royalties payable during the same time for free television.&rdquo;
 </blockquote>
 
 <p>That last part &mdash; about the fee structure for internet broadcasts &mdash; has already been amended. The <abbr>MPEG-LA</abbr> recently <a href="http://www.mpegla.com/Lists/MPEG%20LA%20News%20List/Attachments/226/n-10-02-02.pdf" title="warning: PDF">announced</a> that internet streaming would not be charged. That does <em>not</em> mean that H.264 is royalty-free for all users. In particular, encoders (like the one that processes video uploaded to YouTube) and decoders (like the one included in Microsoft Internet Explorer 9) are still subject to licensing fees. See <a href=http://shaver.off.net/diary/2010/08/27/free-as-in-smokescreen/>Free as in smokescreen</a> for more information.
@@ -247,14 +247,14 @@ body{counter-reset:h1 5}
 <p><img src=i/miro-01.png alt="Miro Video Converter main screen" width=365 height=445>
 </div>
 
-<p>Click &#8220;Choose file&#8221; and select the source video you want to encode.
+<p>Click &ldquo;Choose file&rdquo; and select the source video you want to encode.
 
 <div class=c>
-<p class="legend top">&#8220;Choose file&#8221; <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top">&ldquo;Choose file&rdquo; <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-02.png alt="Miro Video Converter after choosing a file" width=365 height=445>
 </div>
 
-<p>The &#8220;Pick a Device or Video Format&#8221; dropdown menu lists a variety of devices and formats. For the purposes of this chapter, we are only interested in three of them.
+<p>The &ldquo;Pick a Device or Video Format&rdquo; dropdown menu lists a variety of devices and formats. For the purposes of this chapter, we are only interested in three of them.
 
 <ol>
 <li><em>WebM (vp8)</em> is WebM video (<a href=#vp8>VP8 video</a> and <a href=#vorbis>Vorbis audio</a> in a WebM container).
@@ -262,77 +262,77 @@ body{counter-reset:h1 5}
 <li><em>iPhone</em> is <a href=#h264>H.264 Baseline Profile video</a> and <a href=#aac>AAC low-complexity audio</a> in an MP4 container.
 </ol>
 
-<p>Select &#8220;WebM&#8221; first.
+<p>Select &ldquo;WebM&rdquo; first.
 
 <div class=c>
 <p class="legend top">Choosing WebM output <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-03.png alt="Miro Video Converter: choosing WebM output format" width=365 height=445>
 </div>
 
-<p>Click the &#8220;Convert&#8221; button and Miro Video Converter will immediately start encoding your video. The output file will be named <code>SOURCEFILE.webm</code> and will be saved in the same directory as the source video.
+<p>Click the &ldquo;Convert&rdquo; button and Miro Video Converter will immediately start encoding your video. The output file will be named <code>SOURCEFILE.webm</code> and will be saved in the same directory as the source video.
 
 <div class=c>
-<p class="legend top">You&#8217;ll be staring at this screen<br>for a long time <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top">You&rsquo;ll be staring at this screen<br>for a long time <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-04.png alt="Miro Video Converter: WebM encoding progress" width=365 height=445>
 </div>
 
-<p>Once the encoding is complete, you&#8217;ll be dumped back to the main screen. This time, select &#8220;Theora&#8221; from the Devices and Formats list.
+<p>Once the encoding is complete, you&rsquo;ll be dumped back to the main screen. This time, select &ldquo;Theora&rdquo; from the Devices and Formats list.
 
 <div class=c>
 <p class="legend top">Time for Theora <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-08.png alt="Miro Video Encoder: choosing Theora output format" width=365 height=445>
 </div>
 
-<p>That&#8217;s it; press the &#8220;Convert&#8221; button again to encode your Theora video. The video will be named <code>SOURCEFILE.theora.ogv</code> and will be saved in the same directory as the source video.
+<p>That&rsquo;s it; press the &ldquo;Convert&rdquo; button again to encode your Theora video. The video will be named <code>SOURCEFILE.theora.ogv</code> and will be saved in the same directory as the source video.
 
 <div class=c>
 <p class="legend top">Time for a cup of coffee <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-09.png alt="Miro Video Encoder: Theora encoding progress" width=365 height=445>
 </div>
 
-<p>Finally, encode your iPhone-compatible H.264 video by selecting &#8220;iPhone&#8221; from the Devices and Formats list.
+<p>Finally, encode your iPhone-compatible H.264 video by selecting &ldquo;iPhone&rdquo; from the Devices and Formats list.
 
 <div class=c>
 <p class="legend top">iPhone, not iPhone 4 <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-05.png alt="Miro Video Encoder: choosing iPhone-compatible output format" width=365 height=445>
 </div>
 
-<p>For iPhone-compatible video, Miro Video Converter will give you an option to send the encoded file to your iTunes library. I have no opinion on whether you would want to do that, but it&#8217;s not necessary for publishing video on the web.
+<p>For iPhone-compatible video, Miro Video Converter will give you an option to send the encoded file to your iTunes library. I have no opinion on whether you would want to do that, but it&rsquo;s not necessary for publishing video on the web.
 
 <div class=c>
-<p class="legend top">Don&#8217;t send to iTunes <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top">Don&rsquo;t send to iTunes <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-06.png alt="Miro Video Encoder: send to iTunes checkbox" width=365 height=445>
 </div>
 
-<p>Press the magical &#8220;Convert&#8221; button and wait. The encoded file will be named <code>SOURCENAME.iphone.mp4</code> and will be saved in the same directory as the source video.
+<p>Press the magical &ldquo;Convert&rdquo; button and wait. The encoded file will be named <code>SOURCENAME.iphone.mp4</code> and will be saved in the same directory as the source video.
 
 <div class=c>
 <p class="legend top">Do some yoga or something <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/miro-07.png alt="Miro Video Converter: H.264 encoding progress" width=365 height=445>
 </div>
 
-<p>You should now have three video files alongside your original source video. If you&#8217;re satisfied with the video quality, skip ahead to <a href=#markup>At Last, The Markup</a> to see how to assemble them into a single <code>&lt;video></code> element that works across browsers. If you&#8217;d like to learn more about other tools or video encoding options, read on.
+<p>You should now have three video files alongside your original source video. If you&rsquo;re satisfied with the video quality, skip ahead to <a href=#markup>At Last, The Markup</a> to see how to assemble them into a single <code>&lt;video></code> element that works across browsers. If you&rsquo;d like to learn more about other tools or video encoding options, read on.
 
 <p class=a>&#x2767;
 
 <h2 id=firefogg>Encoding Ogg Video with Firefogg</h2>
 
-<p>(In this section, I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
+<p>(In this section, I&rsquo;m going to use &ldquo;Ogg video&rdquo; as a shorthand for &ldquo;Theora video and Vorbis audio in an Ogg container.&rdquo; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
 
-<p><dfn>Firefogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&#8217;ll need to install <a href=http://www.getfirefox.com/>Mozilla Firefox</a> 3.5 or later, then visit <a href=http://firefogg.org/>firefogg.org</a>.
+<p><dfn>Firefogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&rsquo;ll need to install <a href=http://www.getfirefox.com/>Mozilla Firefox</a> 3.5 or later, then visit <a href=http://firefogg.org/>firefogg.org</a>.
 
 <p class="legend top">Firefogg home page <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-01.png alt="Firefogg home page" width=800 height=600>
 
-<p>Click &#8220;Install Firefogg.&#8221; Firefox will prompt whether you really want to allow the site to install an extension. Click &#8220;Allow&#8221; to continue.
+<p>Click &ldquo;Install Firefogg.&rdquo; Firefox will prompt whether you really want to allow the site to install an extension. Click &ldquo;Allow&rdquo; to continue.
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Allow Firefogg to install
 <p><img src=i/firefogg-02.png alt="Firefogg: install software" width=800 height=600>
 
-<p>Firefox will present the standard software installation window. Click &#8220;Install&#8221; to continue.
+<p>Firefox will present the standard software installation window. Click &ldquo;Install&rdquo; to continue.
 <p class="legend top" style="text-align:center">Install Firefogg <span class=arrow>&#x21b7;</span><br></p>
 <p class=c><img src=i/firefogg-03.png alt="Firefox Software Installation window" width=547 height=367>
 
-<p>Click &#8220;Restart Firefox&#8221; to complete the installation.
+<p>Click &ldquo;Restart Firefox&rdquo; to complete the installation.
 <p class="legend top" style="text-align:center"><span class=arrow>&#x21b6;</span> Restart Firefox
 <p class=c><img src=i/firefogg-04.png alt="Firefox Add-ons window after installation" width=520 height=380>
 
@@ -340,45 +340,45 @@ body{counter-reset:h1 5}
 <p class="legend top">Installation successful <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-05.png alt="Firefogg home page after installation" width=800 height=600>
 
-<p>Click &#8220;Make Ogg Video&#8221; to start the encoding process.
-<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Let&#8217;s make some video!
+<p>Click &ldquo;Make Ogg Video&rdquo; to start the encoding process.
+<p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Let&rsquo;s make some video!
 <p><img src=i/firefogg-06.png alt="Firefogg: Make Ogg Video" width=800 height=600>
 
-<p>Click &#8220;Select file&#8221; to select your source video.
+<p>Click &ldquo;Select file&rdquo; to select your source video.
 <p class="legend top">Select your video file <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-07.png alt="Firefogg: Select file" width=800 height=600>
 
-<p>Firefogg has six &#8220;tabs&#8221;:
+<p>Firefogg has six &ldquo;tabs&rdquo;:
 
 <ol>
-<li>Presets. The default preset is &#8220;web video,&#8221; which is fine for our purposes.
-<li>Encoding range. Encoding video can take a long time. When you&#8217;re first getting started, you may want to encode just part of your video (say, the first 30 seconds) until you find a combination of settings you like.
+<li>Presets. The default preset is &ldquo;web video,&rdquo; which is fine for our purposes.
+<li>Encoding range. Encoding video can take a long time. When you&rsquo;re first getting started, you may want to encode just part of your video (say, the first 30 seconds) until you find a combination of settings you like.
 <li>Basic quality and resolution control. This is where most of the important options are.
-<li>Metadata. I won&#8217;t cover it here, but you can add metadata to your encoded video like title and author. You&#8217;ve probably added metadata to your music collection with iTunes or some other music manager. This is the same idea.
-<li>Advanced video encoding controls. Don&#8217;t mess with these unless you know what you&#8217;re doing. (Firefogg offers interactive help on most of these options. Click the &#8220;i&#8221; symbol next to each option to learn more about it.)
-<li>Advanced audio encoding controls. Again, don&#8217;t mess with these unless you know what you&#8217;re doing.
+<li>Metadata. I won&rsquo;t cover it here, but you can add metadata to your encoded video like title and author. You&rsquo;ve probably added metadata to your music collection with iTunes or some other music manager. This is the same idea.
+<li>Advanced video encoding controls. Don&rsquo;t mess with these unless you know what you&rsquo;re doing. (Firefogg offers interactive help on most of these options. Click the &ldquo;i&rdquo; symbol next to each option to learn more about it.)
+<li>Advanced audio encoding controls. Again, don&rsquo;t mess with these unless you know what you&rsquo;re doing.
 </ol>
 
 <p><img src=i/firefogg-08.png alt="Firefogg main interface" width=800 height=600>
 
-<p id=firefogg-options>The only options I&#8217;m going to cover are in the &#8220;Basic quality and resolution control&#8221; tab. It contains all the important options:
+<p id=firefogg-options>The only options I&rsquo;m going to cover are in the &ldquo;Basic quality and resolution control&rdquo; tab. It contains all the important options:
 
 <ul>
-<li>Video Quality. This is measured on a scale of 0 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, so you&#8217;ll need to experiment to determine the best size/quality ratio for your needs.
+<li>Video Quality. This is measured on a scale of 0 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, so you&rsquo;ll need to experiment to determine the best size/quality ratio for your needs.
 <li>Audio Quality. This is measured on a scale of -1 (lowest quality) to 10 (highest quality). Higher numbers mean bigger file sizes, just like the video quality setting.
-<li>Video Codec. This should always be &#8220;theora.&#8221;
-<li>Audio Codec. This should always be &#8220;vorbis.&#8221;
-<li>Video Width and Video Height. These defaults to the actual width and height of your source video. If you want to resize the video during encoding, you can change the width (or height) here. Firefogg will automatically adjust the other dimension to maintain the original proportions (so your video won&#8217;t end up smooshed or stretched).
+<li>Video Codec. This should always be &ldquo;theora.&rdquo;
+<li>Audio Codec. This should always be &ldquo;vorbis.&rdquo;
+<li>Video Width and Video Height. These defaults to the actual width and height of your source video. If you want to resize the video during encoding, you can change the width (or height) here. Firefogg will automatically adjust the other dimension to maintain the original proportions (so your video won&rsquo;t end up smooshed or stretched).
 </ul>
 
 <p><img src=i/firefogg-09.png alt="Firefogg basic quality and resolution control" width=800 height=600>
 
-<p>In this example, I&#8217;m going to resize the video to half its original width. Notice how Firefogg automatically adjusts the height to match.
+<p>In this example, I&rsquo;m going to resize the video to half its original width. Notice how Firefogg automatically adjusts the height to match.
 <p class="legend top">Adjust video width and height <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-10.png alt="Firefogg: set video width and height" width=800 height=600>
 
-<p>Once you&#8217;ve fiddled with all the knobs, click &#8220;Save Ogg&#8221; to start the actual encoding process. Firefogg will prompt you for a filename for the encoded video.
-<p class="legend top">&#8220;Save Ogg&#8221; <span class=arrow>&#x21b7;</span><br></p>
+<p>Once you&rsquo;ve fiddled with all the knobs, click &ldquo;Save Ogg&rdquo; to start the actual encoding process. Firefogg will prompt you for a filename for the encoded video.
+<p class="legend top">&ldquo;Save Ogg&rdquo; <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/firefogg-12.png alt="Firefogg: Save Ogg" width=800 height=600>
 
 <p>Firefogg will show a nice progress bar as it encodes your video. All you need to do is wait (and wait, and wait)!
@@ -389,20 +389,20 @@ body{counter-reset:h1 5}
 
 <h2 id=ffmpeg2theora>Batch Encoding Ogg Video with ffmpeg2theora</h2>
 
-<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;Ogg video&#8221; as a shorthand for &#8220;Theora video and Vorbis audio in an Ogg container.&#8221; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
+<p>(Just as in the previous section, in this section I&rsquo;m going to use &ldquo;Ogg video&rdquo; as a shorthand for &ldquo;Theora video and Vorbis audio in an Ogg container.&rdquo; This is the combination of codecs+container that works natively in Mozilla Firefox and Google Chrome.)
 
-<p>If you&#8217;re looking at batch encoding a lot of Ogg video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>.
+<p>If you&rsquo;re looking at batch encoding a lot of Ogg video files and you want to automate the process, you should definitely check out <a href=http://v2v.cc/~j/ffmpeg2theora/>ffmpeg2theora</a>.
 
 <p>ffmpeg2theora is an open source, GPL-licensed application for encoding Ogg video. Pre-built binaries are available <a href=http://v2v.cc/~j/ffmpeg2theora/download.html>for Mac OS X, Windows, and modern Linux distributions</a>. It can take virtually any video file as input, including DV video produced by consumer-level camcorders.
 
 <p>To use ffmpeg2theora, you need to call it from the command line. (On Mac OS X, open Applications <span class=u>&rarr;</span> Utilities <span class=u>&rarr;</span> Terminal. On Windows, open your Start Menu <span class=u>&rarr;</span> Programs <span class=u>&rarr;</span> Accessories <span class=u>&rarr;</span> Command Prompt.)
 
-<p>ffmpeg2theora can take a large number of command line flags. (Type <code>ffmpeg2theora --help</code> to read about them all.) I&#8217;ll focus on just three of them.
+<p>ffmpeg2theora can take a large number of command line flags. (Type <code>ffmpeg2theora --help</code> to read about them all.) I&rsquo;ll focus on just three of them.
 
 <ul>
-<li><code>--video-quality Q</code>, where &#8220;Q&#8221; is a number from 0&ndash;10.
-<li><code>--audio-quality Q</code>, where &#8220;Q&#8221; is a number from -2&ndash;10.
-<li><code>--max_size=WxH</code>, where &#8220;W&#8221; and &#8220;H&#8221; are the maximum width and height you want for the video. (The &#8220;x&#8221; in between is really just the letter &#8220;x&#8221;.) ffmpeg2theora will resize the video proportionally to fit within these dimensions, so the encoded video might be smaller than <code>W&times;H</code>. For example, encoding a 720&times;480 video with <code>--max_size 320x240</code> will produce a video that is <code>320&times;213</code>.
+<li><code>--video-quality Q</code>, where &ldquo;Q&rdquo; is a number from 0&ndash;10.
+<li><code>--audio-quality Q</code>, where &ldquo;Q&rdquo; is a number from -2&ndash;10.
+<li><code>--max_size=WxH</code>, where &ldquo;W&rdquo; and &ldquo;H&rdquo; are the maximum width and height you want for the video. (The &ldquo;x&rdquo; in between is really just the letter &ldquo;x&rdquo;.) ffmpeg2theora will resize the video proportionally to fit within these dimensions, so the encoded video might be smaller than <code>W&times;H</code>. For example, encoding a 720&times;480 video with <code>--max_size 320x240</code> will produce a video that is <code>320&times;213</code>.
 </ul>
 
 <p>Thus, here is how you could encode a video with the same settings as we used in the previous section (<a href=#firefogg>encoding with Firefogg</a>).
@@ -418,39 +418,39 @@ body{counter-reset:h1 5}
 
 <h2 id=handbrake-gui>Encoding H.264 Video with HandBrake</h2>
 
-<p>(In this section, I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
+<p>(In this section, I&rsquo;m going to use &ldquo;H.264 video&rdquo; as a shorthand for &ldquo;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&rdquo; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
 
 <p><a href=#licensing>Licensing issues</a> aside, the easiest way to encode H.264 video is <a href=http://handbrake.fr/>HandBrake</a>. HandBrake is an open source, GPL-licensed application for encoding H.264 video. (It used to do other video formats too, but in the latest version the developers have dropped support for most other formats and are focusing all their efforts on H.264 video.) <a href=http://handbrake.fr/downloads.php>Pre-built binaries are available</a> for Windows, Mac OS X, and modern Linux distributions.
 
-<p>HandBrake comes in two flavors: graphical and command-line. I&#8217;ll walk you through the graphical interface first, then we&#8217;ll see how my recommended settings translate into the command-line version.
+<p>HandBrake comes in two flavors: graphical and command-line. I&rsquo;ll walk you through the graphical interface first, then we&rsquo;ll see how my recommended settings translate into the command-line version.
 
-<p>After you open the HandBrake application, the first thing to do is select your source video. Click the &#8220;Source&#8221; dropdown button and choose &#8220;Video File&#8221; to select a file. HandBrake can take virtually any video file as input, including DV video produced by consumer-level camcorders.
+<p>After you open the HandBrake application, the first thing to do is select your source video. Click the &ldquo;Source&rdquo; dropdown button and choose &ldquo;Video File&rdquo; to select a file. HandBrake can take virtually any video file as input, including DV video produced by consumer-level camcorders.
 <p class="legend top">Select your source video <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-01.png alt="HandBrake: select source file" width=800 height=600>
 
-<p>HandBrake will complain that you haven&#8217;t set a default directory to save your encoded videos. You can safely ignore this warning, or you can open the options window (under the &#8220;Tools&#8221; menu) and set a default output directory.
+<p>HandBrake will complain that you haven&rsquo;t set a default directory to save your encoded videos. You can safely ignore this warning, or you can open the options window (under the &ldquo;Tools&rdquo; menu) and set a default output directory.
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Ignore this
 <p><img src=i/handbrake-02.png alt="HandBrake: default directory warning" width=800 height=600>
 
-<p>On the right-hand side is a list of presets. Selecting the &#8220;iPhone &amp; iPod Touch&#8221; preset will set most of the options you need.
+<p>On the right-hand side is a list of presets. Selecting the &ldquo;iPhone &amp; iPod Touch&rdquo; preset will set most of the options you need.
 <p class="legend top">Select iPhone preset <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-03.png alt="HandBrake: select iPhone preset" width=800 height=600>
 
-<p>One important option that is off by default is the &#8220;Web optimized&#8221; option. Selecting this option reorders some of the metadata within the encoded video so you can watch the start of the video while the rest is downloading in the background. I highly recommend always checking this option. It does not affect the quality or file size of the encoded video, so there&#8217;s really no reason not to.
+<p>One important option that is off by default is the &ldquo;Web optimized&rdquo; option. Selecting this option reorders some of the metadata within the encoded video so you can watch the start of the video while the rest is downloading in the background. I highly recommend always checking this option. It does not affect the quality or file size of the encoded video, so there&rsquo;s really no reason not to.
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Always optimize for web
 <p><img src=i/handbrake-04.png alt="HandBrake: select Web Optimized option" width=800 height=600>
 
-<p>In the &#8220;Picture&#8221; tab, you can set the maximum width and height of the encoded video. You should also select the &#8220;Keep Aspect Ratio&#8221; option to ensure that HandBrake doesn&#8217;t smoosh or stretch your video while resizing it.
+<p>In the &ldquo;Picture&rdquo; tab, you can set the maximum width and height of the encoded video. You should also select the &ldquo;Keep Aspect Ratio&rdquo; option to ensure that HandBrake doesn&rsquo;t smoosh or stretch your video while resizing it.
 <p class="legend top">Set width and height <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-05.png alt="HandBrake: set width, height, and aspect ratio" width=800 height=600>
 
-<p>In the &#8220;Video&#8221; tab, you can set four important options.
+<p>In the &ldquo;Video&rdquo; tab, you can set four important options.
 
 <ul>
-<li>Video Codec. Make sure this is &#8220;H.264 (x264)&#8221;
-<li id=two-pass-encoding>2-Pass Encoding. If this is checked, HandBrake will run the video encoder twice. The first time, it just analyzes the video, looking for things like color composition, motion, and scene breaks. The second time, it actually encodes the video using the information it learned during the first pass. As you might expect, this takes about twice as long as single-pass encoding, but it results in better video without increasing file size. I always enable two-pass encoding for H.264 video. Unless you&#8217;re building the next YouTube and encoding videos 24 hours a day, you should probably use two-pass encoding too.
-<li>Turbo First Pass. Once you enable 2-pass encoding, you can get a little bit of time back by enabling &#8220;turbo first pass.&#8221; This reduces the amount of work done in the first pass (analyzing the video), while only slightly degrading quality. I usually enable this option, but if quality is of the utmost importance to you, you should leave it disabled.
-<li>Quality. There are different ways to specify the &#8220;quality&#8221; of your encoded video. You can set a target file size, and HandBrake will do its best to ensure that your encoded video is not larger than that. You can set an average &#8220;bitrate,&#8221; which is the quite literally the number of bits required to store one second worth of encoded video. (It&#8217;s called an &#8220;average&#8221; bitrate because some seconds will require more bits than others.) Or you can specify a constant quality, on a scale of 0 to 100%. Higher numbers will result in better quality but larger files. There is no single right answer for what quality setting you should use.
+<li>Video Codec. Make sure this is &ldquo;H.264 (x264)&rdquo;
+<li id=two-pass-encoding>2-Pass Encoding. If this is checked, HandBrake will run the video encoder twice. The first time, it just analyzes the video, looking for things like color composition, motion, and scene breaks. The second time, it actually encodes the video using the information it learned during the first pass. As you might expect, this takes about twice as long as single-pass encoding, but it results in better video without increasing file size. I always enable two-pass encoding for H.264 video. Unless you&rsquo;re building the next YouTube and encoding videos 24 hours a day, you should probably use two-pass encoding too.
+<li>Turbo First Pass. Once you enable 2-pass encoding, you can get a little bit of time back by enabling &ldquo;turbo first pass.&rdquo; This reduces the amount of work done in the first pass (analyzing the video), while only slightly degrading quality. I usually enable this option, but if quality is of the utmost importance to you, you should leave it disabled.
+<li>Quality. There are different ways to specify the &ldquo;quality&rdquo; of your encoded video. You can set a target file size, and HandBrake will do its best to ensure that your encoded video is not larger than that. You can set an average &ldquo;bitrate,&rdquo; which is the quite literally the number of bits required to store one second worth of encoded video. (It&rsquo;s called an &ldquo;average&rdquo; bitrate because some seconds will require more bits than others.) Or you can specify a constant quality, on a scale of 0 to 100%. Higher numbers will result in better quality but larger files. There is no single right answer for what quality setting you should use.
 </ul>
 
 <div class=pf>
@@ -458,25 +458,25 @@ body{counter-reset:h1 5}
 <div class=inner>
 <blockquote class=note>
 <p><span>&#x261E;</span>Q: Can I use two-pass encoding on Ogg video too?<br>
-A: Yes, but due to fundamental differences in how the encoder works, <a href=http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora>you probably don&#8217;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&#8217;re trying to get your encoded video to be a specific file size. (Maybe that is something you&#8217;re interested in, but it&#8217;s not what these examples show, and it&#8217;s probably not worth the extra time for encoding web video.) For best Ogg video quality, <a href=http://hacks.mozilla.org/2009/09/theora-1-1-released/>use the video quality settings, and don&#8217;t worry about two-pass encoding</a>.
+A: Yes, but due to fundamental differences in how the encoder works, <a href=http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora>you probably don&rsquo;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&rsquo;re trying to get your encoded video to be a specific file size. (Maybe that is something you&rsquo;re interested in, but it&rsquo;s not what these examples show, and it&rsquo;s probably not worth the extra time for encoding web video.) For best Ogg video quality, <a href=http://hacks.mozilla.org/2009/09/theora-1-1-released/>use the video quality settings, and don&rsquo;t worry about two-pass encoding</a>.
 </blockquote>
 </div>
 </div>
 
-<p>In this example, I&#8217;ve chosen an average bitrate of 600 kbps, which is quite high for a 320&times;240 encoded video. (Later in this chapter, I&#8217;ll show you a sample video encoded at 200 kbps.) I&#8217;ve also chosen 2-pass encoding with a &#8220;turbo&#8221; first pass.
+<p>In this example, I&rsquo;ve chosen an average bitrate of 600 kbps, which is quite high for a 320&times;240 encoded video. (Later in this chapter, I&rsquo;ll show you a sample video encoded at 200 kbps.) I&rsquo;ve also chosen 2-pass encoding with a &ldquo;turbo&rdquo; first pass.
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Video quality options
 <p><img src=i/handbrake-07.png alt="HandBrake: set two-pass encoding option" width=800 height=600>
 
-<p>In the &#8220;Audio&#8221; tab, you probably don&#8217;t need to change anything. If your source video has multiple audio tracks, you might need to select which one you want in the encoded video. If your video is mostly a person talking (as opposed to music or general ambient sounds), you can probably reduce the audio bitrate to 96 kbps or so. Other than that, the defaults you inherited from the &#8220;iPhone&#8221; preset should be fine.
+<p>In the &ldquo;Audio&rdquo; tab, you probably don&rsquo;t need to change anything. If your source video has multiple audio tracks, you might need to select which one you want in the encoded video. If your video is mostly a person talking (as opposed to music or general ambient sounds), you can probably reduce the audio bitrate to 96 kbps or so. Other than that, the defaults you inherited from the &ldquo;iPhone&rdquo; preset should be fine.
 <p class="legend top">Audio quality options <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-08.png alt="HandBrake: audio codec" width=800 height=600>
 
-<p>Next, click the &#8220;Browse&#8221; button and choose a directory and filename to save your encoded video.
+<p>Next, click the &ldquo;Browse&rdquo; button and choose a directory and filename to save your encoded video.
 <p class="legend top" style="text-align:right"><span class=arrow>&#x21b6;</span> Set destination filename
 <p><img src=i/handbrake-09.png alt="HandBrake: set destination filename" width=800 height=600>
 
-<p>Finally, click &#8220;Start&#8221; to start encoding.
-<p class="legend top">Let&#8217;s make some video! <span class=arrow>&#x21b7;</span><br></p>
+<p>Finally, click &ldquo;Start&rdquo; to start encoding.
+<p class="legend top">Let&rsquo;s make some video! <span class=arrow>&#x21b7;</span><br></p>
 <p><img src=i/handbrake-10.png alt="HandBrake: start encoding" width=800 height=600>
 
 <p>HandBrake will display some progress statistics while it encodes your video.
@@ -487,18 +487,18 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 
 <h2 id=handbrake-cli>Batch Encoding H.264 Video with HandBrake</h2>
 
-<p>(Just as in the previous section, in this section I&#8217;m going to use &#8220;H.264 video&#8221; as a shorthand for &#8220;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&#8221; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
+<p>(Just as in the previous section, in this section I&rsquo;m going to use &ldquo;H.264 video&rdquo; as a shorthand for &ldquo;H.264 baseline profile video and AAC low-complexity profile audio in an MPEG-4 container.&rdquo; This is the combination of codecs+container that works natively in Safari, in Adobe Flash, on the iPhone, and on Google Android devices.)
 
-<p><a href=http://www.handbrake.fr>HandBrake</a> also comes in a command-line edition. As with <a href=#ffmpeg2theora>ffmpeg2theora</a>, the command-line edition of HandBrake offers a dizzying array of options. (Type <code>HandBrakeCLI --help</code> to read about them.) I&#8217;ll focus on just a few:
+<p><a href=http://www.handbrake.fr>HandBrake</a> also comes in a command-line edition. As with <a href=#ffmpeg2theora>ffmpeg2theora</a>, the command-line edition of HandBrake offers a dizzying array of options. (Type <code>HandBrakeCLI --help</code> to read about them.) I&rsquo;ll focus on just a few:
 
 <ul>
-<li><code>--preset "X"</code>, where &#8220;X&#8221; is the name of a HandBrake preset. The preset you want for H.264 web video is called &#8220;iPhone &amp; iPod Touch&#8221;, and it&#8217;s important to put the entire name in quotes.
-<li><code>--width W</code>, where &#8220;W&#8221; is the width of your encoded video. HandBrake will automatically adjust the height to maintain the original video&#8217;s proportions.
-<li><code>--vb Q</code>, where &#8220;Q&#8221; is the average bitrate (measured in kilobits per second).
+<li><code>--preset "X"</code>, where &ldquo;X&rdquo; is the name of a HandBrake preset. The preset you want for H.264 web video is called &ldquo;iPhone &amp; iPod Touch&rdquo;, and it&rsquo;s important to put the entire name in quotes.
+<li><code>--width W</code>, where &ldquo;W&rdquo; is the width of your encoded video. HandBrake will automatically adjust the height to maintain the original video&rsquo;s proportions.
+<li><code>--vb Q</code>, where &ldquo;Q&rdquo; is the average bitrate (measured in kilobits per second).
 <li><code>--two-pass</code>, which enables 2-pass encoding.
 <li><code>--turbo</code>, which enables turbo first pass during 2-pass encoding.
-<li><code>--input F</code>, where &#8220;F&#8221; is the filename of your source video.
-<li><code>--output E</code>, where &#8220;E&#8221; is the destination filename for your encoded video.
+<li><code>--input F</code>, where &ldquo;F&rdquo; is the filename of your source video.
+<li><code>--output E</code>, where &ldquo;E&rdquo; is the destination filename for your encoded video.
 </ul>
 
 <p>Here is an example of calling HandBrake on the command line, with command line flags that match the settings we chose <a href=#handbrake-gui>with the graphical version of HandBrake</a>.
@@ -512,7 +512,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 <samp class=p>               </samp><kbd>             --output pr6.mp4</kbd>
 </pre>
 
-<p>From top to bottom, this command runs HandBrake with the &#8220;iPhone &amp; iPod Touch&#8221; preset, resizes the video to 320&times;240, sets the average bitrate to 600 kbps, enables two-pass encoding with a turbo first pass, reads the file <code>pr6.dv</code>, and encodes it as <code>pr6.mp4</code>. Whew!
+<p>From top to bottom, this command runs HandBrake with the &ldquo;iPhone &amp; iPod Touch&rdquo; preset, resizes the video to 320&times;240, sets the average bitrate to 600 kbps, enables two-pass encoding with a turbo first pass, reads the file <code>pr6.dv</code>, and encodes it as <code>pr6.mp4</code>. Whew!
 
 <p class=a>&#x2767;
 
@@ -525,13 +525,13 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
   built on May 19 2010 22:32:20 with gcc 4.4.3
   configuration: --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-pthreads --enable-libfaac --enable-libfaad --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab <mark>--enable-libvorbis</mark> <mark>--enable-libvpx</mark></samp></pre>
 
-<p>If you don&#8217;t see the magic words &#8220;<code>--enable-libvorbis</code>&#8221; and &#8220;<code>--enable-libvpx</code>,&#8221; you don&#8217;t have the right version of <code>ffmpeg</code>. (If you compiled <code>ffmpeg</code> yourself, check to see if you have two versions installed. That&#8217;s fine, they won&#8217;t conflict with each other. You&#8217;ll just need to use the full path of the VP8-enabled version of <code>ffmpeg</code>.)
+<p>If you don&rsquo;t see the magic words &ldquo;<code>--enable-libvorbis</code>&rdquo; and &ldquo;<code>--enable-libvpx</code>,&rdquo; you don&rsquo;t have the right version of <code>ffmpeg</code>. (If you compiled <code>ffmpeg</code> yourself, check to see if you have two versions installed. That&rsquo;s fine, they won&rsquo;t conflict with each other. You&rsquo;ll just need to use the full path of the VP8-enabled version of <code>ffmpeg</code>.)
 
-<p>I&#8217;m going to do <a href=#two-pass-encoding>a two-pass encode</a>. Pass 1 just scans through the input video file (<code>-i pr6.dv</code>) and writes out some statistics to a log file (which will be auto-named <code>pr6.dv-0.log</code>). I specify the video codec with the <code>-vcodec</code> parameter:
+<p>I&rsquo;m going to do <a href=#two-pass-encoding>a two-pass encode</a>. Pass 1 just scans through the input video file (<code>-i pr6.dv</code>) and writes out some statistics to a log file (which will be auto-named <code>pr6.dv-0.log</code>). I specify the video codec with the <code>-vcodec</code> parameter:
 
 <pre><samp class=p>you@localhost$ </samp><kbd>ffmpeg -pass 1 -passlogfile pr6.dv -threads 16  -keyint_min 0 -g 250 -skip_threshold 0 -qmin 1 -qmax 51 -i pr6.dv <mark>-vcodec libvpx</mark> -b 614400 -s 320x240 -aspect 4:3 -an -y NUL</kbd></pre>
 
-<p>Most of the <code>ffmpeg</code> command line has nothing to do with VP8 or WebM. <code>libvpx</code> does support a number of VP8-specific options that you can pass to <code>ffmpeg</code>, but I don&#8217;t yet know how any of them work. Once I find a good explanation of them, I&#8217;ll link it here and incorporate them into the narrative if it&#8217;s worthwhile to do so. 
+<p>Most of the <code>ffmpeg</code> command line has nothing to do with VP8 or WebM. <code>libvpx</code> does support a number of VP8-specific options that you can pass to <code>ffmpeg</code>, but I don&rsquo;t yet know how any of them work. Once I find a good explanation of them, I&rsquo;ll link it here and incorporate them into the narrative if it&rsquo;s worthwhile to do so. 
 
 <p>For the second pass, <code>ffmpeg</code> will read the statistics it wrote during the first pass and actually do the encoding of the video and the audio. It will write out a <code>.webm</code> file.
 
@@ -540,47 +540,47 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href=htt
 <p>There are five important parameters here:
 
 <ul>
-<li><code>-vcodec libvpx</code> specifies that we&#8217;re encoding with the VP8 video codec. WebM always uses VP8 video.
+<li><code>-vcodec libvpx</code> specifies that we&rsquo;re encoding with the VP8 video codec. WebM always uses VP8 video.
 <li><code>-b 614400</code> specifies the bitrate. Unlike other formats, <code>libvpx</code> expects the bitrate in actual bits, not kilobits. If you want a 600 kbps video, multiply 600 by 1024 to get 614400.
 <li><code>-s 320x240</code> specifies the target size, width by height.
 <li><code>-aspect 4:3</code> specifies the aspect ratio of the video. Standard definition video is usually 4:3, but most high-definition video is 16:9 or 16:10. In my testing, I found that I had to specify this explicitly on the command line, instead of relying on <code>ffmpeg</code> to autodetect it.
-<li><code>-acodec libvorbis</code> specifies that we&#8217;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
+<li><code>-acodec libvorbis</code> specifies that we&rsquo;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
 </ul>
 
 <p class=a>&#x2767;
 
 <h2 id=markup>At Last, The Markup</h2>
 
-<p>I&#8217;m pretty sure this was supposed to be an <abbr>HTML</abbr> book. So where&#8217;s the markup?
+<p>I&rsquo;m pretty sure this was supposed to be an <abbr>HTML</abbr> book. So where&rsquo;s the markup?
 
 <p><abbr>HTML5</abbr> gives you two ways to include video on your web page. Both of them involve the <code>&lt;video></code> element. If you only have one video file, you can simply link to it in a <code>src</code> attribute. This is remarkably similar to including an image with an <code>&lt;img src="..."></code> tag.
 
 <p class="legend top" style="margin-left:2em">One video file <span class=arrow>&#x21b7;</span><br></p>
 <pre><code>&lt;video <mark>src="pr6.webm"</mark>>&lt;/video></code></pre>
 
-<p>Technically, that&#8217;s all you need. But just like an <code>&lt;img></code> tag, you should always include <code>width</code> and <code>height</code> attributes in your <code>&lt;video></code> tags. The <code>width</code> and <code>height</code> attributes can be the same as the maximum width and height you specified during the encoding process. Don&#8217;t worry if one dimension of the video is a little smaller than that. Your browser will center the video inside the box defined by the <code>&lt;video></code> tag. It won&#8217;t ever be smooshed or stretched out of proportion.
+<p>Technically, that&rsquo;s all you need. But just like an <code>&lt;img></code> tag, you should always include <code>width</code> and <code>height</code> attributes in your <code>&lt;video></code> tags. The <code>width</code> and <code>height</code> attributes can be the same as the maximum width and height you specified during the encoding process. Don&rsquo;t worry if one dimension of the video is a little smaller than that. Your browser will center the video inside the box defined by the <code>&lt;video></code> tag. It won&rsquo;t ever be smooshed or stretched out of proportion.
 
 <pre><code>&lt;video src="pr6.webm" <mark>width="320" height="240"</mark>>&lt;/video></code></pre>
 
 <p>By default, the <code>&lt;video></code> element will not expose any sort of player controls. You can create your own controls with plain old <abbr>HTML</abbr>, <abbr>CSS</abbr>, and JavaScript. The <code>&lt;video></code> element has methods like <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#playing-the-media-resource><code>play()</code> and <code>pause()</code></a> and a read/write property called <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-currenttime><code>currentTime</code></a>. There are also read/write <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-volume><code>volume</code></a> and <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#dom-media-muted><code>muted</code></a> properties. So you really have everything you need to build your own interface.
 
-<p>If you don&#8217;t want to build your own interface, you can tell the browser to display a built-in set of controls. To do this, just include the <code>controls</code> attribute in your <code>&lt;video></code> tag.
+<p>If you don&rsquo;t want to build your own interface, you can tell the browser to display a built-in set of controls. To do this, just include the <code>controls</code> attribute in your <code>&lt;video></code> tag.
 
 <pre><code>&lt;video src="pr6.webm" width="320" height="240" <mark>controls</mark>>&lt;/video></code></pre>
 
-<p>There are two other optional attributes I want to mention before we go any further: <code>preload</code> and <code>autoplay</code>. Don&#8217;t shoot the messenger; let me explain why these are useful. The <code>preload</code> attribute tells the browser that you would like it to start downloading the video file as soon as the page loads. This makes sense if the entire point of the page is to view the video. On the other hand, if it&#8217;s just supplementary material that only a few visitors will watch, then you can set <code>preload</code> to <code>none</code> to tell the browser to minimize network traffic.
+<p>There are two other optional attributes I want to mention before we go any further: <code>preload</code> and <code>autoplay</code>. Don&rsquo;t shoot the messenger; let me explain why these are useful. The <code>preload</code> attribute tells the browser that you would like it to start downloading the video file as soon as the page loads. This makes sense if the entire point of the page is to view the video. On the other hand, if it&rsquo;s just supplementary material that only a few visitors will watch, then you can set <code>preload</code> to <code>none</code> to tell the browser to minimize network traffic.
 
-<p>Here&#8217;s an example of a video that will start downloading (but not playing) as soon as the page loads:
+<p>Here&rsquo;s an example of a video that will start downloading (but not playing) as soon as the page loads:
 
 <pre><code>&lt;video src="pr6.webm" width="320" height="240" <mark>preload</mark>>&lt;/video></code></pre>
 
-<p>And here&#8217;s an example of a video that will <em>not</em> start downloading as soon as the page loads:
+<p>And here&rsquo;s an example of a video that will <em>not</em> start downloading as soon as the page loads:
 
 <pre><code>&lt;video src="pr6.webm" width="320" height="240" <mark>preload="none"</mark>>&lt;/video></code></pre>
 
-<p>The <code>autoplay</code> attribute does exactly what it sounds like: it tells the browser that you would like it to start downloading the video file as soon as the page loads, <em>and</em> you would like it to start playing the video automatically as soon as possible. Some people love this; some people hate it. But let me explain why it&#8217;s important to have an attribute like this in <abbr>HTML5</abbr>. Some people are going to want their videos to play automatically, even if it annoys their visitors. If <abbr>HTML5</abbr> <em>didn&#8217;t</em> define a standard way to auto-play videos, people would resort to JavaScript hacks to do it anyway. (For example, by calling the video&#8217;s <code>play()</code> method during the window&#8217;s <code>load</code> event.) This would be much harder for visitors to counteract. On the other hand, it&#8217;s a simple matter to add an extension to your browser (or write one, if necessary) to say &#8220;ignore the <code>autoplay</code> attribute, I don&#8217;t ever want videos to play automatically.&#8221;
+<p>The <code>autoplay</code> attribute does exactly what it sounds like: it tells the browser that you would like it to start downloading the video file as soon as the page loads, <em>and</em> you would like it to start playing the video automatically as soon as possible. Some people love this; some people hate it. But let me explain why it&rsquo;s important to have an attribute like this in <abbr>HTML5</abbr>. Some people are going to want their videos to play automatically, even if it annoys their visitors. If <abbr>HTML5</abbr> <em>didn&rsquo;t</em> define a standard way to auto-play videos, people would resort to JavaScript hacks to do it anyway. (For example, by calling the video&rsquo;s <code>play()</code> method during the window&rsquo;s <code>load</code> event.) This would be much harder for visitors to counteract. On the other hand, it&rsquo;s a simple matter to add an extension to your browser (or write one, if necessary) to say &ldquo;ignore the <code>autoplay</code> attribute, I don&rsquo;t ever want videos to play automatically.&rdquo;
 
-<p>Here&#8217;s an example of a video that will start downloading and playing as soon as possible after the page loads:
+<p>Here&rsquo;s an example of a video that will start downloading and playing as soon as possible after the page loads:
 
 <pre><code>&lt;video src="pr6.webm" width="320" height="240" <mark>autoplay</mark>>&lt;/video></code></pre>
 
@@ -599,11 +599,11 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
     <mark>elmVideo.autoplay = false;</mark>
 }</code></pre>
 
-<p>But wait a second&hellip; If you&#8217;ve been following along this whole chapter, you don&#8217;t have just one video file; you have three. One is an <code>.ogv</code> file that you created with <a href=#firefogg>Firefogg</a> or <a href=#ffmpeg2theora>ffmpeg2theora</a>. The second is an <code>.mp4</code> file that you created with <a href=#handbrake-gui>HandBrake</a>. The third is a <code>.webm</code> file that you created with <a href=#webm-cli>ffmpeg</a>. <abbr>HTML5</abbr> provides a way to link to all three of them: the <code>&lt;source></code> element. Each <code>&lt;video></code> element can contain more than one <code>&lt;source></code> element. Your browser will go down the list of video sources, in order, and play the first one it&#8217;s able to play.
+<p>But wait a second&hellip; If you&rsquo;ve been following along this whole chapter, you don&rsquo;t have just one video file; you have three. One is an <code>.ogv</code> file that you created with <a href=#firefogg>Firefogg</a> or <a href=#ffmpeg2theora>ffmpeg2theora</a>. The second is an <code>.mp4</code> file that you created with <a href=#handbrake-gui>HandBrake</a>. The third is a <code>.webm</code> file that you created with <a href=#webm-cli>ffmpeg</a>. <abbr>HTML5</abbr> provides a way to link to all three of them: the <code>&lt;source></code> element. Each <code>&lt;video></code> element can contain more than one <code>&lt;source></code> element. Your browser will go down the list of video sources, in order, and play the first one it&rsquo;s able to play.
 
-<p>That raises another question: how does the browser know which video it can play? Well, in the worst case scenario, it loads each of the videos and tries to play them. That&#8217;s a big waste of bandwidth, though. You&#8217;ll save a lot of network traffic if you tell the browser up-front about each video. You do this with the <code>type</code> attribute on the <code>&lt;source></code> element.
+<p>That raises another question: how does the browser know which video it can play? Well, in the worst case scenario, it loads each of the videos and tries to play them. That&rsquo;s a big waste of bandwidth, though. You&rsquo;ll save a lot of network traffic if you tell the browser up-front about each video. You do this with the <code>type</code> attribute on the <code>&lt;source></code> element.
 
-<p>Here&#8217;s the whole thing:
+<p>Here&rsquo;s the whole thing:
 
 <p class="legend top" style="margin-left:2em">Three (!) video files <span class=arrow>&#x21b7;</span><br></p>
 <pre><code>&lt;video width="320" height="240" controls>
@@ -612,9 +612,9 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
   &lt;<mark>source src="pr6.ogv"</mark>  type='video/ogg; codecs="theora, vorbis"'>
 &lt;/video></code></pre>
 
-<p>Let&#8217;s break that down. The <code>&lt;video></code> element specifies the width and height for the video, but it doesn&#8217;t actually link to a video file. Inside the <code>&lt;video></code> element are three <code>&lt;source></code> elements. Each <code>&lt;source></code> element links to a single video file (with the <code>src</code> attribute), and it also gives information about the video format (in the <code>type</code> attribute).
+<p>Let&rsquo;s break that down. The <code>&lt;video></code> element specifies the width and height for the video, but it doesn&rsquo;t actually link to a video file. Inside the <code>&lt;video></code> element are three <code>&lt;source></code> elements. Each <code>&lt;source></code> element links to a single video file (with the <code>src</code> attribute), and it also gives information about the video format (in the <code>type</code> attribute).
 
-<p>The <code>type</code> attribute looks complicated &mdash; hell, it <em>is</em> complicated. It&#8217;s a combination of three pieces of information: the <a href=#video-containers>container format</a>, the <a href=#video-codecs>video codec</a>, and the <a href=#audio-codecs>audio codec</a>. Let&#8217;s start from the bottom. For the <code>.ogv</code> video file, the container format is Ogg, represented here as <code>video/ogg</code>. (Technically speaking, that&#8217;s the <abbr>MIME</abbr> type for Ogg video files.) The video codec is Theora, and the audio codec is Vorbis. That&#8217;s simple enough, except the format of the attribute value is a little screwy. The value itself has to include quotation marks, which means you&#8217;ll need to use a different kind of quotation mark to surround the entire value.
+<p>The <code>type</code> attribute looks complicated &mdash; hell, it <em>is</em> complicated. It&rsquo;s a combination of three pieces of information: the <a href=#video-containers>container format</a>, the <a href=#video-codecs>video codec</a>, and the <a href=#audio-codecs>audio codec</a>. Let&rsquo;s start from the bottom. For the <code>.ogv</code> video file, the container format is Ogg, represented here as <code>video/ogg</code>. (Technically speaking, that&rsquo;s the <abbr>MIME</abbr> type for Ogg video files.) The video codec is Theora, and the audio codec is Vorbis. That&rsquo;s simple enough, except the format of the attribute value is a little screwy. The value itself has to include quotation marks, which means you&rsquo;ll need to use a different kind of quotation mark to surround the entire value.
 
 <pre><code>  &lt;source src="pr6.ogv" <mark>type='video/ogg; codecs="theora, vorbis"'</mark>></code></pre>
 
@@ -622,18 +622,18 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 <pre><code>  &lt;source src="pr6.webm" <mark>type='video/webm; codecs="vp8, vorbis"'</mark>></code></pre>
 
-<p>The H.264 video is even more complicated. Remember when I said that both <a href=#h264>H.264 video</a> and <a href=#aac>AAC audio</a> can come in different &#8220;profiles&#8221;? We encoded with the H.264 &#8220;baseline&#8221; profile and the AAC &#8220;low-complexity&#8221; profile, then wrapped it all in an MPEG-4 container. All of that information is included in the <code>type</code> attribute.
+<p>The H.264 video is even more complicated. Remember when I said that both <a href=#h264>H.264 video</a> and <a href=#aac>AAC audio</a> can come in different &ldquo;profiles&rdquo;? We encoded with the H.264 &ldquo;baseline&rdquo; profile and the AAC &ldquo;low-complexity&rdquo; profile, then wrapped it all in an MPEG-4 container. All of that information is included in the <code>type</code> attribute.
 
 <pre><code>  &lt;source src="pr6.mp4" <mark>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</mark>></code></pre>
 
-<p>The benefit of going to all this trouble is that the browser will check the <code>type</code> attribute first to see if it can play a particular video file. If a browser decides it can&#8217;t play a particular video, <em>it won&#8217;t download the file</em>. Not even part of the file. You&#8217;ll save on bandwidth, and your visitors will see the video they came for, faster.
+<p>The benefit of going to all this trouble is that the browser will check the <code>type</code> attribute first to see if it can play a particular video file. If a browser decides it can&rsquo;t play a particular video, <em>it won&rsquo;t download the file</em>. Not even part of the file. You&rsquo;ll save on bandwidth, and your visitors will see the video they came for, faster.
 
-<p>If you follow the instructions in this chapter for encoding your videos, you can just copy and paste the <code>type</code> attribute values from this example. Otherwise, you&#8217;ll need to <a href=http://wiki.whatwg.org/wiki/Video_type_parameters>work out the <code>type</code> parameters for yourself</a>.
+<p>If you follow the instructions in this chapter for encoding your videos, you can just copy and paste the <code>type</code> attribute values from this example. Otherwise, you&rsquo;ll need to <a href=http://wiki.whatwg.org/wiki/Video_type_parameters>work out the <code>type</code> parameters for yourself</a>.
 
 <div class=pf>
 <h4>Professor Markup Says</h4>
 <div class=inner>
-<blockquote><p>iPads running iOS 3.x had a bug that prevented them from noticing anything but the first video source listed. iOS 4 (a free upgrade for all iPads) fixes this bug. If you want to deliver video to iPad owners who haven&#8217;t yet upgraded to iOS 4, you will need to list your MP4 file first, followed by the free video formats. <em>Sigh.</em>
+<blockquote><p>iPads running iOS 3.x had a bug that prevented them from noticing anything but the first video source listed. iOS 4 (a free upgrade for all iPads) fixes this bug. If you want to deliver video to iPad owners who haven&rsquo;t yet upgraded to iOS 4, you will need to list your MP4 file first, followed by the free video formats. <em>Sigh.</em>
 </blockquote>
 </div>
 </div>
@@ -644,9 +644,9 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 <h3 id=video-mime-types>MIME Types Rear Their Ugly Head</h3>
 
-<p>There are so many pieces to the video puzzle, I hesitate to even bring this up. But it&#8217;s important, because a misconfigured web server can lead to endless amounts of frustration as you try to debug why your videos play on your local computer but fail to play when you deploy them to your production site. If you run into this problem, the root cause is probably <abbr>MIME</abbr> types.
+<p>There are so many pieces to the video puzzle, I hesitate to even bring this up. But it&rsquo;s important, because a misconfigured web server can lead to endless amounts of frustration as you try to debug why your videos play on your local computer but fail to play when you deploy them to your production site. If you run into this problem, the root cause is probably <abbr>MIME</abbr> types.
 
-<p>I mentioned <abbr>MIME</abbr> types <a href=past.html#mime-types>in the history chapter</a>, but you probably glazed over that and didn&#8217;t appreciate the significance. So here it is in all-caps:
+<p>I mentioned <abbr>MIME</abbr> types <a href=past.html#mime-types>in the history chapter</a>, but you probably glazed over that and didn&rsquo;t appreciate the significance. So here it is in all-caps:
 
 <div class=pf>
 <h4>Professor Markup Shouts</h4>
@@ -657,9 +657,9 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 </div>
 </div>
 
-<p>What&#8217;s the proper <abbr>MIME</abbr> type? You&#8217;ve already seen it; it&#8217;s part of the value of the <code>type</code> attribute on a <code>&lt;source></code> element. But setting the <code>type</code> attribute in your <abbr>HTML</abbr> markup is not sufficient. You also need to ensure that your web server includes the proper <abbr>MIME</abbr> type in the <code>Content-Type</code> <abbr>HTTP</abbr> header.
+<p>What&rsquo;s the proper <abbr>MIME</abbr> type? You&rsquo;ve already seen it; it&rsquo;s part of the value of the <code>type</code> attribute on a <code>&lt;source></code> element. But setting the <code>type</code> attribute in your <abbr>HTML</abbr> markup is not sufficient. You also need to ensure that your web server includes the proper <abbr>MIME</abbr> type in the <code>Content-Type</code> <abbr>HTTP</abbr> header.
 
-<p>If you&#8217;re using the Apache web server or some derivative of Apache, you can use an <a href=http://httpd.apache.org/docs/2.0/mod/mod_mime.html#addtype>AddType directive</a> in your site-wide <code>httpd.conf</code> or in an <code>.htaccess</code> file in the directory where you store your video files. (If you use some other web server, consult your server&#8217;s documentation on how to set the <code>Content-Type</code> <abbr>HTTP</abbr> header for specific file types.)
+<p>If you&rsquo;re using the Apache web server or some derivative of Apache, you can use an <a href=http://httpd.apache.org/docs/2.0/mod/mod_mime.html#addtype>AddType directive</a> in your site-wide <code>httpd.conf</code> or in an <code>.htaccess</code> file in the directory where you store your video files. (If you use some other web server, consult your server&rsquo;s documentation on how to set the <code>Content-Type</code> <abbr>HTTP</abbr> header for specific file types.)
 
 <pre><code>AddType video/ogg .ogv
 AddType video/mp4 .mp4
@@ -675,9 +675,9 @@ AddType video/webm .webm</code></pre>
 
 <p>Internet Explorer 9 <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_video_audio>supports the <abbr>HTML5</abbr> <code>&lt;video></code> element</a>, but <a href="http://blogs.msdn.com/ie/archive/2010/03/16/html5-hardware-accelerated-first-ie9-platform-preview-available-for-developers.aspx">Microsoft has publicly promised</a> that the final version of <abbr>IE</abbr> 9 will support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone.
 
-<p>But what about older versions of Internet Explorer? Like, you know, all shipping versions up to and including <abbr>IE</abbr> 8? Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you&#8217;ve <a href=#handbrake-gui>encoded your H.264 video</a> for Safari, you can play it in a Flash-based video player if you detect that one of your visitors doesn&#8217;t have an <abbr>HTML5</abbr>-capable browser.
+<p>But what about older versions of Internet Explorer? Like, you know, all shipping versions up to and including <abbr>IE</abbr> 8? Most people who use Internet Explorer also have the Adobe Flash plugin installed. Modern versions of Adobe Flash (starting with 9.0.60.184) support H.264 video and AAC audio in an MPEG-4 container, just like Safari and the iPhone. Once you&rsquo;ve <a href=#handbrake-gui>encoded your H.264 video</a> for Safari, you can play it in a Flash-based video player if you detect that one of your visitors doesn&rsquo;t have an <abbr>HTML5</abbr>-capable browser.
 
-<p><a href=http://flowplayer.org/>FlowPlayer</a> is an open source, GPL-licensed, Flash-based video player. (<a href=http://flowplayer.org/download/>Commercial licenses are also available</a>.) FlowPlayer doesn&#8217;t know anything about the <code>&lt;video></code> element. It won&#8217;t magically transform a <code>&lt;video></code> tag into a Flash object. But <abbr>HTML5</abbr> is well-designed to handle this, because you can nest an <code>&lt;object></code> element within a <code>&lt;video></code> element. Browsers that don&#8217;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video></code> element and simply render the nested <code>&lt;object></code> instead, which will invoke the Flash plug-in and play the movie through FlowPlayer. Browsers that support <abbr>HTML5</abbr> video will find a video source they can play and play it, <em>and ignore the nested <code>&lt;object></code> element altogether</em>.
+<p><a href=http://flowplayer.org/>FlowPlayer</a> is an open source, GPL-licensed, Flash-based video player. (<a href=http://flowplayer.org/download/>Commercial licenses are also available</a>.) FlowPlayer doesn&rsquo;t know anything about the <code>&lt;video></code> element. It won&rsquo;t magically transform a <code>&lt;video></code> tag into a Flash object. But <abbr>HTML5</abbr> is well-designed to handle this, because you can nest an <code>&lt;object></code> element within a <code>&lt;video></code> element. Browsers that don&rsquo;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video></code> element and simply render the nested <code>&lt;object></code> instead, which will invoke the Flash plug-in and play the movie through FlowPlayer. Browsers that support <abbr>HTML5</abbr> video will find a video source they can play and play it, <em>and ignore the nested <code>&lt;object></code> element altogether</em>.
 
 <p>That last bit is the key to the whole puzzle: <abbr>HTML5</abbr> specifies that all elements (other than <code>&lt;source></code> elements) that are children of a <code>&lt;video></code> element must be ignored altogether. That allows you to use <abbr>HTML5</abbr> video in newer browsers and fall back to Flash gracefully in older browsers, without requiring any fancy JavaScript hacks. You can read more about this technique here: <a href=http://camendesign.com/code/video_for_everybody>Video For Everybody</a>.
 
@@ -685,10 +685,10 @@ AddType video/webm .webm</code></pre>
 
 <h2 id=ios>Issues on iPhones and iPads</h2>
 
-<p>iOS is Apple&#8217;s operating system that powers iPhones, iPod Touches, and iPads. iOS 3.2 has a number of issues with <abbr>HTML5</abbr> video.
+<p>iOS is Apple&rsquo;s operating system that powers iPhones, iPod Touches, and iPads. iOS 3.2 has a number of issues with <abbr>HTML5</abbr> video.
 
 <ol>
-<li>iOS will not recognize the video if you include a <code>poster</code> attribute. The <code>poster</code> attribute of the <code>&lt;video></code> element allows you to display a custom image while the video is loading, or until the user presses &#8220;play.&#8221; This bug is fixed in iOS 4.0, but it will be some time before users upgrade.
+<li>iOS will not recognize the video if you include a <code>poster</code> attribute. The <code>poster</code> attribute of the <code>&lt;video></code> element allows you to display a custom image while the video is loading, or until the user presses &ldquo;play.&rdquo; This bug is fixed in iOS 4.0, but it will be some time before users upgrade.
 <li>If you have multiple <code>&lt;source></code> elements, iOS will not recognize anything but the first one. Since iOS devices only support H.264+AAC+MP4, this effectively means you must always list your MP4 first. This bug is also fixed in iOS 4.0.
 </ol>
 
@@ -696,10 +696,10 @@ AddType video/webm .webm</code></pre>
 
 <h2 id=android>Issues on Android devices</h2>
 
-<p>Android is Google&#8217;s operating system that powers a number of different phones and handheld devices. Versions of Android before 2.3 had a number of issues with <abbr>HTML5</abbr> video.
+<p>Android is Google&rsquo;s operating system that powers a number of different phones and handheld devices. Versions of Android before 2.3 had a number of issues with <abbr>HTML5</abbr> video.
 
 <ol>
-<li>The <code>type</code> attribute on <code>&lt;source></code> elements confused Android greatly. The only way to get it to recognize a video source is, ironically, to omit the <code>type</code> attribute altogether and ensure that your H.264+AAC+MP4 video file&#8217;s name ends with an <code>.mp4</code> extension. You can still include the <code>type</code> attribute on your other video sources, since H.264 is the only video format that Android 2.2 supports. (This bug is fixed in Android 2.3.)
+<li>The <code>type</code> attribute on <code>&lt;source></code> elements confused Android greatly. The only way to get it to recognize a video source is, ironically, to omit the <code>type</code> attribute altogether and ensure that your H.264+AAC+MP4 video file&rsquo;s name ends with an <code>.mp4</code> extension. You can still include the <code>type</code> attribute on your other video sources, since H.264 is the only video format that Android 2.2 supports. (This bug is fixed in Android 2.3.)
 <li>The <code>controls</code> attribute was not supported. There are no ill effects to including it, but Android will not display any user interface controls for a video. You will need to provide your own user interface controls. At a minimum, you should provide a script that starts playing the video when the user clicks the video. This bug is also fixed in Android 2.3.
 </ol>
 
@@ -707,7 +707,7 @@ AddType video/webm .webm</code></pre>
 
 <h2 id=example>A Complete, Live Example</h2>
 
-<p>Here is a live example of a video that uses these techniques. I extended the &#8220;Video For Everybody&#8221; code to include a WebM-formatted video. I encoded the same source video into three formats, with these commands:
+<p>Here is a live example of a video that uses these techniques. I extended the &ldquo;Video For Everybody&rdquo; code to include a WebM-formatted video. I encoded the same source video into three formats, with these commands:
 
 <pre>## Theora/Vorbis/Ogg
 <samp class=p>you@localhost$ </samp><kbd>ffmpeg2theora --videobitrate 200 --max_size 320x240 --output pr6.ogv pr6.dv</kbd>
@@ -787,13 +787,13 @@ AddType video/webm .webm</code></pre>
 
 <p class=a>&#x2767;
 
-<p>This has been &#8220;Video on the Web.&#8221; The <a href=table-of-contents.html>full table of contents</a> has more if you&#8217;d like to keep reading.
+<p>This has been &ldquo;Video on the Web.&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
 
 <div class=pf>
 <h4>Did You Know?</h4>
 <div class=moneybags>
-<blockquote><p>In association with Google Press, O&#8217;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &#8220;HTML5: Up &amp; Running,&#8221; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&#8217;Reilly</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+<blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>

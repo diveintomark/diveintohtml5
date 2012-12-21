@@ -12,15 +12,15 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 </style>
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#semantics>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#semantics>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
 <h1><br>What Does It All Mean?</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2767;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>his chapter will take an <abbr>HTML</abbr> page that has absolutely nothing wrong with it, and improve it. Parts of it will become shorter. Parts will become longer. All of it will become more semantic. It&#8217;ll be awesome.
+<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>his chapter will take an <abbr>HTML</abbr> page that has absolutely nothing wrong with it, and improve it. Parts of it will become shorter. Parts will become longer. All of it will become more semantic. It&rsquo;ll be awesome.
 
-<p style="clear:both"><a href=examples/blog-original.html>Here is the page in question</a>. Learn it. Live it. Love it. Open it in a new tab and don&#8217;t come back until you&#8217;ve hit &#8220;View Source&#8221; at least once.
+<p style="clear:both"><a href=examples/blog-original.html>Here is the page in question</a>. Learn it. Live it. Love it. Open it in a new tab and don&rsquo;t come back until you&rsquo;ve hit &ldquo;View Source&rdquo; at least once.
 
 <p class=a>&#x2767;
 
@@ -32,26 +32,26 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
           PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
 
-<p>This is called the &#8220;doctype.&#8221; There&#8217;s a long history &mdash; and a black art &mdash; behind the doctype. While working on Internet Explorer 5 for Mac, the developers at Microsoft found themselves with a surprising problem. The upcoming version of their browser had improved its standards support so much, older pages no longer rendered properly. Or rather, they rendered properly (according to specifications), but people expected them to render <em>improperly</em>. The pages themselves had been authored based on the quirks of the dominant browsers of the day, primarily Netscape 4 and Internet Explorer 4. IE5/Mac was so advanced, it actually broke the web.
+<p>This is called the &ldquo;doctype.&rdquo; There&rsquo;s a long history &mdash; and a black art &mdash; behind the doctype. While working on Internet Explorer 5 for Mac, the developers at Microsoft found themselves with a surprising problem. The upcoming version of their browser had improved its standards support so much, older pages no longer rendered properly. Or rather, they rendered properly (according to specifications), but people expected them to render <em>improperly</em>. The pages themselves had been authored based on the quirks of the dominant browsers of the day, primarily Netscape 4 and Internet Explorer 4. IE5/Mac was so advanced, it actually broke the web.
 
-<p>Microsoft came up with a novel solution. Before rendering a page, IE5/Mac looked at the &#8220;doctype,&#8221; which is typically the first line of the <abbr>HTML</abbr> source (even before the <code>&lt;html></code> element). Older pages (that relied on the rendering quirks of older browsers) generally didn&#8217;t have a doctype at all. IE5/Mac rendered these pages like older browsers did. In order to &#8220;activate&#8221; the new standards support, web page authors had to opt in, by supplying the right doctype before the <code>&lt;html></code> element.
+<p>Microsoft came up with a novel solution. Before rendering a page, IE5/Mac looked at the &ldquo;doctype,&rdquo; which is typically the first line of the <abbr>HTML</abbr> source (even before the <code>&lt;html></code> element). Older pages (that relied on the rendering quirks of older browsers) generally didn&rsquo;t have a doctype at all. IE5/Mac rendered these pages like older browsers did. In order to &ldquo;activate&rdquo; the new standards support, web page authors had to opt in, by supplying the right doctype before the <code>&lt;html></code> element.
 
-<p>This idea spread like wildfire, and soon all major browsers had two modes: &#8220;quirks mode&#8221; and &#8220;standards mode.&#8221; Of course, this being the web, things quickly got out of hand. When Mozilla tried to ship version 1.1 of their browser, they discovered that there were pages being rendered in &#8220;standards mode&#8221; that were actually relying on one specific quirk. Mozilla had just fixed its rendering engine to eliminate this quirk, and thousands of pages broke all at once. Thus was created &mdash; and I am not making this up &mdash; &#8220;<a href="https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode">almost standards mode</a>.&#8221;
+<p>This idea spread like wildfire, and soon all major browsers had two modes: &ldquo;quirks mode&rdquo; and &ldquo;standards mode.&rdquo; Of course, this being the web, things quickly got out of hand. When Mozilla tried to ship version 1.1 of their browser, they discovered that there were pages being rendered in &ldquo;standards mode&rdquo; that were actually relying on one specific quirk. Mozilla had just fixed its rendering engine to eliminate this quirk, and thousands of pages broke all at once. Thus was created &mdash; and I am not making this up &mdash; &ldquo;<a href="https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode">almost standards mode</a>.&rdquo;
 
 <p>In his seminal work, <a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a>, Henri Sivonen summarizes the different modes:
 
 <blockquote>
 <dl>
 <dt>Quirks Mode
-<dd>In the Quirks mode, browsers violate contemporary Web format specifications in order to avoid &#8220;breaking&#8221; pages authored according to practices that were prevalent in the late 1990s.
+<dd>In the Quirks mode, browsers violate contemporary Web format specifications in order to avoid &ldquo;breaking&rdquo; pages authored according to practices that were prevalent in the late 1990s.
 <dt>Standards Mode
-<dd>In the Standards mode, browsers try to give conforming documents the specification-wise correct treatment to the extent implemented in a particular browser. <abbr>HTML5</abbr> calls this mode the &#8220;no quirks mode.&#8221;
+<dd>In the Standards mode, browsers try to give conforming documents the specification-wise correct treatment to the extent implemented in a particular browser. <abbr>HTML5</abbr> calls this mode the &ldquo;no quirks mode.&rdquo;
 <dt>Almost Standards Mode
-<dd>Firefox, Safari, Chrome, Opera (since 7.5) and IE8 also have a mode known as &#8220;Almost Standards mode,&#8221; that implements the vertical sizing of table cells traditionally and not rigorously according to the CSS2 specification. <abbr>HTML5</abbr> calls this mode the &#8220;limited quirks mode.&#8221;
+<dd>Firefox, Safari, Chrome, Opera (since 7.5) and IE8 also have a mode known as &ldquo;Almost Standards mode,&rdquo; that implements the vertical sizing of table cells traditionally and not rigorously according to the CSS2 specification. <abbr>HTML5</abbr> calls this mode the &ldquo;limited quirks mode.&rdquo;
 </dl>
 </blockquote>
 
-<p>(You should read the rest of Henri&#8217;s article, because I&#8217;m simplifying immensely here. Even in IE5/Mac, there were a few older doctypes that didn&#8217;t count as far as opting into standards support. Over time, the list of quirks grew, and so did the list of doctypes that triggered &#8220;quirks mode.&#8221; The last time I tried to count, there were 5 doctypes that triggered &#8220;almost standards mode,&#8221; and 73 that triggered &#8220;quirks mode.&#8221; But I probably missed some, and I&#8217;m not even going to talk about the crazy shit that Internet Explorer 8 does to switch between its four &mdash; four! &mdash; different rendering modes. <a href=http://hsivonen.iki.fi/doctype/ie8-mode.png>Here&#8217;s a flowchart</a>. Kill it. Kill it with fire.)
+<p>(You should read the rest of Henri&rsquo;s article, because I&rsquo;m simplifying immensely here. Even in IE5/Mac, there were a few older doctypes that didn&rsquo;t count as far as opting into standards support. Over time, the list of quirks grew, and so did the list of doctypes that triggered &ldquo;quirks mode.&rdquo; The last time I tried to count, there were 5 doctypes that triggered &ldquo;almost standards mode,&rdquo; and 73 that triggered &ldquo;quirks mode.&rdquo; But I probably missed some, and I&rsquo;m not even going to talk about the crazy shit that Internet Explorer 8 does to switch between its four &mdash; four! &mdash; different rendering modes. <a href=http://hsivonen.iki.fi/doctype/ie8-mode.png>Here&rsquo;s a flowchart</a>. Kill it. Kill it with fire.)
 
 <p>Now then. Where were we? Ah yes, the doctype:
 
@@ -59,13 +59,13 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
           PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
 
-<p>That happens to be one of the 15 doctypes that trigger &#8220;standards mode&#8221; in all modern browsers. There is nothing wrong with it. If you like it, you can keep it. Or you can change it to the <abbr>HTML5</abbr> doctype, which is shorter and sweeter and also triggers &#8220;standards mode&#8221; in all modern browsers.
+<p>That happens to be one of the 15 doctypes that trigger &ldquo;standards mode&rdquo; in all modern browsers. There is nothing wrong with it. If you like it, you can keep it. Or you can change it to the <abbr>HTML5</abbr> doctype, which is shorter and sweeter and also triggers &ldquo;standards mode&rdquo; in all modern browsers.
 
 <p>This is the <abbr>HTML5</abbr> doctype:
 
 <pre><code>&lt;!DOCTYPE html></code></pre>
 
-<p>That&#8217;s it. Just 15 characters. It&#8217;s so easy, you can type it by hand and not screw it up.
+<p>That&rsquo;s it. Just 15 characters. It&rsquo;s so easy, you can type it by hand and not screw it up.
 
 <p class=a>&#x2767;
 
@@ -73,7 +73,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:280px"><img src=i/openclipart.org_johnny_automatic_tree_on_top_of_hill.png alt="tree on top of hill" width=280 height=394>
 
-<p>An <abbr>HTML</abbr> page is a series of nested elements. The entire structure of the page is like a tree. Some elements are &#8220;siblings,&#8221; like two branches that extend from the same tree trunk. Some elements can be &#8220;children&#8221; of other elements, like a smaller branch that extends from a larger branch. (It works the other way too; an element that contains other elements is called the &#8220;parent&#8221; node of its immediate child elements, and the &#8220;ancestor&#8221; of its grandchildren.) Elements that have no children are called &#8220;leaf&#8221; nodes. The outer-most element, which is the ancestor of all other elements on the page, is called the &#8220;root element.&#8221; The root element of an <abbr>HTML</abbr> page is always <code>&lt;html></code>.
+<p>An <abbr>HTML</abbr> page is a series of nested elements. The entire structure of the page is like a tree. Some elements are &ldquo;siblings,&rdquo; like two branches that extend from the same tree trunk. Some elements can be &ldquo;children&rdquo; of other elements, like a smaller branch that extends from a larger branch. (It works the other way too; an element that contains other elements is called the &ldquo;parent&rdquo; node of its immediate child elements, and the &ldquo;ancestor&rdquo; of its grandchildren.) Elements that have no children are called &ldquo;leaf&rdquo; nodes. The outer-most element, which is the ancestor of all other elements on the page, is called the &ldquo;root element.&rdquo; The root element of an <abbr>HTML</abbr> page is always <code>&lt;html></code>.
 
 <p>In <a href=examples/blog-original.html>this example page</a>, the root element looks like this:
 
@@ -89,17 +89,17 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <pre><code>&lt;html lang="en" xml:lang="en"></code></pre>
 
-<p>The two attributes here, <code>lang</code> and <code>xml:lang</code>, both define the language of this <abbr>HTML</abbr> page. (<code>en</code> stands for &#8220;English.&#8221; Not writing in English? <a href=http://www.w3.org/International/questions/qa-choosing-language-tags>Find your language code</a>.) Why two attributes for the same thing? Again, this is a vestige of <abbr>XHTML</abbr>. Only the <code>lang</code> attribute has any effect in <abbr>HTML5</abbr>. You can keep the <code>xml:lang</code> attribute if you like, but if you do, you need to ensure that it <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-lang-and-xml:lang-attributes">contains the same value as the <code>lang</code> attribute</a>.
+<p>The two attributes here, <code>lang</code> and <code>xml:lang</code>, both define the language of this <abbr>HTML</abbr> page. (<code>en</code> stands for &ldquo;English.&rdquo; Not writing in English? <a href=http://www.w3.org/International/questions/qa-choosing-language-tags>Find your language code</a>.) Why two attributes for the same thing? Again, this is a vestige of <abbr>XHTML</abbr>. Only the <code>lang</code> attribute has any effect in <abbr>HTML5</abbr>. You can keep the <code>xml:lang</code> attribute if you like, but if you do, you need to ensure that it <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-lang-and-xml:lang-attributes">contains the same value as the <code>lang</code> attribute</a>.
 
 <blockquote cite="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-lang-and-xml:lang-attributes">
 <p>To ease migration to and from XHTML, authors may specify an attribute in no namespace with no prefix and with the literal localname "xml:lang" on <abbr>HTML</abbr> elements in <abbr>HTML</abbr> documents, but such attributes must only be specified if a <code>lang</code> attribute in no namespace is also specified, and both attributes must have the same value when compared in an ASCII case-insensitive manner. The attribute in no namespace with no prefix and with the literal localname "xml:lang" has no effect on language processing.
 </blockquote>
 
-<p>Are you ready to drop it? It&#8217;s OK, just let it go. Going, going&hellip; gone! That leaves us with this root element:
+<p>Are you ready to drop it? It&rsquo;s OK, just let it go. Going, going&hellip; gone! That leaves us with this root element:
 
 <pre><code>&lt;html lang="en"></code></pre>
 
-<p>And that&#8217;s all I have to say about that.
+<p>And that&rsquo;s all I have to say about that.
 
 <p class=a>&#x2767;
 
@@ -107,7 +107,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p class=c><img src=i/openclipart.org_johnny_automatic_8_from_behind.png alt="8 men from behind" width=554 height=164>
 
-<p>The first child of the root element is usually the <code>&lt;head></code> element. The <code>&lt;head></code> element contains metadata&nbsp;&mdash; information <em>about</em> the page, rather than the body of the page itself. (The body of the page is, unsurprisingly, contained in the <code>&lt;body></code> element.) The <code>&lt;head></code> element itself is rather boring, and it hasn&#8217;t changed in any interesting way in <abbr>HTML5</abbr>. The good stuff is what&#8217;s <em>inside</em> the <code>&lt;head></code> element. And for that, we turn once again to <a href=examples/blog-original.html>our example page</a>:
+<p>The first child of the root element is usually the <code>&lt;head></code> element. The <code>&lt;head></code> element contains metadata&nbsp;&mdash; information <em>about</em> the page, rather than the body of the page itself. (The body of the page is, unsurprisingly, contained in the <code>&lt;body></code> element.) The <code>&lt;head></code> element itself is rather boring, and it hasn&rsquo;t changed in any interesting way in <abbr>HTML5</abbr>. The good stuff is what&rsquo;s <em>inside</em> the <code>&lt;head></code> element. And for that, we turn once again to <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;head>
   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -128,15 +128,15 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=encoding>Character Encoding</h2>
 
-<p>When you think of &#8220;text,&#8221; you probably think of &#8220;characters and symbols I see on my computer screen.&#8221; But computers don&#8217;t deal in characters and symbols; they deal in bits and bytes. Every piece of text you&#8217;ve ever seen on a computer screen is actually stored in a particular <em>character encoding</em>. There are <a href=http://www.iana.org/assignments/character-sets>hundreds of different character encodings</a>, some optimized for particular languages like Russian or Chinese or English, and others that can be used for multiple languages. Roughly speaking, the character encoding provides a mapping between the stuff you see on your screen and the stuff your computer actually stores in memory and on disk.
+<p>When you think of &ldquo;text,&rdquo; you probably think of &ldquo;characters and symbols I see on my computer screen.&rdquo; But computers don&rsquo;t deal in characters and symbols; they deal in bits and bytes. Every piece of text you&rsquo;ve ever seen on a computer screen is actually stored in a particular <em>character encoding</em>. There are <a href=http://www.iana.org/assignments/character-sets>hundreds of different character encodings</a>, some optimized for particular languages like Russian or Chinese or English, and others that can be used for multiple languages. Roughly speaking, the character encoding provides a mapping between the stuff you see on your screen and the stuff your computer actually stores in memory and on disk.
 
-<p>In reality, it&#8217;s more complicated than that. The same character might appear in more than one encoding, but each encoding might use a different sequence of bytes to actually store the character in memory or on disk. So, you can think of the character encoding as a kind of decryption key for the text. Whenever someone gives you a sequence of bytes and claims it&#8217;s &#8220;text,&#8221; you need to know what character encoding they used so you can decode the bytes into characters and display them (or process them, or whatever).
+<p>In reality, it&rsquo;s more complicated than that. The same character might appear in more than one encoding, but each encoding might use a different sequence of bytes to actually store the character in memory or on disk. So, you can think of the character encoding as a kind of decryption key for the text. Whenever someone gives you a sequence of bytes and claims it&rsquo;s &ldquo;text,&rdquo; you need to know what character encoding they used so you can decode the bytes into characters and display them (or process them, or whatever).
 
-<p>So, how does your browser actually determine the character encoding of the stream of bytes that a web server sends? I&#8217;m glad you asked. If you&#8217;re familiar with <abbr>HTTP</abbr> headers, you may have seen a header like this:
+<p>So, how does your browser actually determine the character encoding of the stream of bytes that a web server sends? I&rsquo;m glad you asked. If you&rsquo;re familiar with <abbr>HTTP</abbr> headers, you may have seen a header like this:
 
 <blockquote><p><code>Content-Type: text/html; charset="utf-8"</code></blockquote>
 
-<p>Briefly, this says that the web server thinks it&#8217;s sending you an <abbr>HTML</abbr> document, and that it thinks the document uses the <code>UTF-8</code> character encoding. Unfortunately, in the whole magnificent soup of the World Wide Web, few authors actually have control over their HTTP server. Think <a href="http://www.blogger.com/">Blogger</a>: the content is provided by individuals, but the servers are run by Google. So <abbr>HTML</abbr> 4 provided a way to specify the character encoding in the <abbr>HTML</abbr> document itself. You&#8217;ve probably seen this too:
+<p>Briefly, this says that the web server thinks it&rsquo;s sending you an <abbr>HTML</abbr> document, and that it thinks the document uses the <code>UTF-8</code> character encoding. Unfortunately, in the whole magnificent soup of the World Wide Web, few authors actually have control over their HTTP server. Think <a href="http://www.blogger.com/">Blogger</a>: the content is provided by individuals, but the servers are run by Google. So <abbr>HTML</abbr> 4 provided a way to specify the character encoding in the <abbr>HTML</abbr> document itself. You&rsquo;ve probably seen this too:
 
 <blockquote><p><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"></code></blockquote>
 
@@ -153,7 +153,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <p><code>&lt;META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=ISO-8859-1></code>
 </blockquote>
 
-<p>There are even a few <a href="http://simon.html5.org/test/html/parsing/encoding/"><code>&lt;meta charset></code> test cases</a> if you don&#8217;t believe that browsers already do this.
+<p>There are even a few <a href="http://simon.html5.org/test/html/parsing/encoding/"><code>&lt;meta charset></code> test cases</a> if you don&rsquo;t believe that browsers already do this.
 
 <div class=pf>
 <h4>Ask Professor Markup</h4>
@@ -171,14 +171,14 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id=link>Friends &amp; (Link) Relations</h2>
 
-<p>Regular links (<code>&lt;a href></code>) simply point to another page. Link relations are a way to explain <em>why</em> you&#8217;re pointing to another page. They finish the sentence &#8220;I&#8217;m pointing to this other page because...&#8221;
+<p>Regular links (<code>&lt;a href></code>) simply point to another page. Link relations are a way to explain <em>why</em> you&rsquo;re pointing to another page. They finish the sentence &ldquo;I&rsquo;m pointing to this other page because...&rdquo;
 
 <ul>
-<li>...it&#8217;s a stylesheet containing CSS rules that your browser should apply to this document.
-<li>...it&#8217;s a feed that contains the same content as this page, but in a standard subscribable format.
-<li>...it&#8217;s a translation of this page into another language.
-<li>...it&#8217;s the same content as this page, but in <abbr>PDF</abbr> format.
-<li>...it&#8217;s the next chapter of an online book of which this page is also a part.
+<li>...it&rsquo;s a stylesheet containing CSS rules that your browser should apply to this document.
+<li>...it&rsquo;s a feed that contains the same content as this page, but in a standard subscribable format.
+<li>...it&rsquo;s a translation of this page into another language.
+<li>...it&rsquo;s the same content as this page, but in <abbr>PDF</abbr> format.
+<li>...it&rsquo;s the next chapter of an online book of which this page is also a part.
 </ul>
 
 <p>And so on. <abbr>HTML5</abbr> breaks link relations <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-link-rel>into two categories</a>:
@@ -188,7 +188,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <p>The exact behavior for links to external resources depends on the exact relationship, as defined for the relevant link type.
 </blockquote>
 
-<p>Of the examples I just gave, only the first (<code>rel="stylesheet"</code>) is a link to an external resource. The rest are hyperlinks to other documents. You may wish to follow those links, or you may not, but they&#8217;re not required in order to view the current page.
+<p>Of the examples I just gave, only the first (<code>rel="stylesheet"</code>) is a link to an external resource. The rest are hyperlinks to other documents. You may wish to follow those links, or you may not, but they&rsquo;re not required in order to view the current page.
 
 <p>Most often, link relations are seen on <code>&lt;link></code> elements within the <code>&lt;head></code> of a page. Some link relations can also be used on <code>&lt;a></code> elements, but this is uncommon even when allowed. <abbr>HTML5</abbr> also allows some relations on <code>&lt;area></code> elements, but this is even <em>less</em> common. (HTML 4 did not allow a <code>rel</code> attribute on <code>&lt;area></code> elements.) See <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#linkTypes>the full chart of link relations</a> to check where you can use specific <code>rel</code> values.
 
@@ -204,11 +204,11 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h3 id=rel-stylesheet>rel = stylesheet</h3>
 
-<p>Let&#8217;s look at the first link relation in <a href=examples/blog-original.html>our example page</a>:
+<p>Let&rsquo;s look at the first link relation in <a href=examples/blog-original.html>our example page</a>:
 
 <pre><code>&lt;link rel="stylesheet" href="style-original.css" type="text/css" /></code></pre>
 
-<p>This is the most frequently used link relation in the world (literally). <code>&lt;link rel="stylesheet"></code> is for pointing to <abbr>CSS</abbr> rules that are stored in a separate file. One small optimization you can make in <abbr>HTML5</abbr> is to drop the <code>type</code> attribute. There&#8217;s only one stylesheet language for the web, <abbr>CSS</abbr>, so that&#8217;s the default value for the <code>type</code> attribute. This works in all browsers. (I suppose someone could invent a new stylesheet language someday, but if that happens, just add the <code>type</code> attribute back.)
+<p>This is the most frequently used link relation in the world (literally). <code>&lt;link rel="stylesheet"></code> is for pointing to <abbr>CSS</abbr> rules that are stored in a separate file. One small optimization you can make in <abbr>HTML5</abbr> is to drop the <code>type</code> attribute. There&rsquo;s only one stylesheet language for the web, <abbr>CSS</abbr>, so that&rsquo;s the default value for the <code>type</code> attribute. This works in all browsers. (I suppose someone could invent a new stylesheet language someday, but if that happens, just add the <code>type</code> attribute back.)
 
 <pre><code>&lt;link rel="stylesheet" href="style-original.css" /></code></pre>
 
@@ -221,7 +221,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
        title="My Weblog feed"
        href="/feed/" /></code></pre>
 
-<p>This link relation is also quite common. <code>&lt;link rel="alternate"></code>, combined with either the <abbr>RSS</abbr> or Atom media type in the <code>type</code> attribute, enables something called &#8220;feed autodiscovery.&#8221; It allows syndicated feed readers (like <a href="http://www.google.com/reader/">Google Reader</a>) to discover that a site has a news feed of the latest articles. Some browsers also support feed autodiscovery by displaying a special icon next to the <abbr>URL</abbr>. (Unlike with <code>rel="stylesheet"</code>, the <code>type</code> attribute matters here. Don&#8217;t drop it!)
+<p>This link relation is also quite common. <code>&lt;link rel="alternate"></code>, combined with either the <abbr>RSS</abbr> or Atom media type in the <code>type</code> attribute, enables something called &ldquo;feed autodiscovery.&rdquo; It allows syndicated feed readers (like <a href="http://www.google.com/reader/">Google Reader</a>) to discover that a site has a news feed of the latest articles. Some browsers also support feed autodiscovery by displaying a special icon next to the <abbr>URL</abbr>. (Unlike with <code>rel="stylesheet"</code>, the <code>type</code> attribute matters here. Don&rsquo;t drop it!)
 
 <p>The <code>rel="alternate"</code> link relation has always been a strange hybrid of use cases, <a href=http://www.w3.org/TR/html401/types.html#type-links>even in <abbr>HTML</abbr> 4</a>. In <abbr>HTML5</abbr>, its definition has been clarified and extended to more accurately describe existing web content. As you just saw, using <code>rel="alternate"</code> in conjunction with <code>type=application/atom+xml</code> indicates an Atom feed for the current page. But you can also use <code>rel="alternate"</code> in conjunction with other <code>type</code> attributes to indicate the same content in another format, like <abbr>PDF</abbr>.
 
@@ -229,36 +229,36 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h3 id=new-relations>Other Link Relations in HTML5</h3>
 
-<p><code>rel="author"</code> is used to link to information about the author of the page. This can be a <code>mailto:</code> address, though it doesn&#8217;t have to be. It could simply link to a contact form or &#8220;about the author&#8221; page.
+<p><code>rel="author"</code> is used to link to information about the author of the page. This can be a <code>mailto:</code> address, though it doesn&rsquo;t have to be. It could simply link to a contact form or &ldquo;about the author&rdquo; page.
 
 <p class=ss style="width:313px"><img src=i/openclipart.org_johnny_automatic_girl_feeding_birds.png width=313 height=384 alt="girl feeding birds">
 
 <p>HTML 4 defined <a href=http://www.w3.org/TR/html401/types.html#type-links><code>rel="start"</code>, <code>rel="prev"</code>, and <code>rel="next"</code></a> to define relations between pages that are part of a series (like chapters of a book, or even posts on a blog). The only one that was ever used correctly was <code>rel="next"</code>. People used <code>rel="previous"</code> instead of <code>rel="prev"</code>; they used <code>rel="begin"</code> and <code>rel="first"</code> instead of <code>rel="start"</code>; they used <code>rel="end"</code> instead of <code>rel="last"</code>.
-<p>Oh, and &mdash; all by themselves &mdash; they made up <code>rel="up"</code> to point to a &#8220;parent&#8221; page. The best way to think of <code>rel="up"</code> is to look at your breadcrumb navigation (or at least imagine it). Your home page is probably the first page in your breadcrumbs, and the current page is at the tail end. <code>rel="up"</code> points to the next-to-last page in the breadcrumbs.
+<p>Oh, and &mdash; all by themselves &mdash; they made up <code>rel="up"</code> to point to a &ldquo;parent&rdquo; page. The best way to think of <code>rel="up"</code> is to look at your breadcrumb navigation (or at least imagine it). Your home page is probably the first page in your breadcrumbs, and the current page is at the tail end. <code>rel="up"</code> points to the next-to-last page in the breadcrumbs.
 
-<p><abbr>HTML5</abbr> includes <code>rel="next"</code> and <code>rel="prev"</code>, just like <abbr>HTML</abbr> 4, and supports <code>rel="previous"</code> for backward compatibility. The specification once had <code>rel="first"</code>, <code>rel="last"</code>, and <code>rel="up"</code>, too. However, &#8220;<a href=http://lists.w3.org/Archives/Public/public-html/2011Feb/att-0481/issue-118-decision.html>based on the lack of interest from implementors and users</a>&#8221; the HTML Working Group decided to drop these values from the specification.
+<p><abbr>HTML5</abbr> includes <code>rel="next"</code> and <code>rel="prev"</code>, just like <abbr>HTML</abbr> 4, and supports <code>rel="previous"</code> for backward compatibility. The specification once had <code>rel="first"</code>, <code>rel="last"</code>, and <code>rel="up"</code>, too. However, &ldquo;<a href=http://lists.w3.org/Archives/Public/public-html/2011Feb/att-0481/issue-118-decision.html>based on the lack of interest from implementors and users</a>&rdquo; the HTML Working Group decided to drop these values from the specification.
 
 <p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon>rel="icon"</a> is the <a href=http://code.google.com/webstats/2005-12/linkrels.html>second most popular link relation</a>, after <code>rel="stylesheet"</code>. It is usually found together with <code>shortcut</code>, like so:
 
 <pre><code>&lt;link rel="shortcut icon" href="/favicon.ico"></code></pre>
 
-<p>All major browsers support this usage to associate a small icon with the page. Usually it&#8217;s displayed in the browser&#8217;s location bar next to the URL, or in the browser tab, or both.
+<p>All major browsers support this usage to associate a small icon with the page. Usually it&rsquo;s displayed in the browser&rsquo;s location bar next to the URL, or in the browser tab, or both.
 
 <p>Also new in <abbr>HTML5</abbr>: the <code>sizes</code> attribute can be used in conjunction with the <code>icon</code> relationship to <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon>indicate the size of the referenced icon</a>.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-license>rel="license"</a> was <a href=http://microformats.org/wiki/rel-license>invented by the microformats community</a>. It &#8220;indicates that the referenced document provides the copyright license terms under which the current document is provided.&#8221;
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-license>rel="license"</a> was <a href=http://microformats.org/wiki/rel-license>invented by the microformats community</a>. It &ldquo;indicates that the referenced document provides the copyright license terms under which the current document is provided.&rdquo;
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-nofollow>rel="nofollow"</a> &#8220;indicates that the link is not endorsed by the original author or publisher of the page, or that the link to the referenced document was included primarily because of a commercial relationship between people affiliated with the two pages.&#8221; It was <a href=http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html>invented by Google</a> and <a href=http://microformats.org/wiki/rel-nofollow>standardized within the microformats community</a>. <a href=http://www.wordpress.org>WordPress</a> adds <code>rel="nofollow"</code> to links added by commenters. The thinking was that if &#8220;nofollow&#8221; links did not pass on PageRank, spammers would give up trying to post spam comments on weblogs. That didn&#8217;t happen, but <code>rel="nofollow"</code> persists.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-nofollow>rel="nofollow"</a> &ldquo;indicates that the link is not endorsed by the original author or publisher of the page, or that the link to the referenced document was included primarily because of a commercial relationship between people affiliated with the two pages.&rdquo; It was <a href=http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html>invented by Google</a> and <a href=http://microformats.org/wiki/rel-nofollow>standardized within the microformats community</a>. <a href=http://www.wordpress.org>WordPress</a> adds <code>rel="nofollow"</code> to links added by commenters. The thinking was that if &ldquo;nofollow&rdquo; links did not pass on PageRank, spammers would give up trying to post spam comments on weblogs. That didn&rsquo;t happen, but <code>rel="nofollow"</code> persists.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-noreferrer>rel="noreferrer"</a> &#8220;indicates that no referrer information is to be leaked when following the link.&#8221; <a href=http://webkit.org/blog/907/webkit-nightlies-support-html5-noreferrer-link-relation/>WebKit supports rel="noreferrer"</a> so it works on Google Chome and Safari (and hopefully on other WebKit-based browsers). [<a href=http://wearehugh.com/public/2009/04/rel-noreferrer.html>rel="noreferrer" test case</a>]
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-noreferrer>rel="noreferrer"</a> &ldquo;indicates that no referrer information is to be leaked when following the link.&rdquo; <a href=http://webkit.org/blog/907/webkit-nightlies-support-html5-noreferrer-link-relation/>WebKit supports rel="noreferrer"</a> so it works on Google Chome and Safari (and hopefully on other WebKit-based browsers). [<a href=http://wearehugh.com/public/2009/04/rel-noreferrer.html>rel="noreferrer" test case</a>]
 
 <p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:271px"><img src=i/openclipart.org_johnny_automatic_dog_on_chair.png width=271 height=309 alt="dog on chair">
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch>rel="prefetch"</a> &#8220;indicates that preemptively fetching and caching the specified resource is likely to be beneficial, as it is highly likely that the user will require this resource.&#8221; Search engines sometimes add <code>&lt;link rel="prefetch" href="<i>URL of top search result</i>"></code> to the search results page if they feel that the top result is wildly more popular than any other. For example: using Firefox, <a href="http://www.google.com/search?q=cnn">search Google for CNN</a>, view the page source, and search for the keyword <code>prefetch</code>. Mozilla Firefox is the only current browser that supports <code>rel="prefetch"</code>.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-prefetch>rel="prefetch"</a> &ldquo;indicates that preemptively fetching and caching the specified resource is likely to be beneficial, as it is highly likely that the user will require this resource.&rdquo; Search engines sometimes add <code>&lt;link rel="prefetch" href="<i>URL of top search result</i>"></code> to the search results page if they feel that the top result is wildly more popular than any other. For example: using Firefox, <a href="http://www.google.com/search?q=cnn">search Google for CNN</a>, view the page source, and search for the keyword <code>prefetch</code>. Mozilla Firefox is the only current browser that supports <code>rel="prefetch"</code>.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-search>rel="search"</a> &#8220;indicates that the referenced document provides an interface specifically for searching the document and its related resources.&#8221; Specifically, if you want <code>rel="search"</code> to do anything useful, it should point to an <a href=http://www.opensearch.org/>OpenSearch</a> document that describes how a browser could construct a URL to search the current site for a given keyword. OpenSearch (and <code>rel="search"</code> links that point to OpenSearch description documents) has been supported in Internet Explorer since version 7, Mozilla Firefox since version 2, and Google Chrome.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-search>rel="search"</a> &ldquo;indicates that the referenced document provides an interface specifically for searching the document and its related resources.&rdquo; Specifically, if you want <code>rel="search"</code> to do anything useful, it should point to an <a href=http://www.opensearch.org/>OpenSearch</a> document that describes how a browser could construct a URL to search the current site for a given keyword. OpenSearch (and <code>rel="search"</code> links that point to OpenSearch description documents) has been supported in Internet Explorer since version 7, Mozilla Firefox since version 2, and Google Chrome.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-tag>rel="tag"</a> &#8220;indicates that the tag that the referenced document represents applies to the current document.&#8221; Marking up &#8220;tags&#8221; (category keywords) with the <code>rel</code> attribute was <a href=http://www.powazek.com/2005/07/000532.html>invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &#8220;Technorati tags.&#8221; (You read that right: a commercial company convinced the entire world to add metadata that made the company&#8217;s job easier. Nice work if you can get it!) The syntax was later <a href=http://microformats.org/wiki/rel-tag>standardized within the microformats community</a>, where it was simply called <code>rel="tag"</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel="tag"</code> links. Browsers do not do anything special with them; they&#8217;re really designed for search engines to use as a signal of what the page is about.
+<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-tag>rel="tag"</a> &ldquo;indicates that the tag that the referenced document represents applies to the current document.&rdquo; Marking up &ldquo;tags&rdquo; (category keywords) with the <code>rel</code> attribute was <a href=http://www.powazek.com/2005/07/000532.html>invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &ldquo;Technorati tags.&rdquo; (You read that right: a commercial company convinced the entire world to add metadata that made the company&rsquo;s job easier. Nice work if you can get it!) The syntax was later <a href=http://microformats.org/wiki/rel-tag>standardized within the microformats community</a>, where it was simply called <code>rel="tag"</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel="tag"</code> links. Browsers do not do anything special with them; they&rsquo;re really designed for search engines to use as a signal of what the page is about.
 
 <p class=a>&#x2767;
 
@@ -278,31 +278,31 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-hgroup-element><code>&lt;hgroup></code></a>
 <dd>The <code>hgroup</code> element represents the heading of a section. The element is used to group a set of <code>h1</code>&ndash;<code>h6</code> elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element><code>&lt;header></code></a>
-<dd>The <code>header</code> element represents a group of introductory or navigational aids. A <code>header</code> element is intended to usually contain the section&#8217;s heading (an <code>h1</code>&ndash;<code>h6</code> element or an <code>hgroup</code> element), but this is not required. The <code>header</code> element can also be used to wrap a section&#8217;s table of contents, a search form, or any relevant logos.
+<dd>The <code>header</code> element represents a group of introductory or navigational aids. A <code>header</code> element is intended to usually contain the section&rsquo;s heading (an <code>h1</code>&ndash;<code>h6</code> element or an <code>hgroup</code> element), but this is not required. The <code>header</code> element can also be used to wrap a section&rsquo;s table of contents, a search form, or any relevant logos.
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element><code>&lt;footer></code></a>
-<dd>The <code>footer</code> element represents a footer for its nearest ancestor sectioning content or sectioning root element. A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like. Footers don&#8217;t necessarily have to appear at the end of a section, though they usually do. When the <code>footer</code> element contains entire sections, they represent appendices, indexes, long colophons, verbose license agreements, and other such content.
+<dd>The <code>footer</code> element represents a footer for its nearest ancestor sectioning content or sectioning root element. A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like. Footers don&rsquo;t necessarily have to appear at the end of a section, though they usually do. When the <code>footer</code> element contains entire sections, they represent appendices, indexes, long colophons, verbose license agreements, and other such content.
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element><code>&lt;time></code></a>
 <dd>The <code>time</code> element represents either a time on a 24 hour clock, or a precise date in the proleptic Gregorian calendar, optionally with a time and a time-zone offset.
 <dt><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-mark-element><code>&lt;mark></code></a>
 <dd>The <code>mark</code> element represents a run of text in one document marked or highlighted for reference purposes.
 </dl>
 
-<p>I know you&#8217;re anxious to start using these new elements, otherwise you wouldn&#8217;t be reading this chapter. But first we need to take a little detour.
+<p>I know you&rsquo;re anxious to start using these new elements, otherwise you wouldn&rsquo;t be reading this chapter. But first we need to take a little detour.
 
 <p class=a>&#x2767;
 
 <h2 id=unknown-elements>A long digression into how browsers handle unknown elements</h2>
 
-<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&#8217;s list is stored in <a href="http://mxr.mozilla.org/mozilla-central/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &#8220;unknown elements.&#8221;  There are two fundamental problems with unknown elements:
+<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&rsquo;s list is stored in <a href="http://mxr.mozilla.org/mozilla-central/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &ldquo;unknown elements.&rdquo;  There are two fundamental problems with unknown elements:
 
 <ol>
 <li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote></code> is indented with a left margin, and <code>&lt;h1></code> is displayed in a larger font. But what default styles should be applied to unknown elements?</li>
-<li><b>What should the element&#8217;s DOM look like?</b>  Mozilla&#8217;s <code>nsElementTable.cpp</code> includes information about what kinds of other elements each element can contain. If you include markup like <code>&lt;p>&lt;p></code>, the second paragraph element implicitly closes the first one, so the elements end up as siblings, not parent-and-child. But if you write <code>&lt;p>&lt;span></code>, the <code>span</code> does not close the paragraph, because Firefox knows that <code>&lt;p></code> is a block element that can contain the inline element <code>&lt;span></code>. So, the <code>&lt;span></code> ends up as a child of the <code>&lt;p></code> in the DOM.</li>
+<li><b>What should the element&rsquo;s DOM look like?</b>  Mozilla&rsquo;s <code>nsElementTable.cpp</code> includes information about what kinds of other elements each element can contain. If you include markup like <code>&lt;p>&lt;p></code>, the second paragraph element implicitly closes the first one, so the elements end up as siblings, not parent-and-child. But if you write <code>&lt;p>&lt;span></code>, the <code>span</code> does not close the paragraph, because Firefox knows that <code>&lt;p></code> is a block element that can contain the inline element <code>&lt;span></code>. So, the <code>&lt;span></code> ends up as a child of the <code>&lt;p></code> in the DOM.</li>
 </ol>
 
-<p>Different browsers answer these questions in different ways. (Shocking, I know.) Of the major browsers, Microsoft Internet Explorer&#8217;s answer to both questions is the most problematic, but every browser needs a little bit of help here.
+<p>Different browsers answer these questions in different ways. (Shocking, I know.) Of the major browsers, Microsoft Internet Explorer&rsquo;s answer to both questions is the most problematic, but every browser needs a little bit of help here.
 
-<p>The first question should be relatively simple to answer: don&#8217;t give any special styling to unknown elements. Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS. And that works, mostly, but there&#8217;s one little gotcha you need to be aware of.
+<p>The first question should be relatively simple to answer: don&rsquo;t give any special styling to unknown elements. Just let them inherit whatever CSS properties are in effect wherever they appear on the page, and let the page author specify all styling with CSS. And that works, mostly, but there&rsquo;s one little gotcha you need to be aware of.
 
 <div class=pf>
 <h4>Professor Markup Says</h4>
@@ -320,7 +320,7 @@ footer,header,hgroup,menu,nav,section {
     display:block;
 }</code></pre>
 
-<p>(This code is lifted from Rich Clark&#8217;s <a href=http://html5doctor.com/html-5-reset-stylesheet/><abbr>HTML5</abbr> Reset Stylesheet</a>, which does many other things that are beyond the scope of this chapter.)
+<p>(This code is lifted from Rich Clark&rsquo;s <a href=http://html5doctor.com/html-5-reset-stylesheet/><abbr>HTML5</abbr> Reset Stylesheet</a>, which does many other things that are beyond the scope of this chapter.)
 
 <p>But wait, it gets worse! Prior to version 9, Internet Explorer did not apply <em>any</em> styling on unknown elements. For example, if you had this markup:
 
@@ -335,7 +335,7 @@ footer,header,hgroup,menu,nav,section {
 
 <p>Internet Explorer (up to and including IE 8) will not treat the <code>&lt;article></code> element as a block-level element, nor will it put a red border around the article. All the style rules are simply ignored. <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>Internet Explorer 9 fixes this problem</a>.
 
-<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&#8217;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
+<p>The second problem is the DOM that browsers create when they encounter unknown elements. Again, the most problematic browser is older versions of Internet Explorer (before version 9, <a href=http://msdn.microsoft.com/en-us/ie/hh410106#_HTML_Parsing>which fixes this problem too</a>). If IE 8 doesn&rsquo;t explicitly recognize the element name, it will insert the element into the DOM <em>as an empty node with no children</em>. All the elements that you would expect to be direct children of the unknown element will actually be inserted as siblings instead.
 
 <p>Here is some righteous <abbr>ASCII</abbr> art to illustrate the difference. This is the DOM that <abbr>HTML5</abbr> dictates:
 
@@ -371,7 +371,7 @@ p (sibling of h1)
 |
 +--text node "."</pre>
 
-<p>There is a wonderous workaround for this problem. If you <a href=http://xopus.com/devblog/2008/style-unknown-elements.html>create a dummy <code>&lt;article></code> element</a> with JavaScript before you use it in your page, Internet Explorer will magically recognize the <code>&lt;article></code> element and let you style it with CSS. There is no need to ever insert the dummy element into the <abbr>DOM</abbr>. Simply creating the element once (per page) is enough to teach IE to style the element it doesn&#8217;t recognize.
+<p>There is a wonderous workaround for this problem. If you <a href=http://xopus.com/devblog/2008/style-unknown-elements.html>create a dummy <code>&lt;article></code> element</a> with JavaScript before you use it in your page, Internet Explorer will magically recognize the <code>&lt;article></code> element and let you style it with CSS. There is no need to ever insert the dummy element into the <abbr>DOM</abbr>. Simply creating the element once (per page) is enough to teach IE to style the element it doesn&rsquo;t recognize.
 
 <pre><code>&lt;html>
 &lt;head>
@@ -388,7 +388,7 @@ p (sibling of h1)
 &lt;/body>
 &lt;/html></code></pre>
 
-<p>This works in all versions of Internet Explorer, all the way back to IE 6! We can extend this technique to create dummy copies of all the new <abbr>HTML5</abbr> elements at once &mdash; again, they&#8217;re never inserted into the <abbr>DOM</abbr>, so you&#8217;ll never see these dummy elements &mdash; and then just start using them without having to worry too much about non-HTML5-capable browsers.
+<p>This works in all versions of Internet Explorer, all the way back to IE 6! We can extend this technique to create dummy copies of all the new <abbr>HTML5</abbr> elements at once &mdash; again, they&rsquo;re never inserted into the <abbr>DOM</abbr>, so you&rsquo;ll never see these dummy elements &mdash; and then just start using them without having to worry too much about non-HTML5-capable browsers.
 
 <p>Remy Sharp has done just that, with his aptly named <a href=http://remysharp.com/2009/01/07/html5-enabling-script/><abbr>HTML5</abbr> enabling script</a>. The script has gone through more than a dozen revisions since I started writing this book, but this is the basic idea:
 
@@ -403,13 +403,13 @@ p (sibling of h1)
 &lt;/script>
 &lt;![endif]--></code></pre>
 
-<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &#8220;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&#8221; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&#8217;t need this hack.
+<p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &ldquo;if the current browser is a version of Internet Explorer less than version 9, then execute this block.&rdquo; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer (up to and including version 8) will execute this script, but other browsers will ignore the script altogether. This makes your page load faster in browsers that don&rsquo;t need this hack.
 
 <p>The JavaScript code itself is relatively straightforward. The variable <var>e</var> ends up as an array of strings like <code>"abbr"</code>, <code>"article"</code>, <code>"aside"</code>, and so on. Then we loop through this array and create each of the named elements by calling <code>document.createElement()</code>. But since we ignore the return value, the elements are never inserted into the <abbr>DOM</abbr>. But this is enough to get Internet Explorer to treat these elements the way we want them to be treated, once we actually use them later in the page.
 
-<p>That &#8220;later&#8221; bit is important. This script needs to be at the top of your page, preferably in your <code>&lt;head></code> element, not at the bottom. That way, Internet Explorer will execute the script <em>before</em> it parses your tags and attributes. If you put this script at the bottom of your page, it will be too late. Internet Explorer will have already misinterpreted your markup and constructed the wrong <abbr>DOM</abbr>, and it won&#8217;t go back and adjust it just because of this script.
+<p>That &ldquo;later&rdquo; bit is important. This script needs to be at the top of your page, preferably in your <code>&lt;head></code> element, not at the bottom. That way, Internet Explorer will execute the script <em>before</em> it parses your tags and attributes. If you put this script at the bottom of your page, it will be too late. Internet Explorer will have already misinterpreted your markup and constructed the wrong <abbr>DOM</abbr>, and it won&rsquo;t go back and adjust it just because of this script.
 
-<p>Remy Sharp has &#8220;minified&#8221; this script and <a href=http://code.google.com/p/html5shiv/>hosted it on Google Project Hosting</a>. (In case you were wondering, the script itself is open source and MIT-licensed, so you can use it in any project.) If you like, you can even &#8220;hotlink&#8221; the script by pointing directly to the hosted version, like this:
+<p>Remy Sharp has &ldquo;minified&rdquo; this script and <a href=http://code.google.com/p/html5shiv/>hosted it on Google Project Hosting</a>. (In case you were wondering, the script itself is open source and MIT-licensed, so you can use it in any project.) If you like, you can even &ldquo;hotlink&rdquo; the script by pointing directly to the hosted version, like this:
 
 <pre><code>&lt;head>
   &lt;meta charset="utf-8" />
@@ -419,7 +419,7 @@ p (sibling of h1)
   &lt;![endif]-->
 &lt;/head></code></pre>
 
-<p>Now we&#8217;re ready to start using the new semantic elements in <abbr>HTML5</abbr>.
+<p>Now we&rsquo;re ready to start using the new semantic elements in <abbr>HTML5</abbr>.
 
 <p class=a>&#x2767;
 
@@ -427,7 +427,7 @@ p (sibling of h1)
 
 <p class=ss style="width:205"><img src=i/openclipart.org_johnny_automatic_newsboy.png alt="newsboy hawking newspaper" width=205 height=335>
 
-<p>Let&#8217;s go back to <a href=examples/blog-original.html>our example page</a>. Specifically, let&#8217;s look at just the headers:
+<p>Let&rsquo;s go back to <a href=examples/blog-original.html>our example page</a>. Specifically, let&rsquo;s look at just the headers:
 
 <pre><code>&lt;div id="header">
   &lt;h1>My Weblog&lt;/h1>
@@ -448,7 +448,7 @@ p (sibling of h1)
 
 <p>There is nothing wrong with this markup. If you like it, you can keep it. It is valid <abbr>HTML5</abbr>. But <abbr>HTML5</abbr> provides some additional semantic elements for headers and sections.
 
-<p>First off, let&#8217;s get rid of that <code>&lt;div id="header"></code>. This is a common pattern, but it doesn&#8217;t mean anything. The <code>div</code> element has no defined semantics, and the <code>id</code> attribute has no defined semantics. (User agents are not allowed to infer any meaning from the value of the <code>id</code> attribute.) You could change this to <code>&lt;div id="shazbot"></code> and it would have the same semantic value, <i>i.e.</i>, nothing.
+<p>First off, let&rsquo;s get rid of that <code>&lt;div id="header"></code>. This is a common pattern, but it doesn&rsquo;t mean anything. The <code>div</code> element has no defined semantics, and the <code>id</code> attribute has no defined semantics. (User agents are not allowed to infer any meaning from the value of the <code>id</code> attribute.) You could change this to <code>&lt;div id="shazbot"></code> and it would have the same semantic value, <i>i.e.</i>, nothing.
 
 <p><abbr>HTML5</abbr> defines a <code>&lt;header></code> element for this purpose. The <abbr>HTML5</abbr> specification has <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element>real-world examples of using the <code>&lt;header></code> element</a>. Here is what it would look like on <a href=examples/blog-original.html>our example page</a>:
 
@@ -458,9 +458,9 @@ p (sibling of h1)
   &hellip;
 &lt;/header></code></pre>
 
-<p>That&#8217;s good. It tells anyone who wants to know that this is a header. But what about that tagline? Another common pattern, which up until now had no standard markup. It&#8217;s a difficult thing to mark up. A tagline is like a subheading, but it&#8217;s &#8220;attached&#8221; to the primary heading. That is, it&#8217;s a subheading that doesn&#8217;t create its own section.
+<p>That&rsquo;s good. It tells anyone who wants to know that this is a header. But what about that tagline? Another common pattern, which up until now had no standard markup. It&rsquo;s a difficult thing to mark up. A tagline is like a subheading, but it&rsquo;s &ldquo;attached&rdquo; to the primary heading. That is, it&rsquo;s a subheading that doesn&rsquo;t create its own section.
 
-<p>Header elements like <code>&lt;h1></code> and <code>&lt;h2></code> give your page structure. Taken together, they create an outline that you can use to visualize (or navigate) your page. Screenreaders use document outlines to help blind users navigate through your page. There are <a href="http://gsnedders.html5.org/outliner/">online tools</a> and <a href=http://chrispederick.com/work/web-developer/>browser extensions</a> that can help you visualize your document&#8217;s outline.
+<p>Header elements like <code>&lt;h1></code> and <code>&lt;h2></code> give your page structure. Taken together, they create an outline that you can use to visualize (or navigate) your page. Screenreaders use document outlines to help blind users navigate through your page. There are <a href="http://gsnedders.html5.org/outliner/">online tools</a> and <a href=http://chrispederick.com/work/web-developer/>browser extensions</a> that can help you visualize your document&rsquo;s outline.
 
 <p>In <abbr>HTML</abbr> 4, <code>&lt;h1></code>&ndash;<code>&lt;h6></code> elements were the <em>only</em> way to create a document outline. The outline on the example page looks like this:
 
@@ -470,7 +470,7 @@ p (sibling of h1)
    |
    +--I'm going to Prague! (h2)</pre>
 
-<p>That&#8217;s fine, but it means that there&#8217;s no way to mark up the tagline &#8220;A lot of effort went into making this effortless.&#8221; If we tried to mark it up as an <code>&lt;h2></code>, it would add a phantom node to the document outline:
+<p>That&rsquo;s fine, but it means that there&rsquo;s no way to mark up the tagline &ldquo;A lot of effort went into making this effortless.&rdquo; If we tried to mark it up as an <code>&lt;h2></code>, it would add a phantom node to the document outline:
 
 <pre>My Weblog (h1)
    |
@@ -480,9 +480,9 @@ p (sibling of h1)
    |
    +--I'm going to Prague! (h2)</pre>
 
-<p>But that&#8217;s not the structure of the document. The tagline does not represent a section; it&#8217;s just a subheading.
+<p>But that&rsquo;s not the structure of the document. The tagline does not represent a section; it&rsquo;s just a subheading.
 
-<p>Perhaps we could mark up the tagline as an <code>&lt;h2></code> and mark up each article title as an <code>&lt;h3></code>? No, that&#8217;s even worse:
+<p>Perhaps we could mark up the tagline as an <code>&lt;h2></code> and mark up each article title as an <code>&lt;h3></code>? No, that&rsquo;s even worse:
 
 <pre>My Weblog (h1)
    |
@@ -492,9 +492,9 @@ p (sibling of h1)
          |
          +--I'm going to Prague! (h3)</pre>
 
-<p>Now we still have a phantom node in our document outline, but it has &#8220;stolen&#8221; the children that rightfully belong to the root node. And herein lies the problem: <abbr>HTML</abbr> 4 does not provide a way to mark up a subheading without adding it to the document outline. No matter how we try to shift things around, &#8220;A lot of effort went into making this effortless&#8221; is going to end up in that graph. And that&#8217;s why we ended up with semantically meaningless markup like <code>&lt;p class="tagline"></code>.
+<p>Now we still have a phantom node in our document outline, but it has &ldquo;stolen&rdquo; the children that rightfully belong to the root node. And herein lies the problem: <abbr>HTML</abbr> 4 does not provide a way to mark up a subheading without adding it to the document outline. No matter how we try to shift things around, &ldquo;A lot of effort went into making this effortless&rdquo; is going to end up in that graph. And that&rsquo;s why we ended up with semantically meaningless markup like <code>&lt;p class="tagline"></code>.
 
-<p><abbr>HTML5</abbr> provides a solution for this: the <code>&lt;hgroup></code> element. The <code>&lt;hgroup></code> element acts as a wrapper for two or more <em>related</em> heading elements. What does &#8220;related&#8221; mean? It means that, taken together, they only create a single node in the document outline.
+<p><abbr>HTML5</abbr> provides a solution for this: the <code>&lt;hgroup></code> element. The <code>&lt;hgroup></code> element acts as a wrapper for two or more <em>related</em> heading elements. What does &ldquo;related&rdquo; mean? It means that, taken together, they only create a single node in the document outline.
 
 <p>Given this markup:
 
@@ -526,13 +526,13 @@ p (sibling of h1)
    |
    +--I'm going to Prague! (h2)</pre>
 
-<p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&#8217;re using the heading elements properly.
+<p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&rsquo;re using the heading elements properly.
 
 <p class=a>&#x2767;
 
 <h2 id=article-element>Articles</h2>
 
-<p>Continuing with <a href=examples/blog-original.html>our example page</a>, let&#8217;s see what we can do about this markup:
+<p>Continuing with <a href=examples/blog-original.html>our example page</a>, let&rsquo;s see what we can do about this markup:
 
 <pre><code>&lt;div class="entry">
   &lt;p class="post-date">October 22, 2009&lt;/p>
@@ -560,7 +560,7 @@ p (sibling of h1)
   &hellip;
 <mark>&lt;/article></mark></code></pre>
 
-<p>Ah, but it&#8217;s not quite that simple. There is one more change you should make. I&#8217;ll show it to you first, then explain it:
+<p>Ah, but it&rsquo;s not quite that simple. There is one more change you should make. I&rsquo;ll show it to you first, then explain it:
 
 <pre><code>&lt;article>
   &lt;header>
@@ -576,13 +576,13 @@ p (sibling of h1)
   &hellip;
 &lt;/article></code></pre>
 
-<p>Did you catch that? I changed the <code>&lt;h2></code> element to an <code>&lt;h1></code>, and wrapped it inside a <code>&lt;header></code> element. You&#8217;ve already seen the <code>&lt;header></code> element in action. Its purpose is to wrap all the elements that form the article&#8217;s header (in this case, the article&#8217;s publication date and title). But&hellip;but&hellip;but&hellip; shouldn&#8217;t you only have one <code>&lt;h1></code> per document? Won&#8217;t this screw up the document outline? No, but to understand why not, we need to back up a step.
+<p>Did you catch that? I changed the <code>&lt;h2></code> element to an <code>&lt;h1></code>, and wrapped it inside a <code>&lt;header></code> element. You&rsquo;ve already seen the <code>&lt;header></code> element in action. Its purpose is to wrap all the elements that form the article&rsquo;s header (in this case, the article&rsquo;s publication date and title). But&hellip;but&hellip;but&hellip; shouldn&rsquo;t you only have one <code>&lt;h1></code> per document? Won&rsquo;t this screw up the document outline? No, but to understand why not, we need to back up a step.
 
 <p>In <abbr>HTML</abbr> 4, the <em>only</em> way to create a document outline was with the <code>&lt;h1></code>&ndash;<code>&lt;h6></code> elements. If you only wanted one root node in your outline, you had to limit yourself to one <code>&lt;h1></code> in your markup. But the <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#headings-and-sections>defines an algorithm for generating a document outline</a> that incorporates the new semantic elements in <abbr>HTML5</abbr>. The <abbr>HTML5</abbr> algorithm says that an <code>&lt;article></code> element creates a new section, that is, a new node in the document outline. And in <abbr>HTML5</abbr>, each section can have its own <code>&lt;h1></code> element.
 
-<p>This is a drastic change from <abbr>HTML</abbr> 4, and here&#8217;s why it&#8217;s a good thing. Many web pages are really generated by templates. A bit of content is taken from one source and inserted into the page up here; a bit of content is taken from another source and inserted into the page down there. Many tutorials are structured the same way. &#8220;Here&#8217;s some <abbr>HTML</abbr> markup. Just copy it and paste it into your page.&#8221; That&#8217;s fine for small bits of content, but what if the markup you&#8217;re pasting is an entire section? In that case, the tutorial will read something like this: &#8220;Here&#8217;s some <abbr>HTML</abbr> markup. Just copy it, paste it into a text editor, and fix the heading tags so they match the nesting level of the corresponding heading tags in the page you&#8217;re pasting it into.&#8221;
+<p>This is a drastic change from <abbr>HTML</abbr> 4, and here&rsquo;s why it&rsquo;s a good thing. Many web pages are really generated by templates. A bit of content is taken from one source and inserted into the page up here; a bit of content is taken from another source and inserted into the page down there. Many tutorials are structured the same way. &ldquo;Here&rsquo;s some <abbr>HTML</abbr> markup. Just copy it and paste it into your page.&rdquo; That&rsquo;s fine for small bits of content, but what if the markup you&rsquo;re pasting is an entire section? In that case, the tutorial will read something like this: &ldquo;Here&rsquo;s some <abbr>HTML</abbr> markup. Just copy it, paste it into a text editor, and fix the heading tags so they match the nesting level of the corresponding heading tags in the page you&rsquo;re pasting it into.&rdquo;
 
-<p>Let me put it another way. <abbr>HTML</abbr> 4 has no <em>generic</em> heading element. It has six strictly numbered heading elements, <code>&lt;h1></code>&ndash;<code>&lt;h6></code>, which must be nested in exactly that order. That kind of sucks, especially if your page is &#8220;assembled&#8221; instead of &#8220;authored.&#8221; And this is the problem that <abbr>HTML5</abbr> solves with the new sectioning elements and the new rules for the existing heading elements. If you&#8217;re using the new sectioning elements, I can give you this markup:
+<p>Let me put it another way. <abbr>HTML</abbr> 4 has no <em>generic</em> heading element. It has six strictly numbered heading elements, <code>&lt;h1></code>&ndash;<code>&lt;h6></code>, which must be nested in exactly that order. That kind of sucks, especially if your page is &ldquo;assembled&rdquo; instead of &ldquo;authored.&rdquo; And this is the problem that <abbr>HTML5</abbr> solves with the new sectioning elements and the new rules for the existing heading elements. If you&rsquo;re using the new sectioning elements, I can give you this markup:
 
 <pre><code>&lt;article>
   &lt;header>
@@ -596,7 +596,7 @@ p (sibling of h1)
 <div class=pf>
 <h4>Professor Markup Says</h4>
 <div class=inner>
-<blockquote><p>As with all things on the web, reality is a little more complicated than I&#8217;m letting on. The new &#8220;explicit&#8221; sectioning elements (like <code>&lt;h1></code> wrapped in <code>&lt;article></code>) may interact in unexpected ways with the old &#8220;implicit&#8221; sectioning elements (<code>&lt;h1></code>&ndash;<code>&lt;h6></code> by themselves). Your life will be simpler if you use one or the other, but not both. If you must use both on the same page, be sure to check the result in <a href=http://gsnedders.html5.org/outliner/>the <abbr>HTML5</abbr> Outliner</a> and verify that your document outline makes sense.
+<blockquote><p>As with all things on the web, reality is a little more complicated than I&rsquo;m letting on. The new &ldquo;explicit&rdquo; sectioning elements (like <code>&lt;h1></code> wrapped in <code>&lt;article></code>) may interact in unexpected ways with the old &ldquo;implicit&rdquo; sectioning elements (<code>&lt;h1></code>&ndash;<code>&lt;h6></code> by themselves). Your life will be simpler if you use one or the other, but not both. If you must use both on the same page, be sure to check the result in <a href=http://gsnedders.html5.org/outliner/>the <abbr>HTML5</abbr> Outliner</a> and verify that your document outline makes sense.
 </blockquote>
 </div>
 </div>
@@ -607,14 +607,14 @@ p (sibling of h1)
 
 <p class=ss style="float:left;margin:0 30px 0 0"><img src=i/openclipart.org_johnny_automatic_clock_tower.png width=205 height=378 alt="clock tower">
 
-<p>This is exciting, right? I mean, it&#8217;s not &#8220;skiing down Mount Everest naked while reciting the Star Spangled Banner backwards&#8221; exciting, but it&#8217;s pretty exciting as far as semantic markup goes. Let&#8217;s continue with <a href=examples/blog-original.html>our example page</a>. The next line I want to highlight is this one:
+<p>This is exciting, right? I mean, it&rsquo;s not &ldquo;skiing down Mount Everest naked while reciting the Star Spangled Banner backwards&rdquo; exciting, but it&rsquo;s pretty exciting as far as semantic markup goes. Let&rsquo;s continue with <a href=examples/blog-original.html>our example page</a>. The next line I want to highlight is this one:
 
 <pre><code>&lt;div class="entry">
   <mark>&lt;p class="post-date">October 22, 2009&lt;/p></mark>
   &lt;h2>Travel day&lt;/h2>
 &lt;/div></code></pre>
 
-<p>Same old story, right? A common pattern &mdash; designating the publication date of an article &mdash; that has no semantic markup to back it up, so authors resort to generic markup with custom <code>class</code> attributes. Again, this is valid <abbr>HTML5</abbr>. You&#8217;re not <em>required</em> to change it. But <abbr>HTML5</abbr> does provide a specific solution for this case: the <code>&lt;time></code> element.
+<p>Same old story, right? A common pattern &mdash; designating the publication date of an article &mdash; that has no semantic markup to back it up, so authors resort to generic markup with custom <code>class</code> attributes. Again, this is valid <abbr>HTML5</abbr>. You&rsquo;re not <em>required</em> to change it. But <abbr>HTML5</abbr> does provide a specific solution for this case: the <code>&lt;time></code> element.
 
 <pre><code>&lt;time datetime="2009-10-22" pubdate>October 22, 2009&lt;/time></code></pre>
 
@@ -646,17 +646,17 @@ p (sibling of h1)
 
 <pre><code>&lt;time datetime="2009-10-22">&lt;/time></code></pre>
 
-<p>The final piece of the puzzle here is the <code>pubdate</code> attribute. It&#8217;s a Boolean attribute, so just add it if you need it, like this:
+<p>The final piece of the puzzle here is the <code>pubdate</code> attribute. It&rsquo;s a Boolean attribute, so just add it if you need it, like this:
 
 <pre><code>&lt;time datetime="2009-10-22" <mark>pubdate</mark>>October 22, 2009&lt;/time></code></pre>
 
-<p>If you dislike &#8220;naked&#8221; attributes, this is also equivalent:
+<p>If you dislike &ldquo;naked&rdquo; attributes, this is also equivalent:
 
 <pre><code>&lt;time datetime="2009-10-22" <mark>pubdate="pubdate"</mark>>October 22, 2009&lt;/time></code></pre>
 
 <p>What does the <code>pubdate</code> attribute mean? It means one of two things. If the <code>&lt;time></code> element is in an <code>&lt;article></code> element, it means that this timestamp is the publication date of the article. If the <code>&lt;time></code> element is not in an <code>&lt;article></code> element, it means that this timestamp is the publication date of the entire document.
 
-<p>Here&#8217;s the entire article, reformulated to take full advantage of <abbr>HTML5</abbr>:
+<p>Here&rsquo;s the entire article, reformulated to take full advantage of <abbr>HTML5</abbr>:
 
 <pre><code>&lt;article>
   &lt;header>
@@ -680,7 +680,7 @@ p (sibling of h1)
 
 <p class=ss><img src=i/openclipart.org_johnny_automatic_a_pink.png alt="a man navigating a sailboat on the water" width=345 height=377>
 
-<p>One of the most important parts of any web site is the navigation bar. CNN.com has &#8220;tabs&#8221; along the top of each page that link to the different news sections &mdash; &#8220;Tech,&#8221; &#8220;Health,&#8221; &#8220;Sports,&#8221; <i class=baa>&amp;</i>c. Google search results pages have a similar strip at the top of the page to try your search in different Google services &mdash; &#8220;Images,&#8221; &#8220;Video,&#8221; &#8220;Maps,&#8221; <i class=baa>&amp;</i>c. And <a href=examples/blog-original.html>our example page</a> has a navigation bar in the header that includes links to different sections of our hypothetical site &mdash; &#8220;home,&#8221; &#8220;blog,&#8221; &#8220;gallery,&#8221; and &#8220;about.&#8221;
+<p>One of the most important parts of any web site is the navigation bar. CNN.com has &ldquo;tabs&rdquo; along the top of each page that link to the different news sections &mdash; &ldquo;Tech,&rdquo; &ldquo;Health,&rdquo; &ldquo;Sports,&rdquo; <i class=baa>&amp;</i>c. Google search results pages have a similar strip at the top of the page to try your search in different Google services &mdash; &ldquo;Images,&rdquo; &ldquo;Video,&rdquo; &ldquo;Maps,&rdquo; <i class=baa>&amp;</i>c. And <a href=examples/blog-original.html>our example page</a> has a navigation bar in the header that includes links to different sections of our hypothetical site &mdash; &ldquo;home,&rdquo; &ldquo;blog,&rdquo; &ldquo;gallery,&rdquo; and &ldquo;about.&rdquo;
 
 <p>This is how the navigation bar was originally marked up:
 
@@ -693,11 +693,11 @@ p (sibling of h1)
   &lt;/ul>
 &lt;/div></code></pre>
 
-<p>Again, this is valid <abbr>HTML5</abbr>. But while it&#8217;s marked up as a list of four items, there is nothing about the list that tells you that it&#8217;s part of the site navigation. Visually, you could guess that by the fact that it&#8217;s part of the page header, and by reading the text of the links. But semantically, there is nothing to distinguish this list of links from any other.
+<p>Again, this is valid <abbr>HTML5</abbr>. But while it&rsquo;s marked up as a list of four items, there is nothing about the list that tells you that it&rsquo;s part of the site navigation. Visually, you could guess that by the fact that it&rsquo;s part of the page header, and by reading the text of the links. But semantically, there is nothing to distinguish this list of links from any other.
 
-<p>Who cares about the semantics of site navigation? For one, <a href=http://diveintoaccessibility.info/>people with disabilities</a>. Why is that? Consider this scenario: your motion is limited, and using a mouse is difficult or impossible. To compensate, you might use a browser add-on that allows you to jump to (or jump past) major navigation links. Or consider this: if your sight is limited, you might use a dedicated program called a &#8220;screenreader&#8221; that uses text-to-speech to speak and summarize web pages. Once you get past the page title, the next important pieces of information about a page are the major navigation links. If you want to navigate quickly, you&#8217;ll tell your screenreader to jump to the navigation bar and start reading. If you want to browse quickly, you might tell your screenreader to jump <em>over</em> the navigation bar and start reading the main content. Either way, being able to determine navigation links programmatically is important.
+<p>Who cares about the semantics of site navigation? For one, <a href=http://diveintoaccessibility.info/>people with disabilities</a>. Why is that? Consider this scenario: your motion is limited, and using a mouse is difficult or impossible. To compensate, you might use a browser add-on that allows you to jump to (or jump past) major navigation links. Or consider this: if your sight is limited, you might use a dedicated program called a &ldquo;screenreader&rdquo; that uses text-to-speech to speak and summarize web pages. Once you get past the page title, the next important pieces of information about a page are the major navigation links. If you want to navigate quickly, you&rsquo;ll tell your screenreader to jump to the navigation bar and start reading. If you want to browse quickly, you might tell your screenreader to jump <em>over</em> the navigation bar and start reading the main content. Either way, being able to determine navigation links programmatically is important.
 
-<p>So, while there&#8217;s nothing wrong with using <code>&lt;div id="nav"></code> to mark up your site navigation, there&#8217;s nothing particularly right about it either. It&#8217;s suboptimal in ways that affect real people. <abbr>HTML5</abbr> provides a semantic way to mark up navigation sections: the <code>&lt;nav></code> element.
+<p>So, while there&rsquo;s nothing wrong with using <code>&lt;div id="nav"></code> to mark up your site navigation, there&rsquo;s nothing particularly right about it either. It&rsquo;s suboptimal in ways that affect real people. <abbr>HTML5</abbr> provides a semantic way to mark up navigation sections: the <code>&lt;nav></code> element.
 
 <pre><code><mark>&lt;nav></mark>
   &lt;ul>
@@ -737,15 +737,15 @@ p (sibling of h1)
   &lt;p>&amp;#169; 2001&amp;#8211;9 &lt;a href="#">Mark Pilgrim&lt;/a>&lt;/p>
 <mark>&lt;/footer></mark></code></pre>
 
-<p>What&#8217;s appropriate to put in a <code>&lt;footer></code> element? Probably whatever you&#8217;re putting in a <code>&lt;div id="footer"></code> now. OK, that&#8217;s a circular answer. But really, that&#8217;s it. The <abbr>HTML5</abbr> specification says, &#8220;A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like.&#8221; That&#8217;s what&#8217;s in this example page: a short copyright statement and a link to an about-the-author page. Looking around at some popular sites, I see lots of footer potential.
+<p>What&rsquo;s appropriate to put in a <code>&lt;footer></code> element? Probably whatever you&rsquo;re putting in a <code>&lt;div id="footer"></code> now. OK, that&rsquo;s a circular answer. But really, that&rsquo;s it. The <abbr>HTML5</abbr> specification says, &ldquo;A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like.&rdquo; That&rsquo;s what&rsquo;s in this example page: a short copyright statement and a link to an about-the-author page. Looking around at some popular sites, I see lots of footer potential.
 
 <ul>
-<li><a href=http://www.cnn.com/>CNN</a> has a footer that contains a copyright statement, links to translations, and links to terms of service, privacy, &#8220;about us,&#8221; &#8220;contact us,&#8221; and &#8220;help&#8221; pages. All totally appropriate <code>&lt;footer></code> material.
-<li><a href=http://www.google.com/>Google</a> has a famously sparse home page, but at the bottom of it are links to &#8220;Advertising Programs,&#8221; &#8220;Business Solutions,&#8221; and &#8220;About Google&#8221;; a copyright statement; and a link to Google&#8217;s privacy policy. All of that could be wrapped in a <code>&lt;footer></code>.
+<li><a href=http://www.cnn.com/>CNN</a> has a footer that contains a copyright statement, links to translations, and links to terms of service, privacy, &ldquo;about us,&rdquo; &ldquo;contact us,&rdquo; and &ldquo;help&rdquo; pages. All totally appropriate <code>&lt;footer></code> material.
+<li><a href=http://www.google.com/>Google</a> has a famously sparse home page, but at the bottom of it are links to &ldquo;Advertising Programs,&rdquo; &ldquo;Business Solutions,&rdquo; and &ldquo;About Google&rdquo;; a copyright statement; and a link to Google&rsquo;s privacy policy. All of that could be wrapped in a <code>&lt;footer></code>.
 <li><a href=http://diveintomark.org/>My weblog</a> has a footer with links to my other sites, plus a copyright statement. Definitely appropriate for a <code>&lt;footer></code> element. (Note that the links themselves should <em>not</em> be wrapped in a <code>&lt;nav></code> element, because they are not site navigation links; they are just a collection of links to my other projects on other sites.)
 </ul>
 
-<p>&#8220;<a href=http://ui-patterns.com/pattern/FatFooter>Fat footers</a>&#8221; are all the rage these days. Take a look at the footer on <a href=http://www.w3.org/>the <abbr>W3C</abbr> site</a>. It contains three columns, labeled &#8220;Navigation,&#8221; &#8220;Contact W3C,&#8221; and &#8220;W3C Updates.&#8221; The markup looks like this, more or less:
+<p>&ldquo;<a href=http://ui-patterns.com/pattern/FatFooter>Fat footers</a>&rdquo; are all the rage these days. Take a look at the footer on <a href=http://www.w3.org/>the <abbr>W3C</abbr> site</a>. It contains three columns, labeled &ldquo;Navigation,&rdquo; &ldquo;Contact W3C,&rdquo; and &ldquo;W3C Updates.&rdquo; The markup looks like this, more or less:
 
 <pre><code>&lt;div id="w3c_footer">
   &lt;div class="w3c_footer-nav">
@@ -782,7 +782,7 @@ p (sibling of h1)
 <ul>
 <li>Convert the outer <code>&lt;div id="w3c_footer"></code> to a <code>&lt;footer></code> element.
 <li>Convert the first two instances of <code>&lt;div class="w3c_footer-nav"></code> to <code>&lt;nav></code> elements, and the third instance to a <code>&lt;section></code> element.
-<li>Convert the <code>&lt;h3></code> headers to <code>&lt;h1></code>, since they&#8217;ll now each be inside a sectioning element. The <code>&lt;nav></code> element creates a section in the document outline, just like the <a href=#article-element><code>&lt;article></code> element</a>.
+<li>Convert the <code>&lt;h3></code> headers to <code>&lt;h1></code>, since they&rsquo;ll now each be inside a sectioning element. The <code>&lt;nav></code> element creates a section in the document outline, just like the <a href=#article-element><code>&lt;article></code> element</a>.
 </ul>
 
 <p>The final markup might look something like this:
@@ -847,7 +847,7 @@ p (sibling of h1)
 <p>On standards modes and doctype sniffing:
 
 <ul>
-<li><a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a> by Henri Sivonen. This is the only article you should read on the subject. Any article on doctypes that doesn&#8217;t reference Henri&#8217;s work is guaranteed to be out of date, incomplete, or wrong.
+<li><a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a> by Henri Sivonen. This is the only article you should read on the subject. Any article on doctypes that doesn&rsquo;t reference Henri&rsquo;s work is guaranteed to be out of date, incomplete, or wrong.
 </ul>
 
 <p><abbr>HTML5</abbr>-aware validator:
@@ -858,13 +858,13 @@ p (sibling of h1)
 
 <p class=a>&#x2767;
 
-<p>This has been &#8220;What Does It All Mean?&#8221; The <a href=table-of-contents.html>full table of contents</a> has more if you&#8217;d like to keep reading.
+<p>This has been &ldquo;What Does It All Mean?&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
 
 <div class=pf>
 <h4>Did You Know?</h4>
 <div class=moneybags>
-<blockquote><p>In association with Google Press, O&#8217;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &#8220;HTML5: Up &amp; Running,&#8221; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &#8220;HTML5: Up &amp; Running&#8221; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&#8217;Reilly</a>. You&#8217;ll get a book, and I&#8217;ll get a buck. I do not currently accept direct donations.
+<blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
