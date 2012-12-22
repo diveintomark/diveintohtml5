@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Detecting HTML5 Features - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 body{counter-reset:h1 2}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#detect>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="index.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#detect">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>Detecting <abbr>HTML5</abbr> Features</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Diving In</h2>
+<p id="toc">&nbsp;
+<p class="a">&#x2767;
+<h2 id="divingin">Diving In</h2>
 
-<p class=f><img src=i/aoc-y.png alt=Y width=109 height=105>ou may well ask: &ldquo;How can I start using <abbr>HTML5</abbr> if older browsers don&rsquo;t support it?&rdquo; But the question itself is misleading. <abbr>HTML5</abbr> is not one big thing; it is a collection of individual features. So you can&rsquo;t detect &ldquo;<abbr>HTML5</abbr> support,&rdquo; because that doesn&rsquo;t make any sense. But you <em>can</em> detect support for individual features, like canvas, video, or geolocation.
+<p class="f"><img src="i/aoc-y.png" alt="Y" width="109" height="105">ou may well ask: &ldquo;How can I start using <abbr>HTML5</abbr> if older browsers don&rsquo;t support it?&rdquo; But the question itself is misleading. <abbr>HTML5</abbr> is not one big thing; it is a collection of individual features. So you can&rsquo;t detect &ldquo;<abbr>HTML5</abbr> support,&rdquo; because that doesn&rsquo;t make any sense. But you <em>can</em> detect support for individual features, like canvas, video, or geolocation.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=techniques>Detection Techniques</h2>
+<h2 id="techniques">Detection Techniques</h2>
 
-<p>When your browser renders a web page, it constructs a Document Object Model (<abbr><dfn>DOM</dfn></abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element &mdash; every <code>&lt;p></code>, every <code>&lt;div></code>, every <code>&lt;span></code> &mdash; is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren&rsquo;t tied to specific elements.)
+<p>When your browser renders a web page, it constructs a Document Object Model (<abbr><dfn>DOM</dfn></abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element &mdash; every <code>&lt;p></code>, every <code>&lt;div&gt;</code>, every <code>&lt;span&gt;</code> &mdash; is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren&rsquo;t tied to specific elements.)
 
-<p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_peeking_out_the_window.png width=257 height=436 alt="girl peeking out the window">
+<p class="ss" style="width:257px"><img src="i/openclipart.org_johnny_automatic_peeking_out_the_window.png" width="257" height="436" alt="girl peeking out the window">
 
 <p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML5</abbr> features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
 
@@ -32,39 +32,39 @@ body{counter-reset:h1 2}
 <ol>
 <li>
 <p>Check if a certain property exists on a global object (such as <code>window</code> or <code>navigator</code>).
-<p>Example: <a href=#geolocation>testing for geolocation support</a>
+<p>Example: <a href="#geolocation">testing for geolocation support</a>
 <li>
 <p>Create an element, then check if a certain property exists on that element.
-<p>Example: <a href=#canvas>testing for canvas support</a>
+<p>Example: <a href="#canvas">testing for canvas support</a>
 <li>
 <p>Create an element, check if a certain method exists on that element, then call the method and check the value it returns.
-<p>Example: <a href=#video-formats>testing which video formats are supported</a>
+<p>Example: <a href="#video-formats">testing which video formats are supported</a>
 <li>
 <p>Create an element, set a property to a certain value, then check if the property has retained its value.
-<p>Example: <a href=#input-types>testing which <code>&lt;input></code> types are supported</a>
+<p>Example: <a href="#input-types">testing which <code>&lt;input&gt;</code> types are supported</a>
 </ol>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=modernizr>Modernizr, an HTML5 Detection Library</h2>
+<h2 id="modernizr">Modernizr, an HTML5 Detection Library</h2>
 
-<p><a href=http://www.modernizr.com/>Modernizr</a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that detects support for many <abbr>HTML5</abbr> <i class=baa>&amp;</i> <abbr>CSS3</abbr> features. You should always use the latest version. To use it, include the following <code>&lt;script></code> element at the top of your page.
+<p><a href="http://www.modernizr.com/">Modernizr</a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that detects support for many <abbr>HTML5</abbr> <i class="baa">&amp;</i> <abbr>CSS3</abbr> features. You should always use the latest version. To use it, include the following <code>&lt;script&gt;</code> element at the top of your page.
 
 <pre style="float:left"><code>&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;meta charset="utf-8">
-  &lt;title>Dive Into HTML5&lt;/title>
-  <mark>&lt;script src="modernizr.min.js">&lt;/script></mark>
-&lt;/head>
-&lt;body>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Dive Into HTML5&lt;/title&gt;
+  <mark>&lt;script src="modernizr.min.js"&gt;&lt;/script&gt;</mark>
+&lt;/head&gt;
+&lt;body&gt;
   ...
-&lt;/body>
-&lt;/html>
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p class="legend right" style="margin-top:7em"><span class=arrow>&nbsp;&#x219c;</span> It goes to your &lt;head>
+<p class="legend right" style="margin-top:7em"><span class="arrow">&nbsp;&#x219c;</span> It goes to your &lt;head&gt;
 
-<p class=clear>Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates a global object called <code>Modernizr</code>, that contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href=canvas.html>canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
+<p class="clear">Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates a global object called <code>Modernizr</code>, that contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href="canvas.html">canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
 
 <pre><code>if (Modernizr.canvas) {
   // let's draw some shapes!
@@ -72,26 +72,26 @@ body{counter-reset:h1 2}
   // no native canvas support available :(
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=canvas>Canvas</h2>
+<h2 id="canvas">Canvas</h2>
 
-<p class=ss style="width:300px"><img src=i/openclipart.org_johnny_automatic_fishing_boat.png width=300 height=203 alt="man fishing in a canoe"><br><span id=live-canvas></span>
+<p class="ss" style="width:300px"><img src="i/openclipart.org_johnny_automatic_fishing_boat.png" width="300" height="203" alt="man fishing in a canoe"><br><span id="live-canvas"></span>
 
-<p><abbr>HTML5</abbr> defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &ldquo;a resolution-dependent bitmap canvas that can be used for rendering graphs, game graphics, or other visual images on the fly.&rdquo; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML5</abbr> defines a set of functions (&ldquo;the canvas <abbr>API</abbr>&rdquo;) for drawing shapes, defining paths, creating gradients, and applying transformations.
+<p><abbr>HTML5</abbr> defines <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">the &lt;canvas&gt; element</a> as &ldquo;a resolution-dependent bitmap canvas that can be used for rendering graphs, game graphics, or other visual images on the fly.&rdquo; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML5</abbr> defines a set of functions (&ldquo;the canvas <abbr>API</abbr>&rdquo;) for drawing shapes, defining paths, creating gradients, and applying transformations.
 
-<p>Checking for the canvas <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have a <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&rsquo;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
+<p>Checking for the canvas <abbr>API</abbr> uses <a href="#techniques">detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas&gt;</code> element will have a <a href="canvas.html#shapes"><code>getContext()</code> method</a>. If your browser doesn&rsquo;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas&gt;</code> element will only have the set of common properties, but not anything canvas-specific.
 
 <pre><code>function supports_canvas() {
   return !!document.createElement('canvas').getContext;
 }
 </code></pre>
 
-<p>This function starts by creating a dummy <code>&lt;canvas></code> element. But the element is never attached to your page, so no one will ever see it. It&rsquo;s just floating in memory, going nowhere and doing nothing, like a canoe on a lazy river.
+<p>This function starts by creating a dummy <code>&lt;canvas&gt;</code> element. But the element is never attached to your page, so no one will ever see it. It&rsquo;s just floating in memory, going nowhere and doing nothing, like a canoe on a lazy river.
 
 <pre><code>return !!document.<mark>createElement('canvas')</mark>.getContext;</code></pre>
 
-<p>As soon as you create the dummy <code>&lt;canvas></code> element, you test for the presence of a <code>getContext()</code> method. This method will only exist if your browser supports the canvas <abbr>API</abbr>.
+<p>As soon as you create the dummy <code>&lt;canvas&gt;</code> element, you test for the presence of a <code>getContext()</code> method. This method will only exist if your browser supports the canvas <abbr>API</abbr>.
 
 <pre><code>return !!document.createElement('canvas').<mark>getContext</mark>;</code></pre>
 
@@ -99,11 +99,11 @@ body{counter-reset:h1 2}
 
 <pre><code>return <mark>!!</mark>document.createElement('canvas').getContext;</code></pre>
 
-<p>This function will detect support for most of the canvas <abbr>API</abbr>, including <a href=canvas.html#shapes>shapes</a>, <a href=canvas.html#paths>paths</a>, <a href=canvas.html#gradients>gradients <i class=baa>&amp;</i> patterns</a>. It will not detect the third-party <a href=canvas.html#ie><code>explorercanvas</code> library</a> that implements the canvas <abbr>API</abbr> in Microsoft Internet Explorer.
+<p>This function will detect support for most of the canvas <abbr>API</abbr>, including <a href="canvas.html#shapes">shapes</a>, <a href="canvas.html#paths">paths</a>, <a href="canvas.html#gradients">gradients <i class="baa">&amp;</i> patterns</a>. It will not detect the third-party <a href="canvas.html#ie"><code>explorercanvas</code> library</a> that implements the canvas <abbr>API</abbr> in Microsoft Internet Explorer.
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the canvas <abbr>API</abbr>.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for the canvas <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for canvas support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for canvas support
 <pre><code>if (<mark>Modernizr.canvas</mark>) {
   // let's draw some shapes!
 } else {
@@ -112,15 +112,15 @@ body{counter-reset:h1 2}
 
 <p>There is a separate test for the canvas text <abbr>API</abbr>, which I will demonstrate next.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=canvas-text>Canvas Text</h2>
+<h2 id="canvas-text">Canvas Text</h2>
 
-<p class=ss style="width:414px"><img src=i/openclipart.org_johnny_automatic_baseball_at_bat.png width=414 height=254 alt="baseball player at bat"><br><span id=live-canvas-text></span>
+<p class="ss" style="width:414px"><img src="i/openclipart.org_johnny_automatic_baseball_at_bat.png" width="414" height="254" alt="baseball player at bat"><br><span id="live-canvas-text"></span>
 
-<p>Even if your browser supports the <a href=#canvas>canvas <abbr>API</abbr></a>, it might not support the <dfn>canvas text</dfn> <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was complete.
+<p>Even if your browser supports the <a href="#canvas">canvas <abbr>API</abbr></a>, it might not support the <dfn>canvas text</dfn> <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was complete.
 
-<p>Checking for the canvas text <abbr>API</abbr> uses <a href=#techniques>detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas></code> element will have the <a href=canvas.html#shapes><code>getContext()</code> method</a>. If your browser doesn&rsquo;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas></code> element will only have the set of common properties, but not anything canvas-specific.
+<p>Checking for the canvas text <abbr>API</abbr> uses <a href="#techniques">detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas&gt;</code> element will have the <a href="canvas.html#shapes"><code>getContext()</code> method</a>. If your browser doesn&rsquo;t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas&gt;</code> element will only have the set of common properties, but not anything canvas-specific.
 
 <pre><code>function supports_canvas_text() {
   if (!supports_canvas()) { return false; }
@@ -129,11 +129,11 @@ body{counter-reset:h1 2}
   return typeof context.fillText == 'function';
 }</code></pre>
 
-<p>The function starts by <a href=#canvas>checking for canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn&rsquo;t support the canvas <abbr>API</abbr>, it certainly won&rsquo;t support the canvas text <abbr>API</abbr>!
+<p>The function starts by <a href="#canvas">checking for canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn&rsquo;t support the canvas <abbr>API</abbr>, it certainly won&rsquo;t support the canvas text <abbr>API</abbr>!
 
 <pre><code>if (<mark>!supports_canvas()</mark>) { return false; }</code></pre>
 
-<p>Next, you create a dummy <code>&lt;canvas></code> element and get its drawing context. This is guaranteed to work, because the <code>supports_canvas()</code> function already checked that the <code>getContext()</code> method exists on all canvas objects.
+<p>Next, you create a dummy <code>&lt;canvas&gt;</code> element and get its drawing context. This is guaranteed to work, because the <code>supports_canvas()</code> function already checked that the <code>getContext()</code> method exists on all canvas objects.
 
 <pre><code>  var dummy_canvas = document.createElement('canvas');
   var context = <mark>dummy_canvas.getContext('2d')</mark>;</code></pre>
@@ -142,36 +142,36 @@ body{counter-reset:h1 2}
 
 <pre><code>  return <mark>typeof context.fillText == 'function'</mark>;</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for canvas text support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for canvas text support
 <pre><code>if (<mark>Modernizr.canvastext</mark>) {
   // let's draw some text!
 } else {
   // no native canvas text support available :(
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=video>Video</h2>
+<h2 id="video">Video</h2>
 
-<p><abbr>HTML5</abbr> defines a new element called <code>&lt;video></code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
+<p><abbr>HTML5</abbr> defines a new element called <code>&lt;video&gt;</code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime&reg; or Adobe Flash&reg;.
 
-<p class=ss style="width:224px"><img src=i/openclipart.org_johnny_automatic_at_the_theater.png alt="audience at the theater" width=224 height=334><br><span id=live-video></span>
+<p class="ss" style="width:224px"><img src="i/openclipart.org_johnny_automatic_at_the_theater.png" alt="audience at the theater" width="224" height="334"><br><span id="live-video"></span>
 
-<p>The <code>&lt;video></code> element is designed to be usable without any detection scripts. You can specify multiple video files, and browsers that support <abbr>HTML5</abbr> video will choose one based on what video formats they support. (See &ldquo;A gentle introduction to video encoding&rdquo; <a href=http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats>part 1: container formats</a> and <a href=http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs>part 2: lossy video codecs</a> to learn about different video formats.)
+<p>The <code>&lt;video&gt;</code> element is designed to be usable without any detection scripts. You can specify multiple video files, and browsers that support <abbr>HTML5</abbr> video will choose one based on what video formats they support. (See &ldquo;A gentle introduction to video encoding&rdquo; <a href="http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats">part 1: container formats</a> and <a href="http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs">part 2: lossy video codecs</a> to learn about different video formats.)
 
-<p>Browsers that don&rsquo;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video></code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> that uses <abbr>HTML5</abbr> video where available, but falls back to QuickTime or Flash in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers.
+<p>Browsers that don&rsquo;t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video&gt;</code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a> that uses <abbr>HTML5</abbr> video where available, but falls back to QuickTime or Flash in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers.
 
-<p>If you want to do more with video than plop it on your page and play it, you&rsquo;ll need to use JavaScript. Checking for video support uses <a href=#techniques>detection technique #2</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. If your browser doesn&rsquo;t support <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video></code> element will have only the set of properties common to all elements. You can check for video support using this function:
+<p>If you want to do more with video than plop it on your page and play it, you&rsquo;ll need to use JavaScript. Checking for video support uses <a href="#techniques">detection technique #2</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video&gt;</code> element will have a <code>canPlayType()</code> method. If your browser doesn&rsquo;t support <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video&gt;</code> element will have only the set of properties common to all elements. You can check for video support using this function:
 
 <pre><code>function supports_video() {
   return !!document.createElement('video').canPlayType;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for <abbr>HTML5</abbr> video.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for <abbr>HTML5</abbr> video.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> video support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> video support
 <pre><code>if (<mark>Modernizr.video</mark>) {
   // let's play some video!
 } else {
@@ -179,21 +179,21 @@ body{counter-reset:h1 2}
   // maybe check for QuickTime or Flash instead
 }</code></pre>
 
-<p>In <a href=video.html>the Video chapter</a>, I&rsquo;ll explain another solution that uses these detection techniques to convert <code>&lt;video></code> elements to Flash-based video players, for the benefit of browsers that don&rsquo;t support <abbr>HTML5</abbr> video.
+<p>In <a href="video.html">the Video chapter</a>, I&rsquo;ll explain another solution that uses these detection techniques to convert <code>&lt;video&gt;</code> elements to Flash-based video players, for the benefit of browsers that don&rsquo;t support <abbr>HTML5</abbr> video.
 
 <p>There is a separate test for detecting which video formats your browser can play, which I will demonstrate next.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=video-formats>Video Formats</h2>
+<h2 id="video-formats">Video Formats</h2>
 
 <p>Video formats are like written languages. An English newspaper may convey the same information as a Spanish newspaper, but if you can only read English, only one of them will be useful to you! To play a video, your browser needs to understand the &ldquo;language&rdquo; in which the video was written.
 
-<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src=i/openclipart.org_johnny_automatic_man_reading_newspaper.png alt="man reading newspaper" width=250 height=261><br><span id=live-video-formats></span>
+<p class="ss" style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src="i/openclipart.org_johnny_automatic_man_reading_newspaper.png" alt="man reading newspaper" width="250" height="261"><br><span id="live-video-formats"></span>
 
-<p>The &ldquo;language&rdquo; of a video is called a &ldquo;codec&rdquo; &mdash; this is the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&rsquo;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href=http://www.apple.com/safari/>Safari</a> and on the iPhone.  (This one also works in Flash if you use a solution like <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href=http://code.google.com/chromium/>Chromium</a> and <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
+<p>The &ldquo;language&rdquo; of a video is called a &ldquo;codec&rdquo; &mdash; this is the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&rsquo;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href="http://www.apple.com/safari/">Safari</a> and on the iPhone.  (This one also works in Flash if you use a solution like <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href="http://code.google.com/chromium/">Chromium</a> and <a href="http://www.getfirefox.com/">Mozilla Firefox</a>.
 
-<p>Checking for video format support uses <a href=#techniques>detection technique #3</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video></code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
+<p>Checking for video format support uses <a href="#techniques">detection technique #3</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video&gt;</code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
 
 <p>This function checks for the patent-encumbered format supported by Macs and iPhones.
 
@@ -203,15 +203,15 @@ body{counter-reset:h1 2}
   return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
 }</code></pre>
 
-<p>The function starts by <a href=#video>checking for <abbr>HTML5</abbr> video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn&rsquo;t support <abbr>HTML5</abbr> video, it certainly won&rsquo;t support any video formats!
+<p>The function starts by <a href="#video">checking for <abbr>HTML5</abbr> video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn&rsquo;t support <abbr>HTML5</abbr> video, it certainly won&rsquo;t support any video formats!
 
 <pre><code>  if (<mark>!supports_video()</mark>) { return false; }</code></pre>
 
-<p>Then the function creates a dummy <code>&lt;video></code> element (but doesn&rsquo;t attach it to the page, so it won&rsquo;t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
+<p>Then the function creates a dummy <code>&lt;video&gt;</code> element (but doesn&rsquo;t attach it to the page, so it won&rsquo;t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
 
 <pre><code>  var <mark>v</mark> = document.createElement("video");</code></pre>
 
-<p>A &ldquo;video format&rdquo; is really a combination of different things. In technical terms, you&rsquo;re asking the browser whether it can play H.264 Baseline video and AAC LC audio in an MPEG-4 container. (I&rsquo;ll explain what all that means in <a href=video.html>the Video chapter</a>. You might also be interested in reading <a href=http://diveintomark.org/tag/give>A gentle introduction to video encoding</a>.)
+<p>A &ldquo;video format&rdquo; is really a combination of different things. In technical terms, you&rsquo;re asking the browser whether it can play H.264 Baseline video and AAC LC audio in an MPEG-4 container. (I&rsquo;ll explain what all that means in <a href="video.html">the Video chapter</a>. You might also be interested in reading <a href="http://diveintomark.org/tag/give">A gentle introduction to video encoding</a>.)
 
 <pre><code>  return v.canPlayType('<mark>video/mp4; codecs="avc1.42E01E, mp4a.40.2"</mark>');</code></pre>
 
@@ -231,7 +231,7 @@ body{counter-reset:h1 2}
   return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
 }</code></pre>
 
-<p>Finally, <a href=http://www.webmproject.org/>WebM</a> is a newly open-sourced (and non-patent-encumbered) video codec that will be included in the next version of major browsers, including Chrome, <a href=http://nightly.mozilla.org/webm/>Firefox</a>, and <a href=http://labs.opera.com/news/2010/05/19/>Opera</a>. You can use the same technique to detect support for open WebM video.
+<p>Finally, <a href="http://www.webmproject.org/">WebM</a> is a newly open-sourced (and non-patent-encumbered) video codec that will be included in the next version of major browsers, including Chrome, <a href="http://nightly.mozilla.org/webm/">Firefox</a>, and <a href="http://labs.opera.com/news/2010/05/19/">Opera</a>. You can use the same technique to detect support for open WebM video.
 
 <pre><code>function supports_webm_video() {
   if (!supports_video()) { return false; }
@@ -239,9 +239,9 @@ body{counter-reset:h1 2}
   return v.canPlayType(<mark>'video/webm; codecs="vp8, vorbis"'</mark>);
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.5 or later) to detect support for different <abbr>HTML5</abbr> video formats.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.5 or later) to detect support for different <abbr>HTML5</abbr> video formats.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> video formats
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> video formats
 <pre><code>if (Modernizr.video) {
   // let's play some video! but what kind?
   if (<mark>Modernizr.video.webm</mark>) {
@@ -253,25 +253,25 @@ body{counter-reset:h1 2}
   }
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=storage>Local Storage</h2>
+<h2 id="storage">Local Storage</h2>
 
-<p class=ss style="width:135px"><img src=i/openclipart.org_johnny_automatic_half_stack_of_horizontal_sections.png alt="filing cabinet with drawers of different sizes" width=135 height=341><br><span id=live-storage></span>
+<p class="ss" style="width:135px"><img src="i/openclipart.org_johnny_automatic_half_stack_of_horizontal_sections.png" alt="filing cabinet with drawers of different sizes" width="135" height="341"><br><span id="live-storage"></span>
 
-<p><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML5</abbr> storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&rsquo;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML5</abbr> storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
+<p><a href="http://dev.w3.org/html5/webstorage/"><abbr>HTML5</abbr> storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it&rsquo;s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML5</abbr> storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Is local storage really part of <abbr>HTML5</abbr>? Why is it in a separate specification?<br>
 A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The slightly longer answer is that local storage used to be part of the main <abbr>HTML5</abbr> specification, but it was split out into a separate specification because some people in the <abbr>HTML5</abbr> Working Group complained that <abbr>HTML5</abbr> was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories&hellip; well, welcome to the wacky world of standards.
 </blockquote>
 </div>
 </div>
 
-<p>Checking for <abbr>HTML5</abbr> storage support uses <a href=#techniques>detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined. Due to an unfortunate bug in older versions of Firefox, this test will raise an exception if cookies are disabled, so the entire test is wrapped in a <code>try..catch</code> statement.
+<p>Checking for <abbr>HTML5</abbr> storage support uses <a href="#techniques">detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined. Due to an unfortunate bug in older versions of Firefox, this test will raise an exception if cookies are disabled, so the entire test is wrapped in a <code>try..catch</code> statement.
 
 <pre><code>function supports_local_storage() {
   try {
@@ -281,9 +281,9 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
   }
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> local storage
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> local storage
 <pre><code>if (<mark>Modernizr.localstorage</mark>) {
   // window.localStorage is available!
 } else {
@@ -295,31 +295,31 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: How secure is my <abbr>HTML5</abbr> storage database? Can anyone read it?<br>
-A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML5</abbr> storage database. Within your browser, any web site can read and modify its own values, but sites can&rsquo;t access values stored by other sites. This is called a <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#origin-0>same-origin restriction</a>.
+A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML5</abbr> storage database. Within your browser, any web site can read and modify its own values, but sites can&rsquo;t access values stored by other sites. This is called a <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#origin-0">same-origin restriction</a>.
 </blockquote>
 </div>
 </div>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=workers>Web Workers</h2>
+<h2 id="workers">Web Workers</h2>
 
-<p class=ss style="margin:1.75em"><span id=live-web-workers></span>
+<p class="ss" style="margin:1.75em"><span id="live-web-workers"></span>
 
-<p><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a> provide a standard way for browsers to run JavaScript in the background. With web workers, you can spawn multiple &ldquo;threads&rdquo; that all run at the same time, more or less. (Think of how your computer can run multiple applications at the same time, and you&rsquo;re most of the way there.) These &ldquo;background threads&rdquo; can do complex mathematical calculations, make network requests, or access <a href=#local-storage>local storage</a> while the main web page responds to the user scrolling, clicking, or typing.
+<p><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a> provide a standard way for browsers to run JavaScript in the background. With web workers, you can spawn multiple &ldquo;threads&rdquo; that all run at the same time, more or less. (Think of how your computer can run multiple applications at the same time, and you&rsquo;re most of the way there.) These &ldquo;background threads&rdquo; can do complex mathematical calculations, make network requests, or access <a href="#local-storage">local storage</a> while the main web page responds to the user scrolling, clicking, or typing.
 
-<p>Checking for web workers uses <a href=#techniques>detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
+<p>Checking for web workers uses <a href="#techniques">detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
 
 <pre><code>function supports_web_workers() {
   return !!window.Worker;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for web workers.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for web workers.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for web workers
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for web workers
 <pre><code>if (<mark>Modernizr.webworkers</mark>) {
   // window.Worker is available!
 } else {
@@ -329,25 +329,25 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>webworkers</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.Worker</code> (with a capital &ldquo;W&rdquo; in &ldquo;Worker&rdquo;).
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=offline>Offline Web Applications</h2>
+<h2 id="offline">Offline Web Applications</h2>
 
-<p class=ss style="width:257px"><img src=i/openclipart.org_johnny_automatic_cabin_along_stream.png alt="cabin in the woods" width=257 height=242><br><span id=live-offline></span>
+<p class="ss" style="width:257px"><img src="i/openclipart.org_johnny_automatic_cabin_along_stream.png" alt="cabin in the woods" width="257" height="242"><br><span id="live-offline"></span>
 
-<p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page at your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href=http://mail.google.com/>Gmail</a> or <a href=http://docs.google.com/>Google Docs</a>? Thanks to <abbr>HTML5</abbr>, anyone (not just Google!) can build a web application that works offline.
+<p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page at your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href="http://mail.google.com/">Gmail</a> or <a href="http://docs.google.com/">Google Docs</a>? Thanks to <abbr>HTML5</abbr>, anyone (not just Google!) can build a web application that works offline.
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything &mdash; <abbr>HTML</abbr>, JavaScript, images, even <a href=#video>videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&rsquo;re not connected to the Internet. Your browser will notice that you&rsquo;re offline and use the files it has already downloaded. When you get back online, any changes you&rsquo;ve made can be uploaded to the remote web server.
+<p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline">Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything &mdash; <abbr>HTML</abbr>, JavaScript, images, even <a href="#video">videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&rsquo;re not connected to the Internet. Your browser will notice that you&rsquo;re offline and use the files it has already downloaded. When you get back online, any changes you&rsquo;ve made can be uploaded to the remote web server.
 
-<p>Checking for offline support uses <a href=#techniques>detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support offline web applications, the <code>applicationCache</code> property will be undefined. You can check for offline support with the following function:
+<p>Checking for offline support uses <a href="#techniques">detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support offline web applications, the <code>applicationCache</code> property will be undefined. You can check for offline support with the following function:
 
 <pre><code>function supports_offline() {
   return !!window.applicationCache;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for offline web applications.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for offline web applications.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for offline support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for offline support
 <pre><code>if (<mark>Modernizr.applicationcache</mark>) {
   // window.applicationCache is available!
 } else {
@@ -357,33 +357,33 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>applicationcache</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.applicationCache</code> (mixed case).
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=geolocation>Geolocation</h2>
+<h2 id="geolocation">Geolocation</h2>
 
 <p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There is more than one way to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that calculates latitude and longitude from information sent by satellites in the sky.
 
-<p style="margin:0 auto;width:194px" id=geo-wrapper><img src=i/openclipart.org_johnny_automatic_globe_man.png alt="man with a globe for a head" width=194 height=317><br><span id=live-geolocation></span>
+<p style="margin:0 auto;width:194px" id="geo-wrapper"><img src="i/openclipart.org_johnny_automatic_globe_man.png" alt="man with a globe for a head" width="194" height="317"><br><span id="live-geolocation"></span>
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
-A: Geolocation support is being added to browsers right now, along with support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href=http://www.w3.org/2008/geolocation/>Geolocation Working Group</a>, which is separate from the <abbr>HTML5</abbr> Working Group. But I&rsquo;m going to talk about geolocation in this book anyway, because it&rsquo;s part of the evolution of the web that&rsquo;s happening now.
+A: Geolocation support is being added to browsers right now, along with support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href="http://www.w3.org/2008/geolocation/">Geolocation Working Group</a>, which is separate from the <abbr>HTML5</abbr> Working Group. But I&rsquo;m going to talk about geolocation in this book anyway, because it&rsquo;s part of the evolution of the web that&rsquo;s happening now.
 </blockquote>
 </div>
 </div>
 
-<p>Checking for geolocation support uses <a href=#techniques>detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&rsquo;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will not be present inside of <code>navigator</code>. Here&rsquo;s how to check for geolocation support:
+<p>Checking for geolocation support uses <a href="#techniques">detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn&rsquo;t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will not be present inside of <code>navigator</code>. Here&rsquo;s how to check for geolocation support:
 
 <pre><code>function supports_geolocation() {
   return 'geolocation' in navigator;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for the geolocation <abbr>API</abbr>.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for the geolocation <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for geolocation support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for geolocation support
 <pre><code>if (<mark>Modernizr.geolocation</mark>) {
   // let's find out where you are!
 } else {
@@ -391,43 +391,43 @@ A: Geolocation support is being added to browsers right now, along with support 
   // maybe try Gears or another third-party solution
 }</code></pre>
 
-<p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href=http://tools.google.com/gears/>Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides features for older browsers that do not support all the fancy new stuff we&rsquo;ve discussed in this chapter. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&rsquo;s not the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
+<p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href="http://tools.google.com/gears/">Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides features for older browsers that do not support all the fancy new stuff we&rsquo;ve discussed in this chapter. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&rsquo;s not the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
 
-<p>There are also device-specific geolocation <abbr>API</abbr>s on older mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href=http://bondi.omtp.org/1.0/apis/geolocation.html><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
+<p>There are also device-specific geolocation <abbr>API</abbr>s on older mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href="http://bondi.omtp.org/1.0/apis/geolocation.html"><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
 
-<p>The <a href=geolocation.html>chapter on geolocation</a> will go into excruciating detail about how to use all of these different <abbr>API</abbr>s.
+<p>The <a href="geolocation.html">chapter on geolocation</a> will go into excruciating detail about how to use all of these different <abbr>API</abbr>s.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=input-types>Input Types</h2>
+<h2 id="input-types">Input Types</h2>
 
-<p class=ss style="width:261px"><img src=i/openclipart.org_johnny_automatic_typewriter.png alt="manual typewriter" width=261 height=228><br><span id=live-input-types></span>
+<p class="ss" style="width:261px"><img src="i/openclipart.org_johnny_automatic_typewriter.png" alt="manual typewriter" width="261" height="228"><br><span id="live-input-types"></span>
 
-<p>You know all about web forms, right? Make a <code>&lt;form></code>, add a few <code>&lt;input type="text"></code> elements and maybe an <code>&lt;input type="password"></code>, and finish it off with an <code>&lt;input type="submit"></code> button.
+<p>You know all about web forms, right? Make a <code>&lt;form&gt;</code>, add a few <code>&lt;input type="text"&gt;</code> elements and maybe an <code>&lt;input type="password"&gt;</code>, and finish it off with an <code>&lt;input type="submit"&gt;</code> button.
 
 <p>You don&rsquo;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms.
 
 <ol>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#text-state-and-search-state><code>&lt;input type="search"></code></a> for search boxes
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#number-state><code>&lt;input type="number"></code></a> for spinboxes
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#range-state><code>&lt;input type="range"></code></a> for sliders
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state><code>&lt;input type="color"></code></a> for color pickers
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state><code>&lt;input type="tel"></code></a> for telephone numbers
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#url-state><code>&lt;input type="url"></code></a> for web addresses
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state><code>&lt;input type="email"></code></a> for email addresses
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-state><code>&lt;input type="date"></code></a> for calendar date pickers
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#month-state><code>&lt;input type="month"></code></a> for months
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#week-state><code>&lt;input type="week"></code></a> for weeks
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#time-state><code>&lt;input type="time"></code></a> for timestamps
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-and-time-state><code>&lt;input type="datetime"></code></a> for precise, absolute date+time stamps
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#local-date-and-time-state><code>&lt;input type="datetime-local"></code></a> for local dates and times
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#text-state-and-search-state"><code>&lt;input type="search"&gt;</code></a> for search boxes
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#number-state"><code>&lt;input type="number"&gt;</code></a> for spinboxes
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#range-state"><code>&lt;input type="range"&gt;</code></a> for sliders
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state"><code>&lt;input type="color"&gt;</code></a> for color pickers
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state"><code>&lt;input type="tel"&gt;</code></a> for telephone numbers
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#url-state"><code>&lt;input type="url"&gt;</code></a> for web addresses
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state"><code>&lt;input type="email"&gt;</code></a> for email addresses
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-state"><code>&lt;input type="date"&gt;</code></a> for calendar date pickers
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#month-state"><code>&lt;input type="month"&gt;</code></a> for months
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#week-state"><code>&lt;input type="week"&gt;</code></a> for weeks
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#time-state"><code>&lt;input type="time"&gt;</code></a> for timestamps
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-and-time-state"><code>&lt;input type="datetime"&gt;</code></a> for precise, absolute date+time stamps
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#local-date-and-time-state"><code>&lt;input type="datetime-local"&gt;</code></a> for local dates and times
 </ol>
 
-<p>Checking for <abbr>HTML5</abbr> input types uses <a href=#techniques>detection technique #4</a>. First, you create a dummy <code>&lt;input></code> element in memory. The default input type for all <code>&lt;input></code> elements is <code>"text"</code>. This will prove to be vitally important.
+<p>Checking for <abbr>HTML5</abbr> input types uses <a href="#techniques">detection technique #4</a>. First, you create a dummy <code>&lt;input&gt;</code> element in memory. The default input type for all <code>&lt;input&gt;</code> elements is <code>"text"</code>. This will prove to be vitally important.
 
 <pre><code>  var i = document.createElement("input");</code></pre>
 
-<p>Next, set the <code>type</code> attribute on the dummy <code>&lt;input></code> element to the input type you want to detect.
+<p>Next, set the <code>type</code> attribute on the dummy <code>&lt;input&gt;</code> element to the input type you want to detect.
 
 <pre><code>  i.setAttribute("type", "color");</code></pre>
 
@@ -435,32 +435,32 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <pre><code>  return i.type !== "text";</code></pre>
 
-<p>Instead of writing 13 separate functions yourself, you can use <a href=#modernizr>Modernizr</a> to detect support for all the new input types defined in <abbr>HTML5</abbr>. Modernizr reuses a single <code>&lt;input></code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, that contains 13 keys (the <abbr>HTML5</abbr> <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
+<p>Instead of writing 13 separate functions yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for all the new input types defined in <abbr>HTML5</abbr>. Modernizr reuses a single <code>&lt;input&gt;</code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, that contains 13 keys (the <abbr>HTML5</abbr> <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for native date picker
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for native date picker
 <pre><code>if (<mark>!Modernizr.inputtypes.date</mark>) {
-  // no native support for &lt;input type="date"> :(
-  // maybe build one yourself with <a href=http://docs.dojocampus.org/dojox/widget/Calendar>Dojo</a> or <a href=http://jqueryui.com/demos/datepicker/>jQueryUI</a>
+  // no native support for &lt;input type="date"&gt; :(
+  // maybe build one yourself with <a href="http://docs.dojocampus.org/dojox/widget/Calendar">Dojo</a> or <a href="http://jqueryui.com/demos/datepicker/">jQueryUI</a>
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=input-placeholder>Placeholder Text</h2>
+<h2 id="input-placeholder">Placeholder Text</h2>
 
 <form><p class="ss" style="width:261px"><img src="i/www.tjray.info.Mergenthaler.Ad-probably.a.Model.25.ca.1930.png" alt="linotype model 25 - one of the machines that helped create a demand for lorem ipsum placeholder text in exhibiting fonts" width="270" height="316"><br><input placeholder="Your browser supports placeholder text" size="38"></form>
 
-<p>Besides <a href=#input-types>new input types</a>, <abbr>HTML5</abbr> includes several small tweaks to existing forms. One improvement is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears. The <a href=forms.html#placeholder>chapter on web forms</a> has screenshots if you&rsquo;re having trouble visualizing it.
+<p>Besides <a href="#input-types">new input types</a>, <abbr>HTML5</abbr> includes several small tweaks to existing forms. One improvement is the ability to set <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears. The <a href="forms.html#placeholder">chapter on web forms</a> has screenshots if you&rsquo;re having trouble visualizing it.
 
-<p>Checking for placeholder support uses <a href=#techniques>detection technique #2</a>. If your browser supports placeholder text in input fields, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input></code> element will have a <code>placeholder</code> property (even if you don&rsquo;t include a <code>placeholder</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&rsquo;t support placeholder text, the <abbr>DOM</abbr> object it creates for an <code>&lt;input></code> element will not have a <code>placeholder</code> property.
+<p>Checking for placeholder support uses <a href="#techniques">detection technique #2</a>. If your browser supports placeholder text in input fields, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input&gt;</code> element will have a <code>placeholder</code> property (even if you don&rsquo;t include a <code>placeholder</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&rsquo;t support placeholder text, the <abbr>DOM</abbr> object it creates for an <code>&lt;input&gt;</code> element will not have a <code>placeholder</code> property.
 
 <pre><code>function supports_input_placeholder() {
   var i = document.createElement('input');
   return 'placeholder' in i;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for placeholder text.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for placeholder text.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for placeholder text
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for placeholder text
 <pre><code>if (<mark>Modernizr.input.placeholder</mark>) {
   // your placeholder text should already be visible!
 } else {
@@ -468,28 +468,28 @@ A: Geolocation support is being added to browsers right now, along with support 
   // fall back to a scripted solution
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=input-autofocus>Form Autofocus</h2>
+<h2 id="input-autofocus">Form Autofocus</h2>
 
-<p class=ss style="width:188px"><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262><br><span id="live-input-autofocus"></span>
+<p class="ss" style="width:188px"><img src="i/openclipart.org_johnny_automatic_angry_guy.png" alt="angry guy with arms up" width="188" height="262"><br><span id="live-input-autofocus"></span>
 
-<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords without having to position the cursor in the search box. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&rsquo;s autofocus script may &ldquo;helpfully&rdquo; move the focus back to the original input field upon completion, disrupting your flow and causing you to type in the wrong place.
+<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href="http://www.google.com/">Google.com</a> will autofocus the input box so you can type your search keywords without having to position the cursor in the search box. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&rsquo;s autofocus script may &ldquo;helpfully&rdquo; move the focus back to the original input field upon completion, disrupting your flow and causing you to type in the wrong place.
 
 <p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&rsquo;t want a web page to &ldquo;steal&rdquo; the focus.
 
-<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&rsquo;s just markup instead of a script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&rsquo;s just markup instead of a script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
 
-<p>Checking for autofocus support uses <a href=#techniques>detection technique #2</a>. If your browser supports autofocusing web form controls, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input></code> element will have an <code>autofocus</code> property (even if you don&rsquo;t include the <code>autofocus</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&rsquo;t support autofocusing web form controls, the <abbr>DOM</abbr> object it creates for an <code>&lt;input></code> element will not have an <code>autofocus</code> property. You can detect autofocus support with this function:
+<p>Checking for autofocus support uses <a href="#techniques">detection technique #2</a>. If your browser supports autofocusing web form controls, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input&gt;</code> element will have an <code>autofocus</code> property (even if you don&rsquo;t include the <code>autofocus</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&rsquo;t support autofocusing web form controls, the <abbr>DOM</abbr> object it creates for an <code>&lt;input&gt;</code> element will not have an <code>autofocus</code> property. You can detect autofocus support with this function:
 
 <pre><code>function supports_input_autofocus() {
   var i = document.createElement('input');
   return 'autofocus' in i;
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.1 or later) to detect support for autofocused form fields.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for autofocused form fields.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for autofocus support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for autofocus support
 <pre><code>if (<mark>Modernizr.input.autofocus</mark>) {
   // autofocus works!
 } else {
@@ -497,17 +497,17 @@ A: Geolocation support is being added to browsers right now, along with support 
   // fall back to a scripted solution
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=microdata>Microdata</h2>
+<h2 id="microdata">Microdata</h2>
 
-<p class=ss style="width:305px"><img src=i/openclipart.org_johnny_automatic_divider_cards.png alt="alphabetized folders" width=305 height=224><br><span id="live-microdata-api"></span>
+<p class="ss" style="width:305px"><img src="i/openclipart.org_johnny_automatic_divider_cards.png" alt="alphabetized folders" width="305" height="224"><br><span id="live-microdata-api"></span>
 
-<p><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata>Microdata</a> is a standardized way to provide additional semantics in your web pages. For example, you can use microdata to declare that a photograph is available under a specific Creative Commons license. As you&rsquo;ll see in <a href=extensibility.html>the distributed extensibility chapter</a>, you can use microdata to mark up an &ldquo;About Me&rdquo; page. Browsers, browser extensions, and search engines can convert your <abbr>HTML5</abbr> microdata markup into a <a href=http://en.wikipedia.org/wiki/VCard>vCard</a>, a standard format for sharing contact information. You can also define your own microdata vocabularies.
+<p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata">Microdata</a> is a standardized way to provide additional semantics in your web pages. For example, you can use microdata to declare that a photograph is available under a specific Creative Commons license. As you&rsquo;ll see in <a href="extensibility.html">the distributed extensibility chapter</a>, you can use microdata to mark up an &ldquo;About Me&rdquo; page. Browsers, browser extensions, and search engines can convert your <abbr>HTML5</abbr> microdata markup into a <a href="http://en.wikipedia.org/wiki/VCard">vCard</a>, a standard format for sharing contact information. You can also define your own microdata vocabularies.
 
 <p>The <abbr>HTML5</abbr> microdata standard includes both <abbr>HTML</abbr> markup (primarily for search engines) and a set of <abbr>DOM</abbr> functions (primarily for browsers). There&rsquo;s no harm in including microdata markup in your web pages. It&rsquo;s nothing more than a few well-placed attributes, and search engines that don&rsquo;t understand the microdata attributes will just ignore them. But if you need to access or manipulate microdata through the <abbr>DOM</abbr>, you&rsquo;ll need to check whether the browser supports the microdata <abbr>DOM</abbr> <abbr>API</abbr>.
 
-<p>Checking for <abbr>HTML5</abbr> microdata <abbr>API</abbr> support uses <a href=#techniques>detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> microdata <abbr>API</abbr>, there will be a <code>getItems()</code> function on the global <code>document</code> object. If your browser doesn&rsquo;t support microdata, the <code>getItems()</code> function will be undefined.
+<p>Checking for <abbr>HTML5</abbr> microdata <abbr>API</abbr> support uses <a href="#techniques">detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> microdata <abbr>API</abbr>, there will be a <code>getItems()</code> function on the global <code>document</code> object. If your browser doesn&rsquo;t support microdata, the <code>getItems()</code> function will be undefined.
 
 <pre><code>function supports_microdata_api() {
   return !!document.getItems;
@@ -515,88 +515,88 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Modernizr does not yet support checking for the microdata <abbr>API</abbr>, so you&rsquo;ll need to use the function like the one listed above.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=history>History <abbr>API</abbr></h2>
+<h2 id="history">History <abbr>API</abbr></h2>
 
-<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:218px"><img src=i/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png alt="demon reading book" width=218 height=231><br><span id=live-history-api></span>
+<p class="ss" style="float:left;margin:0 1.75em 1.75em 0;width:218px"><img src="i/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png" alt="demon reading book" width="218" height="231"><br><span id="live-history-api"></span>
 
-<p>The <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html><abbr>HTML5</abbr> history <abbr>API</abbr></a> is a standardized way to manipulate the browser history via script. Part of this <abbr>API</abbr> &mdash; navigating the history &mdash; has been available in previous versions of <abbr>HTML</abbr>. The new part in <abbr>HTML5</abbr> is a way to add entries to the browser history, and respond when those entries are removed from the stack by the user pressing the browser&rsquo;s back button. This means that the <abbr>URL</abbr> can continue to do its job as a unique identifier for the current resource, even in script-heavy applications that don&rsquo;t ever perform a full page refresh.
+<p>The <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html"><abbr>HTML5</abbr> history <abbr>API</abbr></a> is a standardized way to manipulate the browser history via script. Part of this <abbr>API</abbr> &mdash; navigating the history &mdash; has been available in previous versions of <abbr>HTML</abbr>. The new part in <abbr>HTML5</abbr> is a way to add entries to the browser history, and respond when those entries are removed from the stack by the user pressing the browser&rsquo;s back button. This means that the <abbr>URL</abbr> can continue to do its job as a unique identifier for the current resource, even in script-heavy applications that don&rsquo;t ever perform a full page refresh.
 
-<p>Checking for <abbr>HTML5</abbr> history <abbr>API</abbr> support uses <a href=#techniques>detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> history <abbr>API</abbr>, there will be a <code>pushState()</code> function on the global <code>history</code> object. If your browser doesn&rsquo;t support the history <abbr>API</abbr>, the <code>pushState()</code> function will be undefined.
+<p>Checking for <abbr>HTML5</abbr> history <abbr>API</abbr> support uses <a href="#techniques">detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> history <abbr>API</abbr>, there will be a <code>pushState()</code> function on the global <code>history</code> object. If your browser doesn&rsquo;t support the history <abbr>API</abbr>, the <code>pushState()</code> function will be undefined.
 
 <pre><code>function supports_history_api() {
   return !!(window.history && history.pushState);
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=#modernizr>Modernizr</a> (1.6 or later) to detect support for the <abbr>HTML5</abbr> history <abbr>API</abbr>.
+<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.6 or later) to detect support for the <abbr>HTML5</abbr> history <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for history <abbr>API</abbr> support
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for history <abbr>API</abbr> support
 <pre><code>if (<mark>Modernizr.history</mark>) {
   // history management works!
 } else {
   // no history support :(
-  // fall back to a scripted solution like <a href=https://github.com/balupton/History.js/>History.js</a>
+  // fall back to a scripted solution like <a href="https://github.com/balupton/History.js/">History.js</a>
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <p>Specifications and standards:
 
 <ul>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the <code>&lt;canvas></code> element</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video>the <code>&lt;video></code> element</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute><code>&lt;input></code> types</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>the <code>&lt;input placeholder></code> attribute</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control>the <code>&lt;input autofocus></code> attribute</a>
-<li><a href=http://dev.w3.org/html5/webstorage/><abbr>HTML5</abbr> storage</a>
-<li><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>Offline web applications</a>
-<li><a href=http://www.w3.org/TR/geolocation-API/>Geolocation <abbr>API</abbr></a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html>Session history and navigation</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">the <code>&lt;canvas&gt;</code> element</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video">the <code>&lt;video&gt;</code> element</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute"><code>&lt;input&gt;</code> types</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">the <code>&lt;input placeholder&gt;</code> attribute</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">the <code>&lt;input autofocus&gt;</code> attribute</a>
+<li><a href="http://dev.w3.org/html5/webstorage/"><abbr>HTML5</abbr> storage</a>
+<li><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline">Offline web applications</a>
+<li><a href="http://www.w3.org/TR/geolocation-API/">Geolocation <abbr>API</abbr></a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html">Session history and navigation</a>
 </ul>
 
 <p>JavaScript libraries:
 
 <ul>
-<li><a href=http://www.modernizr.com/>Modernizr</a>, an <abbr>HTML5</abbr> detection library
-<li><a href=http://code.google.com/p/geo-location-javascript/>geo.js</a>, a geolocation <abbr>API</abbr> wrapper
-<li><a href=https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills><abbr>HTML5</abbr> Cross-browser Polyfills</a>
+<li><a href="http://www.modernizr.com/">Modernizr</a>, an <abbr>HTML5</abbr> detection library
+<li><a href="http://code.google.com/p/geo-location-javascript/">geo.js</a>, a geolocation <abbr>API</abbr> wrapper
+<li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills"><abbr>HTML5</abbr> Cross-browser Polyfills</a>
 </ul>
 
 <p>Other articles and tutorials:
 
 <ul>
-<li><a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>
-<li><a href=http://diveintomark.org/tag/give>A gentle introduction to video encoding</a>
-<li><a href=http://wiki.whatwg.org/wiki/Video_type_parameters>Video type parameters</a>
-<li><a href=everything.html>The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything</a>
-<li><a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx>Internet Explorer 9 Guide for Developers</a>
+<li><a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a>
+<li><a href="http://diveintomark.org/tag/give">A gentle introduction to video encoding</a>
+<li><a href="http://wiki.whatwg.org/wiki/Video_type_parameters">Video type parameters</a>
+<li><a href="everything.html">The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything</a>
+<li><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx">Internet Explorer 9 Guide for Developers</a>
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &ldquo;Detecting <abbr>HTML5</abbr> Features.&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &ldquo;Detecting <abbr>HTML5</abbr> Features.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/modernizr.js></script>
-<script src=j/gears_init.js></script>
-<script src=j/geo.js></script>
-<script src=j/dih5.js></script>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="j/jquery.js"></script>
+<script src="j/modernizr.js"></script>
+<script src="j/gears_init.js"></script>
+<script src="j/geo.js"></script>
+<script src="j/dih5.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script>
 function supports(bool, suffix) {

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Local Storage - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 body{counter-reset:h1 7}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=detect.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#storage>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="detect.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#storage">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>The Past, Present &amp; Future of Local Storage for Web Applications</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Diving In</h2>
+<p id="toc">&nbsp;
+<p class="a">&#x2767;
+<h2 id="divingin">Diving In</h2>
 
-<p class=f><img src=i/aoc-p.png alt=P width=110 height=106>ersistent local storage is one of the areas where native client applications have held an advantage over web applications. For native applications, the operating system typically provides an abstraction layer for storing and retrieving application-specific data like preferences or runtime state. These values may be stored in the registry, INI files, XML files, or some other place according to platform convention. If your native client application needs local storage beyond key/value pairs, you can embed your own database, invent your own file format, or any number of other solutions.
+<p class="f"><img src="i/aoc-p.png" alt="P" width="110" height="106">ersistent local storage is one of the areas where native client applications have held an advantage over web applications. For native applications, the operating system typically provides an abstraction layer for storing and retrieving application-specific data like preferences or runtime state. These values may be stored in the registry, INI files, XML files, or some other place according to platform convention. If your native client application needs local storage beyond key/value pairs, you can embed your own database, invent your own file format, or any number of other solutions.
 
 <p>Historically, web applications have had none of these luxuries. Cookies were invented early in the web&rsquo;s history, and indeed they can be used for persistent local storage of small amounts of data. But they have three potentially dealbreaking downsides:
 
@@ -36,33 +36,33 @@ body{counter-reset:h1 7}
 
 <p>Before <abbr>HTML5</abbr>, all attempts to achieve this were ultimately unsatisfactory in different ways.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=history>A Brief History of Local Storage Hacks Before HTML5</h2>
+<h2 id="history">A Brief History of Local Storage Hacks Before HTML5</h2>
 
 <p>In the beginning, there was only Internet Explorer. Or at least, that&rsquo;s what Microsoft wanted the world to think. To that end, as part of the <a href="http://en.wikipedia.org/wiki/Browser_wars#The_first_browser_war">First Great Browser Wars</a>, Microsoft invented a great many things and included them in their browser-to-end-all-browser-wars, Internet Explorer. One of these things was called <a href="http://msdn.microsoft.com/en-us/library/ms531078(v=VS.85).aspx"><abbr>DHTML</abbr> Behaviors</a>, and one of these behaviors was called <a href="http://msdn.microsoft.com/en-us/library/ms531424(VS.85).aspx">userData</a>.
 
 <p><code>userData</code> allows web pages to store up to 64 KB of data per domain, in a hierarchical XML-based structure. (Trusted domains, such as intranet sites, can store 10 times that amount. And hey, <a href="http://en.wikiquote.org/wiki/Bill_Gates#Misattributed">640 KB ought to be enough for anybody</a>.) IE does not present any form of permissions dialog, and there is no allowance for increasing the amount of storage available.
 
-<p>In 2002, Adobe introduced a feature in Flash 6 that gained the unfortunate and misleading name of &ldquo;Flash cookies.&rdquo; Within the Flash environment, the feature is properly known as <a href="http://kb2.adobe.com/cps/161/tn_16194.html">Local Shared Objects</a>. Briefly, it allows Flash objects to store up to 100 KB of data per domain. Brad Neuberg developed an early prototype of a Flash-to-JavaScript bridge called <a href="http://codinginparadise.org/weblog/2005/10/amass-ajax-massive-storage-system.html">AMASS</a> (AJAX Massive Storage System), but it was limited by some of Flash&rsquo;s design quirks. By 2006, with the advent of <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/external/ExternalInterface.html">ExternalInterface</a> in Flash 8, accessing <abbr>LSO</abbr>s from JavaScript became an order of magnitude easier and faster. Brad rewrote <abbr>AMASS</abbr> and integrated it into the popular <a href=http://www.dojotoolkit.org/>Dojo Toolkit</a> under the moniker <a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage</code></a>. Flash gives each domain 100 KB of storage &ldquo;for free.&rdquo; Beyond that, it prompts the user for each order of magnitude increase in data storage (1 Mb, 10 Mb, and so on).
+<p>In 2002, Adobe introduced a feature in Flash 6 that gained the unfortunate and misleading name of &ldquo;Flash cookies.&rdquo; Within the Flash environment, the feature is properly known as <a href="http://kb2.adobe.com/cps/161/tn_16194.html">Local Shared Objects</a>. Briefly, it allows Flash objects to store up to 100 KB of data per domain. Brad Neuberg developed an early prototype of a Flash-to-JavaScript bridge called <a href="http://codinginparadise.org/weblog/2005/10/amass-ajax-massive-storage-system.html">AMASS</a> (AJAX Massive Storage System), but it was limited by some of Flash&rsquo;s design quirks. By 2006, with the advent of <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/external/ExternalInterface.html">ExternalInterface</a> in Flash 8, accessing <abbr>LSO</abbr>s from JavaScript became an order of magnitude easier and faster. Brad rewrote <abbr>AMASS</abbr> and integrated it into the popular <a href="http://www.dojotoolkit.org/">Dojo Toolkit</a> under the moniker <a href="http://api.dojotoolkit.org/jsdoc/HEAD/dojox.storage.manager"><code>dojox.storage</code></a>. Flash gives each domain 100 KB of storage &ldquo;for free.&rdquo; Beyond that, it prompts the user for each order of magnitude increase in data storage (1 Mb, 10 Mb, and so on).
 
-<p>In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source browser plugin aimed at providing additional capabilities in browsers. (We&rsquo;ve previously discussed Gears in the context of <a href=geolocation.html#ie>providing a geolocation <abbr>API</abbr> in Internet Explorer</a>.) Gears provides <a href="http://code.google.com/apis/gears/api_database.html">an <abbr>API</abbr> to an embedded <abbr>SQL</abbr> database</a> based on <a href="http://www.sqlite.org/">SQLite</a>. After obtaining permission from the user once, Gears can store unlimited amounts of data per domain in <abbr>SQL</abbr> database tables.
+<p>In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source browser plugin aimed at providing additional capabilities in browsers. (We&rsquo;ve previously discussed Gears in the context of <a href="geolocation.html#ie">providing a geolocation <abbr>API</abbr> in Internet Explorer</a>.) Gears provides <a href="http://code.google.com/apis/gears/api_database.html">an <abbr>API</abbr> to an embedded <abbr>SQL</abbr> database</a> based on <a href="http://www.sqlite.org/">SQLite</a>. After obtaining permission from the user once, Gears can store unlimited amounts of data per domain in <abbr>SQL</abbr> database tables.
 
 <p>In the meantime, Brad Neuberg and others continued to hack away on <code>dojox.storage</code> to provide a unified interface to all these different plugins and <abbr>API</abbr>s. By 2009, <code>dojox.storage</code> could auto-detect (and provide a unified interface on top of) Adobe Flash, Gears, Adobe AIR, and an early prototype of <abbr>HTML5</abbr> storage that was only implemented in older versions of Firefox.
 
 <p>As you survey these solutions, a pattern emerges: all of them are either specific to a single browser, or reliant on a third-party plugin. Despite heroic efforts to paper over the differences (in <code>dojox.storage</code>), they all expose radically different interfaces, have different storage limitations, and present different user experiences. So this is the problem that <abbr>HTML5</abbr> set out to solve: to provide a standardized <abbr>API</abbr>, implemented natively and consistently in multiple browsers, without having to rely on third-party plugins.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=localstorage>Introducing HTML5 Storage</h2>
+<h2 id="localstorage">Introducing HTML5 Storage</h2>
 
 <p>What I will refer to as &ldquo;<abbr>HTML5</abbr> Storage&rdquo; is a specification named <a href="http://dev.w3.org/html5/webstorage/">Web Storage</a>, which was at one time part of the <abbr>HTML5</abbr> specification proper, but was split out into its own specification for uninteresting political reasons. Certain browser vendors also refer to it as &ldquo;Local Storage&rdquo; or &ldquo;<abbr>DOM</abbr> Storage.&rdquo; The naming situation is made even more complicated by some related, similarly-named, emerging standards that I&rsquo;ll discuss later in this chapter.
 
-<p>So what is <abbr>HTML5</abbr> Storage? Simply put, it&rsquo;s a way for web pages to store named key/value pairs locally, within the client web browser. Like cookies, this data persists even after you navigate away from the web site, close your browser tab, exit your browser, or what have you. Unlike cookies, this data is never transmitted to the remote web server (unless you go out of your way to send it manually). Unlike <a href=#history>all previous attempts</a> at providing persistent local storage, it is implemented natively in web browsers, so it is available even when third-party browser plugins are not.
+<p>So what is <abbr>HTML5</abbr> Storage? Simply put, it&rsquo;s a way for web pages to store named key/value pairs locally, within the client web browser. Like cookies, this data persists even after you navigate away from the web site, close your browser tab, exit your browser, or what have you. Unlike cookies, this data is never transmitted to the remote web server (unless you go out of your way to send it manually). Unlike <a href="#history">all previous attempts</a> at providing persistent local storage, it is implemented natively in web browsers, so it is available even when third-party browser plugins are not.
 
 <p>Which browsers? Well, the latest version of pretty much every browser supports <abbr>HTML5</abbr> Storage&hellip; even Internet Explorer!
 
-<table class=bc>
+<table class="bc">
 <caption><abbr>HTML5</abbr> Storage support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
@@ -70,9 +70,9 @@ body{counter-reset:h1 7}
 <tr><td>8.0+<td>3.5+<td>4.0+<td>4.0+<td>10.5+<td>2.0+<td>2.0+
 </table>
 
-<p>From your JavaScript code, you&rsquo;ll access <abbr>HTML5</abbr> Storage through the <code>localStorage</code> object on the global <code>window</code> object. Before you can use it, you should <a href=detect.html#storage>detect whether the browser supports it</a>.
+<p>From your JavaScript code, you&rsquo;ll access <abbr>HTML5</abbr> Storage through the <code>localStorage</code> object on the global <code>window</code> object. Before you can use it, you should <a href="detect.html#storage">detect whether the browser supports it</a>.
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> check for <abbr>HTML5</abbr> Storage
+<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> Storage
 <pre><code>function supports_html5_storage() {
   try {
     return 'localStorage' in window && window['localStorage'] !== null;
@@ -81,7 +81,7 @@ body{counter-reset:h1 7}
   }
 }</code></pre>
 
-<p>Instead of writing this function yourself, you can use <a href=detect.html#modernizr>Modernizr</a> to detect support for <abbr>HTML5</abbr> Storage.
+<p>Instead of writing this function yourself, you can use <a href="detect.html#modernizr">Modernizr</a> to detect support for <abbr>HTML5</abbr> Storage.
 
 <pre><code>if (<mark>Modernizr.localstorage</mark>) {
   // window.localStorage is available!
@@ -90,9 +90,9 @@ body{counter-reset:h1 7}
   // maybe try dojox.storage or a third-party solution
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=methods>Using HTML5 Storage</h2>
+<h2 id="methods">Using HTML5 Storage</h2>
 
 <p><abbr>HTML5</abbr> Storage is based on named key/value pairs. You store data based on a named key, then you can retrieve that data with the same key. The named key is a string. The data can be any type supported by JavaScript, including strings, Booleans, integers, or floats. However, the data is actually stored as a string. If you are storing and retrieving anything other than strings, you will need to use functions like <code>parseInt()</code> or <code>parseFloat()</code> to coerce your retrieved data into the expected JavaScript datatype.
 
@@ -133,7 +133,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>If you call <code>key()</code> with an index that is not between 0&ndash;(<code>length</code>-1), the function will return <code>null</code>.
 
-<h3 id=storage-event>Tracking Changes to the HTML5 Storage Area</h3>
+<h3 id="storage-event">Tracking Changes to the HTML5 Storage Area</h3>
 
 <p>If you want to keep track programmatically of when the storage area changes, you can trap the <code>storage</code> event. The <code>storage</code> event is fired on the <code>window</code> object whenever <code>setItem()</code>, <code>removeItem()</code>, or <code>clear()</code> is called <em>and actually changes something</em>. For example, if you set an item to its existing value or call <code>clear()</code> when there are no named keys, the <code>storage</code> event will not fire, because nothing actually changed in the storage area.
 
@@ -153,34 +153,34 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>At this point, the variable <code>e</code> will be a <code>StorageEvent</code> object, which has the following useful properties.
 
-<table class=st>
+<table class="st">
 <caption>StorageEvent Object</caption>
 <thead>
-<tr class=ho><th>Property<th>Type<th>Description
+<tr class="ho"><th>Property<th>Type<th>Description
 <tbody>
-<tr class=zebra><th><code>key</code><td>string<td>the named key that was added, removed, or modified
+<tr class="zebra"><th><code>key</code><td>string<td>the named key that was added, removed, or modified
 <tr><th><code>oldValue</code><td>any<td>the previous value (now overwritten), or <code>null</code> if a new item was added
-<tr class=zebra><th><code>newValue</code><td>any<td>the new value, or <code>null</code> if an item was removed
+<tr class="zebra"><th><code>newValue</code><td>any<td>the new value, or <code>null</code> if an item was removed
 <tr><th><code>url</code><sup>*</sup><td>string<td>the page which called a method that triggered this change
 <tfoot>
-<tr><td colspan=3>* Note: the <code>url</code> property was originally called <code>uri</code>. Some browsers shipped with that property before the specification changed. For maximum compatibility, you should check whether the <code>url</code> property exists, and if not, check for the <code>uri</code> property instead.
+<tr><td colspan="3">* Note: the <code>url</code> property was originally called <code>uri</code>. Some browsers shipped with that property before the specification changed. For maximum compatibility, you should check whether the <code>url</code> property exists, and if not, check for the <code>uri</code> property instead.
 </table>
 
 <p>The <code>storage</code> event is not cancelable. From within the <code>handle_storage</code> callback function, there is no way to stop the change from occurring. It&rsquo;s simply a way for the browser to tell you, &ldquo;hey, this just happened. There&rsquo;s nothing you can do about it now; I just wanted to let you know.&rdquo;
 
-<h3 id=limitations>Limitations in Current Browsers</h3>
+<h3 id="limitations">Limitations in Current Browsers</h3>
 
-<p>In talking about <a href=#history>the history of local storage hacks</a> using third-party plugins, I made a point of mentioning the limitations of each technique, such as storage limits. I just realized that I haven&rsquo;t mentioned anything about the limitations of the now-standardized <abbr>HTML5</abbr> Storage. I&rsquo;ll give you the answers first, then explain them. The answers, in order of importance, are &ldquo;5 megabytes,&rdquo; &ldquo;<code>QUOTA_EXCEEDED_ERR</code>,&rdquo; and &ldquo;no.&rdquo;
+<p>In talking about <a href="#history">the history of local storage hacks</a> using third-party plugins, I made a point of mentioning the limitations of each technique, such as storage limits. I just realized that I haven&rsquo;t mentioned anything about the limitations of the now-standardized <abbr>HTML5</abbr> Storage. I&rsquo;ll give you the answers first, then explain them. The answers, in order of importance, are &ldquo;5 megabytes,&rdquo; &ldquo;<code>QUOTA_EXCEEDED_ERR</code>,&rdquo; and &ldquo;no.&rdquo;
 
-<p>&ldquo;5 megabytes&rdquo; is how much storage space each <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#origin-0>origin</a> gets by default. This is surprisingly consistent across browsers, although it is phrased as no more than a suggestion in the <abbr>HTML5</abbr> Storage specification. One thing to keep in mind is that you&rsquo;re storing strings, not data in its original format. If you&rsquo;re storing a lot of integers or floats, the difference in representation can really add up. Each digit in that float is being stored as a character, not in the usual representation of a floating point number.
+<p>&ldquo;5 megabytes&rdquo; is how much storage space each <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#origin-0">origin</a> gets by default. This is surprisingly consistent across browsers, although it is phrased as no more than a suggestion in the <abbr>HTML5</abbr> Storage specification. One thing to keep in mind is that you&rsquo;re storing strings, not data in its original format. If you&rsquo;re storing a lot of integers or floats, the difference in representation can really add up. Each digit in that float is being stored as a character, not in the usual representation of a floating point number.
 
-<p>&ldquo;<code>QUOTA_EXCEEDED_ERR</code>&rdquo; is the exception that will get thrown if you exceed your storage quota of 5 megabytes. &ldquo;No&rdquo; is the answer to the next obvious question, &ldquo;Can I ask the user for more storage space?&rdquo; At time of writing (February 2011), no browser supports any mechanism for web developers to request more storage space. Some browsers (<a href=http://dev.opera.com/articles/view/web-storage/>like Opera</a>) allow the user to control each site&rsquo;s storage quota, but it is purely a user-initiated action, not something that you as a web developer can build into your web application.
+<p>&ldquo;<code>QUOTA_EXCEEDED_ERR</code>&rdquo; is the exception that will get thrown if you exceed your storage quota of 5 megabytes. &ldquo;No&rdquo; is the answer to the next obvious question, &ldquo;Can I ask the user for more storage space?&rdquo; At time of writing (February 2011), no browser supports any mechanism for web developers to request more storage space. Some browsers (<a href="http://dev.opera.com/articles/view/web-storage/">like Opera</a>) allow the user to control each site&rsquo;s storage quota, but it is purely a user-initiated action, not something that you as a web developer can build into your web application.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=halma>HTML5 Storage in Action</h2>
+<h2 id="halma">HTML5 Storage in Action</h2>
 
-<p>Let&rsquo;s see <abbr>HTML5</abbr> Storage in action. Recall <a href=canvas.html#halma>the Halma game we constructed in the canvas chapter</a>. There&rsquo;s a small problem with the game: if you close the browser window mid-game, you&rsquo;ll lose your progress. But with <abbr>HTML5</abbr> Storage, we can save the progress locally, within the browser itself. Here is <a href=examples/localstorage-halma.html>a live demonstration</a>. Make a few moves, then close the browser tab, then re-open it. If your browser supports <abbr>HTML5</abbr> Storage, the demonstration page should magically remember your exact position within the game, including the number of moves you&rsquo;ve made, the position of each of the pieces on the board, and even whether a particular piece is selected.
+<p>Let&rsquo;s see <abbr>HTML5</abbr> Storage in action. Recall <a href="canvas.html#halma">the Halma game we constructed in the canvas chapter</a>. There&rsquo;s a small problem with the game: if you close the browser window mid-game, you&rsquo;ll lose your progress. But with <abbr>HTML5</abbr> Storage, we can save the progress locally, within the browser itself. Here is <a href="examples/localstorage-halma.html">a live demonstration</a>. Make a few moves, then close the browser tab, then re-open it. If your browser supports <abbr>HTML5</abbr> Storage, the demonstration page should magically remember your exact position within the game, including the number of moves you&rsquo;ve made, the position of each of the pieces on the board, and even whether a particular piece is selected.
 
 <p>How does it work? Every time a change occurs within the game, we call this function:
 
@@ -235,15 +235,15 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <pre><code>gMoveCount = <mark>parseInt</mark>(localStorage["halma.movecount"]);</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=future>Beyond Named Key-Value Pairs: Competing Visions</h2>
+<h2 id="future">Beyond Named Key-Value Pairs: Competing Visions</h2>
 
-<p>While <a href=#history>the past is littered with hacks and workarounds</a>, the present condition of <abbr>HTML5</abbr> Storage is surprisingly rosy. A new <abbr>API</abbr> has been standardized and implemented across all major browsers, platforms, and devices. As a web developer, that&rsquo;s just not something you see every day, is it? But there is more to life than &ldquo;5 megabytes of named key/value pairs,&rdquo; and the future of persistent local storage is&hellip; how shall I put it&hellip; well, there are competing visions.
+<p>While <a href="#history">the past is littered with hacks and workarounds</a>, the present condition of <abbr>HTML5</abbr> Storage is surprisingly rosy. A new <abbr>API</abbr> has been standardized and implemented across all major browsers, platforms, and devices. As a web developer, that&rsquo;s just not something you see every day, is it? But there is more to life than &ldquo;5 megabytes of named key/value pairs,&rdquo; and the future of persistent local storage is&hellip; how shall I put it&hellip; well, there are competing visions.
 
-<p>One vision is an acronym that you probably know already: <abbr>SQL</abbr>. In 2007, Google launched <a href=http://gears.google.com/>Gears</a>, an open source cross-browser plugin which included an embedded database based on <a href=http://www.sqlite.org/>SQLite</a>. This early prototype later influenced the creation of the <a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a> specification. Web SQL Database (formerly known as &ldquo;WebDB&rdquo;) provides a thin wrapper around a <abbr>SQL</abbr> database, allowing you to do things like this from JavaScript:
+<p>One vision is an acronym that you probably know already: <abbr>SQL</abbr>. In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source cross-browser plugin which included an embedded database based on <a href="http://www.sqlite.org/">SQLite</a>. This early prototype later influenced the creation of the <a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a> specification. Web SQL Database (formerly known as &ldquo;WebDB&rdquo;) provides a thin wrapper around a <abbr>SQL</abbr> database, allowing you to do things like this from JavaScript:
 
-<p class="legend top" style="padding-left:3em"><span class=arrow>&#x21b6;</span> actual working code in 4 browsers
+<p class="legend top" style="padding-left:3em"><span class="arrow">&#x21b6;</span> actual working code in 4 browsers
 <pre><code><mark>openDatabase</mark>('documents', '1.0', 'Local document storage', 5*1024*1024, function (db) {
   db.changeVersion('', '1.0', function (t) {
     t.<mark>executeSql</mark>('CREATE TABLE docids (id, name)');
@@ -254,7 +254,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>The Web SQL Database specification has been implemented by four browsers and platforms.
 
-<table class=bc>
+<table class="bc">
 <caption>Web SQL Database support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
@@ -270,19 +270,19 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 <p>This specification has reached an impasse: all interested implementors have used the same SQL backend (Sqlite), but we need multiple independent implementations to proceed along a standardisation path. Until another implementor is interested in implementing this spec, the description of the SQL dialect has been left as simply a reference to Sqlite, which isn't acceptable for a standard.
 </blockquote>
 
-<p>It is against this backdrop that I will introduce you to another competing vision for advanced, persistent, local storage for web applications: <a href=http://dev.w3.org/2006/webapi/IndexedDB/>the Indexed Database <abbr>API</abbr></a>, formerly known as &ldquo;WebSimpleDB,&rdquo; now affectionately known as &ldquo;IndexedDB.&rdquo;
+<p>It is against this backdrop that I will introduce you to another competing vision for advanced, persistent, local storage for web applications: <a href="http://dev.w3.org/2006/webapi/IndexedDB/">the Indexed Database <abbr>API</abbr></a>, formerly known as &ldquo;WebSimpleDB,&rdquo; now affectionately known as &ldquo;IndexedDB.&rdquo;
 
 <p>The Indexed Database <abbr>API</abbr> exposes what&rsquo;s called an <em>object store</em>. An object store shares many concepts with a <abbr>SQL</abbr> database. There are &ldquo;databases&rdquo; with &ldquo;records,&rdquo; and each record has a set number of &ldquo;fields.&rdquo; Each field has a specific datatype, which is defined when the database is created. You can select a subset of records, then enumerate them with a &ldquo;cursor.&rdquo; Changes to the object store are handled within &ldquo;transactions.&rdquo;
 
 <p>If you&rsquo;ve done any <abbr>SQL</abbr> database programming, these terms probably sound familiar. The primary difference is that the object store has no structured query language. You don&rsquo;t construct a statement like <code>"SELECT * from USERS where ACTIVE = 'Y'"</code>. Instead, you use methods provided by the object store to open a cursor on the database named &ldquo;<code>USERS</code>,&rdquo; enumerate through the records, filter out records for inactive users, and use accessor methods to get the values of each field in the remaining records. <a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/">An early walk-through of IndexedDB</a> is a good tutorial of how IndexedDB works, giving side-by-side comparisons of IndexedDB and Web SQL Database.
 
-<p>At time of writing, IndexedDB has only been implemented in <a href=https://developer.mozilla.org/en/Firefox_4_for_developers>a beta version of Firefox 4</a>. (By contrast, Mozilla has stated that <a href="http://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">they will never implement Web SQL Database</a>.) Google has stated that <a href="http://www.chromium.org/developers/design-documents/indexeddb">they are considering IndexedDB support</a> for Chromium and Google Chrome. And even Microsoft has said that IndexedDB &ldquo;<a href="http://blogs.msdn.com/b/ie/archive/2010/03/09/working-with-the-html5-community.aspx">is a great solution for the web</a>.&rdquo;
+<p>At time of writing, IndexedDB has only been implemented in <a href="https://developer.mozilla.org/en/Firefox_4_for_developers">a beta version of Firefox 4</a>. (By contrast, Mozilla has stated that <a href="http://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">they will never implement Web SQL Database</a>.) Google has stated that <a href="http://www.chromium.org/developers/design-documents/indexeddb">they are considering IndexedDB support</a> for Chromium and Google Chrome. And even Microsoft has said that IndexedDB &ldquo;<a href="http://blogs.msdn.com/b/ie/archive/2010/03/09/working-with-the-html5-community.aspx">is a great solution for the web</a>.&rdquo;
 
 <p>So what can you, as a web developer, do with IndexedDB? At the moment, virtually nothing beyond some technology demos. A year from now? Maybe something. Check the &ldquo;Further Reading&rdquo; section for links to some good tutorials to get you started.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <p><abbr>HTML5</abbr> storage:
 
@@ -320,22 +320,22 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 <li><a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/">Firefox 4: An early walk-through of IndexedDB</a>
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &ldquo;The Past, Present &amp; Future of Local Storage for Web Applications.&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &ldquo;The Past, Present &amp; Future of Local Storage for Web Applications.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/modernizr.js></script>
-<script src=j/dih5.js></script>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="j/jquery.js"></script>
+<script src="j/modernizr.js"></script>
+<script src="j/dih5.js"></script>

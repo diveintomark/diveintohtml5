@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 h1:before{content:"Appendix A:"}
 dd{padding-bottom:1.75em}
@@ -11,291 +11,291 @@ pre{margin:0;padding:0}
 a.hl:link,a.hl:visited{color:#fff;padding-left:0.1em;text-decoration:none;border:0}
 dt:hover a.hl{background:transparent;color:silver}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=detect.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#everything>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="detect.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#everything">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>The All-In-One<br>Almost-Alphabetical<br>No-Bullshit Guide to<br>Detecting Everything</h1>
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>(Confused? Read <a href=detect.html>Detecting <abbr>HTML5</abbr> Features</a> for a conceptual introduction. Want an all-in-one library instead? Try <a href=http://modernizr.com/>Modernizr</a>.)
+<p>(Confused? Read <a href="detect.html">Detecting <abbr>HTML5</abbr> Features</a> for a conceptual introduction. Want an all-in-one library instead? Try <a href="http://modernizr.com/">Modernizr</a>.)
 
 <dl>
 
-<dt id=audio><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio></code></a>
+<dt id="audio"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio&gt;</code></a>
 <dd><code>return !!document.createElement('audio').canPlayType;</code>
 
-<dt id=audio-mp3><a href=http://en.wikipedia.org/wiki/MP3><code>&lt;audio></code> in MP3 format</a>
+<dt id="audio-mp3"><a href="http://en.wikipedia.org/wiki/MP3"><code>&lt;audio&gt;</code> in MP3 format</a>
 <dd><pre><code>var a = document.createElement('audio');
 return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));</code></pre>
 
-<dt id=audio-vorbis><a href=http://en.wikipedia.org/wiki/Vorbis><code>&lt;audio></code> in Vorbis format</a>
+<dt id="audio-vorbis"><a href="http://en.wikipedia.org/wiki/Vorbis"><code>&lt;audio&gt;</code> in Vorbis format</a>
 <dd><pre><code>var a = document.createElement('audio');
 return !!(a.canPlayType && a.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''));</code></pre>
 
-<dt id=audio-wav><a href=http://en.wikipedia.org/wiki/WAV><code>&lt;audio></code> in WAV format</a>
+<dt id="audio-wav"><a href="http://en.wikipedia.org/wiki/WAV"><code>&lt;audio&gt;</code> in WAV format</a>
 <dd><pre><code>var a = document.createElement('audio');
 return !!(a.canPlayType && a.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));</code></pre>
 
-<dt id=audio-aac><a href=http://en.wikipedia.org/wiki/Advanced_Audio_Coding><code>&lt;audio></code> in AAC format</a>
+<dt id="audio-aac"><a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding"><code>&lt;audio&gt;</code> in AAC format</a>
 <dd><pre><code>var a = document.createElement('audio');
 return !!(a.canPlayType && a.canPlayType('audio/mp4; codecs="mp4a.40.2"').replace(/no/, ''));</code></pre>
 
-<dt id=canvas><a href=canvas.html><code>&lt;canvas></code></a>
+<dt id="canvas"><a href="canvas.html"><code>&lt;canvas&gt;</code></a>
 <dd><code>return !!document.createElement('canvas').getContext;</code>
 
-<dt id=canvas-text><a href=canvas.html#text><code>&lt;canvas></code> text <abbr>API</abbr></a>
+<dt id="canvas-text"><a href="canvas.html#text"><code>&lt;canvas&gt;</code> text <abbr>API</abbr></a>
 <dd><pre><code>var c = document.createElement('canvas');
 return c.getContext && typeof c.getContext('2d').fillText == 'function';</code></pre>
 
-<dt id=command><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command-element><code>&lt;command></code></a>
+<dt id="command"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-command-element"><code>&lt;command&gt;</code></a>
 <dd><code>return 'type' in document.createElement('command');</code>
 
-<dt id=datalist><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element><code>&lt;datalist></code></a>
+<dt id="datalist"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element"><code>&lt;datalist&gt;</code></a>
 <dd><pre><code>return 'options' in document.createElement('datalist');</code></pre>
 
-<dt id=details><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-details-element><code>&lt;details></code></a>
+<dt id="details"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#the-details-element"><code>&lt;details&gt;</code></a>
 <dd><code>return 'open' in document.createElement('details');</code>
 
-<dt id=novalidate><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#constraints><code>&lt;form></code> constraint validation</a>
+<dt id="novalidate"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#constraints"><code>&lt;form&gt;</code> constraint validation</a>
 <dd><code>return 'noValidate' in document.createElement('form');</code>
 
-<dt id=sandbox><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox><code>&lt;iframe sandbox></code></a>
+<dt id="sandbox"><a href="http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox"><code>&lt;iframe sandbox&gt;</code></a>
 <dd><code>return 'sandbox' in document.createElement('iframe');</code>
 
-<dt id=srcdoc><a href=http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox><code>&lt;iframe srcdoc></code></a>
+<dt id="srcdoc"><a href="http://blog.whatwg.org/whats-next-in-html-episode-2-sandbox"><code>&lt;iframe srcdoc&gt;</code></a>
 <dd><code>return 'srcdoc' in document.createElement('iframe');</code>
 
-<dt id=autofocus><a href=forms.html#autofocus><code>&lt;input autofocus></code></a>
+<dt id="autofocus"><a href="forms.html#autofocus"><code>&lt;input autofocus&gt;</code></a>
 <dd><code>return 'autofocus' in document.createElement('input');</code>
 
-<dt id=placeholder><a href=forms.html#placeholder><code>&lt;input placeholder></code></a>
+<dt id="placeholder"><a href="forms.html#placeholder"><code>&lt;input placeholder&gt;</code></a>
 <dd><code>return 'placeholder' in document.createElement('input');</code>
 
-<dt id=placeholder-textarea><a href=forms.html#placeholder><code>&lt;textarea placeholder></code></a>
+<dt id="placeholder-textarea"><a href="forms.html#placeholder"><code>&lt;textarea placeholder&gt;</code></a>
 <dd><code>return 'placeholder' in document.createElement('textarea');</code>
 
-<dt id=input-color><a href=forms.html#type-color><code>&lt;input type="color"></code></a>
+<dt id="input-color"><a href="forms.html#type-color"><code>&lt;input type="color"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'color');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-email><a href=forms.html#type-email><code>&lt;input type="email"></code></a>
+<dt id="input-email"><a href="forms.html#type-email"><code>&lt;input type="email"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'email');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-number><a href=forms.html#type-number><code>&lt;input type="number"></code></a>
+<dt id="input-number"><a href="forms.html#type-number"><code>&lt;input type="number"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'number');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-range><a href=forms.html#type-range><code>&lt;input type="range"></code></a>
+<dt id="input-range"><a href="forms.html#type-range"><code>&lt;input type="range"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'range');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-search><a href=forms.html#type-search><code>&lt;input type="search"></code></a>
+<dt id="input-search"><a href="forms.html#type-search"><code>&lt;input type="search"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'search');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-tel><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state-(type=tel)><code>&lt;input type="tel"></code></a>
+<dt id="input-tel"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state-(type=tel)"><code>&lt;input type="tel"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'tel');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-url><a href=forms.html#type-url><code>&lt;input type="url"></code></a>
+<dt id="input-url"><a href="forms.html#type-url"><code>&lt;input type="url"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'url');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-date><a href=forms.html#type-date><code>&lt;input type="date"></code></a>
+<dt id="input-date"><a href="forms.html#type-date"><code>&lt;input type="date"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'date');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-time><a href=forms.html#type-date><code>&lt;input type="time"></code></a>
+<dt id="input-time"><a href="forms.html#type-date"><code>&lt;input type="time"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'time');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-datetime><a href=forms.html#type-date><code>&lt;input type="datetime"></code></a>
+<dt id="input-datetime"><a href="forms.html#type-date"><code>&lt;input type="datetime"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'datetime');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-datetime-local><a href=forms.html#type-date><code>&lt;input type="datetime-local"></code></a>
+<dt id="input-datetime-local"><a href="forms.html#type-date"><code>&lt;input type="datetime-local"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'datetime-local');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-month><a href=forms.html#type-date><code>&lt;input type="month"></code></a>
+<dt id="input-month"><a href="forms.html#type-date"><code>&lt;input type="month"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'month');
 return i.type !== 'text';</code></pre>
 
-<dt id=input-week><a href=forms.html#type-date><code>&lt;input type="week"></code></a>
+<dt id="input-week"><a href="forms.html#type-date"><code>&lt;input type="week"&gt;</code></a>
 <dd><pre><code>var i = document.createElement('input');
 i.setAttribute('type', 'week');
 return i.type !== 'text';</code></pre>
 
-<dt id=meter><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element><code>&lt;meter></code></a>
+<dt id="meter"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element"><code>&lt;meter&gt;</code></a>
 <dd><code>return 'value' in document.createElement('meter');</code>
 
-<dt id=output><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-output-element><code>&lt;output></code></a>
+<dt id="output"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-output-element"><code>&lt;output&gt;</code></a>
 <dd><code>return 'value' in document.createElement('output');</code>
 
-<dt id=progress><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element><code>&lt;progress></code></a>
+<dt id="progress"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element"><code>&lt;progress&gt;</code></a>
 <dd><code>return 'value' in document.createElement('progress');</code>
 
-<dt id=time><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element><code>&lt;time></code></a>
+<dt id="time"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-time-element"><code>&lt;time&gt;</code></a>
 <dd><code>return 'datetime' in document.createElement('time');</code>
 
-<dt id=video><a href=video.html><code>&lt;video></code></a>
+<dt id="video"><a href="video.html"><code>&lt;video&gt;</code></a>
 <dd><code>return !!document.createElement('video').canPlayType;</code>
 
-<dt id=video-captions><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-track-element><code>&lt;video></code> captions</a>
+<dt id="video-captions"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-track-element"><code>&lt;video&gt;</code> captions</a>
 <dd><code>return 'src' in document.createElement('track');</code>
 
-<dt id=video-poster><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#attr-video-poster"><code>&lt;video poster></code></a>
+<dt id="video-poster"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#attr-video-poster"><code>&lt;video poster&gt;</code></a>
 <dd><code>return 'poster' in document.createElement('video');</code>
 
-<dt id=video-webm><a href=video.html#vp8><code>&lt;video></code> in WebM format</a>
+<dt id="video-webm"><a href="video.html#vp8"><code>&lt;video&gt;</code> in WebM format</a>
 <dd><pre><code>var v = document.createElement('video');
 return !!(v.canPlayType && v.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/no/, ''));</code></pre>
 
-<dt id=video-h264><a href=video.html#h264><code>&lt;video></code> in H.264 format</a>
+<dt id="video-h264"><a href="video.html#h264"><code>&lt;video&gt;</code> in H.264 format</a>
 <dd><pre><code>var v = document.createElement('video');
 return !!(v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, ''));</code></pre>
 
-<dt id=video-theora><a href=video.html#theora><code>&lt;video></code> in Theora format</a>
+<dt id="video-theora"><a href="video.html#theora"><code>&lt;video&gt;</code> in Theora format</a>
 <dd><pre><code>var v = document.createElement('video');
 return !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/no/, ''));</code></pre>
 
-<dt id=contenteditable><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#contenteditable><code>contentEditable</code></a>
+<dt id="contenteditable"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#contenteditable"><code>contentEditable</code></a>
 <dd><code>return 'isContentEditable' in document.createElement('span');</code>
 
-<dt id=postmessage><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/web-messaging.html#web-messaging>Cross-document messaging</a>
+<dt id="postmessage"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/web-messaging.html#web-messaging">Cross-document messaging</a>
 <dd><code>return !!window.postMessage;</code>
 
-<dt id=dnd><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#dnd>Drag-and-drop</a>
+<dt id="dnd"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/dnd.html#dnd">Drag-and-drop</a>
 <dd><code>return 'draggable' in document.createElement('span');</code>
 
-<dt id=filereader><a href=http://dev.w3.org/2006/webapi/FileAPI/>File <abbr>API</abbr></a>
+<dt id="filereader"><a href="http://dev.w3.org/2006/webapi/FileAPI/">File <abbr>API</abbr></a>
 <dd><code>return typeof FileReader != 'undefined';</code>
 
-<dt id=geolocation><a href=geolocation.html>Geolocation</a>
+<dt id="geolocation"><a href="geolocation.html">Geolocation</a>
 <dd><code>return !!navigator.geolocation;</code>
 
-<dt id=history><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-history-interface>History</a>
+<dt id="history"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-history-interface">History</a>
 <dd><code>return !!(window.history && window.history.pushState);</code>
 
-<dt id=storage><a href=http://dev.w3.org/html5/webstorage/#the-localstorage-attribute>Local storage</a>
+<dt id="storage"><a href="http://dev.w3.org/html5/webstorage/#the-localstorage-attribute">Local storage</a>
 <dd><pre><code>try {
   return 'localStorage' in window && window['localStorage'] !== null;
 } catch(e) {
   return false;
 }</code></pre>
 
-<dt id=microdata><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#microdata-dom-api>Microdata</a>
+<dt id="microdata"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#microdata-dom-api">Microdata</a>
 <dd><code>return !!document.getItems;</code>
 
-<dt id=offline><a href=offline.html>Offline web applications</a>
+<dt id="offline"><a href="offline.html">Offline web applications</a>
 <dd><code>return !!window.applicationCache;</code>
 
-<dt id=eventsource><a href=http://dev.w3.org/html5/eventsource/>Server-sent events</a>
+<dt id="eventsource"><a href="http://dev.w3.org/html5/eventsource/">Server-sent events</a>
 <dd><code>return typeof EventSource !== 'undefined';</code>
 
-<dt id=session-storage><a href=http://dev.w3.org/html5/webstorage/#the-sessionstorage-attribute>Session storage</a>
+<dt id="session-storage"><a href="http://dev.w3.org/html5/webstorage/#the-sessionstorage-attribute">Session storage</a>
 <dd><pre><code>try {
   return 'sessionStorage' in window && window['sessionStorage'] !== null;
 } catch(e) {
   return false;
 }</code></pre>
 
-<dt id=svg><a href=http://www.w3.org/TR/SVG/><abbr>SVG</abbr></a>
+<dt id="svg"><a href="http://www.w3.org/TR/SVG/"><abbr>SVG</abbr></a>
 <dd><code>return !!(document.createElementNS && document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);</code>
 
-<dt id=inline-svg><a href=http://hacks.mozilla.org/2010/05/firefox-4-the-html5-parser-inline-svg-speed-and-more/><abbr>SVG</abbr> in <code>text/html</code></a>
+<dt id="inline-svg"><a href="http://hacks.mozilla.org/2010/05/firefox-4-the-html5-parser-inline-svg-speed-and-more/"><abbr>SVG</abbr> in <code>text/html</code></a>
 <dd><pre><code>var e = document.createElement('div');
-e.innerHTML = '&lt;svg>&lt;/svg>';
+e.innerHTML = '&lt;svg&gt;&lt;/svg&gt;';
 return !!(window.SVGSVGElement && e.firstChild instanceof window.SVGSVGElement);</code></pre>
 
-<dt id=undo><a href=http://rniwa.com/editing/undomanager.html>Undo</a>
+<dt id="undo"><a href="http://rniwa.com/editing/undomanager.html">Undo</a>
 <dd><code>return typeof UndoManager !== 'undefined';</code>
 
-<dt id=indexeddb><a href=http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html>IndexedDB</a>
+<dt id="indexeddb"><a href="http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html">IndexedDB</a>
 <dd><code>return !!window.indexedDB;</code>
 
-<dt id=websockets><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
+<dt id="websockets"><a href="http://dev.w3.org/html5/websockets/">Web Sockets</a>
 <dd><code>return !!window.WebSocket;</code>
 
-<dt id=websql><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a>
+<dt id="websql"><a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a>
 <dd><code>return !!window.openDatabase;</code>
 
-<dt id=workers><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
+<dt id="workers"><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a>
 <dd><code>return !!window.Worker;</code>
 
-<dt id=widgets><a href=http://www.w3.org/TR/widgets/>Widgets</a>: am I in one?
+<dt id="widgets"><a href="http://www.w3.org/TR/widgets/">Widgets</a>: am I in one?
 <dd><code>return typeof widget !== 'undefined';</code>
 
-<dt id=xmlhttprequest-withcredentials><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#the-withcredentials-attribute>XMLHttpRequest: cross-domain requests</a>
+<dt id="xmlhttprequest-withcredentials"><a href="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#the-withcredentials-attribute">XMLHttpRequest: cross-domain requests</a>
 <dd><code>return "withCredentials" in new XMLHttpRequest;</code>
 
-<dt id=xmlhttprequest-formdata><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#interface-formdata>XMLHttpRequest: send as form data</a>
+<dt id="xmlhttprequest-formdata"><a href="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#interface-formdata">XMLHttpRequest: send as form data</a>
 <dd><code>return !!window.FormData;</code>
 
-<dt id=xmlhttprequest-upload><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#the-upload-attribute>XMLHttpRequest: upload progress events</a>
+<dt id="xmlhttprequest-upload"><a href="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html#the-upload-attribute">XMLHttpRequest: upload progress events</a>
 <dd><code>return "upload" in new XMLHttpRequest;</code>
 </dl>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <p>Specifications and standards:
 
 <ul>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/><abbr>HTML5</abbr></a>
-<li><a href=http://www.w3.org/TR/geolocation-API/>Geolocation</a>
-<li><a href=http://dev.w3.org/html5/eventsource/>Server-Sent Events</a>
-<li><a href=http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html>IndexedDB</a>
-<li><a href=http://rniwa.com/editing/undomanager.html>UndoManager</a>
-<li><a href=http://dev.w3.org/html5/websockets/>Web Sockets</a>
-<li><a href=http://dev.w3.org/html5/webdatabase/>Web SQL Database</a>
-<li><a href=http://dev.w3.org/html5/webstorage/>Web Storage</a>
-<li><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a>
-<li><a href=http://www.w3.org/TR/widgets/>Widgets</a>
-<li><a href=http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html>XMLHttpRequest</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/"><abbr>HTML5</abbr></a>
+<li><a href="http://www.w3.org/TR/geolocation-API/">Geolocation</a>
+<li><a href="http://dev.w3.org/html5/eventsource/">Server-Sent Events</a>
+<li><a href="http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html">IndexedDB</a>
+<li><a href="http://rniwa.com/editing/undomanager.html">UndoManager</a>
+<li><a href="http://dev.w3.org/html5/websockets/">Web Sockets</a>
+<li><a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a>
+<li><a href="http://dev.w3.org/html5/webstorage/">Web Storage</a>
+<li><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a>
+<li><a href="http://www.w3.org/TR/widgets/">Widgets</a>
+<li><a href="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html">XMLHttpRequest</a>
 </ul>
 
 <p>JavaScript libraries:
 
 <ul>
-<li><a href=http://www.modernizr.com/>Modernizr</a>, an <abbr>HTML5</abbr> detection library
+<li><a href="http://www.modernizr.com/">Modernizr</a>, an <abbr>HTML5</abbr> detection library
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &ldquo;The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything.&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &ldquo;The All-In-One Almost-Alphabetical No-Bullshit Guide to Detecting Everything.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This appendix is included in the paid edition.
-<p>If you liked this appendix and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this appendix and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/dih5.js></script>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="j/jquery.js"></script>
+<script src="j/dih5.js"></script>
 <script>
   $('dt[id]').each(function() {
-    $('<a class=hl>#</a>').
+    $('<a class="hl">#</a>').
     attr('href', '#' + this.id).
     appendTo(this);
   });

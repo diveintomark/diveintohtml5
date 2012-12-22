@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Microdata - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 body{counter-reset:h1 10}
 .st td{vertical-align:top;padding-left:5px}
@@ -20,50 +20,50 @@ pre{padding-left:0}
 table.faketable{border-collapse:collapse}
 .padright{padding-right:18px}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#extensibility>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="index.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#extensibility">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>&ldquo;Distributed,&rdquo;<br>&ldquo;Extensibility,&rdquo;<br>&amp;<br>Other Fancy Words</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Diving In</h2>
+<p id="toc">&nbsp;
+<p class="a">&#x2767;
+<h2 id="divingin">Diving In</h2>
 
-<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>here are <a href=http://simon.html5.org/html5-elements>over 100 elements</a> in <abbr>HTML5</abbr>. Some are <a href=semantics.html>purely semantic</a>, others are <a href=canvas.html>just containers for scripted <abbr>APIs</abbr></a>. Throughout <a href=past.html>the history of <abbr>HTML</abbr></a>, standards wonks have argued about which elements should be included in the language. Should <abbr>HTML</abbr> include a <code>&lt;figure></code> element? A <code>&lt;person></code> element? How about a <code>&lt;rant></code> element? Decisions are made, specs are written, authors author, implementors implement, and the web lurches ever forward.
+<p class="f"><img src="i/aoc-t.png" alt="T" width="107" height="105">here are <a href="http://simon.html5.org/html5-elements">over 100 elements</a> in <abbr>HTML5</abbr>. Some are <a href="semantics.html">purely semantic</a>, others are <a href="canvas.html">just containers for scripted <abbr>APIs</abbr></a>. Throughout <a href="past.html">the history of <abbr>HTML</abbr></a>, standards wonks have argued about which elements should be included in the language. Should <abbr>HTML</abbr> include a <code>&lt;figure&gt;</code> element? A <code>&lt;person&gt;</code> element? How about a <code>&lt;rant&gt;</code> element? Decisions are made, specs are written, authors author, implementors implement, and the web lurches ever forward.
 
-<p>Of course, <abbr>HTML</abbr> can&rsquo;t please everyone. No standard can. Some ideas don&rsquo;t make the cut. For example, there is no <code>&lt;person></code> element in <abbr>HTML5</abbr>. (There&rsquo;s no <code>&lt;rant></code> element either, damn it!) There&rsquo;s nothing stopping you from including a <code>&lt;person></code> element in a web page, but <a href=http://html5.validator.nu/>it won&rsquo;t validate</a>, <a href=semantics.html#unknown-elements>it won&rsquo;t work consistently across browsers</a>, and it might conflict with future <abbr>HTML</abbr> specs if we want to add it later.
+<p>Of course, <abbr>HTML</abbr> can&rsquo;t please everyone. No standard can. Some ideas don&rsquo;t make the cut. For example, there is no <code>&lt;person&gt;</code> element in <abbr>HTML5</abbr>. (There&rsquo;s no <code>&lt;rant&gt;</code> element either, damn it!) There&rsquo;s nothing stopping you from including a <code>&lt;person&gt;</code> element in a web page, but <a href="http://html5.validator.nu/">it won&rsquo;t validate</a>, <a href="semantics.html#unknown-elements">it won&rsquo;t work consistently across browsers</a>, and it might conflict with future <abbr>HTML</abbr> specs if we want to add it later.
 
-<p>Right, so if making up your own elements isn&rsquo;t the answer, what&rsquo;s a semantically inclined web author to do? There have been attempts to extend previous versions of <abbr>HTML</abbr>. The most popular method is <a href=http://microformats.org/>microformats</a>, which uses the <code>class</code> and <code>rel</code> attributes in <abbr>HTML</abbr>. Another option is <a href=http://www.w3.org/TR/rdfa-syntax/>RDFa</a>, which was originally designed to be used in <a href=past.html#postscript><abbr>XHTML</abbr></a> but has <a href=http://www.w3.org/TR/rdfa-in-html/>been ported to <abbr>HTML</abbr></a> as well.
+<p>Right, so if making up your own elements isn&rsquo;t the answer, what&rsquo;s a semantically inclined web author to do? There have been attempts to extend previous versions of <abbr>HTML</abbr>. The most popular method is <a href="http://microformats.org/">microformats</a>, which uses the <code>class</code> and <code>rel</code> attributes in <abbr>HTML</abbr>. Another option is <a href="http://www.w3.org/TR/rdfa-syntax/">RDFa</a>, which was originally designed to be used in <a href="past.html#postscript"><abbr>XHTML</abbr></a> but has <a href="http://www.w3.org/TR/rdfa-in-html/">been ported to <abbr>HTML</abbr></a> as well.
 
-<p>Microformats and <abbr>RDFa</abbr> each have their strengths and weaknesses. They take radically different approaches towards the same goal: extending web pages with additional semantics that are not part of the core <abbr>HTML</abbr> language. I don&rsquo;t intend to turn this chapter into a format flamewar. (That would definitely require a <code>&lt;rant></code> element!) Instead, I want to focus on a third option developed using lessons learned from microformats and RDFa, and designed to be integrated into <abbr>HTML5</abbr> itself: microdata.
+<p>Microformats and <abbr>RDFa</abbr> each have their strengths and weaknesses. They take radically different approaches towards the same goal: extending web pages with additional semantics that are not part of the core <abbr>HTML</abbr> language. I don&rsquo;t intend to turn this chapter into a format flamewar. (That would definitely require a <code>&lt;rant&gt;</code> element!) Instead, I want to focus on a third option developed using lessons learned from microformats and RDFa, and designed to be integrated into <abbr>HTML5</abbr> itself: microdata.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=what-is-microdata>What is Microdata?</h2>
+<h2 id="what-is-microdata">What is Microdata?</h2>
 
 <p>Each word in the following sentence is important, so pay attention.
 
-<div class=pf>
+<div class="pf">
 <h4>Professor Markup Says</h4>
-<div class=inner>
+<div class="inner">
 <blockquote>
 <p>Microdata annotates the <abbr>DOM</abbr> with scoped name/value pairs from custom vocabularies.
 </blockquote>
 </div>
 </div>
 
-<p>Now what does that mean? Let&rsquo;s start from the end and work backwards. Microdata centers around custom vocabularies. Think of &ldquo;the set of all <abbr>HTML5</abbr> elements&rdquo; as one vocabulary. This vocabulary includes elements to represent <a href=semantics.html#new-elements>a section or an article</a>, but it doesn&rsquo;t include elements to represent a person or an event. If you want to represent a person on a web page, you&rsquo;ll need to define your own vocabulary. Microdata lets you do this. Anyone can define a microdata vocabulary and start embedding custom properties in their own web pages.
+<p>Now what does that mean? Let&rsquo;s start from the end and work backwards. Microdata centers around custom vocabularies. Think of &ldquo;the set of all <abbr>HTML5</abbr> elements&rdquo; as one vocabulary. This vocabulary includes elements to represent <a href="semantics.html#new-elements">a section or an article</a>, but it doesn&rsquo;t include elements to represent a person or an event. If you want to represent a person on a web page, you&rsquo;ll need to define your own vocabulary. Microdata lets you do this. Anyone can define a microdata vocabulary and start embedding custom properties in their own web pages.
 
 <p>The next thing to know about microdata is that it works with name/value pairs. Every microdata vocabulary defines a set of named properties. For example, a Person vocabulary could define properties like <code>name</code> and <code>photo</code>. To include a specific microdata property on your web page, you provide the property name in a specific place. Depending on where you declare the property name, microdata has rules about how to extract the property value. (More on this in the next section.)
 
-<p>Along with named properties, microdata relies heavily on the concept of &ldquo;scoping.&rdquo; The simplest way to think of microdata scoping is to think about the natural parent-child relationship of elements in the <abbr>DOM</abbr>. The <a href=semantics.html#html-element><code>&lt;html></code></a> element usually contains two children, <a href=semantics.html#head-element><code>&lt;head></code></a> and <code>&lt;body></code>. The <code>&lt;body></code> element usually contains multiple children, each of which may have child elements of their own. For example, your page might include an <code>&lt;h1></code> element within an <code>&lt;hgroup></code> element within a <a href=semantics.html#header-element><code>&lt;header></code></a> element within the <code>&lt;body></code> element. A data table might contain <code>&lt;td></code> within <code>&lt;tr></code> within <code>&lt;table></code> (within <code>&lt;body></code>). Microdata re-uses the hierarchical structure of the <abbr>DOM</abbr> itself to provide a way to say &ldquo;all the properties within <em>this</em> element are taken from <em>this</em> vocabulary.&rdquo; This allows you to use more than one microdata vocabulary on the same page. You can even nest microdata vocabularies within other vocabularies, all by re-using the natural structure of the <abbr>DOM</abbr>. (I&rsquo;ll show multiple examples of nested vocabularies throughout this chapter.)
+<p>Along with named properties, microdata relies heavily on the concept of &ldquo;scoping.&rdquo; The simplest way to think of microdata scoping is to think about the natural parent-child relationship of elements in the <abbr>DOM</abbr>. The <a href="semantics.html#html-element"><code>&lt;html&gt;</code></a> element usually contains two children, <a href="semantics.html#head-element"><code>&lt;head&gt;</code></a> and <code>&lt;body&gt;</code>. The <code>&lt;body&gt;</code> element usually contains multiple children, each of which may have child elements of their own. For example, your page might include an <code>&lt;h1&gt;</code> element within an <code>&lt;hgroup&gt;</code> element within a <a href="semantics.html#header-element"><code>&lt;header&gt;</code></a> element within the <code>&lt;body&gt;</code> element. A data table might contain <code>&lt;td&gt;</code> within <code>&lt;tr&gt;</code> within <code>&lt;table&gt;</code> (within <code>&lt;body&gt;</code>). Microdata re-uses the hierarchical structure of the <abbr>DOM</abbr> itself to provide a way to say &ldquo;all the properties within <em>this</em> element are taken from <em>this</em> vocabulary.&rdquo; This allows you to use more than one microdata vocabulary on the same page. You can even nest microdata vocabularies within other vocabularies, all by re-using the natural structure of the <abbr>DOM</abbr>. (I&rsquo;ll show multiple examples of nested vocabularies throughout this chapter.)
 
 <p>Now, I&rsquo;ve already touched on the <abbr>DOM</abbr>, but let me elaborate on that. Microdata is about applying additional semantics to <em>data that&rsquo;s already visible on your web page</em>. Microdata is not designed to be a standalone data format. It&rsquo;s a complement to <abbr>HTML</abbr>. As you&rsquo;ll see in the next section, microdata works best when you&rsquo;re already using <abbr>HTML</abbr> correctly, but the <abbr>HTML</abbr> vocabulary isn&rsquo;t quite expressive enough. Microdata is great for fine-tuning the semantics of data that&rsquo;s already in the <abbr>DOM</abbr>. If the data you&rsquo;re <span title="I totally just made that up">semanti-fying</span> isn&rsquo;t in the <abbr>DOM</abbr>, you should step back and re-evaluate whether microdata is the right solution.
 
 <p>Does this sentence make more sense now? &ldquo;Microdata annotates the <abbr>DOM</abbr> with scoped name/value pairs from custom vocabularies.&rdquo; I hope so. Let&rsquo;s see it in action.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=data-model>The Microdata Data Model</h2>
+<h2 id="data-model">The Microdata Data Model</h2>
 
 <p>Defining your own microdata vocabulary is easy. First, you need a namespace, which is just a <abbr>URL</abbr>. The namespace <abbr>URL</abbr> could actually point to a working web page, although that&rsquo;s not strictly required. Let&rsquo;s say I want to create a microdata vocabulary that describes a person. If I own the <code>data-vocabulary.org</code> domain, I&rsquo;ll use the <abbr>URL</abbr> <code>http://data-vocabulary.org/Person</code> as the namespace for my microdata vocabulary. That&rsquo;s an easy way to create a globally unique identifier: pick a <abbr>URL</abbr> on a domain that you control.
 
@@ -75,204 +75,204 @@ table.faketable{border-collapse:collapse}
 <li><code>url</code> (a link to a site associated with you, like a weblog or a Google profile)
 </ul>
 
-<p>Some of these properties are <abbr>URLs</abbr>, others are plain text. Each of them lends itself to a natural form of markup, even before you start thinking about microdata or vocabularies or whatnot. Imagine that you have a profile page or an &ldquo;about&rdquo; page. Your name is probably marked up as a heading, like an <code>&lt;h1></code> element. Your photo is probably an <code>&lt;img></code> element, since you want people to see it. And any <abbr>URL</abbr>s associated your profile are probably already marked up as hyperlinks, because you want people to be able to click them. For the sake of discussion, let&rsquo;s say your entire profile is also wrapped in a <code>&lt;section></code> element to separate it from the rest of the page content. Thus:
+<p>Some of these properties are <abbr>URLs</abbr>, others are plain text. Each of them lends itself to a natural form of markup, even before you start thinking about microdata or vocabularies or whatnot. Imagine that you have a profile page or an &ldquo;about&rdquo; page. Your name is probably marked up as a heading, like an <code>&lt;h1&gt;</code> element. Your photo is probably an <code>&lt;img&gt;</code> element, since you want people to see it. And any <abbr>URL</abbr>s associated your profile are probably already marked up as hyperlinks, because you want people to be able to click them. For the sake of discussion, let&rsquo;s say your entire profile is also wrapped in a <code>&lt;section&gt;</code> element to separate it from the rest of the page content. Thus:
 
-<p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> It&rsquo;s all about me
-<pre><code>&lt;section>
-  &lt;h1>Mark Pilgrim&lt;/h1>
-  &lt;p>&lt;img src="http://www.example.com/photo.jpg" alt="[me smiling]">&lt;/p>
-  &lt;p>&lt;a href="http://diveintomark.org/">weblog&lt;/a>&lt;/p>
-&lt;/section></code></pre>
+<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> It&rsquo;s all about me
+<pre><code>&lt;section&gt;
+  &lt;h1&gt;Mark Pilgrim&lt;/h1&gt;
+  &lt;p&gt;&lt;img src="http://www.example.com/photo.jpg" alt="[me smiling]"&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="http://diveintomark.org/"&gt;weblog&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;</code></pre>
 
 <p>Microdata&rsquo;s data model is name/value pairs. A microdata property name (like <code>name</code> or <code>photo</code> or <code>url</code> in this example) is always declared on an <abbr>HTML</abbr> element. The corresponding property value is then taken from the element&rsquo;s <abbr>DOM</abbr>. For most <abbr>HTML</abbr> elements, the property value is simply the text content of the element. But there are a handful of exceptions.
 
-<table id=property-values class=st>
+<table id="property-values" class="st">
 <caption>Where Do Microdata Property Values Come From?</caption>
-<tr class=ho><th>Element<th>Value
-<tr class=zebra><td><code>&lt;meta></code><td><code>content</code> attribute
-<tr><td><ul><li><code>&lt;audio></code><li><code>&lt;embed></code><li><code>&lt;iframe></code><li><code>&lt;img></code><li><code>&lt;source></code><li><code>&lt;video></code></ul><td><code>src</code> attribute
-<tr class=zebra><td><ul><li><code>&lt;a></code><li><code>&lt;area></code><li><code>&lt;link></code></ul><td><code>href</code> attribute
-<tr><td><code>&lt;object></code><td><code>data</code> attribute
-<tr class=zebra><td><code>&lt;time></code><td><code>datetime</code> attribute
+<tr class="ho"><th>Element<th>Value
+<tr class="zebra"><td><code>&lt;meta&gt;</code><td><code>content</code> attribute
+<tr><td><ul><li><code>&lt;audio&gt;</code><li><code>&lt;embed&gt;</code><li><code>&lt;iframe&gt;</code><li><code>&lt;img&gt;</code><li><code>&lt;source&gt;</code><li><code>&lt;video&gt;</code></ul><td><code>src</code> attribute
+<tr class="zebra"><td><ul><li><code>&lt;a&gt;</code><li><code>&lt;area&gt;</code><li><code>&lt;link&gt;</code></ul><td><code>href</code> attribute
+<tr><td><code>&lt;object&gt;</code><td><code>data</code> attribute
+<tr class="zebra"><td><code>&lt;time&gt;</code><td><code>datetime</code> attribute
 <tr><td>all other elements<td>text content
 </table>
 
-<p>&ldquo;Adding microdata&rdquo; to your page is a matter of adding a few attributes to the <abbr>HTML</abbr> elements you already have. The first thing you always do is declare which microdata vocabulary you&rsquo;re using, by adding an <code>itemtype</code> attribute. The second thing you always do is declare the scope of the vocabulary, using an <code>itemscope</code> attribute. In this example, all the data we want to semanti-fy is in a <code>&lt;section></code> element, so we&rsquo;ll declare the <code>itemtype</code> and <code>itemscope</code> attributes on the <code>&lt;section></code> element.
+<p>&ldquo;Adding microdata&rdquo; to your page is a matter of adding a few attributes to the <abbr>HTML</abbr> elements you already have. The first thing you always do is declare which microdata vocabulary you&rsquo;re using, by adding an <code>itemtype</code> attribute. The second thing you always do is declare the scope of the vocabulary, using an <code>itemscope</code> attribute. In this example, all the data we want to semanti-fy is in a <code>&lt;section&gt;</code> element, so we&rsquo;ll declare the <code>itemtype</code> and <code>itemscope</code> attributes on the <code>&lt;section&gt;</code> element.
 
-<pre><code>  &lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
+<pre><code>  &lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>&gt;</code></pre>
 
-<p>Your name is the first bit of data within the <code>&lt;section></code> element. It&rsquo;s wrapped in an <code>&lt;h1></code> element. The <code>&lt;h1></code> element doesn&rsquo;t have any special processing in the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, so it falls under the &ldquo;all other elements&rdquo; rule where the microdata property value is simply the text content of an element. (This would work equally well if your name was wrapped in a <code>&lt;p></code>, <code>&lt;div></code>, or <code>&lt;span></code> element.)
+<p>Your name is the first bit of data within the <code>&lt;section&gt;</code> element. It&rsquo;s wrapped in an <code>&lt;h1&gt;</code> element. The <code>&lt;h1&gt;</code> element doesn&rsquo;t have any special processing in the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, so it falls under the &ldquo;all other elements&rdquo; rule where the microdata property value is simply the text content of an element. (This would work equally well if your name was wrapped in a <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, or <code>&lt;span&gt;</code> element.)
 
-<pre><code>  &lt;h1 <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/h1></code></pre>
+<pre><code>  &lt;h1 <mark>itemprop="name"</mark>&gt;Mark Pilgrim&lt;/h1&gt;</code></pre>
 
 <p>In English, this says &ldquo;here is the <code>name</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>Mark Pilgrim</code>.&rdquo;
 
-<p id=person-photo>Next up: the <code>photo</code> property. This is supposed to be a <abbr>URL</abbr>. According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the &ldquo;value&rdquo; of an <code>&lt;img></code> element is its <code>src</code> attribute. Hey look, the <abbr>URL</abbr> of your profile photo is already in an <code>&lt;img src></code> attribute. All you need to do is declare that the <code>&lt;img></code> element is the <code>photo</code> property.
+<p id="person-photo">Next up: the <code>photo</code> property. This is supposed to be a <abbr>URL</abbr>. According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, the &ldquo;value&rdquo; of an <code>&lt;img&gt;</code> element is its <code>src</code> attribute. Hey look, the <abbr>URL</abbr> of your profile photo is already in an <code>&lt;img src&gt;</code> attribute. All you need to do is declare that the <code>&lt;img&gt;</code> element is the <code>photo</code> property.
 
 <pre><code>  &lt;p>&lt;img <mark>itemprop="photo"</mark>
           src="http://www.example.com/photo.jpg"
-          alt="[me smiling]">&lt;/p></code></pre>
+          alt="[me smiling]">&lt;/p&gt;</code></pre>
 
 <p>In English, this says &ldquo;here is the <code>photo</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>http://www.example.com/photo.jpg</code>.
 
-<p>Finally, the <code>url</code> property is also a <abbr>URL</abbr>. According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the &ldquo;value&rdquo; of an <code>&lt;a></code> element is its <code>href</code> attribute. And once again, this fits perfectly with your existing markup. All you need to do is say that your existing <code>&lt;a></code> element is the <code>url</code> property:
+<p>Finally, the <code>url</code> property is also a <abbr>URL</abbr>. According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, the &ldquo;value&rdquo; of an <code>&lt;a&gt;</code> element is its <code>href</code> attribute. And once again, this fits perfectly with your existing markup. All you need to do is say that your existing <code>&lt;a&gt;</code> element is the <code>url</code> property:
 
-<pre><code>  &lt;a <mark>itemprop="url"</mark> href="http://diveintomark.org/">dive into mark&lt;/a></code></pre>
+<pre><code>  &lt;a <mark>itemprop="url"</mark> href="http://diveintomark.org/">dive into mark&lt;/a&gt;</code></pre>
 
 <p>In English, this says &ldquo;here is the <code>url</code> property of the <code>http://data-vocabulary.org/Person</code> vocabulary, and the value of the property is <code>http://diveintomark.org/</code>.
 
 <p>Of course, if your markup looks a little different, that&rsquo;s not a problem. You can add microdata properties and values to any <abbr>HTML</abbr> markup, even really gnarly 20th-century-era, tables-for-layout, Oh-God-why-did-I-agree-to-maintain-this markup. While I don&rsquo;t recommend this kind of markup, it is still common, and you can still add microdata to it.
 
-<p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> For the love of God, don&rsquo;t do this
-<pre><code>&lt;TABLE>
-  &lt;TR>&lt;TD>Name&lt;TD>Mark Pilgrim
-  &lt;TR>&lt;TD>Link&lt;TD>
-    &lt;A href=# onclick=goExternalLink()>http://diveintomark.org/&lt;/A>
-&lt;/TABLE></code></pre>
+<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> For the love of God, don&rsquo;t do this
+<pre><code>&lt;TABLE&gt;
+  &lt;TR&gt;&lt;TD&gt;Name&lt;TD&gt;Mark Pilgrim
+  &lt;TR&gt;&lt;TD&gt;Link&lt;TD&gt;
+    &lt;A href=# onclick=goExternalLink()&gt;http://diveintomark.org/&lt;/A&gt;
+&lt;/TABLE&gt;</code></pre>
 
 <p>For marking up the <code>name</code> property, just add an <code>itemprop</code> attribute on the table cell that contains the name. Table cells have no special rules in the microdata property value table, so they get the default value, &ldquo;the microdata property is the text content.&rdquo;
 
-<pre><code>  &lt;TR>&lt;TD>Name&lt;TD <mark>itemprop="name"</mark>>Mark Pilgrim</code></pre>
+<pre><code>  &lt;TR&gt;&lt;TD&gt;Name&lt;TD <mark>itemprop="name"</mark>&gt;Mark Pilgrim</code></pre>
 
-<p>Adding the <code>url</code> property looks trickier. This markup doesn&rsquo;t use the <code>&lt;a></code> element properly. Instead of putting the link target in the <code>href</code> attribute, it has nothing useful in the <code>href</code> attribute and uses Javascript in the <code>onclick</code> attribute to call a function (not shown) that extracts the <abbr>URL</abbr> and navigates to it. For extra &ldquo;holy fuck, please stop doing that&rdquo; bonus points, let&rsquo;s pretend that the function also opens the link in a tiny popup window with no scroll bars. Wasn&rsquo;t the internet fun last century?
+<p>Adding the <code>url</code> property looks trickier. This markup doesn&rsquo;t use the <code>&lt;a&gt;</code> element properly. Instead of putting the link target in the <code>href</code> attribute, it has nothing useful in the <code>href</code> attribute and uses Javascript in the <code>onclick</code> attribute to call a function (not shown) that extracts the <abbr>URL</abbr> and navigates to it. For extra &ldquo;holy fuck, please stop doing that&rdquo; bonus points, let&rsquo;s pretend that the function also opens the link in a tiny popup window with no scroll bars. Wasn&rsquo;t the internet fun last century?
 
-<p>Anyway, you can still convert this into a microdata property, you just need to be a little creative. Using the <code>&lt;a></code> element directly is out of the question. The link target isn&rsquo;t in the <code>href</code> attribute, and there&rsquo;s no way to override the rule that says &ldquo;in an <code>&lt;a></code> element, look for the microdata property value in the <code>href</code> attribute.&rdquo; But you <em>can</em> add a wrapper element around the entire mess, and use that to add the <code>url</code> microdata property.
+<p>Anyway, you can still convert this into a microdata property, you just need to be a little creative. Using the <code>&lt;a&gt;</code> element directly is out of the question. The link target isn&rsquo;t in the <code>href</code> attribute, and there&rsquo;s no way to override the rule that says &ldquo;in an <code>&lt;a&gt;</code> element, look for the microdata property value in the <code>href</code> attribute.&rdquo; But you <em>can</em> add a wrapper element around the entire mess, and use that to add the <code>url</code> microdata property.
 
-<p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> This is what you get for subverting HTML
-<pre><code>&lt;TABLE itemscope itemtype="http://data-vocabulary.org/Person">
-  &lt;TR>&lt;TD>Name&lt;TD>Mark Pilgrim
-  &lt;TR>&lt;TD>Link&lt;TD>
-    <mark>&lt;span itemprop="url"></mark>
-      &lt;A href=# onclick=goExternalLink()>http://diveintomark.org/&lt;/A>
-    <mark>&lt;/span></mark>
-&lt;/TABLE></code></pre>
+<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> This is what you get for subverting HTML
+<pre><code>&lt;TABLE itemscope itemtype="http://data-vocabulary.org/Person"&gt;
+  &lt;TR&gt;&lt;TD&gt;Name&lt;TD&gt;Mark Pilgrim
+  &lt;TR&gt;&lt;TD&gt;Link&lt;TD&gt;
+    <mark>&lt;span itemprop="url"&gt;</mark>
+      &lt;A href=# onclick=goExternalLink()&gt;http://diveintomark.org/&lt;/A&gt;
+    <mark>&lt;/span&gt;</mark>
+&lt;/TABLE&gt;</code></pre>
 
-<p>Since the <code>&lt;span></code> element has no special processing, it uses the default rule, &ldquo;the microdata property is the text content.&rdquo; &ldquo;Text content&rdquo; doesn&rsquo;t mean &ldquo;all the markup inside this element&rdquo; (like you would get with, say, the <code>innerHTML</code> <abbr>DOM</abbr> property). It means &ldquo;just the text, ma&rsquo;am.&rdquo; In this case, <code>http://diveintomark.org/</code>, the text content of the <code>&lt;a></code> element inside the <code>&lt;span></code> element.
+<p>Since the <code>&lt;span&gt;</code> element has no special processing, it uses the default rule, &ldquo;the microdata property is the text content.&rdquo; &ldquo;Text content&rdquo; doesn&rsquo;t mean &ldquo;all the markup inside this element&rdquo; (like you would get with, say, the <code>innerHTML</code> <abbr>DOM</abbr> property). It means &ldquo;just the text, ma&rsquo;am.&rdquo; In this case, <code>http://diveintomark.org/</code>, the text content of the <code>&lt;a&gt;</code> element inside the <code>&lt;span&gt;</code> element.
 
 <p>To sum up: you can add microdata properties to any markup. If you&rsquo;re using <abbr>HTML</abbr> correctly, you&rsquo;ll find it easier to add microdata than if your <abbr>HTML</abbr> markup sucks, but it can always be done.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=person>Marking Up People</h2>
+<h2 id="person">Marking Up People</h2>
 
 <p>By the way, the starter examples in the previous section weren&rsquo;t completely made up. There really is a microdata vocabulary for marking up information about people, and it really is that easy. Let&rsquo;s take a closer look.
 
-<p>The easiest way to integrate microdata into a personal website is on your &ldquo;about&rdquo; page. You <em>do</em> have an &ldquo;about&rdquo; page, don&rsquo;t you? If not, you can follow along as I extend <a href=examples/person.html>this sample &ldquo;about&rdquo; page</a> with additional semantics. The final result is here: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>.
+<p>The easiest way to integrate microdata into a personal website is on your &ldquo;about&rdquo; page. You <em>do</em> have an &ldquo;about&rdquo; page, don&rsquo;t you? If not, you can follow along as I extend <a href="examples/person.html">this sample &ldquo;about&rdquo; page</a> with additional semantics. The final result is here: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>.
 
 <p>Let&rsquo;s look at the raw markup first, before any microdata properties have been added:
 
-<pre><code>&lt;section>
+<pre><code>&lt;section&gt;
   &lt;img width="204" height="250"
        src="http://diveintohtml5.info/examples/2000_05_mark.jpg"
-       alt="[Mark Pilgrim, circa 2000]">
+       alt="[Mark Pilgrim, circa 2000]"&gt;
 
-  &lt;h1>Contact Information&lt;/h1>
-  &lt;dl>
-    &lt;dt>Name&lt;/dt>
-    &lt;dd>Mark Pilgrim&lt;/dd>
+  &lt;h1&gt;Contact Information&lt;/h1&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Name&lt;/dt&gt;
+    &lt;dd&gt;Mark Pilgrim&lt;/dd&gt;
 
-    &lt;dt>Position&lt;/dt>
-    &lt;dd>Developer advocate for Google, Inc.&lt;/dd>
-  
-    &lt;dt>Mailing address&lt;/dt>
-    &lt;dd>
-      100 Main Street&lt;br>
-      Anytown, PA 19999&lt;br>
+    &lt;dt&gt;Position&lt;/dt&gt;
+    &lt;dd&gt;Developer advocate for Google, Inc.&lt;/dd&gt;
+
+    &lt;dt&gt;Mailing address&lt;/dt&gt;
+    &lt;dd&gt;
+      100 Main Street&lt;br&gt;
+      Anytown, PA 19999&lt;br&gt;
       USA
-    &lt;/dd>
-  &lt;/dl>
-  &lt;h1>My Digital Footprints&lt;/h1>
-  &lt;ul>
-    &lt;li>&lt;a href="http://diveintomark.org/">weblog&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://www.google.com/profiles/pilgrim">Google profile&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://www.reddit.com/user/MarkPilgrim">Reddit.com profile&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://www.twitter.com/diveintomark">Twitter&lt;/a>&lt;/li>
-  &lt;/ul>
-&lt;/section>    
+    &lt;/dd&gt;
+  &lt;/dl&gt;
+  &lt;h1&gt;My Digital Footprints&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="http://diveintomark.org/"&gt;weblog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://www.google.com/profiles/pilgrim"&gt;Google profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://www.reddit.com/user/MarkPilgrim"&gt;Reddit.com profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://www.twitter.com/diveintomark"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;
 </code></pre>
 
-<p>The first thing you always need to do is declare the vocabulary you&rsquo;re using, and the scope of the properties you want to add. You do this by adding the <code>itemtype</code> and <code>itemscope</code> attributes on the outermost element that contains the other elements that contain the actual data. In this case, that&rsquo;s a <code>&lt;section></code> element.
+<p>The first thing you always need to do is declare the vocabulary you&rsquo;re using, and the scope of the properties you want to add. You do this by adding the <code>itemtype</code> and <code>itemscope</code> attributes on the outermost element that contains the other elements that contain the actual data. In this case, that&rsquo;s a <code>&lt;section&gt;</code> element.
 
-<pre><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>></code></pre>
+<pre><code>&lt;section <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Person"</mark>&gt;</code></pre>
 
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
-<p>Now you can start defining microdata properties from the <code>http://data-vocabulary.org/Person</code> vocabulary. But what are those properties? As it happens, you can see the list of properties by navigating to <a href=http://data-vocabulary.org/Person>data-vocabulary.org/Person</a> in your browser. The microdata specification does not require this, but I&rsquo;d say it&rsquo;s certainly a &ldquo;best practice.&rdquo; After all, if you want developers to actually <em>use</em> your microdata vocabulary, you need to document it. And where better to put your documentation than the vocabulary <abbr>URL</abbr> itself?
+<p>Now you can start defining microdata properties from the <code>http://data-vocabulary.org/Person</code> vocabulary. But what are those properties? As it happens, you can see the list of properties by navigating to <a href="http://data-vocabulary.org/Person">data-vocabulary.org/Person</a> in your browser. The microdata specification does not require this, but I&rsquo;d say it&rsquo;s certainly a &ldquo;best practice.&rdquo; After all, if you want developers to actually <em>use</em> your microdata vocabulary, you need to document it. And where better to put your documentation than the vocabulary <abbr>URL</abbr> itself?
 
-<table class=st>
+<table class="st">
 <caption>Person vocabulary</caption>
-<tr class=ho><th>Property<th>Description
-<tr class=zebra><td><code>name</code><td>Name
+<tr class="ho"><th>Property<th>Description
+<tr class="zebra"><td><code>name</code><td>Name
 <tr><td><code>nickname</code><td>Nickname
-<tr class=zebra><td><code>photo</code><td>An image link
+<tr class="zebra"><td><code>photo</code><td>An image link
 <tr><td><code>title</code><td>The person&rsquo;s title (for example, &ldquo;Financial Manager&rdquo;)
-<tr class=zebra><td><code>role</code><td>The person&rsquo;s role (for example, &ldquo;Accountant&rdquo;)
+<tr class="zebra"><td><code>role</code><td>The person&rsquo;s role (for example, &ldquo;Accountant&rdquo;)
 <tr><td><code>url</code><td>Link to a web page, such as the person&rsquo;s home page
-<tr class=zebra><td><code>affiliation</code><td>The name of an organization with which the person is associated (for example, an employer)
+<tr class="zebra"><td><code>affiliation</code><td>The name of an organization with which the person is associated (for example, an employer)
 <tr><td><code>friend</code><td>Identifies a social relationship between the person described and another person
-<tr class=zebra><td><code>contact</code><td>Identifies a social relationship between the person described and another person
+<tr class="zebra"><td><code>contact</code><td>Identifies a social relationship between the person described and another person
 <tr><td><code>acquaintance</code><td>Identifies a social relationship between the person described and another person
-<tr class=zebra><td><code>address</code><td>The location of the person. Can have the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
+<tr class="zebra"><td><code>address</code><td>The location of the person. Can have the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
 </table>
 
-<p>The first thing in <a href=examples/person-plus-microdata.html>this sample &ldquo;about&rdquo; page</a> is a picture of me. Naturally, it&rsquo;s marked up with an <code>&lt;img></code> element. To declare that this <code>&lt;img></code> element is my profile picture, all we need to do is add <code>itemprop="photo"</code> to the <code>&lt;img></code> element.
+<p>The first thing in <a href="examples/person-plus-microdata.html">this sample &ldquo;about&rdquo; page</a> is a picture of me. Naturally, it&rsquo;s marked up with an <code>&lt;img&gt;</code> element. To declare that this <code>&lt;img&gt;</code> element is my profile picture, all we need to do is add <code>itemprop="photo"</code> to the <code>&lt;img&gt;</code> element.
 
 <pre><code>  &lt;img <mark>itemprop="photo"</mark> width="204" height="250"
       src="http://diveintohtml5.info/examples/2000_05_mark.jpg"
       alt="[Mark Pilgrim, circa 2000]"></code></pre>
 
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
-<p>Where&rsquo;s the microdata property value? It&rsquo;s already there, in the <code>src</code> attribute. If you recall from the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the &ldquo;value&rdquo; of an <code>&lt;img></code> element is its <code>src</code> attribute. Every <code>&lt;img></code> element has a <code>src</code> attribute &mdash; otherwise it would just be a broken image &mdash; and the <code>src</code> is always a <abbr>URL</abbr>. See? If you&rsquo;re using <abbr>HTML</abbr> correctly, microdata is easy.
+<p>Where&rsquo;s the microdata property value? It&rsquo;s already there, in the <code>src</code> attribute. If you recall from the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, the &ldquo;value&rdquo; of an <code>&lt;img&gt;</code> element is its <code>src</code> attribute. Every <code>&lt;img&gt;</code> element has a <code>src</code> attribute &mdash; otherwise it would just be a broken image &mdash; and the <code>src</code> is always a <abbr>URL</abbr>. See? If you&rsquo;re using <abbr>HTML</abbr> correctly, microdata is easy.
 
-<p>Furthermore, this <code>&lt;img></code> element isn&rsquo;t alone on the page. It&rsquo;s a child element of the <code>&lt;section></code> element, the one we just declared with the <code>itemscope</code> attribute. Microdata reuses the parent-child relationship of elements on the page to define the scoping of microdata properties. In plain English, we&rsquo;re saying, &ldquo;This <code>&lt;section></code> element represents a person. Any microdata properties you might find on the children of the <code>&lt;section></code> element are properties of that person.&rdquo; If it helps, you can think of the <code>&lt;section></code> element has the subject of a sentence. The <code>itemprop</code> attribute represents the verb of the sentence, something like &ldquo;is pictured at.&rdquo; The microdata property value represents the object of the sentence.
+<p>Furthermore, this <code>&lt;img&gt;</code> element isn&rsquo;t alone on the page. It&rsquo;s a child element of the <code>&lt;section&gt;</code> element, the one we just declared with the <code>itemscope</code> attribute. Microdata reuses the parent-child relationship of elements on the page to define the scoping of microdata properties. In plain English, we&rsquo;re saying, &ldquo;This <code>&lt;section&gt;</code> element represents a person. Any microdata properties you might find on the children of the <code>&lt;section&gt;</code> element are properties of that person.&rdquo; If it helps, you can think of the <code>&lt;section&gt;</code> element has the subject of a sentence. The <code>itemprop</code> attribute represents the verb of the sentence, something like &ldquo;is pictured at.&rdquo; The microdata property value represents the object of the sentence.
 
 <blockquote>
-<p>This person [explicit, from <code>&lt;section itemscope itemtype="..."></code>]
-<p>is pictured at [explicit, from <code>&lt;img itemprop="photo"></code>]
-<p><code>http://diveintohtml5.info/examples/2000_05_mark.jpg</code> [implicit, from <code>&lt;img src></code> attribute]
+<p>This person [explicit, from <code>&lt;section itemscope itemtype="..."&gt;</code>]
+<p>is pictured at [explicit, from <code>&lt;img itemprop="photo"&gt;</code>]
+<p><code>http://diveintohtml5.info/examples/2000_05_mark.jpg</code> [implicit, from <code>&lt;img src&gt;</code> attribute]
 </blockquote>
 
-<p>The subject only needs to be defined once, by putting <code>itemscope</code> and <code>itemtype</code> attributes on the outermost <code>&lt;section></code> element. The verb is defined by putting the <code>itemprop="photo"</code> attribute on the <code>&lt;img></code> element. The object of the sentence doesn&rsquo;t need any special markup at all, because the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a> says that the property value of an <code>&lt;img></code> element is its <code>src</code> attribute.
+<p>The subject only needs to be defined once, by putting <code>itemscope</code> and <code>itemtype</code> attributes on the outermost <code>&lt;section&gt;</code> element. The verb is defined by putting the <code>itemprop="photo"</code> attribute on the <code>&lt;img&gt;</code> element. The object of the sentence doesn&rsquo;t need any special markup at all, because the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a> says that the property value of an <code>&lt;img&gt;</code> element is its <code>src</code> attribute.
 
-<p>Moving on to the next bit of markup, we see an <code>&lt;h1></code> header and the beginnings of a <code>&lt;dl></code> list. Neither the <code>&lt;h1></code> nor the <code>&lt;dl></code> need to be marked up with microdata. Not every piece of <abbr>HTML</abbr> needs to be a microdata property. Microdata is about the properties themselves, not the markup or headers surrounding the properties. This <code>&lt;h1></code> isn&rsquo;t a property; it&rsquo;s just a header. Similarly, the <code>&lt;dt></code> that says &ldquo;Name&rdquo; isn&rsquo;t a property; it&rsquo;s just a label.
+<p>Moving on to the next bit of markup, we see an <code>&lt;h1&gt;</code> header and the beginnings of a <code>&lt;dl&gt;</code> list. Neither the <code>&lt;h1&gt;</code> nor the <code>&lt;dl&gt;</code> need to be marked up with microdata. Not every piece of <abbr>HTML</abbr> needs to be a microdata property. Microdata is about the properties themselves, not the markup or headers surrounding the properties. This <code>&lt;h1&gt;</code> isn&rsquo;t a property; it&rsquo;s just a header. Similarly, the <code>&lt;dt&gt;</code> that says &ldquo;Name&rdquo; isn&rsquo;t a property; it&rsquo;s just a label.
 
-<p class="legend top" style="margin-left:8em"><span class=arrow>&#x21b6;</span> Boring
-<p class="legend left" style="margin-top:2.2em">Boring <span class=arrow>&#x21dd;</span>&nbsp;</p>
-<pre><code>  &lt;h1><mark>Contact Information</mark>&lt;/h1>
-  &lt;dl>
-    &lt;dt><mark>Name</mark>&lt;/dt>
-    &lt;dd>Mark Pilgrim&lt;/dd></code></pre>
+<p class="legend top" style="margin-left:8em"><span class="arrow">&#x21b6;</span> Boring
+<p class="legend left" style="margin-top:2.2em">Boring <span class="arrow">&#x21dd;</span>&nbsp;</p>
+<pre><code>  &lt;h1&gt;<mark>Contact Information</mark>&lt;/h1&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;<mark>Name</mark>&lt;/dt&gt;
+    &lt;dd&gt;Mark Pilgrim&lt;/dd&gt;</code></pre>
 
-<p>So where is the real information? It&rsquo;s in the <code>&lt;dd></code> element, so that&rsquo;s where we need to put the <code>itemprop</code> attribute. Which property is it? It&rsquo;s the <code>name</code> property. Where is the property value? It&rsquo;s the text within the <code>&lt;dd></code> element. Does that need to be marked up? the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a> says no, <code>&lt;dd></code> elements have no special processing, so the property value is just the text within the element.
+<p>So where is the real information? It&rsquo;s in the <code>&lt;dd&gt;</code> element, so that&rsquo;s where we need to put the <code>itemprop</code> attribute. Which property is it? It&rsquo;s the <code>name</code> property. Where is the property value? It&rsquo;s the text within the <code>&lt;dd&gt;</code> element. Does that need to be marked up? the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a> says no, <code>&lt;dd&gt;</code> elements have no special processing, so the property value is just the text within the element.
 
-<p class="legend top" style="margin-left:5em"><span class=arrow>&#x21b6;</span> That&rsquo;s my name, don&rsquo;t wear it out&nbsp;</p>
-<pre><code>    &lt;dd <mark>itemprop="name"</mark>>Mark Pilgrim&lt;/dd></code></pre>
+<p class="legend top" style="margin-left:5em"><span class="arrow">&#x21b6;</span> That&rsquo;s my name, don&rsquo;t wear it out&nbsp;</p>
+<pre><code>    &lt;dd <mark>itemprop="name"</mark>&gt;Mark Pilgrim&lt;/dd&gt;</code></pre>
 
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
 <p>What did we just say, in English? &ldquo;This person&rsquo;s name is Mark Pilgrim.&rdquo; Well OK then. Onward.
 
-<p id=title-and-affiliation>The next two properties are a little tricky. This is the markup, pre-microdata:
+<p id="title-and-affiliation">The next two properties are a little tricky. This is the markup, pre-microdata:
 
-<pre><code>    &lt;dt>Position&lt;/dt>
-    &lt;dd>Developer advocate for Google, Inc.&lt;/dd></code></pre>
+<pre><code>    &lt;dt&gt;Position&lt;/dt&gt;
+    &lt;dd&gt;Developer advocate for Google, Inc.&lt;/dd&gt;</code></pre>
 
 <p>If you look at the definition of the Person vocabulary, the text &ldquo;Developer advocate for Google, Inc.&rdquo; actually encompasses <em>two</em> properties: <code>title</code> (&ldquo;Developer advocate&rdquo;) and <code>affiliation</code> (&ldquo;Google, Inc.&rdquo;). How can you express that in microdata? The short answer is, you can&rsquo;t. Microdata doesn&rsquo;t have a way to break up runs of text into separate properties. You can&rsquo;t say &ldquo;the first 18 characters of this text is one microdata property, and the last 12 characters of this text is another microdata property.&rdquo;
 
-<p>But all is not lost. Imagine that you wanted to style the text &ldquo;Developer advocate&rdquo; in a different font from the text &ldquo;Google, Inc.&rdquo; <abbr>CSS</abbr> can&rsquo;t do that either. So what would you do? You would first need to wrap the different bits of text in dummy elements, like <code>&lt;span></code>, then apply different <abbr>CSS</abbr> rules to each <code>&lt;span></code> element.
+<p>But all is not lost. Imagine that you wanted to style the text &ldquo;Developer advocate&rdquo; in a different font from the text &ldquo;Google, Inc.&rdquo; <abbr>CSS</abbr> can&rsquo;t do that either. So what would you do? You would first need to wrap the different bits of text in dummy elements, like <code>&lt;span&gt;</code>, then apply different <abbr>CSS</abbr> rules to each <code>&lt;span&gt;</code> element.
 
-<p>This technique is also useful for microdata. There are two distinct pieces of information here: a <code>title</code> and an <code>affiliation</code>. If you wrap each piece in a dummy <code>&lt;span></code> element, you can declare that each <code>&lt;span></code> is a separate microdata property.
+<p>This technique is also useful for microdata. There are two distinct pieces of information here: a <code>title</code> and an <code>affiliation</code>. If you wrap each piece in a dummy <code>&lt;span&gt;</code> element, you can declare that each <code>&lt;span&gt;</code> is a separate microdata property.
 
-<pre><code>    &lt;dt>Position&lt;/dt>
-    &lt;dd>&lt;span <mark>itemprop="title"</mark>>Developer advocate&lt;/span> for
-        &lt;span <mark>itemprop="affiliation"</mark>>Google, Inc.&lt;span>&lt;/dd></code></pre>
+<pre><code>    &lt;dt&gt;Position&lt;/dt&gt;
+    &lt;dd&gt;&lt;span <mark>itemprop="title"</mark>&gt;Developer advocate&lt;/span&gt; for
+        &lt;span <mark>itemprop="affiliation"</mark>&gt;Google, Inc.&lt;span&gt;&lt;/dd&gt;</code></pre>
 
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
 <p>Tada! &ldquo;This person&rsquo;s title is 'Developer advocate.' This person is employed by Google, Inc.&rdquo; Two sentences, two microdata properties. A little more markup, but a worthwhile tradeoff.
 
-<p id=address>The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which itself is a microdata item. That means the address has its own vocabulary (<code>http://data-vocabulary.org/Address</code>) and defines its own properties. The Address vocabulary defines 5 properties: <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
+<p id="address">The same technique is useful for marking up street addresses. The Person vocabulary defines an <code>address</code> property, which itself is a microdata item. That means the address has its own vocabulary (<code>http://data-vocabulary.org/Address</code>) and defines its own properties. The Address vocabulary defines 5 properties: <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
 
 <p>If you&rsquo;re a programmer, you are probably familiar with dot notation to define objects and their properties. Think of the relationship like this:
 
@@ -286,74 +286,74 @@ table.faketable{border-collapse:collapse}
 <li><code>Person.address.country-name</code>
 </ul>
 
-<p>In this example, the entire street address is contained in a single <code>&lt;dd></code> element. (Once again, the <code>&lt;dt></code> element is just a label, so it plays no role in adding semantics with microdata.) Notating the <code>address</code> property is easy. Just add an <code>itemprop</code> attribute on the <code>&lt;dd></code> element.
+<p>In this example, the entire street address is contained in a single <code>&lt;dd&gt;</code> element. (Once again, the <code>&lt;dt&gt;</code> element is just a label, so it plays no role in adding semantics with microdata.) Notating the <code>address</code> property is easy. Just add an <code>itemprop</code> attribute on the <code>&lt;dd&gt;</code> element.
 
-<pre><code>    &lt;dt>Mailing address&lt;/dt>
-    &lt;dd <mark>itemprop="address"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+<pre><code>    &lt;dt&gt;Mailing address&lt;/dt&gt;
+    &lt;dd <mark>itemprop="address"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
 <p>But remember, the address property is itself a microdata item. That means we need to add the <code>itemscope</code> and <code>itemtype</code> attributes too.
 
-<pre><code>    &lt;dt>Mailing address&lt;/dt>
+<pre><code>    &lt;dt&gt;Mailing address&lt;/dt&gt;
     &lt;dd itemprop="address" <mark>itemscope</mark>
-        <mark>itemtype="http://data-vocabulary.org/Address"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+        <mark>itemtype="http://data-vocabulary.org/Address"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
-<p>We&rsquo;ve seen all of this before, but only for top-level items. A <code>&lt;section></code> element defines <code>itemtype</code> and <code>itemscope</code>, and all the elements within the <code>&lt;section></code> element that define microdata properties are &ldquo;scoped&rdquo; within that specific vocabulary. But this is the first time we&rsquo;ve seen <em>nested</em> scopes &mdash; defining a new <code>itemtype</code> and <code>itemscope</code> (on the <code>&lt;dd></code> element) within an existing one (on the <code>&lt;section></code> element). This nested scope works exactly like the <abbr>HTML</abbr> <abbr>DOM</abbr>. The <code>&lt;dd></code> element has a certain number of child elements, all of which are scoped to the vocabulary defined on the <code>&lt;dd></code> element. Once the <code>&lt;dd></code> element is closed with a corresponding <code>&lt;/dd></code> tag, the scope reverts to the vocabulary defined by the parent element (<code>&lt;section></code>, in this case).
+<p>We&rsquo;ve seen all of this before, but only for top-level items. A <code>&lt;section&gt;</code> element defines <code>itemtype</code> and <code>itemscope</code>, and all the elements within the <code>&lt;section&gt;</code> element that define microdata properties are &ldquo;scoped&rdquo; within that specific vocabulary. But this is the first time we&rsquo;ve seen <em>nested</em> scopes &mdash; defining a new <code>itemtype</code> and <code>itemscope</code> (on the <code>&lt;dd&gt;</code> element) within an existing one (on the <code>&lt;section&gt;</code> element). This nested scope works exactly like the <abbr>HTML</abbr> <abbr>DOM</abbr>. The <code>&lt;dd&gt;</code> element has a certain number of child elements, all of which are scoped to the vocabulary defined on the <code>&lt;dd&gt;</code> element. Once the <code>&lt;dd&gt;</code> element is closed with a corresponding <code>&lt;/dd&gt;</code> tag, the scope reverts to the vocabulary defined by the parent element (<code>&lt;section&gt;</code>, in this case).
 
-<p>The properties of the Address suffer the same problem we encountered with <a href=#title-and-affiliation>the <code>title</code> and <code>affiliation</code> properties</a>. There&rsquo;s just one long run of text, but we want to break it up into five separate microdata properties. The solution is the same: wrap each distinct piece of information in a dummy <code>&lt;span></code> element, then declare microdata properties on each <code>&lt;span></code> element.
+<p>The properties of the Address suffer the same problem we encountered with <a href="#title-and-affiliation">the <code>title</code> and <code>affiliation</code> properties</a>. There&rsquo;s just one long run of text, but we want to break it up into five separate microdata properties. The solution is the same: wrap each distinct piece of information in a dummy <code>&lt;span&gt;</code> element, then declare microdata properties on each <code>&lt;span&gt;</code> element.
 
 <pre><code>    &lt;dd itemprop="address" itemscope
-        itemtype="http://data-vocabulary.org/Address">
-      &lt;span <mark>itemprop="street-address"</mark>>100 Main Street&lt;/span>&lt;br>
-      &lt;span <mark>itemprop="locality"</mark>>Anytown&lt;/span>,
-      &lt;span <mark>itemprop="region"</mark>>PA&lt;/span>
-      &lt;span <mark>itemprop="postal-code"</mark>>19999&lt;/span>
-      &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
-    &lt;/dd>
-  &lt;/dl></code></pre>
+        itemtype="http://data-vocabulary.org/Address"&gt;
+      &lt;span <mark>itemprop="street-address"</mark>&gt;100 Main Street&lt;/span&gt;&lt;br&gt;
+      &lt;span <mark>itemprop="locality"</mark>&gt;Anytown&lt;/span&gt;,
+      &lt;span <mark>itemprop="region"</mark>&gt;PA&lt;/span&gt;
+      &lt;span <mark>itemprop="postal-code"</mark>&gt;19999&lt;/span&gt;
+      &lt;span <mark>itemprop="country-name"</mark>&gt;USA&lt;/span&gt;
+    &lt;/dd&gt;
+  &lt;/dl&gt;</code></pre>
 
-<p class=follow>[Follow along! Before: <a href=examples/person.html>person.html</a>, after: <a href=examples/person-plus-microdata.html>person-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
 
 <p>In English: &ldquo;This person has a mailing address. The street address part of the mailing address is '100 Main Street.' The locality part is 'Anytown.' The region is 'PA.' The postal code is '19999.' The country name is 'USA.'&rdquo; Easy peasy.
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Is this mailing address format US-specific?<br>
 A: No. The properties of the Address vocabulary are generic enough that they can describe most mailing addresses in the world. Not all addresses will have values for every property, but that&rsquo;s OK. Some addresses might require fitting more than one &ldquo;line&rdquo; into a single property, but that&rsquo;s OK too. For example, if your mailing address has a street address and a suite number, they would both go into the <code>street-address</code> subproperty:
 <pre><code>&lt;p itemprop="address" itemscope
-    itemtype="http://data-vocabulary.org/Address">
-  &lt;span itemprop="street-address">
+    itemtype="http://data-vocabulary.org/Address"&gt;
+  &lt;span itemprop="street-address"&gt;
     <mark>100 Main Street
 Suite 415</mark>
-  &lt;/span>
+  &lt;/span&gt;
   ...
-&lt;/p></code></pre>
+&lt;/p&gt;</code></pre>
 </blockquote>
 </div>
 </div>
 
-<p id=person-url>There&rsquo;s one more thing on this sample &ldquo;about&rdquo; page: a list of <abbr>URLs</abbr>. The Person vocabulary has a property for this, called <code>url</code>. A <code>url</code> property can be anything, really. (Well, it has to be a <abbr>URL</abbr>, but you probably guessed that.) What I mean is that the <code>url</code> property is loosely defined. The property can be any sort of <abbr>URL</abbr> that you want to associate with a Person: a weblog, a photo gallery, or a profile on another site like Facebook or Twitter.
+<p id="person-url">There&rsquo;s one more thing on this sample &ldquo;about&rdquo; page: a list of <abbr>URLs</abbr>. The Person vocabulary has a property for this, called <code>url</code>. A <code>url</code> property can be anything, really. (Well, it has to be a <abbr>URL</abbr>, but you probably guessed that.) What I mean is that the <code>url</code> property is loosely defined. The property can be any sort of <abbr>URL</abbr> that you want to associate with a Person: a weblog, a photo gallery, or a profile on another site like Facebook or Twitter.
 
-<p>The other important thing to note here is that a single Person can have multiple <code>url</code> properties. Technically, any property can appear more than once, but until now, we haven&rsquo;t taken advantage of that. For example, you could have two <code>photo</code> properties, each pointing to a different image <abbr>URL</abbr>. Here, I want to list four different <abbr>URLs</abbr>: my weblog, my Google profile page, my user profile on Reddit, and my Twitter account. In <abbr>HTML</abbr>, that&rsquo;s a list of links: four <code>&lt;a></code> elements, each in their own <code>&lt;li></code> element. In microdata, each <code>&lt;a></code> element gets an <code>itemprop="url"</code> attribute.
+<p>The other important thing to note here is that a single Person can have multiple <code>url</code> properties. Technically, any property can appear more than once, but until now, we haven&rsquo;t taken advantage of that. For example, you could have two <code>photo</code> properties, each pointing to a different image <abbr>URL</abbr>. Here, I want to list four different <abbr>URLs</abbr>: my weblog, my Google profile page, my user profile on Reddit, and my Twitter account. In <abbr>HTML</abbr>, that&rsquo;s a list of links: four <code>&lt;a&gt;</code> elements, each in their own <code>&lt;li&gt;</code> element. In microdata, each <code>&lt;a&gt;</code> element gets an <code>itemprop="url"</code> attribute.
 
-<pre><code>  &lt;h1>My Digital Footprints&lt;/h1>
-  &lt;ul>
-    &lt;li>&lt;a href="http://diveintomark.org/"
-           <mark>itemprop="url"</mark>>weblog&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://www.google.com/profiles/pilgrim"
-           <mark>itemprop="url"</mark>>Google profile&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://www.reddit.com/user/MarkPilgrim"
-           <mark>itemprop="url"</mark>>Reddit.com profile&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://www.twitter.com/diveintomark"
-           <mark>itemprop="url"</mark>>Twitter&lt;/a>&lt;/li>
-  &lt;/ul></code></pre>
+<pre><code>  &lt;h1&gt;My Digital Footprints&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="http://diveintomark.org/"
+           <mark>itemprop="url"</mark>&gt;weblog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://www.google.com/profiles/pilgrim"
+           <mark>itemprop="url"</mark>&gt;Google profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://www.reddit.com/user/MarkPilgrim"
+           <mark>itemprop="url"</mark>&gt;Reddit.com profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://www.twitter.com/diveintomark"
+           <mark>itemprop="url"</mark>&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;</code></pre>
 
-<p>According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;a></code> elements have special processing. The microdata property value is the <code>href</code> attribute, not the child text content. The text of each link is actually ignored by a microdata processor. Thus, in English, this says &ldquo;This person has a <abbr>URL</abbr> at <code>http://diveintomark.org/</code>. This person has another <abbr>URL</abbr> at <code>http://www.google.com/profiles/pilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.reddit.com/user/MarkPilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.twitter.com/diveintomark</code>.&rdquo;
+<p>According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;a&gt;</code> elements have special processing. The microdata property value is the <code>href</code> attribute, not the child text content. The text of each link is actually ignored by a microdata processor. Thus, in English, this says &ldquo;This person has a <abbr>URL</abbr> at <code>http://diveintomark.org/</code>. This person has another <abbr>URL</abbr> at <code>http://www.google.com/profiles/pilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.reddit.com/user/MarkPilgrim</code>. This person has another <abbr>URL</abbr> at <code>http://www.twitter.com/diveintomark</code>.&rdquo;
 
-<h3 id=rich-snippets>Introducing Google Rich Snippets</h3>
+<h3 id="rich-snippets">Introducing Google Rich Snippets</h3>
 
 <p>I want to step back for just a moment and ask, &ldquo;Why are we doing this?&rdquo; Are we adding semantics just for the sake of adding semantics? Don&rsquo;t get me wrong; I enjoy fiddling with angle brackets as much as the next webhead. But why microdata? Why bother?
 
@@ -364,11 +364,11 @@ Suite 415</mark>
 <li>Search engines
 </ol>
 
-<p>For browsers, <abbr>HTML5</abbr> defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata-dom-api>a set of <abbr>DOM</abbr> <abbr>APIs</abbr></a> for extracting microdata items, properties, and property values from a web page. At time of writing (February 2011), no browser supports this <abbr>API</abbr>. Not a single one. So that&rsquo;s&hellip; kind of a dead end, at least until browsers catch up and implement the client-side <abbr>APIs</abbr>.
+<p>For browsers, <abbr>HTML5</abbr> defines <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata-dom-api">a set of <abbr>DOM</abbr> <abbr>APIs</abbr></a> for extracting microdata items, properties, and property values from a web page. At time of writing (February 2011), no browser supports this <abbr>API</abbr>. Not a single one. So that&rsquo;s&hellip; kind of a dead end, at least until browsers catch up and implement the client-side <abbr>APIs</abbr>.
 
 <p>The other major consumer of <abbr>HTML</abbr> is search engines. What could a search engine do with microdata properties about a person? Imagine this: instead of simply displaying the page title and an excerpt of text, the search engine could integrate some of that structured information and display it. Full name, job title, employer, address, maybe even a little thumbnail of a profile photo. Would that catch your attention? It would catch mine.
 
-<p>Google supports microdata as part of their <a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">Rich Snippets</a> program. When Google&rsquo;s web crawler parses your page and finds microdata properties that conform to the <code>http://data-vocabulary.org/Person</code> vocabulary, it parses out those properties and stores them alongside the rest of the page data. Google even provides <a href=http://www.google.com/webmasters/tools/richsnippets>a handy tool to see how Google &ldquo;sees&rdquo; your microdata properties</a>. Testing it against our <a href=examples/person-plus-microdata.html>sample microdata-enabled &ldquo;about&rdquo; page</a> yields this output:
+<p>Google supports microdata as part of their <a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">Rich Snippets</a> program. When Google&rsquo;s web crawler parses your page and finds microdata properties that conform to the <code>http://data-vocabulary.org/Person</code> vocabulary, it parses out those properties and stores them alongside the rest of the page data. Google even provides <a href="http://www.google.com/webmasters/tools/richsnippets">a handy tool to see how Google &ldquo;sees&rdquo; your microdata properties</a>. Testing it against our <a href="examples/person-plus-microdata.html">sample microdata-enabled &ldquo;about&rdquo; page</a> yields this output:
 
 <pre><samp>Item
   <b>Type</b>: http://data-vocabulary.org/person
@@ -390,142 +390,142 @@ Item 1
   postal-code = 19999
   country-name = USA</samp></pre>
 
-<p>It&rsquo;s all there: the <code>photo</code> property from the <code>&lt;img src></code> attribute, all four <abbr>URLs</abbr> from the list of <code>&lt;a href></code> attributes, even the address object (listed as &ldquo;Item 1&rdquo;) and all five of its subproperties.
+<p>It&rsquo;s all there: the <code>photo</code> property from the <code>&lt;img src&gt;</code> attribute, all four <abbr>URLs</abbr> from the list of <code>&lt;a href&gt;</code> attributes, even the address object (listed as &ldquo;Item 1&rdquo;) and all five of its subproperties.
 
 <p>And how does Google use all of this information? That depends. There&rsquo;s no hard and fast rules about how microdata properties should be displayed, which ones should be displayed, or whether they should be displayed at all. If someone searches for &ldquo;Mark Pilgrim,&rdquo; <em>and</em> Google determines that this &ldquo;about&rdquo; page should rank in the results, <em>and</em> Google decides that the microdata properties it originally found on that page are worth displaying, then the search result listing might look something like this:
 
-<blockquote class=fakeresults>
-<p><a href=examples/person-plus-microdata.html>About Mark Pilgrim</a><br>
-<span class=fakeinfo>Anytown PA - Developer advocate - Google, Inc.</span><br>
-<span class=fakeexcerpt>Excerpt from the page will show up here.<br>
+<blockquote class="fakeresults">
+<p><a href="examples/person-plus-microdata.html">About Mark Pilgrim</a><br>
+<span class="fakeinfo">Anytown PA - Developer advocate - Google, Inc.</span><br>
+<span class="fakeexcerpt">Excerpt from the page will show up here.<br>
 Excerpt from the page will show up here.</span><br>
-<span class=fakeurl>diveintohtml5.info/examples/person-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+<span class="fakeurl">diveintohtml5.info/examples/person-plus-microdata.html</span> - <span class="fakelink">Cached</span> - <span class="fakelink">Similar pages</span>
 </blockquote>
 
-<p>The first line, &ldquo;About Mark Pilgrim,&rdquo; is actually the title of the page, given in the <code>&lt;title></code> element. That&rsquo;s not terribly exciting; Google does that for every page. But the second line is full of information taken directly from the microdata annotations we added to the page. &ldquo;Anytown PA&rdquo; was part of the <a href=#address>mailing address</a>, marked up with the <code>http://data-vocabulary.org/Address</code> vocabulary. &ldquo;Developer advocate&rdquo; and &ldquo;Google, Inc.&rdquo; were two properties from the <code>http://data-vocabulary.org/Person</code> vocabulary (<code>title</code> and <code>affiliation</code>, respectively).
+<p>The first line, &ldquo;About Mark Pilgrim,&rdquo; is actually the title of the page, given in the <code>&lt;title&gt;</code> element. That&rsquo;s not terribly exciting; Google does that for every page. But the second line is full of information taken directly from the microdata annotations we added to the page. &ldquo;Anytown PA&rdquo; was part of the <a href="#address">mailing address</a>, marked up with the <code>http://data-vocabulary.org/Address</code> vocabulary. &ldquo;Developer advocate&rdquo; and &ldquo;Google, Inc.&rdquo; were two properties from the <code>http://data-vocabulary.org/Person</code> vocabulary (<code>title</code> and <code>affiliation</code>, respectively).
 
 <p>This is really quite amazing. You don&rsquo;t need to be a large corporation making special deals with search engine vendors to customize your search result listings. Just take ten minutes and add a couple of <abbr>HTML</abbr> attributes to annotate the data you were already publishing anyway.
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: I did everything you said, but my Google search result listing doesn&rsquo;t look any different. What gives?<br>
 A: &ldquo;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">Google does not guarantee</a> that markup on any given page or site will be used in search results.&rdquo; But even if Google decides not to use your microdata annotations, another search engine might. Like the rest of <abbr>HTML5</abbr>, microdata is an open standard that anyone can implement. It&rsquo;s your job to provide as much data as possible. Let the rest of the world decide what to do with it. They might surprise you!
 </blockquote>
 </div>
 </div>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=organization>Marking Up Organizations</h2>
+<h2 id="organization">Marking Up Organizations</h2>
 
 <p>Microdata isn&rsquo;t limited to a single vocabulary. &ldquo;About&rdquo; pages are nice, but you probably only have one of them. Still hungry for more? Let&rsquo;s learn how to mark up organizations and businesses.
 
-<p><a href=examples/organization.html>Here is a sample page of business listings</a>. Let&rsquo;s look at the original <abbr>HTML</abbr> markup, without microdata.
+<p><a href="examples/organization.html">Here is a sample page of business listings</a>. Let&rsquo;s look at the original <abbr>HTML</abbr> markup, without microdata.
 
-<pre><code>&lt;article>
-  &lt;h1>Google, Inc.&lt;/h1>
-  &lt;p>
-    1600 Amphitheatre Parkway&lt;br>
-    Mountain View, CA 94043&lt;br>
+<pre><code>&lt;article&gt;
+  &lt;h1&gt;Google, Inc.&lt;/h1&gt;
+  &lt;p&gt;
+    1600 Amphitheatre Parkway&lt;br&gt;
+    Mountain View, CA 94043&lt;br&gt;
     USA
-  &lt;/p>
-  &lt;p>650-253-0000&lt;/p>
-  &lt;p>&lt;a href="http://www.google.com/">Google.com&lt;/a>&lt;/p>
-&lt;/article></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+  &lt;/p&gt;
+  &lt;p&gt;650-253-0000&lt;/p&gt;
+  &lt;p&gt;&lt;a href="http://www.google.com/"&gt;Google.com&lt;/a&gt;&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>Short and sweet. All the information about the organization is contained within the <code>&lt;article></code> element, so let&rsquo;s start there.
+<p>Short and sweet. All the information about the organization is contained within the <code>&lt;article&gt;</code> element, so let&rsquo;s start there.
 
-<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
+<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Organization"</mark>&gt;</code></pre>
 
-<p>As with <a href=#person>marking up people</a>, you need to set the <code>itemscope</code> and <code>itemtype</code> attributes on the outermost element. In this case, the outermost element is an <code>&lt;article></code> element. The <code>itemtype</code> attribute declares the microdata vocabulary you&rsquo;re using (in this case, <code>http://data-vocabulary.org/Organization</code>), and the <code>itemscope</code> attribute declares that all of the properties you set on child elements relate to this vocabulary.
+<p>As with <a href="#person">marking up people</a>, you need to set the <code>itemscope</code> and <code>itemtype</code> attributes on the outermost element. In this case, the outermost element is an <code>&lt;article&gt;</code> element. The <code>itemtype</code> attribute declares the microdata vocabulary you&rsquo;re using (in this case, <code>http://data-vocabulary.org/Organization</code>), and the <code>itemscope</code> attribute declares that all of the properties you set on child elements relate to this vocabulary.
 
 <p>So what&rsquo;s in the Organization vocabulary? It&rsquo;s simple and straightforward. In fact, some of it should already look familiar.
 
-<table class=st>
+<table class="st">
 <caption>Organization vocabulary</caption>
-<tr class=ho><th>Property<th>Description
-<tr class=zebra><td><code>name</code><td>The name of the organization (for example, &ldquo;Initech&rdquo;)
+<tr class="ho"><th>Property<th>Description
+<tr class="zebra"><td><code>name</code><td>The name of the organization (for example, &ldquo;Initech&rdquo;)
 <tr><td><code>url</code><td>Link to the organization&rsquo;s home page
-<tr class=zebra><td><code>address</code><td>The location of the organization. Can contain the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
+<tr class="zebra"><td><code>address</code><td>The location of the organization. Can contain the subproperties <code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>.
 <tr><td><code>tel</code><td>The telephone number of the organization
-<tr class=zebra><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
+<tr class="zebra"><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
 </table>
 
-<p>The first bit of markup within the outermost <code>&lt;article></code> element is an <code>&lt;h1></code>. This <code>&lt;h1></code> element contains the name of a business, so we&rsquo;ll put an <code>itemprop="name"</code> attribute directly on the <code>&lt;h1></code> element.
+<p>The first bit of markup within the outermost <code>&lt;article&gt;</code> element is an <code>&lt;h1&gt;</code>. This <code>&lt;h1&gt;</code> element contains the name of a business, so we&rsquo;ll put an <code>itemprop="name"</code> attribute directly on the <code>&lt;h1&gt;</code> element.
 
-<pre><code>  &lt;h1 <mark>itemprop="name"</mark>>Google, Inc.&lt;/h1></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+<pre><code>  &lt;h1 <mark>itemprop="name"</mark>&gt;Google, Inc.&lt;/h1&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;h1></code> elements don&rsquo;t need any special processing. The microdata property value is simply the text content of the <code>&lt;h1></code> element. In English, we just said &ldquo;the name of the Organization is 'Google, Inc.'&rdquo;
+<p>According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;h1&gt;</code> elements don&rsquo;t need any special processing. The microdata property value is simply the text content of the <code>&lt;h1&gt;</code> element. In English, we just said &ldquo;the name of the Organization is 'Google, Inc.'&rdquo;
 
-<p id=organization-address>Next up is a street address. Marking up the address of an Organization works exactly the same way as <a href=#address>marking up the address of a Person</a>. First, add an <code>itemprop="address"</code> attribute to the outermost element of the street address (in this case, a <code>&lt;p></code> element). That states that this is the <code>address</code> property of the Organization. But what about the properties of the address itself? We also need to define the <code>itemtype</code> and <code>itemscope</code> attributes to say that this is an Address item that has its own properties.
+<p id="organization-address">Next up is a street address. Marking up the address of an Organization works exactly the same way as <a href="#address">marking up the address of a Person</a>. First, add an <code>itemprop="address"</code> attribute to the outermost element of the street address (in this case, a <code>&lt;p&gt;</code> element). That states that this is the <code>address</code> property of the Organization. But what about the properties of the address itself? We also need to define the <code>itemtype</code> and <code>itemscope</code> attributes to say that this is an Address item that has its own properties.
 
 <pre><code>  &lt;p <mark>itemprop="address"</mark> <mark>itemscope</mark>
-     <mark>itemtype="http://data-vocabulary.org/Address"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+     <mark>itemtype="http://data-vocabulary.org/Address"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>Finally, we need to wrap each distinct piece of information in a dummy <code>&lt;span></code> element so we can add the appropriate microdata property name (<code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>) on each <code>&lt;span></code> element.
+<p>Finally, we need to wrap each distinct piece of information in a dummy <code>&lt;span&gt;</code> element so we can add the appropriate microdata property name (<code>street-address</code>, <code>locality</code>, <code>region</code>, <code>postal-code</code>, and <code>country-name</code>) on each <code>&lt;span&gt;</code> element.
 
 <pre><code>  &lt;p itemprop="address" itemscope
-     itemtype="http://data-vocabulary.org/Address">
-    &lt;span <mark>itemprop="street-address"</mark>>1600 Amphitheatre Parkway&lt;/span>&lt;br>
-    &lt;span <mark>itemprop="locality"</mark>>Mountain View&lt;/span>,
-    &lt;span <mark>itemprop="region"</mark>>CA&lt;/span>
-    &lt;span <mark>itemprop="postal-code"</mark>>94043&lt;/span>&lt;br>
-    &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
+     itemtype="http://data-vocabulary.org/Address"&gt;
+    &lt;span <mark>itemprop="street-address"</mark>&gt;1600 Amphitheatre Parkway&lt;/span&gt;&lt;br&gt;
+    &lt;span <mark>itemprop="locality"</mark>&gt;Mountain View&lt;/span&gt;,
+    &lt;span <mark>itemprop="region"</mark>&gt;CA&lt;/span&gt;
+    &lt;span <mark>itemprop="postal-code"</mark>&gt;94043&lt;/span&gt;&lt;br&gt;
+    &lt;span <mark>itemprop="country-name"</mark>&gt;USA&lt;/span&gt;
   &lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
 <p>In English, we just said &ldquo;This organization has an address. The street address part is '1600 Amphitheatre Parkway'. The locality is 'Mountain View'. The region part is 'CA'. The postal code is '94043'. The name of the country is 'USA'.&rdquo;
 
 <p>Next up: a telephone number for the Organization. Telephone numbers are notoriously tricky, and the exact syntax is country-specific. (And if you want to call another country, it&rsquo;s even worse.) In this example, we have a United States telephone number, in a format suitable for calling from elsewhere in the United States.
 
-<pre><code>  &lt;p <mark>itemprop="tel"</mark>>650-253-0000&lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+<pre><code>  &lt;p <mark>itemprop="tel"</mark>&gt;650-253-0000&lt;/p&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>(Hey, in case you didn&rsquo;t notice, the Address vocabulary went out of scope when its <code>&lt;p></code> element was closed. Now we&rsquo;re back to defining properties in the Organization vocabulary.)
+<p>(Hey, in case you didn&rsquo;t notice, the Address vocabulary went out of scope when its <code>&lt;p&gt;</code> element was closed. Now we&rsquo;re back to defining properties in the Organization vocabulary.)
 
 <p>If you want to list more than one telephone number &mdash; maybe one for United States customers and one for international customers &mdash; you can do that. Any microdata property can be repeated. Just make sure each telephone number is in its own <abbr>HTML</abbr> element, separate from any label you may give it.
 
 <pre><code>
-  &lt;p>
-    US customers: &lt;span <mark>itemprop="tel"</mark>>650-253-0000&lt;/span>&lt;br>
-    UK customers: &lt;span <mark>itemprop="tel"</mark>>00 + 1* + 6502530000&lt;/span>
-  &lt;/p></code></pre>
+  &lt;p&gt;
+    US customers: &lt;span <mark>itemprop="tel"</mark>&gt;650-253-0000&lt;/span&gt;&lt;br&gt;
+    UK customers: &lt;span <mark>itemprop="tel"</mark>&gt;00 + 1* + 6502530000&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
 
-<p>According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, neither the <code>&lt;p></code> element nor the <code>&lt;span></code> element have special processing. The value of the microdata <code>tel</code> property is simply the text content. The Organization microdata vocabulary makes no attempt to subdivide the different parts of a telephone number. The entire <code>tel</code> property is just free-form text. If you want to put the area code in parentheses, or use spaces instead of dashes to separate the numbers, you can do that. If a microdata-consuming client wants to parse the telephone number, that&rsquo;s entirely up to them.
+<p>According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, neither the <code>&lt;p&gt;</code> element nor the <code>&lt;span&gt;</code> element have special processing. The value of the microdata <code>tel</code> property is simply the text content. The Organization microdata vocabulary makes no attempt to subdivide the different parts of a telephone number. The entire <code>tel</code> property is just free-form text. If you want to put the area code in parentheses, or use spaces instead of dashes to separate the numbers, you can do that. If a microdata-consuming client wants to parse the telephone number, that&rsquo;s entirely up to them.
 
-<p id=organization-url>Next, we have another familiar property: <code>url</code>. Just like <a href=#person-url>associating a <abbr>URL</abbr> with a Person</a>, you can associate a <abbr>URL</abbr> with an Organization. This could be the company&rsquo;s home page, a contact page, product page, or anything else. If it&rsquo;s a <abbr>URL</abbr> about, from, or belonging to the Organization, mark it up with an <code>itemprop="url"</code> attribute.
+<p id="organization-url">Next, we have another familiar property: <code>url</code>. Just like <a href="#person-url">associating a <abbr>URL</abbr> with a Person</a>, you can associate a <abbr>URL</abbr> with an Organization. This could be the company&rsquo;s home page, a contact page, product page, or anything else. If it&rsquo;s a <abbr>URL</abbr> about, from, or belonging to the Organization, mark it up with an <code>itemprop="url"</code> attribute.
 
-<pre><code>  &lt;p>&lt;a <mark>itemprop="url"</mark> href="http://www.google.com/">Google.com&lt;/a>&lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+<pre><code>  &lt;p&gt;&lt;a <mark>itemprop="url"</mark> href="http://www.google.com/">Google.com&lt;/a&gt;&lt;/p&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the <code>&lt;a></code> element has special processing. The microdata property value is the value of the <code>href</code> attribute, not the link text. In English, this says &ldquo;this organization is associated with the <abbr>URL</abbr> <code>http://www.google.com/</code>.&rdquo; It doesn&rsquo;t say anything more specific about the association, and it doesn&rsquo;t include the link text &ldquo;Google.com.&rdquo;
+<p>According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, the <code>&lt;a&gt;</code> element has special processing. The microdata property value is the value of the <code>href</code> attribute, not the link text. In English, this says &ldquo;this organization is associated with the <abbr>URL</abbr> <code>http://www.google.com/</code>.&rdquo; It doesn&rsquo;t say anything more specific about the association, and it doesn&rsquo;t include the link text &ldquo;Google.com.&rdquo;
 
-<p>Finally, I want to talk about geolocation. No, not <a href=geolocation.html>the <abbr>W3C</abbr> Geolocation <abbr>API</abbr></a>. This is about how to mark up the physical location for an Organization, using microdata.
+<p>Finally, I want to talk about geolocation. No, not <a href="geolocation.html">the <abbr>W3C</abbr> Geolocation <abbr>API</abbr></a>. This is about how to mark up the physical location for an Organization, using microdata.
 
-<p>To date, all of our examples have focused on marking up <em>visible</em> data. That is, you have an <code>&lt;h1></code> with a company name, so you add an <code>itemprop</code> attribute to the <code>&lt;h1></code> element to declare that the (visible) header text is, in fact, the name of an Organization. Or you have an <code>&lt;img></code> element that points to a photo, so you add an <code>itemprop</code> attribute to the <code>&lt;img></code> element to declare that the (visible) image is a photo of a Person.
+<p>To date, all of our examples have focused on marking up <em>visible</em> data. That is, you have an <code>&lt;h1&gt;</code> with a company name, so you add an <code>itemprop</code> attribute to the <code>&lt;h1&gt;</code> element to declare that the (visible) header text is, in fact, the name of an Organization. Or you have an <code>&lt;img&gt;</code> element that points to a photo, so you add an <code>itemprop</code> attribute to the <code>&lt;img&gt;</code> element to declare that the (visible) image is a photo of a Person.
 
-<p id=geo>In this example, geolocation information isn&rsquo;t like that. There is no visible text that gives the exact latitude and longitude (to four decimal places!) of the Organization. In fact, the <a href=examples/organization.html>organization.html</a> example (without microdata) has no geolocation information at all. It has a link to Google Maps, but even the <abbr>URL</abbr> of that link does not contain latitude and longitude coordinates. (It contains similar information in a Google-specific format.) But even if we had a link to a hypothetical online mapping service that did take latitude and longitude coordinates as <abbr>URL</abbr> parameters, microdata has no way of separating out the different parts of a <abbr>URL</abbr>. You can&rsquo;t declare that the first <abbr>URL</abbr> query parameter is the latitude and the second <abbr>URL</abbr> query parameter is the longitude and the rest of the query parameters are irrelevant.
+<p id="geo">In this example, geolocation information isn&rsquo;t like that. There is no visible text that gives the exact latitude and longitude (to four decimal places!) of the Organization. In fact, the <a href="examples/organization.html">organization.html</a> example (without microdata) has no geolocation information at all. It has a link to Google Maps, but even the <abbr>URL</abbr> of that link does not contain latitude and longitude coordinates. (It contains similar information in a Google-specific format.) But even if we had a link to a hypothetical online mapping service that did take latitude and longitude coordinates as <abbr>URL</abbr> parameters, microdata has no way of separating out the different parts of a <abbr>URL</abbr>. You can&rsquo;t declare that the first <abbr>URL</abbr> query parameter is the latitude and the second <abbr>URL</abbr> query parameter is the longitude and the rest of the query parameters are irrelevant.
 
 <p>To handle edge cases like this, <abbr>HTML5</abbr> provides a way to annotate <em>invisible</em> data. This technique should only be used as a last resort. If there is a way to display or render the data you care about, you should do so. Invisible data that only machines can read tends to &ldquo;go stale&rdquo; quickly. That is, someone will come along later and update the visible text but forget to update the invisible data. This happens more often than you think, and it <em>will</em> happen to you too.
 
 <p>Still, there are cases where invisible data is unavoidable. Perhaps your boss <em>really</em> wants machine-readable geolocation information but doesn&rsquo;t want to clutter up the interface with pairs of incomprehensible six-digit numbers. Invisible data is the only option. The only saving grace here is that you can put the invisible data immediately after the visible text that it describes, which may help remind the person who comes along later and updates the visible text that they need to update the invisible data right after it.
 
-<p>In this example, we can create a dummy <code>&lt;span></code> element within the same <code>&lt;article></code> element as all the other Organization properties, then put the invisible geolocation data inside the <code>&lt;span></code> element.
+<p>In this example, we can create a dummy <code>&lt;span&gt;</code> element within the same <code>&lt;article&gt;</code> element as all the other Organization properties, then put the invisible geolocation data inside the <code>&lt;span&gt;</code> element.
 
 <pre><code>  &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark>
-    <mark>itemtype="http://data-vocabulary.org/Geo"</mark>>
-    &lt;meta itemprop="latitude" content="37.4149" />
-    &lt;meta itemprop="longitude" content="-122.078" />
-  &lt;/span>
-&lt;/article></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+    <mark>itemtype="http://data-vocabulary.org/Geo"</mark>&gt;
+    &lt;meta itemprop="latitude" content="37.4149" /&gt;
+    &lt;meta itemprop="longitude" content="-122.078" /&gt;
+  &lt;/span&gt;
+&lt;/article&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>Geolocation information is defined in its own vocabulary, like <a href=#address>the address of a Person or Organization</a>. Therefore, this <code>&lt;span></code> element needs three attributes:
+<p>Geolocation information is defined in its own vocabulary, like <a href="#address">the address of a Person or Organization</a>. Therefore, this <code>&lt;span&gt;</code> element needs three attributes:
 
 <ol>
 <li><code>itemprop="geo"</code> says that this element represents the <code>geo</code> property of the surrounding Organization
@@ -533,175 +533,175 @@ A: &ldquo;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 <li><code>itemscope</code> says that this element is the enclosing element for a microdata item with its own vocabulary (given in the <code>itemtype</code> attribute). All the properties within this element are properties of <code>http://data-vocabulary.org/Geo</code>, not the surrounding <code>http://data-vocabulary.org/Organization</code>.
 </ol>
 
-<p>The next big question that this example answers is, &ldquo;How do you annotate invisible data?&rdquo; You use the <code>&lt;meta></code> element. In previous versions of <abbr>HTML</abbr>, you could only use the <code>&lt;meta></code> element within <a href=semantics.html#head-element>the <code>&lt;head></code> of your page</a>. In <abbr>HTML5</abbr>, you can use the <code>&lt;meta></code> element anywhere. And that&rsquo;s exactly what we&rsquo;re doing here.
+<p>The next big question that this example answers is, &ldquo;How do you annotate invisible data?&rdquo; You use the <code>&lt;meta&gt;</code> element. In previous versions of <abbr>HTML</abbr>, you could only use the <code>&lt;meta&gt;</code> element within <a href="semantics.html#head-element">the <code>&lt;head&gt;</code> of your page</a>. In <abbr>HTML5</abbr>, you can use the <code>&lt;meta&gt;</code> element anywhere. And that&rsquo;s exactly what we&rsquo;re doing here.
 
 <pre><code>&lt;<mark>meta</mark> itemprop="latitude" content="37.4149" /></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/organization.html>organization.html</a>, after: <a href=examples/organization-plus-microdata.html>organization-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
-<p>According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, the <code>&lt;meta></code> element has special processing. The microdata property value is the <code>content</code> attribute. Since this attribute is never visibly displayed, we have the perfect setup for unlimited quantities of invisible data. With great power comes great responsibility. In this case, the responsibility is on you to ensure that this invisible data stays in sync with the visible text around it.
+<p>According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, the <code>&lt;meta&gt;</code> element has special processing. The microdata property value is the <code>content</code> attribute. Since this attribute is never visibly displayed, we have the perfect setup for unlimited quantities of invisible data. With great power comes great responsibility. In this case, the responsibility is on you to ensure that this invisible data stays in sync with the visible text around it.
 
 <p>There is no direct support for the Organization vocabulary in Google Rich Snippets, so I don&rsquo;t have any pretty sample search result listings to show you. But organizations feature heavily in the next two case studies: events and reviews, and those <em>are</em> supported by Google Rich Snippets.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=event>Marking Up Events</h2>
+<h2 id="event">Marking Up Events</h2>
 
 <p>Shit happens. Some shit happens at pre-determined times. Wouldn&rsquo;t it be nice if you could tell search engines exactly when shit was about to happen? There&rsquo;s an angle bracket for that.
 
-<p>Let&rsquo;s start by looking at <a href=examples/event.html>a sample schedule of my speaking engagements</a>.
+<p>Let&rsquo;s start by looking at <a href="examples/event.html">a sample schedule of my speaking engagements</a>.
 
-<pre><code>&lt;article>
-  &lt;h1>Google Developer Day 2009&lt;/h1>
+<pre><code>&lt;article&gt;
+  &lt;h1&gt;Google Developer Day 2009&lt;/h1&gt;
   &lt;img width="300" height="200"
        src="http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg"
-       alt="[Mark Pilgrim at podium]">
-  &lt;p>
+       alt="[Mark Pilgrim at podium]"&gt;
+  &lt;p&gt;
     Google Developer Days are a chance to learn about Google
     developer products from the engineers who built them. This
     one-day conference includes seminars and &ldquo;office hours&rdquo;
     on web technologies like Google Maps, OpenSocial, Android,
     AJAX APIs, Chrome, and Google Web Toolkit.
-  &lt;/p>
-  &lt;p>
-    &lt;time datetime="2009-11-06T08:30+01:00">2009 November 6, 8:30&lt;/time>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;time datetime="2009-11-06T08:30+01:00"&gt;2009 November 6, 8:30&lt;/time&gt;
       &amp;ndash;
-    &lt;time datetime="2009-11-06T20:30+01:00">20:30&lt;/time>
-  &lt;/p>
-  &lt;p>
-    Congress Center&lt;br>
-    5th května 65&lt;br>
-    140 21 Praha 4&lt;br>
+    &lt;time datetime="2009-11-06T20:30+01:00"&gt;20:30&lt;/time&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    Congress Center&lt;br&gt;
+    5th května 65&lt;br&gt;
+    140 21 Praha 4&lt;br&gt;
     Czech Republic
-  &lt;/p>
-  &lt;p>&lt;a href="http://code.google.com/intl/cs/events/developerday/2009/home.html">GDD/Prague home page&lt;/a>&lt;/p>
-&lt;/article></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+  &lt;/p&gt;
+  &lt;p&gt;&lt;a href="http://code.google.com/intl/cs/events/developerday/2009/home.html"&gt;GDD/Prague home page&lt;/a&gt;&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>All the information about the event is contained within the <code>&lt;article></code> element, so that&rsquo;s where we need to put the <code>itemtype</code> and <code>itemscope</code> attributes.
+<p>All the information about the event is contained within the <code>&lt;article&gt;</code> element, so that&rsquo;s where we need to put the <code>itemtype</code> and <code>itemscope</code> attributes.
 
-<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Event"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Event"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>The <abbr>URL</abbr> for the Event vocabulary is <code><a href=http://data-vocabulary.org/Event>http://data-vocabulary.org/Event</a></code>, which also happens to contain a nice little chart describing the vocabulary&rsquo;s properties. And what are those properties?
+<p>The <abbr>URL</abbr> for the Event vocabulary is <code><a href="http://data-vocabulary.org/Event">http://data-vocabulary.org/Event</a></code>, which also happens to contain a nice little chart describing the vocabulary&rsquo;s properties. And what are those properties?
 
-<table class=st>
+<table class="st">
 <caption>Event vocabulary</caption>
-<tr class=ho><th>Property<th>Description
-<tr class=zebra><td><code>summary</code><td>The name of the event
+<tr class="ho"><th>Property<th>Description
+<tr class="zebra"><td><code>summary</code><td>The name of the event
 <tr><td><code>url</code><td>Link to the event details page
-<tr class=zebra><td><code>location</code><td>The location or venue of the event. Can optionally be represented by a nested <a href=#organization>Organization</a> or <a href=#address>Address</a>.
+<tr class="zebra"><td><code>location</code><td>The location or venue of the event. Can optionally be represented by a nested <a href="#organization">Organization</a> or <a href="#address">Address</a>.
 <tr><td><code>description</code><td>A description of the event
-<tr class=zebra><td><code>startDate</code><td>The starting date and time of the event in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
-<tr><td><code>endDate</code><td>The ending date and time of the event in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
-<tr class=zebra><td><code>duration</code><td>The duration date of the event in <a href=http://en.wikipedia.org/wiki/ISO_8601#Durations>ISO duration format</a>
+<tr class="zebra"><td><code>startDate</code><td>The starting date and time of the event in <a href="http://www.iso.org/iso/date_and_time_format">ISO date format</a>
+<tr><td><code>endDate</code><td>The ending date and time of the event in <a href="http://www.iso.org/iso/date_and_time_format">ISO date format</a>
+<tr class="zebra"><td><code>duration</code><td>The duration date of the event in <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO duration format</a>
 <tr><td><code>eventType</code><td>The category of the event (for example, &ldquo;Concert&rdquo; or &ldquo;Lecture&rdquo;). This is a freeform string, not an enumerated attribute.
-<tr class=zebra><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
+<tr class="zebra"><td><code>geo</code><td>Specifies the geographical coordinates of the location. Always contains two subproperties, <code>latitude</code> and <code>longitude</code>.
 <tr><td><code>photo</code><td>A link to a photo or image related to the event
 </table>
 
-<p>The event&rsquo;s name is in an <code>&lt;h1></code> element. According to the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;h1></code> elements have no special processing. The microdata property value is simply the text content of the <code>&lt;h1></code> element. All we need to do is add the <code>itemprop</code> attribute to declare that this <code>&lt;h1></code> element contains the name of the event.
+<p>The event&rsquo;s name is in an <code>&lt;h1&gt;</code> element. According to the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, <code>&lt;h1&gt;</code> elements have no special processing. The microdata property value is simply the text content of the <code>&lt;h1&gt;</code> element. All we need to do is add the <code>itemprop</code> attribute to declare that this <code>&lt;h1&gt;</code> element contains the name of the event.
 
-<pre><code>  &lt;h1 <mark>itemprop="summary"</mark>>Google Developer Day 2009&lt;/h1></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+<pre><code>  &lt;h1 <mark>itemprop="summary"</mark>&gt;Google Developer Day 2009&lt;/h1&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
 <p>In English, this says, &ldquo;The name of this event is Google Developer Day 2009.&rdquo;
-<p>This event listing has a photo, which can be marked up with the <code>photo</code> property. As you would expect, the photo is already marked up with an <code>&lt;img></code> element. Like <a href=#person-photo>the <code>photo</code> property in the Person vocabulary</a>, an Event photo is a <abbr>URL</abbr>. Since the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a> says that the property value of an <code>&lt;img></code> element is its <code>src</code> attribute, the only thing we need to do is add the <code>itemprop</code> attribute to the <code>&lt;img></code> element.
+<p>This event listing has a photo, which can be marked up with the <code>photo</code> property. As you would expect, the photo is already marked up with an <code>&lt;img&gt;</code> element. Like <a href="#person-photo">the <code>photo</code> property in the Person vocabulary</a>, an Event photo is a <abbr>URL</abbr>. Since the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a> says that the property value of an <code>&lt;img&gt;</code> element is its <code>src</code> attribute, the only thing we need to do is add the <code>itemprop</code> attribute to the <code>&lt;img&gt;</code> element.
 
 <pre><code>  &lt;img <mark>itemprop="photo"</mark> width="300" height="200"
        src="http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg"
        alt="[Mark Pilgrim at podium]"></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
 <p>In English, this says, &ldquo;The photo for this event is at <code>http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg</code>.&rdquo;
 
 <p>Next up is a longer description of the event, which is just a pargaraph of freeform text.
 
-<pre><code>  &lt;p <mark>itemprop="description"</mark>>Google Developer Days are a chance to
+<pre><code>  &lt;p <mark>itemprop="description"</mark>&gt;Google Developer Days are a chance to
 learn about Google developer products from the engineers who built
 them. This one-day conference includes seminars and &ldquo;office
 hours&rdquo; on web technologies like Google Maps, OpenSocial,
-Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>The next bit is something new. Events generally occur on specific dates and start and end at specific times. In <abbr>HTML5</abbr>, dates and times should be marked up with <a href=semantics.html#time-element>the <code>&lt;time></code> element</a>, and we are already doing that here. So the question becomes, how do we add microdata propeties to these <code>&lt;time></code> elements? Looking back at the <a href=#property-values><abbr>HTML5</abbr> microdata data model</a>, we see that the <code>&lt;time></code> element has special processing. The value of a microdata property on a <code>&lt;time></code> element is the value of the <code>datetime</code> attribute. And hey, the <code>startDate</code> and <code>endDate</code> properties of the Event vocabulary take an <abbr>ISO</abbr>-style date, just like the <code>datetime</code> property of a <code>&lt;time></code> element. Once again, the semantics of the core <abbr>HTML</abbr> vocabulary dovetail nicely with semantics of our custom microdata vocabulary. Marking up start and end dates with microdata is as simple as
+<p>The next bit is something new. Events generally occur on specific dates and start and end at specific times. In <abbr>HTML5</abbr>, dates and times should be marked up with <a href="semantics.html#time-element">the <code>&lt;time&gt;</code> element</a>, and we are already doing that here. So the question becomes, how do we add microdata propeties to these <code>&lt;time&gt;</code> elements? Looking back at the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a>, we see that the <code>&lt;time&gt;</code> element has special processing. The value of a microdata property on a <code>&lt;time&gt;</code> element is the value of the <code>datetime</code> attribute. And hey, the <code>startDate</code> and <code>endDate</code> properties of the Event vocabulary take an <abbr>ISO</abbr>-style date, just like the <code>datetime</code> property of a <code>&lt;time&gt;</code> element. Once again, the semantics of the core <abbr>HTML</abbr> vocabulary dovetail nicely with semantics of our custom microdata vocabulary. Marking up start and end dates with microdata is as simple as
 
 <ol>
-<li>Using <abbr>HTML</abbr> correctly in the first place (using <code>&lt;time></code> elements to mark up dates and times), and
+<li>Using <abbr>HTML</abbr> correctly in the first place (using <code>&lt;time&gt;</code> elements to mark up dates and times), and
 <li>Adding a single <code>itemprop</code> attribute
 </ol>
 
-<pre><code>  &lt;p>
-    &lt;time <mark>itemprop="startDate"</mark> datetime="2009-11-06T08:30+01:00">2009 November 6, 8:30&lt;/time>
+<pre><code>  &lt;p&gt;
+    &lt;time <mark>itemprop="startDate"</mark> datetime="2009-11-06T08:30+01:00">2009 November 6, 8:30&lt;/time&gt;
       &amp;ndash;
-    &lt;time <mark>itemprop="endDate"</mark> datetime="2009-11-06T20:30+01:00">20:30&lt;/time>
-  &lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+    &lt;time <mark>itemprop="endDate"</mark> datetime="2009-11-06T20:30+01:00">20:30&lt;/time&gt;
+  &lt;/p&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
 <p>In English, this says, &ldquo;This event starts on November 6, 2009, at 8:30 in the morning, and goes until November 6, 2009, at 20:30 (times local to Prague, <abbr>GMT</abbr>+1).&rdquo;
 
-<p>Next up is the <code>location</code> property. The <a href=http://data-vocabulary.org/Event>definition of the Event vocabulary</a> says that this can be either an Organization or an Address. In this case, the event is being held at a venue that specializes in conferences, the Congress Center in Prague. Marking it up as an Organization allows us to include the name of the venue as well as its address.
+<p>Next up is the <code>location</code> property. The <a href="http://data-vocabulary.org/Event">definition of the Event vocabulary</a> says that this can be either an Organization or an Address. In this case, the event is being held at a venue that specializes in conferences, the Congress Center in Prague. Marking it up as an Organization allows us to include the name of the venue as well as its address.
 
-<p>First, let&rsquo;s declare that the <code>&lt;p></code> element that contains the address is the <code>location</code> property of the Event, and that this element is also its own microdata item that conforms to the <code>http://data-vocabulary.org/Organization</code> vocabulary.
+<p>First, let&rsquo;s declare that the <code>&lt;p&gt;</code> element that contains the address is the <code>location</code> property of the Event, and that this element is also its own microdata item that conforms to the <code>http://data-vocabulary.org/Organization</code> vocabulary.
 
 <pre><code>  &lt;p <mark>itemprop="location"</mark> <mark>itemscope</mark>
-           <mark>itemtype="http://data-vocabulary.org/Organization"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+           <mark>itemtype="http://data-vocabulary.org/Organization"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>Next, mark up the name of the Organization by wrapping the name in a dummy <code>&lt;span></code> element and adding an <code>itemprop</code> attribute to the <code>&lt;span></code> element.
+<p>Next, mark up the name of the Organization by wrapping the name in a dummy <code>&lt;span&gt;</code> element and adding an <code>itemprop</code> attribute to the <code>&lt;span&gt;</code> element.
 
-<pre><code>    &lt;span <mark>itemprop="name"</mark>>Congress Center&lt;/span>&lt;br></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+<pre><code>    &lt;span <mark>itemprop="name"</mark>&gt;Congress Center&lt;/span&gt;&lt;br&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>Due to the microdata scoping rules, this <code>itemprop="name"</code> is defining a property in the Organization vocabulary, not the Event vocabulary. The <code>&lt;p></code> element defined the beginning of the scope of the Organization properties, and that <code>&lt;p></code> element hasn&rsquo;t yet been closed with an <code>&lt;/p></code> tag. Any microdata properties we define here are properties of the most-recently-scoped vocabulary. Nested vocabularies are like a <a href="http://en.wikipedia.org/wiki/Stack_(data_structure)">stack</a>. We haven&rsquo;t yet popped the stack, so we&rsquo;re still talking about properties of the Organization.
+<p>Due to the microdata scoping rules, this <code>itemprop="name"</code> is defining a property in the Organization vocabulary, not the Event vocabulary. The <code>&lt;p&gt;</code> element defined the beginning of the scope of the Organization properties, and that <code>&lt;p&gt;</code> element hasn&rsquo;t yet been closed with an <code>&lt;/p&gt;</code> tag. Any microdata properties we define here are properties of the most-recently-scoped vocabulary. Nested vocabularies are like a <a href="http://en.wikipedia.org/wiki/Stack_(data_structure)">stack</a>. We haven&rsquo;t yet popped the stack, so we&rsquo;re still talking about properties of the Organization.
 
 <p>In fact, we&rsquo;re going to add a third vocabulary onto the stack: an Address for the Organization for the Event.
 
 <pre><code>
     &lt;span <mark>itemprop="address"</mark> <mark>itemscope</mark>
-          <mark>itemtype="http://data-vocabulary.org/Address"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+          <mark>itemtype="http://data-vocabulary.org/Address"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>Once again, we want to mark up every piece of the address as a separate microdata property, so we need a slew of dummy <code>&lt;span></code> elements to hang our <code>itemprop</code> attributes onto. (If I&rsquo;m going too fast for you here, go back and read about <a href=#address>marking up the address of a Person</a> and <a href=#organization-address>marking up the address of an Organization</a>.)
+<p>Once again, we want to mark up every piece of the address as a separate microdata property, so we need a slew of dummy <code>&lt;span&gt;</code> elements to hang our <code>itemprop</code> attributes onto. (If I&rsquo;m going too fast for you here, go back and read about <a href="#address">marking up the address of a Person</a> and <a href="#organization-address">marking up the address of an Organization</a>.)
 
-<pre><code>      &lt;span <mark>itemprop="street-address"</mark>>5th května 65&lt;/span>&lt;br>
-      &lt;span <mark>itemprop="postal-code"</mark>>140 21&lt;/span>
-      &lt;span <mark>itemprop="locality"</mark>>Praha 4&lt;/span>&lt;br>
-      &lt;span <mark>itemprop="country-name"</mark>>Czech Republic&lt;/span></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+<pre><code>      &lt;span <mark>itemprop="street-address"</mark>&gt;5th května 65&lt;/span&gt;&lt;br&gt;
+      &lt;span <mark>itemprop="postal-code"</mark>&gt;140 21&lt;/span&gt;
+      &lt;span <mark>itemprop="locality"</mark>&gt;Praha 4&lt;/span&gt;&lt;br&gt;
+      &lt;span <mark>itemprop="country-name"</mark>&gt;Czech Republic&lt;/span&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>There are no more properties of the Address, so we close the <code>&lt;span></code> element that started the Address scope, and pop the stack.
+<p>There are no more properties of the Address, so we close the <code>&lt;span&gt;</code> element that started the Address scope, and pop the stack.
 
-<pre><code>    &lt;/span></code></pre>
+<pre><code>    &lt;/span&gt;</code></pre>
 
-<p>There are no more properties of the Organization, so we close the <code>&lt;p></code> element that started the Organization scope, and pop the stack again.
+<p>There are no more properties of the Organization, so we close the <code>&lt;p&gt;</code> element that started the Organization scope, and pop the stack again.
 
-<pre><code>  &lt;/p></code></pre>
+<pre><code>  &lt;/p&gt;</code></pre>
 
-<p>Now we&rsquo;re back to defining properties on the Event. The next property is <code>geo</code>, to represent the physical location of the Event. This uses the same Geo vocabulary that we used to <a href=#geo>mark up the physical location of an Organization</a> in the previous section. We need a <code>&lt;span></code> element to act as the container; it gets the <code>itemtype</code> and <code>itemscope</code> attributes. Within that <code>&lt;span></code> element, we need two <code>&lt;meta></code> elements, one for the <code>latitude</code> property and one for the <code>longitude</code> property.
+<p>Now we&rsquo;re back to defining properties on the Event. The next property is <code>geo</code>, to represent the physical location of the Event. This uses the same Geo vocabulary that we used to <a href="#geo">mark up the physical location of an Organization</a> in the previous section. We need a <code>&lt;span&gt;</code> element to act as the container; it gets the <code>itemtype</code> and <code>itemscope</code> attributes. Within that <code>&lt;span&gt;</code> element, we need two <code>&lt;meta&gt;</code> elements, one for the <code>latitude</code> property and one for the <code>longitude</code> property.
 
 <pre><code>
-  &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Geo"</mark>>
+  &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Geo"</mark>&gt;
     &lt;meta <mark>itemprop="latitude"</mark> content="50.047893" />
     &lt;meta <mark>itemprop="longitude"</mark> content="14.4491" />
-  &lt;/span></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+  &lt;/span&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>And we&rsquo;ve closed the <code>&lt;span></code> that contained the Geo properties, so we&rsquo;re back to defining properties on the Event. The last property is the <code>url</code> property, which should look familiar. Associating a <abbr>URL</abbr> with an Event works the same way as <a href=#person-url>associating a <abbr>URL</abbr> with a Person</a> and <a href=#organization-url>associating a <abbr>URL</abbr> with an Organization</a>. If you&rsquo;re using <abbr>HTML</abbr> correctly (marking up hyperlinks with <code>&lt;a href></code>), then declaring that the hyperlink is a microdata <code>url</code> property is simply a matter of adding the <code>itemprop</code> attribute.
+<p>And we&rsquo;ve closed the <code>&lt;span&gt;</code> that contained the Geo properties, so we&rsquo;re back to defining properties on the Event. The last property is the <code>url</code> property, which should look familiar. Associating a <abbr>URL</abbr> with an Event works the same way as <a href="#person-url">associating a <abbr>URL</abbr> with a Person</a> and <a href="#organization-url">associating a <abbr>URL</abbr> with an Organization</a>. If you&rsquo;re using <abbr>HTML</abbr> correctly (marking up hyperlinks with <code>&lt;a href&gt;</code>), then declaring that the hyperlink is a microdata <code>url</code> property is simply a matter of adding the <code>itemprop</code> attribute.
 
-<pre><code>  &lt;p>
+<pre><code>  &lt;p&gt;
     &lt;a <mark>itemprop="url"</mark>
        href="http://code.google.com/intl/cs/events/developerday/2009/home.html">
       GDD/Prague home page
-    &lt;/a>
-  &lt;/p>
-&lt;/article></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/event.html>event.html</a>, after: <a href=examples/event-plus-microdata.html>event-plus-microdata.html</a>]
+    &lt;/a&gt;
+  &lt;/p&gt;
+&lt;/article&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/event.html">event.html</a>, after: <a href="examples/event-plus-microdata.html">event-plus-microdata.html</a>]
 
-<p>The <a href=examples/event.html>sample event page</a> also lists a second event, my speaking engagement at the ConFoo conference in Montréal. For brevity, I&rsquo;m not going to go through that markup line by line. It&rsquo;s essentially the same as the event in Prague: an Event item with nested Geo and Address items. I just mention it in passing to reiterate that a single page can have multiple events, each marked up with microdata.
+<p>The <a href="examples/event.html">sample event page</a> also lists a second event, my speaking engagement at the ConFoo conference in Montréal. For brevity, I&rsquo;m not going to go through that markup line by line. It&rsquo;s essentially the same as the event in Prague: an Event item with nested Geo and Address items. I just mention it in passing to reiterate that a single page can have multiple events, each marked up with microdata.
 
-<h3 id=event-rich-snippets>The Return of Google Rich Snippets</h3>
+<h3 id="event-rich-snippets">The Return of Google Rich Snippets</h3>
 
-<p><a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.info/examples/event-plus-microdata.html">According to Google&rsquo;s Rich Snippets Testing Tool</a>, this is the information that Google&rsquo;s crawlers will glean from <a href=examples/event-plus-microdata.html>our sample event listing page</a>:
+<p><a href="http://www.google.com/webmasters/tools/richsnippets?url=http://diveintohtml5.info/examples/event-plus-microdata.html">According to Google&rsquo;s Rich Snippets Testing Tool</a>, this is the information that Google&rsquo;s crawlers will glean from <a href="examples/event-plus-microdata.html">our sample event listing page</a>:
 
 <pre><samp>Item
     <b>Type:</b> http://data-vocabulary.org/Event
@@ -739,79 +739,79 @@ Item
 
 <p>Here is how Google might choose to represent this sample page in its search results. (Again, I have to preface this with the disclaimer that this is just an example. Google may change the format of their search results at any time, and there is no guarantee that Google will even pay attention to your microdata markup. Sorry to sound like a broken record, but our lawyers make me say these things.)
 
-<blockquote class=fakeresults>
-<p><a href=examples/event-plus-microdata.html>Mark Pilgrim&rsquo;s event calendar</a><br>
-<span class=fakeexcerpt>Excerpt from the page will show up here.<br>
+<blockquote class="fakeresults">
+<p><a href="examples/event-plus-microdata.html">Mark Pilgrim&rsquo;s event calendar</a><br>
+<span class="fakeexcerpt">Excerpt from the page will show up here.<br>
 Excerpt from the page will show up here.</span><br>
-<table class=faketable>
-<tr><td class=padright><a href=http://code.google.com/intl/cs/events/developerday/2009/home.html>Google Developer Day 2009</a><td class="fakeinfo padright">Fri, Nov 6<td class=fakeinfo>Congress Center, Praha 4, Czech Republic
-<tr><td class=padright><a href=http://confoo.ca/en>ConFoo.ca 2010</a><td class="fakeinfo padright">Wed, Mar 10<td class=fakeinfo>Hilton Montreal Bonaventure, Montréal, Québec, Canada
+<table class="faketable">
+<tr><td class="padright"><a href="http://code.google.com/intl/cs/events/developerday/2009/home.html">Google Developer Day 2009</a><td class="fakeinfo padright">Fri, Nov 6<td class="fakeinfo">Congress Center, Praha 4, Czech Republic
+<tr><td class="padright"><a href="http://confoo.ca/en">ConFoo.ca 2010</a><td class="fakeinfo padright">Wed, Mar 10<td class="fakeinfo">Hilton Montreal Bonaventure, Montréal, Québec, Canada
 </table>
-<p><span class=fakeurl>diveintohtml5.info/examples/event-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+<p><span class="fakeurl">diveintohtml5.info/examples/event-plus-microdata.html</span> - <span class="fakelink">Cached</span> - <span class="fakelink">Similar pages</span>
 </blockquote>
 
 <p>After the page title and auto-generated excerpt text, Google starts using the microdata markup we added to the page to display a little table of events. Note the date format: &ldquo;Fri, Nov 6.&rdquo; That is not a string that appeared anywhere in our <abbr>HTML</abbr> or microdata markup. We used two fully qualified <abbr>ISO</abbr>-formatted strings, <code>2009-11-06T08:30+01:00</code> and <code>2009-11-06T20:30+01:00</code>. Google took those two dates, figured out that they were on the same day, and decided to display a single date in a more friendly format.
 
 <p>Now look at the physical addresses. Google chose to display just the venue name + locality + country, not the exact street address. This is made possible by the fact that we split up the address into five subproperties &mdash; <code>name</code>, <code>street-address</code>, <code>region</code>, <code>locality</code>, and <code>country-name</code> &mdash; and marked up each part of the address as a different microdata property. Google takes advantage of that to show an abbreviated address. Other consumers of the same microdata markup might make different choices about what to display or how to display it. There&rsquo;s no right or wrong choice here. It&rsquo;s up to you to provide as much data as possible, as accurately as possible. It&rsquo;s up to the rest of the world to interpret it.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=review>Marking Up Reviews</h2>
+<h2 id="review">Marking Up Reviews</h2>
 
 <p>Here&rsquo;s another example of making the web (and possibly search result listings) better through markup: business and product reviews.
 
-<p>This is a short review I wrote of my favorite pizza place near my house. (This is a real restaurant, by the way. If you&rsquo;re ever in Apex, NC, I highly recommend it.) Let&rsquo;s look at <a href=examples/review.html>the original markup</a>:
+<p>This is a short review I wrote of my favorite pizza place near my house. (This is a real restaurant, by the way. If you&rsquo;re ever in Apex, NC, I highly recommend it.) Let&rsquo;s look at <a href="examples/review.html">the original markup</a>:
 
-<pre><code>&lt;article>
-  &lt;h1>Anna&rsquo;s Pizzeria&lt;/h1>
-  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (4 stars out of 5)&lt;/p>
-  &lt;p>New York-style pizza right in historic downtown Apex&lt;/p>
-  &lt;p>
+<pre><code>&lt;article&gt;
+  &lt;h1&gt;Anna&rsquo;s Pizzeria&lt;/h1&gt;
+  &lt;p&gt;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (4 stars out of 5)&lt;/p&gt;
+  &lt;p&gt;New York-style pizza right in historic downtown Apex&lt;/p&gt;
+  &lt;p&gt;
     Food is top-notch. Atmosphere is just right for a &ldquo;neighborhood
     pizza joint.&rdquo; The restaurant itself is a bit cramped; if you&rsquo;re
     overweight, you may have difficulty getting in and out of your
     seat and navigating between other tables. Used to give free
     garlic knots when you sat down; now they give you plain bread
     and you have to pay for the good stuff. Overall, it&rsquo;s a winner.
-  &lt;/p>
-  &lt;p>
-    100 North Salem Street&lt;br>
-    Apex, NC 27502&lt;br>
+  &lt;/p&gt;
+  &lt;p&gt;
+    100 North Salem Street&lt;br&gt;
+    Apex, NC 27502&lt;br&gt;
     USA
-  &lt;/p>
-  &lt;p>&mdash; reviewed by Mark Pilgrim, last updated March 31, 2010&lt;/p>
-&lt;/article></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+  &lt;/p&gt;
+  &lt;p&gt;&mdash; reviewed by Mark Pilgrim, last updated March 31, 2010&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
-<p>This review is contained in an <code>&lt;article></code> element, so that&rsquo;s where we&rsquo;ll put the <code>itemtype</code> and <code>itemscope</code> attributes. The namespace <abbr>URL</abbr> for this vocabulary is <code>http://data-vocabulary.org/Review</code>.
+<p>This review is contained in an <code>&lt;article&gt;</code> element, so that&rsquo;s where we&rsquo;ll put the <code>itemtype</code> and <code>itemscope</code> attributes. The namespace <abbr>URL</abbr> for this vocabulary is <code>http://data-vocabulary.org/Review</code>.
 
-<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Review"</mark>></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+<pre><code>&lt;article <mark>itemscope</mark> <mark>itemtype="http://data-vocabulary.org/Review"</mark>&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>What are the available properties in the Review vocabulary? I&rsquo;m glad you asked.
 
-<table class=st>
+<table class="st">
 <caption>Review vocabulary</caption>
-<tr class=ho><th>Property<th>Description
-<tr class=zebra><td><code>itemreviewed</code><td>The name of the item being reviewed. Can be a product, service, business, <i class=baa>&amp;</i>c.
+<tr class="ho"><th>Property<th>Description
+<tr class="zebra"><td><code>itemreviewed</code><td>The name of the item being reviewed. Can be a product, service, business, <i class="baa">&amp;</i>c.
 <tr><td><code>rating</code><td>A numerical quality rating for the item, on a scale from 1 to 5. Can also be a nested <code>http://data-vocabulary.org/Rating</code> vocabulary to use a nonstandard scale.
-<tr class=zebra><td><code>reviewer</code><td>The name of the author who wrote the review
-<tr><td><code>dtreviewed</code><td>The date that the item was reviewed in <a href=http://www.iso.org/iso/date_and_time_format>ISO date format</a>
-<tr class=zebra><td><code>summary</code><td>A short summary of the review
+<tr class="zebra"><td><code>reviewer</code><td>The name of the author who wrote the review
+<tr><td><code>dtreviewed</code><td>The date that the item was reviewed in <a href="http://www.iso.org/iso/date_and_time_format">ISO date format</a>
+<tr class="zebra"><td><code>summary</code><td>A short summary of the review
 <tr><td><code>description</code><td>The body of the review
 </table>
 
-<p>The first property is simple: <code>itemreviewed</code> is just text, and here it&rsquo;s contained in an <code>&lt;h1></code> element, so that&rsquo;s where we should put the <code>itemprop</code> attribute.
+<p>The first property is simple: <code>itemreviewed</code> is just text, and here it&rsquo;s contained in an <code>&lt;h1&gt;</code> element, so that&rsquo;s where we should put the <code>itemprop</code> attribute.
 
-<pre><code>  &lt;h1 <mark>itemprop="itemreviewed"</mark>>Anna&rsquo;s Pizzeria&lt;/h1></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+<pre><code>  &lt;h1 <mark>itemprop="itemreviewed"</mark>&gt;Anna&rsquo;s Pizzeria&lt;/h1&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>I&rsquo;m going to skip over the actual rating and come back to that at the end.
 
 <p>The next two properties are also straightforward. The <code>summary</code> property is a short description of what you&rsquo;re reviewing, and the <code>description</code> property is the body of the review.
 
-<pre><code>  &lt;p <mark>itemprop="summary"</mark>>New York-style pizza right in historic downtown Apex&lt;/p>
-  &lt;p <mark>itemprop="description"</mark>>
+<pre><code>  &lt;p <mark>itemprop="summary"</mark>&gt;New York-style pizza right in historic downtown Apex&lt;/p>
+  &lt;p <mark>itemprop="description"</mark>&gt;
     Food is top-notch. Atmosphere is just right for a &ldquo;neighborhood
     pizza joint.&rdquo; The restaurant itself is a bit cramped; if you&rsquo;re
     overweight, you may have difficulty getting in and out of your
@@ -819,48 +819,48 @@ Excerpt from the page will show up here.</span><br>
     garlic knots when you sat down; now they give you plain bread
     and you have to pay for the good stuff. Overall, it&rsquo;s a winner.
   &lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
-<p>The <code>location</code> and <code>geo</code> properties aren&rsquo;t anything we haven&rsquo;t tackled before. (If you&rsquo;re just tuning in, check out <a href=#address>marking up the address of a Person</a>, <a href=#organization-address>marking up the address of an Organization</a>, and <a href=#geo>marking up geolocation information</a> from earlier in this chapter.)
+<p>The <code>location</code> and <code>geo</code> properties aren&rsquo;t anything we haven&rsquo;t tackled before. (If you&rsquo;re just tuning in, check out <a href="#address">marking up the address of a Person</a>, <a href="#organization-address">marking up the address of an Organization</a>, and <a href="#geo">marking up geolocation information</a> from earlier in this chapter.)
 
 <pre><code>  &lt;p <mark>itemprop="location"</mark> <mark>itemscope</mark>
-           <mark>itemtype="http://data-vocabulary.org/Address"</mark>>
-    &lt;span <mark>itemprop="street-address"</mark>>100 North Salem Street&lt;/span>&lt;br>
-    &lt;span <mark>itemprop="locality"</mark>>Apex&lt;/span>,
-    &lt;span <mark>itemprop="region"</mark>>NC&lt;/span>
-    &lt;span <mark>itemprop="postal-code"</mark>>27502&lt;/span>&lt;br>
-    &lt;span <mark>itemprop="country-name"</mark>>USA&lt;/span>
+           <mark>itemtype="http://data-vocabulary.org/Address"</mark>&gt;
+    &lt;span <mark>itemprop="street-address"</mark>&gt;100 North Salem Street&lt;/span&gt;&lt;br&gt;
+    &lt;span <mark>itemprop="locality"</mark>&gt;Apex&lt;/span&gt;,
+    &lt;span <mark>itemprop="region"</mark>&gt;NC&lt;/span&gt;
+    &lt;span <mark>itemprop="postal-code"</mark>&gt;27502&lt;/span&gt;&lt;br&gt;
+    &lt;span <mark>itemprop="country-name"</mark>&gt;USA&lt;/span&gt;
   &lt;/p>
   &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark>
-        <mark>itemtype="http://data-vocabulary.org/Geo"</mark>>
+        <mark>itemtype="http://data-vocabulary.org/Geo"</mark>&gt;
     &lt;meta <mark>itemprop="latitude"</mark> content="35.730796" />
     &lt;meta <mark>itemprop="longitude"</mark> content="-78.851426" />
-  &lt;/span></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+  &lt;/span&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
-<p>The final line presents a familiar problem: it contains two bits of information in one element. The name of the reviewer is <code>Mark Pilgrim</code>, and the review date is <code>March 31, 2010</code>. How do we mark up these two distinct properties? <a href=#title-and-affiliation>Wrap them in their own elements</a> and put an <code>itemprop</code> attribute on each element. In fact, the date in this example should have been marked up with a <code>&lt;time></code> element in the first place, so that provides a natural hook on which to hang our <code>itemprop</code> attribute. The reviewer name can just be wrapped in a dummy <code>&lt;span></code> element.
+<p>The final line presents a familiar problem: it contains two bits of information in one element. The name of the reviewer is <code>Mark Pilgrim</code>, and the review date is <code>March 31, 2010</code>. How do we mark up these two distinct properties? <a href="#title-and-affiliation">Wrap them in their own elements</a> and put an <code>itemprop</code> attribute on each element. In fact, the date in this example should have been marked up with a <code>&lt;time&gt;</code> element in the first place, so that provides a natural hook on which to hang our <code>itemprop</code> attribute. The reviewer name can just be wrapped in a dummy <code>&lt;span&gt;</code> element.
 
-<pre><code>  &lt;p>&mdash; &lt;span <mark>itemprop="reviewer"</mark>>Mark Pilgrim&lt;/span>, last updated
-     &lt;<mark>time</mark> <mark>itemprop="dtreviewed"</mark> <mark>datetime="2010-03-31"</mark>>
+<pre><code>  &lt;p>&mdash; &lt;span <mark>itemprop="reviewer"</mark>&gt;Mark Pilgrim&lt;/span&gt;, last updated
+     &lt;<mark>time</mark> <mark>itemprop="dtreviewed"</mark> <mark>datetime="2010-03-31"</mark>&gt;
        March 31, 2010
-     &lt;/time>
+     &lt;/time&gt;
   &lt;/p>
-&lt;/article></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+&lt;/article&gt;</code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>OK, let&rsquo;s talk ratings. The trickiest part of marking up a review is the rating. By default, ratings in the Review vocabulary are on a scale of 1&ndash;5, 1 being &ldquo;terrible&rdquo; and 5 being &ldquo;awesome.&rdquo; If you want to use a different scale, you can definitely do that. But let&rsquo;s talk about the default scale first.
 
-<pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>>4&lt;/span> stars out of 5)&lt;/p></code></pre>
-<p class=follow>[Follow along! Before: <a href=examples/review.html>review.html</a>, after: <a href=examples/review-plus-microdata.html>review-plus-microdata.html</a>]
+<pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>&gt;4&lt;/span&gt; stars out of 5)&lt;/p></code></pre>
+<p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>If you&rsquo;re using the default 1&ndash;5 scale, the only property you need to mark up is the rating itself (4, in this case). But what if you want to use a different scale? You can do that; you just need to declare the limits of the scale you&rsquo;re using. For example, if you wanted to use a 0&ndash;10 point scale, you would still declare the <code>itemprop="rating"</code> property, but instead of giving the rating value directly, you would use a nested vocabulary of <code>http://data-vocabulary.org/Rating</code> to declare the worst and best values in your custom scale and the actual rating value within that scale.
 
 <pre><code>&lt;p <mark>itemprop="rating"</mark> <mark>itemscope</mark>
-   <mark>itemtype="http://data-vocabulary.org/Rating"</mark>>
+   <mark>itemtype="http://data-vocabulary.org/Rating"</mark>&gt;
   &#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;
-  (&lt;span <mark>itemprop="value"</mark>>9&lt;/span> on a scale of
-   &lt;span <mark>itemprop="worst"</mark>>0&lt;/span> to
-   &lt;span <mark>itemprop="best"</mark>>10&lt;/span>)
+  (&lt;span <mark>itemprop="value"</mark>&gt;9&lt;/span&gt; on a scale of
+   &lt;span <mark>itemprop="worst"</mark>&gt;0&lt;/span&gt; to
+   &lt;span <mark>itemprop="best"</mark>&gt;10&lt;/span&gt;)
 &lt;/p></code></pre>
 
 <p>In English, this says &ldquo;the product I&rsquo;m reviewing has a rating value of 9 on a scale of 0&ndash;10.&rdquo;
@@ -895,25 +895,25 @@ Item
 
 <p>And here (modulo the whims of Google, the phase of the moon, and so on and so forth) is what my review might look like in a search result listing:
 
-<blockquote class=fakeresults>
-<p><a href=examples/review-plus-microdata.html>Anna&rsquo;s Pizzeria: review</a><br>
-<span class=fakeinfo><span class=fakestar>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span> Review by Mark Pilgrim - Mar 31, 2010</span><br>
-<span class=fakeexcerpt>Excerpt from the page will show up here.<br>
+<blockquote class="fakeresults">
+<p><a href="examples/review-plus-microdata.html">Anna&rsquo;s Pizzeria: review</a><br>
+<span class="fakeinfo"><span class="fakestar">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span> Review by Mark Pilgrim - Mar 31, 2010</span><br>
+<span class="fakeexcerpt">Excerpt from the page will show up here.<br>
 Excerpt from the page will show up here.</span><br>
-<span class=fakeurl>diveintohtml5.info/examples/review-plus-microdata.html</span> - <span class=fakelink>Cached</span> - <span class=fakelink>Similar pages</span>
+<span class="fakeurl">diveintohtml5.info/examples/review-plus-microdata.html</span> - <span class="fakelink">Cached</span> - <span class="fakelink">Similar pages</span>
 </blockquote>
 
 <p>Angle brackets don&rsquo;t impress me much, but I have to admit, that&rsquo;s pretty cool.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <p>Microdata resources:
 
 <ul>
-<li><a href=http://foolip.org/microdatajs/live/>Live microdata playground</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata><abbr>HTML5</abbr> microdata specification</a>
+<li><a href="http://foolip.org/microdatajs/live/">Live microdata playground</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata"><abbr>HTML5</abbr> microdata specification</a>
 </ul>
 
 <p>Google Rich Snippets resources:
@@ -921,29 +921,29 @@ Excerpt from the page will show up here.</span><br>
 <ul>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">About rich snippets and structured data</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146646">Marking up contact and social networking information</a>
-<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146861">Businesses <i class=baa>&amp;</i> organizations</a>
+<li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146861">Businesses <i class="baa">&amp;</i> organizations</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=164506">Events</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=146645">Reviews</a>
 <li><a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=172705">Review ratings</a>
-<li><a href=http://www.google.com/webmasters/tools/richsnippets>Google Rich Snippets Testing Tool</a>
-<li><a href=http://knol.google.com/k/google-rich-snippets-tips-and-tricks>Google Rich Snippets Tips and Tricks</a>
+<li><a href="http://www.google.com/webmasters/tools/richsnippets">Google Rich Snippets Testing Tool</a>
+<li><a href="http://knol.google.com/k/google-rich-snippets-tips-and-tricks">Google Rich Snippets Tips and Tricks</a>
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &#8216;&ldquo;Distributed,&rdquo; &ldquo;Extensibility,&rdquo; &amp; Other Fancy Words.&rsquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &#8216;&ldquo;Distributed,&rdquo; &ldquo;Extensibility,&rdquo; &amp; Other Fancy Words.&rsquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/dih5.js></script>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="j/jquery.js"></script>
+<script src="j/dih5.js"></script>

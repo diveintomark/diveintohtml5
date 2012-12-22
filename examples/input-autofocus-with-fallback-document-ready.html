@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="robots" content="noindex" />
-  <title>&lt;input autofocus> with jQuery fallback - Dive Into HTML5</title>
+  <title>&lt;input autofocus&gt; with jQuery fallback - Dive Into HTML5</title>
   <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
   <script src="../j/jquery.js"></script>
   <script>
@@ -15,7 +15,7 @@
     });
   </script>
   <link rel="stylesheet" href="style-html5.css" />
-  <meta name=viewport content='initial-scale=1.0' />
+  <meta name="viewport" content="initial-scale=1.0" />
 </head>
 
 <body>
@@ -25,27 +25,27 @@
     <input type="submit" value="Go">
   </form>
 
-  <pre><code>&lt;head>
-  &lt;script src="jquery.js">&lt;/script>
-  &lt;script>
+  <pre><code>&lt;head&gt;
+  &lt;script src="jquery.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
     $(document).ready(function() {
       if (!("autofocus" in document.createElement("input"))) {
         $("#q").focus();
       }
     });
-  &lt;/script>
-&lt;/head>
-&lt;body>
-  &lt;form name="f">
-  &lt;input id="q" autofocus>
-  &lt;input type="submit" value="Go">
-&lt;/form>
-&lt;/body>
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form name="f"&gt;
+  &lt;input id="q" autofocus&gt;
+  &lt;input type="submit" value="Go"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
 </code></pre>
 
   <p>jQuery fires its custom <code>ready</code> event as soon as the page <abbr>DOM</abbr> is available &mdash; that is, it waits until the page text is loaded, but it doesn&rsquo;t wait until all the images are loaded. This is not an optimal approach &mdash; if the page is unusually large or the network connection is unusually slow, a user could still start interacting with the page before your focus script executes. But it is still far better than waiting until the <code>window.onload</code> event fires.
 
-  <p><a href=../forms.html#more-on-focus>&larr; back to Dive Into HTML5</a>
+  <p><a href="../forms.html#more-on-focus">&larr; back to Dive Into HTML5</a>
 
 </body>
 

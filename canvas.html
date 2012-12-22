@@ -1,76 +1,76 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Canvas - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/excanvas.min.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/excanvas.min.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 body{counter-reset:h1 4}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#canvas>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="index.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#canvas">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>Let&rsquo;s Call It A<br>Draw(ing Surface)</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
+<p id="toc">&nbsp;
+<p class="a">&#x2767;
 
-<h2 id=divingin>Diving In</h2>
+<h2 id="divingin">Diving In</h2>
 
-<p class=f><img src=i/aoc-h.png alt=H width=107 height=105>TML 5 defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>the &lt;canvas> element</a> as &ldquo;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&rdquo; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
+<p class="f"><img src="i/aoc-h.png" alt="H" width="107" height="105">TML 5 defines <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">the &lt;canvas&gt; element</a> as &ldquo;a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.&rdquo; A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
 
-<table class=bc>
-<caption>Basic &lt;canvas> support</caption>
+<table class="bc">
+<caption>Basic &lt;canvas&gt; support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 <tfoot>
-<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> natively.
+<tr><td colspan="7" style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href="http://code.google.com/p/explorercanvas/">explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas&gt;</code> natively.
 </table>
 
-<p class=clear>So what does a canvas look like? Nothing, really. A <code>&lt;canvas></code> element has no content and no border of its own.</p>
+<p class="clear">So what does a canvas look like? Nothing, really. A <code>&lt;canvas&gt;</code> element has no content and no border of its own.</p>
 
-<canvas width=300 height=225 class=clear style="float:left"></canvas>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Invisible canvas
+<canvas width="300" height="225" class="clear" style="float:left"></canvas>
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x219c;</span> Invisible canvas
 
-<p class=clear>The markup looks like this:
+<p class="clear">The markup looks like this:
 
-<pre><code>&lt;canvas width="300" height="225">&lt;/canvas></code></pre>
+<pre><code>&lt;canvas width="300" height="225"&gt;&lt;/canvas&gt;</code></pre>
 
 <p>Let&rsquo;s add a dotted border so we can see what we&rsquo;re dealing with.</p>
 
-<canvas width=300 height=225 class=clear style="border:1px dotted;float:left"></canvas>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Canvas with border
+<canvas width="300" height="225" class="clear" style="border:1px dotted;float:left"></canvas>
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x219c;</span> Canvas with border
 
-<p class=clear>You can have more than one <code>&lt;canvas></code> element on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
+<p class="clear">You can have more than one <code>&lt;canvas&gt;</code> element on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
 
 <p>Let&rsquo;s expand that markup to include an <code>id</code> attribute:
 
-<pre><code>&lt;canvas id="a" width="300" height="225">&lt;/canvas></code></pre>
+<pre><code>&lt;canvas id="a" width="300" height="225"&gt;&lt;/canvas&gt;</code></pre>
 
-<p>Now you can easily find that <code>&lt;canvas></code> element in the <abbr>DOM</abbr>.
+<p>Now you can easily find that <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
 
 <pre><code>var a_canvas = document.getElementById("a");</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=shapes>Simple Shapes</h2>
+<h2 id="shapes">Simple Shapes</h2>
 
-<table class=bc>
+<table class="bc">
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 <tfoot>
-<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> shapes natively.
+<tr><td colspan="7" style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href="http://code.google.com/p/explorercanvas/">explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas&gt;</code> shapes natively.
 </table>
 
 <p>Every canvas starts out blank. That&rsquo;s boring! Let&rsquo;s draw something.</p>
 
-<canvas id=b width=300 height=225 style="border:1px dotted;float:left" onclick="draw_b();return false"></canvas>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
+<canvas id="b" width="300" height="225" style="border:1px dotted;float:left" onclick="draw_b();return false"></canvas>
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
 
-<p class=clear>The <code>onclick</code> handler called this function:
+<p class="clear">The <code>onclick</code> handler called this function:
 
 <pre><code>function draw_b() {
   var b_canvas = document.getElementById("b");
@@ -78,25 +78,25 @@ body{counter-reset:h1 4}
   b_context.fillRect(50, 25, 150, 100);
 }</code></pre>
 
-<p>The 1<sup>st</sup> line of the function is nothing special; it just finds the <code>&lt;canvas></code> element in the <abbr>DOM</abbr>.
+<p>The 1<sup>st</sup> line of the function is nothing special; it just finds the <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
 
-<p class="legend left" style="margin-top:2em">And then there&rsquo;s this <span class=arrow>&#x21dd;</span>&nbsp;</p>
+<p class="legend left" style="margin-top:2em">And then there&rsquo;s this <span class="arrow">&#x21dd;</span>&nbsp;</p>
 <pre><code>function draw_b() {
   var b_canvas = document.getElementById("b");
 <mark>  var b_context = b_canvas.getContext("2d");</mark>
   b_context.fillRect(50, 25, 150, 100);
 }</code></pre>
 
-<p class=ss><img src=i/openclipart.org_media_files_johnny_automatic_4145.png width=312 height=300 alt="man drawing in front of a mirror">
+<p class="ss"><img src="i/openclipart.org_media_files_johnny_automatic_4145.png" width="312" height="300" alt="man drawing in front of a mirror">
 
-<p>Every canvas has a drawing <dfn>context</dfn>, which is where all the fun stuff happens. Once you&rsquo;ve found a <code>&lt;canvas></code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>"2d"</code> to the <code>getContext()</code> method.
+<p>Every canvas has a drawing <dfn>context</dfn>, which is where all the fun stuff happens. Once you&rsquo;ve found a <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>"2d"</code> to the <code>getContext()</code> method.
 
-<blockquote class=note>
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Is there a 3-D canvas?<br>
 A: Not yet. Individual vendors have experimented with their own three-dimensional canvas <abbr>API</abbr>s, but none of them have been standardized. The <abbr>HTML5</abbr> specification notes, &ldquo;A future version of this specification will probably define a 3d context.&rdquo;
 </blockquote>
 
-<p>So, you have a <code>&lt;canvas></code> element, and you have its drawing context. The drawing context is where all the drawing methods and properties are defined. There&rsquo;s a whole group of properties and methods devoted to drawing rectangles:
+<p>So, you have a <code>&lt;canvas&gt;</code> element, and you have its drawing context. The drawing context is where all the drawing methods and properties are defined. There&rsquo;s a whole group of properties and methods devoted to drawing rectangles:
 
 <ul>
 <li>The <code>fillStyle</code> property can be a <abbr>CSS</abbr> color, a pattern, or a gradient. (More on gradients shortly.) The default <code>fillStyle</code> is solid black, but you can set it to whatever you like. Each drawing context remembers its own properties as long as the page is open, unless you do something to reset it.
@@ -106,12 +106,12 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 <li><code>clearRect(x, y, width, height)</code> clears the pixels in the specified rectangle.
 </ul>
 
-<div class="pf clear" id=reset>
+<div class="pf clear" id="reset">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Can I &ldquo;reset&rdquo; a canvas?<br>
-A: Yes. Setting the width or height of a <code>&lt;canvas></code> element will erase its contents and reset all the properties of its drawing context to their default values. You don&rsquo;t even need to <em>change</em> the width; you can simply set it to its current value, like this:
+A: Yes. Setting the width or height of a <code>&lt;canvas&gt;</code> element will erase its contents and reset all the properties of its drawing context to their default values. You don&rsquo;t even need to <em>change</em> the width; you can simply set it to its current value, like this:
 <pre><code>var b_canvas = document.getElementById("b");
 <mark>b_canvas.width = b_canvas.width;</mark></code></pre>
 </blockquote>
@@ -119,23 +119,23 @@ A: Yes. Setting the width or height of a <code>&lt;canvas></code> element will e
 </div>
 
 <p>Getting back to that code sample in the previous example&hellip;
-<p class="legend left" style="margin-top:2em">Draw a rectangle <span class=arrow>&#x21dd;&nbsp;</span></p>
+<p class="legend left" style="margin-top:2em">Draw a rectangle <span class="arrow">&#x21dd;&nbsp;</span></p>
 <pre><code>var b_canvas = document.getElementById("b");
 var b_context = b_canvas.getContext("2d");
 <mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
 
-<p class=clear>Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&rsquo;s look at the canvas coordinate system.
+<p class="clear">Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&rsquo;s look at the canvas coordinate system.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=coordinates>Canvas Coordinates</h2>
+<h2 id="coordinates">Canvas Coordinates</h2>
 
 <p>The canvas is a two-dimensional grid. The coordinate (0, 0) is at the upper-left corner of the canvas. Along the X-axis, values increase towards the right edge of the canvas. Along the Y-axis, values increase towards the bottom edge of the canvas.
 
-<p class="legend top" style="width:500px;text-align:center">Canvas coordinates diagram <span class=arrow>&#x21b7;</span><br></p>
-<canvas id=c width=500 height=375></canvas>
+<p class="legend top" style="width:500px;text-align:center">Canvas coordinates diagram <span class="arrow">&#x21b7;</span><br></p>
+<canvas id="c" width="500" height="375"></canvas>
 
-<p>That coordinate diagram was drawn with a <code>&lt;canvas></code> element. It comprises
+<p>That coordinate diagram was drawn with a <code>&lt;canvas&gt;</code> element. It comprises
 
 <ul>
 <li>a set of off-white vertical lines
@@ -151,31 +151,31 @@ var b_context = b_canvas.getContext("2d");
 <li>a dot in the upper-left corner, and another in the lower-right corner
 </ul>
 
-<p>First, we need to define the <code>&lt;canvas></code> element itself. The <code>&lt;canvas></code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
+<p>First, we need to define the <code>&lt;canvas&gt;</code> element itself. The <code>&lt;canvas&gt;</code> element defines the <code>width</code> and <code>height</code>, and the <code>id</code> so we can find it later.
 
-<pre><code>&lt;canvas id="c" width="500" height="375">&lt;/canvas></code></pre>
+<pre><code>&lt;canvas id="c" width="500" height="375"&gt;&lt;/canvas&gt;</code></pre>
 
-<p>Then we need a script to find the <code>&lt;canvas></code> element in the DOM and get its drawing context.
+<p>Then we need a script to find the <code>&lt;canvas&gt;</code> element in the DOM and get its drawing context.
 
 <pre><code>var c_canvas = document.getElementById("c");
 var context = c_canvas.getContext("2d");</code></pre>
 
 <p>Now we can start drawing lines.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=paths>Paths</h2>
+<h2 id="paths">Paths</h2>
 
-<table class=bc>
+<table class="bc">
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 <tfoot>
-<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> paths natively.
+<tr><td colspan="7" style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href="http://code.google.com/p/explorercanvas/">explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas&gt;</code> paths natively.
 </table>
 
-<p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src=i/openclipart.org_media_files_johnny_automatic_7563.png alt="gerbil sitting on a chair with a quill and ink jar" width=167 height=347>
+<p style="float:left;margin:1.75em 1.75em 1.75em 0"><img src="i/openclipart.org_media_files_johnny_automatic_7563.png" alt="gerbil sitting on a chair with a quill and ink jar" width="167" height="347">
 
 <p>Imagine you&rsquo;re drawing a picture in ink. You don&rsquo;t want to just dive in and start drawing with ink, because you might make a mistake. Instead, you sketch the lines and curves with a pencil, and once you&rsquo;re happy with it, you trace over your sketch in ink.
 
@@ -196,33 +196,33 @@ var context = c_canvas.getContext("2d");</code></pre>
   context.moveTo(x, 0);
   <mark>context.lineTo(x, 375);</mark>
 }</code></pre>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> Draw vertical lines</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> Draw vertical lines</p>
 
 <pre style="clear:left;float:left"><code>for (var y = 0.5; y &lt; 375; y += 10) {
   context.moveTo(0, y);
   <mark>context.lineTo(500, y);</mark>
 }</code></pre>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> Draw horizontal lines</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> Draw horizontal lines</p>
 
-<p class=clear>Those were all &ldquo;pencil&rdquo; methods. Nothing has actually been drawn on the canvas yet. We need an &ldquo;ink&rdquo; method to make it permanent.
+<p class="clear">Those were all &ldquo;pencil&rdquo; methods. Nothing has actually been drawn on the canvas yet. We need an &ldquo;ink&rdquo; method to make it permanent.
 
 <pre><code>context.strokeStyle = "#eee";
 <mark>context.stroke();</mark></code></pre>
 
 <p><code>stroke()</code> is one of the &ldquo;ink&rdquo; methods. It takes the complex path you defined with all those <code>moveTo()</code> and <code>lineTo()</code> calls, and actually draws it on the canvas. The <code>strokeStyle</code> controls the color of the lines. This is the result:</p>
 
-<canvas id=c2 width=500 height=375></canvas>
+<canvas id="c2" width="500" height="375"></canvas>
 
-<div class="pf clear" id=pixel-madness>
+<div class="pf clear" id="pixel-madness">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
 A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
 <p>For example, if you try to draw a line from <code>(1,&nbsp;0)</code> to <code>(1,&nbsp;3)</code>, the browser will draw a line covering 0.5 screen pixels on either side of <code>x=1</code>. The screen can&rsquo;t display half a pixel, so it expands the line to cover a total of two pixels:
-<p><img src=i/canvas-half-pixels-1.jpg alt="A line from (1,0) to (1,3) is drawn 2 pixels wide" width=406 height=314>
+<p><img src="i/canvas-half-pixels-1.jpg" alt="A line from (1,0) to (1,3) is drawn 2 pixels wide" width="406" height="314">
 <p>But, if you try to draw a line from <code>(1.5,&nbsp;0)</code> to <code>(1.5,&nbsp;3)</code>, the browser will draw a line covering 0.5 screen pixels on either side of <code>x=1.5</code>, which results in a true 1-pixel-wide line:
-<p><img src=i/canvas-half-pixels-2.jpg alt="A line from (1.5,0) to (1.5,3) is draw 1 pixel wide" width=404 height=323>
+<p><img src="i/canvas-half-pixels-2.jpg" alt="A line from (1.5,0) to (1.5,3) is draw 1 pixel wide" width="404" height="323">
 <p><em>Thanks to Jason Johnson for providing these diagrams.</em>
 </blockquote>
 </div>
@@ -230,7 +230,7 @@ A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&h
 
 <p>Now let&rsquo;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or gradient &mdash; yes, we&rsquo;ll get to those soon). We want to draw the arrow in a different color ink &mdash; black instead of off-white &mdash; so we need to start a new path.
 
-<p class="legend top" style="margin-left:2em">A new path <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:2em">A new path <span class="arrow">&#x21b7;</span><br></p>
 <pre><code><mark>context.beginPath();</mark>
 context.moveTo(0, 40);
 context.lineTo(240, 40);
@@ -249,34 +249,34 @@ context.lineTo(60, 375);
 context.moveTo(65, 370);
 context.lineTo(60, 375);
 context.lineTo(55, 370);</code></pre>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x219c;</span> Not a new path</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x219c;</span> Not a new path</p>
 
-<p class=clear>I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&rsquo;t get reset when you start a new path.) That&rsquo;s OK, because we&rsquo;ve just run a series of &ldquo;pencil&rdquo; methods. But before we draw it for real, in &ldquo;ink,&rdquo; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we&rsquo;ll hardly be able to see them! The following lines change the color to black and draw the lines on the canvas:
+<p class="clear">I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&rsquo;t get reset when you start a new path.) That&rsquo;s OK, because we&rsquo;ve just run a series of &ldquo;pencil&rdquo; methods. But before we draw it for real, in &ldquo;ink,&rdquo; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we&rsquo;ll hardly be able to see them! The following lines change the color to black and draw the lines on the canvas:
 
 <pre><code>context.strokeStyle = "#000";
 context.stroke();</code></pre>
 
 <p>This is the result:</p>
 
-<canvas id=c3 width=500 height=375></canvas>
+<canvas id="c3" width="500" height="375"></canvas>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=text>Text</h2>
+<h2 id="text">Text</h2>
 
-<table class=bc>
+<table class="bc">
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<sup>&dagger;</sup><td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 <tfoot>
-<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports canvas text natively.
-<tr><td colspan=7 style="text-align:left">&dagger; Mozilla Firefox 3.0 requires a compatibility shim.
+<tr><td colspan="7" style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href="http://code.google.com/p/explorercanvas/">explorercanvas</a> library. Internet Explorer 9 supports canvas text natively.
+<tr><td colspan="7" style="text-align:left">&dagger; Mozilla Firefox 3.0 requires a compatibility shim.
 </table>
 
-<p>In addition to drawing <a href=#paths>lines on a canvas</a>, you can also draw text on a canvas. Unlike text on the surrounding web page, there is no box model. That means none of the familiar CSS layout techniques are available: no floats, no margins, no padding, no word wrapping. (Maybe you think that&rsquo;s a good thing!) You can set a few font attributes, then you pick a point on the canvas and draw your text there.
+<p>In addition to drawing <a href="#paths">lines on a canvas</a>, you can also draw text on a canvas. Unlike text on the surrounding web page, there is no box model. That means none of the familiar CSS layout techniques are available: no floats, no margins, no padding, no word wrapping. (Maybe you think that&rsquo;s a good thing!) You can set a few font attributes, then you pick a point on the canvas and draw your text there.
 
-<p>The following font attributes are available on the <a href=#shapes>drawing context</a>:
+<p>The following font attributes are available on the <a href="#shapes">drawing context</a>:
 
 <ul>
 <li><code>font</code> can be anything you would put in a <abbr>CSS</abbr> <code>font</code> rule. That includes font style, font variant, font weight, font size, line height, and font family.
@@ -284,35 +284,35 @@ context.stroke();</code></pre>
 <li><code>textBaseline</code> controls where the text is drawn relative to the starting point. Possible values are <code>top</code>, <code>hanging</code>, <code>middle</code>, <code>alphabetic</code>, <code>ideographic</code>, or <code>bottom</code>.
 </ul>
 
-<p><code>textBaseline</code> is tricky, because text is tricky (English text isn&rsquo;t, but you can draw any Unicode character you like on a canvas, and Unicode is tricky). The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>explains the different text baselines</a>:
+<p><code>textBaseline</code> is tricky, because text is tricky (English text isn&rsquo;t, but you can draw any Unicode character you like on a canvas, and Unicode is tricky). The <abbr>HTML5</abbr> specification <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline">explains the different text baselines</a>:
 
-<blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline>
-<p>The top of the em square is roughly at the top of the glyphs in a font, the hanging baseline is where some glyphs like <span class=u>आ</span> are anchored, the middle is half-way between the top of the em square and the bottom of the em square, the alphabetic baseline is where characters like <span class=u>Á</span>, <span class=u>ÿ</span>, <span class=u>f</span>, and <span class=u>Ω</span> are anchored, the ideographic baseline is where glyphs like <span class=u>私</span> and <span class=u>達</span> are anchored, and the bottom of the em square is roughly at the bottom of the glyphs in a font. The top and bottom of the bounding box can be far from these baselines, due to glyphs extending far outside the em square.</p>
-<p><img src=i/baselines.png alt="diagram of different values of the textBaseline property" width=680 height=227>
+<blockquote cite="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-textbaseline">
+<p>The top of the em square is roughly at the top of the glyphs in a font, the hanging baseline is where some glyphs like <span class="u">आ</span> are anchored, the middle is half-way between the top of the em square and the bottom of the em square, the alphabetic baseline is where characters like <span class="u">Á</span>, <span class="u">ÿ</span>, <span class="u">f</span>, and <span class="u">Ω</span> are anchored, the ideographic baseline is where glyphs like <span class="u">私</span> and <span class="u">達</span> are anchored, and the bottom of the em square is roughly at the bottom of the glyphs in a font. The top and bottom of the bounding box can be far from these baselines, due to glyphs extending far outside the em square.</p>
+<p><img src="i/baselines.png" alt="diagram of different values of the textBaseline property" width="680" height="227">
 </blockquote>
 
 <p>For simple alphabets like English, you can safely stick with <code>top</code>, <code>middle</code>, or <code>bottom</code> for the <code>textBaseline</code> property.
 
-<p>Let&rsquo;s draw some text! Text drawn inside the canvas inherits the font size and style of the <code>&lt;canvas></code> element itself, but you can override this by setting the <code>font</code> property on the drawing context.
+<p>Let&rsquo;s draw some text! Text drawn inside the canvas inherits the font size and style of the <code>&lt;canvas&gt;</code> element itself, but you can override this by setting the <code>font</code> property on the drawing context.
 
 <pre style="float:left"><code><mark>context.font = "bold 12px sans-serif";</mark>
 context.fillText("x", 248, 43);
 context.fillText("y", 58, 165);</code></pre>
-<p class="legend right"><span class=arrow>&nbsp;&#x219c;</span> Change the font style</p>
+<p class="legend right"><span class="arrow">&nbsp;&#x219c;</span> Change the font style</p>
 
-<p class=clear>The <code>fillText()</code> method draws the actual text.</p>
+<p class="clear">The <code>fillText()</code> method draws the actual text.</p>
 
 <pre style="float:left"><code>context.font = "bold 12px sans-serif";
 <mark>context.fillText("x", 248, 43);</mark>
 context.fillText("y", 58, 165);</code></pre>
-<p class="legend right" style="margin-top:2.6em"><span class=arrow>&nbsp;&#x21dc;</span> Draw the text</p>
+<p class="legend right" style="margin-top:2.6em"><span class="arrow">&nbsp;&#x21dc;</span> Draw the text</p>
 
-<div class="pf clear" id=relative-font-size>
+<div class="pf clear" id="relative-font-size">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
-A: Yes. Like every other <abbr>HTML</abbr> element on your page, the <code>&lt;canvas></code> element itself has a computed font size based on your page&rsquo;s CSS rules. If you set the <code>context.font</code> property to a relative font size like <code>1.5em</code> or <code>150%</code>, your browser multiplies this by the computed font size of the <code>&lt;canvas></code> element itself.
+A: Yes. Like every other <abbr>HTML</abbr> element on your page, the <code>&lt;canvas&gt;</code> element itself has a computed font size based on your page&rsquo;s CSS rules. If you set the <code>context.font</code> property to a relative font size like <code>1.5em</code> or <code>150%</code>, your browser multiplies this by the computed font size of the <code>&lt;canvas&gt;</code> element itself.
 </blockquote>
 </div>
 </div>
@@ -330,42 +330,46 @@ context.fillText("( 500 , 375 )", <mark>492, 370</mark>);</code></pre>
 
 <p>And this is the result:</p>
 
-<canvas id=c4 width=500 height=375></canvas>
+<canvas id="c4" width="500" height="375"></canvas>
 
-<p>Oops! We forgot the dots in the corners. We&rsquo;ll see how to draw circles a little later. For now, I&rsquo;ll cheat a little and <a href=#shapes>draw them as rectangles</a>. 
+<p>Oops! We forgot the dots in the corners. We&rsquo;ll see how to draw circles a little later. For now, I&rsquo;ll cheat a little and <a href="#shapes">draw them as rectangles</a>. 
 
 <pre style="float:left"><code>context.fillRect(0, 0, 3, 3);
 context.fillRect(497, 372, 3, 3);</code></pre>
-<p class="legend right"><span class=arrow>&nbsp;&#x21dc;</span> Draw two &ldquo;dots&rdquo;</p>
+<p class="legend right"><span class="arrow">&nbsp;&#x21dc;</span> Draw two &ldquo;dots&rdquo;</p>
 
 <p>And that&rsquo;s all she wrote! Here is the final product:</p>
 
-<canvas id=c5 width=500 height=375 class=clear></canvas>
+<canvas id="c5" width="500" height="375" class="clear"></canvas>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=gradients>Gradients</h2>
+<h2 id="gradients">Gradients</h2>
 
-<table class=bc>
+<table class="bc">
 <thead>
-<tr><th><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
+<tr><th></th><th title="Internet Explorer">IE</th><th title="Mozilla Firefox">Firefox</th><th title="Apple Safari">Safari</th><th title="Google Chrome">Chrome</th><th>Opera</th><th>iPhone</th><th>Android
+</th></tr>
+</thead>
 <tbody>
-<tr>
-<tr><th>linear gradients<td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
-<tr><th>radial gradients<td>9.0+<td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
+<tr><th>linear gradients</th><td>7.0+<sup>*</sup></td><td>3.0+</td><td>3.0+</td><td>3.0+</td><td>10.0+</td><td>1.0+</td><td>1.0+</td></tr><tr><th>radial gradients</th><td>9.0+</td><td>3.0+</td><td>3.0+</td><td>3.0+</td><td>10.0+</td><td>1.0+</td><td>1.0+
+</td></tr>
+</tbody>
 <tfoot>
-<tr><td colspan=8 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> gradients natively.
+<tr><td colspan="8" style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href="http://code.google.com/p/explorercanvas/">explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas&gt;</code> gradients natively.
+</td></tr>
+</tfoot>
 </table>
 
-<p>Earlier in this chapter, you learned how to draw <a href=#shapes>a rectangle filled with a solid color</a>, then <a href=#paths>a line stroked with a solid color</a>. But shapes and lines aren&rsquo;t limited to solid colors. You can do all kinds of magic with gradients. Let&rsquo;s look at an example.</p>
+<p>Earlier in this chapter, you learned how to draw <a href="#shapes">a rectangle filled with a solid color</a>, then <a href="#paths">a line stroked with a solid color</a>. But shapes and lines aren&rsquo;t limited to solid colors. You can do all kinds of magic with gradients. Let&rsquo;s look at an example.</p>
 
-<canvas id=d width=300 height=225></canvas>
+<canvas id="d" width="300" height="225"></canvas>
 
 <p>The markup looks the same as any other canvas.
 
-<pre><code>&lt;canvas id="d" width="300" height="225">&lt;/canvas></code></pre>
+<pre><code>&lt;canvas id="d" width="300" height="225"&gt;&lt;/canvas&gt;</code></pre>
 
-<p>First, we need to find the <code>&lt;canvas></code> element and its drawing context.
+<p>First, we need to find the <code>&lt;canvas&gt;</code> element and its drawing context.
 
 <pre><code>var d_canvas = document.getElementById("d");
 var context = d_canvas.getContext("2d");</code></pre>
@@ -379,7 +383,7 @@ var context = d_canvas.getContext("2d");</code></pre>
 
 <p>Let&rsquo;s make a linear gradient. Gradients can be any size, but I&rsquo;ll make this gradient be 300 pixels wide, like the canvas.
 
-<p class="legend top" style="margin-left:2.5em">Create a gradient object <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:2.5em">Create a gradient object <span class="arrow">&#x21b7;</span><br></p>
 <pre><code>var my_gradient = <mark>context.createLinearGradient(0, 0, 300, 0);</mark></code></pre>
 
 <p>Because the <code>y</code> values (the 2<sup>nd</sup> and 4<sup>th</sup> parameters) are both 0, this gradient will shade evenly from left to right.
@@ -393,17 +397,17 @@ my_gradient.addColorStop(1, "white");</code></pre>
 
 <p>Defining a gradient doesn&rsquo;t draw anything on the canvas. It&rsquo;s just an object tucked away in memory somewhere. To draw a gradient, you set your <code>fillStyle</code> to the gradient and draw a shape, like a rectangle or a line.
 
-<p class="legend top">Fill style is a gradient <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top">Fill style is a gradient <span class="arrow">&#x21b7;</span><br></p>
 <pre><code><mark>context.fillStyle = my_gradient;</mark>
 context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>And this is the result:</p>
 
-<canvas id=d2 width=300 height=225></canvas>
+<canvas id="d2" width="300" height="225"></canvas>
 
 <p>Suppose you want a gradient that shades from top to bottom. When you create the gradient object, keep the <code>x</code> values (1<sup>st</sup> and 3<sup>rd</sup> parameters) constant, and make the <code>y</code> values (2<sup>nd</sup> and 4<sup>th</sup> parameters) range from 0 to the height of the canvas.
 
-<p class="legend top" style="margin-left:6.5em">x values are 0, y values vary <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:6.5em">x values are 0, y values vary <span class="arrow">&#x21b7;</span><br></p>
 <pre><code>var my_gradient = context.createLinearGradient(<mark>0, 0, 0, 225</mark>);
 my_gradient.addColorStop(0, "black");
 my_gradient.addColorStop(1, "white");
@@ -412,11 +416,11 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>And this is the result:</p>
 
-<canvas id=d3 width=300 height=225></canvas>
+<canvas id="d3" width="300" height="225"></canvas>
 
 <p>You can also create gradients along a diagonal.
 
-<p class="legend top" style="margin-left:8.5em">both x and y values vary <span class=arrow>&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:8.5em">both x and y values vary <span class="arrow">&#x21b7;</span><br></p>
 <pre><code>var my_gradient = context.createLinearGradient(<mark>0, 0, 300, 225</mark>);
 my_gradient.addColorStop(0, "black");
 my_gradient.addColorStop(1, "white");
@@ -425,34 +429,34 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>And this is the result:</p>
 
-<canvas id=d4 width=300 height=225></canvas>
+<canvas id="d4" width="300" height="225"></canvas>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=images>Images</h2>
+<h2 id="images">Images</h2>
 
-<table class=bc>
+<table class="bc">
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><td>7.0+<sup>*</sup><td>3.0+<td>3.0+<td>3.0+<td>10.0+<td>1.0+<td>1.0+
 <tfoot>
-<tr><td colspan=7 style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href=http://code.google.com/p/explorercanvas/>explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas></code> images natively.
+<tr><td colspan="7" style="text-align:left">* Internet Explorer 7 and 8 require the third-party <a href="http://code.google.com/p/explorercanvas/">explorercanvas</a> library. Internet Explorer 9 supports <code>&lt;canvas&gt;</code> images natively.
 </table>
 
 <p>Here is a cat:
 
-<p style="float:left"><img src=i/openclipart.org_media_files_johnny_automatic_1360.png alt="sleeping cat" width=177 height=113 id=cat>
-<p class="legend right" style="margin-top:4em"><span class=arrow>&nbsp;&#x21dc;</span> An &lt;img> element</p>
+<p style="float:left"><img src="i/openclipart.org_media_files_johnny_automatic_1360.png" alt="sleeping cat" width="177" height="113" id="cat">
+<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> An &lt;img&gt; element</p>
 
-<p class=clear>Here is the same cat, drawn on a canvas:
+<p class="clear">Here is the same cat, drawn on a canvas:
 
 <div style="float:right">
-<p class="legend left" style="margin-top:2em">A &lt;canvas> element <span class=arrow>&#x21dd;&nbsp;</span></p>
-<canvas id=e width=177 height=113></canvas>
+<p class="legend left" style="margin-top:2em">A &lt;canvas&gt; element <span class="arrow">&#x21dd;&nbsp;</span></p>
+<canvas id="e" width="177" height="113"></canvas>
 </div>
 
-<p class=clear>The canvas drawing context defines a <code>drawImage()</code> method for drawing an image on a canvas. The method can take three, five, or nine arguments.
+<p class="clear">The canvas drawing context defines a <code>drawImage()</code> method for drawing an image on a canvas. The method can take three, five, or nine arguments.
 
 <ul>
 <li><code>drawImage(image, dx, dy)</code> takes an image and draws it on the canvas. The given coordinates <code>(dx, dy)</code> will be the upper-left corner of the image. Coordinates <code>(0, 0)</code> would draw the image at the upper-left corner of the canvas.
@@ -460,34 +464,34 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <li><code>drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)</code> takes an image, clips it to the rectangle <code>(sx, sy, sw, sh)</code>, scales it to dimensions <code>(dw, dh)</code>, and draws it on the canvas at coordinates <code>(dx, dy)</code>.
 </ul>
 
-<p>The <abbr>HTML5</abbr> specification <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>explains the <code>drawImage()</code> parameters</a>:
+<p>The <abbr>HTML5</abbr> specification <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images">explains the <code>drawImage()</code> parameters</a>:
 
-<blockquote cite=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images>
+<blockquote cite="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#images">
 <p>The source rectangle is the rectangle [within the source image] whose corners are the four points <code>(sx, sy)</code>, <code>(sx+sw, sy)</code>, <code>(sx+sw, sy+sh)</code>, <code>(sx, sy+sh)</code>.
 <p>The destination rectangle is the rectangle [within the canvas] whose corners are the four points <code>(dx, dy)</code>, <code>(dx+dw, dy)</code>, <code>(dx+dw, dy+dh)</code>, <code>(dx, dy+dh)</code>.
-<p><img src=i/drawImage.png alt="diagram of drawImage parameters" width=327 height=330>
+<p><img src="i/drawImage.png" alt="diagram of drawImage parameters" width="327" height="330">
 </blockquote>
 
-<p>To draw an image on a canvas, you need an image. The image can be an existing <code>&lt;img></code> element, or you can create an <code>Image()</code> object with JavaScript. Either way, you need to ensure that the image is fully loaded before you can draw it on the canvas.
+<p>To draw an image on a canvas, you need an image. The image can be an existing <code>&lt;img&gt;</code> element, or you can create an <code>Image()</code> object with JavaScript. Either way, you need to ensure that the image is fully loaded before you can draw it on the canvas.
 
-<p>If you&rsquo;re using an existing <code>&lt;img></code> element, you can safely draw it on the canvas during the <code>window.onload</code> event.
-<p class="legend top" style="margin-left:6.5em"><span class=arrow>&#x21b6;</span> using an &lt;img> element<br></p>
+<p>If you&rsquo;re using an existing <code>&lt;img&gt;</code> element, you can safely draw it on the canvas during the <code>window.onload</code> event.
+<p class="legend top" style="margin-left:6.5em"><span class="arrow">&#x21b6;</span> using an &lt;img&gt; element<br></p>
 <pre><code>&lt;img <mark>id="cat"</mark> src="images/cat.png" alt="sleeping cat" width="177" height="113">
-&lt;canvas id="e" width="177" height="113">&lt;/canvas>
-&lt;script>
+&lt;canvas id="e" width="177" height="113"&gt;&lt;/canvas&gt;
+&lt;script&gt;
 <mark>window.onload</mark> = function() {
   var canvas = document.getElementById("e");
   var context = canvas.getContext("2d");
   var cat = document.getElementById("cat");
   <mark>context.drawImage(cat, 0, 0);</mark>
 };
-&lt;/script></code></pre>
+&lt;/script&gt;</code></pre>
 
 <p>If you&rsquo;re creating the image object entirely in JavaScript, you can safely draw the image on the canvas during the <code>Image.onload</code> event.
 
-<p class="legend top" style="margin-left:3.5em">using an Image() object <span class=arrow>&#x21b7;</span><br></p>
-<pre><code>&lt;canvas id="e" width="177" height="113">&lt;/canvas>
-&lt;script>
+<p class="legend top" style="margin-left:3.5em">using an Image() object <span class="arrow">&#x21b7;</span><br></p>
+<pre><code>&lt;canvas id="e" width="177" height="113"&gt;&lt;/canvas&gt;
+&lt;script&gt;
   var canvas = document.getElementById("e");
   var context = canvas.getContext("2d");
   var cat = <mark>new Image()</mark>;
@@ -495,11 +499,11 @@ context.fillRect(0, 0, 300, 225);</code></pre>
   <mark>cat.onload</mark> = function() {
     context.drawImage(cat, 0, 0);
   };
-&lt;/script></code></pre>
+&lt;/script&gt;</code></pre>
 
 <p>The optional 3<sup>rd</sup> and 4<sup>th</sup> parameters to the <code>drawImage()</code> method control image scaling. This is the same image, scaled to half its width and height and drawn repeatedly at different coordinates within a single canvas.</p>
 
-<canvas id=multicat width=500 height=375></canvas>
+<canvas id="multicat" width="500" height="375"></canvas>
 
 <p>Here is the script that produces the &ldquo;multicat&rdquo; effect:
 
@@ -511,56 +515,56 @@ context.fillRect(0, 0, 300, 225);</code></pre>
   }
 };
 </code></pre>
-<p class="legend right" style="margin-top:6em"><span class=arrow>&nbsp;&#x21dc;</span> Scale the image</p>
+<p class="legend right" style="margin-top:6em"><span class="arrow">&nbsp;&#x21dc;</span> Scale the image</p>
 
-<p class=clear>All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? What does the extra complexity of image-on-a-canvas buy you over an <code>&lt;img></code> element and some <abbr>CSS</abbr> rules? Even the &ldquo;multicat&rdquo; effect could be replicated with 10 overlapping <code>&lt;img></code> elements.
+<p class="clear">All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? What does the extra complexity of image-on-a-canvas buy you over an <code>&lt;img&gt;</code> element and some <abbr>CSS</abbr> rules? Even the &ldquo;multicat&rdquo; effect could be replicated with 10 overlapping <code>&lt;img&gt;</code> elements.
 
-<p>The simple answer is, for the same reason you might want to <a href=#text>draw text on a canvas</a>. The <a href=#coordinates>canvas coordinates diagram</a> included text, lines, and shapes; the text-on-a-canvas was just one part of a larger work. A more complex diagram could easily use <code>drawImage()</code> to include icons, sprites, or other graphics.
+<p>The simple answer is, for the same reason you might want to <a href="#text">draw text on a canvas</a>. The <a href="#coordinates">canvas coordinates diagram</a> included text, lines, and shapes; the text-on-a-canvas was just one part of a larger work. A more complex diagram could easily use <code>drawImage()</code> to include icons, sprites, or other graphics.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=ie>What About IE?</h2>
+<h2 id="ie">What About IE?</h2>
 
-<p>Versions of Internet Explorer before 9.0 do not support the canvas <abbr>API</abbr>. (IE9 does <a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_canvas>fully support the canvas <abbr>API</abbr></a>.) However, those older versions of Internet Explorer <em>do</em> support a Microsoft-proprietary technology called <abbr>VML</abbr>, which can do many of the same things as the <code>&lt;canvas></code> element. And thus, <code>excanvas.js</code> was born.
+<p>Versions of Internet Explorer before 9.0 do not support the canvas <abbr>API</abbr>. (IE9 does <a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_canvas">fully support the canvas <abbr>API</abbr></a>.) However, those older versions of Internet Explorer <em>do</em> support a Microsoft-proprietary technology called <abbr>VML</abbr>, which can do many of the same things as the <code>&lt;canvas&gt;</code> element. And thus, <code>excanvas.js</code> was born.
 
-<p><a href=http://code.google.com/p/explorercanvas/>Explorercanvas</a> (<code>excanvas.js</code>) is an open source, Apache-licensed JavaScript library that implements the canvas <abbr>API</abbr> in Internet Explorer. To use it, include the following <code>&lt;script></code> element at the top of your page.
+<p><a href="http://code.google.com/p/explorercanvas/">Explorercanvas</a> (<code>excanvas.js</code>) is an open source, Apache-licensed JavaScript library that implements the canvas <abbr>API</abbr> in Internet Explorer. To use it, include the following <code>&lt;script&gt;</code> element at the top of your page.
 
 <pre><code>&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;meta charset="utf-8">
-  &lt;title>Dive Into HTML5&lt;/title>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Dive Into HTML5&lt;/title&gt;
   <mark>&lt;!--[if lt IE 9]>
-    &lt;script src="excanvas.js">&lt;/script>
+    &lt;script src="excanvas.js"&gt;&lt;/script&gt;
 &lt;![endif]--></mark>
-&lt;/head>
-&lt;body>
+&lt;/head&gt;
+&lt;body&gt;
   ...
-&lt;/body>
-&lt;/html>
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
 <p>The <code>&lt;!--[if lt IE 9]></code> and <code>&lt;![endif]--></code> bits are <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>. Internet Explorer interprets them like an <code>if</code> statement: &ldquo;if the current browser is a version of Internet Explorer prior to (but not including) version 9, then execute this block.&rdquo; Every other browser will treat the entire block as an <abbr>HTML</abbr> comment. The net result is that Internet Explorer 7 and 8 will download the <code>excanvas.js</code> script and execute it, but other browsers will ignore the script altogether (not download it, not execute it, not anything). This makes your page load faster in browsers that implement the canvas <abbr>API</abbr> natively.
 
-<p>Once you include the <code>excanvas.js</code> in the <code>&lt;head></code> of your page, you don&rsquo;t need to do anything else to accomodate Internet Explorer. Just include <code>&lt;canvas></code> elements in your markup, or create them dynamically with JavaScript. Follow the instructions in this chapter to get the drawing context of a <code>&lt;canvas></code> element, and you can draw shapes, text, and patterns.
+<p>Once you include the <code>excanvas.js</code> in the <code>&lt;head&gt;</code> of your page, you don&rsquo;t need to do anything else to accomodate Internet Explorer. Just include <code>&lt;canvas&gt;</code> elements in your markup, or create them dynamically with JavaScript. Follow the instructions in this chapter to get the drawing context of a <code>&lt;canvas&gt;</code> element, and you can draw shapes, text, and patterns.
 
 <p>Well&hellip; not quite. There are a few limitations:
 
 <ol>
-<li><a href=#gradients>Gradients</a> can only be linear. <a href=https://developer.mozilla.org/En/Canvas_tutorial/Applying_styles_and_colors#A_createRadialGradient_example>Radial gradients</a> are not supported.
+<li><a href="#gradients">Gradients</a> can only be linear. <a href="https://developer.mozilla.org/En/Canvas_tutorial/Applying_styles_and_colors#A_createRadialGradient_example">Radial gradients</a> are not supported.
 <li>Patterns must be repeating in both directions.
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#clipping-region>Clipping regions</a> are not supported.
-<li>Non-uniform <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-scale>scaling</a> does not correctly scale strokes.
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#clipping-region">Clipping regions</a> are not supported.
+<li>Non-uniform <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-scale">scaling</a> does not correctly scale strokes.
 <li>It&rsquo;s slow. This should not come as a raging shock to anyone, since Internet Explorer's JavaScript parser is slower than other browsers to begin with. Once you start drawing complex shapes via a JavaScript library that translates commands to a completely different technology, things are going to get bogged down. You won&rsquo;t notice the performance degradation in simple examples like drawing a few lines and transforming an image, but you&rsquo;ll see it right away once you start doing canvas-based animation and other crazy stuff.
 </ol>
 
-<p>There is one more caveat about using <code>excanvas.js</code>, and it&rsquo;s a problem that I ran into while creating the examples in this chapter. ExplorerCanvas initializes its own faux-canvas interface automatically whenever you include the <code>excanvas.js</code> script in your <abbr>HTML</abbr> page. But that doesn&rsquo;t mean that Internet Explorer is ready to use it immediately. In certain situations, you can run into a race condition where the faux-canvas interface is <em>almost</em>, but not quite, ready to use. The primary symptom of this state is that Internet Explorer will complain that &ldquo;<samp>object doesn&rsquo;t support this property or method</samp>&rdquo; whenever you try to do anything with a <code>&lt;canvas></code> element, such as get its drawing context.
+<p>There is one more caveat about using <code>excanvas.js</code>, and it&rsquo;s a problem that I ran into while creating the examples in this chapter. ExplorerCanvas initializes its own faux-canvas interface automatically whenever you include the <code>excanvas.js</code> script in your <abbr>HTML</abbr> page. But that doesn&rsquo;t mean that Internet Explorer is ready to use it immediately. In certain situations, you can run into a race condition where the faux-canvas interface is <em>almost</em>, but not quite, ready to use. The primary symptom of this state is that Internet Explorer will complain that &ldquo;<samp>object doesn&rsquo;t support this property or method</samp>&rdquo; whenever you try to do anything with a <code>&lt;canvas&gt;</code> element, such as get its drawing context.
 
 <p>The easiest solution to this is to defer all of your canvas-related manipulation until after the <code>onload</code> event fires. This may be a while &mdash; if your page has a lot of images or videos, they will delay the <code>onload</code> event &mdash; but it will give ExplorerCanvas time to work its magic.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=halma>A Complete, Live Example</h2>
+<h2 id="halma">A Complete, Live Example</h2>
 
 <p>Halma is a centuries-old board game. Many variations exist. In this example, I&rsquo;ve created a solitaire version of Halma with 9 pieces on a 9 &times; 9 board. In the beginning of the game, the pieces form a 3 &times; 3 square in the bottom-left corner of the board. The object of the game is to move all the pieces so they form a 3 &times; 3 square in the upper-right corner of the board, in the least number of moves.
 
@@ -571,21 +575,21 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <li>Take a piece and hop over an adjacent piece, and possibly repeat. That is, if you hop over an adjacent piece, then hop over <em>another</em> piece adjacent to your new position, that counts as a single move. In fact, any number of hops still counts as a single move. (Since the goal is to minimize the total number of moves, doing well in Halma involves constructing, and then using, long chains of staggered pieces so that other pieces can hop over them in long sequences.)
 </ul>
 
-<p>Here is the game itself. You can also <a href=examples/canvas-halma.html>play it on a separate page</a> if you want to poke at it with your browser&rsquo;s developer tools.</p>
+<p>Here is the game itself. You can also <a href="examples/canvas-halma.html">play it on a separate page</a> if you want to poke at it with your browser&rsquo;s developer tools.</p>
 
-<canvas id=halmacanvas></canvas>
+<canvas id="halmacanvas"></canvas>
 
-<p style="margin-top:0;font-style:normal" class="legend">Moves: <span id=halmamovecount>0</span>
+<p style="margin-top:0;font-style:normal" class="legend">Moves: <span id="halmamovecount">0</span>
 
-<p>How does it work? I&rsquo;m so glad you asked. I won&rsquo;t show <em>all</em> the code here. (You can see it at <a href=examples/halma.js>diveintohtml5.info/examples/halma.js</a>.) I&rsquo;ll skip over most of the gameplay code itself, but I want to highlight a few parts of the code that deal with actually drawing on the canvas and responding to mouse clicks on the canvas element.
+<p>How does it work? I&rsquo;m so glad you asked. I won&rsquo;t show <em>all</em> the code here. (You can see it at <a href="examples/halma.js">diveintohtml5.info/examples/halma.js</a>.) I&rsquo;ll skip over most of the gameplay code itself, but I want to highlight a few parts of the code that deal with actually drawing on the canvas and responding to mouse clicks on the canvas element.
 
-<p>During page load, we initialize the game by setting the dimensions of the <code>&lt;canvas></code> itself and storing a reference to its drawing context.
+<p>During page load, we initialize the game by setting the dimensions of the <code>&lt;canvas&gt;</code> itself and storing a reference to its drawing context.
 
 <pre><code>gCanvasElement.width = kPixelWidth;
 gCanvasElement.height = kPixelHeight;
 gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
-<p>Then we do something you haven&rsquo;t seen yet: we add an event listener to the <code>&lt;canvas></code> element to listen for click events.
+<p>Then we do something you haven&rsquo;t seen yet: we add an event listener to the <code>&lt;canvas&gt;</code> element to listen for click events.
 
 <pre><code>gCanvasElement.<mark>addEventListener</mark>(<mark>"click"</mark>, halmaOnClick, false);</code></pre>
 
@@ -626,7 +630,7 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 <pre><code>    x -= gCanvasElement.offsetLeft;
     y -= gCanvasElement.offsetTop;</code></pre>
 
-<p>Now we have <code>x</code> and <code>y</code> coordinates that are <a href=#coordinates>relative to the canvas</a>. That is, if <code>x</code> is 0 and <code>y</code> is 0 at this point, we know that the user just clicked the top-left pixel of the canvas.
+<p>Now we have <code>x</code> and <code>y</code> coordinates that are <a href="#coordinates">relative to the canvas</a>. That is, if <code>x</code> is 0 and <code>y</code> is 0 at this point, we know that the user just clicked the top-left pixel of the canvas.
 
 <p>From here, we can calculate which Halma square the user clicked, and then act accordingly.
 
@@ -641,7 +645,7 @@ gDrawingContext = gCanvasElement.getContext("2d");</code></pre>
 
 <pre><code>gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);</code></pre>
 
-<p>The board-drawing routine should look familiar. It&rsquo;s similar to how we drew the <a href=#coordinates>canvas coordinates diagram</a> earlier in this chapter.
+<p>The board-drawing routine should look familiar. It&rsquo;s similar to how we drew the <a href="#coordinates">canvas coordinates diagram</a> earlier in this chapter.
 
 <pre><code>gDrawingContext.<mark>beginPath()</mark>;
 
@@ -676,7 +680,7 @@ gDrawingContext.<mark>stroke()</mark>;</code></pre>
 gDrawingContext.<mark>arc</mark>(x, y, radius, 0, <mark>Math.PI * 2</mark>, false);
 gDrawingContext.closePath();</code></pre>
 
-<p>But wait! Nothing has been drawn yet. Like <code>moveTo()</code> and <code>lineTo</code>, the <code>arc()</code> method is <a href=#paths>a &ldquo;pencil&rdquo; method</a>. To actually draw the circle, we need to set the <code>strokeStyle</code> and call <code>stroke()</code> to trace it in &ldquo;ink.&rdquo;
+<p>But wait! Nothing has been drawn yet. Like <code>moveTo()</code> and <code>lineTo</code>, the <code>arc()</code> method is <a href="#paths">a &ldquo;pencil&rdquo; method</a>. To actually draw the circle, we need to set the <code>strokeStyle</code> and call <code>stroke()</code> to trace it in &ldquo;ink.&rdquo;
 
 <pre><code>gDrawingContext.<mark>strokeStyle</mark> = "#000";
 gDrawingContext.<mark>stroke()</mark>;</code></pre>
@@ -688,41 +692,41 @@ gDrawingContext.<mark>stroke()</mark>;</code></pre>
     gDrawingContext.<mark>fill()</mark>;
 }</code></pre>
 
-<p>And that&rsquo;s&hellip; well, that&rsquo;s pretty much it. The rest of the program is game-specific logic &mdash; distinguishing between valid and invalid moves, keeping track of the number of moves, detecting whether the game is over. With 9 circles, a few straight lines, and 1 <code>onclick</code> handler, we&rsquo;ve created an entire game in <code>&lt;canvas></code>. Huzzah!
+<p>And that&rsquo;s&hellip; well, that&rsquo;s pretty much it. The rest of the program is game-specific logic &mdash; distinguishing between valid and invalid moves, keeping track of the number of moves, detecting whether the game is over. With 9 circles, a few straight lines, and 1 <code>onclick</code> handler, we&rsquo;ve created an entire game in <code>&lt;canvas&gt;</code>. Huzzah!
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <ul>
-<li><a href=https://developer.mozilla.org/en/Canvas_tutorial>Canvas tutorial</a> on Mozilla Developer Center
-<li><a href=http://dev.opera.com/articles/view/html-5-canvas-the-basics/><abbr>HTML5</abbr> <code>canvas</code> &mdash; the basics</a>, by Mihai Sucan
-<li><a href=http://www.canvasdemos.com/>CanvasDemos.com</a>: demos, tools, and tutorials for the <abbr>HTML</abbr> <code>canvas</code> element
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html>The <code>canvas</code> element</a> in the <abbr>HTML5</abbr> draft standard
-<li><a href=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_canvas>Internet Explorer 9 Guide for Developers: HTML5 <code>canvas</code> element</a>
+<li><a href="https://developer.mozilla.org/en/Canvas_tutorial">Canvas tutorial</a> on Mozilla Developer Center
+<li><a href="http://dev.opera.com/articles/view/html-5-canvas-the-basics/"><abbr>HTML5</abbr> <code>canvas</code> &mdash; the basics</a>, by Mihai Sucan
+<li><a href="http://www.canvasdemos.com/">CanvasDemos.com</a>: demos, tools, and tutorials for the <abbr>HTML</abbr> <code>canvas</code> element
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">The <code>canvas</code> element</a> in the <abbr>HTML5</abbr> draft standard
+<li><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_canvas">Internet Explorer 9 Guide for Developers: HTML5 <code>canvas</code> element</a>
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &ldquo;Let&rsquo;s Call It A Draw(ing Surface).&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &ldquo;Let&rsquo;s Call It A Draw(ing Surface).&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
 
-<script src=j/jquery.js></script>
-<script src=j/canvastext-fx3.js></script>
-<script src=j/dih5.js></script>
-<script src=examples/halma.js></script>
+<script src="j/jquery.js"></script>
+<script src="j/canvastext-fx3.js"></script>
+<script src="j/dih5.js"></script>
+<script src="examples/halma.js"></script>
 <script>
 function draw_b() {
 try {

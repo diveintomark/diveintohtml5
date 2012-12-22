@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>How Did We Get Here? - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 body{counter-reset:h1 1}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#past>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="index.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#past">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>How Did We Get Here?</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Diving In</h2>
+<p id="toc">&nbsp;
+<p class="a">&#x2767;
+<h2 id="divingin">Diving In</h2>
 
-<p class=f><img src=i/aoc-r.png alt=R width=107 height=103>ecently, I stumbled across a quote from a Mozilla developer <a href=http://lists.w3.org/Archives/Public/public-html/2010Jan/0107.html>about the tension inherent in creating standards</a>:
+<p class="f"><img src="i/aoc-r.png" alt="R" width="107" height="103">ecently, I stumbled across a quote from a Mozilla developer <a href="http://lists.w3.org/Archives/Public/public-html/2010Jan/0107.html">about the tension inherent in creating standards</a>:
 
-<blockquote cite=http://lists.w3.org/Archives/Public/public-html/2010Jan/0107.html>
+<blockquote cite="http://lists.w3.org/Archives/Public/public-html/2010Jan/0107.html">
 <p>Implementations and specifications have to do a delicate dance together. You don&rsquo;t want implementations to happen before the specification is finished, because people start depending on the details of implementations and that constrains the specification. However, you also don&rsquo;t want the specification to be finished before there are implementations and author experience with those implementations, because you need the feedback. There is unavoidable tension here, but we just have to muddle on through.
 </blockquote>
 
 <p>Keep this quote in the back of your mind, and let me explain how <abbr>HTML5</abbr> came to be.
 
-<p class=c><img src=i/openclipart.org_johnny_automatic_animals_on_see_saw.png width=526 height=116 alt="animals on a seesaw">
+<p class="c"><img src="i/openclipart.org_johnny_automatic_animals_on_see_saw.png" width="526" height="116" alt="animals on a seesaw">
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=mime-types>MIME types</h2>
+<h2 id="mime-types">MIME types</h2>
 
 <p>This book is about <abbr>HTML5</abbr>, not previous versions of <abbr>HTML</abbr>, and not any version of <abbr>XHTML</abbr>. But to understand the history of <abbr>HTML5</abbr> and the motivations behind it, you need to understand a few technical details first. Specifically, <abbr>MIME</abbr> types.
 
@@ -41,15 +41,15 @@ body{counter-reset:h1 1}
 
 <p>Tuck that under your hat. We&rsquo;ll come back to it.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=history-of-the-img-element>A long digression into how standards are made</h2>
+<h2 id="history-of-the-img-element">A long digression into how standards are made</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_monkey_reading.png width=365 height=396 alt="monkey reading a book">
+<p class="ss"><img src="i/openclipart.org_johnny_automatic_monkey_reading.png" width="365" height="396" alt="monkey reading a book">
 
-<p>Why do we have an <code>&lt;img></code> element? That&rsquo;s not a question you hear every day. Obviously <em>someone</em> must have created it. These things don&rsquo;t just appear out of nowhere. Every element, every attribute, every feature of <abbr>HTML</abbr> that you&rsquo;ve ever used &mdash; someone created them, decided how they should work, and wrote it all down. These people are not gods, nor are they flawless. They&rsquo;re just people. Smart people, to be sure. But just people.
+<p>Why do we have an <code>&lt;img&gt;</code> element? That&rsquo;s not a question you hear every day. Obviously <em>someone</em> must have created it. These things don&rsquo;t just appear out of nowhere. Every element, every attribute, every feature of <abbr>HTML</abbr> that you&rsquo;ve ever used &mdash; someone created them, decided how they should work, and wrote it all down. These people are not gods, nor are they flawless. They&rsquo;re just people. Smart people, to be sure. But just people.
 
-<p>One of the great things about standards that are developed &ldquo;out in the open&rdquo; is that you can go back in time and answer these kinds of questions. Discussions occur on mailing lists, which are usually archived and publicly searchable. So I decided to do a bit of &ldquo;email archaeology&rdquo; to try to answer the question, &ldquo;Why do we have an <code>&lt;img></code> element?&rdquo; I had to go back to before there was an organization called the World Wide Web Consortium (<abbr>W3C</abbr>). I went back to the earliest days of the web, when you could count the number of web servers with both hands and maybe a couple of toes.
+<p>One of the great things about standards that are developed &ldquo;out in the open&rdquo; is that you can go back in time and answer these kinds of questions. Discussions occur on mailing lists, which are usually archived and publicly searchable. So I decided to do a bit of &ldquo;email archaeology&rdquo; to try to answer the question, &ldquo;Why do we have an <code>&lt;img&gt;</code> element?&rdquo; I had to go back to before there was an organization called the World Wide Web Consortium (<abbr>W3C</abbr>). I went back to the earliest days of the web, when you could count the number of web servers with both hands and maybe a couple of toes.
 
 <p><i>(There are a number of typographical errors in the following quotes. I have decided to leave them intact for historical accuracy.)</i>
 
@@ -61,7 +61,7 @@ body{counter-reset:h1 1}
 <p>Required argument is <code>SRC="url"</code>.  
 <p>This names a bitmap or pixmap file for the browser to attempt to pull over the network and interpret as an image, to be embedded in the text at the point of the tag&rsquo;s occurrence. 
 <p>An example is:
-<p><code>&lt;IMG SRC="file://foobar.com/foo/bar/blargh.xbm"></code> 
+<p><code>&lt;IMG SRC="file://foobar.com/foo/bar/blargh.xbm"&gt;</code> 
 <p>(There is no closing tag; this is just a standalone tag.) 
 <p>This tag can be embedded in an anchor like anything else; when that happens, it becomes an icon that&rsquo;s sensitive to activation just like a regular text anchor. 
 <p>Browsers should be afforded flexibility as to which image formats they support. Xbm and Xpm are good ones to support, for example. If a browser cannot interpret a given format, it can do whatever it wants instead (X Mosaic will pop up a default bitmap as a placeholder). 
@@ -78,7 +78,7 @@ body{counter-reset:h1 1}
  
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0183.html"> 
 <p>I have something very similar in Midas 2.0 (in use here at SLAC, and due for public release any week now), except that all the names are different, and it has an extra argument <code>NAME="name"</code>. It has almost exactly the same functionality as your proposed <code>IMG</code> tag. e.g. 
-<p><code>&lt;ICON name="NoEntry" href="http://note/foo/bar/NoEntry.xbm"></code> 
+<p><code>&lt;ICON name="NoEntry" href="http://note/foo/bar/NoEntry.xbm"&gt;</code> 
 <p>The idea of the name parameter was to allow the browser to have a set of &ldquo;built in&rdquo; images. If the name matches a &ldquo;built in&rdquo; image it would use that instead of having to go out and fetch the image. The name could also act as a hint for &ldquo;line mode&rdquo; browsers as to what kind of a symbol to put in place of the image. 
 <p>I don&rsquo;t much care about the parameter or tag names, but it would be sensible if we used the same things. I don&rsquo;t much care for abbreviations, ie why not <code>IMAGE=</code> and <code>SOURCE=</code>. I somewhat prefer <code>ICON</code> since it imlies that the <code>IMAGE</code> should be smallish, but maybe <code>ICON</code> is an overloaded word? 
 </blockquote> 
@@ -89,7 +89,7 @@ body{counter-reset:h1 1}
  
 <blockquote> 
 <p>While we are on the subject of new tags, I have another, somewhat similar tag, which I would like to support in Midas 2.0. In principle it is: 
-<p><code>&lt;INCLUDE HREF="..."></code> 
+<p><code>&lt;INCLUDE HREF="..."&gt;</code> 
 <p>The intention here would be that the second document is to be included into the first document at the place where the tag occured. In principle the referenced document could be anything, but the main purpose was to allow images (in this case arbitrary sized) to be embedded into documents. Again the intention would be that when HTTP2 comes along the format of the included document would be up for separate negotiation. 
 </blockquote> 
  
@@ -99,39 +99,39 @@ body{counter-reset:h1 1}
  
 <blockquote> 
 <p>An alternative I was considering was: 
-<p><code>&lt;A HREF="..." INCLUDE>See photo&lt;/A></code> 
+<p><code>&lt;A HREF="..." INCLUDE&gt;See photo&lt;/A></code> 
 <p>I don&rsquo;t much like adding more functionality to the <code>&lt;A></code> tag, but the idea here is to maintain compatibility with browsers that can not honour the <code>INCLUDE</code> parameter. The intention is that browsers which do understand <code>INCLUDE</code>, replace the anchor text (in this case &ldquo;See photo&rdquo;) with the included document (picture), while older or dumber browsers ignore the <code>INCLUDE</code> tag completely. 
 </blockquote> 
  
-<p>This proposal was never implemented, although the idea of providing text if an image is missing is <a href="http://diveintoaccessibility.info/day_23_providing_text_equivalents_for_images.html">an important accessibility technique</a> that was missing from Marc&rsquo;s initial <code>&lt;IMG></code> proposal. Years later, this feature was bolted on as the <a href="http://www.w3.org/TR/html4/struct/objects.html#h-13.8"><code>&lt;img alt></code> attribute</a>, which Netscape promptly broke by <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html#tooltip">erroneously treating it as a tooltip</a>. 
+<p>This proposal was never implemented, although the idea of providing text if an image is missing is <a href="http://diveintoaccessibility.info/day_23_providing_text_equivalents_for_images.html">an important accessibility technique</a> that was missing from Marc&rsquo;s initial <code>&lt;IMG&gt;</code> proposal. Years later, this feature was bolted on as the <a href="http://www.w3.org/TR/html4/struct/objects.html#h-13.8"><code>&lt;img alt&gt;</code> attribute</a>, which Netscape promptly broke by <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html#tooltip">erroneously treating it as a tooltip</a>. 
  
 <p>A few hours after Tony posted his message, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html"><cite>Tim Berners-Lee</cite> responded</a>: 
  
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html"> 
 <p>I had imagined that figues would be reprented as 
-<p><code>&lt;a name=fig1 href="fghjkdfghj" REL="EMBED, PRESENT">Figure &lt;/a></code> 
+<p><code>&lt;a name="fig1" href="fghjkdfghj" REL="EMBED, PRESENT"&gt;Figure &lt;/a></code> 
 <p>where the relation ship values mean 
 <pre>EMBED	 Embed this here when presenting it
-PRESENT	 Present this whenever the source document is presented</pre> 
-<p>Note that you can have various combinations of these, and if the browser doesn&rsquo;t support either one, it doesn&rsquo;t break. 
-<p>[I] see that using this as a method for selectable icons means nesting anchors. Hmmm. But I hadn&rsquo;t wanted a special tag. 
-</blockquote> 
- 
-<p>This proposal was never implemented, but the <code>rel</code> attribute is <a href="semantics.html#link">still around</a>. 
- 
-<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0188.html"><cite>Jim Davis</cite> added</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0188.html"> 
-<p>It would be nice if there was a way to specify the content type, e.g. 
-<p><code>&lt;IMG HREF="http://nsa.gov/pub/sounds/gorby.au" CONTENT-TYPE=audio/basic></code> 
-<p>But I am completely willing to live with the requirement that I specify the content type by file extension. 
-</blockquote> 
- 
-<p>This proposal was never implemented, but Netscape did later add support for embedding of media objects with the <code>&lt;embed></code> element. 
- 
-<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0192.html"><cite>Jay C. Weber</cite> asked</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0192.html"> 
+PRESENT	 Present this whenever the source document is presented</pre>
+<p>Note that you can have various combinations of these, and if the browser doesn&rsquo;t support either one, it doesn&rsquo;t break.
+<p>[I] see that using this as a method for selectable icons means nesting anchors. Hmmm. But I hadn&rsquo;t wanted a special tag.
+</blockquote>
+
+<p>This proposal was never implemented, but the <code>rel</code> attribute is <a href="semantics.html#link">still around</a>.
+
+<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0188.html"><cite>Jim Davis</cite> added</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0188.html">
+<p>It would be nice if there was a way to specify the content type, e.g.
+<p><code>&lt;IMG HREF="http://nsa.gov/pub/sounds/gorby.au" CONTENT-TYPE=audio/basic&gt;</code>
+<p>But I am completely willing to live with the requirement that I specify the content type by file extension.
+</blockquote>
+
+<p>This proposal was never implemented, but Netscape did later add support for embedding of media objects with the <code>&lt;embed&gt;</code> element.
+
+<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0192.html"><cite>Jay C. Weber</cite> asked</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0192.html">
 <p>While images are at the top of my list of desired medium types in a WWW browser, I don&rsquo;t think we should add idiosyncratic hooks for media one at a time. Whatever happened to the enthusiasm for using the MIME typing mechanism?
 </blockquote> 
  
@@ -145,11 +145,11 @@ PRESENT	 Present this whenever the source document is presented</pre>
  
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0198.html"> 
 <p>Let&rsquo;s temporarily forget about MIME, if it clouds the issue. My objection was to the discussion of &ldquo;how are we going to support embedded images&rdquo; rather than &ldquo;how are we going to support embedded objections in various media&rdquo;. 
-<p>Otherwise, next week someone is going to suggest &#8216;lets put in a new tag <code>&lt;AUD SRC="file://foobar.com/foo/bar/blargh.snd"></code>&#8216; for audio. 
+<p>Otherwise, next week someone is going to suggest &#8216;lets put in a new tag <code>&lt;AUD SRC="file://foobar.com/foo/bar/blargh.snd"&gt;</code>&#8216; for audio. 
 <p>There shouldn&rsquo;t be much cost in going with something that generalizes. 
 </blockquote> 
  
-<p>With the benefit of hindsight, it appears that Jay&rsquo;s concerns were well founded. It took a little more than a week, but HTML5 did finally add new <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video"><code>&lt;video></code></a> and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio></code></a> elements. 
+<p>With the benefit of hindsight, it appears that Jay&rsquo;s concerns were well founded. It took a little more than a week, but HTML5 did finally add new <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video"><code>&lt;video&gt;</code></a> and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio&gt;</code></a> elements. 
  
 <p>Responding to Jay&rsquo;s original message, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0204.html"><cite>Dave Raggett</cite> said</a>: 
  
@@ -171,7 +171,7 @@ PRESENT	 Present this whenever the source document is presented</pre>
  
 <p><a href="http://en.wikipedia.org/wiki/Intermedia_(hypertext)">Intermedia</a> was a hypertext project from Brown University. It was developed from 1985 to 1991 and ran on <a href="http://en.wikipedia.org/wiki/A/UX">A/UX</a>, a Unix-like operating system for early Macintosh computers. 
  
-<p>The idea of a &ldquo;general-purpose procedural graphics language&rdquo; did eventually catch on. Modern browsers support both <a href="http://www.w3.org/Graphics/SVG/">SVG</a> (declarative markup with embedded scripting) and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element"><code>&lt;canvas></code></a> (a procedural direct-mode graphics API), although the latter <a href="http://ln.hixie.ch/?start=1089635050&amp;count=1">started as a proprietary extension</a> before being &ldquo;retro-specced&rdquo; by the <a href="http://www.whatwg.org/">WHATWG</a>. 
+<p>The idea of a &ldquo;general-purpose procedural graphics language&rdquo; did eventually catch on. Modern browsers support both <a href="http://www.w3.org/Graphics/SVG/">SVG</a> (declarative markup with embedded scripting) and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element"><code>&lt;canvas&gt;</code></a> (a procedural direct-mode graphics API), although the latter <a href="http://ln.hixie.ch/?start=1089635050&amp;count=1">started as a proprietary extension</a> before being &ldquo;retro-specced&rdquo; by the <a href="http://www.whatwg.org/">WHATWG</a>. 
  
 <p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0217.html"><cite>Bill Janssen</cite> replied</a>: 
  
@@ -197,91 +197,91 @@ PRESENT	 Present this whenever the source document is presented</pre>
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0221.html"> 
 <p>HTTP2 allows a document to contain any type which the user has said he can handle, not just registered MIME types. So one can experiment. Yes I think there is a case for postscript with hypertext. I don&rsquo;t know whether display postcript has enough. I know Adobe are trying to establish their own postscript-based &ldquo;PDF&rdquo; which will have links, and be readable by their proprietory brand of viewers. 
 <p>I thought that a generic overlaying language for anchors (Hytime based?) would allow the hypertext and the graphics/video standards to evolve separately, which would help both. 
-<p>Let the <code>IMG</code> tag be <code>INCLUDE</code> and let it refer to an arbitrary document type. Or <code>EMBED</code> if <code>INCLUDE</code> sounds like a cpp include which people will expect to provide SGML source code to be parsed inline &#8212; not what was intended. 
+<p>Let the <code>IMG</code> tag be <code>INCLUDE</code> and let it refer to an arbitrary document type. Or <code>EMBED</code> if <code>INCLUDE</code> sounds like a cpp include which people will expect to provide SGML source code to be parsed inline &mdash; not what was intended. 
 </blockquote> 
  
 <p><a href="http://www.hytime.org/">HyTime</a> was an early, SGML-based hypertext document system. It loomed large in early discussions of HTML, and later XML. 
  
-<p>Tim&rsquo;s proposal for an <code>&lt;INCLUDE></code> tag was never implemented, although you can see echoes of it in <code>&lt;object></code>, <code>&lt;embed></code>, and the <code>&lt;iframe></code> element. 
+<p>Tim&rsquo;s proposal for an <code>&lt;INCLUDE&gt;</code> tag was never implemented, although you can see echoes of it in <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, and the <code>&lt;iframe&gt;</code> element. 
  
 <p>Finally, on March 12, 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0257.html">Marc Andreessen revisited the thread</a>: 
  
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0257.html"> 
-<p>Back to the inlined image thread again &#8212; I&rsquo;m getting close to releasing Mosaic v0.10, which will support inlined GIF and XBM images/bitmaps, as mentioned previously. &#8230; 
-<p>We&rsquo;re not prepared to support <code>INCLUDE</code>/<code>EMBED</code> at this point. &#8230; So we&rsquo;re probably going to go with <code>&lt;IMG SRC="url"></code> (not <code>ICON</code>, since not all inlined images can be meaningfully called icons). For the time being, inlined images won&rsquo;t be explicitly content-type&rsquo;d; down the road, we plan to support that (along with the general adaptation of MIME). Actually, the image reading routines we&rsquo;re currently using figure out the image format on the fly, so the filename extension won&rsquo;t even be significant. 
+<p>Back to the inlined image thread again &mdash; I&rsquo;m getting close to releasing Mosaic v0.10, which will support inlined GIF and XBM images/bitmaps, as mentioned previously. &hellip; 
+<p>We&rsquo;re not prepared to support <code>INCLUDE</code>/<code>EMBED</code> at this point. &hellip; So we&rsquo;re probably going to go with <code>&lt;IMG SRC="url"&gt;</code> (not <code>ICON</code>, since not all inlined images can be meaningfully called icons). For the time being, inlined images won&rsquo;t be explicitly content-type&rsquo;d; down the road, we plan to support that (along with the general adaptation of MIME). Actually, the image reading routines we&rsquo;re currently using figure out the image format on the fly, so the filename extension won&rsquo;t even be significant. 
 </blockquote> 
  
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=an-unbroken-line>An unbroken line</h2>
+<h2 id="an-unbroken-line">An unbroken line</h2>
 
 <p>I am extraordinarily fascinated with all aspects of this almost-19-year-old conversation that led to the creation of an <abbr>HTML</abbr> element that has been used on virtually every web page ever published. Consider: 
  
-<p class=ss><img src=i/openclipart.org_johnny_automatic_Corsican_Pine.png width=216 height=405 alt="pine tree">
+<p class="ss"><img src="i/openclipart.org_johnny_automatic_Corsican_Pine.png" width="216" height="405" alt="pine tree">
 
 <ul> 
 <li>HTTP still exists. HTTP successfully evolved from 0.9 into 1.0 and later 1.1. <a href="http://datatracker.ietf.org/wg/httpbis/charter/">And still it evolves</a>. 
-<li>HTML still exists. That rudimentary data format &mdash; it didn&rsquo;t even support inline images! &mdash; successfully evolved into 2.0, 3.2, 4.0. HTML is an unbroken line. A twisted, knotted, snarled line, to be sure. There were plenty of &ldquo;dead branches&rdquo; in the evolutionary tree, places where standards-minded people got ahead of themselves (and ahead of authors and implementors). But still. Here we are, in 2012, and <a href="http://www.w3.org/People/Berners-Lee/FAQ.html#Examples">web pages from 1990</a> still render in modern browsers. I just loaded one up in the browser of my state-of-the-art Android mobile phone, and I didn&rsquo;t even get prompted to &ldquo;please wait while importing legacy format&#8230;&rdquo; 
+<li>HTML still exists. That rudimentary data format &mdash; it didn&rsquo;t even support inline images! &mdash; successfully evolved into 2.0, 3.2, 4.0. HTML is an unbroken line. A twisted, knotted, snarled line, to be sure. There were plenty of &ldquo;dead branches&rdquo; in the evolutionary tree, places where standards-minded people got ahead of themselves (and ahead of authors and implementors). But still. Here we are, in 2012, and <a href="http://www.w3.org/People/Berners-Lee/FAQ.html#Examples">web pages from 1990</a> still render in modern browsers. I just loaded one up in the browser of my state-of-the-art Android mobile phone, and I didn&rsquo;t even get prompted to &ldquo;please wait while importing legacy format&hellip;&rdquo; 
 <li>HTML has always been a conversation between browser makers, authors, standards wonks, and other people who just showed up and liked to talk about angle brackets. Most of the successful versions of HTML have been &ldquo;retro-specs,&rdquo; catching up to the world while simultaneously trying to nudge it in the right direction. Anyone who tells you that HTML should be kept &ldquo;pure&rdquo; (presumably by ignoring browser makers, or ignoring authors, or both) is simply misinformed. HTML has never been pure, and all attempts to purify it have been spectacular failures, matched only by the attempts to replace it. 
 <li>None of the browsers from 1993 still exist in any recognizable form. Netscape Navigator was <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Open_sourcing_of_Communicator">abandoned in 1998</a> and <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Rewriting_from_scratch">rewritten from scratch</a> to create the Mozilla Suite, which was then <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Firefox">forked to create Firefox</a>. Internet Explorer had its humble &ldquo;beginnings&rdquo; in &ldquo;Microsoft Plus! for Windows 95,&rdquo; where it was bundled with some desktop themes and a pinball game. (But of course that browser <a href="http://en.wikipedia.org/wiki/Spyglass_Mosaic">can be traced back further too</a>.) 
 <li>Some of the operating systems from 1993 still exist, but none of them are relevant to the modern web. Most people today who &ldquo;experience&rdquo; the web do so on a PC running Windows 2000 or later, a Mac running Mac OS X, a PC running some flavor of Linux, or a handheld device like an iPhone. In 1993, Windows was at version 3.1 (and competing with OS/2), Macs were running System 7, and Linux was distributed via Usenet. (Want to have some fun? Find a graybeard and whisper &ldquo;Trumpet Winsock&rdquo; or &ldquo;MacPPP.&rdquo;) 
 <li>Some of the same <em>people</em> are still around and still involved in what we now simply call &ldquo;web standards.&rdquo; That&rsquo;s after almost 20 years. And some were involved in predecessors of HTML, going back into the 1980s and before. 
-<li>Speaking of predecessors&#8230; With the eventual popularity of HTML and the web, it is easy to forget the contemporary formats and systems that informed its design. Andrew? Intermedia? HyTime? And HyTime was not some rinky-dink academic research project; <a href="http://xml.coverpages.org/hytime.html">it was an ISO standard</a>. It was approved for military use. It was Big Business. And you can read about it yourself&#8230; <a href="http://www.sgmlsource.com/history/hthist.htm">on this HTML page, in your web browser</a>. 
+<li>Speaking of predecessors&hellip; With the eventual popularity of HTML and the web, it is easy to forget the contemporary formats and systems that informed its design. Andrew? Intermedia? HyTime? And HyTime was not some rinky-dink academic research project; <a href="http://xml.coverpages.org/hytime.html">it was an ISO standard</a>. It was approved for military use. It was Big Business. And you can read about it yourself&hellip; <a href="http://www.sgmlsource.com/history/hthist.htm">on this HTML page, in your web browser</a>. 
 </ul> 
  
-<p>But none of this answers the original question: why do we have an <code>&lt;img></code> element? Why not an <code>&lt;icon></code> element? Or an <code>&lt;include></code> element? Why not a hyperlink with an <code>include</code> attribute, or some combination of <code>rel</code> values? Why an <code>&lt;img></code> element? Quite simply, because Marc Andreessen shipped one, and shipping code wins. 
+<p>But none of this answers the original question: why do we have an <code>&lt;img&gt;</code> element? Why not an <code>&lt;icon&gt;</code> element? Or an <code>&lt;include&gt;</code> element? Why not a hyperlink with an <code>include</code> attribute, or some combination of <code>rel</code> values? Why an <code>&lt;img&gt;</code> element? Quite simply, because Marc Andreessen shipped one, and shipping code wins. 
  
-<p>That&rsquo;s not to say that <em>all</em> shipping code wins; after all, Andrew and Intermedia and HyTime shipped code too. Code is necessary but not sufficient for success. And I <em>certainly</em> don&rsquo;t mean to say that shipping code before a standard will produce the best solution. Marc&rsquo;s <code>&lt;img></code> element didn&rsquo;t mandate a common graphics format; it didn&rsquo;t define how text flowed around it; it didn&rsquo;t support text alternatives or fallback content for older browsers. And 17 years later, <a href="http://mimesniff.spec.whatwg.org/">we&rsquo;re still struggling with content sniffing</a>, and <a href="http://www.securityfocus.com/archive/1/503867">it&rsquo;s still a source of crazy security vulnerabilities</a>. And you can trace that all the way back, 17 years, through the <a href="http://en.wikipedia.org/wiki/Browser_wars">Great Browser Wars</a>, all the way back to February 25, 1993, when Marc Andreessen offhandedly remarked, &ldquo;MIME, someday, maybe,&rdquo; and then shipped his code anyway. 
+<p>That&rsquo;s not to say that <em>all</em> shipping code wins; after all, Andrew and Intermedia and HyTime shipped code too. Code is necessary but not sufficient for success. And I <em>certainly</em> don&rsquo;t mean to say that shipping code before a standard will produce the best solution. Marc&rsquo;s <code>&lt;img&gt;</code> element didn&rsquo;t mandate a common graphics format; it didn&rsquo;t define how text flowed around it; it didn&rsquo;t support text alternatives or fallback content for older browsers. And 17 years later, <a href="http://mimesniff.spec.whatwg.org/">we&rsquo;re still struggling with content sniffing</a>, and <a href="http://www.securityfocus.com/archive/1/503867">it&rsquo;s still a source of crazy security vulnerabilities</a>. And you can trace that all the way back, 17 years, through the <a href="http://en.wikipedia.org/wiki/Browser_wars">Great Browser Wars</a>, all the way back to February 25, 1993, when Marc Andreessen offhandedly remarked, &ldquo;MIME, someday, maybe,&rdquo; and then shipped his code anyway. 
  
 <p>The ones that win are the ones that ship. 
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=timeline>A timeline of HTML development from 1997 to 2004</h2>
+<h2 id="timeline">A timeline of HTML development from 1997 to 2004</h2>
 
-<p>In December 1997, the World Wide Web Consortium (W3C) published <a href=http://www.w3.org/TR/REC-html40-971218/><abbr>HTML</abbr> 4.0</a> and promptly shut down the <abbr>HTML</abbr> Working Group. Less than two months later, a separate <abbr>W3C</abbr> Working Group published <a href=http://www.w3.org/TR/1998/REC-xml-19980210><abbr>XML</abbr> 1.0</a>. A mere three months after that, the people who ran the W3C held a workshop called &ldquo;<a href=http://www.w3.org/MarkUp/future/>Shaping the Future of <abbr>HTML</abbr></a>&rdquo; to answer the question, &ldquo;Has W3C given up on HTML?&rdquo; This was their answer:
+<p>In December 1997, the World Wide Web Consortium (W3C) published <a href="http://www.w3.org/TR/REC-html40-971218/"><abbr>HTML</abbr> 4.0</a> and promptly shut down the <abbr>HTML</abbr> Working Group. Less than two months later, a separate <abbr>W3C</abbr> Working Group published <a href="http://www.w3.org/TR/1998/REC-xml-19980210"><abbr>XML</abbr> 1.0</a>. A mere three months after that, the people who ran the W3C held a workshop called &ldquo;<a href="http://www.w3.org/MarkUp/future/">Shaping the Future of <abbr>HTML</abbr></a>&rdquo; to answer the question, &ldquo;Has W3C given up on HTML?&rdquo; This was their answer:
 
-<blockquote cite=http://www.w3.org/html/wg/wiki/History>
+<blockquote cite="http://www.w3.org/html/wg/wiki/History">
 <p>In discussions, it was agreed that further extending <abbr>HTML</abbr> 4.0 would be difficult, as would converting 4.0 to be an <abbr>XML</abbr> application. The proposed way to break free of these restrictions is to make a fresh start with the next generation of HTML based upon a suite of <abbr>XML</abbr> tag-sets.
 </blockquote>
 
-<p>The <abbr>W3C</abbr> re-chartered the <abbr>HTML</abbr> Working Group to create this &ldquo;suite of <abbr>XML</abbr> tag-sets.&rdquo; Their first step, in December 1998, was a draft of an interim specification that simply <a href=http://www.w3.org/TR/1998/WD-html-in-xml-19981205/>reformulated <abbr>HTML</abbr> in <abbr>XML</abbr></a> without adding any new elements or attributes. This specification later became known as &ldquo;<a href=http://www.w3.org/TR/xhtml1/><abbr>XHTML</abbr> 1.0</a>.&rdquo; It defined a new <abbr>MIME</abbr> type for <abbr>XHTML</abbr> documents, <code>application/xhtml+xml</code>. However, to ease the migration of existing <abbr>HTML</abbr> 4 pages, it also included <a href=http://www.w3.org/TR/xhtml1/#guidelines>Appendix C</a>, that &ldquo;summarizes design guidelines for authors who wish their XHTML documents to render on existing HTML user agents.&rdquo; Appendix C said you were allowed to author so-called &ldquo;<abbr>XHTML</abbr>&rdquo; pages but still serve them with the <code>text/html</code> <abbr>MIME</abbr> type.
+<p>The <abbr>W3C</abbr> re-chartered the <abbr>HTML</abbr> Working Group to create this &ldquo;suite of <abbr>XML</abbr> tag-sets.&rdquo; Their first step, in December 1998, was a draft of an interim specification that simply <a href="http://www.w3.org/TR/1998/WD-html-in-xml-19981205/">reformulated <abbr>HTML</abbr> in <abbr>XML</abbr></a> without adding any new elements or attributes. This specification later became known as &ldquo;<a href="http://www.w3.org/TR/xhtml1/"><abbr>XHTML</abbr> 1.0</a>.&rdquo; It defined a new <abbr>MIME</abbr> type for <abbr>XHTML</abbr> documents, <code>application/xhtml+xml</code>. However, to ease the migration of existing <abbr>HTML</abbr> 4 pages, it also included <a href="http://www.w3.org/TR/xhtml1/#guidelines">Appendix C</a>, that &ldquo;summarizes design guidelines for authors who wish their XHTML documents to render on existing HTML user agents.&rdquo; Appendix C said you were allowed to author so-called &ldquo;<abbr>XHTML</abbr>&rdquo; pages but still serve them with the <code>text/html</code> <abbr>MIME</abbr> type.
 
-<p>Their next target was web forms. In August 1999, the same <abbr>HTML</abbr> Working Group published a first draft of <a href=http://www.w3.org/TR/1999/WD-xhtml-forms-req-19990830><abbr>XHTML</abbr> Extended Forms</a>. They set the expectations <a href=http://www.w3.org/TR/1999/WD-xhtml-forms-req-19990830#intro>in the first paragraph</a>:
+<p>Their next target was web forms. In August 1999, the same <abbr>HTML</abbr> Working Group published a first draft of <a href="http://www.w3.org/TR/1999/WD-xhtml-forms-req-19990830"><abbr>XHTML</abbr> Extended Forms</a>. They set the expectations <a href="http://www.w3.org/TR/1999/WD-xhtml-forms-req-19990830#intro">in the first paragraph</a>:
 
-<blockquote cite=http://www.w3.org/TR/1999/WD-xhtml-forms-req-19990830#intro>
+<blockquote cite="http://www.w3.org/TR/1999/WD-xhtml-forms-req-19990830#intro">
 <p>After careful consideration, the <abbr>HTML</abbr> Working Group has decided that the goals for the next generation of forms are incompatible with preserving backwards compatibility with browsers designed for earlier versions of <abbr>HTML</abbr>. It is our objective to provide a clean new forms model (&ldquo;<abbr>XHTML</abbr> Extended Forms&rdquo;) based on a set of well-defined requirements. The requirements described in this document are based on experience with a very broad spectrum of form applications.
 </blockquote>
 
-<p>A few months later, &ldquo;<abbr>XHTML</abbr> Extended Forms&rdquo; was renamed &ldquo;XForms&rdquo; and <a href=http://www.w3.org/MarkUp/Forms/2000/Charter.html>moved to its own Working Group</a>. That group worked in parallel with the <abbr>HTML</abbr> Working Group and finally published <a href=http://www.w3.org/TR/2003/REC-xforms-20031014/>the first edition of XForms 1.0</a> in October 2003.
+<p>A few months later, &ldquo;<abbr>XHTML</abbr> Extended Forms&rdquo; was renamed &ldquo;XForms&rdquo; and <a href="http://www.w3.org/MarkUp/Forms/2000/Charter.html">moved to its own Working Group</a>. That group worked in parallel with the <abbr>HTML</abbr> Working Group and finally published <a href="http://www.w3.org/TR/2003/REC-xforms-20031014/">the first edition of XForms 1.0</a> in October 2003.
 
-<p>Meanwhile, with the transition to <abbr>XML</abbr> complete, the <abbr>HTML</abbr> Working Group set their sights on creating &ldquo;the next generation of <abbr>HTML</abbr>.&rdquo; In May 2001, they published <a href=http://www.w3.org/TR/2001/REC-xhtml11-20010531/>the first edition of <abbr>XHTML</abbr> 1.1</a>, that added <a href=http://www.w3.org/TR/2001/REC-xhtml11-20010531/changes.html#a_changes>only a few minor features</a> on top of <abbr>XHTML</abbr> 1.0, but also eliminated the &ldquo;Appendix C&rdquo; loophole. Starting with version 1.1, all <abbr>XHTML</abbr> documents were to be served with a <abbr>MIME</abbr> type of <code>application/xhtml+xml</code>.
+<p>Meanwhile, with the transition to <abbr>XML</abbr> complete, the <abbr>HTML</abbr> Working Group set their sights on creating &ldquo;the next generation of <abbr>HTML</abbr>.&rdquo; In May 2001, they published <a href="http://www.w3.org/TR/2001/REC-xhtml11-20010531/">the first edition of <abbr>XHTML</abbr> 1.1</a>, that added <a href="http://www.w3.org/TR/2001/REC-xhtml11-20010531/changes.html#a_changes">only a few minor features</a> on top of <abbr>XHTML</abbr> 1.0, but also eliminated the &ldquo;Appendix C&rdquo; loophole. Starting with version 1.1, all <abbr>XHTML</abbr> documents were to be served with a <abbr>MIME</abbr> type of <code>application/xhtml+xml</code>.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=xhtml>Everything you know about XHTML is wrong</h2>
+<h2 id="xhtml">Everything you know about XHTML is wrong</h2>
 
-<p>Why are <abbr>MIME</abbr> types important? Why do I keep coming back to them? Three words: <a href=http://www.w3.org/html/wg/wiki/DraconianErrorHandling>draconian error handling</a>. Browsers have always been &ldquo;forgiving&rdquo; with <abbr>HTML</abbr>. If you create an <abbr>HTML</abbr> page but forget the <code>&lt;/head></code> tag, browsers will display the page anyway. (Certain tags implicitly trigger the end of the <code>&lt;head></code> and the start of the <code>&lt;body></code>.) You are supposed to nest tags hierarchically &mdash; closing them in last-in-first-out order &mdash; but if you create markup like <code>&lt;b>&lt;i>&lt;/b>&lt;/i></code>, browsers will just deal with it (somehow) and move on without displaying an error message.
+<p>Why are <abbr>MIME</abbr> types important? Why do I keep coming back to them? Three words: <a href="http://www.w3.org/html/wg/wiki/DraconianErrorHandling">draconian error handling</a>. Browsers have always been &ldquo;forgiving&rdquo; with <abbr>HTML</abbr>. If you create an <abbr>HTML</abbr> page but forget the <code>&lt;/head&gt;</code> tag, browsers will display the page anyway. (Certain tags implicitly trigger the end of the <code>&lt;head&gt;</code> and the start of the <code>&lt;body&gt;</code>.) You are supposed to nest tags hierarchically &mdash; closing them in last-in-first-out order &mdash; but if you create markup like <code>&lt;b&gt;&lt;i&gt;&lt;/b&gt;&lt;/i&gt;</code>, browsers will just deal with it (somehow) and move on without displaying an error message.
 
-<p style="float:left;margin-right:1.75em"><img src=i/openclipart.org_johnny_automatic_3_birds.png width=187 height=362 alt="three birds laughing">
+<p style="float:left;margin-right:1.75em"><img src="i/openclipart.org_johnny_automatic_3_birds.png" width="187" height="362" alt="three birds laughing">
 
 <p>As you might expect, the fact that &ldquo;broken&rdquo; <abbr>HTML</abbr> markup still worked in web browsers led authors to create broken <abbr>HTML</abbr> pages. A lot of broken pages. By some estimates, over 99% of <abbr>HTML</abbr> pages on the web today have at least one error in them. But because these errors don&rsquo;t cause browsers to display visible error messages, nobody ever fixes them.
 
-<p>The W3C saw this as a fundamental problem with the web, and they set out to correct it. <abbr>XML</abbr>, published in 1997, broke from the tradition of forgiving clients and mandated that all programs that consumed <abbr>XML</abbr> must treat so-called &ldquo;well-formedness&rdquo; errors as fatal. This concept of failing on the first error became known as &ldquo;draconian error handling,&rdquo; after the Greek leader <a href="http://en.wikipedia.org/wiki/Draco_(lawgiver)">Draco</a> who instituted the death penalty for relatively minor infractions of his laws. When the W3C reformulated <abbr>HTML</abbr> as an <abbr>XML</abbr> vocabulary, they mandated that all documents served with the new <code>application/xhtml+xml</code> <abbr>MIME</abbr> type would be subject to draconian error handling. If there was even a single well-formedness error in your <abbr>XHTML</abbr> page &mdash; such as forgetting the <code>&lt;/head></code> tag or improperly nesting start and end tags &mdash; web browsers would have no choice but to stop processing and display an error message to the end user.
+<p>The W3C saw this as a fundamental problem with the web, and they set out to correct it. <abbr>XML</abbr>, published in 1997, broke from the tradition of forgiving clients and mandated that all programs that consumed <abbr>XML</abbr> must treat so-called &ldquo;well-formedness&rdquo; errors as fatal. This concept of failing on the first error became known as &ldquo;draconian error handling,&rdquo; after the Greek leader <a href="http://en.wikipedia.org/wiki/Draco_(lawgiver)">Draco</a> who instituted the death penalty for relatively minor infractions of his laws. When the W3C reformulated <abbr>HTML</abbr> as an <abbr>XML</abbr> vocabulary, they mandated that all documents served with the new <code>application/xhtml+xml</code> <abbr>MIME</abbr> type would be subject to draconian error handling. If there was even a single well-formedness error in your <abbr>XHTML</abbr> page &mdash; such as forgetting the <code>&lt;/head&gt;</code> tag or improperly nesting start and end tags &mdash; web browsers would have no choice but to stop processing and display an error message to the end user.
 
 <p>This idea was not universally popular. With an estimated error rate of 99% on existing pages, the ever-present possibility of displaying errors to the end user, and the dearth of new features in <abbr>XHTML</abbr> 1.0 and 1.1 to justify the cost, web authors basically ignored <code>application/xhtml+xml</code>. But that doesn&rsquo;t mean they ignored <abbr>XHTML</abbr> altogether. Oh, most definitely not. Appendix C of the <abbr>XHTML</abbr> 1.0 specification gave the web authors of the world a loophole: &ldquo;Use something that looks kind of like <abbr>XHTML</abbr> syntax, but keep serving it with the <code>text/html</code> <abbr>MIME</abbr> type.&rdquo; And that&rsquo;s exactly what thousands of web developers did: they &ldquo;upgraded&rdquo; to <abbr>XHTML</abbr> syntax but kept serving it with a <code>text/html</code> <abbr>MIME</abbr> type.
 
-<p>Even today, millions of web pages claim to be <abbr>XHTML</abbr>. They start with the <abbr>XHTML</abbr> doctype on the first line, use lowercase tag names, use quotes around attribute values, and add a trailing slash after empty elements like <code>&lt;br /></code> and <code>&lt;hr /></code>. But only a tiny fraction of these pages are served with the <code>application/xhtml+xml</code> <abbr>MIME</abbr> type that would trigger <abbr>XML</abbr>&rsquo;s draconian error handling. Any page served with a <abbr>MIME</abbr> type of <code>text/html</code> &mdash; regardless of doctype, syntax, or coding style &mdash; will be parsed using a &ldquo;forgiving&rdquo; <abbr>HTML</abbr> parser, silently ignoring any markup errors, and never alerting end users (or anyone else) even if the page is technically broken.
+<p>Even today, millions of web pages claim to be <abbr>XHTML</abbr>. They start with the <abbr>XHTML</abbr> doctype on the first line, use lowercase tag names, use quotes around attribute values, and add a trailing slash after empty elements like <code>&lt;br /&gt;</code> and <code>&lt;hr /&gt;</code>. But only a tiny fraction of these pages are served with the <code>application/xhtml+xml</code> <abbr>MIME</abbr> type that would trigger <abbr>XML</abbr>&rsquo;s draconian error handling. Any page served with a <abbr>MIME</abbr> type of <code>text/html</code> &mdash; regardless of doctype, syntax, or coding style &mdash; will be parsed using a &ldquo;forgiving&rdquo; <abbr>HTML</abbr> parser, silently ignoring any markup errors, and never alerting end users (or anyone else) even if the page is technically broken.
 
 <p><abbr>XHTML</abbr> 1.0 included this loophole, but <abbr>XHTML</abbr> 1.1 closed it, and the never-finalized <abbr>XHTML</abbr> 2.0 continued the tradition of requiring draconian error handling. And that&rsquo;s why there are billions of pages that claim to be <abbr>XHTML</abbr> 1.0, and only a handful that claim to be <abbr>XHTML</abbr> 1.1 (or <abbr>XHTML</abbr> 2.0). So are you really using <abbr>XHTML</abbr>? Check your <abbr>MIME</abbr> type. (Actually, if you don&rsquo;t know what <abbr>MIME</abbr> type you&rsquo;re using, I can pretty much guarantee that you&rsquo;re still using <code>text/html</code>.) Unless you&rsquo;re serving your pages with a <abbr>MIME</abbr> type of <code>application/xhtml+xml</code>, your so-called &ldquo;<abbr>XHTML</abbr>&rdquo; is <abbr>XML</abbr> in name only.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=webapps-cdf>A competing vision</h2>
+<h2 id="webapps-cdf">A competing vision</h2>
 
-<p>In June 2004, the W3C held the <a href=http://www.w3.org/2004/04/webapps-cdf-ws/>Workshop on Web Applications and Compound Documents</a>. Present at this workshop were representatives of three browser vendors, web development companies, and other W3C members. A group of interested parties, including the Mozilla Foundation and Opera Software, gave a presentation on their competing vision of the future of the web: <a href=http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html>an evolution of the existing <abbr>HTML</abbr> 4 standard to include new features for modern web application developers</a>.
+<p>In June 2004, the W3C held the <a href="http://www.w3.org/2004/04/webapps-cdf-ws/">Workshop on Web Applications and Compound Documents</a>. Present at this workshop were representatives of three browser vendors, web development companies, and other W3C members. A group of interested parties, including the Mozilla Foundation and Opera Software, gave a presentation on their competing vision of the future of the web: <a href="http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html">an evolution of the existing <abbr>HTML</abbr> 4 standard to include new features for modern web application developers</a>.
 
-<blockquote cite=http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html>
+<blockquote cite="http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html">
 <p>The following seven principles represent what we believe to be the most critical requirements for this work.
 <dl>
 <dt>Backwards compatibility, clear migration path</dt>
@@ -304,19 +304,19 @@ PRESENT	 Present this whenever the source document is presented</pre>
 </dl>
 </blockquote>
 
-<p>In a straw poll, the workshop participants were asked, &ldquo;Should the W3C develop declarative extension to HTML and CSS and imperative extensions to DOM, to address medium level Web Application requirements, as opposed to sophisticated, fully-fledged OS-level APIs? (proposed by Ian Hickson, Opera Software)&rdquo; The vote was 11 to 8 against. In their <a href=http://www.w3.org/2004/04/webapps-cdf-ws/summary>summary of the workshop</a>, the W3C wrote, &ldquo;At present, W3C does not intend to put any resources into the third straw-poll topic: extensions to HTML and CSS for Web Applications, other than technologies being developed under the charter of current W3C Working Groups.&rdquo;
+<p>In a straw poll, the workshop participants were asked, &ldquo;Should the W3C develop declarative extension to HTML and CSS and imperative extensions to DOM, to address medium level Web Application requirements, as opposed to sophisticated, fully-fledged OS-level APIs? (proposed by Ian Hickson, Opera Software)&rdquo; The vote was 11 to 8 against. In their <a href="http://www.w3.org/2004/04/webapps-cdf-ws/summary">summary of the workshop</a>, the W3C wrote, &ldquo;At present, W3C does not intend to put any resources into the third straw-poll topic: extensions to HTML and CSS for Web Applications, other than technologies being developed under the charter of current W3C Working Groups.&rdquo;
 
-<p>Faced with this decision, the people who had proposed evolving <abbr>HTML</abbr> and <abbr>HTML</abbr> forms had only two choices: give up, or continue their work outside of the W3C. They chose the latter and registered the <a href=http://www.whatwg.org/><code>whatwg.org</code></a> domain, and in June 2004, <a href=http://www.whatwg.org/news/start>the <abbr>WHAT</abbr> Working Group was born</a>.
+<p>Faced with this decision, the people who had proposed evolving <abbr>HTML</abbr> and <abbr>HTML</abbr> forms had only two choices: give up, or continue their work outside of the W3C. They chose the latter and registered the <a href="http://www.whatwg.org/"><code>whatwg.org</code></a> domain, and in June 2004, <a href="http://www.whatwg.org/news/start">the <abbr>WHAT</abbr> Working Group was born</a>.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=whatwg>WHAT Working Group?</h2>
+<h2 id="whatwg">WHAT Working Group?</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_big_sandwich.png width=182 height=523 alt="big sandwich">
+<p class="ss"><img src="i/openclipart.org_johnny_automatic_big_sandwich.png" width="182" height="523" alt="big sandwich">
 
-<p>What the heck is the <abbr>WHAT</abbr> Working Group? I&rsquo;ll let them <a href=http://www.whatwg.org/news/start>explain it for themselves</a>:
+<p>What the heck is the <abbr>WHAT</abbr> Working Group? I&rsquo;ll let them <a href="http://www.whatwg.org/news/start">explain it for themselves</a>:
 
-<blockquote cite=http://www.whatwg.org/news/start>
+<blockquote cite="http://www.whatwg.org/news/start">
 <p>The Web Hypertext Applications Technology Working Group is a loose, unofficial, and open collaboration of Web browser manufacturers and interested parties. The group aims to develop specifications based on HTML and related technologies to ease the deployment of interoperable Web Applications, with the intention of submitting the results to a standards organisation. This submission would then form the basis of work on formally extending HTML in the standards track.
 
 <p>The creation of this forum follows from several months of work by private e-mail on specifications for such technologies. The main focus up to this point has been extending HTML4 Forms to support features requested by authors, without breaking backwards compatibility with existing content. This group was created to ensure that future development of these specifications will be completely open, through a publicly-archived, open mailing list.
@@ -326,19 +326,19 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>Instead of scrapping over a decade&rsquo;s worth of investment in <abbr>HTML</abbr> and making 99% of existing web pages unusable, the <abbr>WHAT</abbr> Working Group decided to take a different approach: documenting the &ldquo;forgiving&rdquo; error-handling algorithms that browsers actually used. Web browsers have always been forgiving of <abbr>HTML</abbr> errors, but nobody had ever bothered to write down exactly how they did it. NCSA Mosaic had its own algorithms for dealing with broken pages, and Netscape tried to match them. Then Internet Explorer tried to match Netscape. Then Opera and Firefox tried to match Internet Explorer. Then Safari tried to match Firefox. And so on, right up to the present day. Along the way, developers burned thousands and thousands of hours trying to make their products compatible with their competitors&rsquo;.
 
-<p>If that sounds like an insane amount of work, that&rsquo;s because it is. Or rather, it was. It took five years, but (modulo a few obscure edge cases) the WHAT Working Group successfully documented <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html>how to parse <abbr>HTML</abbr></a> in a way that is compatible with existing web content. Nowhere in the final algorithm is there a step that mandates that the <abbr>HTML</abbr> consumer should stop processing and display an error message to the end user.
+<p>If that sounds like an insane amount of work, that&rsquo;s because it is. Or rather, it was. It took five years, but (modulo a few obscure edge cases) the WHAT Working Group successfully documented <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html">how to parse <abbr>HTML</abbr></a> in a way that is compatible with existing web content. Nowhere in the final algorithm is there a step that mandates that the <abbr>HTML</abbr> consumer should stop processing and display an error message to the end user.
 
-<p>While all that reverse-engineering was going on, the <abbr>WHAT</abbr> working group was quietly working on a few other things, too. One of them was a specification, initially dubbed <a href=http://www.whatwg.org/specs/web-forms/current-work/>Web Forms 2.0</a>, that added new types of controls to <abbr>HTML</abbr> forms. (You&rsquo;ll learn more about web forms in <a href=forms.html>A Form of Madness</a>.) Another was a draft specification called &ldquo;Web Applications 1.0,&rdquo; that included major new features like <a href=canvas.html>a direct-mode drawing canvas</a> and native support for <a href=video.html>audio and video without plugins</a>.
+<p>While all that reverse-engineering was going on, the <abbr>WHAT</abbr> working group was quietly working on a few other things, too. One of them was a specification, initially dubbed <a href="http://www.whatwg.org/specs/web-forms/current-work/">Web Forms 2.0</a>, that added new types of controls to <abbr>HTML</abbr> forms. (You&rsquo;ll learn more about web forms in <a href="forms.html">A Form of Madness</a>.) Another was a draft specification called &ldquo;Web Applications 1.0,&rdquo; that included major new features like <a href="canvas.html">a direct-mode drawing canvas</a> and native support for <a href="video.html">audio and video without plugins</a>.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=reinventing-html>Back to the W3C</h2>
+<h2 id="reinventing-html">Back to the W3C</h2>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_a_dog_and_a_cat_with_an_umbrella.png width=356 height=329 alt="cat and dog holding an umbrella">
+<p class="ss"><img src="i/openclipart.org_johnny_automatic_a_dog_and_a_cat_with_an_umbrella.png" width="356" height="329" alt="cat and dog holding an umbrella">
 
-<p>For two and a half years, the W3C and the WHAT Working Group largely ignored each other. While the WHAT Working Group focused on web forms and new HTML features, the W3C HTML Working Group was busy with version 2.0 of XHTML. But by October 2006, it was clear that the WHAT Working Group had picked up serious momentum, while XHTML 2 was still languishing in draft form, unimplemented by any major browser. In October 2006, Tim Berners-Lee, the founder of the W3C itself, <a href=http://dig.csail.mit.edu/breadcrumbs/node/166>announced that the W3C would work together with the WHAT Working Group</a> to evolve <abbr>HTML</abbr>.
+<p>For two and a half years, the W3C and the WHAT Working Group largely ignored each other. While the WHAT Working Group focused on web forms and new HTML features, the W3C HTML Working Group was busy with version 2.0 of XHTML. But by October 2006, it was clear that the WHAT Working Group had picked up serious momentum, while XHTML 2 was still languishing in draft form, unimplemented by any major browser. In October 2006, Tim Berners-Lee, the founder of the W3C itself, <a href="http://dig.csail.mit.edu/breadcrumbs/node/166">announced that the W3C would work together with the WHAT Working Group</a> to evolve <abbr>HTML</abbr>.
 
-<blockquote cite=http://dig.csail.mit.edu/breadcrumbs/node/166>
+<blockquote cite="http://dig.csail.mit.edu/breadcrumbs/node/166">
 <p>Some things are clearer with hindsight of several years. It is necessary to evolve HTML incrementally. The attempt to get the world to switch to XML, including quotes around attribute values and slashes in empty tags and namespaces all at once didn&rsquo;t work. The large HTML-generating public did not move, largely because the browsers didn&rsquo;t complain. Some large communities did shift and are enjoying the fruits of well-formed systems, but not all. It is important to maintain HTML incrementally, as well as continuing a transition to well-formed world, and developing more power in that world.
 <p>The plan is to charter a completely new HTML group. Unlike the previous one, this one will be chartered to do incremental improvements to HTML, as also in parallel xHTML. It will have a different chair and staff contact. It will work on HTML and xHTML together. We have strong support for this group, from many people we have talked to, including browser makers.
 <p>There will also be work on forms. This is a complex area, as existing HTML forms and XForms are both form languages. HTML forms are ubiquitously deployed, and there are many implementations and users of XForms. Meanwhile, the Webforms submission has suggested sensible extensions to HTML forms. The plan is, informed by Webforms, to extend HTML forms.
@@ -346,44 +346,44 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <p>One of the first things the newly re-chartered W3C HTML Working Group decided was to rename &ldquo;Web Applications 1.0&rdquo; to &ldquo;HTML5.&rdquo; And here we are, diving into <abbr>HTML5</abbr>.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=postscript>Postscript</h2>
+<h2 id="postscript">Postscript</h2>
 
-<p>In October 2009, the <abbr>W3C</abbr> <a href=http://www.w3.org/News/2009#item119>shut down the XHTML 2 Working Group</a> and <a href=http://www.w3.org/2009/06/xhtml-faq.html>issued this statement to explain their decision</a>:
+<p>In October 2009, the <abbr>W3C</abbr> <a href="http://www.w3.org/News/2009#item119">shut down the XHTML 2 Working Group</a> and <a href="http://www.w3.org/2009/06/xhtml-faq.html">issued this statement to explain their decision</a>:
 
-<blockquote cite=http://www.w3.org/2009/06/xhtml-faq.html>
+<blockquote cite="http://www.w3.org/2009/06/xhtml-faq.html">
 <p>When W3C announced the HTML and XHTML 2 Working Groups in March 2007, we indicated that we would continue to monitor the market for XHTML 2. W3C recognizes the importance of a clear signal to the community about the future of HTML.
 <p>While we recognize the value of the XHTML 2 Working Group&rsquo;s contributions over the years, after discussion with the participants, W3C management has decided to allow the Working Group&rsquo;s charter to expire at the end of 2009 and not to renew it.
 </blockquote>
 
 <p>The ones that win are the ones that ship.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <ul>
-<li><a href=http://hixie.ch/commentary/web/history>The History of the Web</a>, an old draft by Ian Hickson
-<li><a href=http://www.w3.org/html/wg/wiki/History>HTML/History</a>, by Michael Smith, Henri Sivonen, and others
-<li><a href=http://www.atendesigngroup.com/blog/brief-history-of-html>A Brief History of HTML</a>, by Scott Reynen
+<li><a href="http://hixie.ch/commentary/web/history">The History of the Web</a>, an old draft by Ian Hickson
+<li><a href="http://www.w3.org/html/wg/wiki/History">HTML/History</a>, by Michael Smith, Henri Sivonen, and others
+<li><a href="http://www.atendesigngroup.com/blog/brief-history-of-html">A Brief History of HTML</a>, by Scott Reynen
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &ldquo;How Did We Get Here?&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &ldquo;How Did We Get Here?&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/dih5.js></script>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="j/jquery.js"></script>
+<script src="j/dih5.js"></script>

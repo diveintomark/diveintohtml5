@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Web Forms - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/diveintomark/diveintohtml5/commits/master.atom>
-<link rel=stylesheet href=screen.css>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="screen.css">
 <style>
 body{counter-reset:h1 9}
 </style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=index.html>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&rdquo;</span> <a href=table-of-contents.html#forms>Dive Into <abbr>HTML5</abbr></a> <span class=u>&rdquo;</span>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
+<link rel="prefetch" href="index.html">
+<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#forms">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
 <h1><br>A Form of Madness</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Diving In</h2>
+<p id="toc">&nbsp;
+<p class="a">&#x2767;
+<h2 id="divingin">Diving In</h2>
 
-<p class=f><img src=i/aoc-e.png alt=E width=107 height=105>verybody knows about web forms, right? Make a <code>&lt;form></code>, a few <code>&lt;input type="text"></code> elements, maybe an <code>&lt;input type="password"></code>, finish it off with an <code>&lt;input type="submit"></code> button, and you&rsquo;re done.
+<p class="f"><img src="i/aoc-e.png" alt="E" width="107" height="105">verybody knows about web forms, right? Make a <code>&lt;form&gt;</code>, a few <code>&lt;input type="text"&gt;</code> elements, maybe an <code>&lt;input type="password"&gt;</code>, finish it off with an <code>&lt;input type="submit"&gt;</code> button, and you&rsquo;re done.
 
 <p>You don&rsquo;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms. And when I say &ldquo;use,&rdquo; I mean you can use them right now &mdash; without any shims, hacks, or workarounds. Now don&rsquo;t get too excited; I don&rsquo;t mean to say that all of these exciting new features are actually supported in every browser. Oh goodness no, I don&rsquo;t mean that at all. In modern browsers, yes, your forms will kick all kinds of ass. But in legacy browsers, your forms will still work, albeit with less ass kicking. Which is to say, all of these features degrade gracefully in every browser. Even IE 6.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=placeholder>Placeholder Text</h2>
+<h2 id="placeholder">Placeholder Text</h2>
 
-<table class=bc>
+<table class="bc">
 <caption>Placeholder support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
@@ -31,40 +31,40 @@ body{counter-reset:h1 9}
 <tr><td>10.0+<td>4.0+<td>4.0+<td>4.0+<td>11.0+<td>4.0+<td>2.1+
 </table>
 
-<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty. When you click on (or tab to) the input field and start typing, the placeholder text disappears.
+<p>The first improvement <abbr>HTML5</abbr> brings to web forms is the ability to set <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty. When you click on (or tab to) the input field and start typing, the placeholder text disappears.
 
 <p>You&rsquo;ve probably seen placeholder text before. For example, Mozilla Firefox includes placeholder text in the location bar that reads &ldquo;Go to a Website&rdquo;:
 
-<p class=c><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=280 height=40>
+<p class="c"><img src="i/location-bar-empty-unfocused.png" alt="location bar with placeholder text" width="280" height="40">
 
 <p>When you click on (or tab to) the location bar, the placeholder text disappears:
 
-<p class=c><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=280 height=40>
+<p class="c"><img src="i/location-bar-empty-focused.png" alt="location bar with cursor and no placeholder text" width="280" height="40">
 
 <p>Here&rsquo;s how you can include placeholder text in your own web forms:
 
-<pre><code>&lt;form>
-  &lt;input name="q" <mark>placeholder="Go to a Website"</mark>>
-  &lt;input type="submit" value="Search">
-&lt;/form></code></pre>
+<pre><code>&lt;form&gt;
+  &lt;input name="q" <mark>placeholder="Go to a Website"</mark>&gt;
+  &lt;input type="submit" value="Search"&gt;
+&lt;/form&gt;</code></pre>
 
-<p>Browsers that don&rsquo;t support the <code>placeholder</code> attribute will simply ignore it. No harm, no foul. <a href=examples/input-placeholder.html>See whether your browser supports placeholder text</a>.
+<p>Browsers that don&rsquo;t support the <code>placeholder</code> attribute will simply ignore it. No harm, no foul. <a href="examples/input-placeholder.html">See whether your browser supports placeholder text</a>.
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
-<div class=inner>
-<blockquote class=note>
+<div class="inner">
+<blockquote class="note">
 <p><span>&#x261E;</span>Q: Can I use <abbr>HTML</abbr> markup in the <code>placeholder</code> attribute? I want to insert an image, or maybe change the colors.<br>
-A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML</abbr> markup. However, there are <a href=http://trac.webkit.org/export/37527/trunk/LayoutTests/fast/forms/placeholder-pseudo-style.html>some vendor-specific CSS extensions</a> that allow you to style the placeholder text in some browsers.
+A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML</abbr> markup. However, there are <a href="http://trac.webkit.org/export/37527/trunk/LayoutTests/fast/forms/placeholder-pseudo-style.html">some vendor-specific CSS extensions</a> that allow you to style the placeholder text in some browsers.
 </blockquote>
 </div>
 </div>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=autofocus>Autofocus Fields</h2>
+<h2 id="autofocus">Autofocus Fields</h2>
 
-<table class=bc>
+<table class="bc">
 <caption>Autofocus support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
@@ -72,94 +72,94 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <tr><td>10.0+<td>4.0+<td>4.0+<td>3.0+<td>10.0+<td>&middot;<td>3.0+
 </table>
 
-<p class=ss><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262>
+<p class="ss"><img src="i/openclipart.org_johnny_automatic_angry_guy.png" alt="angry guy with arms up" width="188" height="262">
 
-<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href=http://www.google.com/>Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&rsquo;s autofocus script may &ldquo;helpfully&rdquo; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
+<p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href="http://www.google.com/">Google.com</a> will autofocus the input box so you can type your search keywords. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site&rsquo;s autofocus script may &ldquo;helpfully&rdquo; move the focus back to the original input field, disrupting your flow and causing you to type in the wrong place.
 
 <p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&rsquo;t want a web page to &ldquo;steal&rdquo; the focus.
 
-<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control>an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&rsquo;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&rsquo;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
 
 <p>Here&rsquo;s how you can set a form field to autofocus:
 
-<pre><code>&lt;form>
-  &lt;input name="q" <mark>autofocus</mark>>
-  &lt;input type="submit" value="Search">
-&lt;/form></code></pre>
+<pre><code>&lt;form&gt;
+  &lt;input name="q" <mark>autofocus</mark>&gt;
+  &lt;input type="submit" value="Search"&gt;
+&lt;/form&gt;</code></pre>
 
-<p>Browsers that don&rsquo;t support the <code>autofocus</code> attribute will simply ignore it. <a href=examples/input-autofocus.html>See whether your browser supports autofocus fields</a>.
+<p>Browsers that don&rsquo;t support the <code>autofocus</code> attribute will simply ignore it. <a href="examples/input-autofocus.html">See whether your browser supports autofocus fields</a>.
 
 <p>What&rsquo;s that? You say you want your autofocus fields to work in all browsers, not just these fancy-pants <abbr>HTML5</abbr> browsers? You can keep your current autofocus script. Just make two small changes:
 
 <ol>
 <li>Add the <code>autofocus</code> attribute to your <abbr>HTML</abbr> markup
-<li><a href=detect.html#input-autofocus>Detect whether the browser supports the <code>autofocus</code> attribute</a>, and only run your own autofocus script if the browser doesn&rsquo;t support autofocus natively.
+<li><a href="detect.html#input-autofocus">Detect whether the browser supports the <code>autofocus</code> attribute</a>, and only run your own autofocus script if the browser doesn&rsquo;t support autofocus natively.
 </ol>
 
-<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with fallback
-<pre><code>&lt;form name="f">
-  &lt;input id="q" <mark>autofocus</mark>>
-  &lt;script>
+<p class="legend top" style="margin-left:10em"><span class="arrow">&#x21b6;</span> Autofocus with fallback
+<pre><code>&lt;form name="f"&gt;
+  &lt;input id="q" <mark>autofocus</mark>&gt;
+  &lt;script&gt;
     if (<mark>!("autofocus" in document.createElement("input"))</mark>) {
       document.getElementById("q").focus();
     }
-  &lt;/script>
-  &lt;input type="submit" value="Go">
-&lt;/form>
+  &lt;/script&gt;
+  &lt;input type="submit" value="Go"&gt;
+&lt;/form&gt;
 &hellip;</code></pre>
 
-<p><a href=examples/input-autofocus-with-fallback.html>See an example of <code>autofocus</code> with fallback</a>.
+<p><a href="examples/input-autofocus-with-fallback.html">See an example of <code>autofocus</code> with fallback</a>.
 
-<h3 id=more-on-focus>Setting focus as early as possible</h3>
+<h3 id="more-on-focus">Setting focus as early as possible</h3>
 
 <p>Lots of web pages wait until <code>window.onload</code> fires to set focus. But the <code>window.onload</code> event doesn&rsquo;t fire until <em>after</em> all your images have loaded. If your page has a lot of images, such a naive script could potentially re-focus the field after the user has started interacting with another part of your page. This is why power users hate autofocus scripts.
 
 <p>The example in the previous section placed the auto-focus script immediately after the form field that it references. This is the optimal solution, but it may offend your sensibilities to put a block of JavaScript code in the middle of your page. (Or, more mundanely, your back-end systems may just not be that flexible.) If you can&rsquo;t insert a script in the middle of your page, you should set focus during a custom event like jQuery&rsquo;s <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
 
-<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with jQuery fallback
-<pre><code>&lt;head>
-&lt;script src=jquery.min.js>&lt;/script>
-&lt;script>
+<p class="legend top" style="margin-left:10em"><span class="arrow">&#x21b6;</span> Autofocus with jQuery fallback
+<pre><code>&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
   <mark>$(document).ready</mark>(function() {
     if (!("autofocus" in document.createElement("input"))) {
       $("#q").focus();
     }
   });
-&lt;/script>
-&lt;/head>
-&lt;body>
-&lt;form name="f">
-  &lt;input id="q" autofocus>
-  &lt;input type="submit" value="Go">
-&lt;/form>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="f"&gt;
+  &lt;input id="q" autofocus&gt;
+  &lt;input type="submit" value="Go"&gt;
+&lt;/form&gt;
 </code></pre>
 
-<p><a href=examples/input-autofocus-with-fallback-document-ready.html>See an example of <code>autofocus</code> with jQuery fallback</a>.
+<p><a href="examples/input-autofocus-with-fallback-document-ready.html">See an example of <code>autofocus</code> with jQuery fallback</a>.
 
 <p>jQuery fires its custom <code>ready</code> event as soon as the page <abbr>DOM</abbr> is available &mdash; that is, it waits until the page text is loaded, but it doesn&rsquo;t wait until all the images are loaded. This is not an optimal approach &mdash; if the page is unusually large or the network connection is unusually slow, a user could still start interacting with the page before your focus script executes. But it is still far better than waiting until the <code>window.onload</code> event fires.
 
 <p>If you are willing and able to insert a single script statement in your page markup, there is a middle ground that is less offensive than the first option and more optimal than the second. You can use jQuery&rsquo;s custom events to define your own event, say <code>autofocus_ready</code>. Then you can trigger this event manually, immediately after the autofocus form field is available. <i>Thanks to E. M. Sternberg for teaching me about this technique.</i>
 
-<p class="legend top" style="margin-left:10em"><span class=arrow>&#x21b6;</span> Autofocus with a custom event fallback
-<pre><code>&lt;head>
-&lt;script src=jquery.min.js>&lt;/script>
-&lt;script>
+<p class="legend top" style="margin-left:10em"><span class="arrow">&#x21b6;</span> Autofocus with a custom event fallback
+<pre><code>&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
   <mark>$(document).bind('autofocus_ready',</mark> function() {
     if (!("autofocus" in document.createElement("input"))) {
       $("#q").focus();
     }
   });
-&lt;/script>
-&lt;/head>
-&lt;body>
-&lt;form name="f">
-  &lt;input id="q" autofocus>
-  &lt;script><mark>$(document).trigger('autofocus_ready');</mark>&lt;/script>
-  &lt;input type="submit" value="Go">
-&lt;/form>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="f"&gt;
+  &lt;input id="q" autofocus&gt;
+  &lt;script&gt;<mark>$(document).trigger('autofocus_ready');</mark>&lt;/script&gt;
+  &lt;input type="submit" value="Go"&gt;
+&lt;/form&gt;
 </code></pre>
 
-<p><a href=examples/input-autofocus-with-fallback-custom-event.html>See an example of <code>autofocus</code> with a custom event fallback</a>.
+<p><a href="examples/input-autofocus-with-fallback-custom-event.html">See an example of <code>autofocus</code> with a custom event fallback</a>.
 
 <p>This is as optimal as the first approach; it will set focus to the form field as soon as technically possible, while the text of the page is still loading. But it transfers the bulk of your application logic (focusing the form field) out of the body of the page and into the head. This example relies on jQuery, but the concept of custom events is not unique to jQuery. Other JavaScript libraries like YUI and Dojo offer similar capabilities.
 
@@ -173,80 +173,80 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <li>Under no circumstances should you wait until <code>window.onload</code> to set focus.
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-email>Email Addresses</h2>
+<h2 id="type-email">Email Addresses</h2>
 
 <p>For over a decade, web forms comprised just a few kinds of fields. The most common kinds were
 
-<table class=st>
-<tr class=ho><th>Field Type<th><abbr>HTML</abbr> Code<th>Notes
-<tr class=zebra><th>checkbox<td><code>&lt;input type="checkbox"></code><td>can be toggled on or off
-<tr><th>radio button<td><code>&lt;input type="radio"></code><td>can be grouped with other inputs
-<tr class=zebra><th>password field<td><code>&lt;input type="password"></code><td>echos dots instead of characters as you type
-<tr><th>drop-down lists<td><code>&lt;select>&lt;option>&hellip;</code><td>
-<tr class=zebra><th>file picker<td><code>&lt;input type="file"></code><td>pops up an &ldquo;open file&rdquo; dialog
-<tr><th>submit button<td><code>&lt;input type="submit"></code><td>
-<tr class=zebra><th>plain text<td><code>&lt;input type="text"></code><td>the <code>type</code> attribute can be omitted
+<table class="st">
+<tr class="ho"><th>Field Type<th><abbr>HTML</abbr> Code<th>Notes
+<tr class="zebra"><th>checkbox<td><code>&lt;input type="checkbox"&gt;</code><td>can be toggled on or off
+<tr><th>radio button<td><code>&lt;input type="radio"&gt;</code><td>can be grouped with other inputs
+<tr class="zebra"><th>password field<td><code>&lt;input type="password"&gt;</code><td>echos dots instead of characters as you type
+<tr><th>drop-down lists<td><code>&lt;select&gt;&lt;option&gt;&hellip;</code><td>
+<tr class="zebra"><th>file picker<td><code>&lt;input type="file"&gt;</code><td>pops up an &ldquo;open file&rdquo; dialog
+<tr><th>submit button<td><code>&lt;input type="submit"&gt;</code><td>
+<tr class="zebra"><th>plain text<td><code>&lt;input type="text"&gt;</code><td>the <code>type</code> attribute can be omitted
 </table>
 
-<p>All of these input types still work in <abbr>HTML5</abbr>. If you&rsquo;re &ldquo;upgrading to <abbr>HTML5</abbr>&rdquo; (perhaps by <a href=semantics.html#the-doctype>changing your DOCTYPE</a>), you don&rsquo;t need to make a single change to your web forms. Hooray for backward compatibility!
+<p>All of these input types still work in <abbr>HTML5</abbr>. If you&rsquo;re &ldquo;upgrading to <abbr>HTML5</abbr>&rdquo; (perhaps by <a href="semantics.html#the-doctype">changing your DOCTYPE</a>), you don&rsquo;t need to make a single change to your web forms. Hooray for backward compatibility!
 
 <p>However, <abbr>HTML5</abbr> defines 13 new field types, and for reasons that will become clear in a moment, there is no reason <em>not</em> to start using them.
 
-<p>The first of these new input types is for <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-(type=email)>email addresses</a>. It looks like this:
+<p>The first of these new input types is for <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-(type=email)">email addresses</a>. It looks like this:
 
-<pre><code>&lt;form>
-  <mark>&lt;input type="email"></mark>
-  &lt;input type="submit" value="Go">
-&lt;/form></code></pre>
+<pre><code>&lt;form&gt;
+  <mark>&lt;input type="email"&gt;</mark>
+  &lt;input type="submit" value="Go"&gt;
+&lt;/form&gt;</code></pre>
 
 <p>I was about to write a sentence that started with &ldquo;in browsers that don&rsquo;t support <code>type="email"</code>&hellip;&rdquo; but I stopped myself. Why? Because I&rsquo;m not sure what it would mean to say that a browser doesn&rsquo;t support <code>type="email"</code>. All browsers &ldquo;support&rdquo; <code>type="email"</code>. They may not do anything special with it (you&rsquo;ll see a few examples of special treatment in a moment), but browsers that don&rsquo;t recognize <code>type="email"</code> will treat it as <code>type="text"</code> and render it as a plain text field.
 
-<p>I can not emphasize how important this is. The web has millions of forms that ask you to enter an email address, and all of them use <code>&lt;input type="text"></code>. You see a text box, you type your email address in the text box, and that&rsquo;s that. Along comes <abbr>HTML5</abbr>, which defines <code>type="email"</code>. Do browsers freak out? No. Every single browser on Earth treats an unknown <code>type</code> attribute as <code>type="text"</code> &mdash; even IE 6. So you can &ldquo;upgrade&rdquo; your web forms to use <code>type="email"</code> right now.
+<p>I can not emphasize how important this is. The web has millions of forms that ask you to enter an email address, and all of them use <code>&lt;input type="text"&gt;</code>. You see a text box, you type your email address in the text box, and that&rsquo;s that. Along comes <abbr>HTML5</abbr>, which defines <code>type="email"</code>. Do browsers freak out? No. Every single browser on Earth treats an unknown <code>type</code> attribute as <code>type="text"</code> &mdash; even IE 6. So you can &ldquo;upgrade&rdquo; your web forms to use <code>type="email"</code> right now.
 
-<p>What would it mean to say that a browser <em>DID</em> support <code>type="email"</code>? Well, it can mean any number of things. The <abbr>HTML5</abbr> specification doesn&rsquo;t mandate any particular user interface for the new input types. Most desktop browsers like Safari, Chrome, Opera, and Firefox simply render it as a text box &mdash; exactly like <code>type="text"</code> &mdash; so your users will never know the difference (<a href=#validation>until they try to submit the form</a>).
+<p>What would it mean to say that a browser <em>DID</em> support <code>type="email"</code>? Well, it can mean any number of things. The <abbr>HTML5</abbr> specification doesn&rsquo;t mandate any particular user interface for the new input types. Most desktop browsers like Safari, Chrome, Opera, and Firefox simply render it as a text box &mdash; exactly like <code>type="text"</code> &mdash; so your users will never know the difference (<a href="#validation">until they try to submit the form</a>).
 
 <p>And then there&rsquo;s the iPhone.
 
 <p>The iPhone does not have a physical keyboard. All &ldquo;typing&rdquo; is done by tapping on an on-screen keyboard that pops up at appropriate times, like when you focus a form field in a web page. Apple did something clever in the iPhone&rsquo;s web browser. It recognizes several of the new <abbr>HTML5</abbr> input types, and <em>dynamically changes the on-screen keyboard</em> to optimize for that kind of input.
 
-<p>For example, email addresses are text, right? Sure, but they&rsquo;re a special kind of text. For example, virtually all email addresses contain the <code>@</code> sign and at least one period (<code>.</code>), but they&rsquo;re unlikely to contain any spaces. So when you use an iPhone and focus an <code>&lt;input type="email"></code> element, you get an on-screen keyboard that contains a smaller-than-usual space bar, plus dedicated keys for the <code>@</code> and <code>.</code> characters.
+<p>For example, email addresses are text, right? Sure, but they&rsquo;re a special kind of text. For example, virtually all email addresses contain the <code>@</code> sign and at least one period (<code>.</code>), but they&rsquo;re unlikely to contain any spaces. So when you use an iPhone and focus an <code>&lt;input type="email"&gt;</code> element, you get an on-screen keyboard that contains a smaller-than-usual space bar, plus dedicated keys for the <code>@</code> and <code>.</code> characters.
 
-<p class=c><img src=i/input-type-email.png alt="iPhone rendering input type=email field" title="note the dedicated @ and . keys next to the space bar" width=224 height=322 class=fr><br><a href=examples/input-type-email.html>Test <code>type="email"</code> for yourself</a>.
+<p class="c"><img src="i/input-type-email.png" alt="iPhone rendering input type=&quot;email&quot; field" title="note the dedicated @ and . keys next to the space bar" width="224" height="322" class="fr"><br><a href="examples/input-type-email.html">Test <code>type="email"</code> for yourself</a>.
 
 <p>To sum up: there&rsquo;s no downside to converting all your email address form fields to <code>type="email"</code> immediately. Virtually no one will even notice, except iPhone users, who probably won&rsquo;t notice either. But the ones who do notice will smile quietly and thank you for making their web experience just a little easier.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-url>Web Addresses</h2>
+<h2 id="type-url">Web Addresses</h2>
 
 <p>Web addresses &mdash; which standards wonks call <abbr>URLs</abbr>, except for a few <a href="http://www.douglasadams.com/dna/pedants.html">pedants</a> which call them <abbr>URIs</abbr> &mdash; are another type of specialized text. The syntax of a web address is constrained by the relevant Internet standards. If someone asks you to enter a web address into a form, they&rsquo;re expecting something like &ldquo;<code>http://www.google.com/</code>&rdquo;, not &ldquo;125 Farwood Road.&rdquo; Forward slashes are common &mdash; even Google&rsquo;s home page has three of them. Periods are also common, but spaces are forbidden. And every web address has a domain suffix like &ldquo;.com&rdquo; or &ldquo;.org&rdquo;.
 
-<p>Behold... (drum roll please)... <code>&lt;input type="url"></code>. On the iPhone, it looks like this:
+<p>Behold... (drum roll please)... <code>&lt;input type="url"&gt;</code>. On the iPhone, it looks like this:
 
-<p class=c><img src=i/input-type-url.png alt="iPhone rendering input type=url field" width=224 height=322 class=fr><br><a href=examples/input-type-url.html>Test <code>type="url"</code> for yourself</a>.
+<p class="c"><img src="i/input-type-url.png" alt="iPhone rendering input type=&quot;url&quot; field" width="224" height="322" class="fr"><br><a href="examples/input-type-url.html">Test <code>type="url"</code> for yourself</a>.
 
-<p>The iPhone altered its virtual keyboard, just like it did for <a href=#type-email>email addresses</a>, but now optimized for web addresses instead. The space bar has been completely replaced with three virtual keys: a period, a forward slash, and a &ldquo;.com&rdquo; button. (You can long-press the &ldquo;.com&rdquo; button to choose other common suffixes like &ldquo;.org&rdquo; or &ldquo;.net&rdquo;.)
+<p>The iPhone altered its virtual keyboard, just like it did for <a href="#type-email">email addresses</a>, but now optimized for web addresses instead. The space bar has been completely replaced with three virtual keys: a period, a forward slash, and a &ldquo;.com&rdquo; button. (You can long-press the &ldquo;.com&rdquo; button to choose other common suffixes like &ldquo;.org&rdquo; or &ldquo;.net&rdquo;.)
 
-<p>Most modern desktop browsers simply render <code>type="url"</code> like a regular text box, so users won&rsquo;t even notice <a href=#validation>until they submit the form</a>. Browsers that don&rsquo;t support <abbr>HTML5</abbr> will treat <code>type="url"</code> exactly like <code>type="text"</code>, so there&rsquo;s no downside to using it for all your web-address-inputting needs.
+<p>Most modern desktop browsers simply render <code>type="url"</code> like a regular text box, so users won&rsquo;t even notice <a href="#validation">until they submit the form</a>. Browsers that don&rsquo;t support <abbr>HTML5</abbr> will treat <code>type="url"</code> exactly like <code>type="text"</code>, so there&rsquo;s no downside to using it for all your web-address-inputting needs.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-number>Numbers as Spinboxes</h2>
+<h2 id="type-number">Numbers as Spinboxes</h2>
 
-<p>Next up: numbers. Asking for a number is trickier than asking for an email address or web address. First of all, numbers are more complicated than you might think. Quick: pick a number. -1? No, I meant a number between 1 and 10. 7&frac12;? No no, not a fraction, silly. <span class=u>&pi;</span>? Now you&rsquo;re just being irrational.
+<p>Next up: numbers. Asking for a number is trickier than asking for an email address or web address. First of all, numbers are more complicated than you might think. Quick: pick a number. -1? No, I meant a number between 1 and 10. 7&frac12;? No no, not a fraction, silly. <span class="u">&pi;</span>? Now you&rsquo;re just being irrational.
 
 <p>My point is, you don&rsquo;t often ask for &ldquo;just a number.&rdquo; It&rsquo;s more likely that you&rsquo;ll ask for a number in a particular range. You may only want certain kinds of numbers within that range &mdash; maybe whole numbers but not fractions or decimals, or something more esoteric like numbers divisible by 10. <abbr>HTML5</abbr> has you covered.
 
-<p class="legend top" style="margin-left:8em"><span class=arrow>&#x21b6;</span> Pick a number, (almost) any number
+<p class="legend top" style="margin-left:8em"><span class="arrow">&#x21b6;</span> Pick a number, (almost) any number
 <pre><code>&lt;input <mark>type="number"</mark>
        min="0"
        max="10"
        step="2"
        value="6"></code></pre>
 
-<p>Let&rsquo;s take that one attribute at a time. (You can <a href=examples/input-type-number-min-max-step.html>follow along with a live example</a> if you like.)
+<p>Let&rsquo;s take that one attribute at a time. (You can <a href="examples/input-type-number-min-max-step.html">follow along with a live example</a> if you like.)
 
 <ul>
 <li><code>type="number"</code> means that this is a number field.
@@ -266,36 +266,36 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <li><code>input.valueAsNumber</code> returns the current value as a floating point number. (The <code>input.value</code> property is always a string.)
 </ul>
 
-<p>Having trouble visualizing it? Well, the exact interface of a number control is up to your browser, and different browser vendors have implemented support in different ways. On the iPhone, where input is difficult to begin with, the browser <a href=#type-email>once</a> <a href=#type-url>again</a> optimizes the virtual keyboard for numeric input.
+<p>Having trouble visualizing it? Well, the exact interface of a number control is up to your browser, and different browser vendors have implemented support in different ways. On the iPhone, where input is difficult to begin with, the browser <a href="#type-email">once</a> <a href="#type-url">again</a> optimizes the virtual keyboard for numeric input.
 
-<p class=c><img src=i/input-type-number.png alt="iPhone rendering input type=number field" width=224 height=322 class=fr>
+<p class="c"><img src="i/input-type-number.png" alt="iPhone rendering input type=&quot;number&quot; field" width="224" height="322" class="fr">
 
 <p>In the desktop version of Opera, the same <code>type="number"</code> field is rendered as a &ldquo;spinbox&rdquo; control, with little up and down arrows that you can click to change the value.
 
-<p class=c><img src=i/input-type-number-opera.png alt="Opera rendering input type=number field" width=227 height=203 class=fr>
+<p class="c"><img src="i/input-type-number-opera.png" alt="Opera rendering input type=&quot;number&quot; field" width="227" height="203" class="fr">
 
 <p>Opera respects the <code>min</code>, <code>max</code>, and <code>step</code> attributes, so you&rsquo;ll always end up with an acceptable numeric value. If you bump up the value to the maximum, the up arrow in the spinbox is greyed out.
 
-<p class=c><img src=i/input-type-number-at-max-opera.png alt="Opera rendering input type=number field at max value" width=142 height=28 class=fr>
+<p class="c"><img src="i/input-type-number-at-max-opera.png" alt="Opera rendering input type=&quot;number&quot; field at max value" width="142" height="28" class="fr">
 
-<p>As with all the other input types I&rsquo;ve discussed in this chapter, browsers that don&rsquo;t support <code>type="number"</code> will treat it as <code>type="text"</code>. The default value will show up in the field (since it&rsquo;s stored in the <code>value</code> attribute), but the other attributes like <code>min</code> and <code>max</code> will be ignored. You&rsquo;re free to implement them yourself, or you could reuse a JavaScript framework that has already implemented spinbox controls. Just <a href=detect.html#input-types>check for the native <abbr>HTML5</abbr> support</a> first, like this:
+<p>As with all the other input types I&rsquo;ve discussed in this chapter, browsers that don&rsquo;t support <code>type="number"</code> will treat it as <code>type="text"</code>. The default value will show up in the field (since it&rsquo;s stored in the <code>value</code> attribute), but the other attributes like <code>min</code> and <code>max</code> will be ignored. You&rsquo;re free to implement them yourself, or you could reuse a JavaScript framework that has already implemented spinbox controls. Just <a href="detect.html#input-types">check for the native <abbr>HTML5</abbr> support</a> first, like this:
 
-<pre><code>if (!<a href=detect.html#modernizr>Modernizr</a>.inputtypes.number) {
+<pre><code>if (!<a href="detect.html#modernizr">Modernizr</a>.inputtypes.number) {
   // no native support for type=number fields
   // maybe try Dojo or some other JavaScript framework
 }</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-range>Numbers as Sliders</h2>
+<h2 id="type-range">Numbers as Sliders</h2>
 
-<p><a href=#type-number>Spinboxes</a> are not the only way to represent numeric input. You&rsquo;ve probably also seen &ldquo;slider&rdquo; controls that look like this:
+<p><a href="#type-number">Spinboxes</a> are not the only way to represent numeric input. You&rsquo;ve probably also seen &ldquo;slider&rdquo; controls that look like this:
 
-<p class=c><img src=i/input-type-range.png alt="Chrome rendering of input type=range field as slider control" width=175 height=25><br><a href=examples/input-type-range.html>Test <code>type="range"</code> for yourself</a>.
+<p class="c"><img src="i/input-type-range.png" alt="Chrome rendering of input type=&quot;range&quot; field as slider control" width="175" height="25"><br><a href="examples/input-type-range.html">Test <code>type="range"</code> for yourself</a>.
 
-<p>You can now have slider controls in your web forms, too. The markup looks eerily similar to <a href=#type-range>spinbox controls</a>:
+<p>You can now have slider controls in your web forms, too. The markup looks eerily similar to <a href="#type-range">spinbox controls</a>:
 
-<p class="legend top" style="margin-left:8em"><span class=arrow>&#x21b6;</span> The spitting image
+<p class="legend top" style="margin-left:8em"><span class="arrow">&#x21b6;</span> The spitting image
 <pre><code>&lt;input <mark>type="range"</mark>
        min="0"
        max="10"
@@ -304,17 +304,17 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>All the available attributes are the same as <code>type="number"</code> &mdash; <code>min</code>, <code>max</code>, <code>step</code>, <code>value</code> &mdash; and they mean the same thing. The only difference is the user interface. Instead of a field for typing, browsers are expected to render <code>type="range"</code> as a slider control. Safari, Chrome, Opera, Internet Explorer 10, and the iPhone running iOS 5 all do this. (Sadly, the iPhone running older versions of iOS renders it as a simple text box. It doesn&rsquo;t even optimize its on-screen keyboard for numeric input.) All other browsers simply treat the field as <code>type="text"</code>, so there&rsquo;s no reason you can&rsquo;t start using it immediately.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-date>Date Pickers</h2>
+<h2 id="type-date">Date Pickers</h2>
 
-<p><abbr>HTML</abbr> 4 did not include a date picker control. JavaScript frameworks have picked up the slack (<a href=http://docs.dojocampus.org/dijit/form/DateTextBox>Dojo</a>, <a href=http://docs.jquery.com/UI/Datepicker>jQuery UI</a>, <a href=http://developer.yahoo.com/yui/calendar/>YUI</a>, <a href=http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html>Closure Library</a>), but of course each of these solutions requires &ldquo;buying into&rdquo; the framework on which the date picker is built.
+<p><abbr>HTML</abbr> 4 did not include a date picker control. JavaScript frameworks have picked up the slack (<a href="http://docs.dojocampus.org/dijit/form/DateTextBox">Dojo</a>, <a href="http://docs.jquery.com/UI/Datepicker">jQuery UI</a>, <a href="http://developer.yahoo.com/yui/calendar/">YUI</a>, <a href="http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html">Closure Library</a>), but of course each of these solutions requires &ldquo;buying into&rdquo; the framework on which the date picker is built.
 
 <p><abbr>HTML5</abbr> finally defines a way to include a native date picker control without having to script it yourself. In fact, it defines six: date, month, week, time, date + time, and date + time - timezone.
 
 <p>So far, support is&hellip; sparse.
 
-<table class=bc>
+<table class="bc">
 <caption>Date picker support</caption>
 <thead>
 <tr><th style="text-align:left">Input Type<th>Opera<th>iPhone<th>Other browsers
@@ -327,82 +327,82 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <tr><th><code>type="time"</code><td>9.0+<td>5.0+<td>&middot;
 </table>
 
-<p>This is how Opera renders <a href=examples/input-type-date.html><code>&lt;input type="date"></code></a>:
+<p>This is how Opera renders <a href="examples/input-type-date.html"><code>&lt;input type="date"&gt;</code></a>:
 
 <blockquote>
-<p><img src=i/input-type-date.png alt="Opera's type=date picker" width=210 height=190>
+<p><img src="i/input-type-date.png" alt="Opera's type=&quot;date&quot; picker" width="210" height="190">
 </blockquote>
 
-<p>If you need a time to go with that date, Opera also supports <a href=examples/input-type-datetime.html><code>&lt;input type="datetime"></code></a>:
+<p>If you need a time to go with that date, Opera also supports <a href="examples/input-type-datetime.html"><code>&lt;input type="datetime"&gt;</code></a>:
 
 <blockquote>
-<p><img src=i/input-type-datetime.png alt="Opera's type=datetime picker" width=225 height=191>
+<p><img src="i/input-type-datetime.png" alt="Opera's type=&quot;datetime&quot; picker" width="225" height="191">
 </blockquote>
 
-<p>If you only need a month + year (perhaps a credit card expiration date), Opera can render a <a href=examples/input-type-month.html><code>&lt;input type="month"></code></a>:
+<p>If you only need a month + year (perhaps a credit card expiration date), Opera can render a <a href="examples/input-type-month.html"><code>&lt;input type="month"&gt;</code></a>:
 
 <blockquote>
-<p><img src=i/input-type-month.png alt="Opera's type=month picker" width=210 height=189>
+<p><img src="i/input-type-month.png" alt="Opera's type=&quot;month&quot; picker" width="210" height="189">
 </blockquote>
 
-<p>Less common, but also available, is the ability to pick a specific week of a year with <a href=examples/input-type-week.html><code>&lt;input type="week"></code></a>:
+<p>Less common, but also available, is the ability to pick a specific week of a year with <a href="examples/input-type-week.html"><code>&lt;input type="week"&gt;</code></a>:
 
 <blockquote>
-<p><img src=i/input-type-week.png alt="Opera's type=week picker" width=210 height=191>
+<p><img src="i/input-type-week.png" alt="Opera's type=&quot;week&quot; picker" width="210" height="191">
 </blockquote>
 
-<p>Last but not least, you can pick a time with <a href=examples/input-type-time.html><code>&lt;input type="time"></code></a>:
+<p>Last but not least, you can pick a time with <a href="examples/input-type-time.html"><code>&lt;input type="time"&gt;</code></a>:
 
 <blockquote>
-<p><img src=i/input-type-time.png alt="Opera's type=time picker" width=98 height=22>
+<p><img src="i/input-type-time.png" alt="Opera's type=&quot;time&quot; picker" width="98" height="22">
 </blockquote>
 
-<p>It&rsquo;s likely that other browsers will eventually support these input types. But just like <a href=#type-email><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&rsquo;t recognize <code>type="date"</code> and the other variants. If you like, you can simply use <code>&lt;input type="date"></code> and friends, make Opera and iOS users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"></code>, <a href=detect.html#input-types>detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href=http://docs.dojocampus.org/dijit/form/DateTextBox>Dojo</a>, <a href=http://docs.jquery.com/UI/Datepicker>jQuery UI</a>, <a href=http://developer.yahoo.com/yui/calendar/>YUI</a>, <a href=http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html>Closure Library</a>, or some other solution).
+<p>It&rsquo;s likely that other browsers will eventually support these input types. But just like <a href="#type-email"><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&rsquo;t recognize <code>type="date"</code> and the other variants. If you like, you can simply use <code>&lt;input type="date"&gt;</code> and friends, make Opera and iOS users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"&gt;</code>, <a href="detect.html#input-types">detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href="http://docs.dojocampus.org/dijit/form/DateTextBox">Dojo</a>, <a href="http://docs.jquery.com/UI/Datepicker">jQuery UI</a>, <a href="http://developer.yahoo.com/yui/calendar/">YUI</a>, <a href="http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html">Closure Library</a>, or some other solution).
 
-<p class="legend top" style="margin-left:6em"><span class=arrow>&#x21b6;</span> Date picker with fallback
-<pre><code>&lt;form>
-  &lt;input type="date">
-&lt;/form>
+<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> Date picker with fallback
+<pre><code>&lt;form&gt;
+  &lt;input type="date"&gt;
+&lt;/form&gt;
 ...
-&lt;script>
+&lt;script&gt;
   var i = document.createElement("input");
   i.setAttribute("type", "date");
   if (i.type == "text") {
     // No native date picker support :(
     // Use Dojo/jQueryUI/YUI/Closure to create one,
-    // then dynamically replace that &lt;input> element.
+    // then dynamically replace that &lt;input&gt; element.
   }
-&lt;/script></code></pre>
+&lt;/script&gt;</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-search>Search Boxes</h2>
+<h2 id="type-search">Search Boxes</h2>
 
 <p>OK, this one is subtle. Well, the idea is simple enough, but the implementations may require some explanation. Here goes&hellip;
 
-<p>Search. Not just Google Search or Yahoo Search. (Well, those too.) Think of any search box, on any page, on any site. Amazon has a search box. Newegg has a search box. Most blogs have a search box. How are they marked up? <code>&lt;input type="text"></code>, just like every other text box on the web. Let&rsquo;s fix that.
+<p>Search. Not just Google Search or Yahoo Search. (Well, those too.) Think of any search box, on any page, on any site. Amazon has a search box. Newegg has a search box. Most blogs have a search box. How are they marked up? <code>&lt;input type="text"&gt;</code>, just like every other text box on the web. Let&rsquo;s fix that.
 
-<pre style="float:left"><code>&lt;form>
-  &lt;input name="q" <mark>type="search"</mark>>
-  &lt;input type="submit" value="Find">
-&lt;/form></code></pre>
-<p class="legend right" style="margin-top:2.75em"><span class=arrow>&nbsp;&#x21dc;</span> New-age search box
+<pre style="float:left"><code>&lt;form&gt;
+  &lt;input name="q" <mark>type="search"</mark>&gt;
+  &lt;input type="submit" value="Find"&gt;
+&lt;/form&gt;</code></pre>
+<p class="legend right" style="margin-top:2.75em"><span class="arrow">&nbsp;&#x21dc;</span> New-age search box
 
-<p class="clear"><a href=examples/input-type-search.html>Test <code>&lt;input type="search"></code> in your own browser</a>. In some browsers, you won&rsquo;t notice any difference from a regular text box. But if you&rsquo;re using Safari on Mac OS X, it will look like this:
+<p class="clear"><a href="examples/input-type-search.html">Test <code>&lt;input type="search"&gt;</code> in your own browser</a>. In some browsers, you won&rsquo;t notice any difference from a regular text box. But if you&rsquo;re using Safari on Mac OS X, it will look like this:
 
-<p class=c><img src=i/input-type-search-safari.png alt="Safari/Mac rendering input type=search field" width=191 height=121>
+<p class="c"><img src="i/input-type-search-safari.png" alt="Safari/Mac rendering input type=&quot;search&quot; field" width="191" height="121">
 
 <p>Can you spot the difference? The input box has rounded corners! I know, I know, you can hardly contain your excitement. But wait, there&rsquo;s more! When you actually start typing into the <code>type="search"</code> box, Safari inserts a small &ldquo;x&rdquo; button on the right side of the box. Clicking the &ldquo;x&rdquo; clears the contents of the field. (Google Chrome, which shares much technology with Safari under the hood, also exhibits this behavior.) Both of these small tweaks are done to match the look and feel of native search boxes in iTunes and other Mac OS X client applications.
 
-<p class=c><img src=i/input-type-search-safari-typing.png alt="Typing in a type=search field in Safari" width=191 height=121>
+<p class="c"><img src="i/input-type-search-safari-typing.png" alt="Typing in a type=&quot;search&quot; field in Safari" width="191" height="121">
 
-<p><a href=http://www.apple.com/>Apple.com</a> once used <code>&lt;input type="search"></code> for their site-search box, to help give their site a &ldquo;Mac-like&rdquo; feel. But there&rsquo;s nothing Mac-specific about it. It&rsquo;s just markup, so each browser on each platform can choose to render it according to platform-specific conventions. As with all the other new input types, browsers that don&rsquo;t recognize <code>type="search"</code> will treat it like <code>type="text"</code>, so there is absolutely no reason not to start using <code>type="search"</code> for all your search boxes today.
+<p><a href="http://www.apple.com/">Apple.com</a> once used <code>&lt;input type="search"&gt;</code> for their site-search box, to help give their site a &ldquo;Mac-like&rdquo; feel. But there&rsquo;s nothing Mac-specific about it. It&rsquo;s just markup, so each browser on each platform can choose to render it according to platform-specific conventions. As with all the other new input types, browsers that don&rsquo;t recognize <code>type="search"</code> will treat it like <code>type="text"</code>, so there is absolutely no reason not to start using <code>type="search"</code> for all your search boxes today.
 
 <div class="pf clear">
 <h4>Professor Markup Says</h4>
-<div class=inner>
-<blockquote class=note>
-<p>By default, older versions of Safari will not apply even the most basic CSS styles to <code>&lt;input type="search"></code> fields. If you want to force Safari to treat your search field like a normal text field (so you can apply your own <abbr>CSS</abbr> styles), add this rule to your stylesheet:
+<div class="inner">
+<blockquote class="note">
+<p>By default, older versions of Safari will not apply even the most basic CSS styles to <code>&lt;input type="search"&gt;</code> fields. If you want to force Safari to treat your search field like a normal text field (so you can apply your own <abbr>CSS</abbr> styles), add this rule to your stylesheet:
 <blockquote><pre><code>input[type="search"] {
   -webkit-appearance: textfield;
 }</code></pre></blockquote>
@@ -411,21 +411,21 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 </div>
 </div>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=type-color>Color Pickers</h2>
+<h2 id="type-color">Color Pickers</h2>
 
-<p><abbr>HTML5</abbr> also defines <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#color-state-(type=color)><code>&lt;input type="color"></code></a>, which lets you pick a color and returns the color&rsquo;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&rsquo;ve always loved <a href=http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked>the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href=http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color>Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
+<p><abbr>HTML5</abbr> also defines <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#color-state-(type=color)"><code>&lt;input type="color"&gt;</code></a>, which lets you pick a color and returns the color&rsquo;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&rsquo;ve always loved <a href="http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked">the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color">Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
 
-<p class=c><img src=i/input-type-color.png alt="Opera rendering of input type=range field on multiple platforms" width=582 height=444><br><a href=examples/input-type-color.html>Test <code>type="color"</code> for yourself</a>.
+<p class="c"><img src="i/input-type-color.png" alt="Opera rendering of input type=&quot;range&quot; field on multiple platforms" width="582" height="444"><br><a href="examples/input-type-color.html">Test <code>type="color"</code> for yourself</a>.
 
-<p><i>Thanks to Patrick Lauke and Chris Mills for relicensing this image for inclusion in this book.</i> You should <a href=http://dev.opera.com/articles/view/new-form-features-in-html5/>read their article about the new form features in Opera 11</a>.
+<p><i>Thanks to Patrick Lauke and Chris Mills for relicensing this image for inclusion in this book.</i> You should <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/">read their article about the new form features in Opera 11</a>.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=validation>Form Validation</h2>
+<h2 id="validation">Form Validation</h2>
 
-<table class=bc>
+<table class="bc">
 <caption>Form validation support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
@@ -444,96 +444,96 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>Seriously, you&rsquo;ll get it wrong. Determining whether a random string of characters is a valid email address <a href="http://www.regular-expressions.info/email.html">is unbelievably complicated</a>. The harder you look, <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">the more complicated it gets</a>. Did I mention it&rsquo;s <a href="http://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx">really, really complicated</a>? Wouldn&rsquo;t it be easier to offload the entire headache to your browser?
 
-<p class="legend top" style="width:500px;text-align:center">Most modern browsers validate type=&ldquo;email&rdquo; <span class=arrow>&#x21b7;</span><br></p>
-<p class=c><img src=i/input-type-email-validation.png alt="error message on invalid type=email field" width=217 height=62>
+<p class="legend top" style="width:500px;text-align:center">Most modern browsers validate type=&ldquo;email&rdquo; <span class="arrow">&#x21b7;</span><br></p>
+<p class="c"><img src="i/input-type-email-validation.png" alt="error message on invalid type=&quot;email&quot; field" width="217" height="62">
 
-<p>That screenshot is from Opera 11, although the functionality has been present since Opera 9. <a href=http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/>Firefox 4 and Chrome 10 provide similar functionality</a>. The only markup involved is <a href=#type-email>setting the <code>type</code> attribute to <code>"email"</code></a>. When the user tries to submit a form with an <code>&lt;input type="email"></code> field, the browser automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled.
+<p>That screenshot is from Opera 11, although the functionality has been present since Opera 9. <a href="http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/">Firefox 4 and Chrome 10 provide similar functionality</a>. The only markup involved is <a href="#type-email">setting the <code>type</code> attribute to <code>"email"</code></a>. When the user tries to submit a form with an <code>&lt;input type="email"&gt;</code> field, the browser automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled.
 
-<p><abbr>HTML5</abbr> also offers validation of web addresses entered into <code>&lt;input type="url"></code> fields, and numbers in <code>&lt;input type="number"></code> fields. The validation of numbers even takes into account the <code>min</code> and <code>max</code> attributes, so browsers will not let you submit the form if you enter a number that is too large.
+<p><abbr>HTML5</abbr> also offers validation of web addresses entered into <code>&lt;input type="url"&gt;</code> fields, and numbers in <code>&lt;input type="number"&gt;</code> fields. The validation of numbers even takes into account the <code>min</code> and <code>max</code> attributes, so browsers will not let you submit the form if you enter a number that is too large.
 
-<p class=c><img src=i/input-type-number-validation.png alt="error message on invalid type=number field" width=260 height=75>
+<p class="c"><img src="i/input-type-number-validation.png" alt="error message on invalid type=&quot;number&quot; field" width="260" height="75">
 
 <p>There is no markup required to activate <abbr>HTML5</abbr> form validation; it is on by default. To turn it off, use the <code>novalidate</code> attribute.
 
-<p class="legend top">Don&rsquo;t validate me, bro <span class=arrow>&#x21b7;</span><br></p>
-<pre><code>&lt;form <mark>novalidate</mark>>
-  &lt;input type="email" id="addr">
-  &lt;input type="submit" value="Subscribe">
-&lt;/form></code></pre>
+<p class="legend top">Don&rsquo;t validate me, bro <span class="arrow">&#x21b7;</span><br></p>
+<pre><code>&lt;form <mark>novalidate</mark>&gt;
+  &lt;input type="email" id="addr"&gt;
+  &lt;input type="submit" value="Subscribe"&gt;
+&lt;/form&gt;</code></pre>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=required>Required Fields</h2>
+<h2 id="required">Required Fields</h2>
 
-<table class=bc>
-<caption>&lt;input required> support</caption>
+<table class="bc">
+<caption>&lt;input required&gt; support</caption>
 <thead>
 <tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
 <tr><td>10.0+<td>4.0+<td>&middot;<td>10.0+<td>9.0+<td>&middot;<td>&middot;
 </table>
 
-<p><a href=#validation><abbr>HTML5</abbr> form validation</a> isn&rsquo;t limited to the type of each field. You can also specify that certain fields are required. Required fields must have a value before you can submit the form.
+<p><a href="#validation"><abbr>HTML5</abbr> form validation</a> isn&rsquo;t limited to the type of each field. You can also specify that certain fields are required. Required fields must have a value before you can submit the form.
 
 <p>The markup for required fields is as simple as can be:
 
-<pre><code>&lt;form>
-  &lt;input id="q" <mark>required</mark>>
-  &lt;input type="submit" value="Search">
-&lt;/form></code></pre>
+<pre><code>&lt;form&gt;
+  &lt;input id="q" <mark>required</mark>&gt;
+  &lt;input type="submit" value="Search"&gt;
+&lt;/form&gt;</code></pre>
 
-<p class="clear"><a href=examples/input-required.html>Test <code>&lt;input required></code> in your own browser</a>. Browsers may supply additional information to required fields. For example, when hovering over a required field a popup appears in Mozilla Firefox:
+<p class="clear"><a href="examples/input-required.html">Test <code>&lt;input required&gt;</code> in your own browser</a>. Browsers may supply additional information to required fields. For example, when hovering over a required field a popup appears in Mozilla Firefox:
 
-<p class=c><img src=i/input-required.png alt="a popup appears on a required field in Firefox" width=274 height=123>
+<p class="c"><img src="i/input-required.png" alt="a popup appears on a required field in Firefox" width="274" height="123">
 
 <p>Furthermore, if you attempt to submit the form without filling in the required value, Firefox will pop up an infobar telling you that the field is mandatory and can not be left blank.
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<h2 id=further-reading>Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <p>Specifications and standards:
 
 <ul>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute><code>&lt;input></code> types</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute>the <code>&lt;input placeholder></code> attribute</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control>the <code>&lt;input autofocus></code> attribute</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#attr-fs-novalidate>the <code>&lt;form novalidate></code> attribute</a>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-required-attribute>The <code>&lt;input required></code> attribute</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute"><code>&lt;input&gt;</code> types</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">the <code>&lt;input placeholder&gt;</code> attribute</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">the <code>&lt;input autofocus&gt;</code> attribute</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#attr-fs-novalidate">the <code>&lt;form novalidate&gt;</code> attribute</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-required-attribute">The <code>&lt;input required&gt;</code> attribute</a>
 </ul>
 
 <p>JavaScript libraries:
 
 <ul>
-<li><a href=http://www.modernizr.com/>Modernizr</a>, an <abbr>HTML5</abbr> detection library
+<li><a href="http://www.modernizr.com/">Modernizr</a>, an <abbr>HTML5</abbr> detection library
 </ul>
 
 <p>Useful articles:
 
 <ul>
-<li><a href=http://www.alistapart.com/articles/forward-thinking-form-validation/>Forward Thinking Form Validation</a>
-<li><a href=http://dev.opera.com/articles/view/new-form-features-in-html5/>New form features in Opera 11</a>
-<li><a href=https://developer.mozilla.org/en/HTML/Forms_in_HTML>Mozilla Developer Center: Forms in HTML</a>
-<li><a href=http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/>HTML5 Form Validation</a>
-<li><a href=http://msdn.microsoft.com/en-us/library/ie/hh673546#HTML5_Forms>Internet Explorer 10 Guide for Developers: HTML5 Forms</a>
+<li><a href="http://www.alistapart.com/articles/forward-thinking-form-validation/">Forward Thinking Form Validation</a>
+<li><a href="http://dev.opera.com/articles/view/new-form-features-in-html5/">New form features in Opera 11</a>
+<li><a href="https://developer.mozilla.org/en/HTML/Forms_in_HTML">Mozilla Developer Center: Forms in HTML</a>
+<li><a href="http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/">HTML5 Form Validation</a>
+<li><a href="http://msdn.microsoft.com/en-us/library/ie/hh673546#HTML5_Forms">Internet Explorer 10 Guide for Developers: HTML5 Forms</a>
 </ul>
 
-<p class=a>&#x2767;
+<p class="a">&#x2767;
 
-<p>This has been &ldquo;A Form of Madness.&rdquo; The <a href=table-of-contents.html>full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &ldquo;A Form of Madness.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
-<div class=pf>
+<div class="pf">
 <h4>Did You Know?</h4>
-<div class=moneybags>
+<div class="moneybags">
 <blockquote><p>In association with Google Press, O&rsquo;Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called &ldquo;HTML5: Up &amp; Running,&rdquo; and it is available now. This chapter is included in the paid edition.
-<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href=http://oreilly.com/catalog/9780596806033>buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
+<p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy &ldquo;HTML5: Up &amp; Running&rdquo; with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O&rsquo;Reilly</a>. You&rsquo;ll get a book, and I&rsquo;ll get a buck. I do not currently accept direct donations.
 </blockquote>
 </div>
 </div>
 
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
+<p class="c">Copyright MMIX&ndash;MMXI <a href="about.html">Mark Pilgrim</a>
 
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=017884302975346027366:bgclqh8nvse><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/modernizr.js></script>
-<script src=j/dih5.js></script>
+<form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="j/jquery.js"></script>
+<script src="j/modernizr.js"></script>
+<script src="j/dih5.js"></script>
