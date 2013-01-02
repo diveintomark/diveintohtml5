@@ -476,7 +476,7 @@ A: &ldquo;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
     &lt;span <mark>itemprop="region"</mark>&gt;CA&lt;/span&gt;
     &lt;span <mark>itemprop="postal-code"</mark>&gt;94043&lt;/span&gt;&lt;br&gt;
     &lt;span <mark>itemprop="country-name"</mark>&gt;USA&lt;/span&gt;
-  &lt;/p></code></pre>
+  &lt;/p&gt;</code></pre>
 <p class="follow">[Follow along! Before: <a href="examples/organization.html">organization.html</a>, after: <a href="examples/organization-plus-microdata.html">organization-plus-microdata.html</a>]
 
 <p>In English, we just said &ldquo;This organization has an address. The street address part is '1600 Amphitheatre Parkway'. The locality is 'Mountain View'. The region part is 'CA'. The postal code is '94043'. The name of the country is 'USA'.&rdquo;
@@ -810,7 +810,7 @@ Excerpt from the page will show up here.</span><br>
 
 <p>The next two properties are also straightforward. The <code>summary</code> property is a short description of what you&rsquo;re reviewing, and the <code>description</code> property is the body of the review.
 
-<pre><code>  &lt;p <mark>itemprop="summary"</mark>&gt;New York-style pizza right in historic downtown Apex&lt;/p>
+<pre><code>  &lt;p <mark>itemprop="summary"</mark>&gt;New York-style pizza right in historic downtown Apex&lt;/p&gt;
   &lt;p <mark>itemprop="description"</mark>&gt;
     Food is top-notch. Atmosphere is just right for a &ldquo;neighborhood
     pizza joint.&rdquo; The restaurant itself is a bit cramped; if you&rsquo;re
@@ -818,7 +818,7 @@ Excerpt from the page will show up here.</span><br>
     seat and navigating between other tables. Used to give free
     garlic knots when you sat down; now they give you plain bread
     and you have to pay for the good stuff. Overall, it&rsquo;s a winner.
-  &lt;/p></code></pre>
+  &lt;/p&gt;</code></pre>
 <p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>The <code>location</code> and <code>geo</code> properties aren&rsquo;t anything we haven&rsquo;t tackled before. (If you&rsquo;re just tuning in, check out <a href="#address">marking up the address of a Person</a>, <a href="#organization-address">marking up the address of an Organization</a>, and <a href="#geo">marking up geolocation information</a> from earlier in this chapter.)
@@ -830,7 +830,7 @@ Excerpt from the page will show up here.</span><br>
     &lt;span <mark>itemprop="region"</mark>&gt;NC&lt;/span&gt;
     &lt;span <mark>itemprop="postal-code"</mark>&gt;27502&lt;/span&gt;&lt;br&gt;
     &lt;span <mark>itemprop="country-name"</mark>&gt;USA&lt;/span&gt;
-  &lt;/p>
+  &lt;/p&gt;
   &lt;span <mark>itemprop="geo"</mark> <mark>itemscope</mark>
         <mark>itemtype="http://data-vocabulary.org/Geo"</mark>&gt;
     &lt;meta <mark>itemprop="latitude"</mark> content="35.730796" />
@@ -840,17 +840,17 @@ Excerpt from the page will show up here.</span><br>
 
 <p>The final line presents a familiar problem: it contains two bits of information in one element. The name of the reviewer is <code>Mark Pilgrim</code>, and the review date is <code>March 31, 2010</code>. How do we mark up these two distinct properties? <a href="#title-and-affiliation">Wrap them in their own elements</a> and put an <code>itemprop</code> attribute on each element. In fact, the date in this example should have been marked up with a <code>&lt;time&gt;</code> element in the first place, so that provides a natural hook on which to hang our <code>itemprop</code> attribute. The reviewer name can just be wrapped in a dummy <code>&lt;span&gt;</code> element.
 
-<pre><code>  &lt;p>&mdash; &lt;span <mark>itemprop="reviewer"</mark>&gt;Mark Pilgrim&lt;/span&gt;, last updated
+<pre><code>  &lt;p&gt;&mdash; &lt;span <mark>itemprop="reviewer"</mark>&gt;Mark Pilgrim&lt;/span&gt;, last updated
      &lt;<mark>time</mark> <mark>itemprop="dtreviewed"</mark> <mark>datetime="2010-03-31"</mark>&gt;
        March 31, 2010
      &lt;/time&gt;
-  &lt;/p>
+  &lt;/p&gt;
 &lt;/article&gt;</code></pre>
 <p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>OK, let&rsquo;s talk ratings. The trickiest part of marking up a review is the rating. By default, ratings in the Review vocabulary are on a scale of 1&ndash;5, 1 being &ldquo;terrible&rdquo; and 5 being &ldquo;awesome.&rdquo; If you want to use a different scale, you can definitely do that. But let&rsquo;s talk about the default scale first.
 
-<pre><code>  &lt;p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>&gt;4&lt;/span&gt; stars out of 5)&lt;/p></code></pre>
+<pre><code>  &lt;p&gt;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (&lt;span <mark>itemprop="rating"</mark>&gt;4&lt;/span&gt; stars out of 5)&lt;/p&gt;</code></pre>
 <p class="follow">[Follow along! Before: <a href="examples/review.html">review.html</a>, after: <a href="examples/review-plus-microdata.html">review-plus-microdata.html</a>]
 
 <p>If you&rsquo;re using the default 1&ndash;5 scale, the only property you need to mark up is the rating itself (4, in this case). But what if you want to use a different scale? You can do that; you just need to declare the limits of the scale you&rsquo;re using. For example, if you wanted to use a 0&ndash;10 point scale, you would still declare the <code>itemprop="rating"</code> property, but instead of giving the rating value directly, you would use a nested vocabulary of <code>http://data-vocabulary.org/Rating</code> to declare the worst and best values in your custom scale and the actual rating value within that scale.
@@ -861,7 +861,7 @@ Excerpt from the page will show up here.</span><br>
   (&lt;span <mark>itemprop="value"</mark>&gt;9&lt;/span&gt; on a scale of
    &lt;span <mark>itemprop="worst"</mark>&gt;0&lt;/span&gt; to
    &lt;span <mark>itemprop="best"</mark>&gt;10&lt;/span&gt;)
-&lt;/p></code></pre>
+&lt;/p&gt;</code></pre>
 
 <p>In English, this says &ldquo;the product I&rsquo;m reviewing has a rating value of 9 on a scale of 0&ndash;10.&rdquo;
 
@@ -931,7 +931,7 @@ Excerpt from the page will show up here.</span><br>
 
 <p class="a rotatedFloralHeartBullet">
 
-<p>This has been &#8216;&ldquo;Distributed,&rdquo; &ldquo;Extensibility,&rdquo; &amp; Other Fancy Words.&rsquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
+<p>This has been &lsquo;&ldquo;Distributed,&rdquo; &ldquo;Extensibility,&rdquo; &amp; Other Fancy Words.&rsquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
 <div class="pf">
 <h4>Did You Know?</h4>
