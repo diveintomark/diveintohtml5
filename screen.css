@@ -77,6 +77,13 @@ Acknowledgements & Inspirations
   font-style: italic;
 }
 @font-face {
+  font-family: 'Alphabet of Children';
+  src: url('f/alphabet-of-children-webfont.eot');
+  src: local('Essays 1743'), url('f/alphabet-of-children-webfont.woff') format('woff'), url('f/alphabet-of-children-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_re-4.7.5-webfont.eot');
   src: local('Linux Libertine'), url('f/linlibertine_re-4.7.5-webfont.woff') format('woff'), url('f/linlibertine_re-4.7.5-webfont.ttf') format('truetype');
@@ -147,11 +154,12 @@ pre, kbd, samp, code, var {
   line-height: 1.75;
   margin: 1.75em 0;
 }
-.f img {
+.f:first-letter {
+  font-family: 'Alphabet of Children';
+  font-size: 8.2em;
   float: left;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  -ms-interpolation-mode: bicubic;
+  margin-right: 0.02em;
+  line-height: 0.75;
 }
 p, ul, ol {
   font-size: large;
