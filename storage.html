@@ -9,10 +9,10 @@ body{counter-reset:h1 7}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="detect.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#storage">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#storage">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>The Past, Present &amp; Future of Local Storage for Web Applications</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-p.png" alt="P" width="110" height="106">ersistent local storage is one of the areas where native client applications have held an advantage over web applications. For native applications, the operating system typically provides an abstraction layer for storing and retrieving application-specific data like preferences or runtime state. These values may be stored in the registry, INI files, XML files, or some other place according to platform convention. If your native client application needs local storage beyond key/value pairs, you can embed your own database, invent your own file format, or any number of other solutions.
@@ -36,7 +36,7 @@ body{counter-reset:h1 7}
 
 <p>Before <abbr>HTML5</abbr>, all attempts to achieve this were ultimately unsatisfactory in different ways.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="history">A Brief History of Local Storage Hacks Before HTML5</h2>
 
@@ -52,7 +52,7 @@ body{counter-reset:h1 7}
 
 <p>As you survey these solutions, a pattern emerges: all of them are either specific to a single browser, or reliant on a third-party plugin. Despite heroic efforts to paper over the differences (in <code>dojox.storage</code>), they all expose radically different interfaces, have different storage limitations, and present different user experiences. So this is the problem that <abbr>HTML5</abbr> set out to solve: to provide a standardized <abbr>API</abbr>, implemented natively and consistently in multiple browsers, without having to rely on third-party plugins.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="localstorage">Introducing HTML5 Storage</h2>
 
@@ -72,7 +72,7 @@ body{counter-reset:h1 7}
 
 <p>From your JavaScript code, you&rsquo;ll access <abbr>HTML5</abbr> Storage through the <code>localStorage</code> object on the global <code>window</code> object. Before you can use it, you should <a href="detect.html#storage">detect whether the browser supports it</a>.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> Storage
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> Storage
 <pre><code>function supports_html5_storage() {
   try {
     return 'localStorage' in window && window['localStorage'] !== null;
@@ -90,7 +90,7 @@ body{counter-reset:h1 7}
   // maybe try dojox.storage or a third-party solution
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="methods">Using HTML5 Storage</h2>
 
@@ -176,7 +176,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>&ldquo;<code>QUOTA_EXCEEDED_ERR</code>&rdquo; is the exception that will get thrown if you exceed your storage quota of 5 megabytes. &ldquo;No&rdquo; is the answer to the next obvious question, &ldquo;Can I ask the user for more storage space?&rdquo; At time of writing (February 2011), no browser supports any mechanism for web developers to request more storage space. Some browsers (<a href="http://dev.opera.com/articles/view/web-storage/">like Opera</a>) allow the user to control each site&rsquo;s storage quota, but it is purely a user-initiated action, not something that you as a web developer can build into your web application.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="halma">HTML5 Storage in Action</h2>
 
@@ -235,7 +235,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <pre><code>gMoveCount = <mark>parseInt</mark>(localStorage["halma.movecount"]);</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="future">Beyond Named Key-Value Pairs: Competing Visions</h2>
 
@@ -243,7 +243,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>One vision is an acronym that you probably know already: <abbr>SQL</abbr>. In 2007, Google launched <a href="http://gears.google.com/">Gears</a>, an open source cross-browser plugin which included an embedded database based on <a href="http://www.sqlite.org/">SQLite</a>. This early prototype later influenced the creation of the <a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a> specification. Web SQL Database (formerly known as &ldquo;WebDB&rdquo;) provides a thin wrapper around a <abbr>SQL</abbr> database, allowing you to do things like this from JavaScript:
 
-<p class="legend top" style="padding-left:3em"><span class="arrow">&#x21b6;</span> actual working code in 4 browsers
+<p class="legend top" style="padding-left:3em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> actual working code in 4 browsers
 <pre><code><mark>openDatabase</mark>('documents', '1.0', 'Local document storage', 5*1024*1024, function (db) {
   db.changeVersion('', '1.0', function (t) {
     t.<mark>executeSql</mark>('CREATE TABLE docids (id, name)');
@@ -280,7 +280,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 
 <p>So what can you, as a web developer, do with IndexedDB? At the moment, virtually nothing beyond some technology demos. A year from now? Maybe something. Check the &ldquo;Further Reading&rdquo; section for links to some good tutorials to get you started.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -320,7 +320,7 @@ localStorage<mark>["bar"]</mark> = foo;</code></pre>
 <li><a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/">Firefox 4: An early walk-through of IndexedDB</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;The Past, Present &amp; Future of Local Storage for Web Applications.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

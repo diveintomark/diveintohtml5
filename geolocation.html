@@ -9,10 +9,10 @@ body{counter-reset:h1 6}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#geolocation">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#geolocation">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>You Are Here<br>(And So Is Everybody Else)</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-g.png" alt="G" width="106" height="103">eolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There is more than one way to figure out where you are &mdash; your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that calculates latitude and longitude from information sent by satellites in the sky.
@@ -21,13 +21,13 @@ body{counter-reset:h1 6}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Geolocation sounds scary. Can I turn it off?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Geolocation sounds scary. Can I turn it off?<br>
 A: Privacy is an obvious concern when you&rsquo;re talking about sharing your physical location with a remote web server. The <a href="http://www.w3.org/TR/geolocation-API/#security">geolocation <abbr>API</abbr> explicitly states</a>: &ldquo;User Agents must not send location information to Web sites without the express permission of the user.&rdquo; In other words, sharing your location is always opt-in. If you don&rsquo;t want to, you don&rsquo;t have to.
 </blockquote>
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="w3c">The Geolocation API</h2>
 
@@ -45,7 +45,7 @@ A: Privacy is an obvious concern when you&rsquo;re talking about sharing your ph
 
 <p>Along with support for the standard geolocation <abbr>API</abbr>, there are a plethora of device-specific <abbr>API</abbr>s on other mobile platforms. I&rsquo;ll cover all that later in this chapter.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="the-code">Show Me The Code</h2>
 
@@ -64,7 +64,7 @@ A: Privacy is an obvious concern when you&rsquo;re talking about sharing your ph
     // no native support; maybe try a fallback?
   }
 }</code></pre>
-<p class="legend right" style="margin-top:2.5em"><span class="arrow">&nbsp;&#x21dc;</span> I CAN HAS GEO?
+<p class="legend right" style="margin-top:2.5em"><span class="arrow leftwardsSquiggleArrow"></span> I CAN HAS GEO?
 
 <p class="clear">What you do without geolocation support is up to you. I&rsquo;ll explain the Javascript fallback option in a minute, but first I want to talk about what happens <em>during</em> that call to <code>getCurrentPosition()</code>. As <a href="#divingin">I mentioned at the beginning of this chapter</a>, geolocation support is <em>opt-in</em>. That means your browser will never force you to reveal your current physical location to a remote server. The user experience differs from browser to browser. In Mozilla Firefox, calling the <code>getCurrentPosition()</code> function of the geolocation <abbr>API</abbr> will cause the browser to pop up an &ldquo;infobar&rdquo; at the top of the browser window. The infobar looks like this:
 
@@ -117,7 +117,7 @@ A: Privacy is an obvious concern when you&rsquo;re talking about sharing your ph
 
 <p>Only three of the properties are guaranteed to be there (<code>coords.latitude</code>, <code>coords.longitude</code>, and <code>coords.accuracy</code>). The rest might come back <code>null</code>, depending on the capabilities of your device and the backend positioning server that it talks to. The <code>heading</code> and <code>speed</code> properties are calculated based on the user&rsquo;s previous position, if possible.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="errors">Handling Errors</h2>
 
@@ -143,7 +143,7 @@ A: Privacy is an obvious concern when you&rsquo;re talking about sharing your ph
 <li><code>TIMEOUT</code> (<code>3</code>) if the network is up but it takes too long to calculate the user&rsquo;s position. How long is &ldquo;too long&rdquo;? I&rsquo;ll show you how to define that in the next section.
 </ul>
 
-<p class="legend top" style="padding-left:8.5em"><span class="arrow">&#x21b6;</span> Be gracious in defeat
+<p class="legend top" style="padding-left:8.5em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Be gracious in defeat
 <pre><code>function handle_error(err) {
   if (<mark>err.code</mark> == 1) {
     // user said no!
@@ -154,13 +154,13 @@ A: Privacy is an obvious concern when you&rsquo;re talking about sharing your ph
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Does the geolocation <abbr>API</abbr> work on the International Space Station, on the moon, or on other planets?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Does the geolocation <abbr>API</abbr> work on the International Space Station, on the moon, or on other planets?<br>
 A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geolocation specification states</a>, &ldquo;The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported.&rdquo; The International Space Station is orbiting Earth, so <a href="http://twitter.com/Astro_TJ">astronauts on the station</a> can describe their location by latitude, longitude, and altitude. However, the World Geodetic System is Earth-centric, so it can&rsquo;t be used to describe locations on the moon or on other planets.
 </blockquote>
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="options">Choices! I Demand Choices!</h2>
 
@@ -201,7 +201,7 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 
 <p>The <code>watchPosition()</code> function itself returns a number. You should probably store this number somewhere. If you ever want to stop watching the user&rsquo;s location change, you can call the <code>clearWatch()</code> method and pass it this number, and the device will stop calling your callback function. If you&rsquo;ve ever used the <code>setInterval()</code> and <code>clearInterval()</code> functions in JavaScript, this works the same way.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="ie">What About IE?</h2>
 
@@ -209,7 +209,7 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 
 <p>While we&rsquo;re on the subject of legacy platforms, I should point out that many older mobile phone platforms had their own device-specific geolocation <abbr>API</abbr>s. <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.developer.nokia.com/Resources/Library/Web/#!web-apps/symbian-web-runtime/platform-services-20-javascript-api-reference/platform-services-20-location-api/geolocation-object.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href="http://bondi.omtp.org/1.0/apis/geolocation.html"><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a> all provide their own geolocation <abbr>API</abbr>s. Of course, they all work differently which in turn works differently from the <abbr>W3C</abbr> geolocation <abbr>API</abbr>. Wheeeeee!
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="geo-js">geoPosition.js to the Rescue</h2>
 
@@ -227,7 +227,7 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p class="legend right" style="margin-top:11em"><span class="arrow">&nbsp;&#x21dc;</span> Don&rsquo;t let it go to your &lt;head&gt;
+<p class="legend right" style="margin-top:11em"><span class="arrow leftwardsSquiggleArrow"></span> Don&rsquo;t let it go to your &lt;head&gt;
 
 <p class="clear">Now you&rsquo;re ready to use whichever geolocation <abbr>API</abbr> is installed.
 
@@ -252,7 +252,7 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 
 <p>The success callback function takes a single argument, which contains the position information.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> Success callback
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Success callback
 <pre><code>function geoSuccess(p) {
   alert("Found you at latitude " + p.coords.latitude +
         ", longitude " + p.coords.longitude);
@@ -264,14 +264,14 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 
 <p>The failure callback function takes no arguments.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> Failure callback
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Failure callback
 <pre><code>function geoError() {
   alert("Could not find you!");
 }</code></pre>
 
 <p><code>geoPosition.js</code> does not currently support the <code>watchPosition()</code> function. If you need continuous location information, you&rsquo;ll need to actively poll <code>getCurrentPosition()</code> yourself.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="putting-it-all-together">A Complete, Live Example</h2>
 
@@ -303,7 +303,7 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
   $("#live-geolocation").html('Unable to determine your location.');
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -317,7 +317,7 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 <li><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_geolocation">Internet Explorer 9 Guide for Developers: Geolocation</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;You Are Here (And So Is Everybody Else).&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

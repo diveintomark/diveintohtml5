@@ -9,15 +9,15 @@ body{counter-reset:h1 2}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#detect">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#detect">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>Detecting <abbr>HTML5</abbr> Features</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-y.png" alt="Y" width="109" height="105">ou may well ask: &ldquo;How can I start using <abbr>HTML5</abbr> if older browsers don&rsquo;t support it?&rdquo; But the question itself is misleading. <abbr>HTML5</abbr> is not one big thing; it is a collection of individual features. So you can&rsquo;t detect &ldquo;<abbr>HTML5</abbr> support,&rdquo; because that doesn&rsquo;t make any sense. But you <em>can</em> detect support for individual features, like canvas, video, or geolocation.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="techniques">Detection Techniques</h2>
 
@@ -44,7 +44,7 @@ body{counter-reset:h1 2}
 <p>Example: <a href="#input-types">testing which <code>&lt;input&gt;</code> types are supported</a>
 </ol>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="modernizr">Modernizr, an HTML5 Detection Library</h2>
 
@@ -62,7 +62,7 @@ body{counter-reset:h1 2}
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p class="legend right" style="margin-top:7em"><span class="arrow">&nbsp;&#x219c;</span> It goes to your &lt;head&gt;
+<p class="legend right" style="margin-top:7em"><span class="arrow leftwardsWaveArrow"></span> It goes to your &lt;head&gt;
 
 <p class="clear">Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates a global object called <code>Modernizr</code>, that contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href="canvas.html">canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
 
@@ -72,7 +72,7 @@ body{counter-reset:h1 2}
   // no native canvas support available :(
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="canvas">Canvas</h2>
 
@@ -103,7 +103,7 @@ body{counter-reset:h1 2}
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for the canvas <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for canvas support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for canvas support
 <pre><code>if (<mark>Modernizr.canvas</mark>) {
   // let's draw some shapes!
 } else {
@@ -112,7 +112,7 @@ body{counter-reset:h1 2}
 
 <p>There is a separate test for the canvas text <abbr>API</abbr>, which I will demonstrate next.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="canvas-text">Canvas Text</h2>
 
@@ -144,14 +144,14 @@ body{counter-reset:h1 2}
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for canvas text support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for canvas text support
 <pre><code>if (<mark>Modernizr.canvastext</mark>) {
   // let's draw some text!
 } else {
   // no native canvas text support available :(
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="video">Video</h2>
 
@@ -171,7 +171,7 @@ body{counter-reset:h1 2}
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for <abbr>HTML5</abbr> video.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> video support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> video support
 <pre><code>if (<mark>Modernizr.video</mark>) {
   // let's play some video!
 } else {
@@ -183,7 +183,7 @@ body{counter-reset:h1 2}
 
 <p>There is a separate test for detecting which video formats your browser can play, which I will demonstrate next.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="video-formats">Video Formats</h2>
 
@@ -241,7 +241,7 @@ body{counter-reset:h1 2}
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.5 or later) to detect support for different <abbr>HTML5</abbr> video formats.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> video formats
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> video formats
 <pre><code>if (Modernizr.video) {
   // let's play some video! but what kind?
   if (<mark>Modernizr.video.webm</mark>) {
@@ -253,7 +253,7 @@ body{counter-reset:h1 2}
   }
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="storage">Local Storage</h2>
 
@@ -265,7 +265,7 @@ body{counter-reset:h1 2}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Is local storage really part of <abbr>HTML5</abbr>? Why is it in a separate specification?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Is local storage really part of <abbr>HTML5</abbr>? Why is it in a separate specification?<br>
 A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The slightly longer answer is that local storage used to be part of the main <abbr>HTML5</abbr> specification, but it was split out into a separate specification because some people in the <abbr>HTML5</abbr> Working Group complained that <abbr>HTML5</abbr> was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories&hellip; well, welcome to the wacky world of standards.
 </blockquote>
 </div>
@@ -283,7 +283,7 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for <abbr>HTML5</abbr> local storage
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> local storage
 <pre><code>if (<mark>Modernizr.localstorage</mark>) {
   // window.localStorage is available!
 } else {
@@ -297,13 +297,13 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: How secure is my <abbr>HTML5</abbr> storage database? Can anyone read it?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: How secure is my <abbr>HTML5</abbr> storage database? Can anyone read it?<br>
 A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML5</abbr> storage database. Within your browser, any web site can read and modify its own values, but sites can&rsquo;t access values stored by other sites. This is called a <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#origin-0">same-origin restriction</a>.
 </blockquote>
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="workers">Web Workers</h2>
 
@@ -319,7 +319,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for web workers.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for web workers
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for web workers
 <pre><code>if (<mark>Modernizr.webworkers</mark>) {
   // window.Worker is available!
 } else {
@@ -329,7 +329,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>webworkers</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.Worker</code> (with a capital &ldquo;W&rdquo; in &ldquo;Worker&rdquo;).
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="offline">Offline Web Applications</h2>
 
@@ -347,7 +347,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for offline web applications.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for offline support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for offline support
 <pre><code>if (<mark>Modernizr.applicationcache</mark>) {
   // window.applicationCache is available!
 } else {
@@ -357,7 +357,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>applicationcache</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.applicationCache</code> (mixed case).
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="geolocation">Geolocation</h2>
 
@@ -369,7 +369,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
 A: Geolocation support is being added to browsers right now, along with support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href="http://www.w3.org/2008/geolocation/">Geolocation Working Group</a>, which is separate from the <abbr>HTML5</abbr> Working Group. But I&rsquo;m going to talk about geolocation in this book anyway, because it&rsquo;s part of the evolution of the web that&rsquo;s happening now.
 </blockquote>
 </div>
@@ -383,7 +383,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for the geolocation <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for geolocation support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for geolocation support
 <pre><code>if (<mark>Modernizr.geolocation</mark>) {
   // let's find out where you are!
 } else {
@@ -397,7 +397,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>The <a href="geolocation.html">chapter on geolocation</a> will go into excruciating detail about how to use all of these different <abbr>API</abbr>s.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="input-types">Input Types</h2>
 
@@ -437,13 +437,13 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Instead of writing 13 separate functions yourself, you can use <a href="#modernizr">Modernizr</a> to detect support for all the new input types defined in <abbr>HTML5</abbr>. Modernizr reuses a single <code>&lt;input&gt;</code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, that contains 13 keys (the <abbr>HTML5</abbr> <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for native date picker
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for native date picker
 <pre><code>if (<mark>!Modernizr.inputtypes.date</mark>) {
   // no native support for &lt;input type="date"&gt; :(
   // maybe build one yourself with <a href="http://docs.dojocampus.org/dojox/widget/Calendar">Dojo</a> or <a href="http://jqueryui.com/demos/datepicker/">jQueryUI</a>
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="input-placeholder">Placeholder Text</h2>
 
@@ -460,7 +460,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for placeholder text.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for placeholder text
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for placeholder text
 <pre><code>if (<mark>Modernizr.input.placeholder</mark>) {
   // your placeholder text should already be visible!
 } else {
@@ -468,7 +468,7 @@ A: Geolocation support is being added to browsers right now, along with support 
   // fall back to a scripted solution
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="input-autofocus">Form Autofocus</h2>
 
@@ -489,7 +489,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for autofocused form fields.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for autofocus support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for autofocus support
 <pre><code>if (<mark>Modernizr.input.autofocus</mark>) {
   // autofocus works!
 } else {
@@ -497,7 +497,7 @@ A: Geolocation support is being added to browsers right now, along with support 
   // fall back to a scripted solution
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="microdata">Microdata</h2>
 
@@ -515,7 +515,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Modernizr does not yet support checking for the microdata <abbr>API</abbr>, so you&rsquo;ll need to use the function like the one listed above.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="history">History <abbr>API</abbr></h2>
 
@@ -531,7 +531,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.6 or later) to detect support for the <abbr>HTML5</abbr> history <abbr>API</abbr>.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> check for history <abbr>API</abbr> support
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for history <abbr>API</abbr> support
 <pre><code>if (<mark>Modernizr.history</mark>) {
   // history management works!
 } else {
@@ -539,7 +539,7 @@ A: Geolocation support is being added to browsers right now, along with support 
   // fall back to a scripted solution like <a href="https://github.com/balupton/History.js/">History.js</a>
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -576,7 +576,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 <li><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx">Internet Explorer 9 Guide for Developers</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;Detecting <abbr>HTML5</abbr> Features.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

@@ -369,3 +369,20 @@ tfoot {
 .zebra {
   background: #eee;
 }
+
+/* asterism styles */
+
+.rotatedFloralHeartBullet:after { content: '\2767' }
+
+.triangularBullet:after { content: '\2023' }
+
+.leftwardsWaveArrow:after  { content: ' \219C' }
+.rightwardsWaveArrow:after { content: '\219D' }
+
+.leftwardsSquiggleArrow:after  { content: ' \21DC' }
+.rightwardsSquiggleArrow:after { content: '\21DD ' }
+
+.whiteRightPointingIndex:after { content: '\261E' }
+
+.anticlockwiseTopSemicircleArrow:after { content: '\21B6' }
+.clockwiseTopSemicircleArrow:after { content: '\21B7' }

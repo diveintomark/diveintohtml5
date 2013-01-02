@@ -22,10 +22,10 @@ table.faketable{border-collapse:collapse}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#extensibility">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#extensibility">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>&ldquo;Distributed,&rdquo;<br>&ldquo;Extensibility,&rdquo;<br>&amp;<br>Other Fancy Words</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-t.png" alt="T" width="107" height="105">here are <a href="http://simon.html5.org/html5-elements">over 100 elements</a> in <abbr>HTML5</abbr>. Some are <a href="semantics.html">purely semantic</a>, others are <a href="canvas.html">just containers for scripted <abbr>APIs</abbr></a>. Throughout <a href="past.html">the history of <abbr>HTML</abbr></a>, standards wonks have argued about which elements should be included in the language. Should <abbr>HTML</abbr> include a <code>&lt;figure&gt;</code> element? A <code>&lt;person&gt;</code> element? How about a <code>&lt;rant&gt;</code> element? Decisions are made, specs are written, authors author, implementors implement, and the web lurches ever forward.
@@ -36,7 +36,7 @@ table.faketable{border-collapse:collapse}
 
 <p>Microformats and <abbr>RDFa</abbr> each have their strengths and weaknesses. They take radically different approaches towards the same goal: extending web pages with additional semantics that are not part of the core <abbr>HTML</abbr> language. I don&rsquo;t intend to turn this chapter into a format flamewar. (That would definitely require a <code>&lt;rant&gt;</code> element!) Instead, I want to focus on a third option developed using lessons learned from microformats and RDFa, and designed to be integrated into <abbr>HTML5</abbr> itself: microdata.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="what-is-microdata">What is Microdata?</h2>
 
@@ -61,7 +61,7 @@ table.faketable{border-collapse:collapse}
 
 <p>Does this sentence make more sense now? &ldquo;Microdata annotates the <abbr>DOM</abbr> with scoped name/value pairs from custom vocabularies.&rdquo; I hope so. Let&rsquo;s see it in action.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="data-model">The Microdata Data Model</h2>
 
@@ -77,7 +77,7 @@ table.faketable{border-collapse:collapse}
 
 <p>Some of these properties are <abbr>URLs</abbr>, others are plain text. Each of them lends itself to a natural form of markup, even before you start thinking about microdata or vocabularies or whatnot. Imagine that you have a profile page or an &ldquo;about&rdquo; page. Your name is probably marked up as a heading, like an <code>&lt;h1&gt;</code> element. Your photo is probably an <code>&lt;img&gt;</code> element, since you want people to see it. And any <abbr>URL</abbr>s associated your profile are probably already marked up as hyperlinks, because you want people to be able to click them. For the sake of discussion, let&rsquo;s say your entire profile is also wrapped in a <code>&lt;section&gt;</code> element to separate it from the rest of the page content. Thus:
 
-<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> It&rsquo;s all about me
+<p class="legend top" style="margin-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> It&rsquo;s all about me
 <pre><code>&lt;section&gt;
   &lt;h1&gt;Mark Pilgrim&lt;/h1&gt;
   &lt;p&gt;&lt;img src="http://www.example.com/photo.jpg" alt="[me smiling]"&gt;&lt;/p&gt;
@@ -123,7 +123,7 @@ table.faketable{border-collapse:collapse}
 
 <p>Of course, if your markup looks a little different, that&rsquo;s not a problem. You can add microdata properties and values to any <abbr>HTML</abbr> markup, even really gnarly 20th-century-era, tables-for-layout, Oh-God-why-did-I-agree-to-maintain-this markup. While I don&rsquo;t recommend this kind of markup, it is still common, and you can still add microdata to it.
 
-<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> For the love of God, don&rsquo;t do this
+<p class="legend top" style="margin-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> For the love of God, don&rsquo;t do this
 <pre><code>&lt;TABLE&gt;
   &lt;TR&gt;&lt;TD&gt;Name&lt;TD&gt;Mark Pilgrim
   &lt;TR&gt;&lt;TD&gt;Link&lt;TD&gt;
@@ -138,7 +138,7 @@ table.faketable{border-collapse:collapse}
 
 <p>Anyway, you can still convert this into a microdata property, you just need to be a little creative. Using the <code>&lt;a&gt;</code> element directly is out of the question. The link target isn&rsquo;t in the <code>href</code> attribute, and there&rsquo;s no way to override the rule that says &ldquo;in an <code>&lt;a&gt;</code> element, look for the microdata property value in the <code>href</code> attribute.&rdquo; But you <em>can</em> add a wrapper element around the entire mess, and use that to add the <code>url</code> microdata property.
 
-<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> This is what you get for subverting HTML
+<p class="legend top" style="margin-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> This is what you get for subverting HTML
 <pre><code>&lt;TABLE itemscope itemtype="http://data-vocabulary.org/Person"&gt;
   &lt;TR&gt;&lt;TD&gt;Name&lt;TD&gt;Mark Pilgrim
   &lt;TR&gt;&lt;TD&gt;Link&lt;TD&gt;
@@ -151,7 +151,7 @@ table.faketable{border-collapse:collapse}
 
 <p>To sum up: you can add microdata properties to any markup. If you&rsquo;re using <abbr>HTML</abbr> correctly, you&rsquo;ll find it easier to add microdata than if your <abbr>HTML</abbr> markup sucks, but it can always be done.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="person">Marking Up People</h2>
 
@@ -237,8 +237,8 @@ table.faketable{border-collapse:collapse}
 
 <p>Moving on to the next bit of markup, we see an <code>&lt;h1&gt;</code> header and the beginnings of a <code>&lt;dl&gt;</code> list. Neither the <code>&lt;h1&gt;</code> nor the <code>&lt;dl&gt;</code> need to be marked up with microdata. Not every piece of <abbr>HTML</abbr> needs to be a microdata property. Microdata is about the properties themselves, not the markup or headers surrounding the properties. This <code>&lt;h1&gt;</code> isn&rsquo;t a property; it&rsquo;s just a header. Similarly, the <code>&lt;dt&gt;</code> that says &ldquo;Name&rdquo; isn&rsquo;t a property; it&rsquo;s just a label.
 
-<p class="legend top" style="margin-left:8em"><span class="arrow">&#x21b6;</span> Boring
-<p class="legend left" style="margin-top:2.2em">Boring <span class="arrow">&#x21dd;</span>&nbsp;</p>
+<p class="legend top" style="margin-left:8em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Boring
+<p class="legend left" style="margin-top:2.2em">Boring <span class="arrow rightwardsSquiggleArrow"></span>&nbsp;</p>
 <pre><code>  &lt;h1&gt;<mark>Contact Information</mark>&lt;/h1&gt;
   &lt;dl&gt;
     &lt;dt&gt;<mark>Name</mark>&lt;/dt&gt;
@@ -246,7 +246,7 @@ table.faketable{border-collapse:collapse}
 
 <p>So where is the real information? It&rsquo;s in the <code>&lt;dd&gt;</code> element, so that&rsquo;s where we need to put the <code>itemprop</code> attribute. Which property is it? It&rsquo;s the <code>name</code> property. Where is the property value? It&rsquo;s the text within the <code>&lt;dd&gt;</code> element. Does that need to be marked up? the <a href="#property-values"><abbr>HTML5</abbr> microdata data model</a> says no, <code>&lt;dd&gt;</code> elements have no special processing, so the property value is just the text within the element.
 
-<p class="legend top" style="margin-left:5em"><span class="arrow">&#x21b6;</span> That&rsquo;s my name, don&rsquo;t wear it out&nbsp;</p>
+<p class="legend top" style="margin-left:5em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> That&rsquo;s my name, don&rsquo;t wear it out&nbsp;</p>
 <pre><code>    &lt;dd <mark>itemprop="name"</mark>&gt;Mark Pilgrim&lt;/dd&gt;</code></pre>
 
 <p class="follow">[Follow along! Before: <a href="examples/person.html">person.html</a>, after: <a href="examples/person-plus-microdata.html">person-plus-microdata.html</a>]
@@ -321,7 +321,7 @@ table.faketable{border-collapse:collapse}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Is this mailing address format US-specific?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Is this mailing address format US-specific?<br>
 A: No. The properties of the Address vocabulary are generic enough that they can describe most mailing addresses in the world. Not all addresses will have values for every property, but that&rsquo;s OK. Some addresses might require fitting more than one &ldquo;line&rdquo; into a single property, but that&rsquo;s OK too. For example, if your mailing address has a street address and a suite number, they would both go into the <code>street-address</code> subproperty:
 <pre><code>&lt;p itemprop="address" itemscope
     itemtype="http://data-vocabulary.org/Address"&gt;
@@ -410,13 +410,13 @@ Excerpt from the page will show up here.</span><br>
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: I did everything you said, but my Google search result listing doesn&rsquo;t look any different. What gives?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: I did everything you said, but my Google search result listing doesn&rsquo;t look any different. What gives?<br>
 A: &ldquo;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">Google does not guarantee</a> that markup on any given page or site will be used in search results.&rdquo; But even if Google decides not to use your microdata annotations, another search engine might. Like the rest of <abbr>HTML5</abbr>, microdata is an open standard that anyone can implement. It&rsquo;s your job to provide as much data as possible. Let the rest of the world decide what to do with it. They might surprise you!
 </blockquote>
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="organization">Marking Up Organizations</h2>
 
@@ -542,7 +542,7 @@ A: &ldquo;<a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&
 
 <p>There is no direct support for the Organization vocabulary in Google Rich Snippets, so I don&rsquo;t have any pretty sample search result listings to show you. But organizations feature heavily in the next two case studies: events and reviews, and those <em>are</em> supported by Google Rich Snippets.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="event">Marking Up Events</h2>
 
@@ -754,7 +754,7 @@ Excerpt from the page will show up here.</span><br>
 
 <p>Now look at the physical addresses. Google chose to display just the venue name + locality + country, not the exact street address. This is made possible by the fact that we split up the address into five subproperties &mdash; <code>name</code>, <code>street-address</code>, <code>region</code>, <code>locality</code>, and <code>country-name</code> &mdash; and marked up each part of the address as a different microdata property. Google takes advantage of that to show an abbreviated address. Other consumers of the same microdata markup might make different choices about what to display or how to display it. There&rsquo;s no right or wrong choice here. It&rsquo;s up to you to provide as much data as possible, as accurately as possible. It&rsquo;s up to the rest of the world to interpret it.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="review">Marking Up Reviews</h2>
 
@@ -905,7 +905,7 @@ Excerpt from the page will show up here.</span><br>
 
 <p>Angle brackets don&rsquo;t impress me much, but I have to admit, that&rsquo;s pretty cool.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -929,7 +929,7 @@ Excerpt from the page will show up here.</span><br>
 <li><a href="http://knol.google.com/k/google-rich-snippets-tips-and-tricks">Google Rich Snippets Tips and Tricks</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &#8216;&ldquo;Distributed,&rdquo; &ldquo;Extensibility,&rdquo; &amp; Other Fancy Words.&rsquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

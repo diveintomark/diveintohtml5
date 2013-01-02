@@ -9,10 +9,10 @@ body{counter-reset:h1 8}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#offline">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#offline">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>Let&rsquo;s Take This Offline</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-w.png" alt="W" width="110" height="108">hat is an offline web application? At first glance, it sounds like a contradiction in terms. Web pages are things you download and render. Downloading implies a network connection. How can you download when you&rsquo;re offline? Of course, you can&rsquo;t. But you <em>can</em> download when you&rsquo;re online. And that&rsquo;s how <abbr>HTML5</abbr> offline applications work.
@@ -29,7 +29,7 @@ body{counter-reset:h1 8}
 <tr><td>&middot;<td>3.5+<td>4.0+<td>5.0+<td>10.6+<td>2.1+<td>2.0+
 </table>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="manifest">The Cache Manifest</h2>
 
@@ -52,7 +52,7 @@ body{counter-reset:h1 8}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: My web application spans more than one page. Do I need a <code>manifest</code> attribute in each page, or can I just put it in the home page?
+<p><span class="whiteRightPointingIndex"></span>Q: My web application spans more than one page. Do I need a <code>manifest</code> attribute in each page, or can I just put it in the home page?
 <p>A: Every page of your web application needs a <code>manifest</code> attribute that points to the cache manifest for the entire application.
 </blockquote>
 </div>
@@ -79,7 +79,7 @@ body{counter-reset:h1 8}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Do I need to list my <abbr>HTML</abbr> pages in my cache manifest?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Do I need to list my <abbr>HTML</abbr> pages in my cache manifest?<br>
 A: Yes and no. If your entire web application is contained in a single page, just make sure that page points to the cache manifest using the <code>manifest</code> attribute. When you navigate to an <abbr>HTML</abbr> page with a <code>manifest</code> attribute, the page itself is assumed to be part of the web application, so you don&rsquo;t need to list it in the manifest file itself. However, if your web application spans multiple pages, you should list all of the <abbr>HTML</abbr> pages in the manifest file, otherwise the browser would not know that there are other <abbr>HTML</abbr> pages that need to be downloaded and cached.
 </blockquote>
 </div>
@@ -119,7 +119,7 @@ NETWORK:
 
 <p>Is this example complete? No. Wikipedia is more than <abbr>HTML</abbr> files. It uses common <abbr>CSS</abbr>, JavaScript, and images on each page. Each of these resources would need to be listed explicitly in the <code>CACHE:</code> section of the manifest file, in order for pages to display and behave properly offline. But the point of the fallback section is that you can have an &ldquo;open-ended&rdquo; offline web application that extends beyond the resources you&rsquo;ve listed explicitly in the manifest file.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="events">The Flow of Events</h2>
 
@@ -190,7 +190,7 @@ clock.css</code></pre>
 clock.js
 clock.css</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="halma">Let&rsquo;s Build One!</h2>
 
@@ -218,7 +218,7 @@ halma.html
 
 <p>And that&rsquo;s it! When an offline-capable browser first loads <a href="examples/offline/halma.html">the offline-enabled <abbr>HTML</abbr> page</a>, it will download the linked cache manifest file and start downloading all the referenced resources and storing them in the offline application cache. From then on, the offline application algorithm takes over whenever you revisit the page. You can play the game offline, and since it remembers its state locally, you can leave and come back as often as you like.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -252,7 +252,7 @@ halma.html
 <li><a href="http://manifesto.ericdelabar.com/">Manifesto</a>, a validation bookmarklet
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;Let&rsquo;s Take This Offline.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

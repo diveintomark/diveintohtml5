@@ -9,17 +9,17 @@ body{counter-reset:h1 9}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#forms">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#forms">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>A Form of Madness</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-e.png" alt="E" width="107" height="105">verybody knows about web forms, right? Make a <code>&lt;form&gt;</code>, a few <code>&lt;input type="text"&gt;</code> elements, maybe an <code>&lt;input type="password"&gt;</code>, finish it off with an <code>&lt;input type="submit"&gt;</code> button, and you&rsquo;re done.
 
 <p>You don&rsquo;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms. And when I say &ldquo;use,&rdquo; I mean you can use them right now &mdash; without any shims, hacks, or workarounds. Now don&rsquo;t get too excited; I don&rsquo;t mean to say that all of these exciting new features are actually supported in every browser. Oh goodness no, I don&rsquo;t mean that at all. In modern browsers, yes, your forms will kick all kinds of ass. But in legacy browsers, your forms will still work, albeit with less ass kicking. Which is to say, all of these features degrade gracefully in every browser. Even IE 6.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="placeholder">Placeholder Text</h2>
 
@@ -54,13 +54,13 @@ body{counter-reset:h1 9}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Can I use <abbr>HTML</abbr> markup in the <code>placeholder</code> attribute? I want to insert an image, or maybe change the colors.<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Can I use <abbr>HTML</abbr> markup in the <code>placeholder</code> attribute? I want to insert an image, or maybe change the colors.<br>
 A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML</abbr> markup. However, there are <a href="http://trac.webkit.org/export/37527/trunk/LayoutTests/fast/forms/placeholder-pseudo-style.html">some vendor-specific CSS extensions</a> that allow you to style the placeholder text in some browsers.
 </blockquote>
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="autofocus">Autofocus Fields</h2>
 
@@ -96,7 +96,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <li><a href="detect.html#input-autofocus">Detect whether the browser supports the <code>autofocus</code> attribute</a>, and only run your own autofocus script if the browser doesn&rsquo;t support autofocus natively.
 </ol>
 
-<p class="legend top" style="margin-left:10em"><span class="arrow">&#x21b6;</span> Autofocus with fallback
+<p class="legend top" style="margin-left:10em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Autofocus with fallback
 <pre><code>&lt;form name="f"&gt;
   &lt;input id="q" <mark>autofocus</mark>&gt;
   &lt;script&gt;
@@ -116,7 +116,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>The example in the previous section placed the auto-focus script immediately after the form field that it references. This is the optimal solution, but it may offend your sensibilities to put a block of JavaScript code in the middle of your page. (Or, more mundanely, your back-end systems may just not be that flexible.) If you can&rsquo;t insert a script in the middle of your page, you should set focus during a custom event like jQuery&rsquo;s <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> instead of <code>window.onload</code>.
 
-<p class="legend top" style="margin-left:10em"><span class="arrow">&#x21b6;</span> Autofocus with jQuery fallback
+<p class="legend top" style="margin-left:10em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Autofocus with jQuery fallback
 <pre><code>&lt;head&gt;
 &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -140,7 +140,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>If you are willing and able to insert a single script statement in your page markup, there is a middle ground that is less offensive than the first option and more optimal than the second. You can use jQuery&rsquo;s custom events to define your own event, say <code>autofocus_ready</code>. Then you can trigger this event manually, immediately after the autofocus form field is available. <i>Thanks to E. M. Sternberg for teaching me about this technique.</i>
 
-<p class="legend top" style="margin-left:10em"><span class="arrow">&#x21b6;</span> Autofocus with a custom event fallback
+<p class="legend top" style="margin-left:10em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Autofocus with a custom event fallback
 <pre><code>&lt;head&gt;
 &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -173,7 +173,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <li>Under no circumstances should you wait until <code>window.onload</code> to set focus.
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-email">Email Addresses</h2>
 
@@ -217,7 +217,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>To sum up: there&rsquo;s no downside to converting all your email address form fields to <code>type="email"</code> immediately. Virtually no one will even notice, except iPhone users, who probably won&rsquo;t notice either. But the ones who do notice will smile quietly and thank you for making their web experience just a little easier.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-url">Web Addresses</h2>
 
@@ -231,7 +231,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>Most modern desktop browsers simply render <code>type="url"</code> like a regular text box, so users won&rsquo;t even notice <a href="#validation">until they submit the form</a>. Browsers that don&rsquo;t support <abbr>HTML5</abbr> will treat <code>type="url"</code> exactly like <code>type="text"</code>, so there&rsquo;s no downside to using it for all your web-address-inputting needs.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-number">Numbers as Spinboxes</h2>
 
@@ -239,7 +239,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>My point is, you don&rsquo;t often ask for &ldquo;just a number.&rdquo; It&rsquo;s more likely that you&rsquo;ll ask for a number in a particular range. You may only want certain kinds of numbers within that range &mdash; maybe whole numbers but not fractions or decimals, or something more esoteric like numbers divisible by 10. <abbr>HTML5</abbr> has you covered.
 
-<p class="legend top" style="margin-left:8em"><span class="arrow">&#x21b6;</span> Pick a number, (almost) any number
+<p class="legend top" style="margin-left:8em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Pick a number, (almost) any number
 <pre><code>&lt;input <mark>type="number"</mark>
        min="0"
        max="10"
@@ -285,7 +285,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
   // maybe try Dojo or some other JavaScript framework
 }</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-range">Numbers as Sliders</h2>
 
@@ -295,7 +295,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>You can now have slider controls in your web forms, too. The markup looks eerily similar to <a href="#type-range">spinbox controls</a>:
 
-<p class="legend top" style="margin-left:8em"><span class="arrow">&#x21b6;</span> The spitting image
+<p class="legend top" style="margin-left:8em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> The spitting image
 <pre><code>&lt;input <mark>type="range"</mark>
        min="0"
        max="10"
@@ -304,7 +304,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>All the available attributes are the same as <code>type="number"</code> &mdash; <code>min</code>, <code>max</code>, <code>step</code>, <code>value</code> &mdash; and they mean the same thing. The only difference is the user interface. Instead of a field for typing, browsers are expected to render <code>type="range"</code> as a slider control. Safari, Chrome, Opera, Internet Explorer 10, and the iPhone running iOS 5 all do this. (Sadly, the iPhone running older versions of iOS renders it as a simple text box. It doesn&rsquo;t even optimize its on-screen keyboard for numeric input.) All other browsers simply treat the field as <code>type="text"</code>, so there&rsquo;s no reason you can&rsquo;t start using it immediately.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-date">Date Pickers</h2>
 
@@ -423,7 +423,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>It&rsquo;s likely that other browsers will eventually support these input types. But just like <a href="#type-email"><code>type="email"</code></a> and the other input types, these form fields will be rendered as plain text boxes in browsers that don&rsquo;t recognize <code>type="date"</code> and the other variants. If you like, you can simply use <code>&lt;input type="date"&gt;</code> and friends, make Opera and iOS users happy, and wait for other browsers to catch up. More realistically, you can use <code>&lt;input type="date"&gt;</code>, <a href="detect.html#input-types">detect whether the browser has native support for date pickers</a>, and fall back to a scripted solution of your choice (<a href="http://docs.dojocampus.org/dijit/form/DateTextBox">Dojo</a>, <a href="http://docs.jquery.com/UI/Datepicker">jQuery UI</a>, <a href="http://developer.yahoo.com/yui/calendar/">YUI</a>, <a href="http://closure-library.googlecode.com/svn/docs/class_goog_ui_DatePicker.html">Closure Library</a>, or some other solution).
 
-<p class="legend top" style="margin-left:6em"><span class="arrow">&#x21b6;</span> Date picker with fallback
+<p class="legend top" style="margin-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Date picker with fallback
 <pre><code>&lt;form&gt;
   &lt;input type="date"&gt;
 &lt;/form&gt;
@@ -438,7 +438,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
   }
 &lt;/script&gt;</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-search">Search Boxes</h2>
 
@@ -450,7 +450,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
   &lt;input name="q" <mark>type="search"</mark>&gt;
   &lt;input type="submit" value="Find"&gt;
 &lt;/form&gt;</code></pre>
-<p class="legend right" style="margin-top:2.75em"><span class="arrow">&nbsp;&#x21dc;</span> New-age search box
+<p class="legend right" style="margin-top:2.75em"><span class="arrow leftwardsSquiggleArrow"></span> New-age search box
 
 <p class="clear"><a href="examples/input-type-search.html">Test <code>&lt;input type="search"&gt;</code> in your own browser</a>. In some browsers, you won&rsquo;t notice any difference from a regular text box. But if you&rsquo;re using Safari on Mac OS X, it will look like this:
 
@@ -475,7 +475,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="type-color">Color Pickers</h2>
 
@@ -485,7 +485,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p><i>Thanks to Patrick Lauke and Chris Mills for relicensing this image for inclusion in this book.</i> You should <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/">read their article about the new form features in Opera 11</a>.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="validation">Form Validation</h2>
 
@@ -508,7 +508,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>Seriously, you&rsquo;ll get it wrong. Determining whether a random string of characters is a valid email address <a href="http://www.regular-expressions.info/email.html">is unbelievably complicated</a>. The harder you look, <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">the more complicated it gets</a>. Did I mention it&rsquo;s <a href="http://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx">really, really complicated</a>? Wouldn&rsquo;t it be easier to offload the entire headache to your browser?
 
-<p class="legend top" style="width:500px;text-align:center">Most modern browsers validate type=&ldquo;email&rdquo; <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="width:500px;text-align:center">Most modern browsers validate type=&ldquo;email&rdquo; <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p class="c"><img src="i/input-type-email-validation.png" alt="error message on invalid type=&quot;email&quot; field" width="217" height="62">
 
 <p>That screenshot is from Opera 11, although the functionality has been present since Opera 9. <a href="http://blog.mozilla.com/webdev/2011/03/14/html5-form-validation-on-sumo/">Firefox 4 and Chrome 10 provide similar functionality</a>. The only markup involved is <a href="#type-email">setting the <code>type</code> attribute to <code>"email"</code></a>. When the user tries to submit a form with an <code>&lt;input type="email"&gt;</code> field, the browser automatically offers <abbr>RFC</abbr>-compliant email validation, even if scripting is disabled.
@@ -519,13 +519,13 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>There is no markup required to activate <abbr>HTML5</abbr> form validation; it is on by default. To turn it off, use the <code>novalidate</code> attribute.
 
-<p class="legend top">Don&rsquo;t validate me, bro <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Don&rsquo;t validate me, bro <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>&lt;form <mark>novalidate</mark>&gt;
   &lt;input type="email" id="addr"&gt;
   &lt;input type="submit" value="Subscribe"&gt;
 &lt;/form&gt;</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="required">Required Fields</h2>
 
@@ -552,7 +552,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>Furthermore, if you attempt to submit the form without filling in the required value, Firefox will pop up an infobar telling you that the field is mandatory and can not be left blank.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -582,7 +582,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <li><a href="http://msdn.microsoft.com/en-us/library/ie/hh673546#HTML5_Forms">Internet Explorer 10 Guide for Developers: HTML5 Forms</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;A Form of Madness.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

@@ -9,10 +9,10 @@ body{counter-reset:h1 4}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#canvas">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#canvas">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>Let&rsquo;s Call It A<br>Draw(ing Surface)</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="divingin">Diving In</h2>
 
@@ -31,7 +31,7 @@ body{counter-reset:h1 4}
 <p class="clear">So what does a canvas look like? Nothing, really. A <code>&lt;canvas&gt;</code> element has no content and no border of its own.</p>
 
 <canvas width="300" height="225" class="clear" style="float:left"></canvas>
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x219c;</span> Invisible canvas
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsWaveArrow"></span> Invisible canvas
 
 <p class="clear">The markup looks like this:
 
@@ -40,7 +40,7 @@ body{counter-reset:h1 4}
 <p>Let&rsquo;s add a dotted border so we can see what we&rsquo;re dealing with.</p>
 
 <canvas width="300" height="225" class="clear" style="border:1px dotted;float:left"></canvas>
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x219c;</span> Canvas with border
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsWaveArrow"></span> Canvas with border
 
 <p class="clear">You can have more than one <code>&lt;canvas&gt;</code> element on the same page. Each canvas will show up in the <abbr>DOM</abbr>, and each canvas maintains its own state. If you give each canvas an <code>id</code> attribute, you can access them just like any other element.
 
@@ -52,7 +52,7 @@ body{counter-reset:h1 4}
 
 <pre><code>var a_canvas = document.getElementById("a");</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="shapes">Simple Shapes</h2>
 
@@ -68,7 +68,7 @@ body{counter-reset:h1 4}
 <p>Every canvas starts out blank. That&rsquo;s boring! Let&rsquo;s draw something.</p>
 
 <canvas id="b" width="300" height="225" style="border:1px dotted;float:left" onclick="draw_b();return false"></canvas>
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsSquiggleArrow"></span> <a href="#" onclick="draw_b();return false">Click to draw on this canvas</a></p>
 
 <p class="clear">The <code>onclick</code> handler called this function:
 
@@ -80,7 +80,7 @@ body{counter-reset:h1 4}
 
 <p>The 1<sup>st</sup> line of the function is nothing special; it just finds the <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr>.
 
-<p class="legend left" style="margin-top:2em">And then there&rsquo;s this <span class="arrow">&#x21dd;</span>&nbsp;</p>
+<p class="legend left" style="margin-top:2em">And then there&rsquo;s this <span class="arrow rightwardsSquiggleArrow"></span>&nbsp;</p>
 <pre><code>function draw_b() {
   var b_canvas = document.getElementById("b");
 <mark>  var b_context = b_canvas.getContext("2d");</mark>
@@ -92,7 +92,7 @@ body{counter-reset:h1 4}
 <p>Every canvas has a drawing <dfn>context</dfn>, which is where all the fun stuff happens. Once you&rsquo;ve found a <code>&lt;canvas&gt;</code> element in the <abbr>DOM</abbr> (by using <code>document.getElementById()</code> or any other method you like), you call its <code>getContext()</code> method. You <strong>must</strong> pass the string <code>"2d"</code> to the <code>getContext()</code> method.
 
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Is there a 3-D canvas?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Is there a 3-D canvas?<br>
 A: Not yet. Individual vendors have experimented with their own three-dimensional canvas <abbr>API</abbr>s, but none of them have been standardized. The <abbr>HTML5</abbr> specification notes, &ldquo;A future version of this specification will probably define a 3d context.&rdquo;
 </blockquote>
 
@@ -110,7 +110,7 @@ A: Not yet. Individual vendors have experimented with their own three-dimensiona
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Can I &ldquo;reset&rdquo; a canvas?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Can I &ldquo;reset&rdquo; a canvas?<br>
 A: Yes. Setting the width or height of a <code>&lt;canvas&gt;</code> element will erase its contents and reset all the properties of its drawing context to their default values. You don&rsquo;t even need to <em>change</em> the width; you can simply set it to its current value, like this:
 <pre><code>var b_canvas = document.getElementById("b");
 <mark>b_canvas.width = b_canvas.width;</mark></code></pre>
@@ -119,20 +119,20 @@ A: Yes. Setting the width or height of a <code>&lt;canvas&gt;</code> element wil
 </div>
 
 <p>Getting back to that code sample in the previous example&hellip;
-<p class="legend left" style="margin-top:2em">Draw a rectangle <span class="arrow">&#x21dd;&nbsp;</span></p>
+<p class="legend left" style="margin-top:2em">Draw a rectangle <span class="arrow rightwardsSquiggleArrow"></span></p>
 <pre><code>var b_canvas = document.getElementById("b");
 var b_context = b_canvas.getContext("2d");
 <mark>b_context.fillRect(50, 25, 150, 100);</mark></code></pre>
 
 <p class="clear">Calling the <code>fillRect()</code> method draws the rectangle and fills it with the current fill style, which is black until you change it. The rectangle is bounded by its upper-left corner (50,&nbsp;25), its width (150), and its height (100). To get a better picture of how that works, let&rsquo;s look at the canvas coordinate system.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="coordinates">Canvas Coordinates</h2>
 
 <p>The canvas is a two-dimensional grid. The coordinate (0, 0) is at the upper-left corner of the canvas. Along the X-axis, values increase towards the right edge of the canvas. Along the Y-axis, values increase towards the bottom edge of the canvas.
 
-<p class="legend top" style="width:500px;text-align:center">Canvas coordinates diagram <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="width:500px;text-align:center">Canvas coordinates diagram <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <canvas id="c" width="500" height="375"></canvas>
 
 <p>That coordinate diagram was drawn with a <code>&lt;canvas&gt;</code> element. It comprises
@@ -162,7 +162,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 
 <p>Now we can start drawing lines.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="paths">Paths</h2>
 
@@ -196,13 +196,13 @@ var context = c_canvas.getContext("2d");</code></pre>
   context.moveTo(x, 0);
   <mark>context.lineTo(x, 375);</mark>
 }</code></pre>
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> Draw vertical lines</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsSquiggleArrow"></span> Draw vertical lines</p>
 
 <pre style="clear:left;float:left"><code>for (var y = 0.5; y &lt; 375; y += 10) {
   context.moveTo(0, y);
   <mark>context.lineTo(500, y);</mark>
 }</code></pre>
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> Draw horizontal lines</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsSquiggleArrow"></span> Draw horizontal lines</p>
 
 <p class="clear">Those were all &ldquo;pencil&rdquo; methods. Nothing has actually been drawn on the canvas yet. We need an &ldquo;ink&rdquo; method to make it permanent.
 
@@ -217,7 +217,7 @@ var context = c_canvas.getContext("2d");</code></pre>
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Why did you start <var>x</var> and <var>y</var> at <code>0.5</code>? Why not <code>0</code>?<br>
 A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&hellip;) are the edges of the squares. If you draw a one-unit-wide line between whole-number coordinates, it will overlap opposite sides of the pixel square, and the resulting line will be drawn two pixels wide. To draw a line that is only one pixel wide, you need to shift the coordinates by 0.5 perpendicular to the line's direction.
 <p>For example, if you try to draw a line from <code>(1,&nbsp;0)</code> to <code>(1,&nbsp;3)</code>, the browser will draw a line covering 0.5 screen pixels on either side of <code>x=1</code>. The screen can&rsquo;t display half a pixel, so it expands the line to cover a total of two pixels:
 <p><img src="i/canvas-half-pixels-1.jpg" alt="A line from (1,0) to (1,3) is drawn 2 pixels wide" width="406" height="314">
@@ -230,7 +230,7 @@ A: Imagine each pixel as a large square. The whole-number coordinates (0, 1, 2&h
 
 <p>Now let&rsquo;s draw the horizontal arrow. All the lines and curves on a path are drawn in the same color (or gradient &mdash; yes, we&rsquo;ll get to those soon). We want to draw the arrow in a different color ink &mdash; black instead of off-white &mdash; so we need to start a new path.
 
-<p class="legend top" style="margin-left:2em">A new path <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:2em">A new path <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code><mark>context.beginPath();</mark>
 context.moveTo(0, 40);
 context.lineTo(240, 40);
@@ -249,7 +249,7 @@ context.lineTo(60, 375);
 context.moveTo(65, 370);
 context.lineTo(60, 375);
 context.lineTo(55, 370);</code></pre>
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x219c;</span> Not a new path</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsWaveArrow"></span> Not a new path</p>
 
 <p class="clear">I said these arrows were going to be black, but the <code>strokeStyle</code> is still off-white. (The <code>fillStyle</code> and <code>strokeStyle</code> don&rsquo;t get reset when you start a new path.) That&rsquo;s OK, because we&rsquo;ve just run a series of &ldquo;pencil&rdquo; methods. But before we draw it for real, in &ldquo;ink,&rdquo; we need to set the <code>strokeStyle</code> to black. Otherwise, these two arrows will be off-white, and we&rsquo;ll hardly be able to see them! The following lines change the color to black and draw the lines on the canvas:
 
@@ -260,7 +260,7 @@ context.stroke();</code></pre>
 
 <canvas id="c3" width="500" height="375"></canvas>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="text">Text</h2>
 
@@ -298,20 +298,20 @@ context.stroke();</code></pre>
 <pre style="float:left"><code><mark>context.font = "bold 12px sans-serif";</mark>
 context.fillText("x", 248, 43);
 context.fillText("y", 58, 165);</code></pre>
-<p class="legend right"><span class="arrow">&nbsp;&#x219c;</span> Change the font style</p>
+<p class="legend right"><span class="arrow leftwardsWaveArrow"></span> Change the font style</p>
 
 <p class="clear">The <code>fillText()</code> method draws the actual text.</p>
 
 <pre style="float:left"><code>context.font = "bold 12px sans-serif";
 <mark>context.fillText("x", 248, 43);</mark>
 context.fillText("y", 58, 165);</code></pre>
-<p class="legend right" style="margin-top:2.6em"><span class="arrow">&nbsp;&#x21dc;</span> Draw the text</p>
+<p class="legend right" style="margin-top:2.6em"><span class="arrow leftwardsSquiggleArrow"></span> Draw the text</p>
 
 <div class="pf clear" id="relative-font-size">
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Can I use relative font sizes to draw text on a canvas?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Can I use relative font sizes to draw text on a canvas?<br>
 A: Yes. Like every other <abbr>HTML</abbr> element on your page, the <code>&lt;canvas&gt;</code> element itself has a computed font size based on your page&rsquo;s CSS rules. If you set the <code>context.font</code> property to a relative font size like <code>1.5em</code> or <code>150%</code>, your browser multiplies this by the computed font size of the <code>&lt;canvas&gt;</code> element itself.
 </blockquote>
 </div>
@@ -336,13 +336,13 @@ context.fillText("( 500 , 375 )", <mark>492, 370</mark>);</code></pre>
 
 <pre style="float:left"><code>context.fillRect(0, 0, 3, 3);
 context.fillRect(497, 372, 3, 3);</code></pre>
-<p class="legend right"><span class="arrow">&nbsp;&#x21dc;</span> Draw two &ldquo;dots&rdquo;</p>
+<p class="legend right"><span class="arrow leftwardsSquiggleArrow"></span> Draw two &ldquo;dots&rdquo;</p>
 
 <p>And that&rsquo;s all she wrote! Here is the final product:</p>
 
 <canvas id="c5" width="500" height="375" class="clear"></canvas>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="gradients">Gradients</h2>
 
@@ -383,7 +383,7 @@ var context = d_canvas.getContext("2d");</code></pre>
 
 <p>Let&rsquo;s make a linear gradient. Gradients can be any size, but I&rsquo;ll make this gradient be 300 pixels wide, like the canvas.
 
-<p class="legend top" style="margin-left:2.5em">Create a gradient object <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:2.5em">Create a gradient object <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>var my_gradient = <mark>context.createLinearGradient(0, 0, 300, 0);</mark></code></pre>
 
 <p>Because the <code>y</code> values (the 2<sup>nd</sup> and 4<sup>th</sup> parameters) are both 0, this gradient will shade evenly from left to right.
@@ -397,7 +397,7 @@ my_gradient.addColorStop(1, "white");</code></pre>
 
 <p>Defining a gradient doesn&rsquo;t draw anything on the canvas. It&rsquo;s just an object tucked away in memory somewhere. To draw a gradient, you set your <code>fillStyle</code> to the gradient and draw a shape, like a rectangle or a line.
 
-<p class="legend top">Fill style is a gradient <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Fill style is a gradient <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code><mark>context.fillStyle = my_gradient;</mark>
 context.fillRect(0, 0, 300, 225);</code></pre>
 
@@ -407,7 +407,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>Suppose you want a gradient that shades from top to bottom. When you create the gradient object, keep the <code>x</code> values (1<sup>st</sup> and 3<sup>rd</sup> parameters) constant, and make the <code>y</code> values (2<sup>nd</sup> and 4<sup>th</sup> parameters) range from 0 to the height of the canvas.
 
-<p class="legend top" style="margin-left:6.5em">x values are 0, y values vary <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:6.5em">x values are 0, y values vary <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>var my_gradient = context.createLinearGradient(<mark>0, 0, 0, 225</mark>);
 my_gradient.addColorStop(0, "black");
 my_gradient.addColorStop(1, "white");
@@ -420,7 +420,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>You can also create gradients along a diagonal.
 
-<p class="legend top" style="margin-left:8.5em">both x and y values vary <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:8.5em">both x and y values vary <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>var my_gradient = context.createLinearGradient(<mark>0, 0, 300, 225</mark>);
 my_gradient.addColorStop(0, "black");
 my_gradient.addColorStop(1, "white");
@@ -431,7 +431,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <canvas id="d4" width="300" height="225"></canvas>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="images">Images</h2>
 
@@ -447,12 +447,12 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p>Here is a cat:
 
 <p style="float:left"><img src="i/openclipart.org_media_files_johnny_automatic_1360.png" alt="sleeping cat" width="177" height="113" id="cat">
-<p class="legend right" style="margin-top:4em"><span class="arrow">&nbsp;&#x21dc;</span> An &lt;img&gt; element</p>
+<p class="legend right" style="margin-top:4em"><span class="arrow leftwardsSquiggleArrow"></span> An &lt;img&gt; element</p>
 
 <p class="clear">Here is the same cat, drawn on a canvas:
 
 <div style="float:right">
-<p class="legend left" style="margin-top:2em">A &lt;canvas&gt; element <span class="arrow">&#x21dd;&nbsp;</span></p>
+<p class="legend left" style="margin-top:2em">A &lt;canvas&gt; element <span class="arrow rightwardsSquiggleArrow"></span></p>
 <canvas id="e" width="177" height="113"></canvas>
 </div>
 
@@ -475,7 +475,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 <p>To draw an image on a canvas, you need an image. The image can be an existing <code>&lt;img&gt;</code> element, or you can create an <code>Image()</code> object with JavaScript. Either way, you need to ensure that the image is fully loaded before you can draw it on the canvas.
 
 <p>If you&rsquo;re using an existing <code>&lt;img&gt;</code> element, you can safely draw it on the canvas during the <code>window.onload</code> event.
-<p class="legend top" style="margin-left:6.5em"><span class="arrow">&#x21b6;</span> using an &lt;img&gt; element<br></p>
+<p class="legend top" style="margin-left:6.5em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> using an &lt;img&gt; element<br></p>
 <pre><code>&lt;img <mark>id="cat"</mark> src="images/cat.png" alt="sleeping cat" width="177" height="113">
 &lt;canvas id="e" width="177" height="113"&gt;&lt;/canvas&gt;
 &lt;script&gt;
@@ -489,7 +489,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>If you&rsquo;re creating the image object entirely in JavaScript, you can safely draw the image on the canvas during the <code>Image.onload</code> event.
 
-<p class="legend top" style="margin-left:3.5em">using an Image() object <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:3.5em">using an Image() object <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>&lt;canvas id="e" width="177" height="113"&gt;&lt;/canvas&gt;
 &lt;script&gt;
   var canvas = document.getElementById("e");
@@ -515,13 +515,13 @@ context.fillRect(0, 0, 300, 225);</code></pre>
   }
 };
 </code></pre>
-<p class="legend right" style="margin-top:6em"><span class="arrow">&nbsp;&#x21dc;</span> Scale the image</p>
+<p class="legend right" style="margin-top:6em"><span class="arrow leftwardsSquiggleArrow"></span> Scale the image</p>
 
 <p class="clear">All this effort raises a legitimate question: why would you want to draw an image on a canvas in the first place? What does the extra complexity of image-on-a-canvas buy you over an <code>&lt;img&gt;</code> element and some <abbr>CSS</abbr> rules? Even the &ldquo;multicat&rdquo; effect could be replicated with 10 overlapping <code>&lt;img&gt;</code> elements.
 
 <p>The simple answer is, for the same reason you might want to <a href="#text">draw text on a canvas</a>. The <a href="#coordinates">canvas coordinates diagram</a> included text, lines, and shapes; the text-on-a-canvas was just one part of a larger work. A more complex diagram could easily use <code>drawImage()</code> to include icons, sprites, or other graphics.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="ie">What About IE?</h2>
 
@@ -562,7 +562,7 @@ context.fillRect(0, 0, 300, 225);</code></pre>
 
 <p>The easiest solution to this is to defer all of your canvas-related manipulation until after the <code>onload</code> event fires. This may be a while &mdash; if your page has a lot of images or videos, they will delay the <code>onload</code> event &mdash; but it will give ExplorerCanvas time to work its magic.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="halma">A Complete, Live Example</h2>
 
@@ -694,7 +694,7 @@ gDrawingContext.<mark>stroke()</mark>;</code></pre>
 
 <p>And that&rsquo;s&hellip; well, that&rsquo;s pretty much it. The rest of the program is game-specific logic &mdash; distinguishing between valid and invalid moves, keeping track of the number of moves, detecting whether the game is over. With 9 circles, a few straight lines, and 1 <code>onclick</code> handler, we&rsquo;ve created an entire game in <code>&lt;canvas&gt;</code>. Huzzah!
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -706,7 +706,7 @@ gDrawingContext.<mark>stroke()</mark>;</code></pre>
 <li><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_HTML5_canvas">Internet Explorer 9 Guide for Developers: HTML5 <code>canvas</code> element</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;Let&rsquo;s Call It A Draw(ing Surface).&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

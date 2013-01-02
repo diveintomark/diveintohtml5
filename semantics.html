@@ -12,17 +12,17 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#semantics">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#semantics">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>What Does It All Mean?</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-t.png" alt="T" width="107" height="105">his chapter will take an <abbr>HTML</abbr> page that has absolutely nothing wrong with it, and improve it. Parts of it will become shorter. Parts will become longer. All of it will become more semantic. It&rsquo;ll be awesome.
 
 <p style="clear:both"><a href="examples/blog-original.html">Here is the page in question</a>. Learn it. Live it. Love it. Open it in a new tab and don&rsquo;t come back until you&rsquo;ve hit &ldquo;View Source&rdquo; at least once.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="the-doctype">The Doctype</h2>
 
@@ -67,7 +67,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>That&rsquo;s it. Just 15 characters. It&rsquo;s so easy, you can type it by hand and not screw it up.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="html-element">The Root Element</h2>
 
@@ -101,7 +101,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>And that&rsquo;s all I have to say about that.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="head-element">The &lt;head&gt; Element</h2>
 
@@ -124,7 +124,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>First up: the <code>&lt;meta&gt;</code> element.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="encoding">Character Encoding</h2>
 
@@ -159,7 +159,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: I never use funny characters. Do I still need to declare my character encoding?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: I never use funny characters. Do I still need to declare my character encoding?<br>
 <p>A: Yes! You should <em>always</em> specify a character encoding on every <abbr>HTML</abbr> page you serve. Not specifying an encoding <a href="http://openmya.hacker.jp/hasegawa/security/utf7cs.html">can lead to security vulnerabilities</a>.
 </blockquote>
 </div>
@@ -167,7 +167,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>To sum up: character encoding is complicated, and it has not been made any easier by decades of poorly written software used by copy-and-paste&ndash;educated authors. You should <strong>always</strong> specify a character encoding on <strong>every</strong> <abbr>HTML</abbr> document, or <a href="http://openmya.hacker.jp/hasegawa/security/utf7cs.html">bad things will happen</a>. You can do it with the HTTP <code>Content-Type</code> header, the <code>&lt;meta http-equiv&gt;</code> declaration, or the shorter <code>&lt;meta charset&gt;</code> declaration, but please do it. The web thanks you.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="link">Friends &amp; (Link) Relations</h2>
 
@@ -196,7 +196,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Can I make up my own link relations?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Can I make up my own link relations?<br>
 <p>A: There seems to be an infinite supply of ideas for new link relations. In an attempt to prevent people from <a href="http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4">just making shit up</a>, the microformats community <a href="http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions">maintains a registry of proposed <code>rel</code> values</a> and the HTML specification <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#other-link-types">defines the process for getting them accepted</a>.
 </blockquote>
 </div>
@@ -260,7 +260,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-tag">rel="tag"</a> &ldquo;indicates that the tag that the referenced document represents applies to the current document.&rdquo; Marking up &ldquo;tags&rdquo; (category keywords) with the <code>rel</code> attribute was <a href="http://www.powazek.com/2005/07/000532.html">invented by Technorati</a> to help them categorize blog posts. Early blogs and tutorials thus referred to them as &ldquo;Technorati tags.&rdquo; (You read that right: a commercial company convinced the entire world to add metadata that made the company&rsquo;s job easier. Nice work if you can get it!) The syntax was later <a href="http://microformats.org/wiki/rel-tag">standardized within the microformats community</a>, where it was simply called <code>rel="tag"</code>. Most blogging systems that allow associating categories, keywords, or tags with individual posts will mark them up with <code>rel="tag"</code> links. Browsers do not do anything special with them; they&rsquo;re really designed for search engines to use as a signal of what the page is about.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="new-elements">New Semantic Elements in HTML5</h2>
 
@@ -289,7 +289,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <p>I know you&rsquo;re anxious to start using these new elements, otherwise you wouldn&rsquo;t be reading this chapter. But first we need to take a little detour.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="unknown-elements">A long digression into how browsers handle unknown elements</h2>
 
@@ -421,7 +421,7 @@ p (sibling of h1)
 
 <p>Now we&rsquo;re ready to start using the new semantic elements in <abbr>HTML5</abbr>.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="header-element">Headers</h2>
 
@@ -528,7 +528,7 @@ p (sibling of h1)
 
 <p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&rsquo;re using the heading elements properly.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="article-element">Articles</h2>
 
@@ -601,7 +601,7 @@ p (sibling of h1)
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="time-element">Dates and Times</h2>
 
@@ -674,7 +674,7 @@ p (sibling of h1)
   &lt;p&gt;Lorem ipsum dolor sit amet&hellip;&lt;/p&gt;
 &lt;/article&gt;</code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="nav-element">Navigation</h2>
 
@@ -712,14 +712,14 @@ p (sibling of h1)
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Are <a href="http://www.webaim.org/techniques/skipnav/">skip links</a> compatible with the <code>&lt;nav&gt;</code> element? Do I still need skip links in <abbr>HTML5</abbr>?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Are <a href="http://www.webaim.org/techniques/skipnav/">skip links</a> compatible with the <code>&lt;nav&gt;</code> element? Do I still need skip links in <abbr>HTML5</abbr>?<br>
 <p>A: Skip links allow readers to skip over navigation sections. They are helpful for disabled users who use third-party software to read a web page aloud and navigate it without a mouse. (<a href="http://www.webaim.org/techniques/skipnav/">Learn how and why to provide skip links</a>.)
 <p>Once screenreaders are updated to recognize the <code>&lt;nav&gt;</code> element, skip links will become obsolete, since the screenreader software will be able to automatically offer to skip over a navigation section marked up with the <code>&lt;nav&gt;</code> element. However, it will be a while before all the disabled users on the web upgrade to <abbr>HTML5</abbr>-savvy screenreader software, so you should continue to provide your own skip links to jump over <code>&lt;nav&gt;</code> sections.
 </blockquote>
 </div>
 </div>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="footer-element">Footers</h2>
 
@@ -817,7 +817,7 @@ p (sibling of h1)
   &lt;p class="copyright"&gt;Copyright &copy; 2009 W3C&lt;/p&gt;
 <mark>&lt;/footer&gt;</mark></code></pre>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -856,7 +856,7 @@ p (sibling of h1)
 <li><a href="http://html5.validator.nu/">html5.validator.nu</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;What Does It All Mean?&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

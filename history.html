@@ -8,17 +8,17 @@
 body{counter-reset:h1 11}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#history">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#history">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>Manipulating History<br>for Fun &amp; Profit</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-t.png" alt="T" width="107" height="105">he browser location bar is perhaps the geekiest mainstream piece of user interface in the world. There are <abbr>URL</abbr>s on billboards, on the sides of trains, and even in street graffiti. Combined with the back button &mdash; easily the most important button in the browser &mdash; you have a powerful way to go forward and backward through the vast set of intertwingled resources called the Web.
 
 <p>The <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html"><abbr>HTML5</abbr> history <abbr>API</abbr></a> is a standardized way to manipulate the browser history via script. Part of this <abbr>API</abbr> &mdash; navigating the history &mdash; has been available in previous versions of <abbr>HTML</abbr>. The new parts in <abbr>HTML5</abbr> include a way to add entries to the browser history, to visibly change the <abbr>URL</abbr> in the browser location bar (without triggering a page refresh), and an event that fires when those entries are removed from the stack by the user pressing the browser&rsquo;s back button. This means that the <abbr>URL</abbr> in the browser location bar can continue to do its job as a unique identifier for the current resource, even in script-heavy applications that don&rsquo;t ever perform a full page refresh.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="why">The Why</h2>
 
@@ -44,7 +44,7 @@ body{counter-reset:h1 11}
 
 <p>At the end of this illusion (if you executed it correctly), the browser ends up with a <abbr>DOM</abbr> that is identical to page B, just as if you had navigated to page B directly. The browser location bar ends up with a <abbr>URL</abbr> that is identical to page B, just as if you had navigated to page B directly. But you never really did navigate to page B, and you never did a full page refresh. That&rsquo;s the illusion. But because the &ldquo;compiled&rdquo; page looks the same as page B and has the same <abbr>URL</abbr> as page B, the user should never notice the difference (nor appreciate all your hard work micromanaging their experience).
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="how">The How</h2>
 
@@ -72,7 +72,7 @@ body{counter-reset:h1 11}
 
 <p id="gallery-markup">Let&rsquo;s dig into the <a href="examples/history/fer.html">dive into dogs</a> demo and see how it works. This is the relevant markup for a single photo:
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> The pledge
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> The pledge
 <pre><code>&lt;aside id="gallery"&gt;
   &lt;p class="photonav"&gt;
     &lt;a id="photonext" href="casey.html"&gt;Next &amp;gt;&lt;/a&gt;
@@ -103,7 +103,7 @@ body{counter-reset:h1 11}
     e.preventDefault();
   }, false);
 }</code></pre>
-<p class="legend right" style="margin-top:5em"><span class="arrow">&nbsp;&#x219c;</span> Interesting
+<p class="legend right" style="margin-top:5em"><span class="arrow leftwardsWaveArrow"></span> Interesting
 
 <p style="clear:left">The <code>swapPhoto()</code> function performs the first two steps of our <a href="#illusion">three-step illusion</a>. The first half of the <code>swapPhoto()</code> function takes part of the <abbr>URL</abbr> of the navigation link itself &mdash; <code>casey.html</code>, <code>adagio.html</code>, <i>&amp;</i>c. &mdash; and constructs a <abbr>URL</abbr> to a hidden page that contains nothing but the markup required by the next photo.
 
@@ -143,7 +143,7 @@ body{counter-reset:h1 11}
 
 <p>Now, let&rsquo;s go back to the <code>addClicker()</code> function. After successfully swapping out the photo, there&rsquo;s one more step in our <a href="#illusion">three-step illusion</a>: setting the <abbr>URL</abbr> in the browser location bar without refreshing the page.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> The turn
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> The turn
 <pre><code>history.pushState(null, null, link.href);</code></pre>
 
 <p>The <code>history.pushState()</code> function takes three parameters:
@@ -158,7 +158,7 @@ body{counter-reset:h1 11}
 
 <p>Normally when the user navigates to a new page (with a full page refresh), the browser pushes the new <abbr>URL</abbr> onto its history stack and downloads and draws the new page. When the user presses the back button, the browser pops one page off its history stack and redraws the previous page. But what happens now that you&rsquo;ve short-circuited this navigation to avoid a full page refresh? Well, you&rsquo;ve faked &ldquo;moving forward&rdquo; to a new <abbr>URL</abbr>, so now you also need to fake &ldquo;moving backward&rdquo; to the previous <abbr>URL</abbr>. And the key to faking &ldquo;moving backwards&rdquo; is the <code>popstate</code> event.
 
-<p class="legend top" style="padding-left:6em"><span class="arrow">&#x21b6;</span> The prestige
+<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> The prestige
 <pre><code>window.addEventListener("popstate", function(e) {
     swapPhoto(location.pathname);
 }</code></pre>
@@ -184,7 +184,7 @@ body{counter-reset:h1 11}
 
 <p>The illusion is complete. All visible evidence (the content of the page, and the <abbr>URL</abbr> in the location bar) suggests to the user that they have navigated forward one page and backward one page. But no full page refresh ever occurred &mdash; it was all a meticulously executed illusion.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -198,7 +198,7 @@ body{counter-reset:h1 11}
 <li><a href="https://github.com/balupton/History.js/">History.js</a>, a meta-<abbr>API</abbr> for manipulating history in both newer and older browsers
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;Manipulating History for Fun <i>&amp;</i> Profit.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 

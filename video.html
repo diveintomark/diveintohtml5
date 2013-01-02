@@ -9,10 +9,10 @@ body{counter-reset:h1 5}
 </style>
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
 <link rel="prefetch" href="index.html">
-<p>You are here: <a href="index.html">Home</a> <span class="u">&rdquo;</span> <a href="table-of-contents.html#video">Dive Into <abbr>HTML5</abbr></a> <span class="u">&rdquo;</span>
+<p>You are here: <a href="index.html">Home</a> <span class="u triangularBullet"></span> <a href="table-of-contents.html#video">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
 <h1><br>Video on the Web</h1>
 <p id="toc">&nbsp;
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 <h2 id="divingin">Diving In</h2>
 
 <p class="f"><img src="i/aoc-a.png" alt="A" width="105" height="105">nyone who has visited YouTube.com in the past four years knows that you can embed video in a web page. But prior to <abbr>HTML5</abbr>, there was no standards-based way to do this. Virtually all the video you&rsquo;ve ever watched &ldquo;on the web&rdquo; has been funneled through a third-party plugin &mdash; maybe QuickTime, maybe RealPlayer, maybe Flash. (YouTube uses Flash.) These plugins integrate with your browser well enough that you may not even be aware that you&rsquo;re using them. That is, until you try to watch a video on a platform that doesn&rsquo;t support that plugin.
@@ -29,7 +29,7 @@ body{counter-reset:h1 5}
 
 <p>But support for the <code>&lt;video&gt;</code> element itself is really only a small part of the story. Before we can talk about <abbr>HTML5</abbr> video, you first need to understand a little about video itself. (If you know about video already, you can skip ahead to <a href="#what-works">What Works on the Web</a>.)
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="video-containers">Video Containers</h2>
 
@@ -47,7 +47,7 @@ body{counter-reset:h1 5}
 <li><a href="http://en.wikipedia.org/wiki/AVI">Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support features of more recent container formats like embedded metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href="http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html">MEncoder</a>.</li> 
 </ul> 
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="video-codecs">Video Codecs</h2>
 
@@ -84,7 +84,7 @@ body{counter-reset:h1 5}
 
 <p>In 2010, Google acquired On2 and published the video codec specification and a sample encoder and decoder as open source. As part of this, Google also &ldquo;opened&rdquo; all the patents that On2 had filed on VP8, by licensing them royalty-free. (This is the best you can hope for with patents. You can&rsquo;t actually &ldquo;release&rdquo; them or nullify them once they&rsquo;ve been issued. To make them open source&ndash;friendly, you license them royalty-free, and then anyone can use the technologies the patents cover without paying anything or negotiating patent licenses.) As of May 19, 2010, <b>VP8 is a royalty-free, modern codec and is not encumbered by any known patents</b>, other than the patents that On2 (now Google) has already licensed royalty-free.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="audio-codecs">Audio Codecs</h2>
 
@@ -132,7 +132,7 @@ body{counter-reset:h1 5}
  
 <p>There are open source Vorbis encoders and decoders, including <a href="http://oggconvert.tristanb.net/">OggConvert</a> (encoder), <a href="http://www.ffmpeg.org/">ffmpeg</a> (decoder), <a href="http://www.geocities.jp/aoyoume/aotuv/">aoTuV</a> (encoder), and <a href="http://downloads.xiph.org/releases/vorbis/">libvorbis</a> (decoder). There are also <a href="http://www.xiph.org/quicktime/">QuickTime components for Mac OS X</a> and <a href="http://www.xiph.org/dshow/">DirectShow filters for Windows</a>. 
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="what-works">What Works on the Web</h2>
 
@@ -208,7 +208,7 @@ body{counter-reset:h1 5}
 <li>Link to all three video files from a single <code>&lt;video&gt;</code> element, and fall back to a Flash-based video player.
 </ol>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="licensing">Licensing Issues with H.264 Video</h2>
 
@@ -237,7 +237,7 @@ body{counter-reset:h1 5}
 
 <p>That last part &mdash; about the fee structure for internet broadcasts &mdash; has already been amended. The <abbr>MPEG-LA</abbr> recently <a href="http://www.mpegla.com/Lists/MPEG%20LA%20News%20List/Attachments/226/n-10-02-02.pdf" title="warning: PDF">announced</a> that internet streaming would not be charged. That does <em>not</em> mean that H.264 is royalty-free for all users. In particular, encoders (like the one that processes video uploaded to YouTube) and decoders (like the one included in Microsoft Internet Explorer 9) are still subject to licensing fees. See <a href="http://shaver.off.net/diary/2010/08/27/free-as-in-smokescreen/">Free as in smokescreen</a> for more information.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="miro">Encoding Video With<br>Miro Video Converter</h2>
 
@@ -248,14 +248,14 @@ body{counter-reset:h1 5}
 <p>To start, just launch the Miro Video Converter application.
 
 <div class="c">
-<p class="legend top">Miro Video Converter main screen <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Miro Video Converter main screen <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-01.png" alt="Miro Video Converter main screen" width="365" height="445">
 </div>
 
 <p>Click &ldquo;Choose file&rdquo; and select the source video you want to encode.
 
 <div class="c">
-<p class="legend top">&ldquo;Choose file&rdquo; <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">&ldquo;Choose file&rdquo; <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-02.png" alt="Miro Video Converter after choosing a file" width="365" height="445">
 </div>
 
@@ -270,55 +270,55 @@ body{counter-reset:h1 5}
 <p>Select &ldquo;WebM&rdquo; first.
 
 <div class="c">
-<p class="legend top">Choosing WebM output <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Choosing WebM output <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-03.png" alt="Miro Video Converter: choosing WebM output format" width="365" height="445">
 </div>
 
 <p>Click the &ldquo;Convert&rdquo; button and Miro Video Converter will immediately start encoding your video. The output file will be named <code>SOURCEFILE.webm</code> and will be saved in the same directory as the source video.
 
 <div class="c">
-<p class="legend top">You&rsquo;ll be staring at this screen<br>for a long time <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">You&rsquo;ll be staring at this screen<br>for a long time <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-04.png" alt="Miro Video Converter: WebM encoding progress" width="365" height="445">
 </div>
 
 <p>Once the encoding is complete, you&rsquo;ll be dumped back to the main screen. This time, select &ldquo;Theora&rdquo; from the Devices and Formats list.
 
 <div class="c">
-<p class="legend top">Time for Theora <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Time for Theora <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-08.png" alt="Miro Video Encoder: choosing Theora output format" width="365" height="445">
 </div>
 
 <p>That&rsquo;s it; press the &ldquo;Convert&rdquo; button again to encode your Theora video. The video will be named <code>SOURCEFILE.theora.ogv</code> and will be saved in the same directory as the source video.
 
 <div class="c">
-<p class="legend top">Time for a cup of coffee <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Time for a cup of coffee <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-09.png" alt="Miro Video Encoder: Theora encoding progress" width="365" height="445">
 </div>
 
 <p>Finally, encode your iPhone-compatible H.264 video by selecting &ldquo;iPhone&rdquo; from the Devices and Formats list.
 
 <div class="c">
-<p class="legend top">iPhone, not iPhone 4 <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">iPhone, not iPhone 4 <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-05.png" alt="Miro Video Encoder: choosing iPhone-compatible output format" width="365" height="445">
 </div>
 
 <p>For iPhone-compatible video, Miro Video Converter will give you an option to send the encoded file to your iTunes library. I have no opinion on whether you would want to do that, but it&rsquo;s not necessary for publishing video on the web.
 
 <div class="c">
-<p class="legend top">Don&rsquo;t send to iTunes <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Don&rsquo;t send to iTunes <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-06.png" alt="Miro Video Encoder: send to iTunes checkbox" width="365" height="445">
 </div>
 
 <p>Press the magical &ldquo;Convert&rdquo; button and wait. The encoded file will be named <code>SOURCENAME.iphone.mp4</code> and will be saved in the same directory as the source video.
 
 <div class="c">
-<p class="legend top">Do some yoga or something <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Do some yoga or something <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/miro-07.png" alt="Miro Video Converter: H.264 encoding progress" width="365" height="445">
 </div>
 
 <p>You should now have three video files alongside your original source video. If you&rsquo;re satisfied with the video quality, skip ahead to <a href="#markup">At Last, The Markup</a> to see how to assemble them into a single <code>&lt;video&gt;</code> element that works across browsers. If you&rsquo;d like to learn more about other tools or video encoding options, read on.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="firefogg">Encoding Ogg Video with Firefogg</h2>
 
@@ -326,31 +326,31 @@ body{counter-reset:h1 5}
 
 <p><dfn>Firefogg</dfn> is an open source, GPL-licensed Firefox extension for encoding Ogg video. To use it, you&rsquo;ll need to install <a href="http://www.getfirefox.com/">Mozilla Firefox</a> 3.5 or later, then visit <a href="http://firefogg.org/">firefogg.org</a>.
 
-<p class="legend top">Firefogg home page <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Firefogg home page <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/firefogg-01.png" alt="Firefogg home page" width="800" height="600">
 
 <p>Click &ldquo;Install Firefogg.&rdquo; Firefox will prompt whether you really want to allow the site to install an extension. Click &ldquo;Allow&rdquo; to continue.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Allow Firefogg to install
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Allow Firefogg to install
 <p><img src="i/firefogg-02.png" alt="Firefogg: install software" width="800" height="600">
 
 <p>Firefox will present the standard software installation window. Click &ldquo;Install&rdquo; to continue.
-<p class="legend top" style="text-align:center">Install Firefogg <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="text-align:center">Install Firefogg <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p class="c"><img src="i/firefogg-03.png" alt="Firefox Software Installation window" width="547" height="367">
 
 <p>Click &ldquo;Restart Firefox&rdquo; to complete the installation.
-<p class="legend top" style="text-align:center"><span class="arrow">&#x21b6;</span> Restart Firefox
+<p class="legend top" style="text-align:center"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Restart Firefox
 <p class="c"><img src="i/firefogg-04.png" alt="Firefox Add-ons window after installation" width="520" height="380">
 
 <p>After restarting Firefox, <code>firefogg.org</code> will confirm that Firefogg was successfully installed.
-<p class="legend top">Installation successful <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Installation successful <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/firefogg-05.png" alt="Firefogg home page after installation" width="800" height="600">
 
 <p>Click &ldquo;Make Ogg Video&rdquo; to start the encoding process.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Let&rsquo;s make some video!
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Let&rsquo;s make some video!
 <p><img src="i/firefogg-06.png" alt="Firefogg: Make Ogg Video" width="800" height="600">
 
 <p>Click &ldquo;Select file&rdquo; to select your source video.
-<p class="legend top">Select your video file <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Select your video file <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/firefogg-07.png" alt="Firefogg: Select file" width="800" height="600">
 
 <p>Firefogg has six &ldquo;tabs&rdquo;:
@@ -379,18 +379,18 @@ body{counter-reset:h1 5}
 <p><img src="i/firefogg-09.png" alt="Firefogg basic quality and resolution control" width="800" height="600">
 
 <p>In this example, I&rsquo;m going to resize the video to half its original width. Notice how Firefogg automatically adjusts the height to match.
-<p class="legend top">Adjust video width and height <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Adjust video width and height <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/firefogg-10.png" alt="Firefogg: set video width and height" width="800" height="600">
 
 <p>Once you&rsquo;ve fiddled with all the knobs, click &ldquo;Save Ogg&rdquo; to start the actual encoding process. Firefogg will prompt you for a filename for the encoded video.
-<p class="legend top">&ldquo;Save Ogg&rdquo; <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">&ldquo;Save Ogg&rdquo; <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/firefogg-12.png" alt="Firefogg: Save Ogg" width="800" height="600">
 
 <p>Firefogg will show a nice progress bar as it encodes your video. All you need to do is wait (and wait, and wait)!
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Encoding in progress
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Encoding in progress
 <p><img src="i/firefogg-13.png" alt="Firefogg: Encoding progress" width="800" height="600">
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="ffmpeg2theora">Batch Encoding Ogg Video with ffmpeg2theora</h2>
 
@@ -419,7 +419,7 @@ body{counter-reset:h1 5}
 
 <p>The encoded video will be saved in the same directory as the original video, with a <code>.ogv</code> extension added. You can specify a different location and/or filename by passing an <code>--output=/path/to/encoded/video</code> command line flag to ffmpeg2theora.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="handbrake-gui">Encoding H.264 Video with HandBrake</h2>
 
@@ -430,23 +430,23 @@ body{counter-reset:h1 5}
 <p>HandBrake comes in two flavors: graphical and command-line. I&rsquo;ll walk you through the graphical interface first, then we&rsquo;ll see how my recommended settings translate into the command-line version.
 
 <p>After you open the HandBrake application, the first thing to do is select your source video. Click the &ldquo;Source&rdquo; dropdown button and choose &ldquo;Video File&rdquo; to select a file. HandBrake can take virtually any video file as input, including DV video produced by consumer-level camcorders.
-<p class="legend top">Select your source video <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Select your source video <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/handbrake-01.png" alt="HandBrake: select source file" width="800" height="600">
 
 <p>HandBrake will complain that you haven&rsquo;t set a default directory to save your encoded videos. You can safely ignore this warning, or you can open the options window (under the &ldquo;Tools&rdquo; menu) and set a default output directory.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Ignore this
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Ignore this
 <p><img src="i/handbrake-02.png" alt="HandBrake: default directory warning" width="800" height="600">
 
 <p>On the right-hand side is a list of presets. Selecting the &ldquo;iPhone &amp; iPod Touch&rdquo; preset will set most of the options you need.
-<p class="legend top">Select iPhone preset <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Select iPhone preset <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/handbrake-03.png" alt="HandBrake: select iPhone preset" width="800" height="600">
 
 <p>One important option that is off by default is the &ldquo;Web optimized&rdquo; option. Selecting this option reorders some of the metadata within the encoded video so you can watch the start of the video while the rest is downloading in the background. I highly recommend always checking this option. It does not affect the quality or file size of the encoded video, so there&rsquo;s really no reason not to.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Always optimize for web
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Always optimize for web
 <p><img src="i/handbrake-04.png" alt="HandBrake: select Web Optimized option" width="800" height="600">
 
 <p>In the &ldquo;Picture&rdquo; tab, you can set the maximum width and height of the encoded video. You should also select the &ldquo;Keep Aspect Ratio&rdquo; option to ensure that HandBrake doesn&rsquo;t smoosh or stretch your video while resizing it.
-<p class="legend top">Set width and height <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Set width and height <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/handbrake-05.png" alt="HandBrake: set width, height, and aspect ratio" width="800" height="600">
 
 <p>In the &ldquo;Video&rdquo; tab, you can set four important options.
@@ -462,33 +462,33 @@ body{counter-reset:h1 5}
 <h4>Ask Professor Markup</h4>
 <div class="inner">
 <blockquote class="note">
-<p><span>&#x261E;</span>Q: Can I use two-pass encoding on Ogg video too?<br>
+<p><span class="whiteRightPointingIndex"></span>Q: Can I use two-pass encoding on Ogg video too?<br>
 A: Yes, but due to fundamental differences in how the encoder works, <a href="http://en.flossmanuals.net/TheoraCookbook/FFMPEG2Theora">you probably don&rsquo;t need to</a>. Two-pass H.264 encoding almost always results in higher quality video. Two-pass Ogg encoding of Ogg video is only useful if you&rsquo;re trying to get your encoded video to be a specific file size. (Maybe that is something you&rsquo;re interested in, but it&rsquo;s not what these examples show, and it&rsquo;s probably not worth the extra time for encoding web video.) For best Ogg video quality, <a href="http://hacks.mozilla.org/2009/09/theora-1-1-released/">use the video quality settings, and don&rsquo;t worry about two-pass encoding</a>.
 </blockquote>
 </div>
 </div>
 
 <p>In this example, I&rsquo;ve chosen an average bitrate of 600 kbps, which is quite high for a 320&times;240 encoded video. (Later in this chapter, I&rsquo;ll show you a sample video encoded at 200 kbps.) I&rsquo;ve also chosen 2-pass encoding with a &ldquo;turbo&rdquo; first pass.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Video quality options
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Video quality options
 <p><img src="i/handbrake-07.png" alt="HandBrake: set two-pass encoding option" width="800" height="600">
 
 <p>In the &ldquo;Audio&rdquo; tab, you probably don&rsquo;t need to change anything. If your source video has multiple audio tracks, you might need to select which one you want in the encoded video. If your video is mostly a person talking (as opposed to music or general ambient sounds), you can probably reduce the audio bitrate to 96 kbps or so. Other than that, the defaults you inherited from the &ldquo;iPhone&rdquo; preset should be fine.
-<p class="legend top">Audio quality options <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Audio quality options <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/handbrake-08.png" alt="HandBrake: audio codec" width="800" height="600">
 
 <p>Next, click the &ldquo;Browse&rdquo; button and choose a directory and filename to save your encoded video.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Set destination filename
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Set destination filename
 <p><img src="i/handbrake-09.png" alt="HandBrake: set destination filename" width="800" height="600">
 
 <p>Finally, click &ldquo;Start&rdquo; to start encoding.
-<p class="legend top">Let&rsquo;s make some video! <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top">Let&rsquo;s make some video! <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <p><img src="i/handbrake-10.png" alt="HandBrake: start encoding" width="800" height="600">
 
 <p>HandBrake will display some progress statistics while it encodes your video.
-<p class="legend top" style="text-align:right"><span class="arrow">&#x21b6;</span> Patience, Grasshopper
+<p class="legend top" style="text-align:right"><span class="arrow anticlockwiseTopSemicircleArrow"></span> Patience, Grasshopper
 <p><img src="i/handbrake-11.png" alt="HandBrake: encoding progress" width="800" height="100">
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="handbrake-cli">Batch Encoding H.264 Video with HandBrake</h2>
 
@@ -519,7 +519,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href="ht
 
 <p>From top to bottom, this command runs HandBrake with the &ldquo;iPhone &amp; iPod Touch&rdquo; preset, resizes the video to 320&times;240, sets the average bitrate to 600 kbps, enables two-pass encoding with a turbo first pass, reads the file <code>pr6.dv</code>, and encodes it as <code>pr6.mp4</code>. Whew!
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="webm-cli">Encoding WebM Video with ffmpeg</h2>
 
@@ -552,7 +552,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href="ht
 <li><code>-acodec libvorbis</code> specifies that we&rsquo;re encoding with the Vorbis audio codec. WebM always uses Vorbis audio.
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="markup">At Last, The Markup</h2>
 
@@ -560,7 +560,7 @@ A: Yes, but due to fundamental differences in how the encoder works, <a href="ht
 
 <p><abbr>HTML5</abbr> gives you two ways to include video on your web page. Both of them involve the <code>&lt;video&gt;</code> element. If you only have one video file, you can simply link to it in a <code>src</code> attribute. This is remarkably similar to including an image with an <code>&lt;img src="..."&gt;</code> tag.
 
-<p class="legend top" style="margin-left:2em">One video file <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:2em">One video file <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>&lt;video <mark>src="pr6.webm"</mark>&gt;&lt;/video&gt;</code></pre>
 
 <p>Technically, that&rsquo;s all you need. But just like an <code>&lt;img&gt;</code> tag, you should always include <code>width</code> and <code>height</code> attributes in your <code>&lt;video&gt;</code> tags. The <code>width</code> and <code>height</code> attributes can be the same as the maximum width and height you specified during the encoding process. Don&rsquo;t worry if one dimension of the video is a little smaller than that. Your browser will center the video inside the box defined by the <code>&lt;video&gt;</code> tag. It won&rsquo;t ever be smooshed or stretched out of proportion.
@@ -610,7 +610,7 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 <p>Here&rsquo;s the whole thing:
 
-<p class="legend top" style="margin-left:2em">Three (!) video files <span class="arrow">&#x21b7;</span><br></p>
+<p class="legend top" style="margin-left:2em">Three (!) video files <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>&lt;video width="320" height="240" controls&gt;
   &lt;<mark>source src="pr6.mp4"</mark>  type="video/mp4; codecs=avc1.42E01E, mp4a.40.2">
   &lt;<mark>source src="pr6.webm"</mark> type="video/webm; codecs=vp8, vorbis">
@@ -645,7 +645,7 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h3 id="video-mime-types">MIME Types Rear Their Ugly Head</h3>
 
@@ -674,7 +674,7 @@ AddType video/webm .webm</code></pre>
 
 <p>For even more gory details about configuring your web server, I direct your attention to this excellent article at the Mozilla Developer Center: <a href="https://developer.mozilla.org/en/Configuring_servers_for_Ogg_media">Configuring servers for Ogg media</a>. (The advice in that article applies to MP4 and WebM video, too.)
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="ie">What About IE?</h2>
 
@@ -686,7 +686,7 @@ AddType video/webm .webm</code></pre>
 
 <p>That last bit is the key to the whole puzzle: <abbr>HTML5</abbr> specifies that all elements (other than <code>&lt;source&gt;</code> elements) that are children of a <code>&lt;video&gt;</code> element must be ignored altogether. That allows you to use <abbr>HTML5</abbr> video in newer browsers and fall back to Flash gracefully in older browsers, without requiring any fancy JavaScript hacks. You can read more about this technique here: <a href="http://camendesign.com/code/video_for_everybody">Video For Everybody</a>.
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="ios">Issues on iPhones and iPads</h2>
 
@@ -697,7 +697,7 @@ AddType video/webm .webm</code></pre>
 <li>If you have multiple <code>&lt;source&gt;</code> elements, iOS will not recognize anything but the first one. Since iOS devices only support H.264+AAC+MP4, this effectively means you must always list your MP4 first. This bug is also fixed in iOS 4.0.
 </ol>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="android">Issues on Android devices</h2>
 
@@ -708,7 +708,7 @@ AddType video/webm .webm</code></pre>
 <li>The <code>controls</code> attribute was not supported. There are no ill effects to including it, but Android will not display any user interface controls for a video. You will need to provide your own user interface controls. At a minimum, you should provide a script that starts playing the video when the user clicks the video. This bug is also fixed in Android 2.3.
 </ol>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="example">A Complete, Live Example</h2>
 
@@ -765,7 +765,7 @@ AddType video/webm .webm</code></pre>
   </object>
 </video>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <h2 id="further-reading">Further Reading</h2>
 
@@ -790,7 +790,7 @@ AddType video/webm .webm</code></pre>
 <li><a href="http://www.kaltura.org/project/HTML5_Video_Media_JavaScript_Library">Kaltura HTML5 Video &amp; Media JavaScript Library</a>
 </ul>
 
-<p class="a">&#x2767;
+<p class="a rotatedFloralHeartBullet">
 
 <p>This has been &ldquo;Video on the Web.&rdquo; The <a href="table-of-contents.html">full table of contents</a> has more if you&rsquo;d like to keep reading.
 
