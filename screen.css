@@ -63,48 +63,48 @@ Acknowledgements & Inspirations
 /* typography */
 
 @font-face {
-  font-family: 'Essays 1743';
-  src: url('f/Essays1743.eot?') format('eot'), url('f/Essays1743.woff') format('woff'), url('f/Essays1743.ttf') format('truetype');
+  font-family: "Essays 1743";
+  src: url("f/Essays1743.eot?") format("eot"), url("f/Essays1743.woff") format("woff"), url("f/Essays1743.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Essays 1743';
-  font-style: italic;
-  src: url('f/Essays1743-italic.eot?') format('eot'), url('f/Essays1743-italic.woff') format('woff'), url('f/Essays1743-italic.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Essays 1743';
+  font-family: "Essays 1743";
   font-weight: bold;
-  src: url('f/Essays1743-bold.eot?') format('eot'), url('f/Essays1743-bold.woff') format('woff'), url('f/Essays1743-bold.ttf') format('truetype');
+  src: url("f/Essays1743-bold.eot?") format("eot"), url("f/Essays1743-bold.woff") format("woff"), url("f/Essays1743-bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Essays 1743';
+  font-family: "Essays 1743";
   font-style: italic;
-  font-weight: bold;
-  src: url('f/Essays1743-bold-italic.eot?') format('eot'), url('f/Essays1743-bold-italic.woff') format('woff'), url('f/Essays1743-bold-italic.ttf') format('truetype');
+  src: url("f/Essays1743-italic.eot?") format("eot"), url("f/Essays1743-italic.woff") format("woff"), url("f/Essays1743-italic.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Alphabet of Children';
-  src: url('f/Alphabet-of-Children.eot?') format('eot'), url('f/Alphabet-of-Children.woff') format('woff'), url('f/Alphabet-of-Children.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Libertine';
-  src: url('f/Libertine.eot?') format('eot'), url('f/Libertine.woff') format('woff'), url('f/Libertine.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Libertine';
-  font-style: italic;
-  src: url('f/Libertine-italic.eot?') format('eot'), url('f/Libertine-italic.woff') format('woff'), url('f/Libertine-italic.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Libertine';
-  font-weight: bold;
-  src: url('f/Libertine-bold.eot?') format('eot'), url('f/Libertine-bold.woff') format('woff'), url('f/Libertine-bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Libertine';
+  font-family: "Essays 1743";
   font-style: italic;
   font-weight: bold;
-  src: url('f/Libertine-bold-italic.eot?') format('eot'), url('f/Libertine-bold-italic.woff') format('woff'), url('f/Libertine-bold-italic.ttf') format('truetype');
+  src: url("f/Essays1743-bold-italic.eot?") format("eot"), url("f/Essays1743-bold-italic.woff") format("woff"), url("f/Essays1743-bold-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Alphabet of Children";
+  src: url("f/Alphabet-of-Children.eot?") format("eot"), url("f/Alphabet-of-Children.woff") format("woff"), url("f/Alphabet-of-Children.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Libertine";
+  src: url("f/Libertine.eot?") format("eot"), url("f/Libertine.woff") format("woff"), url("f/Libertine.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Libertine";
+  font-weight: bold;
+  src: url("f/Libertine-bold.eot?") format("eot"), url("f/Libertine-bold.woff") format("woff"), url("f/Libertine-bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Libertine";
+  font-style: italic;
+  src: url("f/Libertine-italic.eot?") format("eot"), url("f/Libertine-italic.woff") format("woff"), url("f/Libertine-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Libertine";
+  font-style: italic;
+  font-weight: bold;
+  src: url("f/Libertine-bold-italic.eot?") format("eot"), url("f/Libertine-bold-italic.woff") format("woff"), url("f/Libertine-bold-italic.ttf") format("truetype");
 }
 
 html {
@@ -158,7 +158,7 @@ pre, kbd, samp, code, var {
   margin: 1.75em 0;
 }
 .f:first-letter {
-  font-family: 'Alphabet of Children';
+  font-family: "Alphabet of Children";
   font-size: 8.2em;
   float: left;
   margin-right: 0.02em;
@@ -249,7 +249,7 @@ a:link:hover, a:visited:hover {
 /* figures and legends */
 
 .legend {
-  font: italic x-large/1.75 "Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman",serif;
+  font: italic x-large/1.75 "Essays 1743", "Marker Felt", "Kristen ITC", "Viner Hand ITC", "Lucida Handwriting", Amienne, Boopee, "Segoe Print", "Times New Roman", serif;
   text-shadow: 0 0 1px #667;
   margin-left: 0.5em;
   vertical-align: top;
