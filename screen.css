@@ -64,15 +64,15 @@ Acknowledgements & Inspirations
 
 @font-face {
   font-family: 'Essays 1743';
-  src: url('f/essays1743-webfont.eot');
-  src: local('Essays 1743'), url('f/essays1743-webfont.woff') format('woff'), url('f/essays1743-webfont.ttf') format('truetype');
+  src: url('f/Essays1743.eot');
+  src: local('Essays 1743'), url('f/Essays1743.woff') format('woff'), url('f/Essays1743.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Essays 1743';
-  src: url('f/essays1743-italic-webfont.eot');
-  src: local('Essays 1743'), url('f/essays1743-italic-webfont.woff') format('woff'), url('f/essays1743-italic-webfont.ttf') format('truetype');
+  src: url('f/Essays1743-italic.eot');
+  src: local('Essays 1743'), url('f/Essays1743-italic.woff') format('woff'), url('f/Essays1743-italic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
