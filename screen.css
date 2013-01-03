@@ -64,12 +64,23 @@ Acknowledgements & Inspirations
 
 @font-face {
   font-family: 'Essays 1743';
-  src: url('Essays1743.eot?') format('eot'), url('Essays1743.woff') format('woff'), url('Essays1743.ttf') format('truetype');
+  src: url('f/Essays1743.eot?') format('eot'), url('f/Essays1743.woff') format('woff'), url('f/Essays1743.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Essays 1743';
   font-style: italic;
-  src: url('Essays1743-italic.eot?') format('eot'), url('Essays1743-italic.woff') format('woff'), url('Essays1743-italic.ttf') format('truetype');
+  src: url('f/Essays1743-italic.eot?') format('eot'), url('f/Essays1743-italic.woff') format('woff'), url('f/Essays1743-italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Essays 1743';
+  font-weight: bold;
+  src: url('f/Essays1743-bold.eot?') format('eot'), url('f/Essays1743-bold.woff') format('woff'), url('f/Essays1743-bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Essays 1743';
+  font-style: italic;
+  font-weight: bold;
+  src: url('f/Essays1743-bold-italic.eot?') format('eot'), url('f/Essays1743-bold-italic.woff') format('woff'), url('f/Essays1743-bold-italic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Alphabet of Children';
