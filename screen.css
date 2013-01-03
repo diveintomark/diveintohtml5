@@ -107,11 +107,12 @@ Acknowledgements & Inspirations
   src: url("f/Libertine-bold-italic.eot?") format("eot"), url("f/Libertine-bold-italic.woff") format("woff"), url("f/Libertine-bold-italic.ttf") format("truetype");
 }
 
+/* base */
+
 html {
   overflow-y: scroll;
   -webkit-font-smoothing: antialiased;
 }
-
 html, body {
   background: #fff;
   color: #000;
@@ -263,15 +264,16 @@ a:link:hover, a:visited:hover {
   float: left;
 }
 .right {
+  float: right;
 }
 .top {
   margin-bottom: 0.3em;
   display: block;
 }
 .bottom {
-  display:block;
-  margin-top:0;
-  margin-left:2em;
+  display: block;
+  margin-top: 0;
+  margin-left: 2em;
 }
 
 /* code blocks */
@@ -300,7 +302,7 @@ li ol, .q, .v span {
   margin: 0;
 }
 code, var, samp {
-  line-height:inherit !important;
+  line-height: inherit !important;
 }
 
 /* headers */
@@ -332,10 +334,11 @@ h3 {
   text-align: center;
 }
 h1:before {
-  content: "№" counter(h1) ".";
+  content: "\2116" counter(h1) ".";
 }
 
 /* video */
+
 video {
   display: block;
   margin: 0 auto;
@@ -344,20 +347,20 @@ video {
 /* browser compatibility and other tables */
 
 .bc, .st {
-  width:100%;
-  border-collapse:collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .bc tbody th, .bc thead th.l, tfoot td {
-  text-align:left;
+  text-align: left;
 }
 
 .bc thead th, .bc td {
-  text-align:center;
+  text-align: center;
 }
 
 tfoot {
-  font-size:small;
+  font-size: small;
 }
 
 .st {
@@ -383,17 +386,17 @@ tfoot {
 
 /* asterism styles */
 
-.rotatedFloralHeartBullet:after { content: '\2767' }
+.rotatedFloralHeartBullet:after { content: "\2767" }
 
-.triangularBullet:after { content: '\2023' }
+.triangularBullet:after { content: "\2023" }
 
-.leftwardsWaveArrow:after  { content: ' \219C' }
-.rightwardsWaveArrow:after { content: '\219D' }
+.leftwardsWaveArrow:after  { content: "\219C" }
+.rightwardsWaveArrow:after { content: "\219D" }
 
-.leftwardsSquiggleArrow:after  { content: ' \21DC' }
-.rightwardsSquiggleArrow:after { content: '\21DD ' }
+.leftwardsSquiggleArrow:after  { content: " \21DC" }
+.rightwardsSquiggleArrow:after { content: "\21DD" }
 
-.whiteRightPointingIndex:after { content: '\261E' }
+.whiteRightPointingIndex:after { content: "\261E" }
 
-.anticlockwiseTopSemicircleArrow:after { content: '\21B6' }
-.clockwiseTopSemicircleArrow:after { content: '\21B7' }
+.anticlockwiseTopSemicircleArrow:after { content: "\21B6" }
+.clockwiseTopSemicircleArrow:after { content: "\21B7" }
