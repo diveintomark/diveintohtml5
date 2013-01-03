@@ -56,7 +56,7 @@ Acknowledgements & Inspirations
 "Unicode Support in HTML, Fonts, and Web Browsers" ....... http://alanwood.net/unicode/
 "Punctuation" ............................................ http://en.wikipedia.org/wiki/Punctuation
 "Essays 1743" ............................................ http://www.thibault.org/fonts/essays/
-"Linux Libertine" ........................................ http://linuxlibertine.sourceforge.net/
+"Libertine" .............................................. http://linuxlibertine.sourceforge.net/
 "CSS Styled Restaurant Menu" ............................. http://www.web-graphics.com/mtarchive/ItalianMenu.html
 */
 
@@ -76,18 +76,24 @@ Acknowledgements & Inspirations
   src: url('alphabet-of-children-webfont.eot?') format('eot'), url('alphabet-of-children-webfont.woff') format('woff'), url('alphabet-of-children-webfont.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Linux Libertine';
-  src: url('linlibertine_re-4.7.5-webfont.eot?') format('eot'), url('linlibertine_re-4.7.5-webfont.woff') format('woff'), url('linlibertine_re-4.7.5-webfont.ttf') format('truetype');
+  font-family: 'Libertine';
+  src: url('f/Libertine.eot?') format('eot'), url('f/Libertine.woff') format('woff'), url('f/Libertine.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Linux Libertine';
+  font-family: 'Libertine';
   font-style: italic;
-  src: url('linlibertine_it-4.7.5-webfont.eot?') format('eot'), url('linlibertine_it-4.7.5-webfont.woff') format('woff'), url('linlibertine_it-4.7.5-webfont.ttf') format('truetype');
+  src: url('f/Libertine-italic.eot?') format('eot'), url('f/Libertine-italic.woff') format('woff'), url('f/Libertine-italic.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Linux Libertine';
-  font-style: bold;
-  src: url('linlibertine_bd-4.7.5-webfont.eot?') format('eot'), url('linlibertine_bd-4.7.5-webfont.woff') format('woff'), url('linlibertine_bd-4.7.5-webfont.ttf') format('truetype');
+  font-family: 'Libertine';
+  font-weight: bold;
+  src: url('f/Libertine-bold.eot?') format('eot'), url('f/Libertine-bold.woff') format('woff'), url('f/Libertine-bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Libertine';
+  font-style: italic;
+  font-weight: bold;
+  src: url('f/Libertine-bold-italic.eot?') format('eot'), url('f/Libertine-bold-italic.woff') format('woff'), url('f/Libertine-bold-italic.ttf') format('truetype');
 }
 
 html {
@@ -102,7 +108,7 @@ html, body {
   padding: 0;
 }
 body {
-  font: large/1.556 "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  font: large/1.556 "Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   word-spacing: 0.1em;
   max-width: 960px;
   margin: 0 auto;
