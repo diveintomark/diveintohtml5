@@ -161,7 +161,7 @@ body{counter-reset:h1 11}
 <p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> The prestige
 <pre><code>window.addEventListener("popstate", function(e) {
     swapPhoto(location.pathname);
-}</code></pre>
+});</code></pre>
 
 <p>After you&rsquo;ve used the <code>history.pushState()</code> function to push a fake <abbr>URL</abbr> onto the browser&rsquo;s history stack, when the user presses the back button, the browser will fire a <code>popstate</code> event on the <code>window</code> object. This is your chance to complete the illusion once and for all. Because making something disappear isn't enough; you have to bring it back.
 
