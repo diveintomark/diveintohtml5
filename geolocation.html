@@ -354,7 +354,7 @@ function lookup_location() {
 function show_map(loc) {
   $("#geo-wrapper").css({'width':'320px','height':'350px'});
   var map = new google.maps.Map(document.getElementById("geo-wrapper"), {zoom: 14, mapTypeControl:true, zoomControl: true, mapTypeId: google.maps.MapTypeId.ROADMAP});
-  var center = new google.maps.LatLng(loc.coords.latitude,loc.coords.longitude);  
+  var center = new google.maps.LatLng(loc.coords.latitude,loc.coords.longitude);
   map.setCenter(center);
   var marker = new google.maps.Marker({map: map, position: center, draggable: false, title: "You are here (more or less)"});
 }

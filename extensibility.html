@@ -372,17 +372,17 @@ Suite 415</mark>
 
 <pre><samp>Item
   <b>Type</b>: http://data-vocabulary.org/person
-  photo = http://diveintohtml5.info/examples/2000_05_mark.jpg 
-  name = Mark Pilgrim 
-  title = Developer advocate 
-  affiliation = Google, Inc. 
-  address = Item( 1 ) 
-  url = http://diveintomark.org/ 
-  url = http://www.google.com/profiles/pilgrim 
-  url = http://www.reddit.com/user/MarkPilgrim 
-  url = http://www.twitter.com/diveintomark 
+  photo = http://diveintohtml5.info/examples/2000_05_mark.jpg
+  name = Mark Pilgrim
+  title = Developer advocate
+  affiliation = Google, Inc.
+  address = Item( 1 )
+  url = http://diveintomark.org/
+  url = http://www.google.com/profiles/pilgrim
+  url = http://www.reddit.com/user/MarkPilgrim
+  url = http://www.twitter.com/diveintomark
 
-Item 1 
+Item 1
   <b>Type</b>: http://data-vocabulary.org/address
   street-address = 100 Main Street
   locality = Anytown
@@ -705,34 +705,34 @@ Android, AJAX APIs, Chrome, and Google Web Toolkit.&lt;/p&gt;</code></pre>
 
 <pre><samp>Item
     <b>Type:</b> http://data-vocabulary.org/Event
-    summary = Google Developer Day 2009 
-    eventType = conference 
-    photo = http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg 
-    description = Google Developer Days are a chance to learn about Google developer products from the engineers who built them. This one-day conference includes seminars and office hours on web technologies like Goo... 
-    startDate = 2009-11-06T08:30+01:00 
-    endDate = 2009-11-06T20:30+01:00 
-    location = Item(__1) 
-    geo = Item(__3) 
-    url = http://code.google.com/intl/cs/events/developerday/2009/home.html 
+    summary = Google Developer Day 2009
+    eventType = conference
+    photo = http://diveintohtml5.info/examples/gdd-2009-prague-pilgrim.jpg
+    description = Google Developer Days are a chance to learn about Google developer products from the engineers who built them. This one-day conference includes seminars and office hours on web technologies like Goo...
+    startDate = 2009-11-06T08:30+01:00
+    endDate = 2009-11-06T20:30+01:00
+    location = Item(__1)
+    geo = Item(__3)
+    url = http://code.google.com/intl/cs/events/developerday/2009/home.html
 
 Item
     Id: __1
     <b>Type:</b> http://data-vocabulary.org/Organization
-    name = Congress Center 
-    address = Item(__2) 
+    name = Congress Center
+    address = Item(__2)
 
 Item
     Id: __2
     <b>Type:</b> http://data-vocabulary.org/Address
-    street-address = 5th května 65 
-    postal-code = 140 21 
-    locality = Praha 4 
-    country-name = Czech Republic 
+    street-address = 5th května 65
+    postal-code = 140 21
+    locality = Praha 4
+    country-name = Czech Republic
 
 Item
     Id: __3
     <b>Type:</b> http://data-vocabulary.org/Geo
-    latitude = 50.047893 
+    latitude = 50.047893
     longitude = 14.4491</samp></pre>
 
 <p>As you can see, all the information we added in microdata is there. Properties that are separate microdata items are given internal <abbr>IDs</abbr> (<code>Item(__1)</code>, <code>Item(__2)</code> and so on). This is not part of the microdata specification. It&rsquo;s just a convention that Google&rsquo;s testing tool uses to linearize the sample output and show you the grouping of nested items and their properties.
@@ -869,28 +869,28 @@ Excerpt from the page will show up here.</span><br>
 
 <pre><samp>Item
   <b>Type:</b> http://data-vocabulary.org/Review
-  itemreviewed = Anna&rsquo;s Pizzeria 
-  rating = 4 
-  summary = New York-style pizza right in historic downtown Apex 
+  itemreviewed = Anna&rsquo;s Pizzeria
+  rating = 4
+  summary = New York-style pizza right in historic downtown Apex
   description = Food is top-notch. Atmosphere is just right ...
-  address = Item(__1) 
-  geo = Item(__2) 
-  reviewer = Mark Pilgrim 
-  dtreviewed = 2010-03-31 
+  address = Item(__1)
+  geo = Item(__2)
+  reviewer = Mark Pilgrim
+  dtreviewed = 2010-03-31
 
 Item
   Id: __1
   <b>Type:</b> http://data-vocabulary.org/Organization
-  street-address = 100 North Salem Street 
-  locality = Apex 
-  region = NC 
-  postal-code = 27502 
-  country-name = USA 
+  street-address = 100 North Salem Street
+  locality = Apex
+  region = NC
+  postal-code = 27502
+  country-name = USA
 
 Item
   Id: __2
   <b>Type:</b> http://data-vocabulary.org/Geo
-  latitude = 35.730796 
+  latitude = 35.730796
   longitude = -78.851426</samp></pre>
 
 <p>And here (modulo the whims of Google, the phase of the moon, and so on and so forth) is what my review might look like in a search result listing:

@@ -53,64 +53,64 @@ body{counter-reset:h1 1}
 
 <p><i>(There are a number of typographical errors in the following quotes. I have decided to leave them intact for historical accuracy.)</i>
 
-<p>On February 25, 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html"><cite>Marc Andreessen</cite> wrote</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html"> 
-<p>I&rsquo;d like to propose a new, optional HTML tag: 
-<p>IMG 
-<p>Required argument is <code>SRC="url"</code>.  
-<p>This names a bitmap or pixmap file for the browser to attempt to pull over the network and interpret as an image, to be embedded in the text at the point of the tag&rsquo;s occurrence. 
+<p>On February 25, 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html"><cite>Marc Andreessen</cite> wrote</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">
+<p>I&rsquo;d like to propose a new, optional HTML tag:
+<p>IMG
+<p>Required argument is <code>SRC="url"</code>.
+<p>This names a bitmap or pixmap file for the browser to attempt to pull over the network and interpret as an image, to be embedded in the text at the point of the tag&rsquo;s occurrence.
 <p>An example is:
-<p><code>&lt;IMG SRC="file://foobar.com/foo/bar/blargh.xbm"&gt;</code> 
-<p>(There is no closing tag; this is just a standalone tag.) 
-<p>This tag can be embedded in an anchor like anything else; when that happens, it becomes an icon that&rsquo;s sensitive to activation just like a regular text anchor. 
-<p>Browsers should be afforded flexibility as to which image formats they support. Xbm and Xpm are good ones to support, for example. If a browser cannot interpret a given format, it can do whatever it wants instead (X Mosaic will pop up a default bitmap as a placeholder). 
-<p>This is required functionality for X Mosaic; we have this working, and we&rsquo;ll at least be using it internally. I&rsquo;m certainly open to suggestions as to how this should be handled within HTML; if you have a better idea than what I&rsquo;m presenting now, please let me know. I know this is hazy wrt image format, but I don&rsquo;t see an alternative than to just say &ldquo;let the browser do what it can&rdquo; and wait for the perfect solution to come along (MIME, someday, maybe). 
-</blockquote> 
- 
-<p><a href="http://en.wikipedia.org/wiki/X_BitMap">Xbm</a> and <a href="http://en.wikipedia.org/wiki/X_PixMap">Xpm</a> were popular graphics formats on Unix systems. 
- 
-<p>&ldquo;Mosaic&rdquo; was one of the earliest web browsers. (&ldquo;X Mosaic&rdquo; was the version that ran on Unix systems.) When he wrote this message in early 1993, <a href="http://en.wikipedia.org/wiki/Marc_Andreessen">Marc Andreessen</a> had not yet founded the company that made him famous, <a href="http://en.wikipedia.org/wiki/Mosaic_Communications_Corporation">Mosaic Communications Corporation</a>, nor had he started work on that company&rsquo;s flagship product, &ldquo;Mosaic Netscape.&rdquo; (You may know them better by their later names, &ldquo;Netscape Corporation&rdquo; and &ldquo;Netscape Navigator.&rdquo;) 
- 
-<p>&ldquo;MIME, someday, maybe&rdquo; is a reference to <a href="http://en.wikipedia.org/wiki/Content_negotiation">content negotiation</a>, a feature of HTTP where a client (like a web browser) tells the server (like a web server) what types of resources it supports (like <code>image/jpeg</code>) so the server can return something in the client&rsquo;s preferred format. <a href="http://www.w3.org/Protocols/HTTP/AsImplemented.html">The Original HTTP as defined in 1991</a> (the only version that was implemented in February 1993) did not have a way for clients to tell servers what kinds of images they supported, thus the design dilemma that Marc faced. 
- 
-<p>A few hours later, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0183.html"><cite>Tony Johnson</cite> replied</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0183.html"> 
-<p>I have something very similar in Midas 2.0 (in use here at SLAC, and due for public release any week now), except that all the names are different, and it has an extra argument <code>NAME="name"</code>. It has almost exactly the same functionality as your proposed <code>IMG</code> tag. e.g. 
-<p><code>&lt;ICON name="NoEntry" href="http://note/foo/bar/NoEntry.xbm"&gt;</code> 
-<p>The idea of the name parameter was to allow the browser to have a set of &ldquo;built in&rdquo; images. If the name matches a &ldquo;built in&rdquo; image it would use that instead of having to go out and fetch the image. The name could also act as a hint for &ldquo;line mode&rdquo; browsers as to what kind of a symbol to put in place of the image. 
-<p>I don&rsquo;t much care about the parameter or tag names, but it would be sensible if we used the same things. I don&rsquo;t much care for abbreviations, ie why not <code>IMAGE=</code> and <code>SOURCE=</code>. I somewhat prefer <code>ICON</code> since it imlies that the <code>IMAGE</code> should be smallish, but maybe <code>ICON</code> is an overloaded word? 
-</blockquote> 
- 
-<p><a href="http://en.wikipedia.org/wiki/MidasWWW">Midas</a> was another early web browser, a contemporary of X Mosaic. It was cross-platform; it ran on both Unix and VMS. &ldquo;SLAC&rdquo; refers to the <a href="http://en.wikipedia.org/wiki/Stanford_Linear_Accelerator">Stanford Linear Accelerator Center</a>, now the SLAC National Accelerator Laboratory, that hosted the first web server in the United States (in fact <a href="http://www.slac.stanford.edu/history/earlyweb/history.shtml">the first web server outside Europe</a>). When <a href="http://www.slac.stanford.edu/history/earlyweb/wizards.shtml#Tony%20Johnson">Tony</a> wrote this message, SLAC was an old-timer on the WWW, having hosted <a href="http://www.slac.stanford.edu/history/earlyweb/firstpages.shtml">five pages</a> on its web server for a whopping 441 days. 
- 
-<p>Tony continued: 
- 
-<blockquote> 
-<p>While we are on the subject of new tags, I have another, somewhat similar tag, which I would like to support in Midas 2.0. In principle it is: 
-<p><code>&lt;INCLUDE HREF="..."&gt;</code> 
-<p>The intention here would be that the second document is to be included into the first document at the place where the tag occured. In principle the referenced document could be anything, but the main purpose was to allow images (in this case arbitrary sized) to be embedded into documents. Again the intention would be that when HTTP2 comes along the format of the included document would be up for separate negotiation. 
-</blockquote> 
- 
-<p>&ldquo;HTTP2&rdquo; is a reference to <a href="http://www.w3.org/Protocols/HTTP/HTTP2.html">Basic HTTP as defined in 1992</a>. At this point, in early 1993, it was still largely unimplemented. The draft known as &ldquo;HTTP2&rdquo; evolved and was eventually standardized as &ldquo;HTTP 1.0&rdquo; (albeit <a href="http://www.w3.org/Protocols/HTTP/1.0/spec.html">not for another three years</a>). HTTP 1.0 did include <a href="http://www.w3.org/Protocols/HTTP/HTRQ_Headers.html#z3">request headers for content negotiation</a>, a.k.a. &ldquo;MIME, someday, maybe.&rdquo; 
- 
-<p>Tony continued: 
- 
-<blockquote> 
-<p>An alternative I was considering was: 
-<p><code>&lt;A HREF="..." INCLUDE&gt;See photo&lt;/A></code> 
-<p>I don&rsquo;t much like adding more functionality to the <code>&lt;A></code> tag, but the idea here is to maintain compatibility with browsers that can not honour the <code>INCLUDE</code> parameter. The intention is that browsers which do understand <code>INCLUDE</code>, replace the anchor text (in this case &ldquo;See photo&rdquo;) with the included document (picture), while older or dumber browsers ignore the <code>INCLUDE</code> tag completely. 
-</blockquote> 
- 
-<p>This proposal was never implemented, although the idea of providing text if an image is missing is <a href="http://diveintoaccessibility.info/day_23_providing_text_equivalents_for_images.html">an important accessibility technique</a> that was missing from Marc&rsquo;s initial <code>&lt;IMG&gt;</code> proposal. Years later, this feature was bolted on as the <a href="http://www.w3.org/TR/html4/struct/objects.html#h-13.8"><code>&lt;img alt&gt;</code> attribute</a>, which Netscape promptly broke by <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html#tooltip">erroneously treating it as a tooltip</a>. 
- 
-<p>A few hours after Tony posted his message, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html"><cite>Tim Berners-Lee</cite> responded</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html"> 
-<p>I had imagined that figues would be reprented as 
-<p><code>&lt;a name="fig1" href="fghjkdfghj" REL="EMBED, PRESENT"&gt;Figure &lt;/a></code> 
-<p>where the relation ship values mean 
+<p><code>&lt;IMG SRC="file://foobar.com/foo/bar/blargh.xbm"&gt;</code>
+<p>(There is no closing tag; this is just a standalone tag.)
+<p>This tag can be embedded in an anchor like anything else; when that happens, it becomes an icon that&rsquo;s sensitive to activation just like a regular text anchor.
+<p>Browsers should be afforded flexibility as to which image formats they support. Xbm and Xpm are good ones to support, for example. If a browser cannot interpret a given format, it can do whatever it wants instead (X Mosaic will pop up a default bitmap as a placeholder).
+<p>This is required functionality for X Mosaic; we have this working, and we&rsquo;ll at least be using it internally. I&rsquo;m certainly open to suggestions as to how this should be handled within HTML; if you have a better idea than what I&rsquo;m presenting now, please let me know. I know this is hazy wrt image format, but I don&rsquo;t see an alternative than to just say &ldquo;let the browser do what it can&rdquo; and wait for the perfect solution to come along (MIME, someday, maybe).
+</blockquote>
+
+<p><a href="http://en.wikipedia.org/wiki/X_BitMap">Xbm</a> and <a href="http://en.wikipedia.org/wiki/X_PixMap">Xpm</a> were popular graphics formats on Unix systems.
+
+<p>&ldquo;Mosaic&rdquo; was one of the earliest web browsers. (&ldquo;X Mosaic&rdquo; was the version that ran on Unix systems.) When he wrote this message in early 1993, <a href="http://en.wikipedia.org/wiki/Marc_Andreessen">Marc Andreessen</a> had not yet founded the company that made him famous, <a href="http://en.wikipedia.org/wiki/Mosaic_Communications_Corporation">Mosaic Communications Corporation</a>, nor had he started work on that company&rsquo;s flagship product, &ldquo;Mosaic Netscape.&rdquo; (You may know them better by their later names, &ldquo;Netscape Corporation&rdquo; and &ldquo;Netscape Navigator.&rdquo;)
+
+<p>&ldquo;MIME, someday, maybe&rdquo; is a reference to <a href="http://en.wikipedia.org/wiki/Content_negotiation">content negotiation</a>, a feature of HTTP where a client (like a web browser) tells the server (like a web server) what types of resources it supports (like <code>image/jpeg</code>) so the server can return something in the client&rsquo;s preferred format. <a href="http://www.w3.org/Protocols/HTTP/AsImplemented.html">The Original HTTP as defined in 1991</a> (the only version that was implemented in February 1993) did not have a way for clients to tell servers what kinds of images they supported, thus the design dilemma that Marc faced.
+
+<p>A few hours later, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0183.html"><cite>Tony Johnson</cite> replied</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0183.html">
+<p>I have something very similar in Midas 2.0 (in use here at SLAC, and due for public release any week now), except that all the names are different, and it has an extra argument <code>NAME="name"</code>. It has almost exactly the same functionality as your proposed <code>IMG</code> tag. e.g.
+<p><code>&lt;ICON name="NoEntry" href="http://note/foo/bar/NoEntry.xbm"&gt;</code>
+<p>The idea of the name parameter was to allow the browser to have a set of &ldquo;built in&rdquo; images. If the name matches a &ldquo;built in&rdquo; image it would use that instead of having to go out and fetch the image. The name could also act as a hint for &ldquo;line mode&rdquo; browsers as to what kind of a symbol to put in place of the image.
+<p>I don&rsquo;t much care about the parameter or tag names, but it would be sensible if we used the same things. I don&rsquo;t much care for abbreviations, ie why not <code>IMAGE=</code> and <code>SOURCE=</code>. I somewhat prefer <code>ICON</code> since it imlies that the <code>IMAGE</code> should be smallish, but maybe <code>ICON</code> is an overloaded word?
+</blockquote>
+
+<p><a href="http://en.wikipedia.org/wiki/MidasWWW">Midas</a> was another early web browser, a contemporary of X Mosaic. It was cross-platform; it ran on both Unix and VMS. &ldquo;SLAC&rdquo; refers to the <a href="http://en.wikipedia.org/wiki/Stanford_Linear_Accelerator">Stanford Linear Accelerator Center</a>, now the SLAC National Accelerator Laboratory, that hosted the first web server in the United States (in fact <a href="http://www.slac.stanford.edu/history/earlyweb/history.shtml">the first web server outside Europe</a>). When <a href="http://www.slac.stanford.edu/history/earlyweb/wizards.shtml#Tony%20Johnson">Tony</a> wrote this message, SLAC was an old-timer on the WWW, having hosted <a href="http://www.slac.stanford.edu/history/earlyweb/firstpages.shtml">five pages</a> on its web server for a whopping 441 days.
+
+<p>Tony continued:
+
+<blockquote>
+<p>While we are on the subject of new tags, I have another, somewhat similar tag, which I would like to support in Midas 2.0. In principle it is:
+<p><code>&lt;INCLUDE HREF="..."&gt;</code>
+<p>The intention here would be that the second document is to be included into the first document at the place where the tag occured. In principle the referenced document could be anything, but the main purpose was to allow images (in this case arbitrary sized) to be embedded into documents. Again the intention would be that when HTTP2 comes along the format of the included document would be up for separate negotiation.
+</blockquote>
+
+<p>&ldquo;HTTP2&rdquo; is a reference to <a href="http://www.w3.org/Protocols/HTTP/HTTP2.html">Basic HTTP as defined in 1992</a>. At this point, in early 1993, it was still largely unimplemented. The draft known as &ldquo;HTTP2&rdquo; evolved and was eventually standardized as &ldquo;HTTP 1.0&rdquo; (albeit <a href="http://www.w3.org/Protocols/HTTP/1.0/spec.html">not for another three years</a>). HTTP 1.0 did include <a href="http://www.w3.org/Protocols/HTTP/HTRQ_Headers.html#z3">request headers for content negotiation</a>, a.k.a. &ldquo;MIME, someday, maybe.&rdquo;
+
+<p>Tony continued:
+
+<blockquote>
+<p>An alternative I was considering was:
+<p><code>&lt;A HREF="..." INCLUDE&gt;See photo&lt;/A></code>
+<p>I don&rsquo;t much like adding more functionality to the <code>&lt;A></code> tag, but the idea here is to maintain compatibility with browsers that can not honour the <code>INCLUDE</code> parameter. The intention is that browsers which do understand <code>INCLUDE</code>, replace the anchor text (in this case &ldquo;See photo&rdquo;) with the included document (picture), while older or dumber browsers ignore the <code>INCLUDE</code> tag completely.
+</blockquote>
+
+<p>This proposal was never implemented, although the idea of providing text if an image is missing is <a href="http://diveintoaccessibility.info/day_23_providing_text_equivalents_for_images.html">an important accessibility technique</a> that was missing from Marc&rsquo;s initial <code>&lt;IMG&gt;</code> proposal. Years later, this feature was bolted on as the <a href="http://www.w3.org/TR/html4/struct/objects.html#h-13.8"><code>&lt;img alt&gt;</code> attribute</a>, which Netscape promptly broke by <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html#tooltip">erroneously treating it as a tooltip</a>.
+
+<p>A few hours after Tony posted his message, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html"><cite>Tim Berners-Lee</cite> responded</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html">
+<p>I had imagined that figues would be reprented as
+<p><code>&lt;a name="fig1" href="fghjkdfghj" REL="EMBED, PRESENT"&gt;Figure &lt;/a></code>
+<p>where the relation ship values mean
 <pre>EMBED	 Embed this here when presenting it
 PRESENT	 Present this whenever the source document is presented</pre>
 <p>Note that you can have various combinations of these, and if the browser doesn&rsquo;t support either one, it doesn&rsquo;t break.
@@ -133,107 +133,107 @@ PRESENT	 Present this whenever the source document is presented</pre>
 
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0192.html">
 <p>While images are at the top of my list of desired medium types in a WWW browser, I don&rsquo;t think we should add idiosyncratic hooks for media one at a time. Whatever happened to the enthusiasm for using the MIME typing mechanism?
-</blockquote> 
- 
-<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0194.html"><cite>Marc Andreessen</cite> replied</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0194.html"> 
-<p>This isn&rsquo;t a substitute for the upcoming use of MIME as a standard document mechanism; this provides a necessary and simple implementation of functionality that&rsquo;s needed independently from MIME. 
-</blockquote> 
- 
-<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0198.html"><cite>Jay C. Weber</cite> responded</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0198.html"> 
-<p>Let&rsquo;s temporarily forget about MIME, if it clouds the issue. My objection was to the discussion of &ldquo;how are we going to support embedded images&rdquo; rather than &ldquo;how are we going to support embedded objections in various media&rdquo;. 
-<p>Otherwise, next week someone is going to suggest &lsquo;lets put in a new tag <code>&lt;AUD SRC="file://foobar.com/foo/bar/blargh.snd"&gt;</code>&lsquo; for audio. 
-<p>There shouldn&rsquo;t be much cost in going with something that generalizes. 
-</blockquote> 
- 
-<p>With the benefit of hindsight, it appears that Jay&rsquo;s concerns were well founded. It took a little more than a week, but HTML5 did finally add new <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video"><code>&lt;video&gt;</code></a> and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio&gt;</code></a> elements. 
- 
-<p>Responding to Jay&rsquo;s original message, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0204.html"><cite>Dave Raggett</cite> said</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0204.html"> 
-<p>True indeed! I want to consider a whole range of possible image/line art types, along with the possibility of format negotiation. Tim&rsquo;s note on supporting clickable areas within images is also important. 
-</blockquote> 
- 
-<p>Later in 1993, <a href="http://www.w3.org/People/Raggett/">Dave Raggett</a> proposed <a href="http://www.w3.org/MarkUp/HTMLPlus/htmlplus_1.html">HTML+</a> as an evolution of the HTML standard. The proposal was never implemented, and it was superseded by <a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html">HTML 2.0</a>. HTML 2.0 was a &ldquo;retro-spec,&rdquo; which means it formalized features already in common use. &ldquo;<a href="http://www.w3.org/MarkUp/html-spec/html-spec_1.html#SEC1.1">This specification brings together, clarifies, and formalizes a set of features</a> that roughly corresponds to the capabilities of HTML in common use prior to June 1994.&rdquo; 
- 
-<p>Dave later wrote <a href="http://www.w3.org/MarkUp/html3/CoverPage.html">HTML 3.0</a>, based on his earlier HTML+ draft. Outside of the W3C&rsquo;s own reference implementation, <a href="http://www.w3.org/Arena/">Arena</a>, HTML 3.0 was never implemented, and it was superseded by <a href="http://www.w3.org/MarkUp/Wilbur/">HTML 3.2</a>, another &ldquo;retro-spec&rdquo;: &ldquo;<a href="http://www.w3.org/TR/REC-html32.html#intro">HTML 3.2 adds widely deployed features</a> such as tables, applets and text flow around images, while providing full backwards compatibility with the existing standard HTML 2.0.&rdquo; 
- 
-<p>Dave later co-authored <a href="http://www.w3.org/TR/html4">HTML 4.0</a>, developed <a href="http://tidy.sourceforge.net/">HTML Tidy</a>, and went on to help with XHTML, XForms, MathML, and other modern W3C specifications. 
- 
-<p>Getting back to 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0209.html">Marc replied to Dave</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0209.html"> 
-<p>Actually, maybe we should think about a general-purpose procedural graphics language within which we can embed arbitrary hyperlinks attached to icons, images, or text, or anything. Has anyone else seen Intermedia&rsquo;s capabilities wrt this? 
-</blockquote> 
- 
-<p><a href="http://en.wikipedia.org/wiki/Intermedia_(hypertext)">Intermedia</a> was a hypertext project from Brown University. It was developed from 1985 to 1991 and ran on <a href="http://en.wikipedia.org/wiki/A/UX">A/UX</a>, a Unix-like operating system for early Macintosh computers. 
- 
-<p>The idea of a &ldquo;general-purpose procedural graphics language&rdquo; did eventually catch on. Modern browsers support both <a href="http://www.w3.org/Graphics/SVG/">SVG</a> (declarative markup with embedded scripting) and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element"><code>&lt;canvas&gt;</code></a> (a procedural direct-mode graphics API), although the latter <a href="http://ln.hixie.ch/?start=1089635050&amp;count=1">started as a proprietary extension</a> before being &ldquo;retro-specced&rdquo; by the <a href="http://www.whatwg.org/">WHATWG</a>. 
- 
-<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0217.html"><cite>Bill Janssen</cite> replied</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0217.html"> 
-<p>Other systems to look at which have this (fairly valuable) notion are Andrew and Slate. Andrew is built with _insets_, each of which has some interesting type, such as text, bitmap, drawing, animation, message, spreadsheet, etc. The notion of arbitrary recursive embedding is present, so that an inset of any kind can be embedded in any other kind which supports embedding. For example, an inset can be embedded at any point in the text of the text widget, or in any rectangular area in the drawing widget, or in any cell of the spreadsheet. 
-</blockquote> 
- 
-<p>&ldquo;Andrew&rdquo; is a reference to the <a href="http://www-2.cs.cmu.edu/~AUIS/">Andrew User Interface System</a> (although at that time it was simply known as the <a href="http://en.wikipedia.org/wiki/Andrew_Project">Andrew Project</a>). 
- 
-<p>Meanwhile, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0215.html"><cite>Thomas Fine</cite> had a different idea</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0215.html"> 
-<p>Here&rsquo;s my opinion. The best way to do images in WWW is by using MIME. I&rsquo;m sure postscript is already a supported subtype in MIME, and it deals very nicely with mixing text and graphics. 
-<p>But it isn&rsquo;t clickable, you say? Yes your right. I suspect there is already an answer to this in display postscript. Even if there isn&rsquo;t the addition to standard postscript is trivial. Define an anchor command which specifies the URL and uses the current path as a closed region for the button. Since postscript deals so well with paths, this makes arbitrary button shapes trivial. 
-</blockquote> 
- 
-<p><a href="http://en.wikipedia.org/wiki/Display_PostScript">Display Postscript</a> was an on-screen rendering technology co-developed by Adobe and NeXT. 
- 
-<p>This proposal was never implemented, but the idea that the best way to fix HTML is to replace it with something else altogether <a href="http://dbaron.org/log/20090707-ex-html">still pops up from time to time</a>. 
- 
-<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0221.html"><cite>Tim Berners-Lee</cite>, March 2, 1993</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0221.html"> 
-<p>HTTP2 allows a document to contain any type which the user has said he can handle, not just registered MIME types. So one can experiment. Yes I think there is a case for postscript with hypertext. I don&rsquo;t know whether display postcript has enough. I know Adobe are trying to establish their own postscript-based &ldquo;PDF&rdquo; which will have links, and be readable by their proprietory brand of viewers. 
-<p>I thought that a generic overlaying language for anchors (Hytime based?) would allow the hypertext and the graphics/video standards to evolve separately, which would help both. 
-<p>Let the <code>IMG</code> tag be <code>INCLUDE</code> and let it refer to an arbitrary document type. Or <code>EMBED</code> if <code>INCLUDE</code> sounds like a cpp include which people will expect to provide SGML source code to be parsed inline &mdash; not what was intended. 
-</blockquote> 
- 
-<p><a href="http://www.hytime.org/">HyTime</a> was an early, SGML-based hypertext document system. It loomed large in early discussions of HTML, and later XML. 
- 
-<p>Tim&rsquo;s proposal for an <code>&lt;INCLUDE&gt;</code> tag was never implemented, although you can see echoes of it in <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, and the <code>&lt;iframe&gt;</code> element. 
- 
-<p>Finally, on March 12, 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0257.html">Marc Andreessen revisited the thread</a>: 
- 
-<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0257.html"> 
-<p>Back to the inlined image thread again &mdash; I&rsquo;m getting close to releasing Mosaic v0.10, which will support inlined GIF and XBM images/bitmaps, as mentioned previously. &hellip; 
-<p>We&rsquo;re not prepared to support <code>INCLUDE</code>/<code>EMBED</code> at this point. &hellip; So we&rsquo;re probably going to go with <code>&lt;IMG SRC="url"&gt;</code> (not <code>ICON</code>, since not all inlined images can be meaningfully called icons). For the time being, inlined images won&rsquo;t be explicitly content-type&rsquo;d; down the road, we plan to support that (along with the general adaptation of MIME). Actually, the image reading routines we&rsquo;re currently using figure out the image format on the fly, so the filename extension won&rsquo;t even be significant. 
-</blockquote> 
- 
+</blockquote>
+
+<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0194.html"><cite>Marc Andreessen</cite> replied</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0194.html">
+<p>This isn&rsquo;t a substitute for the upcoming use of MIME as a standard document mechanism; this provides a necessary and simple implementation of functionality that&rsquo;s needed independently from MIME.
+</blockquote>
+
+<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0198.html"><cite>Jay C. Weber</cite> responded</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0198.html">
+<p>Let&rsquo;s temporarily forget about MIME, if it clouds the issue. My objection was to the discussion of &ldquo;how are we going to support embedded images&rdquo; rather than &ldquo;how are we going to support embedded objections in various media&rdquo;.
+<p>Otherwise, next week someone is going to suggest &lsquo;lets put in a new tag <code>&lt;AUD SRC="file://foobar.com/foo/bar/blargh.snd"&gt;</code>&lsquo; for audio.
+<p>There shouldn&rsquo;t be much cost in going with something that generalizes.
+</blockquote>
+
+<p>With the benefit of hindsight, it appears that Jay&rsquo;s concerns were well founded. It took a little more than a week, but HTML5 did finally add new <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video"><code>&lt;video&gt;</code></a> and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#audio"><code>&lt;audio&gt;</code></a> elements.
+
+<p>Responding to Jay&rsquo;s original message, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0204.html"><cite>Dave Raggett</cite> said</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0204.html">
+<p>True indeed! I want to consider a whole range of possible image/line art types, along with the possibility of format negotiation. Tim&rsquo;s note on supporting clickable areas within images is also important.
+</blockquote>
+
+<p>Later in 1993, <a href="http://www.w3.org/People/Raggett/">Dave Raggett</a> proposed <a href="http://www.w3.org/MarkUp/HTMLPlus/htmlplus_1.html">HTML+</a> as an evolution of the HTML standard. The proposal was never implemented, and it was superseded by <a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html">HTML 2.0</a>. HTML 2.0 was a &ldquo;retro-spec,&rdquo; which means it formalized features already in common use. &ldquo;<a href="http://www.w3.org/MarkUp/html-spec/html-spec_1.html#SEC1.1">This specification brings together, clarifies, and formalizes a set of features</a> that roughly corresponds to the capabilities of HTML in common use prior to June 1994.&rdquo;
+
+<p>Dave later wrote <a href="http://www.w3.org/MarkUp/html3/CoverPage.html">HTML 3.0</a>, based on his earlier HTML+ draft. Outside of the W3C&rsquo;s own reference implementation, <a href="http://www.w3.org/Arena/">Arena</a>, HTML 3.0 was never implemented, and it was superseded by <a href="http://www.w3.org/MarkUp/Wilbur/">HTML 3.2</a>, another &ldquo;retro-spec&rdquo;: &ldquo;<a href="http://www.w3.org/TR/REC-html32.html#intro">HTML 3.2 adds widely deployed features</a> such as tables, applets and text flow around images, while providing full backwards compatibility with the existing standard HTML 2.0.&rdquo;
+
+<p>Dave later co-authored <a href="http://www.w3.org/TR/html4">HTML 4.0</a>, developed <a href="http://tidy.sourceforge.net/">HTML Tidy</a>, and went on to help with XHTML, XForms, MathML, and other modern W3C specifications.
+
+<p>Getting back to 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0209.html">Marc replied to Dave</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0209.html">
+<p>Actually, maybe we should think about a general-purpose procedural graphics language within which we can embed arbitrary hyperlinks attached to icons, images, or text, or anything. Has anyone else seen Intermedia&rsquo;s capabilities wrt this?
+</blockquote>
+
+<p><a href="http://en.wikipedia.org/wiki/Intermedia_(hypertext)">Intermedia</a> was a hypertext project from Brown University. It was developed from 1985 to 1991 and ran on <a href="http://en.wikipedia.org/wiki/A/UX">A/UX</a>, a Unix-like operating system for early Macintosh computers.
+
+<p>The idea of a &ldquo;general-purpose procedural graphics language&rdquo; did eventually catch on. Modern browsers support both <a href="http://www.w3.org/Graphics/SVG/">SVG</a> (declarative markup with embedded scripting) and <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element"><code>&lt;canvas&gt;</code></a> (a procedural direct-mode graphics API), although the latter <a href="http://ln.hixie.ch/?start=1089635050&amp;count=1">started as a proprietary extension</a> before being &ldquo;retro-specced&rdquo; by the <a href="http://www.whatwg.org/">WHATWG</a>.
+
+<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0217.html"><cite>Bill Janssen</cite> replied</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0217.html">
+<p>Other systems to look at which have this (fairly valuable) notion are Andrew and Slate. Andrew is built with _insets_, each of which has some interesting type, such as text, bitmap, drawing, animation, message, spreadsheet, etc. The notion of arbitrary recursive embedding is present, so that an inset of any kind can be embedded in any other kind which supports embedding. For example, an inset can be embedded at any point in the text of the text widget, or in any rectangular area in the drawing widget, or in any cell of the spreadsheet.
+</blockquote>
+
+<p>&ldquo;Andrew&rdquo; is a reference to the <a href="http://www-2.cs.cmu.edu/~AUIS/">Andrew User Interface System</a> (although at that time it was simply known as the <a href="http://en.wikipedia.org/wiki/Andrew_Project">Andrew Project</a>).
+
+<p>Meanwhile, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0215.html"><cite>Thomas Fine</cite> had a different idea</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0215.html">
+<p>Here&rsquo;s my opinion. The best way to do images in WWW is by using MIME. I&rsquo;m sure postscript is already a supported subtype in MIME, and it deals very nicely with mixing text and graphics.
+<p>But it isn&rsquo;t clickable, you say? Yes your right. I suspect there is already an answer to this in display postscript. Even if there isn&rsquo;t the addition to standard postscript is trivial. Define an anchor command which specifies the URL and uses the current path as a closed region for the button. Since postscript deals so well with paths, this makes arbitrary button shapes trivial.
+</blockquote>
+
+<p><a href="http://en.wikipedia.org/wiki/Display_PostScript">Display Postscript</a> was an on-screen rendering technology co-developed by Adobe and NeXT.
+
+<p>This proposal was never implemented, but the idea that the best way to fix HTML is to replace it with something else altogether <a href="http://dbaron.org/log/20090707-ex-html">still pops up from time to time</a>.
+
+<p><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0221.html"><cite>Tim Berners-Lee</cite>, March 2, 1993</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0221.html">
+<p>HTTP2 allows a document to contain any type which the user has said he can handle, not just registered MIME types. So one can experiment. Yes I think there is a case for postscript with hypertext. I don&rsquo;t know whether display postcript has enough. I know Adobe are trying to establish their own postscript-based &ldquo;PDF&rdquo; which will have links, and be readable by their proprietory brand of viewers.
+<p>I thought that a generic overlaying language for anchors (Hytime based?) would allow the hypertext and the graphics/video standards to evolve separately, which would help both.
+<p>Let the <code>IMG</code> tag be <code>INCLUDE</code> and let it refer to an arbitrary document type. Or <code>EMBED</code> if <code>INCLUDE</code> sounds like a cpp include which people will expect to provide SGML source code to be parsed inline &mdash; not what was intended.
+</blockquote>
+
+<p><a href="http://www.hytime.org/">HyTime</a> was an early, SGML-based hypertext document system. It loomed large in early discussions of HTML, and later XML.
+
+<p>Tim&rsquo;s proposal for an <code>&lt;INCLUDE&gt;</code> tag was never implemented, although you can see echoes of it in <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, and the <code>&lt;iframe&gt;</code> element.
+
+<p>Finally, on March 12, 1993, <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0257.html">Marc Andreessen revisited the thread</a>:
+
+<blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0257.html">
+<p>Back to the inlined image thread again &mdash; I&rsquo;m getting close to releasing Mosaic v0.10, which will support inlined GIF and XBM images/bitmaps, as mentioned previously. &hellip;
+<p>We&rsquo;re not prepared to support <code>INCLUDE</code>/<code>EMBED</code> at this point. &hellip; So we&rsquo;re probably going to go with <code>&lt;IMG SRC="url"&gt;</code> (not <code>ICON</code>, since not all inlined images can be meaningfully called icons). For the time being, inlined images won&rsquo;t be explicitly content-type&rsquo;d; down the road, we plan to support that (along with the general adaptation of MIME). Actually, the image reading routines we&rsquo;re currently using figure out the image format on the fly, so the filename extension won&rsquo;t even be significant.
+</blockquote>
+
 <p class="a rotatedFloralHeartBullet">
 
 <h2 id="an-unbroken-line">An unbroken line</h2>
 
-<p>I am extraordinarily fascinated with all aspects of this almost-19-year-old conversation that led to the creation of an <abbr>HTML</abbr> element that has been used on virtually every web page ever published. Consider: 
- 
+<p>I am extraordinarily fascinated with all aspects of this almost-19-year-old conversation that led to the creation of an <abbr>HTML</abbr> element that has been used on virtually every web page ever published. Consider:
+
 <p class="ss"><img src="i/openclipart.org_johnny_automatic_Corsican_Pine.png" width="216" height="405" alt="pine tree">
 
-<ul> 
-<li>HTTP still exists. HTTP successfully evolved from 0.9 into 1.0 and later 1.1. <a href="http://datatracker.ietf.org/wg/httpbis/charter/">And still it evolves</a>. 
-<li>HTML still exists. That rudimentary data format &mdash; it didn&rsquo;t even support inline images! &mdash; successfully evolved into 2.0, 3.2, 4.0. HTML is an unbroken line. A twisted, knotted, snarled line, to be sure. There were plenty of &ldquo;dead branches&rdquo; in the evolutionary tree, places where standards-minded people got ahead of themselves (and ahead of authors and implementors). But still. Here we are, in 2012, and <a href="http://www.w3.org/People/Berners-Lee/FAQ.html#Examples">web pages from 1990</a> still render in modern browsers. I just loaded one up in the browser of my state-of-the-art Android mobile phone, and I didn&rsquo;t even get prompted to &ldquo;please wait while importing legacy format&hellip;&rdquo; 
-<li>HTML has always been a conversation between browser makers, authors, standards wonks, and other people who just showed up and liked to talk about angle brackets. Most of the successful versions of HTML have been &ldquo;retro-specs,&rdquo; catching up to the world while simultaneously trying to nudge it in the right direction. Anyone who tells you that HTML should be kept &ldquo;pure&rdquo; (presumably by ignoring browser makers, or ignoring authors, or both) is simply misinformed. HTML has never been pure, and all attempts to purify it have been spectacular failures, matched only by the attempts to replace it. 
-<li>None of the browsers from 1993 still exist in any recognizable form. Netscape Navigator was <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Open_sourcing_of_Communicator">abandoned in 1998</a> and <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Rewriting_from_scratch">rewritten from scratch</a> to create the Mozilla Suite, which was then <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Firefox">forked to create Firefox</a>. Internet Explorer had its humble &ldquo;beginnings&rdquo; in &ldquo;Microsoft Plus! for Windows 95,&rdquo; where it was bundled with some desktop themes and a pinball game. (But of course that browser <a href="http://en.wikipedia.org/wiki/Spyglass_Mosaic">can be traced back further too</a>.) 
-<li>Some of the operating systems from 1993 still exist, but none of them are relevant to the modern web. Most people today who &ldquo;experience&rdquo; the web do so on a PC running Windows 2000 or later, a Mac running Mac OS X, a PC running some flavor of Linux, or a handheld device like an iPhone. In 1993, Windows was at version 3.1 (and competing with OS/2), Macs were running System 7, and Linux was distributed via Usenet. (Want to have some fun? Find a graybeard and whisper &ldquo;Trumpet Winsock&rdquo; or &ldquo;MacPPP.&rdquo;) 
-<li>Some of the same <em>people</em> are still around and still involved in what we now simply call &ldquo;web standards.&rdquo; That&rsquo;s after almost 20 years. And some were involved in predecessors of HTML, going back into the 1980s and before. 
-<li>Speaking of predecessors&hellip; With the eventual popularity of HTML and the web, it is easy to forget the contemporary formats and systems that informed its design. Andrew? Intermedia? HyTime? And HyTime was not some rinky-dink academic research project; <a href="http://xml.coverpages.org/hytime.html">it was an ISO standard</a>. It was approved for military use. It was Big Business. And you can read about it yourself&hellip; <a href="http://www.sgmlsource.com/history/hthist.htm">on this HTML page, in your web browser</a>. 
-</ul> 
- 
-<p>But none of this answers the original question: why do we have an <code>&lt;img&gt;</code> element? Why not an <code>&lt;icon&gt;</code> element? Or an <code>&lt;include&gt;</code> element? Why not a hyperlink with an <code>include</code> attribute, or some combination of <code>rel</code> values? Why an <code>&lt;img&gt;</code> element? Quite simply, because Marc Andreessen shipped one, and shipping code wins. 
- 
-<p>That&rsquo;s not to say that <em>all</em> shipping code wins; after all, Andrew and Intermedia and HyTime shipped code too. Code is necessary but not sufficient for success. And I <em>certainly</em> don&rsquo;t mean to say that shipping code before a standard will produce the best solution. Marc&rsquo;s <code>&lt;img&gt;</code> element didn&rsquo;t mandate a common graphics format; it didn&rsquo;t define how text flowed around it; it didn&rsquo;t support text alternatives or fallback content for older browsers. And 17 years later, <a href="http://mimesniff.spec.whatwg.org/">we&rsquo;re still struggling with content sniffing</a>, and <a href="http://www.securityfocus.com/archive/1/503867">it&rsquo;s still a source of crazy security vulnerabilities</a>. And you can trace that all the way back, 17 years, through the <a href="http://en.wikipedia.org/wiki/Browser_wars">Great Browser Wars</a>, all the way back to February 25, 1993, when Marc Andreessen offhandedly remarked, &ldquo;MIME, someday, maybe,&rdquo; and then shipped his code anyway. 
- 
-<p>The ones that win are the ones that ship. 
+<ul>
+<li>HTTP still exists. HTTP successfully evolved from 0.9 into 1.0 and later 1.1. <a href="http://datatracker.ietf.org/wg/httpbis/charter/">And still it evolves</a>.
+<li>HTML still exists. That rudimentary data format &mdash; it didn&rsquo;t even support inline images! &mdash; successfully evolved into 2.0, 3.2, 4.0. HTML is an unbroken line. A twisted, knotted, snarled line, to be sure. There were plenty of &ldquo;dead branches&rdquo; in the evolutionary tree, places where standards-minded people got ahead of themselves (and ahead of authors and implementors). But still. Here we are, in 2012, and <a href="http://www.w3.org/People/Berners-Lee/FAQ.html#Examples">web pages from 1990</a> still render in modern browsers. I just loaded one up in the browser of my state-of-the-art Android mobile phone, and I didn&rsquo;t even get prompted to &ldquo;please wait while importing legacy format&hellip;&rdquo;
+<li>HTML has always been a conversation between browser makers, authors, standards wonks, and other people who just showed up and liked to talk about angle brackets. Most of the successful versions of HTML have been &ldquo;retro-specs,&rdquo; catching up to the world while simultaneously trying to nudge it in the right direction. Anyone who tells you that HTML should be kept &ldquo;pure&rdquo; (presumably by ignoring browser makers, or ignoring authors, or both) is simply misinformed. HTML has never been pure, and all attempts to purify it have been spectacular failures, matched only by the attempts to replace it.
+<li>None of the browsers from 1993 still exist in any recognizable form. Netscape Navigator was <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Open_sourcing_of_Communicator">abandoned in 1998</a> and <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Application_Suite#Rewriting_from_scratch">rewritten from scratch</a> to create the Mozilla Suite, which was then <a href="http://en.wikipedia.org/wiki/History_of_Mozilla_Firefox">forked to create Firefox</a>. Internet Explorer had its humble &ldquo;beginnings&rdquo; in &ldquo;Microsoft Plus! for Windows 95,&rdquo; where it was bundled with some desktop themes and a pinball game. (But of course that browser <a href="http://en.wikipedia.org/wiki/Spyglass_Mosaic">can be traced back further too</a>.)
+<li>Some of the operating systems from 1993 still exist, but none of them are relevant to the modern web. Most people today who &ldquo;experience&rdquo; the web do so on a PC running Windows 2000 or later, a Mac running Mac OS X, a PC running some flavor of Linux, or a handheld device like an iPhone. In 1993, Windows was at version 3.1 (and competing with OS/2), Macs were running System 7, and Linux was distributed via Usenet. (Want to have some fun? Find a graybeard and whisper &ldquo;Trumpet Winsock&rdquo; or &ldquo;MacPPP.&rdquo;)
+<li>Some of the same <em>people</em> are still around and still involved in what we now simply call &ldquo;web standards.&rdquo; That&rsquo;s after almost 20 years. And some were involved in predecessors of HTML, going back into the 1980s and before.
+<li>Speaking of predecessors&hellip; With the eventual popularity of HTML and the web, it is easy to forget the contemporary formats and systems that informed its design. Andrew? Intermedia? HyTime? And HyTime was not some rinky-dink academic research project; <a href="http://xml.coverpages.org/hytime.html">it was an ISO standard</a>. It was approved for military use. It was Big Business. And you can read about it yourself&hellip; <a href="http://www.sgmlsource.com/history/hthist.htm">on this HTML page, in your web browser</a>.
+</ul>
+
+<p>But none of this answers the original question: why do we have an <code>&lt;img&gt;</code> element? Why not an <code>&lt;icon&gt;</code> element? Or an <code>&lt;include&gt;</code> element? Why not a hyperlink with an <code>include</code> attribute, or some combination of <code>rel</code> values? Why an <code>&lt;img&gt;</code> element? Quite simply, because Marc Andreessen shipped one, and shipping code wins.
+
+<p>That&rsquo;s not to say that <em>all</em> shipping code wins; after all, Andrew and Intermedia and HyTime shipped code too. Code is necessary but not sufficient for success. And I <em>certainly</em> don&rsquo;t mean to say that shipping code before a standard will produce the best solution. Marc&rsquo;s <code>&lt;img&gt;</code> element didn&rsquo;t mandate a common graphics format; it didn&rsquo;t define how text flowed around it; it didn&rsquo;t support text alternatives or fallback content for older browsers. And 17 years later, <a href="http://mimesniff.spec.whatwg.org/">we&rsquo;re still struggling with content sniffing</a>, and <a href="http://www.securityfocus.com/archive/1/503867">it&rsquo;s still a source of crazy security vulnerabilities</a>. And you can trace that all the way back, 17 years, through the <a href="http://en.wikipedia.org/wiki/Browser_wars">Great Browser Wars</a>, all the way back to February 25, 1993, when Marc Andreessen offhandedly remarked, &ldquo;MIME, someday, maybe,&rdquo; and then shipped his code anyway.
+
+<p>The ones that win are the ones that ship.
 
 <p class="a rotatedFloralHeartBullet">
 
