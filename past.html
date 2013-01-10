@@ -99,8 +99,8 @@ body{counter-reset:h1 1}
 
 <blockquote>
 <p>An alternative I was considering was:
-<p><code>&lt;A HREF="..." INCLUDE&gt;See photo&lt;/A></code>
-<p>I don&rsquo;t much like adding more functionality to the <code>&lt;A></code> tag, but the idea here is to maintain compatibility with browsers that can not honour the <code>INCLUDE</code> parameter. The intention is that browsers which do understand <code>INCLUDE</code>, replace the anchor text (in this case &ldquo;See photo&rdquo;) with the included document (picture), while older or dumber browsers ignore the <code>INCLUDE</code> tag completely.
+<p><code>&lt;A HREF="..." INCLUDE&gt;See photo&lt;/A&gt;</code>
+<p>I don&rsquo;t much like adding more functionality to the <code>&lt;A&gt;</code> tag, but the idea here is to maintain compatibility with browsers that can not honour the <code>INCLUDE</code> parameter. The intention is that browsers which do understand <code>INCLUDE</code>, replace the anchor text (in this case &ldquo;See photo&rdquo;) with the included document (picture), while older or dumber browsers ignore the <code>INCLUDE</code> tag completely.
 </blockquote>
 
 <p>This proposal was never implemented, although the idea of providing text if an image is missing is <a href="http://diveintoaccessibility.info/day_23_providing_text_equivalents_for_images.html">an important accessibility technique</a> that was missing from Marc&rsquo;s initial <code>&lt;IMG&gt;</code> proposal. Years later, this feature was bolted on as the <a href="http://www.w3.org/TR/html4/struct/objects.html#h-13.8"><code>&lt;img alt&gt;</code> attribute</a>, which Netscape promptly broke by <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html#tooltip">erroneously treating it as a tooltip</a>.
@@ -109,7 +109,7 @@ body{counter-reset:h1 1}
 
 <blockquote cite="http://1997.webhistory.org/www.lists/www-talk.1993q1/0186.html">
 <p>I had imagined that figues would be reprented as
-<p><code>&lt;a name="fig1" href="fghjkdfghj" REL="EMBED, PRESENT"&gt;Figure &lt;/a></code>
+<p><code>&lt;a name="fig1" href="fghjkdfghj" REL="EMBED, PRESENT"&gt;Figure &lt;/a&gt;</code>
 <p>where the relation ship values mean
 <pre>EMBED	 Embed this here when presenting it
 PRESENT	 Present this whenever the source document is presented</pre>
