@@ -49,6 +49,15 @@ Classname Legend
 
 .zebra = "zebra stripes" = off-white background color (used for "zebra stripe" tables)
 
+How the fonts are compressed
+
+Fonts are processed through http://www.fontsquirrel.com/fontface/generator to generate new TrueType, WOFF, and EOT Compressed versions.
+Vertical Metrics are fixed, as is the GASP table, and kerning is removed. No X-height Matching is applied.
+Essays 1742 has an em square value of 1024 and is stripped down to Lowercase, Uppercase, Numbers, and the following unicodes:
+0021-002F,003A-003F,0040,005B-005F,007B-007D,2018-2019,201B-201D,201F,2022-2023,2026,2116,219C-219D,21B6-21B7,21DC-21DD,2212,261E,2767.
+Linux Libertine has an em square value of 2048 and is stripped down to Lowercase, Uppercase, Numbers, and the following unicodes:
+0021-002F,003A-003F,0040,005B-005F,007B-007D,2018-2019,201B-201D,201F,2022-2023,2026,2116,219C-219D,21B6-21B7,21DC-21DD,2212,261E,2767.
+
 Acknowledgements & Inspirations
 
 "The Elements of Typographic Style Applied to the Web" ... http://webtypography.net/toc/
