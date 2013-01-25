@@ -41,9 +41,10 @@ body{counter-reset:h1 5}
 
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/MPEG-4_Part_14">MPEG 4</a>, usually with an <code>.mp4</code> or <code>.m4v</code> extension. The MPEG 4 container is <a href="http://www.chiariglione.org/mpeg/technologies/mp04-ff/index.htm">based on Apple&rsquo;s older QuickTime container</a> (<code>.mov</code>). <a href="http://www.apple.com/trailers/">Movie trailers on Apple&rsquo;s website</a> still use the older QuickTime container, but movies that you rent from iTunes are delivered in an MPEG 4 container.</li>
-<li><a href="http://en.wikipedia.org/wiki/Flash_Video">Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. More recent versions of Flash also support the MPEG 4 container.</li>
 <li><a href="http://en.wikipedia.org/wiki/Ogg">Ogg</a>, usually with an <code>.ogv</code> extension. Ogg is an open standard, open source&ndash;friendly, and unencumbered by any known patents. Firefox 3.5, Chrome 4, and Opera 10.5 support &mdash; natively, without platform-specific plugins &mdash; the Ogg container format, Ogg video (called &ldquo;Theora&rdquo;), and Ogg audio (called &ldquo;Vorbis&rdquo;). On the desktop, Ogg is supported out-of-the-box by all major Linux distributions, and you can use it on Mac and Windows by installing the <a href="http://www.xiph.org/quicktime/">QuickTime components</a> or <a href="http://www.xiph.org/dshow/">DirectShow filters</a>, respectively. It is also playable with the excellent <a href="http://www.videolan.org/vlc/">VLC</a> on all platforms.</li>
-<li><a href="http://www.webmproject.org/">WebM</a> is a new container format. It is technically similar to another format, called <a href="http://en.wikipedia.org/wiki/Matroska">Matroska</a>. WebM was announced in May, 2010. It is designed to be used exclusively with the VP8 video codec and Vorbis audio codec. (More on these in a minute.) It is supported natively, without platform-specific plugins, in the latest versions of Chromium, Google Chrome, Mozilla Firefox, and Opera. Adobe has also announced that a future version of Flash will support WebM video.</li>
+<li><a href="http://en.wikipedia.org/wiki/Flash_Video">Flash Video</a>, usually with an <code>.flv</code> extension. Flash Video is, unsurprisingly, used by Adobe Flash. Prior to Flash 9.0.60.184 (a.k.a. Flash Player 9 Update 3), this was the only container format that Flash supported. All recent versions of Flash also support the MPEG 4 container.</li>
+<li><a href="http://www.webmproject.org/">WebM</a>, usually with an <code>.webm</code> extension. WebM is a royalty-free, open source&ndash;friendly video compression designed specifically for use with HTML5 video, leveraging the VP8 video codec and Vorbis audio codec. It is technically similar to another format, called <a href="http://en.wikipedia.org/wiki/Matroska">Matroska</a>. It is supported natively, without platform-specific plugins, in the latest versions of Chromium, Google Chrome, Mozilla Firefox, and Opera.
+<li><a href="http://en.wikipedia.org/wiki/Advanced_Systems_Format">ASF</a>, usually with an <code>.asf</code> extension. The ASF container format was invented by Microsoft for video streaming. It included <a href="http://www.theinquirer.net/inquirer/news/1027669/microsoft-media-player-shreds-rights">a delightful DRM scheme</a> which restricted users from backing up their legally purchased licenses. So, if for some reason you lost your license to the content, they thought you should buy it again.
 <li><a href="http://en.wikipedia.org/wiki/AVI">Audio Video Interleave</a>, usually with an <code>.avi</code> extension. The AVI container format was invented by Microsoft in a simpler time, when the fact that computers could play video at all was considered pretty amazing. It does not officially support features of more recent container formats like embedded metadata. It does not even officially support most of the modern video and audio codecs in use today. Over time, companies have tried to extend it in generally incompatible ways to support this or that, and it is still the default container format for popular encoders such as <a href="http://www.mplayerhq.hu/DOCS/HTML/en/encoding-guide.html">MEncoder</a>.</li>
 </ul>
 
@@ -141,13 +142,13 @@ body{counter-reset:h1 5}
 <p>As of this writing, this is the landscape of <abbr>HTML5</abbr> video:
 
 <ul>
-<li>Mozilla Firefox (3.5 and later) supports Theora video and Vorbis audio in an Ogg container. Firefox 4 also supports WebM.
-<li>Opera (10.5 and later) supports Theora video and Vorbis audio in an Ogg container. Opera 10.60 also supports WebM.
-<li>Google Chrome (3.0 and later) supports Theora video and Vorbis audio in an Ogg container. Google Chrome 6.0 also supports WebM.
-<li>Safari on Macs and Windows PCs (3.0 and later) will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&rsquo;re left with the formats that QuickTime supports &ldquo;out of the box.&rdquo; This is a long list, but it does not include WebM, Theora, Vorbis, or the Ogg container. However, QuickTime <em>does</em> ship with support for H.264 video (main profile) and AAC audio in an MP4 container.
+<li>Firefox 3.5+ supports Theora video and Vorbis audio in an Ogg container. Firefox 4+ also supports WebM.
+<li>Opera 10.5+ supports Theora video and Vorbis audio in an Ogg container. Opera 10.60 (and later) also supports WebM.
+<li>Chrome 3.0+ supports H.264, Theora video and Vorbis audio in an Ogg container. Chrome 6.0+ also supports WebM.
+<li>Safari on Macs and Windows PCs 3.0+ will support anything that QuickTime supports. In theory, you could require your users to install third-party QuickTime plugins. In practice, few users are going to do that. So you&rsquo;re left with the formats that QuickTime supports &ldquo;out of the box.&rdquo; This is a long list, but it does not include WebM, Theora, Vorbis, or the Ogg container. However, QuickTime <em>does</em> ship with support for H.264 video (main profile) and AAC audio in an MP4 container.
 <li>Mobile phones like Apple&rsquo;s iPhone and Google Android phones support H.264 video (baseline profile) and AAC audio (&ldquo;low complexity&rdquo; profile) in an MP4 container.
 <li>Adobe Flash (9.0.60.184 and later) supports H.264 video (all profiles) and AAC audio (all profiles) in an MP4 container.
-<li>Internet Explorer 9 supports all profiles of H.264 video and either AAC or MP3 audio in an MP4 container. It will also play WebM video if you install a third-party codec, which is not installed by default on any version of Windows. IE9 does not support other third-party codecs (unlike Safari, which will play anything QuickTime can play).
+<li>Internet Explorer 9+ supports all profiles of H.264 video and either AAC or MP3 audio in an MP4 container. It will also play WebM video if you install a third-party codec, which is not installed by default on any version of Windows. IE does not support other third-party codecs (unlike Safari, which will play anything QuickTime can play).
 <li>Internet Explorer 8 has no <abbr>HTML5</abbr> video support at all, but virtually all Internet Explorer users will have the Adobe Flash plugin. Later in this chapter, I&rsquo;ll show you how you can use <abbr>HTML5</abbr> video but gracefully fall back to Flash.
 </ul>
 
@@ -158,33 +159,13 @@ body{counter-reset:h1 5}
 <thead>
 <tr><th style="text-align:left">Codecs/container<th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
 <tbody>
-<tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td>&dagger;<td>5.0+<td>10.5+<td>&middot;<td>&middot;
-<tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>5.0&ndash;?&Dagger;<td>&middot;<td>3.0+<td>2.0+
-<tr><th>WebM<td>9.0+<sup>*</sup><td>&middot;<td>&dagger;<td>6.0+<td>10.6+<td>&middot;<td>&middot;
+<tr><th>Theora+Vorbis+Ogg<td>&middot;<td>3.5+<td><sup>&dagger;</sup><td>5.0+<td>10.5+<td>&middot;<td>&middot;
+<tr><th>H.264+AAC+MP4<td>9.0+<td>&middot;<td>3.0+<td>5.0+<sup>&Dagger;</sup><td>&middot;<td>3.0+<td>2.0+
+<tr><th>WebM<td>9.0+<sup>*</sup><td>4.0+<td><sup>&dagger;</sup><td>6.0+<td>10.6+<td>&middot;<td>2.3+
 <tfoot>
-<tr><td colspan="8" style="text-align:left">* Internet Explorer 9 will only support WebM &ldquo;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>,&rdquo;.
+<tr><td colspan="8" style="text-align:left">* Internet Explorer 9 will only support WebM &ldquo;<a href="http://windowsteamblog.com/windows/b/bloggingwindows/archive/2010/05/19/another-follow-up-on-html5-video-in-ie9.aspx">when the user has installed a VP8 codec</a>&rdquo;.
 <tr><td colspan="8" style="text-align:left">&dagger; Safari will play anything that QuickTime can play. QuickTime comes pre-installed with H.264/AAC/MP4 support. There are installable third-party plugins that add support for Theora and WebM, but each user needs to install these plugins before Safari will recognize those video formats.
-<tr><td colspan="8" style="text-align:left">&Dagger; Google Chrome will <a href="http://blog.chromium.org/2011/01/html-video-codec-support-in-chrome.html">drop support for H.264</a> soon. <a href="http://blog.chromium.org/2011/01/more-about-chrome-html-video-codec.html">Read about why</a>.
-</table>
-
-<p>A year from now, the landscape will look significantly different as WebM is implemented in multiple browsers, those browsers ship non-experimental WebM-enabled versions, and users upgrade to those new versions.
-
-<table class="bc">
-<caption>Video codec support in upcoming browsers</caption>
-<thead>
-<tr><th style="text-align:left">Codecs/container</th><th title="Internet Explorer">IE</th><th title="Mozilla Firefox">Firefox</th><th title="Apple Safari">Safari</th><th title="Google Chrome">Chrome</th><th>Opera</th><th>iPhone</th><th>Android
-</th></tr></thead>
-<tbody>
-<tr><th>Theora+Vorbis+Ogg</th><td>·</td><td>3.5+</td><td>†</td><td>5.0+</td><td>10.5+</td><td>·</td><td>·
-</td></tr><tr><th>H.264+AAC+MP4</th><td>9.0+</td><td>·</td><td>3.0+</td><td>·</td><td>·</td><td>3.0+</td><td>2.0+
-</td></tr><tr><th>WebM</th><td>&nbsp;9.0+</td><td>4.0+</td><td>†</td><td>6.0+</td><td>10.6+</td><td>·</td><td>2.3‡<sup>
-</sup></td></tr>
-</tbody>
-<tfoot>
-<tr><td colspan="8" style="text-align:left">† Safari will play anything that QuickTime can play, but QuickTime only comes with H.264/AAC/MP4 support pre-installed.
-</td></tr><tr><td colspan="8" style="text-align:left">‡ Although Android 2.3 supports WebM, there are no hardware decoders yet, so battery life is a concern.
-</td></tr>
-</tfoot>
+<tr><td colspan="8" style="text-align:left">&Dagger; Google Chrome <a href="http://blog.chromium.org/2011/01/more-about-chrome-html-video-codec.html">promised</a> to <a href="http://blog.chromium.org/2011/01/html-video-codec-support-in-chrome.html">drop support for H.264</a> in 2011, but it never happened.
 </table>
 
 <p>And now for the knockout punch:
@@ -204,9 +185,10 @@ body{counter-reset:h1 5}
 <ol>
 <li>Make one version that uses WebM (VP8 + Vorbis).
 <li>Make another version that uses H.264 baseline video and AAC &ldquo;low complexity&rdquo; audio in an MP4 container.
-<li>Make another version that uses Theora video and Vorbis audio in an Ogg container.
+<li>Make another version that uses Theora video and Vorbis audio in an Ogg container. <sup>*</sup>
 <li>Link to all three video files from a single <code>&lt;video&gt;</code> element, and fall back to a Flash-based video player.
 </ol>
+<p><small>* WebM and H.264 have sufficient support. So, unless you're supporting Firefox 3.5 or Opera 10.5, you can drop Theora.</small>
 
 <p class="a rotatedFloralHeartBullet">
 
@@ -612,24 +594,24 @@ for (var i = arVideos.length - 1; i >= 0; i--) {
 
 <p class="legend top" style="margin-left:2em">Three (!) video files <span class="arrow clockwiseTopSemicircleArrow"></span><br></p>
 <pre><code>&lt;video width="320" height="240" controls&gt;
-  &lt;<mark>source src="pr6.mp4"</mark>  type="video/mp4; codecs=avc1.42E01E, mp4a.40.2">
-  &lt;<mark>source src="pr6.webm"</mark> type="video/webm; codecs=vp8, vorbis">
-  &lt;<mark>source src="pr6.ogv"</mark>  type="video/ogg; codecs=theora, vorbis">
+  &lt;<mark>source src="pr6.mp4"</mark>  type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
+  &lt;<mark>source src="pr6.webm"</mark> type="video/webm; codecs=vp8,vorbis">
+  &lt;<mark>source src="pr6.ogv"</mark>  type="video/ogg; codecs=theora,vorbis">
 &lt;/video&gt;</code></pre>
 
 <p>Let&rsquo;s break that down. The <code>&lt;video&gt;</code> element specifies the width and height for the video, but it doesn&rsquo;t actually link to a video file. Inside the <code>&lt;video&gt;</code> element are three <code>&lt;source&gt;</code> elements. Each <code>&lt;source&gt;</code> element links to a single video file (with the <code>src</code> attribute), and it also gives information about the video format (in the <code>type</code> attribute).
 
 <p>The <code>type</code> attribute looks complicated &mdash; hell, it <em>is</em> complicated. It&rsquo;s a combination of three pieces of information: the <a href="#video-containers">container format</a>, the <a href="#video-codecs">video codec</a>, and the <a href="#audio-codecs">audio codec</a>. Let&rsquo;s start from the bottom. For the <code>.ogv</code> video file, the container format is Ogg, represented here as <code>video/ogg</code>. (Technically speaking, that&rsquo;s the <abbr>MIME</abbr> type for Ogg video files.) The video codec is Theora, and the audio codec is Vorbis. That&rsquo;s simple enough, except the format of the attribute value is a little screwy. The value itself has to include quotation marks, which means you&rsquo;ll need to use a different kind of quotation mark to surround the entire value.
 
-<pre><code>  &lt;source src="pr6.ogv" <mark>type="video/ogg; codecs=theora, vorbis"</mark>&gt;</code></pre>
+<pre><code>  &lt;source src="pr6.ogv" <mark>type="video/ogg; codecs=theora,vorbis"</mark>&gt;</code></pre>
 
 <p>WebM is much the same, but with a different MIME type (<code>video/webm</code> instead of <code>video/ogg</code>) and a different video codec (<code>vp8</code> instead of <code>theora</code>) listed within the <code>codecs</code> parameter.
 
-<pre><code>  &lt;source src="pr6.webm" <mark>type="video/webm; codecs=vp8, vorbis"</mark>&gt;</code></pre>
+<pre><code>  &lt;source src="pr6.webm" <mark>type="video/webm; codecs=vp8,vorbis"</mark>&gt;</code></pre>
 
 <p>The H.264 video is even more complicated. Remember when I said that both <a href="#h264">H.264 video</a> and <a href="#aac">AAC audio</a> can come in different &ldquo;profiles&rdquo;? We encoded with the H.264 &ldquo;baseline&rdquo; profile and the AAC &ldquo;low-complexity&rdquo; profile, then wrapped it all in an MPEG-4 container. All of that information is included in the <code>type</code> attribute.
 
-<pre><code>  &lt;source src="pr6.mp4" <mark>type="video/mp4; codecs=avc1.42E01E, mp4a.40.2"</mark>&gt;</code></pre>
+<pre><code>  &lt;source src="pr6.mp4" <mark>type="video/mp4; codecs=avc1.42E01E,mp4a.40.2"</mark>&gt;</code></pre>
 
 <p>The benefit of going to all this trouble is that the browser will check the <code>type</code> attribute first to see if it can play a particular video file. If a browser decides it can&rsquo;t play a particular video, <em>it won&rsquo;t download the file</em>. Not even part of the file. You&rsquo;ll save on bandwidth, and your visitors will see the video they came for, faster.
 
