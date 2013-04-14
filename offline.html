@@ -36,7 +36,7 @@ body{counter-reset:h1 8}
 <p>An offline web application revolves around a cache manifest file. What&rsquo;s a manifest file? It&rsquo;s a list of all of the resources that your web application might need to access while it&rsquo;s disconnected from the network. In order to bootstrap the process of downloading and caching these resources, you need to point to the manifest file, using a <code>manifest</code> attribute on your <code>&lt;html&gt;</code> element.
 
 <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html <mark>manifest="/cache.manifest"</mark>&gt;
+&lt;html <mark>manifest="/cache.appcache"</mark>&gt;
 &lt;body&gt;
 ...
 &lt;/body&gt;
@@ -44,9 +44,9 @@ body{counter-reset:h1 8}
 
 <p>Your cache manifest file can be located anywhere on your web server, but it must be served with the content type <code>text/cache-manifest</code>. If you are running an Apache-based web server, you can probably just put <a href="http://httpd.apache.org/docs/2.2/mod/mod_mime.html#addtype">an <code>AddType</code> directive</a> in the <code>.htaccess</code> file at the root of your web directory:
 
-<pre><code>AddType text/cache-manifest .manifest</code></pre>
+<pre><code>AddType text/cache-manifest .appcache</code></pre>
 
-<p>Then make sure that the name of your cache manifest file ends with <code>.manifest</code>. If you use a different web server or a different configuration of Apache, consult your server&rsquo;s documentation on controlling the <code>Content-Type</code> header.
+<p>Then make sure that the name of your cache manifest file ends with <code>.appcache</code>. If you use a different web server or a different configuration of Apache, consult your server&rsquo;s documentation on controlling the <code>Content-Type</code> header.
 
 <div class="pf clear">
 <h4>Ask Professor Markup</h4>
@@ -206,15 +206,15 @@ halma.html
 
 <pre><samp>/examples/localstorage-halma.html
 /examples/halma-localstorage.js
-/examples/offline/halma.manifest
+/examples/offline/halma.appcache
 /examples/offline/halma.html</samp></pre>
 
-<p>In the cache manifest file (<code>/examples/offline/halma.manifest</code>), we want to reference two files. First, the offline version of the <abbr>HTML</abbr> file (<code>/examples/offline/halma.html</code>). Since these two files are in the same directory, it is listed in the manifest file without any path prefix. Second, the JavaScript file which lives in the parent directory (<code>/examples/halma-localstorage.js</code>). This is listed in the manifest file using relative <abbr>URL</abbr> notation: <code>../halma-localstorage.js</code>. This is just like you might use a relative <abbr>URL</abbr> in an <code>&lt;img src&gt;</code> attribute. As you&rsquo;ll see in the next example, you can also use absolute paths (that start at the root of the current domain) or even absolute <abbr>URL</abbr>s (that point to resources on other domains).
+<p>In the cache manifest file (<code>/examples/offline/halma.appcache</code>), we want to reference two files. First, the offline version of the <abbr>HTML</abbr> file (<code>/examples/offline/halma.html</code>). Since these two files are in the same directory, it is listed in the manifest file without any path prefix. Second, the JavaScript file which lives in the parent directory (<code>/examples/halma-localstorage.js</code>). This is listed in the manifest file using relative <abbr>URL</abbr> notation: <code>../halma-localstorage.js</code>. This is just like you might use a relative <abbr>URL</abbr> in an <code>&lt;img src&gt;</code> attribute. As you&rsquo;ll see in the next example, you can also use absolute paths (that start at the root of the current domain) or even absolute <abbr>URL</abbr>s (that point to resources on other domains).
 
 <p>Now, in the <abbr>HTML</abbr> file, we need to add the <code>manifest</code> attribute that points to the cache manifest file.
 
 <pre><code>&lt;!doctype html&gt;
-&lt;html lang="en" <mark>manifest="halma.manifest"</mark>&gt;</code></pre>
+&lt;html lang="en" <mark>manifest="halma.appcache"</mark>&gt;</code></pre>
 
 <p>And that&rsquo;s it! When an offline-capable browser first loads <a href="examples/offline/halma.html">the offline-enabled <abbr>HTML</abbr> page</a>, it will download the linked cache manifest file and start downloading all the referenced resources and storing them in the offline application cache. From then on, the offline application algorithm takes over whenever you revisit the page. You can play the game offline, and since it remembers its state locally, you can leave and come back as often as you like.
 
