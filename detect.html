@@ -288,7 +288,7 @@ A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The sli
   // window.localStorage is available!
 } else {
   // no native support for local storage :(
-  // maybe try Gears or another third-party solution
+  // try a fallback or another third-party solution
 }</code></pre>
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>localstorage</code> (all lowercase), but the <abbr>DOM</abbr> property is called <code>window.localStorage</code> (mixed case).
@@ -324,7 +324,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
   // window.Worker is available!
 } else {
   // no native support for web workers :(
-  // maybe try Gears or another third-party solution
+  // try a fallback or another third-party solution
 }</code></pre>
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>webworkers</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.Worker</code> (with a capital &ldquo;W&rdquo; in &ldquo;Worker&rdquo;).
@@ -352,7 +352,7 @@ A: Anyone who has physical access to your computer can probably look at (or even
   // window.applicationCache is available!
 } else {
   // no native support for offline :(
-  // maybe try Gears or another third-party solution
+  // try a fallback or another third-party solution
 }</code></pre>
 
 <p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>applicationcache</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.applicationCache</code> (mixed case).
@@ -388,10 +388,10 @@ A: Geolocation support is being added to browsers right now, along with support 
   // let's find out where you are!
 } else {
   // no native geolocation support available :(
-  // maybe try Gears or another third-party solution
+  // try geoPosition.js or another third-party solution
 }</code></pre>
 
-<p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href="http://tools.google.com/gears/">Gears</a> is an open source browser plugin from Google that works on Windows, Mac, Linux, Windows Mobile, and Android. It provides features for older browsers that do not support all the fancy new stuff we&rsquo;ve discussed in this chapter. One of the features that Gears provides is a geolocation <abbr>API</abbr>. It&rsquo;s not the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
+<p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href="https://github.com/estebanav/javascript-mobile-desktop-geolocation">GeoPosition.js</a> is a JavaScript library that aims to provide Geolocation support in older browsers like Blackberry, Palm OS, and Microsoft Internet Explorer 6, 7, and 8. It&rsquo;s not quite the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
 
 <p>There are also device-specific geolocation <abbr>API</abbr>s on older mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href="http://bondi.omtp.org/1.0/apis/geolocation.html"><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
 
