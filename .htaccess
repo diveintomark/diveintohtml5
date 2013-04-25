@@ -2,7 +2,7 @@ FileETag MTime Size
 
 SetEnv dont-vary
 
-AddType text/cache-manifest .manifest
+AddType text/cache-manifest .appcache
 
 AddType application/vnd.ms-fontobject .eot
 AddType font/ttf .ttf
