@@ -191,7 +191,7 @@ body{counter-reset:h1 2}
 
 <p class="ss" style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src="i/openclipart.org_johnny_automatic_man_reading_newspaper.png" alt="man reading newspaper" width="250" height="261"><br><span id="live-video-formats"></span>
 
-<p>The &ldquo;language&rdquo; of a video is called a &ldquo;codec&rdquo; &mdash; this is the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&rsquo;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href="http://www.apple.com/safari/">Safari</a> and on the iPhone.  (This one also works in Flash if you use a solution like <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href="http://code.google.com/chromium/">Chromium</a> and <a href="http://www.getfirefox.com/">Mozilla Firefox</a>.
+<p>The &ldquo;language&rdquo; of a video is called a &ldquo;codec&rdquo; &mdash; this is the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can&rsquo;t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href="http://www.apple.com/safari/">Safari</a> and on the iPhone.  (This one also works in Flash if you use a solution like <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href="http://www.chromium.org/">Chromium</a> and <a href="http://www.getfirefox.com/">Mozilla Firefox</a>.
 
 <p>Checking for video format support uses <a href="#techniques">detection technique #3</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video&gt;</code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
 
@@ -393,7 +393,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href="https://github.com/estebanav/javascript-mobile-desktop-geolocation">GeoPosition.js</a> is a JavaScript library that aims to provide Geolocation support in older browsers like Blackberry, Palm OS, and Microsoft Internet Explorer 6, 7, and 8. It&rsquo;s not quite the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
 
-<p>There are also device-specific geolocation <abbr>API</abbr>s on older mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href="http://bondi.omtp.org/1.0/apis/geolocation.html"><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
+<p>There are also device-specific geolocation <abbr>API</abbr>s on older mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.developer.nokia.com/Resources/Library/Web/#!web-apps/symbian-web-runtime/platform-services-20-javascript-api-reference/platform-services-20-location-api/geolocation-object.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href="http://bondi.omtp.org/1.0/apis/geolocation.html"><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
 
 <p>The <a href="geolocation.html">chapter on geolocation</a> will go into excruciating detail about how to use all of these different <abbr>API</abbr>s.
 
@@ -408,19 +408,19 @@ A: Geolocation support is being added to browsers right now, along with support 
 <p>You don&rsquo;t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms.
 
 <ol>
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#text-state-and-search-state"><code>&lt;input type="search"&gt;</code></a> for search boxes
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#number-state"><code>&lt;input type="number"&gt;</code></a> for spinboxes
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#range-state"><code>&lt;input type="range"&gt;</code></a> for sliders
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state"><code>&lt;input type="color"&gt;</code></a> for color pickers
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state"><code>&lt;input type="tel"&gt;</code></a> for telephone numbers
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#url-state"><code>&lt;input type="url"&gt;</code></a> for web addresses
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state"><code>&lt;input type="email"&gt;</code></a> for email addresses
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-state"><code>&lt;input type="date"&gt;</code></a> for calendar date pickers
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#month-state"><code>&lt;input type="month"&gt;</code></a> for months
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#week-state"><code>&lt;input type="week"&gt;</code></a> for weeks
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#time-state"><code>&lt;input type="time"&gt;</code></a> for timestamps
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-and-time-state"><code>&lt;input type="datetime"&gt;</code></a> for precise, absolute date+time stamps
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#local-date-and-time-state"><code>&lt;input type="datetime-local"&gt;</code></a> for local dates and times
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#text-(type=text)-state-and-search-state-(type=search)"><code>&lt;input type="search"&gt;</code></a> for search boxes
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/#number-state-(type=number)"><code>&lt;input type="number"&gt;</code></a> for spinboxes
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/#range-state-(type=range)"><code>&lt;input type="range"&gt;</code></a> for sliders
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/#color-state-(type=color)"><code>&lt;input type="color"&gt;</code></a> for color pickers
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state-(type=tel)"><code>&lt;input type="tel"&gt;</code></a> for telephone numbers
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#url-state-(type=url)"><code>&lt;input type="url"&gt;</code></a> for web addresses
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-(type=email)"><code>&lt;input type="email"&gt;</code></a> for email addresses
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-state-(type=date)"><code>&lt;input type="date"&gt;</code></a> for calendar date pickers
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#month-state-(type=month)"><code>&lt;input type="month"&gt;</code></a> for months
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#week-state-(type=week)"><code>&lt;input type="week"&gt;</code></a> for weeks
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#time-state-(type=time)"><code>&lt;input type="time"&gt;</code></a> for timestamps
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-and-time-state-(type=datetime)"><code>&lt;input type="datetime"&gt;</code></a> for precise, absolute date+time stamps
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#local-date-and-time-state-(type=datetime-local)"><code>&lt;input type="datetime-local"&gt;</code></a> for local dates and times
 </ol>
 
 <p>Checking for <abbr>HTML5</abbr> input types uses <a href="#techniques">detection technique #4</a>. First, you create a dummy <code>&lt;input&gt;</code> element in memory. The default input type for all <code>&lt;input&gt;</code> elements is <code>"text"</code>. This will prove to be vitally important.
@@ -547,7 +547,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <ul>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">the <code>&lt;canvas&gt;</code> element</a>
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video">the <code>&lt;video&gt;</code> element</a>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html">the <code>&lt;video&gt;</code> element</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute"><code>&lt;input&gt;</code> types</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">the <code>&lt;input placeholder&gt;</code> attribute</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">the <code>&lt;input autofocus&gt;</code> attribute</a>
@@ -594,7 +594,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 <form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google&trade;">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
 <script src="j/jquery.js"></script>
 <script src="j/modernizr.js"></script>
-<script src="j/geo.js"></script>
+<script src="j/geoPosition.js"></script>
 <script src="j/dih5.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script>
