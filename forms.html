@@ -78,7 +78,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&rsquo;t want a web page to &ldquo;steal&rdquo; the focus.
 
-<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&rsquo;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="https://html.spec.whatwg.org/multipage/forms.html#autofocusing-a-form-control:-the-autofocus-attribute">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: as soon as the page loads, it moves the input focus to a particular input field. But because it&rsquo;s just markup instead of script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
 
 <p>Here&rsquo;s how you can set a form field to autofocus:
 
@@ -479,7 +479,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 
 <h2 id="type-color">Color Pickers</h2>
 
-<p><abbr>HTML5</abbr> also defines <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#color-state-(type=color)"><code>&lt;input type="color"&gt;</code></a>, which lets you pick a color and returns the color&rsquo;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&rsquo;ve always loved <a href="http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked">the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color">Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
+<p><abbr>HTML5</abbr> also defines <a href="https://html.spec.whatwg.org/multipage/forms.html#colour-state-(type=color)"><code>&lt;input type="color"&gt;</code></a>, which lets you pick a color and returns the color&rsquo;s hexadecimal representation. <del>No browser supports it yet, which is a shame, because I&rsquo;ve always loved <a href="http://earthlingsoft.net/ssp/blog/2006/04/colour_me_picked">the Mac OS color picker</a>. Maybe someday.</del> Good news, everyone! <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/#input-color">Opera 11 now supports <code>type=color</code></a>. On Mac and Windows, it integrates with the platform's native color picker. On Linux, it drops down a basic color picker. On all platforms, the return value of the input control is a six-digit hexadecimal RGB color, suitable for framing or using anywhere that accepts a CSS color.
 
 <p class="c"><img src="i/input-type-color.png" alt="Opera rendering of input type=&quot;range&quot; field on multiple platforms" width="582" height="444"><br><a href="examples/input-type-color.html">Test <code>type="color"</code> for yourself</a>.
 
@@ -561,7 +561,7 @@ A: The <code>placeholder</code> attribute can only contain text, not <abbr>HTML<
 <ul>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute"><code>&lt;input&gt;</code> types</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">the <code>&lt;input placeholder&gt;</code> attribute</a>
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">the <code>&lt;input autofocus&gt;</code> attribute</a>
+<li><a href="https://html.spec.whatwg.org/multipage/forms.html#autofocusing-a-form-control:-the-autofocus-attribute">the <code>&lt;input autofocus&gt;</code> attribute</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#attr-fs-novalidate">the <code>&lt;form novalidate&gt;</code> attribute</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-required-attribute">The <code>&lt;input required&gt;</code> attribute</a>
 </ul>
