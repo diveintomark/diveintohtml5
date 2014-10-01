@@ -242,11 +242,11 @@ A: <a href="http://www.w3.org/TR/geolocation-API/#coordinates_interface">The geo
 
 <p>Calling the <code>init()</code> function does not actually find your location. It just verifies that finding your location is possible. To actually find your location, you need to call the <code>getCurrentPosition()</code> function.
 
-<pre><code>  <mark>geoPosition.getCurrentPosition</mark>(geoSuccess, geo_error);</code></pre>
+<pre><code>  <mark>geoPosition.getCurrentPosition</mark>(geoSuccess, geoError);</code></pre>
 
 <p>The <code>getCurrentPosition()</code> function will trigger your browser to ask for your permission to find and share your location. If your browser natively supports the geolocation <abbr>API</abbr>, it will display an infobar at the top of the page asking whether you want to share your location with this web site.
 
-<p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location &mdash; that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic &mdash; it will call the function passed in as the first argument. In this example, the success callback function is called <code>geo_success</code>.
+<p>The <code>getCurrentPosition()</code> function takes two callback functions as arguments. If the <code>getCurrentPosition()</code> function was successful in finding your location &mdash; that is, you gave your permission and the geolocation <abbr>API</abbr> actually worked its magic &mdash; it will call the function passed in as the first argument. In this example, the success callback function is called <code>geoSuccess</code>.
 
 <pre><code>  geoPosition.getCurrentPosition(<mark>geoSuccess</mark>, geoError);</code></pre>
 
