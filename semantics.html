@@ -458,75 +458,36 @@ p (sibling of h1)
   &hellip;
 &lt;/header&gt;</code></pre>
 
-<p>That&rsquo;s good. It tells anyone who wants to know that this is a header. But what about that tagline? Another common pattern, which up until now had no standard markup. It&rsquo;s a difficult thing to mark up. A tagline is like a subheading, but it&rsquo;s &ldquo;attached&rdquo; to the primary heading. That is, it&rsquo;s a subheading that doesn&rsquo;t create its own section.
+<p>That&rsquo;s good. It tells anyone who wants to know that this is a header. To be able to group multiple <code>h</code> elements, for a time there was an <code>&lt;hgroup&gt;</code> element in the <abbr>HTML5</abbr> spec used to group <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> elements together for document outlining.  The <code>&lt;hgroup&gt;</code> was effectively an invisible element that would not have been noticeable to end users without css, and it was eventually dropped from <abbr>HTML5</abbr> due to lack of browser implementation.  Considering the reason that it was dropped, it's possible it may come back at some later date, but for now we&rsquo;ll proceed without it.
 
-<p>Header elements like <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code> give your page structure. Taken together, they create an outline that you can use to visualize (or navigate) your page. Screenreaders use document outlines to help blind users navigate through your page. There are <a href="http://gsnedders.html5.org/outliner/">online tools</a> and <a href="http://chrispederick.com/work/web-developer/">browser extensions</a> that can help you visualize your document&rsquo;s outline.
+<p>So in the meantime, how should we mark up taglines?  Well, simply enough, use either a <code>&lt;p&gt;</code> or a <code>&lt;span&gt;</code> element for simple taglines and subheadings.  We see the simple case in the &quot;My Weblog&quot; example above, with a <code>&lt;h1&gt;</code> headline followed by a <code>&lt;p&gt;</code> tagline.
 
-<p>In <abbr>HTML</abbr> 4, <code>&lt;h1&gt;</code>&ndash;<code>&lt;h6&gt;</code> elements were the <em>only</em> way to create a document outline. The outline on the example page looks like this:
+<p>The other variations on this theme come from the <a href='http://www.w3.org/html/wg/drafts/html/master/common-idioms.html#sub-head'>the common idioms</a> section of the spec, so you are very free to use a variety of the standard elements you know and love, but to give you some actionable approaches:
 
-<pre>My Weblog (h1)
-   |
-   +--Travel day (h2)
-   |
-   +--I'm going to Prague! (h2)</pre>
+<p>If you want a tagline that adds onto the title and doesn't start a new document section, mark it up with a  it up as shown in the &quot;My Weblog&quot; example above.
 
-<p>That&rsquo;s fine, but it means that there&rsquo;s no way to mark up the tagline &ldquo;A lot of effort went into making this effortless.&rdquo; If we tried to mark it up as an <code>&lt;h2&gt;</code>, it would add a phantom node to the document outline:
+<p>If you feel the tagline is so important that it must be included <em>where-ever</em> the title travels, include it as a span inside the <code>&lt;h1&gt;</code> with a <code>&lt;br&gt;</code> before it:
 
-<pre>My Weblog (h1)
-   |
-   +--A lot of effort went into making this effortless. (h2)
-   |
-   +--Travel day (h2)
-   |
-   +--I'm going to Prague! (h2)</pre>
-
-<p>But that&rsquo;s not the structure of the document. The tagline does not represent a section; it&rsquo;s just a subheading.
-
-<p>Perhaps we could mark up the tagline as an <code>&lt;h2&gt;</code> and mark up each article title as an <code>&lt;h3&gt;</code>? No, that&rsquo;s even worse:
-
-<pre>My Weblog (h1)
-   |
-   +--A lot of effort went into making this effortless. (h2)
-         |
-         +--Travel day (h3)
-         |
-         +--I'm going to Prague! (h3)</pre>
-
-<p>Now we still have a phantom node in our document outline, but it has &ldquo;stolen&rdquo; the children that rightfully belong to the root node. And herein lies the problem: <abbr>HTML</abbr> 4 does not provide a way to mark up a subheading without adding it to the document outline. No matter how we try to shift things around, &ldquo;A lot of effort went into making this effortless&rdquo; is going to end up in that graph. And that&rsquo;s why we ended up with semantically meaningless markup like <code>&lt;p class="tagline"&gt;</code>.
-
-<p><abbr>HTML5</abbr> provides a solution for this: the <code>&lt;hgroup&gt;</code> element. The <code>&lt;hgroup&gt;</code> element acts as a wrapper for two or more <em>related</em> heading elements. What does &ldquo;related&rdquo; mean? It means that, taken together, they only create a single node in the document outline.
-
-<p>Given this markup:
 
 <pre><code>&lt;header&gt;
-  <mark>&lt;hgroup&gt;</mark>
-    &lt;h1&gt;My Weblog&lt;/h1&gt;
-    <mark>&lt;h2&gt;</mark>A lot of effort went into making this effortless.<mark>&lt;/h2&gt;</mark>
-  <mark>&lt;/hgroup&gt;</mark>
+  &lt;h1&gt;The Ramones &lt;br&gt;
+    &lt;span class="tagline"&gt;Hey! Ho! Let&rsquo;s Go&lt;/span&gt;
+  &lt;/h1&gt;
   &hellip;
-&lt;/header&gt;
+&lt;/header&gt;</code></pre>
 
-&hellip;
+<p>If you have the unique tagline that interlocks before and after the main title, you can simply use a <code>&lt;p&gt;</code> before and after and style them appropriately.
 
-&lt;div class="entry"&gt;
-  &lt;h2&gt;Travel day&lt;/h2&gt;
-&lt;/div&gt;
+<pre><code>&lt;header&gt;
+  &lt;p class="pre-title"&gt;Magazine of the Decade&lt;/p&gt;
+    &lt;h1&gt;THE MONTH&lt;/h1&gt;
+      &lt;p class="post-title"&gt;The Best of UK and Foreign Media&lt;/p&gt;
+  &hellip;
+&lt;/header&gt;</code></pre>
 
-&hellip;
+<p>If you want the text in an <code>&lt;h2&gt;</code> to be the header for a new section in a document outline, you could even use a <code>&lt;h1&gt;</code> for the title and <code>&lt;h2&gt;</code> for a subtitle, but only if you want the <code>&lt;h2&gt;</code> to act as the header for any text that follows it.  Otherwise, for a clean, single-headered document outline, stick to lower priority elements like <code>&lt;p&gt;</code> and <code>&lt;span&gt;</code> and style them as boldly as you like.
 
-&lt;div class="entry"&gt;
-  &lt;h2&gt;I'm going to Prague!&lt;/h2&gt;
-&lt;/div&gt;</code></pre>
-
-<p>This is the document outline that is created:
-
-<pre>My Weblog (h1 of its hgroup)
-   |
-   +--Travel day (h2)
-   |
-   +--I'm going to Prague! (h2)</pre>
-
-<p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that you&rsquo;re using the heading elements properly.
+<p>You can test your own pages in the <a href="http://gsnedders.html5.org/outliner/"><abbr>HTML5</abbr> Outliner</a> to ensure that the heading elements have the respective levels of importance that you want.
 
 <p class="a rotatedFloralHeartBullet">
 
