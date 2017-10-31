@@ -478,7 +478,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 
 <p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don&rsquo;t want a web page to &ldquo;steal&rdquo; the focus.
 
-<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&rsquo;s just markup instead of a script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+<p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="https://html.spec.whatwg.org/multipage/forms.html#autofocusing-a-form-control:-the-autofocus-attribute">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it&rsquo;s just markup instead of a script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
 
 <p>Checking for autofocus support uses <a href="#techniques">detection technique #2</a>. If your browser supports autofocusing web form controls, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input&gt;</code> element will have an <code>autofocus</code> property (even if you don&rsquo;t include the <code>autofocus</code> attribute in your <abbr>HTML</abbr>). If your browser doesn&rsquo;t support autofocusing web form controls, the <abbr>DOM</abbr> object it creates for an <code>&lt;input&gt;</code> element will not have an <code>autofocus</code> property. You can detect autofocus support with this function:
 
@@ -550,7 +550,7 @@ A: Geolocation support is being added to browsers right now, along with support 
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html">the <code>&lt;video&gt;</code> element</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute"><code>&lt;input&gt;</code> types</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">the <code>&lt;input placeholder&gt;</code> attribute</a>
-<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">the <code>&lt;input autofocus&gt;</code> attribute</a>
+<li><a href="https://html.spec.whatwg.org/multipage/forms.html#autofocusing-a-form-control:-the-autofocus-attribute">the <code>&lt;input autofocus&gt;</code> attribute</a>
 <li><a href="http://dev.w3.org/html5/webstorage/"><abbr>HTML5</abbr> storage</a>
 <li><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline">Offline web applications</a>
