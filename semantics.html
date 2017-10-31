@@ -293,7 +293,7 @@ dl.col dt,dl.col dd{padding-bottom:1.75em}
 
 <h2 id="unknown-elements">A long digression into how browsers handle unknown elements</h2>
 
-<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&rsquo;s list is stored in <a href="http://mxr.mozilla.org/mozilla-central/source/parser/htmlparser/src/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &ldquo;unknown elements.&rdquo;  There are two fundamental problems with unknown elements:
+<p>Every browser has a master list of <abbr>HTML</abbr> elements that it supports. For example, Mozilla Firefox&rsquo;s list is stored in <a href="https://dxr.mozilla.org/mozilla-central/source/parser/htmlparser/nsElementTable.cpp">nsElementTable.cpp</a>. Elements not in this list are treated as &ldquo;unknown elements.&rdquo;  There are two fundamental problems with unknown elements:
 
 <ol>
 <li><b>How should the element be styled?</b>  By default, <code>&lt;p></code> has spacing on the top and bottom, <code>&lt;blockquote&gt;</code> is indented with a left margin, and <code>&lt;h1&gt;</code> is displayed in a larger font. But what default styles should be applied to unknown elements?</li>
