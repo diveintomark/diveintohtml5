@@ -409,15 +409,8 @@ p (sibling of h1)
 
 <p>That &ldquo;later&rdquo; bit is important. This script needs to be at the top of your page, preferably in your <code>&lt;head&gt;</code> element, not at the bottom. That way, Internet Explorer will execute the script <em>before</em> it parses your tags and attributes. If you put this script at the bottom of your page, it will be too late. Internet Explorer will have already misinterpreted your markup and constructed the wrong <abbr>DOM</abbr>, and it won&rsquo;t go back and adjust it just because of this script.
 
-<p>Remy Sharp has &ldquo;minified&rdquo; this script and <a href="http://code.google.com/p/html5shiv/">hosted it on Google Project Hosting</a>. (In case you were wondering, the script itself is open source and MIT-licensed, so you can use it in any project.) If you like, you can even &ldquo;hotlink&rdquo; the script by pointing directly to the hosted version, like this:
-
-<pre><code>&lt;head&gt;
-  &lt;meta charset="utf-8" /&gt;
-  &lt;title&gt;My Weblog&lt;/title&gt;
-  &lt;!--[if lt IE 9]>
-  &lt;script <mark>src="<a href="http://html5shiv.googlecode.com/svn/trunk/html5.js">http://html5shiv.googlecode.com/svn/trunk/html5.js</a>"</mark>&gt;&lt;/script&gt;
-  &lt;![endif]-->
-&lt;/head&gt;</code></pre>
+<p>This script now lives in the <a href="https://github.com/aFarkas/html5shiv">html5shiv project on GitHub</a>. (In case you were wondering, the script itself is open source and MIT-licensed, so you can use it in any project.) 
+          
 
 <p>Now we&rsquo;re ready to start using the new semantic elements in <abbr>HTML5</abbr>.
 
