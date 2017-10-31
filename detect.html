@@ -335,28 +335,17 @@ A: Anyone who has physical access to your computer can probably look at (or even
 
 <p class="ss" style="width:257px"><img src="i/openclipart.org_johnny_automatic_cabin_along_stream.png" alt="cabin in the woods" width="257" height="242"><br><span id="live-offline"></span>
 
+ 
+  
+  
 <p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page at your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href="http://mail.google.com/">Gmail</a> or <a href="http://docs.google.com/">Google Docs</a>? Thanks to <abbr>HTML5</abbr>, anyone (not just Google!) can build a web application that works offline.
 
 <p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline">Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything &mdash; <abbr>HTML</abbr>, JavaScript, images, even <a href="#video">videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you&rsquo;re not connected to the Internet. Your browser will notice that you&rsquo;re offline and use the files it has already downloaded. When you get back online, any changes you&rsquo;ve made can be uploaded to the remote web server.
 
-<p>Checking for offline support uses <a href="#techniques">detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn&rsquo;t support offline web applications, the <code>applicationCache</code> property will be undefined. You can check for offline support with the following function:
-
-<pre><code>function supports_offline() {
-  return !!window.applicationCache;
-}</code></pre>
-
-<p>Instead of writing this function yourself, you can use <a href="#modernizr">Modernizr</a> (1.1 or later) to detect support for offline web applications.
-
-<p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for offline support
-<pre><code>if (<mark>Modernizr.applicationcache</mark>) {
-  // window.applicationCache is available!
-} else {
-  // no native support for offline :(
-  // try a fallback or another third-party solution
-}</code></pre>
-
-<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>applicationcache</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.applicationCache</code> (mixed case).
-
+  <p><b>However, </b>this feature is in the process of being removed from the Web platform. 
+  Using any of the offline Web application features at this time is highly discouraged. Please use service workers instead.
+  
+  
 <p class="a rotatedFloralHeartBullet">
 
 <h2 id="geolocation">Geolocation</h2>
